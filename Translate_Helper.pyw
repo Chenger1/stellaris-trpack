@@ -36,12 +36,12 @@ class Ui_Form(QWidget):
 		self.row_1.addWidget(self.put)
 		#------------------------------------------------
 		self.tr = QPushButton("Быстрый перевод", self)
-		self.tr.clicked.connect(lambda: self.launch(self.path + '\\scripts\\loc_translator.py'))
+		self.tr.clicked.connect(lambda: self.launch(self.path + '\\scripts\\loc_translator.pyw'))
 		self.tr.setFixedSize(150, 45)
 		self.row_2.addWidget(self.tr)
 		#------------------------------------------------
 		self.cmb = QPushButton("Рекомбинация", self)
-		self.cmb.clicked.connect(lambda: self.launch(self.path + '\\scripts\\loc_combiner.py'))
+		self.cmb.clicked.connect(lambda: self.launch(self.path + '\\scripts\\loc_combiner.pyw'))
 		self.cmb.setFixedSize(150, 45)
 		self.row_3.addWidget(self.cmb)
 		#------------------------------------------------
