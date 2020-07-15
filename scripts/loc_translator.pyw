@@ -24,32 +24,81 @@ def search(subs, line):
 		return 0
 
 
-def slicing_string(func):
-	special = ('§', '$', '£')
+# def slicing_string(func):
+# 	special = ('§', '$', '£')
+#
+# 	def wrapper(line: str, translator) -> str:
+# 		counter = 0
+# 		start_pos = end_pos = 0
+# 		if search(special, line) != 0:
+# 			for index, syb in enumerate(line):
+# 				if syb in special:
+# 					if counter == 0: start_pos = index
+# 					if counter == 1: end_pos = index
+# 					counter += 1
+# 			slic = line[start_pos: end_pos + 1]
+# 			temp = line.split(line[start_pos:end_pos + 1])
+# 			translated_temp = list(map(lambda x: func(x, translator), temp))
+# 			translated_line = slic.join(translated_temp)
+# 		else:
+# 			translated_line = func(line, translator)
+# 		return translated_line
+# 	return wrapper
 
-	def wrapper(line: str, translator) -> str:
+def slice_string(line:str, specials={'§', '$', '£'}) -> list:
+	words = []
+	if set(line) & specials:
+		start = end = 0
 		counter = 0
-		start_pos = end_pos = 0
-		if search(special, line) != 0:
-			for index, syb in enumerate(line):
-				if syb in special:
-					if counter == 0: start_pos = index
-					if counter == 1: end_pos = index
+		sym_stack = [False, '']
+		while counter < len(line)-1:
+			if line[counter] in specials:
+				if line[counter] == sym_stack[1]:
+					end = counter+1
 					counter += 1
-			slic = line[start_pos: end_pos + 1]
-			temp = line.split(line[start_pos:end_pos + 1])
-			translated_temp = list(map(lambda x: func(x, translator), temp))
-			translated_line = slic.join(translated_temp)
+					sym_stack[0] = False
+					sym_stack[1] = ''
+				elif line[counter] in specials and sym_stack[0] is False:
+					sym_stack[0] = True
+					sym_stack[1] = line[counter]
+					start = counter
+					if line[end:start] not in (' ', ''): words.append(line[end:start])
+					counter += 1
+				else:
+					counter += 1
+			else:
+				counter += 1
 		else:
-			translated_line = func(line, translator)
-		return translated_line
-	return wrapper
+			if line[end:].strip() not in '!.': words.append(line[end:])
+	else:
+		words.append(line)
+	return words
 
 
-@slicing_string
 def translating_line(line: str, translator) -> str:
 	translation = translator.translate(line, dest='ru')
 	return translation.text
+
+
+def flatten(a_list:list) -> list:
+	temp = []
+	for i in a_list:
+		temp.extend(i)
+	return temp
+
+
+def line_processing(line: str, translator) -> str:
+	split_temp = line.splitlines()
+	split_temp = list(map(lambda x: x.split('\\n\\n'), split_temp))
+	split_temp = flatten(split_temp)
+	temp = list(map(lambda x: slice_string(x), split_temp))
+	to_translate = flatten(temp)
+	translated = list(map(lambda x: translating_line(x, translator), to_translate))
+	temp = zip(to_translate, translated)
+	translated_line = line
+	for en, ru in temp:
+		translated_line = translated_line.replace(en, ru)
+	return translated_line
 
 
 def main():
@@ -68,9 +117,11 @@ def main():
 		translation = ''
 		if len(line) > 2:
 			test = detect(line)
-			if test != 'ru':
-				translation = translating_line(line, translator)
-				translation = translation + '\n'
+			colons = line.count(':')
+			if test != 'ru' and colons < 2:
+				translation = line_processing(line, translator)
+				#translation = translation + '\n'
+				print(translation)
 			else:
 				translation = line
 		else:
