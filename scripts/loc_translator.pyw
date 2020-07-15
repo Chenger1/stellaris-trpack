@@ -24,27 +24,6 @@ def search(subs, line):
 		return 0
 
 
-# def slicing_string(func):
-# 	special = ('§', '$', '£')
-#
-# 	def wrapper(line: str, translator) -> str:
-# 		counter = 0
-# 		start_pos = end_pos = 0
-# 		if search(special, line) != 0:
-# 			for index, syb in enumerate(line):
-# 				if syb in special:
-# 					if counter == 0: start_pos = index
-# 					if counter == 1: end_pos = index
-# 					counter += 1
-# 			slic = line[start_pos: end_pos + 1]
-# 			temp = line.split(line[start_pos:end_pos + 1])
-# 			translated_temp = list(map(lambda x: func(x, translator), temp))
-# 			translated_line = slic.join(translated_temp)
-# 		else:
-# 			translated_line = func(line, translator)
-# 		return translated_line
-# 	return wrapper
-
 def slice_string(line:str, specials={'§', '$', '£'}) -> list:
 	words = []
 	if set(line) & specials:
