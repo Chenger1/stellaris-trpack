@@ -4,6 +4,9 @@ from tkinter import filedialog
 import re
 import os
 
+from scripts.utils import write_data_about_mode, create_temp_folder, STELLARIS, data
+
+
 def search(subs, line):
 	match = subs.search(line)
 	if match is not None:
@@ -12,28 +15,30 @@ def search(subs, line):
 		return 0
 
 
-def main():
-	root = tk.Tk()
-	root.withdraw()
+def main(temp_files):
+	# root = tk.Tk()
+	# root.withdraw()
+
+	subs = re.compile(': |:0|:1|:"')
+
+	for line in temp_files['loc']:
+		if search(subs, line) == 1:
+			if (line[0] and line[1]) != '#':
+				a = line.find('"')
+				lt = line[a + 1:-2]
+				temp_files['cuttered'].write(lt + '\n')
+			else:
+				temp_files['cuttered'].write('\n')
+		else:
+			temp_files['cuttered'].write('\n')
+
+	temp_files['loc'].close()
+	temp_files['cuttered'].close()
+
+
+def creating_temp_files(loc_path):
 	l_english = ''
-
-												# ВАРИАНТ 1 --- УКАЗЫВАЕМ ФАЙЛ РУЧКАМИ
-	# l_english = filedialog.askopenfilename() # указываем файл напрямую
-
-
-										# ВАРИАНТ 2 --- УКАЗЫВАЕМ ССЫЛКУ НА МОД В STEAM WORKSHOP
-	steam = ''
-	steam_library = open('..\\path.txt', 'r+', encoding='utf-8')
-
-	for path in steam_library:
-		steam = path
-		break
-
-	stellaris = 'SteamLibrary\\steamapps\\workshop\\content\\281990\\'
-	mod_id = input('Вставьте ссылку на установленный мод из SteamWorkshop или его id.\nНапример: https://steamcommunity.com/sharedfiles/filedetails/?id=1448888608\n').split('=')[-1]
-	path = F'{steam}{stellaris}{mod_id}\\localisation'
-
-	for path, folders, files in os.walk(path):
+	for path, folders, files in os.walk(loc_path):
 		for file in files:
 			path_to_file = os.path.join(path, file)
 			if 'english' in path_to_file and '.yml' in path_to_file:
@@ -41,25 +46,34 @@ def main():
 
 	eng = l_english.split('\\')[-1]
 	rus = 'rus_' + eng
-	file2 = l_english.replace(eng, rus)
 	loc = open(l_english, 'r', encoding='utf-8')
-	newloc = open(file2, 'w', encoding='utf-8')
-	subs = re.compile(': |:0|:1|:"')
-
-	for line in loc:
-		if search(subs, line) == 1:
-			if (line[0] and line[1]) != '#':
-				a = line.find('"')
-				lt = line[a + 1:-2]
-				newloc.write(lt + '\n')
-			else:
-				newloc.write('\n')
-		else:
-			newloc.write('\n')
-
-	loc.close()
-	newloc.close()
+	newloc = open(f'{temp_folder}\\{rus}', 'w', encoding='utf-8')
+	return {'english_name': eng,
+			'cutter_file': rus,
+			'loc': loc,
+			'cuttered': newloc}
 
 
-if __name__ == "__main__":
-	main()
+def finding_steam_library(stellaris, mod_id):
+	steam = ''
+	steam_library = open('..\\path.txt', 'r+', encoding='utf-8')
+
+	for path in steam_library:
+		steam = path
+		break
+	loc_path = F'{steam}{stellaris}{mod_id}\\localisation'
+	return loc_path
+
+
+if __name__ == '__main__':
+	# ВАРИАНТ 1 --- УКАЗЫВАЕМ ФАЙЛ РУЧКАМИ
+	# l_english = filedialog.askopenfilename() # указываем файл напрямую
+	# ВАРИАНТ 2 --- УКАЗЫВАЕМ ССЫЛКУ НА МОД В STEAM WORKSHOP
+	mod_id = input(
+		'Вставьте ссылку на установленный мод из SteamWorkshop или его id.\nНапример: https://steamcommunity.com/sharedfiles/filedetails/?id=1448888608\n').split(
+		'=')[-1]
+	loc_path = finding_steam_library(STELLARIS, mod_id)
+	temp_folder = create_temp_folder(mod_id, loc_path)
+	temp_files = creating_temp_files(loc_path)
+	write_data_about_mode(temp_folder, temp_files)
+	main(temp_files)

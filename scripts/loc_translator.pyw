@@ -5,6 +5,8 @@ from tkinter import filedialog
 from langdetect import detect, DetectorFactory
 import webbrowser
 
+from scripts.utils import data, set_translated_file
+
 
 def file_len(fname):
 	with open(fname) as f:
@@ -85,10 +87,8 @@ def main():
 	root = tk.Tk()
 	root.withdraw()
 	DetectorFactory.seed = 0
-	file1 = filedialog.askopenfilename()
-	eng = file1.split('/')[-1]
-	rus = 'tr_' + eng[4:]
-	file2 = file1.replace(eng, rus)
+	file1 = data['cuttered']
+	file2 = file1.replace(data['cutter_file_name'], data['translated_name'])
 	loc = open(file1, 'r', encoding='utf-8')
 
 	translated = open(file2, 'w', encoding='utf-8')
@@ -108,9 +108,9 @@ def main():
 			translation = line
 		translated.write(translation)
 
-	#webbrowser.open(translated)
 	loc.close()
 	translated.close()
+	set_translated_file(translated)
 
 
 if __name__ == "__main__":

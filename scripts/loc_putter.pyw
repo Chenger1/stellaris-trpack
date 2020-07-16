@@ -2,6 +2,9 @@
 import tkinter as tk
 from tkinter import filedialog
 import re
+import shutil
+
+from scripts.utils import data
 
 
 def search(subs, line):
@@ -13,15 +16,12 @@ def search(subs, line):
 
 
 def main():
-	root = tk.Tk()
-	root.withdraw()
-
-	file1 = filedialog.askopenfilename()
-
-	eng = file1.split('/')[-1]
-	rus = 'tr_' + eng
-	neweng = 'final_' + eng
-	file2 = file1.replace(eng, rus)
+	# root = tk.Tk()
+	# root.withdraw()
+	file1 = data['loc']
+	eng = data['original_name']
+	neweng = data['final_name']
+	file2 = data['translated_file']
 	file3 = file1.replace(eng, neweng)
 	loc = open(file1, 'r', encoding='utf-8')
 	newloc = open(file2, 'r', encoding='utf-8')
@@ -48,6 +48,7 @@ def main():
 	loc.close()
 	newloc.close()
 	itog.close()
+	shutil.rmtree(data['folder_path'])
 
 
 if __name__ == "__main__":
