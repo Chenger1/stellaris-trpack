@@ -18,26 +18,26 @@ def main():
 	l_english = ''
 
 												# ВАРИАНТ 1 --- УКАЗЫВАЕМ ФАЙЛ РУЧКАМИ
-	# l_english = filedialog.askopenfilename() # указываем файл напрямую
+	l_english = filedialog.askopenfilename() # указываем файл напрямую
 
 
 										# ВАРИАНТ 2 --- УКАЗЫВАЕМ ССЫЛКУ НА МОД В STEAM WORKSHOP
-	steam = ''
-	steam_library = open('..\\path.txt', 'r+', encoding='utf-8')
-
-	for path in steam_library:
-		steam = path
-		break
-
-	stellaris = 'SteamLibrary\\steamapps\\workshop\\content\\281990\\'
-	mod_id = input('Вставьте ссылку на установленный мод из SteamWorkshop или его id.\nНапример: https://steamcommunity.com/sharedfiles/filedetails/?id=1448888608\n').split('=')[-1]
-	path = F'{steam}{stellaris}{mod_id}\\localisation'
-
-	for path, folders, files in os.walk(path):
-		for file in files:
-			path_to_file = os.path.join(path, file)
-			if 'english' in path_to_file and '.yml' in path_to_file:
-				l_english = path_to_file
+	# steam = ''
+	# steam_library = open('..\\path.txt', 'r+', encoding='utf-8')
+	#
+	# for path in steam_library:
+	# 	steam = path
+	# 	break
+	#
+	# stellaris = 'SteamLibrary\\steamapps\\workshop\\content\\281990\\'
+	# mod_id = input('Вставьте ссылку на установленный мод из SteamWorkshop или его id.\nНапример: https://steamcommunity.com/sharedfiles/filedetails/?id=1448888608\n').split('=')[-1]
+	# path = F'{steam}{stellaris}{mod_id}\\localisation'
+	#
+	# for path, folders, files in os.walk(path):
+	# 	for file in files:
+	# 		path_to_file = os.path.join(path, file)
+	# 		if 'english' in path_to_file and '.yml' in path_to_file:
+	# 			l_english = path_to_file
 
 	eng = l_english.split('\\')[-1]
 	rus = 'rus_' + eng
