@@ -90,6 +90,7 @@ def main():
 	rus = 'tr_' + eng[4:]
 	file2 = file1.replace(eng, rus)
 	loc = open(file1, 'r', encoding='utf-8')
+
 	translated = open(file2, 'w', encoding='utf-8')
 
 	for line in loc:
