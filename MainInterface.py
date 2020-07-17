@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 import design
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import translating_file
+from scripts.loc_putter import put_lines
 from scripts.utils import STELLARIS
 
 
@@ -25,6 +26,7 @@ class MainApp(QMainWindow, design.Ui_MainWindow):
         workshop_id = self.lineEdit_2.text()
         cutter_main(workshop_id)
         translating_file()
+        put_lines()
 
 
 def main():
