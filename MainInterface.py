@@ -1,15 +1,15 @@
 import sys
 
-from PyQt5.QtWidgets import QMainWindow, QApplication
+from PyQt5 import QtWidgets
 
-import design
+from GUI import main_window_design
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import translating_file
 from scripts.loc_putter import put_lines
-from scripts.utils import STELLARIS
+from scripts.utils import STELLARIS, get_mod_id
 
-
-class MainApp(QMainWindow, design.Ui_MainWindow):
+#681576508
+class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -18,9 +18,15 @@ class MainApp(QMainWindow, design.Ui_MainWindow):
 
     def init_handlers(self):
         self.pushButton_2.clicked.connect(self.start_local)
+        self.pushButton_5.clicked.connect(self.choose_file)
 
     def init_helpers(self):
         self.lineEdit.setText(STELLARIS)
+
+    def choose_file(self):
+        f_patch = QtWidgets.QFileDialog.getOpenFileName()[0]
+        mod_id = get_mod_id(f_patch)
+        self.lineEdit_2.setText(mod_id)
 
     def start_local(self):
         workshop_id = self.lineEdit_2.text()
@@ -30,7 +36,7 @@ class MainApp(QMainWindow, design.Ui_MainWindow):
 
 
 def main():
-    app = QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     window = MainApp()
     window.show()
     app.exec_()

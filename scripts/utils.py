@@ -1,5 +1,6 @@
 import json
 import os
+import re
 
 STELLARIS = 'SteamLibrary\\steamapps\\workshop\\content\\281990\\'
 data = {}
@@ -39,3 +40,9 @@ def write_data_about_mode(temp_folder, temp_files):
 
 def set_translated_file(file):
     data['translated_file'] = file
+
+
+def get_mod_id(file_path):
+    pattern = re.compile(r'281990\/(.*?)\/localisation')
+    mod_id = pattern.findall(file_path)[0]
+    return mod_id
