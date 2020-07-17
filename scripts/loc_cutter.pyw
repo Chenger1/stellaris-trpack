@@ -4,7 +4,7 @@ from tkinter import filedialog
 import re
 import os
 
-from scripts.utils import write_data_about_mode, create_temp_folder, STELLARIS, data
+from scripts.utils import write_data_about_mode, create_temp_folder, STELLARIS
 
 
 def search(subs, line):
@@ -16,9 +16,6 @@ def search(subs, line):
 
 
 def cutting_lines(temp_files):
-	# root = tk.Tk()
-	# root.withdraw()
-
 	subs = re.compile(': |:0|:1|:"')
 
 	for line in temp_files['loc']:
