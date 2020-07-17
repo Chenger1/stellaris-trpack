@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-import tkinter as tk
-from tkinter import filedialog
 import re
 import shutil
 
@@ -15,13 +13,11 @@ def search(subs, line):
 		return 0
 
 
-def main():
-	# root = tk.Tk()
-	# root.withdraw()
-	file1 = data['loc']
+def put_lines():
+	file1 = data['loc'].name
 	eng = data['original_name']
 	neweng = data['final_name']
-	file2 = data['translated_file']
+	file2 = data['translated_file'].name
 	file3 = file1.replace(eng, neweng)
 	loc = open(file1, 'r', encoding='utf-8')
 	newloc = open(file2, 'r', encoding='utf-8')
@@ -52,4 +48,4 @@ def main():
 
 
 if __name__ == "__main__":
-	main()
+	put_lines()
