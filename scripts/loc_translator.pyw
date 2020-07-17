@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 from googletrans import Translator
-import tkinter as tk
-from tkinter import filedialog
 from langdetect import detect, DetectorFactory
-import webbrowser
 
 from scripts.utils import data, set_translated_file
 
@@ -82,12 +79,10 @@ def line_processing(line: str, translator) -> str:
 	return translated_line
 
 
-def main():
+def translating_file():
 	translator = Translator()
-	root = tk.Tk()
-	root.withdraw()
 	DetectorFactory.seed = 0
-	file1 = data['cuttered']
+	file1 = data['cuttered'].name
 	file2 = file1.replace(data['cutter_file_name'], data['translated_name'])
 	loc = open(file1, 'r', encoding='utf-8')
 
@@ -114,4 +109,4 @@ def main():
 
 
 if __name__ == "__main__":
-	main()
+	translating_file()
