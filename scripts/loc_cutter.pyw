@@ -15,7 +15,7 @@ def search(subs, line):
 		return 0
 
 
-def main(temp_files):
+def cutting_lines(temp_files):
 	# root = tk.Tk()
 	# root.withdraw()
 
@@ -36,7 +36,7 @@ def main(temp_files):
 	temp_files['cuttered'].close()
 
 
-def creating_temp_files(loc_path):
+def creating_temp_files(loc_path, temp_folder):
 	l_english = ''
 	for path, folders, files in os.walk(loc_path):
 		for file in files:
@@ -56,7 +56,7 @@ def creating_temp_files(loc_path):
 
 def finding_steam_library(stellaris, mod_id):
 	steam = ''
-	steam_library = open('..\\path.txt', 'r+', encoding='utf-8')
+	steam_library = open('path.txt', 'r+', encoding='utf-8')
 
 	for path in steam_library:
 		steam = path
@@ -65,15 +65,19 @@ def finding_steam_library(stellaris, mod_id):
 	return loc_path
 
 
-if __name__ == '__main__':
+def cutter_main(mod_id):
 	# ВАРИАНТ 1 --- УКАЗЫВАЕМ ФАЙЛ РУЧКАМИ
 	# l_english = filedialog.askopenfilename() # указываем файл напрямую
 	# ВАРИАНТ 2 --- УКАЗЫВАЕМ ССЫЛКУ НА МОД В STEAM WORKSHOP
-	mod_id = input(
-		'Вставьте ссылку на установленный мод из SteamWorkshop или его id.\nНапример: https://steamcommunity.com/sharedfiles/filedetails/?id=1448888608\n').split(
-		'=')[-1]
+	# mod_id = input(
+	# 	'Вставьте ссылку на установленный мод из SteamWorkshop или его id.\nНапример: https://steamcommunity.com/sharedfiles/filedetails/?id=1448888608\n').split(
+	# 	'=')[-1]
 	loc_path = finding_steam_library(STELLARIS, mod_id)
 	temp_folder = create_temp_folder(mod_id, loc_path)
-	temp_files = creating_temp_files(loc_path)
+	temp_files = creating_temp_files(loc_path, temp_folder)
 	write_data_about_mode(temp_folder, temp_files)
-	main(temp_files)
+	cutting_lines(temp_files)
+
+
+if __name__ == '__main__':
+	cutter_main(mod_id)
