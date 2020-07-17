@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>840</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1280</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Stellaris True Machine Translation Tool</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #1f2533;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>690</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #5abe41;
+	border: 3px solid #5abe41;
+	border-radius: 20px;
+	color: #1f2533;
+	}
+QPushButton:hover{
+	background-color: #438e30;
+	border: #438e30;
+	color: #ffffff;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	color: #1f2533;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Локализировать модификацию</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>230</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #1f2533;
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: #38393d;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	border: #c2c2c2;
+	color: #1f2533;
+	}</string>
+    </property>
+    <property name="text">
+     <string>STEAM LIBRARY PATH</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>280</y>
+      <width>451</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: #1f2533;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	}
+QLineEdit:hover{
+	background-color: #38393d;
+	}</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>280</y>
+      <width>451</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: #1f2533;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	}
+QLineEdit:hover{
+	background-color: #38393d;
+	}</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>240</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #1f2533;
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: #38393d;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	border: #c2c2c2;
+	color: #1f2533;
+	}</string>
+    </property>
+    <property name="text">
+     <string>STEAM WORKSHOP ID</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>240</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #1f2533;
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: #38393d;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	border: #c2c2c2;
+	color: #1f2533;
+	}</string>
+    </property>
+    <property name="text">
+     <string>CHOOSE FILE MANUALLY</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>330</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+	background-color: #1f2533;
+	color: #ffffff;
+	text-align: center;
+	}
+QQLabel:hover{
+	background-color: #38393d;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Оригинальная строка</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_4">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>370</y>
+      <width>491</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: #1f2533;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	}
+QLineEdit:hover{
+	background-color: #38393d;
+	}</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>330</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+	background-color: #1f2533;
+	color: #ffffff;
+	text-align: center;
+	}
+QQLabel:hover{
+	background-color: #38393d;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Машинный перевод</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_5">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>370</y>
+      <width>501</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: #1f2533;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	}
+QLineEdit:hover{
+	background-color: #38393d;
+	}</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>490</y>
+      <width>421</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+	background-color: #1f2533;
+	color: #ffffff;
+	text-align: center;
+	}
+QQLabel:hover{
+	background-color: #38393d;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Можно заменить машинный перевод на свой вариант</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_6">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>530</y>
+      <width>451</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: #1f2533;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	}
+QLineEdit:hover{
+	background-color: #38393d;
+	}</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>560</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #1f2533;
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: #38393d;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	border: #c2c2c2;
+	color: #1f2533;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Следующая строка</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>560</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #1f2533;
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: #38393d;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	border: #c2c2c2;
+	color: #1f2533;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Предыдущая строка</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>50</y>
+      <width>651</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>pictures/stmtt.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>180</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>pictures/steam.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_8">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>20</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #1f2533;
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: #38393d;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	border: #c2c2c2;
+	color: #1f2533;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Язык утилиты: RUS</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_9">
+    <property name="geometry">
+     <rect>
+      <x>1020</x>
+      <y>60</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #1f2533;
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: #38393d;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	border: #c2c2c2;
+	color: #1f2533;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Перевод на: RUS</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_11">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #1f2533;
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: #38393d;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	border: #c2c2c2;
+	color: #1f2533;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Справка</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_12">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #1f2533;
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: #38393d;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	border: #c2c2c2;
+	color: #1f2533;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Дополнительные функции</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
