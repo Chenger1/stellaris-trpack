@@ -10,6 +10,12 @@
     <height>800</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="minimumSize">
    <size>
     <width>840</width>
@@ -33,8 +39,14 @@
   <property name="windowTitle">
    <string>Stellaris True Machine Translation Tool</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>pictures/logo.png</normalon>
+   </iconset>
+  </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #1f2533;</string>
+   <string notr="true">background-color: #1f2533;
+background-image: url('pictures/background.png')</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton_2">
@@ -254,26 +266,6 @@ QQLabel:hover{
      <string>Оригинальная строка</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>370</y>
-      <width>491</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit{
-	background-color: #1f2533;
-	border: 1px solid #ffffff;
-	color: #ffffff;
-	}
-QLineEdit:hover{
-	background-color: #38393d;
-	}</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
@@ -302,26 +294,6 @@ QQLabel:hover{
      <string>Машинный перевод</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_5">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>370</y>
-      <width>501</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit{
-	background-color: #1f2533;
-	border: 1px solid #ffffff;
-	color: #ffffff;
-	}
-QLineEdit:hover{
-	background-color: #38393d;
-	}</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
@@ -348,26 +320,6 @@ QQLabel:hover{
     </property>
     <property name="text">
      <string>Можно заменить машинный перевод на свой вариант</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_6">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>530</y>
-      <width>451</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit{
-	background-color: #1f2533;
-	border: 1px solid #ffffff;
-	color: #ffffff;
-	}
-QLineEdit:hover{
-	background-color: #38393d;
-	}</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_6">
@@ -624,17 +576,87 @@ QPushButton:pressed{
      <string>Дополнительные функции</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1280</width>
-     <height>26</height>
-    </rect>
-   </property>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>370</y>
+      <width>491</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit{
+	background-color: #1f2533;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: #38393d;
+	}</string>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>370</y>
+      <width>491</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit{
+	background-color: #1f2533;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: #38393d;
+	}</string>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_3">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>530</y>
+      <width>491</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit{
+	background-color: #1f2533;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: #38393d;
+	}</string>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
