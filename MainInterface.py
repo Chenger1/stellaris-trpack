@@ -84,7 +84,6 @@ class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
         self.check_line_translating(True)
         self.set_lines()
 
-
 def main():
     app = QtWidgets.QApplication(sys.argv)
     window = MainApp()

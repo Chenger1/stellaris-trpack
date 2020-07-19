@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
-    <height>800</height>
+    <width>1300</width>
+    <height>860</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,14 +18,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>840</width>
-    <height>600</height>
+    <width>1300</width>
+    <height>860</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1280</width>
-    <height>800</height>
+    <width>1300</width>
+    <height>860</height>
    </size>
   </property>
   <property name="font">
@@ -49,12 +49,12 @@
 background-image: url('pictures/background.png')</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="LocalizeButton">
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>690</y>
-      <width>291</width>
+      <x>30</x>
+      <y>780</y>
+      <width>161</width>
       <height>41</height>
      </rect>
     </property>
@@ -84,14 +84,14 @@ QPushButton:pressed{
 	}</string>
     </property>
     <property name="text">
-     <string>Локализировать модификацию</string>
+     <string>Локализировать</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="SteamButton">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>230</y>
+      <x>30</x>
+      <y>50</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -106,70 +106,53 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #1f2533;
+	background-color: rgba(31, 37, 51, 50);
 	border: 2px solid #ffffff;
 	border-radius: 15px;
 	color: #ffffff;
 	}
 QPushButton:hover{
-	background-color: #38393d;
+	background-color: rgba(56, 57, 61, 50);
 	}
 QPushButton:pressed{
-	background-color: #c2c2c2;
+	background-color: rgba(194, 194, 194, 50);
 	border: #c2c2c2;
-	color: #1f2533;
 	}</string>
     </property>
     <property name="text">
-     <string>STEAM LIBRARY PATH</string>
+     <string>Steam</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="FilePathString">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>280</y>
-      <width>451</width>
+      <x>430</x>
+      <y>290</y>
+      <width>431</width>
       <height>21</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QLineEdit{
-	background-color: #1f2533;
+	background-color: rgba(31, 37, 51, 50);
 	border: 1px solid #ffffff;
 	color: #ffffff;
 	}
 QLineEdit:hover{
-	background-color: #38393d;
-	}</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
-    <property name="geometry">
-     <rect>
-      <x>730</x>
-      <y>280</y>
-      <width>451</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit{
-	background-color: #1f2533;
-	border: 1px solid #ffffff;
-	color: #ffffff;
+	background-color: #rgba(56, 57, 61, 50);
 	}
-QLineEdit:hover{
-	background-color: #38393d;
-	}</string>
+</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="FileSelectionButton">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>570</x>
       <y>240</y>
-      <width>201</width>
+      <width>151</width>
       <height>31</height>
      </rect>
     </property>
@@ -183,67 +166,29 @@ QLineEdit:hover{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #1f2533;
+	background-color: rgba(31, 37, 51, 50);
 	border: 2px solid #ffffff;
 	border-radius: 15px;
 	color: #ffffff;
 	}
 QPushButton:hover{
-	background-color: #38393d;
+	background-color: rgba(56, 57, 61, 50);
 	}
 QPushButton:pressed{
-	background-color: #c2c2c2;
+	background-color: rgba(194, 194, 194, 50);
 	border: #c2c2c2;
-	color: #1f2533;
 	}</string>
     </property>
     <property name="text">
-     <string>STEAM WORKSHOP ID</string>
+     <string>Выбрать файл</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QLabel" name="OriginalLabel">
     <property name="geometry">
      <rect>
-      <x>950</x>
-      <y>240</y>
-      <width>221</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat</family>
-      <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-	background-color: #1f2533;
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: #38393d;
-	}
-QPushButton:pressed{
-	background-color: #c2c2c2;
-	border: #c2c2c2;
-	color: #1f2533;
-	}</string>
-    </property>
-    <property name="text">
-     <string>CHOOSE FILE MANUALLY</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>330</y>
-      <width>161</width>
+      <x>80</x>
+      <y>360</y>
+      <width>501</width>
       <height>20</height>
      </rect>
     </property>
@@ -254,24 +199,24 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel{
-	background-color: #1f2533;
+	background-color: none;
 	color: #ffffff;
-	text-align: center;
 	}
-QQLabel:hover{
-	background-color: #38393d;
-	}</string>
+</string>
     </property>
     <property name="text">
      <string>Оригинальная строка</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="TranslatedLabel">
     <property name="geometry">
      <rect>
-      <x>880</x>
-      <y>330</y>
-      <width>161</width>
+      <x>700</x>
+      <y>360</y>
+      <width>501</width>
       <height>20</height>
      </rect>
     </property>
@@ -282,24 +227,24 @@ QQLabel:hover{
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel{
-	background-color: #1f2533;
+	background-color: none;
 	color: #ffffff;
-	text-align: center;
 	}
-QQLabel:hover{
-	background-color: #38393d;
-	}</string>
+</string>
     </property>
     <property name="text">
      <string>Машинный перевод</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="EditLabel">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>490</y>
-      <width>421</width>
+      <x>370</x>
+      <y>520</y>
+      <width>551</width>
       <height>20</height>
      </rect>
     </property>
@@ -310,23 +255,22 @@ QQLabel:hover{
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel{
-	background-color: #1f2533;
+	background-color: none;
 	color: #ffffff;
-	text-align: center;
-	}
-QQLabel:hover{
-	background-color: #38393d;
 	}</string>
     </property>
     <property name="text">
      <string>Можно заменить машинный перевод на свой вариант</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="NextStringButton">
     <property name="geometry">
      <rect>
-      <x>930</x>
-      <y>560</y>
+      <x>940</x>
+      <y>590</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -341,29 +285,28 @@ QQLabel:hover{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #1f2533;
+	background-color: rgba(31, 37, 51, 50);
 	border: 2px solid #ffffff;
 	border-radius: 15px;
 	color: #ffffff;
 	}
 QPushButton:hover{
-	background-color: #38393d;
+	background-color: rgba(56, 57, 61, 50);
 	}
 QPushButton:pressed{
-	background-color: #c2c2c2;
+	background-color: rgba(194, 194, 194, 50);
 	border: #c2c2c2;
-	color: #1f2533;
 	}</string>
     </property>
     <property name="text">
      <string>Следующая строка</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="PreviousString">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>560</y>
+      <x>140</x>
+      <y>590</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -378,32 +321,34 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #1f2533;
+	background-color: rgba(31, 37, 51, 50);
 	border: 2px solid #ffffff;
 	border-radius: 15px;
 	color: #ffffff;
 	}
 QPushButton:hover{
-	background-color: #38393d;
+	background-color: rgba(56, 57, 61, 50);
 	}
 QPushButton:pressed{
-	background-color: #c2c2c2;
+	background-color: rgba(194, 194, 194, 50);
 	border: #c2c2c2;
-	color: #1f2533;
 	}</string>
     </property>
     <property name="text">
      <string>Предыдущая строка</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="stmtt_logo">
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>50</y>
+      <y>60</y>
       <width>651</width>
       <height>101</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: none;</string>
     </property>
     <property name="text">
      <string/>
@@ -412,14 +357,18 @@ QPushButton:pressed{
      <pixmap>pictures/stmtt.png</pixmap>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="steam_logo">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>180</y>
-      <width>41</width>
-      <height>41</height>
+      <x>250</x>
+      <y>50</y>
+      <width>31</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: none;
+</string>
     </property>
     <property name="text">
      <string/>
@@ -428,11 +377,11 @@ QPushButton:pressed{
      <pixmap>pictures/steam.png</pixmap>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_8">
+   <widget class="QPushButton" name="ToolLanguageButton">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>20</y>
+      <x>1060</x>
+      <y>50</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -447,29 +396,28 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #1f2533;
+	background-color: rgba(31, 37, 51, 50);
 	border: 2px solid #ffffff;
 	border-radius: 15px;
 	color: #ffffff;
 	}
 QPushButton:hover{
-	background-color: #38393d;
+	background-color: rgba(56, 57, 61, 50);
 	}
 QPushButton:pressed{
-	background-color: #c2c2c2;
+	background-color: rgba(194, 194, 194, 50);
 	border: #c2c2c2;
-	color: #1f2533;
 	}</string>
     </property>
     <property name="text">
-     <string>Язык утилиты: RUS</string>
+     <string>Язык утилиты</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_9">
+   <widget class="QPushButton" name="OutputLanguageButton">
     <property name="geometry">
      <rect>
-      <x>1020</x>
-      <y>60</y>
+      <x>1030</x>
+      <y>90</y>
       <width>241</width>
       <height>31</height>
      </rect>
@@ -484,31 +432,30 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #1f2533;
+	background-color: rgba(31, 37, 51, 50);
 	border: 2px solid #ffffff;
 	border-radius: 15px;
 	color: #ffffff;
 	}
 QPushButton:hover{
-	background-color: #38393d;
+	background-color: rgba(56, 57, 61, 50);
 	}
 QPushButton:pressed{
-	background-color: #c2c2c2;
+	background-color: rgba(194, 194, 194, 50);
 	border: #c2c2c2;
-	color: #1f2533;
 	}</string>
     </property>
     <property name="text">
-     <string>Перевод на: RUS</string>
+     <string>Выходной язык</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_11">
+   <widget class="QPushButton" name="ReferenceButton">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>211</width>
-      <height>31</height>
+      <x>1080</x>
+      <y>780</y>
+      <width>141</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -521,29 +468,28 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #1f2533;
+	background-color: rgba(31, 37, 51, 50);
 	border: 2px solid #ffffff;
-	border-radius: 15px;
+	border-radius: 20px;
 	color: #ffffff;
 	}
 QPushButton:hover{
-	background-color: #38393d;
+	background-color: rgba(56, 57, 61, 50);
 	}
 QPushButton:pressed{
-	background-color: #c2c2c2;
+	background-color: rgba(194, 194, 194, 50);
 	border: #c2c2c2;
-	color: #1f2533;
 	}</string>
     </property>
     <property name="text">
      <string>Справка</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_12">
+   <widget class="QPushButton" name="AdditionalButton">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>60</y>
+      <x>30</x>
+      <y>90</y>
       <width>241</width>
       <height>31</height>
      </rect>
@@ -558,42 +504,45 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #1f2533;
+	background-color: rgba(31, 37, 51, 50);
 	border: 2px solid #ffffff;
 	border-radius: 15px;
 	color: #ffffff;
 	}
 QPushButton:hover{
-	background-color: #38393d;
+	background-color: rgba(56, 57, 61, 50);
 	}
 QPushButton:pressed{
-	background-color: #c2c2c2;
+	background-color: rgba(194, 194, 194, 50);
 	border: #c2c2c2;
-	color: #1f2533;
 	}</string>
     </property>
     <property name="text">
-     <string>Дополнительные функции</string>
+     <string>Дополнительно</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="OriginalString">
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>370</y>
-      <width>491</width>
+      <y>400</y>
+      <width>501</width>
       <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QTextEdit{
-	background-color: #1f2533;
+	background-color: rgba(31, 37, 51, 50);
 	border: 1px solid #ffffff;
 	color: #ffffff;
 	}
 QTextEdit:hover{
-	background-color: #38393d;
-	}</string>
+	background-color: #rgba(56, 57, 61, 50);
+	}
+</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -602,25 +551,32 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
+    <property name="textInteractionFlags">
+     <set>Qt::TextSelectableByMouse</set>
+    </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_2">
+   <widget class="QTextEdit" name="TranslateString">
     <property name="geometry">
      <rect>
-      <x>700</x>
-      <y>370</y>
-      <width>491</width>
+      <x>710</x>
+      <y>400</y>
+      <width>501</width>
       <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QTextEdit{
-	background-color: #1f2533;
+	background-color: rgba(31, 37, 51, 50);
 	border: 1px solid #ffffff;
 	color: #ffffff;
 	}
 QTextEdit:hover{
-	background-color: #38393d;
-	}</string>
+	background-color: #rgba(56, 57, 61, 50);
+	}
+</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -630,24 +586,25 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_3">
+   <widget class="QTextEdit" name="EditString">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>530</y>
+      <x>400</x>
+      <y>560</y>
       <width>491</width>
       <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QTextEdit{
-	background-color: #1f2533;
+	background-color: rgba(31, 37, 51, 50);
 	border: 1px solid #ffffff;
 	color: #ffffff;
 	}
 QTextEdit:hover{
-	background-color: #38393d;
-	}</string>
+	background-color: #rgba(56, 57, 61, 50);
+	}
+</string>
     </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -657,8 +614,185 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="ShareButton">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>780</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 20px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Опубликовать</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="language_logo">
+    <property name="geometry">
+     <rect>
+      <x>1020</x>
+      <y>50</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: none;
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>pictures/lang.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ExitButton">
+    <property name="geometry">
+     <rect>
+      <x>1270</x>
+      <y>0</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 10);
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	color: rgb(199, 199, 199);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	color: rgb(255, 60, 63)
+	}</string>
+    </property>
+    <property name="text">
+     <string>X</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="RollUpButton">
+    <property name="geometry">
+     <rect>
+      <x>1250</x>
+      <y>0</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 10);
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	color: rgb(199, 199, 199);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	color: #5abe41
+	}</string>
+    </property>
+    <property name="text">
+     <string>_</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="BackgroundFrame" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1300</width>
+      <height>860</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1300</width>
+      <height>860</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1300</width>
+      <height>860</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: none;
+background-image: url(:/background/background.png);</string>
+    </property>
+   </widget>
+   <zorder>BackgroundFrame</zorder>
+   <zorder>LocalizeButton</zorder>
+   <zorder>SteamButton</zorder>
+   <zorder>FilePathString</zorder>
+   <zorder>FileSelectionButton</zorder>
+   <zorder>OriginalLabel</zorder>
+   <zorder>TranslatedLabel</zorder>
+   <zorder>EditLabel</zorder>
+   <zorder>NextStringButton</zorder>
+   <zorder>PreviousString</zorder>
+   <zorder>stmtt_logo</zorder>
+   <zorder>steam_logo</zorder>
+   <zorder>ToolLanguageButton</zorder>
+   <zorder>OutputLanguageButton</zorder>
+   <zorder>ReferenceButton</zorder>
+   <zorder>AdditionalButton</zorder>
+   <zorder>OriginalString</zorder>
+   <zorder>TranslateString</zorder>
+   <zorder>EditString</zorder>
+   <zorder>ShareButton</zorder>
+   <zorder>language_logo</zorder>
+   <zorder>ExitButton</zorder>
+   <zorder>RollUpButton</zorder>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="pictures/STMTT.qrc"/>
+ </resources>
  <connections/>
 </ui>
