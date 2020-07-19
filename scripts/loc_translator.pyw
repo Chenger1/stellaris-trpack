@@ -2,6 +2,8 @@
 from googletrans import Translator
 from langdetect import detect, DetectorFactory
 
+from copy import deepcopy
+
 from scripts.utils import data, set_translated_file
 
 
@@ -79,17 +81,23 @@ def line_processing(line: str, translator) -> str:
 	return translated_line
 
 
+def writing_translation(translation):
+	with open(f"{data['folder_path']}\\{data['translated_name']}", 'w', encoding='utf-8') as translated:
+		for line in translation:
+			translated.write(line)
+	set_translated_file(translated)
+
+
 def translating_file():
 	translator = Translator()
 	DetectorFactory.seed = 0
 	file1 = data['cuttered'].name
-	file2 = file1.replace(data['cutter_file_name'], data['translated_name'])
 	loc = open(file1, 'r', encoding='utf-8')
 
-	translated = open(file2, 'w', encoding='utf-8')
-
+	orig_text, ru_text = [], []
 	for line in loc:
 		translation = ''
+		orig_text.append(line)
 		if len(line) > 2:
 			test = detect(line)
 			colons = line.count(':')
@@ -101,12 +109,8 @@ def translating_file():
 				translation = line
 		else:
 			translation = line
-		translated.write(translation)
+		ru_text.append(translation)
 
 	loc.close()
-	translated.close()
-	set_translated_file(translated)
-
-
-if __name__ == "__main__":
-	translating_file()
+	user_text = deepcopy(ru_text)
+	return (orig_text, ru_text, user_text)
