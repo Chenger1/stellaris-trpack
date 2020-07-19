@@ -34,7 +34,6 @@ class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
         translating_file()
         put_lines()
 
-
 def main():
     app = QtWidgets.QApplication(sys.argv)
     window = MainApp()

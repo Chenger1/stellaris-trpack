@@ -53,7 +53,7 @@ def creating_temp_files(loc_path, temp_folder):
 
 def finding_steam_library(stellaris, mod_id):
 	steam = ''
-	steam_library = open('path.txt', 'r+', encoding='utf-8')
+	steam_library = open('SteamLibrary.txt', 'r', encoding='utf-8')
 
 	for path in steam_library:
 		steam = path
