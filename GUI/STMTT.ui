@@ -740,7 +740,7 @@ QPushButton:pressed{
      <string>_</string>
     </property>
    </widget>
-   <widget class="QWidget" name="widget" native="true">
+   <widget class="QWidget" name="BackgroundFrame" native="true">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -766,7 +766,7 @@ QPushButton:pressed{
 background-image: url(:/background/background.png);</string>
     </property>
    </widget>
-   <zorder>widget</zorder>
+   <zorder>BackgroundFrame</zorder>
    <zorder>LocalizeButton</zorder>
    <zorder>SteamButton</zorder>
    <zorder>FilePathString</zorder>
