@@ -68,9 +68,17 @@ class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
             self.PreviousString.setEnabled(False)
 
     def write_translation(self):
-        writing_translation(self.user_text)
-        put_lines()
-        self.EditString.setText('Файл записан.')
+        try:
+            writing_translation(self.user_text)
+            put_lines()
+            self.EditString.setText('Файл записан.')
+        except FileNotFoundError as Error:
+            if self.orig_text:
+                self.EditString.setText('Перевод уже был записан')
+                self.EditString.repaint()
+            else:
+                self.EditString.setText('Ошибка записи файла. Нет перевода.')
+                self.EditString.repaint()
 
     def start_local(self):
         self.EditString.setText('Идет процесс перевода')
