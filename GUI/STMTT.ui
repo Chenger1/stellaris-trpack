@@ -52,18 +52,18 @@ background-image: url('pictures/background.png')</string>
    <widget class="QPushButton" name="LocalizeButton">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>780</y>
-      <width>161</width>
+      <width>191</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Montserrat</family>
-      <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -98,10 +98,10 @@ QPushButton:pressed{
     </property>
     <property name="font">
      <font>
-      <family>Montserrat</family>
-      <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -132,6 +132,12 @@ QPushButton:pressed{
       <height>21</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>KB Astrolyte</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QLineEdit{
 	background-color: rgba(31, 37, 51, 50);
@@ -153,18 +159,18 @@ QLineEdit:hover{
    <widget class="QPushButton" name="FileSelectionButton">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>560</x>
       <y>240</y>
-      <width>151</width>
+      <width>171</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Montserrat</family>
-      <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -197,6 +203,7 @@ QPushButton:pressed{
     </property>
     <property name="font">
      <font>
+      <family>KB Astrolyte</family>
       <pointsize>9</pointsize>
      </font>
     </property>
@@ -217,7 +224,7 @@ QPushButton:pressed{
    <widget class="QLabel" name="TranslatedLabel">
     <property name="geometry">
      <rect>
-      <x>700</x>
+      <x>710</x>
       <y>360</y>
       <width>501</width>
       <height>20</height>
@@ -225,6 +232,7 @@ QPushButton:pressed{
     </property>
     <property name="font">
      <font>
+      <family>KB Astrolyte</family>
       <pointsize>9</pointsize>
      </font>
     </property>
@@ -253,6 +261,7 @@ QPushButton:pressed{
     </property>
     <property name="font">
      <font>
+      <family>KB Astrolyte</family>
       <pointsize>9</pointsize>
      </font>
     </property>
@@ -274,16 +283,16 @@ QPushButton:pressed{
      <rect>
       <x>940</x>
       <y>590</y>
-      <width>211</width>
+      <width>231</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Montserrat</family>
-      <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -308,18 +317,18 @@ QPushButton:pressed{
    <widget class="QPushButton" name="PreviousString">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>120</x>
       <y>590</y>
-      <width>211</width>
+      <width>231</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Montserrat</family>
-      <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -374,10 +383,10 @@ background-color: none;
     </property>
     <property name="font">
      <font>
-      <family>Montserrat</family>
-      <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -410,10 +419,10 @@ QPushButton:pressed{
     </property>
     <property name="font">
      <font>
-      <family>Montserrat</family>
-      <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -446,10 +455,10 @@ QPushButton:pressed{
     </property>
     <property name="font">
      <font>
-      <family>Montserrat</family>
-      <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -482,10 +491,10 @@ QPushButton:pressed{
     </property>
     <property name="font">
      <font>
-      <family>Montserrat</family>
-      <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -516,6 +525,12 @@ QPushButton:pressed{
       <height>91</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>KB Astrolyte</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QTextEdit{
 	background-color: rgba(31, 37, 51, 50);
@@ -534,8 +549,8 @@ QTextEdit:hover{
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="textInteractionFlags">
      <set>Qt::TextSelectableByMouse</set>
@@ -550,6 +565,12 @@ p, li { white-space: pre-wrap; }
       <height>91</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>KB Astrolyte</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QTextEdit{
 	background-color: rgba(31, 37, 51, 50);
@@ -568,8 +589,8 @@ QTextEdit:hover{
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="EditString">
@@ -580,6 +601,12 @@ p, li { white-space: pre-wrap; }
       <width>491</width>
       <height>91</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>KB Astrolyte</family>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QTextEdit{
@@ -596,25 +623,25 @@ QTextEdit:hover{
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="ShareButton">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>230</x>
       <y>780</y>
-      <width>151</width>
+      <width>171</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Montserrat</family>
-      <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
