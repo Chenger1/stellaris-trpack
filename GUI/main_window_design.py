@@ -89,6 +89,7 @@ class Ui_MainWindow(object):
 "    background-color: #rgba(56, 57, 61, 50);\n"
 "    }\n"
 "")
+        self.FilePathString.setAlignment(QtCore.Qt.AlignCenter)
         self.FilePathString.setReadOnly(True)
         self.FilePathString.setObjectName("FilePathString")
         self.FileSelectionButton = QtWidgets.QPushButton(self.centralwidget)
@@ -193,18 +194,14 @@ class Ui_MainWindow(object):
 "    }")
         self.PreviousString.setObjectName("PreviousString")
         self.stmtt_logo = QtWidgets.QLabel(self.centralwidget)
-        self.stmtt_logo.setGeometry(QtCore.QRect(320, 60, 651, 101))
-        self.stmtt_logo.setStyleSheet("background-color: none;")
-        self.stmtt_logo.setText("")
-        self.stmtt_logo.setPixmap(QtGui.QPixmap("pictures/stmtt.png"))
-        self.stmtt_logo.setObjectName("stmtt_logo")
-        self.steam_logo = QtWidgets.QLabel(self.centralwidget)
-        self.steam_logo.setGeometry(QtCore.QRect(250, 50, 31, 31))
-        self.steam_logo.setStyleSheet("background-color: none;\n"
+        self.stmtt_logo.setGeometry(QtCore.QRect(320, 60, 661, 121))
+        self.stmtt_logo.setStyleSheet("background-image: url(:/background/stmtt.png);\n"
+"background-image: url(:/background/stmtt.png);\n"
+"background-color: none;\n"
 "")
-        self.steam_logo.setText("")
-        self.steam_logo.setPixmap(QtGui.QPixmap("pictures/steam.png"))
-        self.steam_logo.setObjectName("steam_logo")
+        self.stmtt_logo.setText("")
+        self.stmtt_logo.setAlignment(QtCore.Qt.AlignCenter)
+        self.stmtt_logo.setObjectName("stmtt_logo")
         self.ToolLanguageButton = QtWidgets.QPushButton(self.centralwidget)
         self.ToolLanguageButton.setGeometry(QtCore.QRect(1060, 50, 211, 31))
         font = QtGui.QFont()
@@ -354,13 +351,6 @@ class Ui_MainWindow(object):
 "    border: #c2c2c2;\n"
 "    }")
         self.ShareButton.setObjectName("ShareButton")
-        self.language_logo = QtWidgets.QLabel(self.centralwidget)
-        self.language_logo.setGeometry(QtCore.QRect(1020, 50, 31, 31))
-        self.language_logo.setStyleSheet("background-color: none;\n"
-"")
-        self.language_logo.setText("")
-        self.language_logo.setPixmap(QtGui.QPixmap("pictures/lang.png"))
-        self.language_logo.setObjectName("language_logo")
         self.ExitButton = QtWidgets.QPushButton(self.centralwidget)
         self.ExitButton.setGeometry(QtCore.QRect(1270, 0, 21, 21))
         font = QtGui.QFont()
@@ -410,6 +400,22 @@ class Ui_MainWindow(object):
         self.BackgroundFrame.setStyleSheet("background-color: none;\n"
 "background-image: url(:/background/background.png);")
         self.BackgroundFrame.setObjectName("BackgroundFrame")
+        self.steam_logo = QtWidgets.QLabel(self.centralwidget)
+        self.steam_logo.setGeometry(QtCore.QRect(250, 40, 41, 41))
+        self.steam_logo.setStyleSheet("background-color: none;\n"
+"background-image: url(:/background/steam.png);\n"
+"")
+        self.steam_logo.setText("")
+        self.steam_logo.setAlignment(QtCore.Qt.AlignCenter)
+        self.steam_logo.setObjectName("steam_logo")
+        self.language_logo = QtWidgets.QLabel(self.centralwidget)
+        self.language_logo.setGeometry(QtCore.QRect(1010, 40, 41, 41))
+        self.language_logo.setStyleSheet("background-color: none;\n"
+"")
+        self.language_logo.setText("")
+        self.language_logo.setPixmap(QtGui.QPixmap(":/background/lang.png"))
+        self.language_logo.setAlignment(QtCore.Qt.AlignCenter)
+        self.language_logo.setObjectName("language_logo")
         self.BackgroundFrame.raise_()
         self.LocalizeButton.raise_()
         self.SteamButton.raise_()
@@ -421,7 +427,6 @@ class Ui_MainWindow(object):
         self.NextStringButton.raise_()
         self.PreviousString.raise_()
         self.stmtt_logo.raise_()
-        self.steam_logo.raise_()
         self.ToolLanguageButton.raise_()
         self.OutputLanguageButton.raise_()
         self.ReferenceButton.raise_()
@@ -430,9 +435,10 @@ class Ui_MainWindow(object):
         self.TranslateString.raise_()
         self.EditString.raise_()
         self.ShareButton.raise_()
-        self.language_logo.raise_()
         self.ExitButton.raise_()
         self.RollUpButton.raise_()
+        self.steam_logo.raise_()
+        self.language_logo.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -471,4 +477,4 @@ class Ui_MainWindow(object):
         self.ShareButton.setText(_translate("MainWindow", "Опубликовать"))
         self.ExitButton.setText(_translate("MainWindow", "X"))
         self.RollUpButton.setText(_translate("MainWindow", "_"))
-from GUI import background
+import GUI.background
