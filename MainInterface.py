@@ -30,8 +30,9 @@ class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
 
     def choose_file(self):
         f_patch = QtWidgets.QFileDialog.getOpenFileName()[0]
-        mod_id = get_mod_id(f_patch)
-        self.FilePathString.setText(mod_id)
+        if f_patch:
+            mod_id = get_mod_id(f_patch)
+            self.FilePathString.setText(mod_id)
 
     def set_lines(self):
         self.OriginalString.setText(self.orig_text[self.pointer])
