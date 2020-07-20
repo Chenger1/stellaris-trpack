@@ -46,3 +46,7 @@ def get_mod_id(file_path):
     pattern = re.compile(r'281990\/(.*?)\/localisation')
     mod_id = pattern.findall(file_path)[0]
     return mod_id
+
+
+def check_new_line_sym_ending(line):
+    return line if line.endswith('\n') else line + '\n'

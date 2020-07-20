@@ -7,7 +7,7 @@ from GUI import main_window_design
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translating_file
 from scripts.loc_putter import put_lines
-from scripts.utils import STELLARIS, get_mod_id
+from scripts.utils import STELLARIS, get_mod_id, check_new_line_sym_ending
 
 
 class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
@@ -38,7 +38,7 @@ class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
         self.TranslateString.setText(self.machine_text[self.pointer])
         self.EditString.setText(self.user_text[self.pointer])
 
-    def check_line_translating(self, value):
+    def check_new_line_symbol_string(self, value):
         while True:
             if self.user_text[self.pointer].startswith('\n'):
                 if value is True: self.pointer += 1
@@ -49,9 +49,9 @@ class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
     def pointer_inc(self):
         self.PreviousString.setEnabled(True)
         try:
-            self.user_text[self.pointer] = self.EditString.toPlainText()
+            self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
             self.pointer += 1
-            self.check_line_translating(True)
+            self.check_new_line_symbol_string(True)
             self.set_lines()
         except IndexError as Error:
             self.NextStringButton.setEnabled(False)
@@ -59,9 +59,9 @@ class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
     def pointer_red(self):
         self.NextStringButton.setEnabled(True)
         try:
-            self.user_text[self.pointer] = self.EditString.toPlainText()
+            self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
             self.pointer -= 1
-            self.check_line_translating(False)
+            self.check_new_line_symbol_string(False)
             self.set_lines()
         except IndexError as Error:
             self.PreviousString.setEnabled(False)
@@ -81,7 +81,7 @@ class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
         workshop_id = self.FilePathString.text()
         cutter_main(workshop_id)
         self.orig_text, self.machine_text, self.user_text = translating_file()
-        self.check_line_translating(True)
+        self.check_new_line_symbol_string(True)
         self.set_lines()
 
 
