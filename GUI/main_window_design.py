@@ -13,25 +13,34 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1280, 800)
-        MainWindow.setMinimumSize(QtCore.QSize(840, 600))
-        MainWindow.setMaximumSize(QtCore.QSize(1280, 800))
+        MainWindow.resize(1300, 860)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
+        MainWindow.setMinimumSize(QtCore.QSize(1300, 860))
+        MainWindow.setMaximumSize(QtCore.QSize(1300, 860))
         font = QtGui.QFont()
         font.setPointSize(10)
         MainWindow.setFont(font)
         MainWindow.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
-        MainWindow.setStyleSheet("background-color: #1f2533;")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("pictures/logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        MainWindow.setWindowIcon(icon)
+        MainWindow.setStyleSheet("background-color: #1f2533;\n"
+"background-image: url(\'pictures/background.png\')")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(500, 690, 291, 41))
+        self.LocalizeButton = QtWidgets.QPushButton(self.centralwidget)
+        self.LocalizeButton.setGeometry(QtCore.QRect(30, 780, 161, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet("QPushButton{\n"
+        self.LocalizeButton.setFont(font)
+        self.LocalizeButton.setStyleSheet("QPushButton{\n"
 "    background-color: #5abe41;\n"
 "    border: 3px solid #5abe41;\n"
 "    border-radius: 20px;\n"
@@ -46,329 +55,385 @@ class Ui_MainWindow(object):
 "    background-color: #c2c2c2;\n"
 "    color: #1f2533;\n"
 "    }")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(220, 230, 211, 31))
+        self.LocalizeButton.setObjectName("LocalizeButton")
+        self.SteamButton = QtWidgets.QPushButton(self.centralwidget)
+        self.SteamButton.setGeometry(QtCore.QRect(30, 50, 211, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_3.setFont(font)
-        self.pushButton_3.setStyleSheet("QPushButton{\n"
-"    background-color: #1f2533;\n"
+        self.SteamButton.setFont(font)
+        self.SteamButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
 "    color: #ffffff;\n"
 "    }\n"
 "QPushButton:hover{\n"
-"    background-color: #38393d;\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
 "    }\n"
 "QPushButton:pressed{\n"
-"    background-color: #c2c2c2;\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
-"    color: #1f2533;\n"
 "    }")
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(100, 280, 451, 21))
-        self.lineEdit.setStyleSheet("QLineEdit{\n"
-"    background-color: #1f2533;\n"
+        self.SteamButton.setObjectName("SteamButton")
+        self.FilePathString = QtWidgets.QLineEdit(self.centralwidget)
+        self.FilePathString.setGeometry(QtCore.QRect(430, 290, 431, 21))
+        self.FilePathString.setStyleSheet("QLineEdit{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 1px solid #ffffff;\n"
 "    color: #ffffff;\n"
 "    }\n"
 "QLineEdit:hover{\n"
-"    background-color: #38393d;\n"
+"    background-color: #rgba(56, 57, 61, 50);\n"
+"    }\n"
+"")
+        self.FilePathString.setReadOnly(True)
+        self.FilePathString.setObjectName("FilePathString")
+        self.FileSelectionButton = QtWidgets.QPushButton(self.centralwidget)
+        self.FileSelectionButton.setGeometry(QtCore.QRect(570, 240, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.FileSelectionButton.setFont(font)
+        self.FileSelectionButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #ffffff;\n"
+"    border-radius: 15px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
 "    }")
-        self.lineEdit.setObjectName("lineEdit")
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(730, 280, 451, 21))
-        self.lineEdit_2.setStyleSheet("QLineEdit{\n"
-"    background-color: #1f2533;\n"
+        self.FileSelectionButton.setObjectName("FileSelectionButton")
+        self.OriginalLabel = QtWidgets.QLabel(self.centralwidget)
+        self.OriginalLabel.setGeometry(QtCore.QRect(80, 360, 501, 20))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.OriginalLabel.setFont(font)
+        self.OriginalLabel.setStyleSheet("QLabel{\n"
+"    background-color: none;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.OriginalLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.OriginalLabel.setObjectName("OriginalLabel")
+        self.TranslatedLabel = QtWidgets.QLabel(self.centralwidget)
+        self.TranslatedLabel.setGeometry(QtCore.QRect(700, 360, 501, 20))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.TranslatedLabel.setFont(font)
+        self.TranslatedLabel.setStyleSheet("QLabel{\n"
+"    background-color: none;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.TranslatedLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.TranslatedLabel.setObjectName("TranslatedLabel")
+        self.EditLabel = QtWidgets.QLabel(self.centralwidget)
+        self.EditLabel.setGeometry(QtCore.QRect(370, 520, 551, 20))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.EditLabel.setFont(font)
+        self.EditLabel.setStyleSheet("QLabel{\n"
+"    background-color: none;\n"
+"    color: #ffffff;\n"
+"    }")
+        self.EditLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.EditLabel.setObjectName("EditLabel")
+        self.NextStringButton = QtWidgets.QPushButton(self.centralwidget)
+        self.NextStringButton.setGeometry(QtCore.QRect(940, 590, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.NextStringButton.setFont(font)
+        self.NextStringButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #ffffff;\n"
+"    border-radius: 15px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    }")
+        self.NextStringButton.setObjectName("NextStringButton")
+        self.PreviousString = QtWidgets.QPushButton(self.centralwidget)
+        self.PreviousString.setGeometry(QtCore.QRect(140, 590, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.PreviousString.setFont(font)
+        self.PreviousString.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #ffffff;\n"
+"    border-radius: 15px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    }")
+        self.PreviousString.setObjectName("PreviousString")
+        self.stmtt_logo = QtWidgets.QLabel(self.centralwidget)
+        self.stmtt_logo.setGeometry(QtCore.QRect(320, 60, 651, 101))
+        self.stmtt_logo.setStyleSheet("background-color: none;")
+        self.stmtt_logo.setText("")
+        self.stmtt_logo.setPixmap(QtGui.QPixmap("pictures/stmtt.png"))
+        self.stmtt_logo.setObjectName("stmtt_logo")
+        self.steam_logo = QtWidgets.QLabel(self.centralwidget)
+        self.steam_logo.setGeometry(QtCore.QRect(250, 50, 31, 31))
+        self.steam_logo.setStyleSheet("background-color: none;\n"
+"")
+        self.steam_logo.setText("")
+        self.steam_logo.setPixmap(QtGui.QPixmap("pictures/steam.png"))
+        self.steam_logo.setObjectName("steam_logo")
+        self.ToolLanguageButton = QtWidgets.QPushButton(self.centralwidget)
+        self.ToolLanguageButton.setGeometry(QtCore.QRect(1060, 50, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ToolLanguageButton.setFont(font)
+        self.ToolLanguageButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #ffffff;\n"
+"    border-radius: 15px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    }")
+        self.ToolLanguageButton.setObjectName("ToolLanguageButton")
+        self.OutputLanguageButton = QtWidgets.QPushButton(self.centralwidget)
+        self.OutputLanguageButton.setGeometry(QtCore.QRect(1030, 90, 241, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.OutputLanguageButton.setFont(font)
+        self.OutputLanguageButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #ffffff;\n"
+"    border-radius: 15px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    }")
+        self.OutputLanguageButton.setObjectName("OutputLanguageButton")
+        self.ReferenceButton = QtWidgets.QPushButton(self.centralwidget)
+        self.ReferenceButton.setGeometry(QtCore.QRect(1080, 780, 141, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ReferenceButton.setFont(font)
+        self.ReferenceButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #ffffff;\n"
+"    border-radius: 20px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    }")
+        self.ReferenceButton.setObjectName("ReferenceButton")
+        self.AdditionalButton = QtWidgets.QPushButton(self.centralwidget)
+        self.AdditionalButton.setGeometry(QtCore.QRect(30, 90, 241, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.AdditionalButton.setFont(font)
+        self.AdditionalButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #ffffff;\n"
+"    border-radius: 15px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    }")
+        self.AdditionalButton.setObjectName("AdditionalButton")
+        self.OriginalString = QtWidgets.QTextEdit(self.centralwidget)
+        self.OriginalString.setGeometry(QtCore.QRect(80, 400, 501, 91))
+        self.OriginalString.setStyleSheet("QTextEdit{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 1px solid #ffffff;\n"
 "    color: #ffffff;\n"
 "    }\n"
-"QLineEdit:hover{\n"
-"    background-color: #38393d;\n"
-"    }")
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(740, 240, 201, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_4.setFont(font)
-        self.pushButton_4.setStyleSheet("QPushButton{\n"
-"    background-color: #1f2533;\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
+"QTextEdit:hover{\n"
+"    background-color: #rgba(56, 57, 61, 50);\n"
 "    }\n"
-"QPushButton:hover{\n"
-"    background-color: #38393d;\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: #c2c2c2;\n"
-"    border: #c2c2c2;\n"
-"    color: #1f2533;\n"
-"    }")
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_5.setGeometry(QtCore.QRect(950, 240, 221, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_5.setFont(font)
-        self.pushButton_5.setStyleSheet("QPushButton{\n"
-"    background-color: #1f2533;\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: #38393d;\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: #c2c2c2;\n"
-"    border: #c2c2c2;\n"
-"    color: #1f2533;\n"
-"    }")
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(240, 330, 161, 20))
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        self.label_2.setFont(font)
-        self.label_2.setStyleSheet("QLabel{\n"
-"    background-color: #1f2533;\n"
-"    color: #ffffff;\n"
-"    text-align: center;\n"
-"    }\n"
-"QQLabel:hover{\n"
-"    background-color: #38393d;\n"
-"    }")
-        self.label_2.setObjectName("label_2")
-        self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_4.setGeometry(QtCore.QRect(80, 370, 491, 91))
-        self.lineEdit_4.setStyleSheet("QLineEdit{\n"
-"    background-color: #1f2533;\n"
+"")
+        self.OriginalString.setReadOnly(True)
+        self.OriginalString.setTextInteractionFlags(QtCore.Qt.TextSelectableByMouse)
+        self.OriginalString.setObjectName("OriginalString")
+        self.TranslateString = QtWidgets.QTextEdit(self.centralwidget)
+        self.TranslateString.setGeometry(QtCore.QRect(710, 400, 501, 91))
+        self.TranslateString.setStyleSheet("QTextEdit{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 1px solid #ffffff;\n"
 "    color: #ffffff;\n"
 "    }\n"
-"QLineEdit:hover{\n"
-"    background-color: #38393d;\n"
-"    }")
-        self.lineEdit_4.setObjectName("lineEdit_4")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(880, 330, 161, 20))
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        self.label_3.setFont(font)
-        self.label_3.setStyleSheet("QLabel{\n"
-"    background-color: #1f2533;\n"
-"    color: #ffffff;\n"
-"    text-align: center;\n"
+"QTextEdit:hover{\n"
+"    background-color: #rgba(56, 57, 61, 50);\n"
 "    }\n"
-"QQLabel:hover{\n"
-"    background-color: #38393d;\n"
-"    }")
-        self.label_3.setObjectName("label_3")
-        self.lineEdit_5 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_5.setGeometry(QtCore.QRect(700, 370, 501, 91))
-        self.lineEdit_5.setStyleSheet("QLineEdit{\n"
-"    background-color: #1f2533;\n"
+"")
+        self.TranslateString.setReadOnly(True)
+        self.TranslateString.setObjectName("TranslateString")
+        self.EditString = QtWidgets.QTextEdit(self.centralwidget)
+        self.EditString.setGeometry(QtCore.QRect(400, 560, 491, 91))
+        self.EditString.setStyleSheet("QTextEdit{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 1px solid #ffffff;\n"
 "    color: #ffffff;\n"
 "    }\n"
-"QLineEdit:hover{\n"
-"    background-color: #38393d;\n"
-"    }")
-        self.lineEdit_5.setObjectName("lineEdit_5")
-        self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(440, 490, 421, 20))
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        self.label_4.setFont(font)
-        self.label_4.setStyleSheet("QLabel{\n"
-"    background-color: #1f2533;\n"
-"    color: #ffffff;\n"
-"    text-align: center;\n"
+"QTextEdit:hover{\n"
+"    background-color: #rgba(56, 57, 61, 50);\n"
 "    }\n"
-"QQLabel:hover{\n"
-"    background-color: #38393d;\n"
-"    }")
-        self.label_4.setObjectName("label_4")
-        self.lineEdit_6 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_6.setGeometry(QtCore.QRect(410, 530, 451, 91))
-        self.lineEdit_6.setStyleSheet("QLineEdit{\n"
-"    background-color: #1f2533;\n"
-"    border: 1px solid #ffffff;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QLineEdit:hover{\n"
-"    background-color: #38393d;\n"
-"    }")
-        self.lineEdit_6.setObjectName("lineEdit_6")
-        self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_6.setGeometry(QtCore.QRect(930, 560, 211, 31))
+"")
+        self.EditString.setObjectName("EditString")
+        self.ShareButton = QtWidgets.QPushButton(self.centralwidget)
+        self.ShareButton.setGeometry(QtCore.QRect(210, 780, 151, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_6.setFont(font)
-        self.pushButton_6.setStyleSheet("QPushButton{\n"
-"    background-color: #1f2533;\n"
+        self.ShareButton.setFont(font)
+        self.ShareButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
+"    border-radius: 20px;\n"
 "    color: #ffffff;\n"
 "    }\n"
 "QPushButton:hover{\n"
-"    background-color: #38393d;\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
 "    }\n"
 "QPushButton:pressed{\n"
-"    background-color: #c2c2c2;\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
-"    color: #1f2533;\n"
 "    }")
-        self.pushButton_6.setObjectName("pushButton_6")
-        self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_7.setGeometry(QtCore.QRect(130, 560, 211, 31))
+        self.ShareButton.setObjectName("ShareButton")
+        self.language_logo = QtWidgets.QLabel(self.centralwidget)
+        self.language_logo.setGeometry(QtCore.QRect(1020, 50, 31, 31))
+        self.language_logo.setStyleSheet("background-color: none;\n"
+"")
+        self.language_logo.setText("")
+        self.language_logo.setPixmap(QtGui.QPixmap("pictures/lang.png"))
+        self.language_logo.setObjectName("language_logo")
+        self.ExitButton = QtWidgets.QPushButton(self.centralwidget)
+        self.ExitButton.setGeometry(QtCore.QRect(1270, 0, 21, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_7.setFont(font)
-        self.pushButton_7.setStyleSheet("QPushButton{\n"
-"    background-color: #1f2533;\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
+        self.ExitButton.setFont(font)
+        self.ExitButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 10);\n"
 "    color: #ffffff;\n"
 "    }\n"
 "QPushButton:hover{\n"
-"    background-color: #38393d;\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    color: rgb(199, 199, 199);\n"
 "    }\n"
 "QPushButton:pressed{\n"
-"    background-color: #c2c2c2;\n"
-"    border: #c2c2c2;\n"
-"    color: #1f2533;\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    color: rgb(255, 60, 63)\n"
 "    }")
-        self.pushButton_7.setObjectName("pushButton_7")
-        self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(320, 50, 651, 101))
-        self.label_5.setText("")
-        self.label_5.setPixmap(QtGui.QPixmap("pictures/stmtt.png"))
-        self.label_5.setObjectName("label_5")
-        self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(310, 180, 41, 41))
-        self.label_6.setText("")
-        self.label_6.setPixmap(QtGui.QPixmap("pictures/steam.png"))
-        self.label_6.setObjectName("label_6")
-        self.pushButton_8 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_8.setGeometry(QtCore.QRect(1050, 20, 211, 31))
+        self.ExitButton.setObjectName("ExitButton")
+        self.RollUpButton = QtWidgets.QPushButton(self.centralwidget)
+        self.RollUpButton.setGeometry(QtCore.QRect(1250, 0, 21, 21))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_8.setFont(font)
-        self.pushButton_8.setStyleSheet("QPushButton{\n"
-"    background-color: #1f2533;\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
+        self.RollUpButton.setFont(font)
+        self.RollUpButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 10);\n"
 "    color: #ffffff;\n"
 "    }\n"
 "QPushButton:hover{\n"
-"    background-color: #38393d;\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    color: rgb(199, 199, 199);\n"
 "    }\n"
 "QPushButton:pressed{\n"
-"    background-color: #c2c2c2;\n"
-"    border: #c2c2c2;\n"
-"    color: #1f2533;\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    color: #5abe41\n"
 "    }")
-        self.pushButton_8.setObjectName("pushButton_8")
-        self.pushButton_9 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_9.setGeometry(QtCore.QRect(1020, 60, 241, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_9.setFont(font)
-        self.pushButton_9.setStyleSheet("QPushButton{\n"
-"    background-color: #1f2533;\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: #38393d;\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: #c2c2c2;\n"
-"    border: #c2c2c2;\n"
-"    color: #1f2533;\n"
-"    }")
-        self.pushButton_9.setObjectName("pushButton_9")
-        self.pushButton_11 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_11.setGeometry(QtCore.QRect(20, 20, 211, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_11.setFont(font)
-        self.pushButton_11.setStyleSheet("QPushButton{\n"
-"    background-color: #1f2533;\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: #38393d;\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: #c2c2c2;\n"
-"    border: #c2c2c2;\n"
-"    color: #1f2533;\n"
-"    }")
-        self.pushButton_11.setObjectName("pushButton_11")
-        self.pushButton_12 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_12.setGeometry(QtCore.QRect(20, 60, 241, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_12.setFont(font)
-        self.pushButton_12.setStyleSheet("QPushButton{\n"
-"    background-color: #1f2533;\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: #38393d;\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: #c2c2c2;\n"
-"    border: #c2c2c2;\n"
-"    color: #1f2533;\n"
-"    }")
-        self.pushButton_12.setObjectName("pushButton_12")
+        self.RollUpButton.setObjectName("RollUpButton")
+        self.BackgroundFrame = QtWidgets.QWidget(self.centralwidget)
+        self.BackgroundFrame.setGeometry(QtCore.QRect(0, 0, 1300, 860))
+        self.BackgroundFrame.setMinimumSize(QtCore.QSize(1300, 860))
+        self.BackgroundFrame.setMaximumSize(QtCore.QSize(1300, 860))
+        self.BackgroundFrame.setStyleSheet("background-color: none;\n"
+"background-image: url(:/background/background.png);")
+        self.BackgroundFrame.setObjectName("BackgroundFrame")
+        self.BackgroundFrame.raise_()
+        self.LocalizeButton.raise_()
+        self.SteamButton.raise_()
+        self.FilePathString.raise_()
+        self.FileSelectionButton.raise_()
+        self.OriginalLabel.raise_()
+        self.TranslatedLabel.raise_()
+        self.EditLabel.raise_()
+        self.NextStringButton.raise_()
+        self.PreviousString.raise_()
+        self.stmtt_logo.raise_()
+        self.steam_logo.raise_()
+        self.ToolLanguageButton.raise_()
+        self.OutputLanguageButton.raise_()
+        self.ReferenceButton.raise_()
+        self.AdditionalButton.raise_()
+        self.OriginalString.raise_()
+        self.TranslateString.raise_()
+        self.EditString.raise_()
+        self.ShareButton.raise_()
+        self.language_logo.raise_()
+        self.ExitButton.raise_()
+        self.RollUpButton.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1280, 26))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -376,16 +441,34 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Stellaris True Machine Translation Tool"))
-        self.pushButton_2.setText(_translate("MainWindow", "Локализировать модификацию"))
-        self.pushButton_3.setText(_translate("MainWindow", "STEAM LIBRARY PATH"))
-        self.pushButton_4.setText(_translate("MainWindow", "STEAM WORKSHOP ID"))
-        self.pushButton_5.setText(_translate("MainWindow", "CHOOSE FILE MANUALLY"))
-        self.label_2.setText(_translate("MainWindow", "Оригинальная строка"))
-        self.label_3.setText(_translate("MainWindow", "Машинный перевод"))
-        self.label_4.setText(_translate("MainWindow", "Можно заменить машинный перевод на свой вариант"))
-        self.pushButton_6.setText(_translate("MainWindow", "Следующая строка"))
-        self.pushButton_7.setText(_translate("MainWindow", "Предыдущая строка"))
-        self.pushButton_8.setText(_translate("MainWindow", "Язык утилиты: RUS"))
-        self.pushButton_9.setText(_translate("MainWindow", "Перевод на: RUS"))
-        self.pushButton_11.setText(_translate("MainWindow", "Справка"))
-        self.pushButton_12.setText(_translate("MainWindow", "Дополнительные функции"))
+        self.LocalizeButton.setText(_translate("MainWindow", "Локализировать"))
+        self.SteamButton.setText(_translate("MainWindow", "Steam"))
+        self.FileSelectionButton.setText(_translate("MainWindow", "Выбрать файл"))
+        self.OriginalLabel.setText(_translate("MainWindow", "Оригинальная строка"))
+        self.TranslatedLabel.setText(_translate("MainWindow", "Машинный перевод"))
+        self.EditLabel.setText(_translate("MainWindow", "Можно заменить машинный перевод на свой вариант"))
+        self.NextStringButton.setText(_translate("MainWindow", "Следующая строка"))
+        self.PreviousString.setText(_translate("MainWindow", "Предыдущая строка"))
+        self.ToolLanguageButton.setText(_translate("MainWindow", "Язык утилиты"))
+        self.OutputLanguageButton.setText(_translate("MainWindow", "Выходной язык"))
+        self.ReferenceButton.setText(_translate("MainWindow", "Справка"))
+        self.AdditionalButton.setText(_translate("MainWindow", "Дополнительно"))
+        self.OriginalString.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
+        self.TranslateString.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
+        self.EditString.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
+        self.ShareButton.setText(_translate("MainWindow", "Опубликовать"))
+        self.ExitButton.setText(_translate("MainWindow", "X"))
+        self.RollUpButton.setText(_translate("MainWindow", "_"))
+from GUI import background
