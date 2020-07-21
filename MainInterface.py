@@ -1,13 +1,14 @@
 import sys
-from time import sleep
 
 from PyQt5 import QtWidgets
 
 from GUI import main_window_design
+from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
+
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translating_file
 from scripts.loc_putter import put_lines
-from scripts.utils import STELLARIS, get_mod_id, check_new_line_sym_ending
+from scripts.utils import STELLARIS, check_new_line_sym_ending
 
 
 class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
@@ -21,18 +22,19 @@ class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
 
     def init_handlers(self):
         self.LocalizeButton.clicked.connect(self.start_local)
-        self.FileSelectionButton.clicked.connect(self.choose_file)
+        self.FileSelectionButton.clicked.connect(self.show_choose_file_window)
         self.NextStringButton.clicked.connect(self.pointer_inc)
         self.PreviousString.clicked.connect(self.pointer_red)
 
     def init_helpers(self):
         self.lineEdit.setText(STELLARIS)
 
-    def choose_file(self):
-        f_patch = QtWidgets.QFileDialog.getOpenFileName()[0]
-        if f_patch:
-            mod_id = get_mod_id(f_patch)
-            self.FilePathString.setText(mod_id)
+    def show_choose_file_window(self):
+        choose_file_window = ChooseFileWindow(self)
+        choose_file_window.show()
+
+    def get_steam_id(self, path):
+        self.FilePathString.setText(path)
 
     def set_lines(self):
         self.OriginalString.setText(self.orig_text[self.pointer])
