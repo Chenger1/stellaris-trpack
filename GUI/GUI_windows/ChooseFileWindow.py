@@ -22,7 +22,7 @@ class ChooseFileWindow(QtWidgets.QMainWindow, ChooseFile.Ui_Dialog):
         f_path = QtWidgets.QFileDialog.getOpenFileName()[0]
         if f_path:
             mod_id = get_mod_id(f_path)
-            self.parent.FilePathString.setText(mod_id)
+            self.parent.ModIDLine.setText(mod_id)
             self.close()
 
     def show_steam_id_window(self):
