@@ -15,14 +15,14 @@ class ChooseFileWindow(QtWidgets.QMainWindow, ChooseFile.Ui_Dialog):
         self.parent = parent
 
     def init_handlers(self):
-        self.FileSelectionButton.clicked.connect(self.choose_file)
+        self.ManualButton.clicked.connect(self.choose_file)
         self.SteamButton.clicked.connect(self.show_steam_id_window)
 
     def choose_file(self):
         f_path = QtWidgets.QFileDialog.getOpenFileName()[0]
         if f_path:
             mod_id = get_mod_id(f_path)
-            self.parent.FilePathString.setText(mod_id)
+            self.parent.ModIDLine.setText(mod_id)
             self.close()
 
     def show_steam_id_window(self):

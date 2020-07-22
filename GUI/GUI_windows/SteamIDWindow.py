@@ -11,10 +11,10 @@ class SteamIDWindow(QtWidgets.QMainWindow, SteamID.Ui_Dialog):
         self.parent = parent
 
     def init_handlers(self):
-        self.LocalizeButton.clicked.connect(self.get_steam_id)
+        self.AcceptButton.clicked.connect(self.get_steam_id)
 
     def get_steam_id(self):
-        path = self.lineEdit.text()
+        path = self.IDLine.text()
         self.parent.parent.get_steam_id(path.split('=')[-1])
         self.parent.close()
         self.close()

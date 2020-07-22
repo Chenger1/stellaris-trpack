@@ -2,7 +2,7 @@ import sys
 
 from PyQt5 import QtWidgets
 
-from GUI import main_window_design
+from GUI.GUI_windows_source import MainWindow
 from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
 
 from scripts.loc_cutter import cutter_main
@@ -11,7 +11,7 @@ from scripts.loc_putter import put_lines
 from scripts.utils import STELLARIS, check_new_line_sym_ending
 
 
-class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
+class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -34,7 +34,7 @@ class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
         choose_file_window.show()
 
     def get_steam_id(self, path):
-        self.FilePathString.setText(path)
+        self.ModIDLine.setText(path)
 
     def set_lines(self):
         self.OriginalString.setText(self.orig_text[self.pointer])
@@ -89,7 +89,7 @@ class MainApp(QtWidgets.QMainWindow, main_window_design.Ui_MainWindow):
         self.LocalizeButton.repaint()
         self.LocalizeButton.disconnect()
         self.LocalizeButton.clicked.connect(self.write_translation)
-        workshop_id = self.FilePathString.text()
+        workshop_id = self.ModIDLine.text()
         cutter_main(workshop_id)
         self.orig_text, self.machine_text, self.user_text = translating_file()
         self.check_new_line_symbol_string(True)

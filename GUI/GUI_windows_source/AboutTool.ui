@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>650</width>
+    <height>250</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>650</width>
+    <height>250</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>650</width>
+    <height>250</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(127, 127, 127)</string>
+  </property>
+  <widget class="QFrame" name="BackgroundFrame">
+   <property name="geometry">
+    <rect>
+     <x>-20</x>
+     <y>-10</y>
+     <width>687</width>
+     <height>264</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>687</width>
+     <height>264</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>687</width>
+     <height>250</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/backgrounds/backgrounds/AboutTool.png);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ExitButton">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>0</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>9</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 10);
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	color: rgb(199, 199, 199);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	color: rgb(255, 60, 63)
+	}</string>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RollUpButton">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>0</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 10);
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	color: rgb(199, 199, 199);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	color: #5abe41
+	}</string>
+   </property>
+   <property name="text">
+    <string>_</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="InfoLabel_0">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>30</y>
+     <width>561</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: none;
+color: #ffffff;</string>
+   </property>
+   <property name="text">
+    <string>О Stellaris True Machine Translation Tool</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="InfoLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>120</y>
+     <width>491</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: none;
+color: #ffffff;</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;при использовании Python 3 на основе &lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;софта Pacas&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="openExternalLinks">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="VersionLabel">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>200</y>
+     <width>251</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: none;
+color: #ffffff;</string>
+   </property>
+   <property name="text">
+    <string>Версия ПО: 0.5.5</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="InfoLabel_1">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>451</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: none;
+color: #ffffff;</string>
+   </property>
+   <property name="text">
+    <string>Приложение разработано Letiso и Chenger</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ContactUsButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>190</y>
+     <width>321</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 20px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+   </property>
+   <property name="text">
+    <string>Связаться с разработчиками</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../pictures/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

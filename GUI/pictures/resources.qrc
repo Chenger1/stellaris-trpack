@@ -1,0 +1,27 @@
+<RCC>
+  <qresource prefix="backgrounds">
+    <file>backgrounds/AboutTool.png</file>
+    <file>backgrounds/ChooseFile.png</file>
+    <file>backgrounds/Contact.png</file>
+    <file>backgrounds/ErrorMessage.png</file>
+    <file>backgrounds/MainBackground.png</file>
+    <file>backgrounds/MoreOutputLanguage.png</file>
+    <file>backgrounds/OutputLanguage.png</file>
+    <file>backgrounds/Reference.png</file>
+    <file>backgrounds/SuccessMessage.png</file>
+    <file>backgrounds/ToolLanguage.png</file>
+    <file>backgrounds/TranslationProgress.png</file>
+  </qresource>
+  <qresource prefix="icons">
+    <file>icons/explorer.png</file>
+    <file>icons/github.png</file>
+    <file>icons/lang.png</file>
+    <file>icons/steam.png</file>
+    <file>icons/stmtt.png</file>
+    <file>icons/telegram.png</file>
+  </qresource>
+  <qresource prefix="effects">
+    <file>effects/bottom_shadow.png</file>
+    <file>effects/mid_line.png</file>
+  </qresource>
+</RCC>

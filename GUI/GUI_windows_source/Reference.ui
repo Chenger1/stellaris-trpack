@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>650</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1000</width>
+    <height>650</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: transparent;
+</string>
+  </property>
+  <widget class="QFrame" name="BackgroundFrame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-10</y>
+     <width>1050</width>
+     <height>700</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>1050</width>
+     <height>700</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1050</width>
+     <height>700</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/backgrounds/backgrounds/Reference.png);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ExitButton">
+   <property name="geometry">
+    <rect>
+     <x>970</x>
+     <y>0</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>9</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 10);
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	color: rgb(199, 199, 199);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	color: rgb(255, 60, 63)
+	}</string>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RollUpButton">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
+     <y>0</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 10);
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	color: rgb(199, 199, 199);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	color: #5abe41
+	}</string>
+   </property>
+   <property name="text">
+    <string>_</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ReferenceButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 0);
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	color: rgb(199, 199, 199);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	color: #5abe41
+	}</string>
+   </property>
+   <property name="text">
+    <string>?</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ReferenceLabel">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>40</y>
+     <width>231</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: none;
+color: #ffffff;</string>
+   </property>
+   <property name="text">
+    <string>Справка</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>90</y>
+     <width>981</width>
+     <height>561</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QScrollBar:vertical{
+	background: transparent;
+	width: 5px;
+	margin: 0;
+	}
+QScrollBar::handle:vertical{
+	background-color: #5abe41;
+    min-height: 20px;
+	}
+QScrollBar::add-line:vertical{
+	background: transparent;
+	height: 0px;
+	}
+QScrollBar::sub-line:vertical{
+	background: transparent;
+	height: 0px;
+	}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
+	background: transparent;
+	height: 0px;
+	}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustToContents</enum>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>976</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>149</number>
+       </property>
+       <property name="topMargin">
+        <number>150</number>
+       </property>
+       <property name="bottomMargin">
+        <number>150</number>
+       </property>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QLineEdit" name="SearchLine">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>40</y>
+     <width>251</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	background-color: #5abe41;
+	border: 2px solid #5abe41;
+	border-radius: 15px;
+	color: #1f2533;
+	}
+QLineEdit:hover{
+	background-color: #438e30;
+	border: #438e30;
+	color: #ffffff;
+	}</string>
+   </property>
+   <property name="text">
+    <string>Поиск</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="readOnly">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QFrame" name="BottomShadowFrame">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>580</y>
+     <width>1050</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>1050</width>
+     <height>80</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1050</width>
+     <height>80</height>
+    </size>
+   </property>
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/background/bottom_shadow.png);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="AboutToolButton">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>40</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 20px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+   </property>
+   <property name="text">
+    <string>Об утилите</string>
+   </property>
+  </widget>
+  <zorder>BackgroundFrame</zorder>
+  <zorder>scrollArea</zorder>
+  <zorder>ReferenceButton</zorder>
+  <zorder>RollUpButton</zorder>
+  <zorder>ExitButton</zorder>
+  <zorder>ReferenceLabel</zorder>
+  <zorder>SearchLine</zorder>
+  <zorder>BottomShadowFrame</zorder>
+  <zorder>AboutToolButton</zorder>
+ </widget>
+ <resources>
+  <include location="../pictures/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
