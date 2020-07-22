@@ -17,15 +17,15 @@ class Ui_Dialog(object):
         Dialog.setMinimumSize(QtCore.QSize(650, 250))
         Dialog.setMaximumSize(QtCore.QSize(650, 250))
         Dialog.setStyleSheet("background-color: rgb(127, 127, 127)")
-        self.FileSelectionButton = QtWidgets.QPushButton(Dialog)
-        self.FileSelectionButton.setGeometry(QtCore.QRect(20, 190, 171, 41))
+        self.ManualButton = QtWidgets.QPushButton(Dialog)
+        self.ManualButton.setGeometry(QtCore.QRect(30, 190, 161, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
-        self.FileSelectionButton.setFont(font)
-        self.FileSelectionButton.setStyleSheet("QPushButton{\n"
+        self.ManualButton.setFont(font)
+        self.ManualButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 20px;\n"
@@ -38,7 +38,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.FileSelectionButton.setObjectName("FileSelectionButton")
+        self.ManualButton.setObjectName("ManualButton")
         self.SteamButton = QtWidgets.QPushButton(Dialog)
         self.SteamButton.setGeometry(QtCore.QRect(360, 190, 261, 41))
         font = QtGui.QFont()
@@ -64,7 +64,7 @@ class Ui_Dialog(object):
         self.steam_logo = QtWidgets.QLabel(Dialog)
         self.steam_logo.setGeometry(QtCore.QRect(560, 180, 71, 61))
         self.steam_logo.setStyleSheet("background-color: none;\n"
-"image: url(:/background/steam.png);\n"
+"image: url(:/icons/icons/steam.png);\n"
 "")
         self.steam_logo.setText("")
         self.steam_logo.setAlignment(QtCore.Qt.AlignCenter)
@@ -72,18 +72,18 @@ class Ui_Dialog(object):
         self.file_explorer_logo = QtWidgets.QLabel(Dialog)
         self.file_explorer_logo.setGeometry(QtCore.QRect(130, 180, 61, 61))
         self.file_explorer_logo.setStyleSheet("background-color: none;\n"
-"image: url(:/background/explorer.png);")
+"image: url(:/icons/icons/explorer.png);")
         self.file_explorer_logo.setText("")
         self.file_explorer_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.file_explorer_logo.setObjectName("file_explorer_logo")
-        self.frame = QtWidgets.QFrame(Dialog)
-        self.frame.setGeometry(QtCore.QRect(-20, -10, 687, 264))
-        self.frame.setMinimumSize(QtCore.QSize(687, 264))
-        self.frame.setMaximumSize(QtCore.QSize(10, 250))
-        self.frame.setStyleSheet("background-image: url(:/background/choose_file.png);")
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame.setObjectName("frame")
+        self.BackgroundFrame = QtWidgets.QFrame(Dialog)
+        self.BackgroundFrame.setGeometry(QtCore.QRect(-20, -10, 687, 264))
+        self.BackgroundFrame.setMinimumSize(QtCore.QSize(687, 264))
+        self.BackgroundFrame.setMaximumSize(QtCore.QSize(687, 250))
+        self.BackgroundFrame.setStyleSheet("background-image: url(:/backgrounds/backgrounds/ChooseFile.png);")
+        self.BackgroundFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.BackgroundFrame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.BackgroundFrame.setObjectName("BackgroundFrame")
         self.ExitButton = QtWidgets.QPushButton(Dialog)
         self.ExitButton.setGeometry(QtCore.QRect(620, 0, 21, 21))
         font = QtGui.QFont()
@@ -126,26 +126,48 @@ class Ui_Dialog(object):
 "    color: #5abe41\n"
 "    }")
         self.RollUpButton.setObjectName("RollUpButton")
-        self.label_2 = QtWidgets.QLabel(Dialog)
-        self.label_2.setGeometry(QtCore.QRect(200, 70, 441, 51))
+        self.ChooseFileLabel = QtWidgets.QLabel(Dialog)
+        self.ChooseFileLabel.setGeometry(QtCore.QRect(200, 70, 441, 51))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(16)
         font.setBold(False)
         font.setWeight(50)
-        self.label_2.setFont(font)
-        self.label_2.setStyleSheet("background-color: none;\n"
+        self.ChooseFileLabel.setFont(font)
+        self.ChooseFileLabel.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
-        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_2.setObjectName("label_2")
-        self.frame.raise_()
-        self.FileSelectionButton.raise_()
+        self.ChooseFileLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.ChooseFileLabel.setObjectName("ChooseFileLabel")
+        self.ReferenceButton = QtWidgets.QPushButton(Dialog)
+        self.ReferenceButton.setGeometry(QtCore.QRect(10, 0, 21, 21))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.ReferenceButton.setFont(font)
+        self.ReferenceButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 10);\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    color: rgb(199, 199, 199);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    color: #5abe41\n"
+"    }")
+        self.ReferenceButton.setObjectName("ReferenceButton")
+        self.BackgroundFrame.raise_()
+        self.ManualButton.raise_()
         self.SteamButton.raise_()
         self.steam_logo.raise_()
         self.file_explorer_logo.raise_()
         self.ExitButton.raise_()
         self.RollUpButton.raise_()
-        self.label_2.raise_()
+        self.ChooseFileLabel.raise_()
+        self.ReferenceButton.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -153,9 +175,10 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.FileSelectionButton.setText(_translate("Dialog", "Вручную    "))
+        self.ManualButton.setText(_translate("Dialog", "Вручную    "))
         self.SteamButton.setText(_translate("Dialog", "SteamWorkshop ID    "))
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.RollUpButton.setText(_translate("Dialog", "_"))
-        self.label_2.setText(_translate("Dialog", "Выбрать файл"))
-import GUI.background
+        self.ChooseFileLabel.setText(_translate("Dialog", "Выбрать файл"))
+        self.ReferenceButton.setText(_translate("Dialog", "?"))
+from GUI.pictures import resources

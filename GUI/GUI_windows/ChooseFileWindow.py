@@ -15,7 +15,7 @@ class ChooseFileWindow(QtWidgets.QMainWindow, ChooseFile.Ui_Dialog):
         self.parent = parent
 
     def init_handlers(self):
-        self.FileSelectionButton.clicked.connect(self.choose_file)
+        self.ManualButton.clicked.connect(self.choose_file)
         self.SteamButton.clicked.connect(self.show_steam_id_window)
 
     def choose_file(self):

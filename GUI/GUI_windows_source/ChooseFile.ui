@@ -28,12 +28,12 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(127, 127, 127)</string>
   </property>
-  <widget class="QPushButton" name="FileSelectionButton">
+  <widget class="QPushButton" name="ManualButton">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>190</y>
-     <width>171</width>
+     <width>161</width>
      <height>41</height>
     </rect>
    </property>
@@ -111,7 +111,7 @@ QPushButton:pressed{
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: none;
-image: url(:/background/steam.png);
+image: url(:/icons/icons/steam.png);
 </string>
    </property>
    <property name="text">
@@ -132,7 +132,7 @@ image: url(:/background/steam.png);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: none;
-image: url(:/background/explorer.png);</string>
+image: url(:/icons/icons/explorer.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -141,7 +141,7 @@ image: url(:/background/explorer.png);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QFrame" name="frame">
+  <widget class="QFrame" name="BackgroundFrame">
    <property name="geometry">
     <rect>
      <x>-20</x>
@@ -158,12 +158,12 @@ image: url(:/background/explorer.png);</string>
    </property>
    <property name="maximumSize">
     <size>
-     <width>10</width>
+     <width>687</width>
      <height>250</height>
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/background/choose_file.png);</string>
+    <string notr="true">background-image: url(:/backgrounds/backgrounds/ChooseFile.png);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -242,7 +242,7 @@ QPushButton:pressed{
     <string>_</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="ChooseFileLabel">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -270,17 +270,53 @@ color: #ffffff;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <zorder>frame</zorder>
-  <zorder>FileSelectionButton</zorder>
+  <widget class="QPushButton" name="ReferenceButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 10);
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	color: rgb(199, 199, 199);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	color: #5abe41
+	}</string>
+   </property>
+   <property name="text">
+    <string>?</string>
+   </property>
+  </widget>
+  <zorder>BackgroundFrame</zorder>
+  <zorder>ManualButton</zorder>
   <zorder>SteamButton</zorder>
   <zorder>steam_logo</zorder>
   <zorder>file_explorer_logo</zorder>
   <zorder>ExitButton</zorder>
   <zorder>RollUpButton</zorder>
-  <zorder>label_2</zorder>
+  <zorder>ChooseFileLabel</zorder>
+  <zorder>ReferenceButton</zorder>
  </widget>
  <resources>
-  <include location="pictures/STMTT.qrc"/>
+  <include location="../pictures/resources.qrc"/>
  </resources>
  <connections/>
 </ui>
