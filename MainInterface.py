@@ -5,6 +5,7 @@ from PyQt5 import QtWidgets
 from GUI.GUI_windows_source import MainWindow
 from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
 from GUI.GUI_windows.ErrorMessageWindow import ErrorMessageWindow
+from GUI.GUI_windows.SuccessMessageWIndow import SuccessMessageWindow
 
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translate_line
@@ -21,6 +22,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.pointer = 0
         self.orig_text, self.machine_text, self.user_text = [], [], []
         self.ErrorMessage = ErrorMessageWindow(self)
+        self.SuccessMessage = SuccessMessageWindow(self)
 
     def init_handlers(self):
         self.LocalizeButton.clicked.connect(self.start_local)
@@ -36,6 +38,11 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.ErrorMessage.show()
         self.ErrorMessage.ErrorMessageLine.setText(text)
         self.ErrorMessage.repaint()
+
+    def show_success_message(self, text):
+        self.SuccessMessage.show()
+        self.SuccessMessage.ErrorMessageLine.setText(text)
+        self.SuccessMessage.repaint()
 
     def show_choose_file_window(self):
         choose_file_window = ChooseFileWindow(self)
@@ -96,7 +103,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
             writing_translation(self.user_text)
             put_lines()
-            self.EditString.setText('Файл записан.')
+            self.show_success_message('Файл перевода успешно записан')
         except FileNotFoundError as Error:
             if self.orig_text:
                 self.show_error_message('Перевод уже был записан')
