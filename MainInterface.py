@@ -4,6 +4,7 @@ from PyQt5 import QtWidgets
 
 from GUI.GUI_windows_source import MainWindow
 from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
+from GUI.GUI_windows.ErrorMessageWindow import ErrorMessageWindow
 
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translate_line
@@ -19,6 +20,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.init_helpers()
         self.pointer = 0
         self.orig_text, self.machine_text, self.user_text = [], [], []
+        self.ErrorMessage = ErrorMessageWindow(self)
 
     def init_handlers(self):
         self.LocalizeButton.clicked.connect(self.start_local)
@@ -29,6 +31,11 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def init_helpers(self):
         #self.lineEdit.setText(STELLARIS)
         self.PreviousString.setEnabled(False)
+
+    def show_error_message(self, text):
+        self.ErrorMessage.show()
+        self.ErrorMessage.ErrorMessageLine.setText(text)
+        self.ErrorMessage.repaint()
 
     def show_choose_file_window(self):
         choose_file_window = ChooseFileWindow(self)
@@ -92,13 +99,11 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.EditString.setText('Файл записан.')
         except FileNotFoundError as Error:
             if self.orig_text:
-                self.EditString.setText('Перевод уже был записан')
-                self.EditString.repaint()
+                self.show_error_message('Перевод уже был записан')
             else:
-                self.EditString.setText('Ошибка записи файла. Нет перевода.')
-                self.EditString.repaint()
+                self.show_error_message('Ошибка записи файла. Нет перевода.')
         except IndexError as Error:
-            pass
+            self.show_error_message('Вы ещё не закончили перевод')
 
     def start_local(self):
         self.EditString.setText('Идет процесс перевода')
