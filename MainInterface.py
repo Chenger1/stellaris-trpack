@@ -1,5 +1,4 @@
 import sys
-import copy
 
 from PyQt5 import QtWidgets
 
@@ -17,7 +16,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.init_handlers()
-        #self.init_helpers()
+        self.init_helpers()
         self.pointer = 0
         self.orig_text, self.machine_text, self.user_text = [], [], []
 
@@ -28,7 +27,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.PreviousString.clicked.connect(self.pointer_red)
 
     def init_helpers(self):
-        self.lineEdit.setText(STELLARIS)
+        #self.lineEdit.setText(STELLARIS)
+        self.PreviousString.setEnabled(False)
 
     def show_choose_file_window(self):
         choose_file_window = ChooseFileWindow(self)
@@ -41,8 +41,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.OriginalString.setText(self.orig_text[self.pointer])
         self.TranslateString.setText(self.machine_text[self.pointer])
         self.EditString.setText(self.user_text[self.pointer])
-        print(self.machine_text)
-        print(self.user_text)
 
     def check_new_line_symbol_string(self, value):
         while True:
@@ -52,7 +50,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
                     if self.pointer > len(self.machine_text)-1:
                         self.machine_text.append('\n')
                         self.user_text.append('\n')
-                if value is False: self.pointer -= 1
+                if value is False:
+                    self.pointer -= 1
                 continue
             break
 
@@ -61,25 +60,33 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
         self.pointer += 1
         try:
+            if self.pointer > len(self.orig_text)-2:
+                self.NextStringButton.setEnabled(False)
+            self.check_new_line_symbol_string(True)
             self.set_lines()
         except IndexError as Error:
+            if self.pointer > len(self.orig_text)-2:
+                self.NextStringButton.setEnabled(False)
             self.check_new_line_symbol_string(True)
             self.machine_text.append(translate_line(self.orig_text[self.pointer]))
-            self.user_text.append(copy.deepcopy(self.machine_text[-1]))
+            self.user_text.append(self.machine_text[-1])
             self.set_lines()
 
     def pointer_red(self):
         self.NextStringButton.setEnabled(True)
         self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
         self.pointer -= 1
-        if self.pointer >= 0:
-            self.check_new_line_symbol_string(False)
-            self.set_lines()
-        else:
+        self.check_new_line_symbol_string(False)
+        if self.pointer < 0:
+            self.pointer = 0
+            self.check_new_line_symbol_string(True)
             self.PreviousString.setEnabled(False)
+        else:
+            self.set_lines()
 
     def write_translation(self):
         try:
+            self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
             writing_translation(self.user_text)
             put_lines()
             self.EditString.setText('Файл записан.')
@@ -90,6 +97,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             else:
                 self.EditString.setText('Ошибка записи файла. Нет перевода.')
                 self.EditString.repaint()
+        except IndexError as Error:
+            pass
 
     def start_local(self):
         self.EditString.setText('Идет процесс перевода')
