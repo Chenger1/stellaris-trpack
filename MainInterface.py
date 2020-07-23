@@ -23,6 +23,10 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.orig_text, self.machine_text, self.user_text = [], [], []
         self.ErrorMessage = ErrorMessageWindow(self)
         self.SuccessMessage = SuccessMessageWindow(self)
+        self.system_messages = {
+            'error': self.ErrorMessage,
+            'success': self.SuccessMessage,
+        }
 
     def init_handlers(self):
         self.LocalizeButton.clicked.connect(self.start_local)
@@ -35,15 +39,10 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.PreviousString.setEnabled(False)
         self.NextStringButton.setEnabled(False)
 
-    def show_error_message(self, text):
-        self.ErrorMessage.show()
-        self.ErrorMessage.ErrorMessageLine.setText(text)
-        self.ErrorMessage.repaint()
-
-    def show_success_message(self, text):
-        self.SuccessMessage.show()
-        self.SuccessMessage.ErrorMessageLine.setText(text)
-        self.SuccessMessage.repaint()
+    def show_system_message(self, mes_type, text):
+        self.system_messages[mes_type].show()
+        self.system_messages[mes_type].ErrorMessageLine.setText(text)
+        self.system_messages[mes_type].repaint()
 
     def show_choose_file_window(self):
         choose_file_window = ChooseFileWindow(self)
@@ -104,21 +103,21 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
             writing_translation(self.user_text)
             put_lines()
-            self.show_success_message('Файл перевода успешно записан')
+            self.show_system_message('success', 'Файл перевода успешно записан')
         except FileNotFoundError as Error:
             if self.orig_text:
-                self.show_error_message('Перевод уже был записан')
+                self.show_system_message('error', 'Перевод уже был записан')
             else:
-                self.show_error_message('Ошибка записи файла. Нет перевода.')
+                self.show_system_message('errors', 'Ошибка записи файла. Нет перевода.')
         except IndexError as Error:
-            self.show_error_message('Вы ещё не закончили перевод')
+            self.show_system_message('error', 'Вы ещё не закончили перевод')
 
     def start_local(self):
         try:
             workshop_id = self.ModIDLine.text()
             self.orig_text = cutter_main(workshop_id)
         except FileNotFoundError as Error:
-            self.show_error_message('Вы не выбрали мод')
+            self.show_system_message('error', 'Вы не выбрали мод')
         else:
             self.NextStringButton.setEnabled(True)
             self.EditString.setText('Идет процесс перевода')
