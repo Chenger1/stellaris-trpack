@@ -36,6 +36,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         #self.lineEdit.setText(STELLARIS)
         self.PreviousString.setEnabled(False)
         self.NextStringButton.setEnabled(False)
+        self.StringOrder.setText('0/0')
 
     def show_system_message(self, mes_type, text):
         self.system_messages[mes_type].show()
@@ -53,6 +54,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.OriginalString.setText(self.orig_text[self.pointer])
         self.TranslateString.setText(self.machine_text[self.pointer])
         self.EditString.setText(self.user_text[self.pointer])
+        self.StringOrder.setText(f'{self.pointer}/{len(self.orig_text)}')
 
     def check_new_line_symbol_string(self, value):
         while True:
@@ -100,7 +102,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         elems = [self.LocalizeButton, self.OriginalString, self.TranslateString, self.EditString, self.ModIDLine]
         text = ['Локализировать'] + ['']*4
         for elem, line in zip(elems, text):
-            print(elem)
             elem.setText(line)
             elem.repaint()
         self.LocalizeButton.disconnect()
