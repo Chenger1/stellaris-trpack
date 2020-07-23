@@ -57,7 +57,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.StringOrder.setText(f'{self.pointer} / {len(self.orig_text)}')
 
     def check_new_line_symbol_string(self, value):
-        while True:
+        while self.pointer < len(self.orig_text)-self.orig_text[self.pointer:].count('\n'):
             if self.orig_text[self.pointer].startswith('\n'):
                 if value is True:
                     self.pointer += 1
@@ -68,6 +68,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
                     self.pointer -= 1
                 continue
             break
+        else:
+            self.pointer -= 1
 
     def pointer_inc(self):
         self.PreviousString.setEnabled(True)
@@ -99,8 +101,9 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.set_lines()
 
     def clean_state(self):
-        elems = [self.LocalizeButton, self.OriginalString, self.TranslateString, self.EditString, self.ModIDLine]
-        text = ['Локализировать'] + ['']*4
+        elems = [self.LocalizeButton, self.OriginalString, self.TranslateString,
+                 self.EditString, self.ModIDLine, self.StringOrder]
+        text = ['Локализировать'] + ['']*4 + ['0 / 0']
         for elem, line in zip(elems, text):
             elem.setText(line)
             elem.repaint()
