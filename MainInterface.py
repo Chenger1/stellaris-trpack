@@ -5,7 +5,7 @@ from PyQt5 import QtWidgets
 from GUI.GUI_windows_source import MainWindow
 from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
 from GUI.GUI_windows.ErrorMessageWindow import ErrorMessageWindow
-from GUI.GUI_windows.SuccessMessageWIndow import SuccessMessageWindow
+from GUI.GUI_windows.SuccessMessageWindow import SuccessMessageWindow
 
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translate_line
@@ -33,6 +33,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def init_helpers(self):
         #self.lineEdit.setText(STELLARIS)
         self.PreviousString.setEnabled(False)
+        self.NextStringButton.setEnabled(False)
 
     def show_error_message(self, text):
         self.ErrorMessage.show()
@@ -113,18 +114,23 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.show_error_message('Вы ещё не закончили перевод')
 
     def start_local(self):
-        self.EditString.setText('Идет процесс перевода')
-        self.EditString.repaint()
-        self.LocalizeButton.setText('Закончить перевод')
-        self.LocalizeButton.repaint()
-        self.LocalizeButton.disconnect()
-        self.LocalizeButton.clicked.connect(self.write_translation)
-        workshop_id = self.ModIDLine.text()
-        self.orig_text = cutter_main(workshop_id)
-        self.check_new_line_symbol_string(True)
-        self.machine_text.append(translate_line(self.orig_text[self.pointer]))
-        self.user_text.append(self.machine_text[-1])
-        self.set_lines()
+        try:
+            workshop_id = self.ModIDLine.text()
+            self.orig_text = cutter_main(workshop_id)
+        except FileNotFoundError as Error:
+            self.show_error_message('Вы не выбрали мод')
+        else:
+            self.NextStringButton.setEnabled(True)
+            self.EditString.setText('Идет процесс перевода')
+            self.EditString.repaint()
+            self.LocalizeButton.setText('Закончить перевод')
+            self.LocalizeButton.repaint()
+            self.LocalizeButton.disconnect()
+            self.LocalizeButton.clicked.connect(self.write_translation)
+            self.check_new_line_symbol_string(True)
+            self.machine_text.append(translate_line(self.orig_text[self.pointer]))
+            self.user_text.append(self.machine_text[-1])
+            self.set_lines()
 
 
 def main():
