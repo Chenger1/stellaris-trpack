@@ -21,11 +21,9 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.init_helpers()
         self.pointer = 0
         self.orig_text, self.machine_text, self.user_text = [], [], []
-        self.ErrorMessage = ErrorMessageWindow(self)
-        self.SuccessMessage = SuccessMessageWindow(self)
         self.system_messages = {
-            'error': self.ErrorMessage,
-            'success': self.SuccessMessage,
+            'error': ErrorMessageWindow(self),
+            'success': SuccessMessageWindow(self),
         }
 
     def init_handlers(self):
@@ -108,7 +106,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             if self.orig_text:
                 self.show_system_message('error', 'Перевод уже был записан')
             else:
-                self.show_system_message('errors', 'Ошибка записи файла. Нет перевода.')
+                self.show_system_message('error', 'Ошибка записи файла. Нет перевода.')
         except IndexError as Error:
             self.show_system_message('error', 'Вы ещё не закончили перевод')
 
