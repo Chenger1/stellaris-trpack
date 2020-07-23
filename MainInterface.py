@@ -96,12 +96,25 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         else:
             self.set_lines()
 
+    def clean_state(self):
+        elems = [self.LocalizeButton, self.OriginalString, self.TranslateString, self.EditString, self.ModIDLine]
+        text = ['Локализировать'] + ['']*4
+        for elem, line in zip(elems, text):
+            print(elem)
+            elem.setText(line)
+            elem.repaint()
+        self.LocalizeButton.disconnect()
+        self.LocalizeButton.clicked.connect(self.start_local)
+        self.pointer = 0
+        self.orig_text, self.machine_text, self.user_text = [], [],[]
+
     def write_translation(self):
         try:
             self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
             writing_translation(self.user_text)
             put_lines()
             self.show_system_message('success', 'Файл перевода успешно записан')
+            self.clean_state()
         except FileNotFoundError as Error:
             if self.orig_text:
                 self.show_system_message('error', 'Перевод уже был записан')
