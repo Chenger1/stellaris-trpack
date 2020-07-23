@@ -88,6 +88,31 @@ def writing_translation(translation):
 	set_translated_file(translated)
 
 
+def defining_translator(func):
+	translator = Translator()
+	DetectorFactory.seed = 0
+
+	def wrapper(line):
+		ru_line = func(line, translator)
+		return ru_line
+	return wrapper
+
+
+@defining_translator
+def translate_line(line, translator=None):
+	translation = ''
+	if len(line) > 2:
+		test = detect(line)
+		colons = line.count(':')
+		if test != 'ru' and colons < 2:
+			translation = line_processing(line, translator)
+		else:
+			translation = line
+	else:
+		translation = line
+	return translation
+
+
 def translating_file():
 	translator = Translator()
 	DetectorFactory.seed = 0

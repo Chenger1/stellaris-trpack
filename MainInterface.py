@@ -1,4 +1,5 @@
 import sys
+import copy
 
 from PyQt5 import QtWidgets
 
@@ -6,7 +7,7 @@ from GUI.GUI_windows_source import MainWindow
 from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
 
 from scripts.loc_cutter import cutter_main
-from scripts.loc_translator import writing_translation, translating_file
+from scripts.loc_translator import writing_translation, translate_line
 from scripts.loc_putter import put_lines
 from scripts.utils import STELLARIS, check_new_line_sym_ending
 
@@ -18,7 +19,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.init_handlers()
         #self.init_helpers()
         self.pointer = 0
-        self.orig_text = self.machine_text = self.user_text = []
+        self.orig_text, self.machine_text, self.user_text = [], [], []
 
     def init_handlers(self):
         self.LocalizeButton.clicked.connect(self.start_local)
@@ -40,33 +41,41 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.OriginalString.setText(self.orig_text[self.pointer])
         self.TranslateString.setText(self.machine_text[self.pointer])
         self.EditString.setText(self.user_text[self.pointer])
+        print(self.machine_text)
+        print(self.user_text)
 
     def check_new_line_symbol_string(self, value):
         while True:
-            if self.user_text[self.pointer].startswith('\n'):
-                if value is True: self.pointer += 1
+            if self.orig_text[self.pointer].startswith('\n'):
+                if value is True:
+                    self.pointer += 1
+                    if self.pointer > len(self.machine_text)-1:
+                        self.machine_text.append('\n')
+                        self.user_text.append('\n')
                 if value is False: self.pointer -= 1
                 continue
             break
 
     def pointer_inc(self):
         self.PreviousString.setEnabled(True)
+        self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
+        self.pointer += 1
         try:
-            self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
-            self.pointer += 1
-            self.check_new_line_symbol_string(True)
             self.set_lines()
         except IndexError as Error:
-            self.NextStringButton.setEnabled(False)
+            self.check_new_line_symbol_string(True)
+            self.machine_text.append(translate_line(self.orig_text[self.pointer]))
+            self.user_text.append(copy.deepcopy(self.machine_text[-1]))
+            self.set_lines()
 
     def pointer_red(self):
         self.NextStringButton.setEnabled(True)
-        try:
-            self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
-            self.pointer -= 1
+        self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
+        self.pointer -= 1
+        if self.pointer >= 0:
             self.check_new_line_symbol_string(False)
             self.set_lines()
-        except IndexError as Error:
+        else:
             self.PreviousString.setEnabled(False)
 
     def write_translation(self):
@@ -90,9 +99,10 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.LocalizeButton.disconnect()
         self.LocalizeButton.clicked.connect(self.write_translation)
         workshop_id = self.ModIDLine.text()
-        cutter_main(workshop_id)
-        self.orig_text, self.machine_text, self.user_text = translating_file()
+        self.orig_text = cutter_main(workshop_id)
         self.check_new_line_symbol_string(True)
+        self.machine_text.append(translate_line(self.orig_text[self.pointer]))
+        self.user_text.append(self.machine_text[-1])
         self.set_lines()
 
 
