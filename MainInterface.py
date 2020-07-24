@@ -1,6 +1,6 @@
 import sys
 
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import MainWindow
 from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
@@ -50,10 +50,16 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def get_steam_id(self, path):
         self.ModIDLine.setText(path)
 
+    def centering_lines(self):
+        self.OriginalString.setAlignment(QtCore.Qt.AlignCenter)
+        self.TranslateString.setAlignment(QtCore.Qt.AlignCenter)
+        self.EditString.setAlignment(QtCore.Qt.AlignCenter)
+
     def set_lines(self):
         self.OriginalString.setText(self.orig_text[self.pointer])
         self.TranslateString.setText(self.machine_text[self.pointer])
         self.EditString.setText(self.user_text[self.pointer])
+        self.centering_lines()
         self.StringOrder.setText(f'{self.pointer} / {len(self.orig_text)}')
 
     def check_new_line_symbol_string(self, value):
