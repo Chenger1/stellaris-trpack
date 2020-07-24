@@ -11,3 +11,4 @@ if __name__ == '__main__':
     install('googletrans')
     install('pyqt5')
     install('pyqt5-tools')
+    install('pypiwin32')
