@@ -38,9 +38,10 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.NextStringButton.setEnabled(False)
         self.StringOrder.setText('0 / 0')
 
-    def show_system_message(self, mes_type, text):
+    def show_system_message(self, mes_type, text, label=None):
         self.system_messages[mes_type].show()
         self.system_messages[mes_type].ErrorMessageLine.setText(text)
+        if label: self.system_messages[mes_type].ErrorLabel.setText(label)
         self.system_messages[mes_type].repaint()
 
     def show_choose_file_window(self):
@@ -142,8 +143,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.show_system_message('error', 'Вы не выбрали мод')
         else:
             self.NextStringButton.setEnabled(True)
-            self.EditString.setText('Идет процесс перевода')
-            self.EditString.repaint()
+            self.show_system_message('success', 'Идет процесс перевода', 'Перевод')
             self.LocalizeButton.setText('Закончить перевод')
             self.LocalizeButton.repaint()
             self.LocalizeButton.disconnect()
