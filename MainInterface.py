@@ -10,7 +10,7 @@ from GUI.GUI_windows.SuccessMessageWindow import SuccessMessageWindow
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translate_line
 from scripts.loc_putter import put_lines
-from scripts.utils import STELLARIS, check_new_line_sym_ending
+from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content
 
 
 class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
@@ -130,7 +130,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def start_local(self):
         try:
             workshop_id = self.ModIDLine.text()
-            self.orig_text = cutter_main(workshop_id)
+            path = paradox_mod_way_to_content(workshop_id)
+            self.orig_text = cutter_main(path, workshop_id)
         except FileNotFoundError as Error:
             self.show_system_message('error', 'Вы не выбрали мод')
         else:

@@ -1,8 +1,10 @@
 import json
 import os
 import re
+import win32api
 
-STELLARIS = 'SteamLibrary\\steamapps\\workshop\\content\\281990\\'
+drive = win32api.GetSystemDirectory().split(':')[0]
+user = win32api.GetUserName()
 data = {}
 
 
@@ -40,6 +42,15 @@ def write_data_about_mode(temp_folder, temp_files):
 
 def set_translated_file(file):
     data['translated_file'] = file
+
+
+def paradox_mod_way_to_content(mod_id):
+    ugc_id_mod = F'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris\\mod\\ugc_{mod_id}.mod'
+    with open(ugc_id_mod, 'r', encoding='utf-8') as reading:
+        for line in reading.readlines():
+            if 'steamapps' in line:
+                path = line.split('"')[1].replace('/', '\\')
+    return path
 
 
 def get_mod_id(file_path):

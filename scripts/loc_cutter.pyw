@@ -1,10 +1,8 @@
 #!/usr/bin/python3
-import tkinter as tk
-from tkinter import filedialog
 import re
 import os
 
-from scripts.utils import write_data_about_mode, create_temp_folder, STELLARIS
+from scripts.utils import write_data_about_mode, create_temp_folder
 
 
 def search(subs, line):
@@ -56,32 +54,11 @@ def creating_temp_files(loc_path, temp_folder):
 			'cuttered': newloc}
 
 
-def finding_steam_library(stellaris, mod_id):
-	steam = ''
-	steam_library = open('SteamLibrary.txt', 'r', encoding='utf-8')
-
-	for path in steam_library:
-		steam = path
-		break
-	loc_path = F'{steam}{stellaris}{mod_id}\\localisation'
-	return loc_path
-
-
-def cutter_main(mod_id):
-	# ВАРИАНТ 1 --- УКАЗЫВАЕМ ФАЙЛ РУЧКАМИ
-	# l_english = filedialog.askopenfilename() # указываем файл напрямую
-	# ВАРИАНТ 2 --- УКАЗЫВАЕМ ССЫЛКУ НА МОД В STEAM WORKSHOP
-	# mod_id = input(
-	# 	'Вставьте ссылку на установленный мод из SteamWorkshop или его id.\nНапример: https://steamcommunity.com/sharedfiles/filedetails/?id=1448888608\n').split(
-	# 	'=')[-1]
-	loc_path = finding_steam_library(STELLARIS, mod_id)
+def cutter_main(path, mod_id):
+	loc_path = f'{path}\\localisation'
 	temp_folder = create_temp_folder(mod_id, loc_path)
 	temp_files = creating_temp_files(loc_path, temp_folder)
 	write_data_about_mode(temp_folder, temp_files)
 	orig_text = cutting_lines(temp_files)
 	return orig_text
-
-
-if __name__ == '__main__':
-	cutter_main(mod_id)
 
