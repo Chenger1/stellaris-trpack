@@ -54,7 +54,7 @@ background-image: url('pictures/background.png')</string>
      <rect>
       <x>20</x>
       <y>780</y>
-      <width>191</width>
+      <width>231</width>
       <height>41</height>
      </rect>
     </property>
@@ -628,9 +628,9 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="ShareButton">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>280</x>
       <y>780</y>
-      <width>171</width>
+      <width>181</width>
       <height>41</height>
      </rect>
     </property>
@@ -801,42 +801,6 @@ image: url(:/icons/icons/lang.png);</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="VariableLine">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>320</y>
-      <width>431</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>KB Astrolyte</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit{
-	background-color: rgba(31, 37, 51, 50);
-	border: 0px solid #ffffff;
-	color: #ffffff;
-	}
-QLineEdit:hover{
-	background-color: #rgba(56, 57, 61, 50);
-	}
-</string>
-    </property>
-    <property name="text">
-     <string>variable_example:</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="StringOrder">
     <property name="geometry">
      <rect>
@@ -854,12 +818,12 @@ QLineEdit:hover{
     </property>
     <property name="styleSheet">
      <string notr="true">QLineEdit{
-	background-color: rgba(31, 37, 51, 50);
-	border: 0px solid #ffffff;
+	background-color: transparent;
+	border: transparent;
 	color: #ffffff;
 	}
 QLineEdit:hover{
-	background-color: #rgba(56, 57, 61, 50);
+	background-color: transparent;
 	}
 </string>
     </property>
@@ -896,7 +860,6 @@ QLineEdit:hover{
    <zorder>RollUpButton</zorder>
    <zorder>steam_logo</zorder>
    <zorder>lang_logo</zorder>
-   <zorder>VariableLine</zorder>
    <zorder>StringOrder</zorder>
   </widget>
  </widget>

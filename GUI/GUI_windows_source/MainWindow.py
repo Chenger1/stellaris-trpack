@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.LocalizeButton = QtWidgets.QPushButton(self.centralwidget)
-        self.LocalizeButton.setGeometry(QtCore.QRect(20, 780, 191, 41))
+        self.LocalizeButton.setGeometry(QtCore.QRect(20, 780, 231, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
@@ -347,7 +347,7 @@ class Ui_MainWindow(object):
 "")
         self.EditString.setObjectName("EditString")
         self.ShareButton = QtWidgets.QPushButton(self.centralwidget)
-        self.ShareButton.setGeometry(QtCore.QRect(230, 780, 171, 41))
+        self.ShareButton.setGeometry(QtCore.QRect(280, 780, 181, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
@@ -433,24 +433,6 @@ class Ui_MainWindow(object):
         self.lang_logo.setPixmap(QtGui.QPixmap(":/background/lang.png"))
         self.lang_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.lang_logo.setObjectName("lang_logo")
-        self.VariableLine = QtWidgets.QLineEdit(self.centralwidget)
-        self.VariableLine.setGeometry(QtCore.QRect(430, 320, 431, 71))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(12)
-        self.VariableLine.setFont(font)
-        self.VariableLine.setStyleSheet("QLineEdit{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 0px solid #ffffff;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QLineEdit:hover{\n"
-"    background-color: #rgba(56, 57, 61, 50);\n"
-"    }\n"
-"")
-        self.VariableLine.setAlignment(QtCore.Qt.AlignCenter)
-        self.VariableLine.setReadOnly(True)
-        self.VariableLine.setObjectName("VariableLine")
         self.StringOrder = QtWidgets.QLineEdit(self.centralwidget)
         self.StringOrder.setGeometry(QtCore.QRect(580, 400, 131, 91))
         font = QtGui.QFont()
@@ -458,12 +440,12 @@ class Ui_MainWindow(object):
         font.setPointSize(11)
         self.StringOrder.setFont(font)
         self.StringOrder.setStyleSheet("QLineEdit{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 0px solid #ffffff;\n"
+"    background-color: transparent;\n"
+"    border: transparent;\n"
 "    color: #ffffff;\n"
 "    }\n"
 "QLineEdit:hover{\n"
-"    background-color: #rgba(56, 57, 61, 50);\n"
+"    background-color: transparent;\n"
 "    }\n"
 "")
         self.StringOrder.setAlignment(QtCore.Qt.AlignCenter)
@@ -492,7 +474,6 @@ class Ui_MainWindow(object):
         self.RollUpButton.raise_()
         self.steam_logo.raise_()
         self.lang_logo.raise_()
-        self.VariableLine.raise_()
         self.StringOrder.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -532,6 +513,5 @@ class Ui_MainWindow(object):
         self.ShareButton.setText(_translate("MainWindow", "Опубликовать"))
         self.ExitButton.setText(_translate("MainWindow", "X"))
         self.RollUpButton.setText(_translate("MainWindow", "_"))
-        self.VariableLine.setText(_translate("MainWindow", "variable_example:"))
         self.StringOrder.setText(_translate("MainWindow", "5 / 300"))
 from GUI.pictures import resources
