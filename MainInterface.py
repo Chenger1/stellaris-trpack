@@ -31,8 +31,10 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         }
 
     def progressbar_set_value(self):
+        print(self.NextStringButton.isEnabled())
+        print(len(self.orig_text))
         for i in self.bar:
-            i.setValue(self.pointer)
+            i.setValue(self.pointer if self.NextStringButton.isEnabled() is True else len(self.orig_text))
 
     def progressbar_set_maximum(self, max):
         for i in self.bar:
@@ -88,6 +90,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
                 continue
             break
         else:
+            self.NextStringButton.setEnabled(False)
             self.pointer -= 1
 
     def pointer_inc(self):
@@ -95,13 +98,9 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
         self.pointer += 1
         try:
-            if self.pointer > len(self.orig_text)-2:
-                self.NextStringButton.setEnabled(False)
             self.check_new_line_symbol_string(True)
             self.set_lines()
         except IndexError as Error:
-            if self.pointer > len(self.orig_text)-2:
-                self.NextStringButton.setEnabled(False)
             self.check_new_line_symbol_string(True)
             self.user_text.append(translate_line(self.orig_text[self.pointer]))
             self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
