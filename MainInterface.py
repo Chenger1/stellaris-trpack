@@ -31,8 +31,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         }
 
     def progressbar_set_value(self):
-        print(self.NextStringButton.isEnabled())
-        print(len(self.orig_text))
         for i in self.bar:
             i.setValue(self.pointer if self.NextStringButton.isEnabled() is True else len(self.orig_text))
 
