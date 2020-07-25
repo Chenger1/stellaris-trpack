@@ -21,10 +21,21 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.init_helpers()
         self.pointer = 0
         self.orig_text, self.machine_text, self.user_text = [], [], []
+        self.bar = [self.TprogressBar_L, self.TprogressBar_R,
+                    self.BprogressBar_L, self.BprogressBar_R,
+                    self.LprogressBar_T, self.LprogressBar_B,
+                    self.RprogressBar_T, self.RprogressBar_B]
         self.system_messages = {
             'error': ErrorMessageWindow(self),
             'success': SuccessMessageWindow(self),
         }
+    def progressbar_set_value(self):
+        for i in self.bar:
+            i.setValue(self.pointer)
+
+    def progressbar_set_maximum(self, max):
+        for i in self.bar:
+            i.setMaximum(max)
 
     def init_handlers(self):
         self.LocalizeButton.clicked.connect(self.start_local)
@@ -33,10 +44,9 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.PreviousString.clicked.connect(self.pointer_red)
 
     def init_helpers(self):
-        #self.lineEdit.setText(STELLARIS)
         self.PreviousString.setEnabled(False)
         self.NextStringButton.setEnabled(False)
-        self.StringOrder.setText('0 / 0')
+        self.StringOrder.setText('0')
 
     def show_system_message(self, mes_type, text, label=None):
         self.system_messages[mes_type].show()
@@ -61,7 +71,9 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.TranslateString.setText(self.machine_text[self.pointer])
         self.EditString.setText(self.user_text[self.pointer])
         self.centering_lines()
-        self.StringOrder.setText(f'{self.pointer} / {len(self.orig_text)}')
+        self.StringOrder.setText(f'{self.pointer}')
+        self.progressbar_set_value()
+
 
     def check_new_line_symbol_string(self, value):
         while self.pointer < len(self.orig_text)-self.orig_text[self.pointer:].count('\n'):
@@ -110,7 +122,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def clean_state(self):
         elems = [self.LocalizeButton, self.OriginalString, self.TranslateString,
                  self.EditString, self.ModIDLine, self.StringOrder]
-        text = ['Локализировать'] + ['']*4 + ['0 / 0']
+        text = ['Локализировать'] + ['']*4 + ['0']
         for elem, line in zip(elems, text):
             elem.setText(line)
             elem.repaint()
@@ -139,6 +151,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             workshop_id = self.ModIDLine.text()
             path = paradox_mod_way_to_content(workshop_id)
             self.orig_text = cutter_main(path, workshop_id)
+            self.progressbar_set_maximum(len(self.orig_text))
         except FileNotFoundError as Error:
             self.show_system_message('error', 'Вы не выбрали мод')
         else:
