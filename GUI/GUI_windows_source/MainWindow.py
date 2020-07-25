@@ -31,6 +31,7 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet("background-color: #1f2533;\n"
 "background-image: url(\'pictures/background.png\')")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setStyleSheet("background-color: transparent;")
         self.centralwidget.setObjectName("centralwidget")
         self.LocalizeButton = QtWidgets.QPushButton(self.centralwidget)
         self.LocalizeButton.setGeometry(QtCore.QRect(20, 780, 231, 41))
@@ -436,8 +437,8 @@ class Ui_MainWindow(object):
         self.StringOrder = QtWidgets.QLineEdit(self.centralwidget)
         self.StringOrder.setGeometry(QtCore.QRect(580, 400, 131, 91))
         font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
+        font.setFamily("AnyNumber_Cyrillic")
+        font.setPointSize(22)
         self.StringOrder.setFont(font)
         self.StringOrder.setStyleSheet("QLineEdit{\n"
 "    background-color: transparent;\n"
@@ -451,7 +452,175 @@ class Ui_MainWindow(object):
         self.StringOrder.setAlignment(QtCore.Qt.AlignCenter)
         self.StringOrder.setReadOnly(True)
         self.StringOrder.setObjectName("StringOrder")
+        self.ProgressBarFrame = QtWidgets.QFrame(self.centralwidget)
+        self.ProgressBarFrame.setGeometry(QtCore.QRect(0, 0, 1301, 861))
+        self.ProgressBarFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.ProgressBarFrame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.ProgressBarFrame.setObjectName("ProgressBarFrame")
+        self.gridLayoutWidget = QtWidgets.QWidget(self.ProgressBarFrame)
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 0, 1302, 31))
+        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
+        self.TopGridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
+        self.TopGridLayout.setContentsMargins(0, 18, 0, 0)
+        self.TopGridLayout.setSpacing(0)
+        self.TopGridLayout.setObjectName("TopGridLayout")
+        self.TprogressBar_L = QtWidgets.QProgressBar(self.gridLayoutWidget)
+        self.TprogressBar_L.setMinimumSize(QtCore.QSize(650, 2))
+        self.TprogressBar_L.setMaximumSize(QtCore.QSize(650, 2))
+        self.TprogressBar_L.setSizeIncrement(QtCore.QSize(0, 0))
+        self.TprogressBar_L.setStyleSheet("QProgressBar {\n"
+"    background-color: transparent;\n"
+"    border: 0px solid gray; \n"
+"    max-height:2px;\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"    background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 #05B8CC, stop: 1 green);\n"
+"};")
+        self.TprogressBar_L.setProperty("value", 24)
+        self.TprogressBar_L.setTextVisible(False)
+        self.TprogressBar_L.setInvertedAppearance(False)
+        self.TprogressBar_L.setObjectName("TprogressBar_L")
+        self.TopGridLayout.addWidget(self.TprogressBar_L, 0, 0, 1, 1)
+        self.TprogressBar_R = QtWidgets.QProgressBar(self.gridLayoutWidget)
+        self.TprogressBar_R.setMinimumSize(QtCore.QSize(650, 2))
+        self.TprogressBar_R.setMaximumSize(QtCore.QSize(650, 2))
+        self.TprogressBar_R.setStyleSheet("QProgressBar {\n"
+"    background-color: transparent;\n"
+"    border: 0px solid gray; \n"
+"    max-height:2px;\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"    background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 green , stop: 1 #05B8CC);\n"
+"};")
+        self.TprogressBar_R.setProperty("value", 24)
+        self.TprogressBar_R.setTextVisible(False)
+        self.TprogressBar_R.setInvertedAppearance(True)
+        self.TprogressBar_R.setObjectName("TprogressBar_R")
+        self.TopGridLayout.addWidget(self.TprogressBar_R, 0, 1, 1, 1)
+        self.gridLayoutWidget_2 = QtWidgets.QWidget(self.ProgressBarFrame)
+        self.gridLayoutWidget_2.setGeometry(QtCore.QRect(0, 840, 1302, 41))
+        self.gridLayoutWidget_2.setObjectName("gridLayoutWidget_2")
+        self.BottomGridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget_2)
+        self.BottomGridLayout.setContentsMargins(0, 0, 0, 4)
+        self.BottomGridLayout.setSpacing(0)
+        self.BottomGridLayout.setObjectName("BottomGridLayout")
+        self.BprogressBar_L = QtWidgets.QProgressBar(self.gridLayoutWidget_2)
+        self.BprogressBar_L.setMinimumSize(QtCore.QSize(650, 2))
+        self.BprogressBar_L.setMaximumSize(QtCore.QSize(650, 2))
+        self.BprogressBar_L.setSizeIncrement(QtCore.QSize(0, 0))
+        self.BprogressBar_L.setStyleSheet("QProgressBar {\n"
+"    background-color: transparent;\n"
+"    border: 0px solid gray; \n"
+"    max-height:3px;\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"    background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 #05B8CC, stop: 1 green);\n"
+"};")
+        self.BprogressBar_L.setProperty("value", 24)
+        self.BprogressBar_L.setTextVisible(False)
+        self.BprogressBar_L.setInvertedAppearance(False)
+        self.BprogressBar_L.setObjectName("BprogressBar_L")
+        self.BottomGridLayout.addWidget(self.BprogressBar_L, 0, 0, 1, 1)
+        self.BprogressBar_R = QtWidgets.QProgressBar(self.gridLayoutWidget_2)
+        self.BprogressBar_R.setMinimumSize(QtCore.QSize(650, 2))
+        self.BprogressBar_R.setMaximumSize(QtCore.QSize(650, 2))
+        self.BprogressBar_R.setStyleSheet("QProgressBar {\n"
+"    background-color: transparent;\n"
+"    border: 0px solid gray; \n"
+"    max-height: 3px;\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"    background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 green , stop: 1 #05B8CC);\n"
+"};")
+        self.BprogressBar_R.setProperty("value", 24)
+        self.BprogressBar_R.setTextVisible(False)
+        self.BprogressBar_R.setInvertedAppearance(True)
+        self.BprogressBar_R.setObjectName("BprogressBar_R")
+        self.BottomGridLayout.addWidget(self.BprogressBar_R, 0, 1, 1, 1)
+        self.gridLayoutWidget_5 = QtWidgets.QWidget(self.ProgressBarFrame)
+        self.gridLayoutWidget_5.setGeometry(QtCore.QRect(0, 0, 16, 948))
+        self.gridLayoutWidget_5.setObjectName("gridLayoutWidget_5")
+        self.LeftGridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget_5)
+        self.LeftGridLayout.setContentsMargins(0, 16, 12, 70)
+        self.LeftGridLayout.setSpacing(0)
+        self.LeftGridLayout.setObjectName("LeftGridLayout")
+        self.LprogressBar_T = QtWidgets.QProgressBar(self.gridLayoutWidget_5)
+        self.LprogressBar_T.setMinimumSize(QtCore.QSize(2, 400))
+        self.LprogressBar_T.setMaximumSize(QtCore.QSize(2, 420))
+        self.LprogressBar_T.setStyleSheet("QProgressBar {\n"
+"    background-color: transparent;\n"
+"    border: 0px solid gray; \n"
+"    max-width: 3px;\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"    background: qlineargradient(x1: 0.5, y1: 0, x2: 0.5, y2: 1, stop: 0 #05B8CC, stop: 1 green);\n"
+"};")
+        self.LprogressBar_T.setProperty("value", 24)
+        self.LprogressBar_T.setTextVisible(False)
+        self.LprogressBar_T.setOrientation(QtCore.Qt.Vertical)
+        self.LprogressBar_T.setInvertedAppearance(True)
+        self.LprogressBar_T.setObjectName("LprogressBar_T")
+        self.LeftGridLayout.addWidget(self.LprogressBar_T, 0, 0, 1, 1)
+        self.LprogressBar_B = QtWidgets.QProgressBar(self.gridLayoutWidget_5)
+        self.LprogressBar_B.setMinimumSize(QtCore.QSize(2, 400))
+        self.LprogressBar_B.setMaximumSize(QtCore.QSize(2, 420))
+        self.LprogressBar_B.setStyleSheet("QProgressBar {\n"
+"    background-color: transparent;\n"
+"    border: 0px solid gray; \n"
+"    max-width: 3px;\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"    background: qlineargradient(x1: 0.5, y1: 0, x2: 0.5, y2: 1, stop: 0 green, stop: 1#05B8CC);\n"
+"};")
+        self.LprogressBar_B.setProperty("value", 24)
+        self.LprogressBar_B.setTextVisible(False)
+        self.LprogressBar_B.setOrientation(QtCore.Qt.Vertical)
+        self.LprogressBar_B.setInvertedAppearance(False)
+        self.LprogressBar_B.setObjectName("LprogressBar_B")
+        self.LeftGridLayout.addWidget(self.LprogressBar_B, 1, 0, 1, 1)
+        self.gridLayoutWidget_4 = QtWidgets.QWidget(self.ProgressBarFrame)
+        self.gridLayoutWidget_4.setGeometry(QtCore.QRect(1283, 0, 20, 948))
+        self.gridLayoutWidget_4.setObjectName("gridLayoutWidget_4")
+        self.RightGridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget_4)
+        self.RightGridLayout.setContentsMargins(12, 16, 0, 70)
+        self.RightGridLayout.setSpacing(0)
+        self.RightGridLayout.setObjectName("RightGridLayout")
+        self.RprogressBar_T = QtWidgets.QProgressBar(self.gridLayoutWidget_4)
+        self.RprogressBar_T.setMinimumSize(QtCore.QSize(2, 400))
+        self.RprogressBar_T.setMaximumSize(QtCore.QSize(2, 420))
+        self.RprogressBar_T.setStyleSheet("QProgressBar {\n"
+"    background-color: transparent;\n"
+"    border: 0px solid gray; \n"
+"    max-width: 3px;\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"    background: qlineargradient(x1: 0.5, y1: 0, x2: 0.5, y2: 1, stop: 0 #05B8CC, stop: 1 green);\n"
+"};")
+        self.RprogressBar_T.setProperty("value", 24)
+        self.RprogressBar_T.setTextVisible(False)
+        self.RprogressBar_T.setOrientation(QtCore.Qt.Vertical)
+        self.RprogressBar_T.setInvertedAppearance(True)
+        self.RprogressBar_T.setObjectName("RprogressBar_T")
+        self.RightGridLayout.addWidget(self.RprogressBar_T, 0, 0, 1, 1)
+        self.RprogressBar_B = QtWidgets.QProgressBar(self.gridLayoutWidget_4)
+        self.RprogressBar_B.setMinimumSize(QtCore.QSize(2, 400))
+        self.RprogressBar_B.setMaximumSize(QtCore.QSize(2, 420))
+        self.RprogressBar_B.setStyleSheet("QProgressBar {\n"
+"    background-color: transparent;\n"
+"    border: 0px solid gray; \n"
+"    max-width: 3px;\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"    background: qlineargradient(x1: 0.5, y1: 0, x2: 0.5, y2: 1, stop: 0 green, stop: 1#05B8CC);\n"
+"};")
+        self.RprogressBar_B.setProperty("value", 24)
+        self.RprogressBar_B.setTextVisible(False)
+        self.RprogressBar_B.setOrientation(QtCore.Qt.Vertical)
+        self.RprogressBar_B.setInvertedAppearance(False)
+        self.RprogressBar_B.setObjectName("RprogressBar_B")
+        self.RightGridLayout.addWidget(self.RprogressBar_B, 1, 0, 1, 1)
         self.BackgroundFrame.raise_()
+        self.ProgressBarFrame.raise_()
         self.LocalizeButton.raise_()
         self.SteamButton.raise_()
         self.ModIDLine.raise_()
@@ -513,5 +682,5 @@ class Ui_MainWindow(object):
         self.ShareButton.setText(_translate("MainWindow", "Опубликовать"))
         self.ExitButton.setText(_translate("MainWindow", "X"))
         self.RollUpButton.setText(_translate("MainWindow", "_"))
-        self.StringOrder.setText(_translate("MainWindow", "5 / 300"))
+        self.StringOrder.setText(_translate("MainWindow", "0"))
 from GUI.pictures import resources
