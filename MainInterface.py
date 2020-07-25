@@ -43,6 +43,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.FileSelectionButton.clicked.connect(self.show_choose_file_window)
         self.NextStringButton.clicked.connect(self.pointer_inc)
         self.PreviousString.clicked.connect(self.pointer_red)
+        self.ExitButton.clicked.connect(self.closing_app)
 
     def init_helpers(self):
         self.PreviousString.setEnabled(False)
@@ -162,6 +163,9 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.user_text.append(translate_line(self.orig_text[self.pointer]))
             self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
             self.set_lines()
+
+    def closing_app(self):
+        self.close()
 
 
 def main():
