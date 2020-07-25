@@ -10,7 +10,7 @@ from GUI.GUI_windows.SuccessMessageWindow import SuccessMessageWindow
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translate_line
 from scripts.loc_putter import put_lines
-from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content
+from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated
 
 
 class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
@@ -29,6 +29,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             'error': ErrorMessageWindow(self),
             'success': SuccessMessageWindow(self),
         }
+
     def progressbar_set_value(self):
         for i in self.bar:
             i.setValue(self.pointer)
@@ -74,7 +75,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.StringOrder.setText(f'{self.pointer}')
         self.progressbar_set_value()
 
-
     def check_new_line_symbol_string(self, value):
         while self.pointer < len(self.orig_text)-self.orig_text[self.pointer:].count('\n'):
             if self.orig_text[self.pointer].startswith('\n'):
@@ -103,8 +103,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             if self.pointer > len(self.orig_text)-2:
                 self.NextStringButton.setEnabled(False)
             self.check_new_line_symbol_string(True)
-            self.machine_text.append(translate_line(self.orig_text[self.pointer]))
-            self.user_text.append(self.machine_text[-1])
+            self.user_text.append(translate_line(self.orig_text[self.pointer]))
+            self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
             self.set_lines()
 
     def pointer_red(self):
@@ -162,8 +162,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.LocalizeButton.disconnect()
             self.LocalizeButton.clicked.connect(self.write_translation)
             self.check_new_line_symbol_string(True)
-            self.machine_text.append(translate_line(self.orig_text[self.pointer]))
-            self.user_text.append(self.machine_text[-1])
+            self.user_text.append(translate_line(self.orig_text[self.pointer]))
+            self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
             self.set_lines()
 
 

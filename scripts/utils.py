@@ -3,6 +3,7 @@ import os
 import re
 import win32api
 
+
 drive = win32api.GetSystemDirectory().split(':')[0]
 user = win32api.GetUserName()
 data = {}
@@ -61,3 +62,10 @@ def get_mod_id(file_path):
 
 def check_new_line_sym_ending(line):
     return line if line.endswith('\n') else line + '\n'
+
+
+def check_if_line_translated(orig_line, tr_line):
+    if orig_line.replace('\n', '').strip() == tr_line.replace('\n', '').strip():
+        return 'Извините, переводчик не смог перевести эту строку'
+    else:
+        return tr_line
