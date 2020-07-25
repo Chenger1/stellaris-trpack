@@ -44,6 +44,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.NextStringButton.clicked.connect(self.pointer_inc)
         self.PreviousString.clicked.connect(self.pointer_red)
         self.ExitButton.clicked.connect(self.closing_app)
+        self.RollUpButton.clicked.connect(self.minimize_app)
 
     def init_helpers(self):
         self.PreviousString.setEnabled(False)
@@ -166,6 +167,9 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def closing_app(self):
         self.close()
+
+    def minimize_app(self):
+        self.showMinimized()
 
 
 def main():
