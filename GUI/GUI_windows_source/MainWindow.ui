@@ -1182,46 +1182,58 @@ QProgressBar::chunk {
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="verticalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>1301</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="TopBarLayout">
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <property name="leftMargin">
-       <number>1250</number>
-      </property>
-      <property name="rightMargin">
-       <number>10</number>
-      </property>
-      <property name="bottomMargin">
-       <number>10</number>
-      </property>
-      <item>
-       <widget class="QPushButton" name="RollUpButton">
-        <property name="minimumSize">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Montserrat</family>
-          <pointsize>9</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
+   </widget>
+   <widget class="QPushButton" name="WindowMoveButton">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>0</y>
+      <width>1311</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	color: transparent;
+}</string>
+    </property>
+    <property name="text">
+     <string>Steam</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="RollUpButton">
+    <property name="geometry">
+     <rect>
+      <x>1250</x>
+      <y>0</y>
+      <width>20</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
 	background-color: rgba(31, 37, 51, 10);
 	color: #ffffff;
 	}
@@ -1233,30 +1245,36 @@ QPushButton:pressed{
 	background-color: rgba(194, 194, 194, 50);
 	color: #5abe41
 	}</string>
-        </property>
-        <property name="text">
-         <string>_</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="ExitButton">
-        <property name="minimumSize">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Montserrat</family>
-          <pointsize>9</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
+    </property>
+    <property name="text">
+     <string>_</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ExitButton">
+    <property name="geometry">
+     <rect>
+      <x>1270</x>
+      <y>0</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
 	background-color: rgba(31, 37, 51, 10);
 	color: #ffffff;
 	}
@@ -1268,14 +1286,10 @@ QPushButton:pressed{
 	background-color: rgba(194, 194, 194, 50);
 	color: rgb(255, 60, 63)
 	}</string>
-        </property>
-        <property name="text">
-         <string>X</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
+    </property>
+    <property name="text">
+     <string>X</string>
+    </property>
    </widget>
    <zorder>BackgroundFrame</zorder>
    <zorder>ProgressBarFrame</zorder>
@@ -1300,6 +1314,9 @@ QPushButton:pressed{
    <zorder>steam_logo</zorder>
    <zorder>lang_logo</zorder>
    <zorder>StringOrder</zorder>
+   <zorder>WindowMoveButton</zorder>
+   <zorder>RollUpButton</zorder>
+   <zorder>ExitButton</zorder>
   </widget>
  </widget>
  <resources>
