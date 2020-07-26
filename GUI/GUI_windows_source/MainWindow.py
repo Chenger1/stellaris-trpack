@@ -369,48 +369,6 @@ class Ui_MainWindow(object):
 "    border: #c2c2c2;\n"
 "    }")
         self.ShareButton.setObjectName("ShareButton")
-        self.ExitButton = QtWidgets.QPushButton(self.centralwidget)
-        self.ExitButton.setGeometry(QtCore.QRect(1270, 0, 21, 21))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.ExitButton.setFont(font)
-        self.ExitButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: rgb(255, 60, 63)\n"
-"    }")
-        self.ExitButton.setObjectName("ExitButton")
-        self.RollUpButton = QtWidgets.QPushButton(self.centralwidget)
-        self.RollUpButton.setGeometry(QtCore.QRect(1250, 0, 21, 21))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.RollUpButton.setFont(font)
-        self.RollUpButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: #5abe41\n"
-"    }")
-        self.RollUpButton.setObjectName("RollUpButton")
         self.BackgroundFrame = QtWidgets.QWidget(self.centralwidget)
         self.BackgroundFrame.setGeometry(QtCore.QRect(0, 0, 1300, 860))
         self.BackgroundFrame.setMinimumSize(QtCore.QSize(1300, 860))
@@ -506,7 +464,7 @@ class Ui_MainWindow(object):
         self.BottomGridLayout.setObjectName("BottomGridLayout")
         self.BprogressBar_L = QtWidgets.QProgressBar(self.gridLayoutWidget_2)
         self.BprogressBar_L.setMinimumSize(QtCore.QSize(650, 2))
-        self.BprogressBar_L.setMaximumSize(QtCore.QSize(650, 2))
+        self.BprogressBar_L.setMaximumSize(QtCore.QSize(650, 3))
         self.BprogressBar_L.setSizeIncrement(QtCore.QSize(0, 0))
         self.BprogressBar_L.setStyleSheet("QProgressBar {\n"
 "    background-color: transparent;\n"
@@ -523,7 +481,7 @@ class Ui_MainWindow(object):
         self.BottomGridLayout.addWidget(self.BprogressBar_L, 0, 0, 1, 1)
         self.BprogressBar_R = QtWidgets.QProgressBar(self.gridLayoutWidget_2)
         self.BprogressBar_R.setMinimumSize(QtCore.QSize(650, 2))
-        self.BprogressBar_R.setMaximumSize(QtCore.QSize(650, 2))
+        self.BprogressBar_R.setMaximumSize(QtCore.QSize(650, 3))
         self.BprogressBar_R.setStyleSheet("QProgressBar {\n"
 "    background-color: transparent;\n"
 "    border: 0px solid gray; \n"
@@ -546,7 +504,7 @@ class Ui_MainWindow(object):
         self.LeftGridLayout.setObjectName("LeftGridLayout")
         self.LprogressBar_T = QtWidgets.QProgressBar(self.gridLayoutWidget_5)
         self.LprogressBar_T.setMinimumSize(QtCore.QSize(2, 400))
-        self.LprogressBar_T.setMaximumSize(QtCore.QSize(2, 420))
+        self.LprogressBar_T.setMaximumSize(QtCore.QSize(3, 420))
         self.LprogressBar_T.setStyleSheet("QProgressBar {\n"
 "    background-color: transparent;\n"
 "    border: 0px solid gray; \n"
@@ -563,7 +521,7 @@ class Ui_MainWindow(object):
         self.LeftGridLayout.addWidget(self.LprogressBar_T, 0, 0, 1, 1)
         self.LprogressBar_B = QtWidgets.QProgressBar(self.gridLayoutWidget_5)
         self.LprogressBar_B.setMinimumSize(QtCore.QSize(2, 400))
-        self.LprogressBar_B.setMaximumSize(QtCore.QSize(2, 420))
+        self.LprogressBar_B.setMaximumSize(QtCore.QSize(3, 420))
         self.LprogressBar_B.setStyleSheet("QProgressBar {\n"
 "    background-color: transparent;\n"
 "    border: 0px solid gray; \n"
@@ -587,7 +545,7 @@ class Ui_MainWindow(object):
         self.RightGridLayout.setObjectName("RightGridLayout")
         self.RprogressBar_T = QtWidgets.QProgressBar(self.gridLayoutWidget_4)
         self.RprogressBar_T.setMinimumSize(QtCore.QSize(2, 400))
-        self.RprogressBar_T.setMaximumSize(QtCore.QSize(2, 420))
+        self.RprogressBar_T.setMaximumSize(QtCore.QSize(3, 420))
         self.RprogressBar_T.setStyleSheet("QProgressBar {\n"
 "    background-color: transparent;\n"
 "    border: 0px solid gray; \n"
@@ -604,7 +562,7 @@ class Ui_MainWindow(object):
         self.RightGridLayout.addWidget(self.RprogressBar_T, 0, 0, 1, 1)
         self.RprogressBar_B = QtWidgets.QProgressBar(self.gridLayoutWidget_4)
         self.RprogressBar_B.setMinimumSize(QtCore.QSize(2, 400))
-        self.RprogressBar_B.setMaximumSize(QtCore.QSize(2, 420))
+        self.RprogressBar_B.setMaximumSize(QtCore.QSize(3, 420))
         self.RprogressBar_B.setStyleSheet("QProgressBar {\n"
 "    background-color: transparent;\n"
 "    border: 0px solid gray; \n"
@@ -619,6 +577,57 @@ class Ui_MainWindow(object):
         self.RprogressBar_B.setInvertedAppearance(False)
         self.RprogressBar_B.setObjectName("RprogressBar_B")
         self.RightGridLayout.addWidget(self.RprogressBar_B, 1, 0, 1, 1)
+        self.verticalLayoutWidget = QtWidgets.QWidget(self.ProgressBarFrame)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 1301, 32))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.TopBarLayout = QtWidgets.QHBoxLayout(self.verticalLayoutWidget)
+        self.TopBarLayout.setContentsMargins(1250, 0, 10, 10)
+        self.TopBarLayout.setSpacing(0)
+        self.TopBarLayout.setObjectName("TopBarLayout")
+        self.RollUpButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.RollUpButton.setMinimumSize(QtCore.QSize(20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.RollUpButton.setFont(font)
+        self.RollUpButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 10);\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    color: rgb(199, 199, 199);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    color: #5abe41\n"
+"    }")
+        self.RollUpButton.setObjectName("RollUpButton")
+        self.TopBarLayout.addWidget(self.RollUpButton)
+        self.ExitButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.ExitButton.setMinimumSize(QtCore.QSize(20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ExitButton.setFont(font)
+        self.ExitButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 10);\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    color: rgb(199, 199, 199);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    color: rgb(255, 60, 63)\n"
+"    }")
+        self.ExitButton.setObjectName("ExitButton")
+        self.TopBarLayout.addWidget(self.ExitButton)
         self.BackgroundFrame.raise_()
         self.ProgressBarFrame.raise_()
         self.LocalizeButton.raise_()
@@ -639,8 +648,6 @@ class Ui_MainWindow(object):
         self.TranslateString.raise_()
         self.EditString.raise_()
         self.ShareButton.raise_()
-        self.ExitButton.raise_()
-        self.RollUpButton.raise_()
         self.steam_logo.raise_()
         self.lang_logo.raise_()
         self.StringOrder.raise_()
@@ -680,7 +687,7 @@ class Ui_MainWindow(object):
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt;\"><br /></p></body></html>"))
         self.ShareButton.setText(_translate("MainWindow", "Опубликовать"))
-        self.ExitButton.setText(_translate("MainWindow", "X"))
-        self.RollUpButton.setText(_translate("MainWindow", "_"))
         self.StringOrder.setText(_translate("MainWindow", "0"))
+        self.RollUpButton.setText(_translate("MainWindow", "_"))
+        self.ExitButton.setText(_translate("MainWindow", "X"))
 from GUI.pictures import resources
