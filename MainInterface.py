@@ -1,7 +1,6 @@
 import sys
 
-from PyQt5 import QtWidgets, QtCore, QtGui
-from PyQt5.QtCore import QPoint
+from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import MainWindow
 from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
@@ -21,7 +20,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.init_handlers()
         self.init_helpers()
-        self.oldPos = self.pos()
         self.show()
         self.pointer = 0
         self.orig_text, self.machine_text, self.user_text = [], [], []
