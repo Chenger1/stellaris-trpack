@@ -6,6 +6,7 @@ from GUI.GUI_windows_source import MainWindow
 from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
 from GUI.GUI_windows.ErrorMessageWindow import ErrorMessageWindow
 from GUI.GUI_windows.SuccessMessageWindow import SuccessMessageWindow
+from GUI.GUI_windows.OutputLanguageWindow import OutputLanguageWindow
 
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translate_line
@@ -44,6 +45,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def init_handlers(self):
         self.LocalizeButton.clicked.connect(self.start_local)
         self.FileSelectionButton.clicked.connect(self.show_choose_file_window)
+        self.OutputLanguageButton.clicked.connect(self.show_output_language_window)
         self.NextStringButton.clicked.connect(self.pointer_inc)
         self.PreviousString.clicked.connect(self.pointer_red)
         self.ExitButton.clicked.connect(self.close)
@@ -64,6 +66,10 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def show_choose_file_window(self):
         choose_file_window = ChooseFileWindow(self)
         choose_file_window.show()
+
+    def show_output_language_window(self):
+        output_language_window = OutputLanguageWindow(self)
+        output_language_window.show()
 
     def get_steam_id(self, path):
         self.ModIDLine.setText(path)
