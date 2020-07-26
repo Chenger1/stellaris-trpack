@@ -151,5 +151,3 @@ class Ui_Dialog(object):
         self.ErrorLabel.setText(_translate("Dialog", "Успех"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
 from GUI.pictures import resources
-
-

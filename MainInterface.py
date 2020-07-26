@@ -22,7 +22,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.init_handlers()
         self.init_helpers()
         self.oldPos = self.pos()
-        self.show()
         self.pointer = 0
         self.orig_text, self.machine_text, self.user_text = [], [], []
         self.bar = [self.TprogressBar_L, self.TprogressBar_R,
@@ -65,6 +64,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def show_choose_file_window(self):
         choose_file_window = ChooseFileWindow(self)
+        choose_file_window.windowModality = True
         choose_file_window.show()
 
     def show_output_language_window(self):
