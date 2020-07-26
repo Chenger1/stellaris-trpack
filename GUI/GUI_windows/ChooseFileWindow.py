@@ -7,11 +7,12 @@ from GUI.GUI_windows.SteamIDWindow import SteamIDWindow
 from scripts.utils import get_mod_id
 
 
-class ChooseFileWindow(QtWidgets.QMainWindow, ChooseFile.Ui_Dialog):
+class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
     def __init__(self, parent):
         super().__init__(parent)
         self.setupUi(self)
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
+        self.setModal(True)
         self.oldPos = self.pos()
         self.init_handlers()
         self.parent = parent

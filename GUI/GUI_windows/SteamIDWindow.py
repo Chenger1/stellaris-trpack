@@ -3,10 +3,12 @@ from PyQt5 import QtWidgets, QtCore
 from GUI.GUI_windows_source import SteamID
 
 
-class SteamIDWindow(QtWidgets.QMainWindow, SteamID.Ui_Dialog):
+class SteamIDWindow(QtWidgets.QDialog, SteamID.Ui_Dialog):
     def __init__(self, parent):
         super().__init__(parent)
         self.setupUi(self)
+        self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
+        self.setModal(True)
         self.init_handlers()
         self.parent = parent
         self.oldPos = self.pos()
@@ -14,6 +16,7 @@ class SteamIDWindow(QtWidgets.QMainWindow, SteamID.Ui_Dialog):
 
     def init_handlers(self):
         self.AcceptButton.clicked.connect(self.get_steam_id)
+        self.ExitButton.clicked.connect(self.close)
 
     def get_steam_id(self):
         path = self.IDLine.text()

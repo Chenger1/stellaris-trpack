@@ -3,13 +3,15 @@ from PyQt5 import QtWidgets, QtCore
 from GUI.GUI_windows_source import MoreOutputLanguage
 
 
-class MoreOutputLanguageWindow(QtWidgets.QMainWindow, MoreOutputLanguage.Ui_Dialog):
+class MoreOutputLanguageWindow(QtWidgets.QDialog, MoreOutputLanguage.Ui_Dialog):
     def __init__(self, parent):
         super().__init__(parent)
         self.setupUi(self)
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
+        self.setModal(True)
         self.oldPos = self.pos()
         self.WindowMoveButton.installEventFilter(self)
+        self.ExitButton.clicked.connect(self.close)
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:

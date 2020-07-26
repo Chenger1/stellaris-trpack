@@ -3,11 +3,12 @@ from PyQt5 import QtWidgets, QtCore
 from GUI.GUI_windows_source import SuccessMessage
 
 
-class SuccessMessageWindow(QtWidgets.QMainWindow, SuccessMessage.Ui_Dialog):
+class SuccessMessageWindow(QtWidgets.QDialog, SuccessMessage.Ui_Dialog):
     def __init__(self, parent):
         super().__init__(parent)
         self.setupUi(self)
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
+        self.setModal(True)
         self.AcceptButton.clicked.connect(self.close)
         self.oldPos = self.pos()
         self.WindowMoveButton.installEventFilter(self)

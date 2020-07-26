@@ -18,7 +18,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
         self.init_handlers()
         self.init_helpers()
         self.oldPos = self.pos()
@@ -64,7 +64,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def show_choose_file_window(self):
         choose_file_window = ChooseFileWindow(self)
-        choose_file_window.windowModality = True
         choose_file_window.show()
 
     def show_output_language_window(self):

@@ -3,11 +3,12 @@ from PyQt5 import QtWidgets, QtCore
 from GUI.GUI_windows_source import ErrorMessage
 
 
-class ErrorMessageWindow(QtWidgets.QMainWindow, ErrorMessage.Ui_Dialog):
+class ErrorMessageWindow(QtWidgets.QDialog, ErrorMessage.Ui_Dialog):
     def __init__(self, parent):
         super().__init__(parent)
         self.setupUi(self)
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
+        self.setModal(True)
         self.oldPos = self.pos()
         self.AcceptButton.clicked.connect(self.close)
         self.WindowMoveButton.installEventFilter(self)
