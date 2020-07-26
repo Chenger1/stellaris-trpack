@@ -832,7 +832,7 @@ QProgressBar::chunk {
 };</string>
         </property>
         <property name="value">
-         <number>24</number>
+         <number>0</number>
         </property>
         <property name="textVisible">
          <bool>false</bool>
@@ -867,7 +867,7 @@ QProgressBar::chunk {
 };</string>
         </property>
         <property name="value">
-         <number>24</number>
+         <number>0</number>
         </property>
         <property name="textVisible">
          <bool>false</bool>
@@ -893,7 +893,7 @@ QProgressBar::chunk {
        <number>0</number>
       </property>
       <property name="bottomMargin">
-       <number>4</number>
+       <number>3</number>
       </property>
       <property name="spacing">
        <number>0</number>
@@ -909,7 +909,7 @@ QProgressBar::chunk {
         <property name="maximumSize">
          <size>
           <width>650</width>
-          <height>3</height>
+          <height>2</height>
          </size>
         </property>
         <property name="sizeIncrement">
@@ -922,14 +922,14 @@ QProgressBar::chunk {
          <string notr="true">QProgressBar {
 	background-color: transparent;
 	border: 0px solid gray; 
-	max-height:3px;
+	max-height:2px;
 }
 QProgressBar::chunk {
 	background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 #05B8CC, stop: 1 green);
 };</string>
         </property>
         <property name="value">
-         <number>24</number>
+         <number>0</number>
         </property>
         <property name="textVisible">
          <bool>false</bool>
@@ -950,21 +950,21 @@ QProgressBar::chunk {
         <property name="maximumSize">
          <size>
           <width>650</width>
-          <height>3</height>
+          <height>2</height>
          </size>
         </property>
         <property name="styleSheet">
          <string notr="true">QProgressBar {
 	background-color: transparent;
 	border: 0px solid gray; 
-	max-height: 3px;
+	max-height:2px;
 }
 QProgressBar::chunk {
 	background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 green , stop: 1 #05B8CC);
 };</string>
         </property>
         <property name="value">
-         <number>24</number>
+         <number>0</number>
         </property>
         <property name="textVisible">
          <bool>false</bool>
@@ -990,13 +990,13 @@ QProgressBar::chunk {
        <number>0</number>
       </property>
       <property name="topMargin">
-       <number>16</number>
+       <number>24</number>
       </property>
       <property name="rightMargin">
-       <number>12</number>
+       <number>13</number>
       </property>
       <property name="bottomMargin">
-       <number>70</number>
+       <number>88</number>
       </property>
       <property name="spacing">
        <number>0</number>
@@ -1011,22 +1011,22 @@ QProgressBar::chunk {
         </property>
         <property name="maximumSize">
          <size>
-          <width>3</width>
-          <height>420</height>
+          <width>2</width>
+          <height>417</height>
          </size>
         </property>
         <property name="styleSheet">
          <string notr="true">QProgressBar {
 	background-color: transparent;
 	border: 0px solid gray; 
-	max-width: 3px;
+	max-width: 2px;
 }
 QProgressBar::chunk {
 	background: qlineargradient(x1: 0.5, y1: 0, x2: 0.5, y2: 1, stop: 0 #05B8CC, stop: 1 green);
 };</string>
         </property>
         <property name="value">
-         <number>24</number>
+         <number>0</number>
         </property>
         <property name="textVisible">
          <bool>false</bool>
@@ -1049,22 +1049,22 @@ QProgressBar::chunk {
         </property>
         <property name="maximumSize">
          <size>
-          <width>3</width>
-          <height>420</height>
+          <width>2</width>
+          <height>417</height>
          </size>
         </property>
         <property name="styleSheet">
          <string notr="true">QProgressBar {
 	background-color: transparent;
 	border: 0px solid gray; 
-	max-width: 3px;
+	max-width: 2px;
 }
 QProgressBar::chunk {
 	background: qlineargradient(x1: 0.5, y1: 0, x2: 0.5, y2: 1, stop: 0 green, stop: 1#05B8CC);
 };</string>
         </property>
         <property name="value">
-         <number>24</number>
+         <number>0</number>
         </property>
         <property name="textVisible">
          <bool>false</bool>
@@ -1093,13 +1093,13 @@ QProgressBar::chunk {
        <number>12</number>
       </property>
       <property name="topMargin">
-       <number>16</number>
+       <number>24</number>
       </property>
       <property name="rightMargin">
        <number>0</number>
       </property>
       <property name="bottomMargin">
-       <number>70</number>
+       <number>88</number>
       </property>
       <property name="spacing">
        <number>0</number>
@@ -1114,22 +1114,22 @@ QProgressBar::chunk {
         </property>
         <property name="maximumSize">
          <size>
-          <width>3</width>
-          <height>420</height>
+          <width>2</width>
+          <height>417</height>
          </size>
         </property>
         <property name="styleSheet">
          <string notr="true">QProgressBar {
 	background-color: transparent;
 	border: 0px solid gray; 
-	max-width: 3px;
+	max-width: 2px;
 }
 QProgressBar::chunk {
 	background: qlineargradient(x1: 0.5, y1: 0, x2: 0.5, y2: 1, stop: 0 #05B8CC, stop: 1 green);
 };</string>
         </property>
         <property name="value">
-         <number>24</number>
+         <number>0</number>
         </property>
         <property name="textVisible">
          <bool>false</bool>
@@ -1152,22 +1152,22 @@ QProgressBar::chunk {
         </property>
         <property name="maximumSize">
          <size>
-          <width>3</width>
-          <height>420</height>
+          <width>2</width>
+          <height>417</height>
          </size>
         </property>
         <property name="styleSheet">
          <string notr="true">QProgressBar {
 	background-color: transparent;
 	border: 0px solid gray; 
-	max-width: 3px;
+	max-width: 2px;
 }
 QProgressBar::chunk {
 	background: qlineargradient(x1: 0.5, y1: 0, x2: 0.5, y2: 1, stop: 0 green, stop: 1#05B8CC);
 };</string>
         </property>
         <property name="value">
-         <number>24</number>
+         <number>0</number>
         </property>
         <property name="textVisible">
          <bool>false</bool>
