@@ -1,6 +1,6 @@
 import sys
 
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import QPoint
 
 from GUI.GUI_windows_source import MainWindow
@@ -49,6 +49,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.PreviousString.clicked.connect(self.pointer_red)
         self.ExitButton.clicked.connect(self.close)
         self.RollUpButton.clicked.connect(self.showMinimized)
+        self.WindowMoveButton.installEventFilter(self)
 
     def init_helpers(self):
         self.PreviousString.setEnabled(False)
@@ -169,13 +170,16 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
             self.set_lines()
 
-    def mousePressEvent(self, event):
-        self.oldPos = event.globalPos()
-
-    def mouseMoveEvent(self, event):
-        delta = QPoint(event.globalPos() - self.oldPos)
-        self.move(self.x() + delta.x(), self.y() + delta.y())
-        self.oldPos = event.globalPos()
+    def eventFilter(self, source, event):
+        if source == self.WindowMoveButton:
+            if event.type() == QtCore.QEvent.MouseButtonPress:
+                self.oldPos = event.pos()
+            elif event.type() == QtCore.QEvent.MouseMove and self.oldPos is not None:
+                self.move(self.pos() - self.oldPos+event.pos())
+                return True
+            elif event.type() == QtCore.QEvent.MouseButtonRelease:
+                self.oldPos = None
+        return super().eventFilter(source, event)
 
 
 def main():
