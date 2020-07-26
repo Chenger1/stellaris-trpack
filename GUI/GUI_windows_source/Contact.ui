@@ -26,7 +26,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: none;</string>
+   <string notr="true">background-color: transparent;</string>
   </property>
   <widget class="QFrame" name="BackgroundFrame">
    <property name="geometry">
@@ -45,7 +45,7 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>0</width>
+     <width>687</width>
      <height>250</height>
     </size>
    </property>
@@ -726,6 +726,57 @@ QPushButton:pressed{
     <string>?</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="WindowMoveButton">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>651</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	color: transparent;
+}</string>
+   </property>
+   <property name="text">
+    <string>Steam</string>
+   </property>
+  </widget>
+  <zorder>BackgroundFrame</zorder>
+  <zorder>WindowMoveButton</zorder>
+  <zorder>ExitButton</zorder>
+  <zorder>RollUpButton</zorder>
+  <zorder>InfoLabel_0</zorder>
+  <zorder>ChengerLabel</zorder>
+  <zorder>InfoLabel_1</zorder>
+  <zorder>LetisoEmailLine</zorder>
+  <zorder>ChengerEmailLine</zorder>
+  <zorder>InfoLabel_2</zorder>
+  <zorder>MidLineFrame</zorder>
+  <zorder>SteamChengerLink</zorder>
+  <zorder>GitHubChengerLink</zorder>
+  <zorder>TelegramChengerLink</zorder>
+  <zorder>LetisoLabel</zorder>
+  <zorder>git_logo_1</zorder>
+  <zorder>steam_logo_1</zorder>
+  <zorder>telegram_logo_1</zorder>
+  <zorder>TelegramLetisoLink</zorder>
+  <zorder>telegram_logo_0</zorder>
+  <zorder>SteamLetisoLink</zorder>
+  <zorder>steam_logo_0</zorder>
+  <zorder>git_logo_0</zorder>
+  <zorder>GitHubLetisoLink</zorder>
+  <zorder>ReferenceButton</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

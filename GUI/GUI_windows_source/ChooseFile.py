@@ -16,7 +16,7 @@ class Ui_Dialog(object):
         Dialog.resize(650, 250)
         Dialog.setMinimumSize(QtCore.QSize(650, 250))
         Dialog.setMaximumSize(QtCore.QSize(650, 250))
-        Dialog.setStyleSheet("background-color: rgb(127, 127, 127)")
+        Dialog.setStyleSheet("background-color: transparent;")
         self.ManualButton = QtWidgets.QPushButton(Dialog)
         self.ManualButton.setGeometry(QtCore.QRect(30, 190, 161, 41))
         font = QtGui.QFont()
@@ -159,7 +159,20 @@ class Ui_Dialog(object):
 "    color: #5abe41\n"
 "    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
+        self.WindowMoveButton = QtWidgets.QPushButton(Dialog)
+        self.WindowMoveButton.setGeometry(QtCore.QRect(0, 0, 651, 21))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.WindowMoveButton.setFont(font)
+        self.WindowMoveButton.setStyleSheet("QPushButton{\n"
+"    color: transparent;\n"
+"}")
+        self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.BackgroundFrame.raise_()
+        self.WindowMoveButton.raise_()
         self.ManualButton.raise_()
         self.SteamButton.raise_()
         self.steam_logo.raise_()
@@ -181,4 +194,5 @@ class Ui_Dialog(object):
         self.RollUpButton.setText(_translate("Dialog", "_"))
         self.ChooseFileLabel.setText(_translate("Dialog", "Выбрать файл"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
+        self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
 from GUI.pictures import resources

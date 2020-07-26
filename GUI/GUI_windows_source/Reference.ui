@@ -395,7 +395,34 @@ QPushButton:pressed{
     <string>Об утилите</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="WindowMoveButton">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1001</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	color: transparent;
+}</string>
+   </property>
+   <property name="text">
+    <string>Steam</string>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
+  <zorder>WindowMoveButton</zorder>
   <zorder>scrollArea</zorder>
   <zorder>ReferenceButton</zorder>
   <zorder>RollUpButton</zorder>

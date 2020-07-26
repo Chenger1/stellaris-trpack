@@ -16,7 +16,7 @@ class Ui_Dialog(object):
         Dialog.resize(650, 250)
         Dialog.setMinimumSize(QtCore.QSize(650, 250))
         Dialog.setMaximumSize(QtCore.QSize(650, 250))
-        Dialog.setStyleSheet("background-color: rgb(127, 127, 127)")
+        Dialog.setStyleSheet("background-color: transparent;")
         self.AcceptButton = QtWidgets.QPushButton(Dialog)
         self.AcceptButton.setGeometry(QtCore.QRect(250, 190, 151, 41))
         font = QtGui.QFont()
@@ -119,7 +119,20 @@ class Ui_Dialog(object):
         self.ErrorMessageLine.setText("")
         self.ErrorMessageLine.setAlignment(QtCore.Qt.AlignCenter)
         self.ErrorMessageLine.setObjectName("ErrorMessageLine")
+        self.WindowMoveButton = QtWidgets.QPushButton(Dialog)
+        self.WindowMoveButton.setGeometry(QtCore.QRect(0, 0, 651, 21))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.WindowMoveButton.setFont(font)
+        self.WindowMoveButton.setStyleSheet("QPushButton{\n"
+"    color: transparent;\n"
+"}")
+        self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.BackgroundFrame.raise_()
+        self.WindowMoveButton.raise_()
         self.AcceptButton.raise_()
         self.ExitButton.raise_()
         self.RollUpButton.raise_()
@@ -136,4 +149,7 @@ class Ui_Dialog(object):
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.RollUpButton.setText(_translate("Dialog", "_"))
         self.ErrorLabel.setText(_translate("Dialog", "Успех"))
+        self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
 from GUI.pictures import resources
+
+

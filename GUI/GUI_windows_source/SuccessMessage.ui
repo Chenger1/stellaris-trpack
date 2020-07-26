@@ -26,7 +26,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(127, 127, 127)</string>
+   <string notr="true">background-color: transparent;</string>
   </property>
   <widget class="QPushButton" name="AcceptButton">
    <property name="geometry">
@@ -226,7 +226,34 @@ QLineEdit:hover{
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QPushButton" name="WindowMoveButton">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>651</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	color: transparent;
+}</string>
+   </property>
+   <property name="text">
+    <string>Steam</string>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
+  <zorder>WindowMoveButton</zorder>
   <zorder>AcceptButton</zorder>
   <zorder>ExitButton</zorder>
   <zorder>RollUpButton</zorder>

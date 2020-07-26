@@ -26,26 +26,26 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(127, 127, 127)</string>
+   <string notr="true">background-color: transparent;</string>
   </property>
   <widget class="QFrame" name="BackgroundFrame">
    <property name="geometry">
     <rect>
      <x>-20</x>
      <y>-10</y>
-     <width>687</width>
+     <width>867</width>
      <height>264</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>687</width>
+     <width>867</width>
      <height>264</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>687</width>
+     <width>867</width>
      <height>250</height>
     </size>
    </property>
@@ -280,6 +280,41 @@ QPushButton:pressed{
     <string>Связаться с разработчиками</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="WindowMoveButton">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>651</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	color: transparent;
+}</string>
+   </property>
+   <property name="text">
+    <string>Steam</string>
+   </property>
+  </widget>
+  <zorder>BackgroundFrame</zorder>
+  <zorder>WindowMoveButton</zorder>
+  <zorder>ExitButton</zorder>
+  <zorder>RollUpButton</zorder>
+  <zorder>InfoLabel_0</zorder>
+  <zorder>InfoLabel_2</zorder>
+  <zorder>VersionLabel</zorder>
+  <zorder>InfoLabel_1</zorder>
+  <zorder>ContactUsButton</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>
