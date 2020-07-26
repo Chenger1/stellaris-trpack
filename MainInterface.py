@@ -21,7 +21,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.init_handlers()
         self.init_helpers()
-        self.oldPos = self.pos ()
+        self.oldPos = self.pos()
         self.show()
         self.pointer = 0
         self.orig_text, self.machine_text, self.user_text = [], [], []
