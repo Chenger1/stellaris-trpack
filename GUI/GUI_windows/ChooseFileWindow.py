@@ -21,6 +21,7 @@ class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
         self.ManualButton.clicked.connect(self.choose_file)
         self.SteamButton.clicked.connect(self.show_steam_id_window)
         self.ExitButton.clicked.connect(self.close)
+        self.RollUpButton.clicked.connect(self.showMinimized)
         self.WindowMoveButton.installEventFilter(self)
 
     def choose_file(self):

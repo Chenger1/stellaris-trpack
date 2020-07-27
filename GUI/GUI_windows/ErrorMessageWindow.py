@@ -9,9 +9,14 @@ class ErrorMessageWindow(QtWidgets.QDialog, ErrorMessage.Ui_Dialog):
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
         self.setModal(True)
+        self.init_handlers()
         self.oldPos = self.pos()
-        self.AcceptButton.clicked.connect(self.close)
         self.WindowMoveButton.installEventFilter(self)
+
+    def init_handlers(self):
+        self.AcceptButton.clicked.connect(self.close)
+        self.RollUpButton.clicked.connect(self.showMinimized)
+        self.ExitButton.clicked.connect(self.close)
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:

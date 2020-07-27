@@ -17,6 +17,7 @@ class SteamIDWindow(QtWidgets.QDialog, SteamID.Ui_Dialog):
     def init_handlers(self):
         self.AcceptButton.clicked.connect(self.get_steam_id)
         self.ExitButton.clicked.connect(self.close)
+        self.RollUpButton.clicked.connect(self.showMinimized)
 
     def get_steam_id(self):
         path = self.IDLine.text()
