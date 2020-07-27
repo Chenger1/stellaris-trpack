@@ -23,6 +23,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.init_helpers()
         self.oldPos = self.pos()
         self.pointer = 0
+        self.output_language = 'en'
         self.orig_text, self.machine_text, self.user_text = [], [], []
         self.bar = [self.TprogressBar_L, self.TprogressBar_R,
                     self.BprogressBar_L, self.BprogressBar_R,
@@ -72,6 +73,9 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def get_steam_id(self, path):
         self.ModIDLine.setText(path)
+
+    def get_output_language(self, output_language):
+        self.output_language = output_language
 
     def centering_lines(self):
         self.OriginalString.setAlignment(QtCore.Qt.AlignCenter)

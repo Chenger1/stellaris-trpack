@@ -14,6 +14,7 @@ class OutputLanguageWindow (QtWidgets.QDialog, OutputLanguage.Ui_Dialog):
         self.init_handlers()
         self.oldPos = self.pos()
         self.WindowMoveButton.installEventFilter(self)
+        self.parent = parent
 
     def init_handlers(self):
         self.MoreLanguagesButton.clicked.connect(self.show_more_output_language_window)

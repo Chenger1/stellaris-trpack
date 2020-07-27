@@ -13,13 +13,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(650, 376)
-        Dialog.setMinimumSize(QtCore.QSize(650, 375))
+        Dialog.resize(650, 380)
+        Dialog.setMinimumSize(QtCore.QSize(650, 380))
         Dialog.setMaximumSize(QtCore.QSize(650, 380))
         Dialog.setStyleSheet("background-color: transparent;\n"
 "")
         self.lang_logo = QtWidgets.QLabel(Dialog)
-        self.lang_logo.setGeometry(QtCore.QRect(10, 20, 61, 51))
+        self.lang_logo.setGeometry(QtCore.QRect(10, 20, 51, 51))
         self.lang_logo.setStyleSheet("background-color: none;\n"
 "image: url(:/icons/icons/lang.png);\n"
 "")
@@ -98,7 +98,7 @@ class Ui_Dialog(object):
 "    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.LanguagesListLabel = QtWidgets.QLabel(Dialog)
-        self.LanguagesListLabel.setGeometry(QtCore.QRect(50, 40, 231, 41))
+        self.LanguagesListLabel.setGeometry(QtCore.QRect(50, 20, 231, 61))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(14)
@@ -158,15 +158,15 @@ class Ui_Dialog(object):
         self.gridLayout.setHorizontalSpacing(20)
         self.gridLayout.setVerticalSpacing(40)
         self.gridLayout.setObjectName("gridLayout")
-        self.tl = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.tl.setMinimumSize(QtCore.QSize(0, 30))
+        self.SlovakButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.SlovakButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.tl.setFont(font)
-        self.tl.setStyleSheet("QPushButton{\n"
+        self.SlovakButton.setFont(font)
+        self.SlovakButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -179,17 +179,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.tl.setObjectName("tl")
-        self.gridLayout.addWidget(self.tl, 4, 0, 1, 1)
-        self.et = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.et.setMinimumSize(QtCore.QSize(0, 30))
+        self.SlovakButton.setObjectName("SlovakButton")
+        self.gridLayout.addWidget(self.SlovakButton, 9, 2, 1, 1)
+        self.KoreanButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.KoreanButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.et.setFont(font)
-        self.et.setStyleSheet("QPushButton{\n"
+        self.KoreanButton.setFont(font)
+        self.KoreanButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -202,17 +202,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.et.setObjectName("et")
-        self.gridLayout.addWidget(self.et, 3, 2, 1, 1)
-        self.cn = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.cn.setMinimumSize(QtCore.QSize(0, 30))
+        self.KoreanButton.setObjectName("KoreanButton")
+        self.gridLayout.addWidget(self.KoreanButton, 7, 0, 1, 1)
+        self.RussianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.RussianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.cn.setFont(font)
-        self.cn.setStyleSheet("QPushButton{\n"
+        self.RussianButton.setFont(font)
+        self.RussianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -225,17 +225,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.cn.setObjectName("cn")
-        self.gridLayout.addWidget(self.cn, 2, 1, 1, 1)
-        self.ro = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.ro.setMinimumSize(QtCore.QSize(0, 30))
+        self.RussianButton.setObjectName("RussianButton")
+        self.gridLayout.addWidget(self.RussianButton, 9, 0, 1, 1)
+        self.PolishButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.PolishButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.ro.setFont(font)
-        self.ro.setStyleSheet("QPushButton{\n"
+        self.PolishButton.setFont(font)
+        self.PolishButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -248,17 +248,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.ro.setObjectName("ro")
-        self.gridLayout.addWidget(self.ro, 8, 2, 1, 1)
-        self.be = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.be.setMinimumSize(QtCore.QSize(0, 30))
+        self.PolishButton.setObjectName("PolishButton")
+        self.gridLayout.addWidget(self.PolishButton, 8, 0, 1, 1)
+        self.PortugueseButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.PortugueseButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.be.setFont(font)
-        self.be.setStyleSheet("QPushButton{\n"
+        self.PortugueseButton.setFont(font)
+        self.PortugueseButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -271,17 +271,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.be.setObjectName("be")
-        self.gridLayout.addWidget(self.be, 1, 1, 1, 1)
-        self.fil = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.fil.setMinimumSize(QtCore.QSize(0, 30))
+        self.PortugueseButton.setObjectName("PortugueseButton")
+        self.gridLayout.addWidget(self.PortugueseButton, 8, 1, 1, 1)
+        self.SpanishButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.SpanishButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.fil.setFont(font)
-        self.fil.setStyleSheet("QPushButton{\n"
+        self.SpanishButton.setFont(font)
+        self.SpanishButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -294,17 +294,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.fil.setObjectName("fil")
-        self.gridLayout.addWidget(self.fil, 11, 2, 1, 1)
-        self.el = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.el.setMinimumSize(QtCore.QSize(0, 30))
+        self.SpanishButton.setObjectName("SpanishButton")
+        self.gridLayout.addWidget(self.SpanishButton, 10, 1, 1, 1)
+        self.CzechButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.CzechButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.el.setFont(font)
-        self.el.setStyleSheet("QPushButton{\n"
+        self.CzechButton.setFont(font)
+        self.CzechButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -317,17 +317,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.el.setObjectName("el")
-        self.gridLayout.addWidget(self.el, 5, 1, 1, 1)
-        self.de = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.de.setMinimumSize(QtCore.QSize(0, 30))
+        self.CzechButton.setObjectName("CzechButton")
+        self.gridLayout.addWidget(self.CzechButton, 3, 1, 1, 1)
+        self.FinnishButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.FinnishButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.de.setFont(font)
-        self.de.setStyleSheet("QPushButton{\n"
+        self.FinnishButton.setFont(font)
+        self.FinnishButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -340,17 +340,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.de.setObjectName("de")
-        self.gridLayout.addWidget(self.de, 5, 0, 1, 1)
-        self.ar = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.ar.setMinimumSize(QtCore.QSize(0, 30))
+        self.FinnishButton.setObjectName("FinnishButton")
+        self.gridLayout.addWidget(self.FinnishButton, 4, 1, 1, 1)
+        self.ItalianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.ItalianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.ar.setFont(font)
-        self.ar.setStyleSheet("QPushButton{\n"
+        self.ItalianButton.setFont(font)
+        self.ItalianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -363,17 +363,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.ar.setObjectName("ar")
-        self.gridLayout.addWidget(self.ar, 0, 0, 1, 1)
-        self.cs = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.cs.setMinimumSize(QtCore.QSize(0, 30))
+        self.ItalianButton.setObjectName("ItalianButton")
+        self.gridLayout.addWidget(self.ItalianButton, 6, 1, 1, 1)
+        self.FrenchButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.FrenchButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.cs.setFont(font)
-        self.cs.setStyleSheet("QPushButton{\n"
+        self.FrenchButton.setFont(font)
+        self.FrenchButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -386,17 +386,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.cs.setObjectName("cs")
-        self.gridLayout.addWidget(self.cs, 3, 1, 1, 1)
-        self.pt = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.pt.setMinimumSize(QtCore.QSize(0, 30))
+        self.FrenchButton.setObjectName("FrenchButton")
+        self.gridLayout.addWidget(self.FrenchButton, 4, 2, 1, 1)
+        self.DanishButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.DanishButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.pt.setFont(font)
-        self.pt.setStyleSheet("QPushButton{\n"
+        self.DanishButton.setFont(font)
+        self.DanishButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -409,17 +409,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.pt.setObjectName("pt")
-        self.gridLayout.addWidget(self.pt, 8, 1, 1, 1)
-        self.hu = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.hu.setMinimumSize(QtCore.QSize(0, 30))
+        self.DanishButton.setObjectName("DanishButton")
+        self.gridLayout.addWidget(self.DanishButton, 0, 2, 1, 1)
+        self.ArmenianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.ArmenianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.hu.setFont(font)
-        self.hu.setStyleSheet("QPushButton{\n"
+        self.ArmenianButton.setFont(font)
+        self.ArmenianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -432,17 +432,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.hu.setObjectName("hu")
-        self.gridLayout.addWidget(self.hu, 5, 2, 1, 1)
-        self.pl = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.pl.setMinimumSize(QtCore.QSize(0, 30))
+        self.ArmenianButton.setObjectName("ArmenianButton")
+        self.gridLayout.addWidget(self.ArmenianButton, 0, 1, 1, 1)
+        self.EnglishButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.EnglishButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.pl.setFont(font)
-        self.pl.setStyleSheet("QPushButton{\n"
+        self.EnglishButton.setFont(font)
+        self.EnglishButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -455,17 +455,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.pl.setObjectName("pl")
-        self.gridLayout.addWidget(self.pl, 8, 0, 1, 1)
-        self.uk = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.uk.setMinimumSize(QtCore.QSize(0, 30))
+        self.EnglishButton.setObjectName("EnglishButton")
+        self.gridLayout.addWidget(self.EnglishButton, 2, 2, 1, 1)
+        self.UkrainianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.UkrainianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.uk.setFont(font)
-        self.uk.setStyleSheet("QPushButton{\n"
+        self.UkrainianButton.setFont(font)
+        self.UkrainianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -478,17 +478,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.uk.setObjectName("uk")
-        self.gridLayout.addWidget(self.uk, 11, 1, 1, 1)
-        self.es = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.es.setMinimumSize(QtCore.QSize(0, 30))
+        self.UkrainianButton.setObjectName("UkrainianButton")
+        self.gridLayout.addWidget(self.UkrainianButton, 11, 1, 1, 1)
+        self.EstonianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.EstonianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.es.setFont(font)
-        self.es.setStyleSheet("QPushButton{\n"
+        self.EstonianButton.setFont(font)
+        self.EstonianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -501,17 +501,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.es.setObjectName("es")
-        self.gridLayout.addWidget(self.es, 10, 1, 1, 1)
-        self.bg = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.bg.setMinimumSize(QtCore.QSize(0, 30))
+        self.EstonianButton.setObjectName("EstonianButton")
+        self.gridLayout.addWidget(self.EstonianButton, 3, 2, 1, 1)
+        self.LithuanianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.LithuanianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.bg.setFont(font)
-        self.bg.setStyleSheet("QPushButton{\n"
+        self.LithuanianButton.setFont(font)
+        self.LithuanianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -524,17 +524,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.bg.setObjectName("bg")
-        self.gridLayout.addWidget(self.bg, 2, 0, 1, 1)
-        self.lt = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.lt.setMinimumSize(QtCore.QSize(0, 30))
+        self.LithuanianButton.setObjectName("LithuanianButton")
+        self.gridLayout.addWidget(self.LithuanianButton, 7, 1, 1, 1)
+        self.ChineseButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.ChineseButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.lt.setFont(font)
-        self.lt.setStyleSheet("QPushButton{\n"
+        self.ChineseButton.setFont(font)
+        self.ChineseButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -547,17 +547,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.lt.setObjectName("lt")
-        self.gridLayout.addWidget(self.lt, 7, 1, 1, 1)
-        self.tr = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.tr.setMinimumSize(QtCore.QSize(0, 30))
+        self.ChineseButton.setObjectName("ChineseButton")
+        self.gridLayout.addWidget(self.ChineseButton, 2, 1, 1, 1)
+        self.HungarianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.HungarianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.tr.setFont(font)
-        self.tr.setStyleSheet("QPushButton{\n"
+        self.HungarianButton.setFont(font)
+        self.HungarianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -570,17 +570,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.tr.setObjectName("tr")
-        self.gridLayout.addWidget(self.tr, 11, 0, 1, 1)
-        self.hr = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.hr.setMinimumSize(QtCore.QSize(0, 30))
+        self.HungarianButton.setObjectName("HungarianButton")
+        self.gridLayout.addWidget(self.HungarianButton, 5, 2, 1, 1)
+        self.GreekButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.GreekButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.hr.setFont(font)
-        self.hr.setStyleSheet("QPushButton{\n"
+        self.GreekButton.setFont(font)
+        self.GreekButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -593,17 +593,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.hr.setObjectName("hr")
-        self.gridLayout.addWidget(self.hr, 3, 0, 1, 1)
-        self.da = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.da.setMinimumSize(QtCore.QSize(0, 30))
+        self.GreekButton.setObjectName("GreekButton")
+        self.gridLayout.addWidget(self.GreekButton, 5, 1, 1, 1)
+        self.TurkishButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.TurkishButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.da.setFont(font)
-        self.da.setStyleSheet("QPushButton{\n"
+        self.TurkishButton.setFont(font)
+        self.TurkishButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -616,17 +616,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.da.setObjectName("da")
-        self.gridLayout.addWidget(self.da, 0, 2, 1, 1)
-        self.ru = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.ru.setMinimumSize(QtCore.QSize(0, 30))
+        self.TurkishButton.setObjectName("TurkishButton")
+        self.gridLayout.addWidget(self.TurkishButton, 11, 0, 1, 1)
+        self.DutchButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.DutchButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.ru.setFont(font)
-        self.ru.setStyleSheet("QPushButton{\n"
+        self.DutchButton.setFont(font)
+        self.DutchButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -639,17 +639,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.ru.setObjectName("ru")
-        self.gridLayout.addWidget(self.ru, 9, 0, 1, 1)
-        self.no = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.no.setMinimumSize(QtCore.QSize(0, 30))
+        self.DutchButton.setObjectName("DutchButton")
+        self.gridLayout.addWidget(self.DutchButton, 1, 2, 1, 1)
+        self.IcelandicButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.IcelandicButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.no.setFont(font)
-        self.no.setStyleSheet("QPushButton{\n"
+        self.IcelandicButton.setFont(font)
+        self.IcelandicButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -662,17 +662,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.no.setObjectName("no")
-        self.gridLayout.addWidget(self.no, 7, 2, 1, 1)
-        self.ja = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.ja.setMinimumSize(QtCore.QSize(0, 30))
+        self.IcelandicButton.setObjectName("IcelandicButton")
+        self.gridLayout.addWidget(self.IcelandicButton, 6, 0, 1, 1)
+        self.BelarusianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.BelarusianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.ja.setFont(font)
-        self.ja.setStyleSheet("QPushButton{\n"
+        self.BelarusianButton.setFont(font)
+        self.BelarusianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -685,17 +685,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.ja.setObjectName("ja")
-        self.gridLayout.addWidget(self.ja, 6, 2, 1, 1)
-        self.nl = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.nl.setMinimumSize(QtCore.QSize(0, 30))
+        self.BelarusianButton.setObjectName("BelarusianButton")
+        self.gridLayout.addWidget(self.BelarusianButton, 1, 1, 1, 1)
+        self.AzerbaijaniButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.AzerbaijaniButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.nl.setFont(font)
-        self.nl.setStyleSheet("QPushButton{\n"
+        self.AzerbaijaniButton.setFont(font)
+        self.AzerbaijaniButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -708,17 +708,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.nl.setObjectName("nl")
-        self.gridLayout.addWidget(self.nl, 1, 2, 1, 1)
-        self.isl = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.isl.setMinimumSize(QtCore.QSize(0, 30))
+        self.AzerbaijaniButton.setObjectName("AzerbaijaniButton")
+        self.gridLayout.addWidget(self.AzerbaijaniButton, 1, 0, 1, 1)
+        self.SlovenianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.SlovenianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.isl.setFont(font)
-        self.isl.setStyleSheet("QPushButton{\n"
+        self.SlovenianButton.setFont(font)
+        self.SlovenianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -731,17 +731,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.isl.setObjectName("isl")
-        self.gridLayout.addWidget(self.isl, 6, 0, 1, 1)
-        self.fr = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.fr.setMinimumSize(QtCore.QSize(0, 30))
+        self.SlovenianButton.setObjectName("SlovenianButton")
+        self.gridLayout.addWidget(self.SlovenianButton, 10, 0, 1, 1)
+        self.FilipinoButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.FilipinoButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.fr.setFont(font)
-        self.fr.setStyleSheet("QPushButton{\n"
+        self.FilipinoButton.setFont(font)
+        self.FilipinoButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -754,17 +754,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.fr.setObjectName("fr")
-        self.gridLayout.addWidget(self.fr, 4, 2, 1, 1)
-        self.sl = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.sl.setMinimumSize(QtCore.QSize(0, 30))
+        self.FilipinoButton.setObjectName("FilipinoButton")
+        self.gridLayout.addWidget(self.FilipinoButton, 11, 2, 1, 1)
+        self.NorwegianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.NorwegianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.sl.setFont(font)
-        self.sl.setStyleSheet("QPushButton{\n"
+        self.NorwegianButton.setFont(font)
+        self.NorwegianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -777,17 +777,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.sl.setObjectName("sl")
-        self.gridLayout.addWidget(self.sl, 10, 0, 1, 1)
-        self.az = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.az.setMinimumSize(QtCore.QSize(0, 30))
+        self.NorwegianButton.setObjectName("NorwegianButton")
+        self.gridLayout.addWidget(self.NorwegianButton, 7, 2, 1, 1)
+        self.ArabicButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.ArabicButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.az.setFont(font)
-        self.az.setStyleSheet("QPushButton{\n"
+        self.ArabicButton.setFont(font)
+        self.ArabicButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -800,17 +800,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.az.setObjectName("az")
-        self.gridLayout.addWidget(self.az, 1, 0, 1, 1)
-        self.sk = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.sk.setMinimumSize(QtCore.QSize(0, 30))
+        self.ArabicButton.setObjectName("ArabicButton")
+        self.gridLayout.addWidget(self.ArabicButton, 0, 0, 1, 1)
+        self.BulgarianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.BulgarianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.sk.setFont(font)
-        self.sk.setStyleSheet("QPushButton{\n"
+        self.BulgarianButton.setFont(font)
+        self.BulgarianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -823,17 +823,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.sk.setObjectName("sk")
-        self.gridLayout.addWidget(self.sk, 9, 2, 1, 1)
-        self.sv = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.sv.setMinimumSize(QtCore.QSize(0, 30))
+        self.BulgarianButton.setObjectName("BulgarianButton")
+        self.gridLayout.addWidget(self.BulgarianButton, 2, 0, 1, 1)
+        self.JapaneseButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.JapaneseButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.sv.setFont(font)
-        self.sv.setStyleSheet("QPushButton{\n"
+        self.JapaneseButton.setFont(font)
+        self.JapaneseButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -846,17 +846,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.sv.setObjectName("sv")
-        self.gridLayout.addWidget(self.sv, 10, 2, 1, 1)
-        self.ko = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.ko.setMinimumSize(QtCore.QSize(0, 30))
+        self.JapaneseButton.setObjectName("JapaneseButton")
+        self.gridLayout.addWidget(self.JapaneseButton, 6, 2, 1, 1)
+        self.GermanButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.GermanButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.ko.setFont(font)
-        self.ko.setStyleSheet("QPushButton{\n"
+        self.GermanButton.setFont(font)
+        self.GermanButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -869,17 +869,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.ko.setObjectName("ko")
-        self.gridLayout.addWidget(self.ko, 7, 0, 1, 1)
-        self.it = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.it.setMinimumSize(QtCore.QSize(0, 30))
+        self.GermanButton.setObjectName("GermanButton")
+        self.gridLayout.addWidget(self.GermanButton, 5, 0, 1, 1)
+        self.SwedishButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.SwedishButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.it.setFont(font)
-        self.it.setStyleSheet("QPushButton{\n"
+        self.SwedishButton.setFont(font)
+        self.SwedishButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -892,17 +892,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.it.setObjectName("it")
-        self.gridLayout.addWidget(self.it, 6, 1, 1, 1)
-        self.fi = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.fi.setMinimumSize(QtCore.QSize(0, 30))
+        self.SwedishButton.setObjectName("SwedishButton")
+        self.gridLayout.addWidget(self.SwedishButton, 10, 2, 1, 1)
+        self.RomanianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.RomanianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.fi.setFont(font)
-        self.fi.setStyleSheet("QPushButton{\n"
+        self.RomanianButton.setFont(font)
+        self.RomanianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -915,17 +915,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.fi.setObjectName("fi")
-        self.gridLayout.addWidget(self.fi, 4, 1, 1, 1)
-        self.en = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.en.setMinimumSize(QtCore.QSize(0, 30))
+        self.RomanianButton.setObjectName("RomanianButton")
+        self.gridLayout.addWidget(self.RomanianButton, 8, 2, 1, 1)
+        self.CroatianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.CroatianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.en.setFont(font)
-        self.en.setStyleSheet("QPushButton{\n"
+        self.CroatianButton.setFont(font)
+        self.CroatianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -938,17 +938,17 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.en.setObjectName("en")
-        self.gridLayout.addWidget(self.en, 2, 2, 1, 1)
-        self.hy = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.hy.setMinimumSize(QtCore.QSize(0, 30))
+        self.CroatianButton.setObjectName("CroatianButton")
+        self.gridLayout.addWidget(self.CroatianButton, 3, 0, 1, 1)
+        self.SerbianButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.SerbianButton.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.hy.setFont(font)
-        self.hy.setStyleSheet("QPushButton{\n"
+        self.SerbianButton.setFont(font)
+        self.SerbianButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
 "    border-radius: 15px;\n"
@@ -961,31 +961,8 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.hy.setObjectName("hy")
-        self.gridLayout.addWidget(self.hy, 0, 1, 1, 1)
-        self.sr = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
-        self.sr.setMinimumSize(QtCore.QSize(0, 30))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.sr.setFont(font)
-        self.sr.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
-        self.sr.setObjectName("sr")
-        self.gridLayout.addWidget(self.sr, 9, 1, 1, 1)
+        self.SerbianButton.setObjectName("SerbianButton")
+        self.gridLayout.addWidget(self.SerbianButton, 9, 1, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
         self.LandingArea.setWidget(self.scrollAreaWidgetContents)
         self.SearchLine = QtWidgets.QLineEdit(Dialog)
@@ -1051,42 +1028,41 @@ class Ui_Dialog(object):
         self.RollUpButton.setText(_translate("Dialog", "_"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.LanguagesListLabel.setText(_translate("Dialog", "Список языков"))
-        self.tl.setText(_translate("Dialog", "Филиппинский"))
-        self.et.setText(_translate("Dialog", "Эстонский"))
-        self.cn.setText(_translate("Dialog", "Белорусский"))
-        self.ro.setText(_translate("Dialog", "Румынский"))
-        self.be.setText(_translate("Dialog", "Белорусский"))
-        self.fil.setText(_translate("Dialog", "Филиппинский"))
-        self.el.setText(_translate("Dialog", "Греческий"))
-        self.de.setText(_translate("Dialog", "Немецкий"))
-        self.ar.setText(_translate("Dialog", "Арабский"))
-        self.cs.setText(_translate("Dialog", "Чешский"))
-        self.pt.setText(_translate("Dialog", "Португальский"))
-        self.hu.setText(_translate("Dialog", "Венгерский"))
-        self.pl.setText(_translate("Dialog", "Польский"))
-        self.uk.setText(_translate("Dialog", "Украинский"))
-        self.es.setText(_translate("Dialog", "Испанский"))
-        self.bg.setText(_translate("Dialog", "Болгарский"))
-        self.lt.setText(_translate("Dialog", "Литовский"))
-        self.tr.setText(_translate("Dialog", "Турецкий"))
-        self.hr.setText(_translate("Dialog", "Хорватский"))
-        self.da.setText(_translate("Dialog", "Датский"))
-        self.ru.setText(_translate("Dialog", "Русский"))
-        self.no.setText(_translate("Dialog", "Норвежский"))
-        self.ja.setText(_translate("Dialog", "Японский"))
-        self.nl.setText(_translate("Dialog", "Нидерландский"))
-        self.isl.setText(_translate("Dialog", "Исландский"))
-        self.fr.setText(_translate("Dialog", "Французский"))
-        self.sl.setText(_translate("Dialog", "Словенский"))
-        self.az.setText(_translate("Dialog", "Азербайджанский"))
-        self.sk.setText(_translate("Dialog", "Словацкий"))
-        self.sv.setText(_translate("Dialog", "Шведский"))
-        self.ko.setText(_translate("Dialog", "Корейский"))
-        self.it.setText(_translate("Dialog", "Итальянский"))
-        self.fi.setText(_translate("Dialog", "Финский"))
-        self.en.setText(_translate("Dialog", "Английский"))
-        self.hy.setText(_translate("Dialog", "Армянский"))
-        self.sr.setText(_translate("Dialog", "Сербский"))
+        self.SlovakButton.setText(_translate("Dialog", "Словацкий"))
+        self.KoreanButton.setText(_translate("Dialog", "Корейский"))
+        self.RussianButton.setText(_translate("Dialog", "Русский"))
+        self.PolishButton.setText(_translate("Dialog", "Польский"))
+        self.PortugueseButton.setText(_translate("Dialog", "Португальский"))
+        self.SpanishButton.setText(_translate("Dialog", "Испанский"))
+        self.CzechButton.setText(_translate("Dialog", "Чешский"))
+        self.FinnishButton.setText(_translate("Dialog", "Финский"))
+        self.ItalianButton.setText(_translate("Dialog", "Итальянский"))
+        self.FrenchButton.setText(_translate("Dialog", "Французский"))
+        self.DanishButton.setText(_translate("Dialog", "Датский"))
+        self.ArmenianButton.setText(_translate("Dialog", "Армянский"))
+        self.EnglishButton.setText(_translate("Dialog", "Английский"))
+        self.UkrainianButton.setText(_translate("Dialog", "Украинский"))
+        self.EstonianButton.setText(_translate("Dialog", "Эстонский"))
+        self.LithuanianButton.setText(_translate("Dialog", "Литовский"))
+        self.ChineseButton.setText(_translate("Dialog", "Китайский"))
+        self.HungarianButton.setText(_translate("Dialog", "Венгерский"))
+        self.GreekButton.setText(_translate("Dialog", "Греческий"))
+        self.TurkishButton.setText(_translate("Dialog", "Турецкий"))
+        self.DutchButton.setText(_translate("Dialog", "Нидерландский"))
+        self.IcelandicButton.setText(_translate("Dialog", "Исландский"))
+        self.BelarusianButton.setText(_translate("Dialog", "Белорусский"))
+        self.AzerbaijaniButton.setText(_translate("Dialog", "Азербайджанский"))
+        self.SlovenianButton.setText(_translate("Dialog", "Словенский"))
+        self.FilipinoButton.setText(_translate("Dialog", "Филиппинский"))
+        self.NorwegianButton.setText(_translate("Dialog", "Норвежский"))
+        self.ArabicButton.setText(_translate("Dialog", "Арабский"))
+        self.BulgarianButton.setText(_translate("Dialog", "Болгарский"))
+        self.JapaneseButton.setText(_translate("Dialog", "Японский"))
+        self.GermanButton.setText(_translate("Dialog", "Немецкий"))
+        self.SwedishButton.setText(_translate("Dialog", "Шведский"))
+        self.RomanianButton.setText(_translate("Dialog", "Румынский"))
+        self.CroatianButton.setText(_translate("Dialog", "Хорватский"))
+        self.SerbianButton.setText(_translate("Dialog", "Сербский"))
         self.SearchLine.setText(_translate("Dialog", "Поиск"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
 from GUI.pictures import resources
