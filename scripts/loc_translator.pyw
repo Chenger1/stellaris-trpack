@@ -3,8 +3,13 @@ from googletrans import Translator
 from langdetect import detect, DetectorFactory
 
 import re
+import json
 
 from scripts.utils import data, set_translated_file
+
+
+with open("Properties.json", 'r', encoding='utf-8') as prop:
+	properties = json.load(prop)
 
 
 def file_len(fname):
@@ -59,7 +64,7 @@ def replacing_invalid_new_line_symbol(func):
 
 @replacing_invalid_new_line_symbol
 def translating_line(line: str, translator=None) -> str:
-	translation = translator.translate(line, dest='ru')
+	translation = translator.translate(line, dest=properties["output_language"])
 	return translation.text
 
 
@@ -93,7 +98,7 @@ def translate_line(line, translator=None):
 	translation = ''
 	if len(line) > 2:
 		test = detect(line)
-		if test != 'ru':
+		if test != properties["output_language"]:
 			translation = line_processing(line, translator)
 		else:
 			translation = line

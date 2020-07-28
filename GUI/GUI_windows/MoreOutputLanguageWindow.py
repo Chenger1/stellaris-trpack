@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import MoreOutputLanguage
-
+import json
 
 class MoreOutputLanguageWindow(QtWidgets.QDialog, MoreOutputLanguage.Ui_Dialog):
     def __init__(self, parent):
@@ -9,13 +9,16 @@ class MoreOutputLanguageWindow(QtWidgets.QDialog, MoreOutputLanguage.Ui_Dialog):
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
         self.init_handlers()
-        self.output_language = 'en'
         self.setModal(True)
         self.oldPos = self.pos()
         self.parent = parent
 
     def set_output_language(self, output_language):
-        self.parent.parent.get_output_language(output_language)
+        with open("Properties.json", 'r', encoding='utf-8') as prop:
+            properties = json.load(prop)
+            properties["output_language"] = output_language
+        with open("Properties.json", 'w', encoding='utf-8') as prop:
+            json.dump(properties, prop)
 
     def init_handlers(self):
         self.WindowMoveButton.installEventFilter(self)
