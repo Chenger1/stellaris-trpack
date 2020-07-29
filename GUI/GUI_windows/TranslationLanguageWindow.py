@@ -12,11 +12,72 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         self.setModal(True)
         self.oldPos = self.pos()
         self.parent = parent
+        self.active_button = {
+            'ar': self.ArabicButton,
+            'hy': self.ArmenianButton,
+            'az': self.AzerbaijaniButton,
+            'be': self.BelarusianButton,
+            'bg': self.BulgarianButton,
+            'zh-cn': self.ChineseButton,
+            'hr': self.CroatianButton,
+            'cs': self.CzechButton,
+            'da': self.DanishButton,
+            'nl': self.DutchButton,
+            'en': self.EnglishButton,
+            'et': self.EstonianButton,
+            'fi': self.FinnishButton,
+            'fr': self.FrenchButton,
+            'de': self.GermanButton,
+            'el': self.GreekButton,
+            'hu': self.HungarianButton,
+            'is': self.IcelandicButton,
+            'it': self.ItalianButton,
+            'ja': self.JapaneseButton,
+            'ko': self.KoreanButton,
+            'lt': self.LithuanianButton,
+            'no': self.NorwegianButton,
+            'pl': self.PolishButton,
+            'pt': self.PortugueseButton,
+            'ro': self.RomanianButton,
+            'ru': self.RussianButton,
+            'sr': self.SerbianButton,
+            'sk': self.SlovakButton,
+            'sl': self.SlovenianButton,
+            'es': self.SpanishButton,
+            'sv': self.SwedishButton,
+            'tr': self.TurkishButton,
+            'uk': self.UkrainianButton,
+            'fil': self.FilipinoButton
+        }
+        self.set_active()
+
+    def set_active(self):
+        with open("Properties.json", 'r', encoding='utf-8') as prop:
+            properties = json.load(prop)
+        button = self.active_button[properties["translation_language"]]
+        button.setStyleSheet("""
+QPushButton{
+    background-color: #05B8CC;
+    border: 2px solid #05B8CC;
+    border-radius: 15px;
+    color: #1f2533;
+}
+QPushButton:hover{
+    background-color: #31858f;
+    border: #31858f;
+    color: #ffffff;
+}
+QPushButton:pressed{
+    background-color: rgba(194, 194, 194, 50);
+    border: #c2c2c2;
+}
+""")
 
     def set_translation_language(self, translation_language):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
             properties = json.load(prop)
             properties["translation_language"] = translation_language
+            self.set_active()
         with open("Properties.json", 'w', encoding='utf-8') as prop:
             json.dump(properties, prop)
 
