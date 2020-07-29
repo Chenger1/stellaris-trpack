@@ -21,6 +21,7 @@ class Mod():
         self.name = name
         self.modId = modId
         self.sortRequired = True
+        self.isEnabled = True
         self.sortedKey = name.encode('ascii', errors='ignore')
 
 
@@ -95,7 +96,6 @@ def writeLoadOrder(idList, dlc_load, enabled_mods):
 
     if enabled_mods is not None:
         idList = [m for m in idList if m in enabled_mods]
-
     data['enabled_mods'] = idList
 
     with open(dlc_load, 'w') as json_file:
@@ -147,7 +147,10 @@ def run(settingPath):
         modList = tweakModOrder(modList)
     if len(modList) <= 0:
         abort('no mod found')
-    idList = [mod.modId for mod in modList]
+    modList[20].isEnabled = False
+    modList[-9].isEnabled = False
+    modList[-13].isEnabled = False
+    idList = [mod.modId for mod in modList if mod.isEnabled is True]
     hashList = [mod.hashKey for mod in modList]
     writeDisplayOrder(hashList, game_data)
     writeLoadOrder(idList, dlc_load, enabled_mods)
