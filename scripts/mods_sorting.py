@@ -147,9 +147,6 @@ def run(settingPath):
         modList = tweakModOrder(modList)
     if len(modList) <= 0:
         abort('no mod found')
-    modList[20].isEnabled = False
-    modList[-9].isEnabled = False
-    modList[-13].isEnabled = False
     idList = [mod.modId for mod in modList if mod.isEnabled is True]
     hashList = [mod.hashKey for mod in modList]
     writeDisplayOrder(hashList, game_data)
