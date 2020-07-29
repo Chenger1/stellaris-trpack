@@ -51,6 +51,26 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         }
         self.set_active()
 
+    def set_inactive(self):
+        with open("Properties.json", 'r', encoding='utf-8') as prop:
+            properties = json.load(prop)
+        button = self.active_button[properties["translation_language"]]
+        button.setStyleSheet("""
+        QPushButton{
+            background-color: rgba(31, 37, 51, 50);
+            border: 2px solid #ffffff;
+            border-radius: 15px;
+            color: #ffffff;
+        }
+        QPushButton:hover{
+            background-color: rgba(56, 57, 61, 50);
+        }
+        QPushButton:pressed{
+            background-color: rgba(194, 194, 194, 50);
+            border: #c2c2c2;
+        }
+        """)
+
     def set_active(self):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
             properties = json.load(prop)
@@ -77,9 +97,10 @@ QPushButton:pressed{
         with open("Properties.json", 'r', encoding='utf-8') as prop:
             properties = json.load(prop)
             properties["translation_language"] = translation_language
-            self.set_active()
+        self.set_inactive()
         with open("Properties.json", 'w', encoding='utf-8') as prop:
             json.dump(properties, prop)
+        self.set_active()
 
     def init_handlers(self):
         self.WindowMoveButton.installEventFilter(self)
