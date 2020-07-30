@@ -238,7 +238,7 @@ color: #ffffff;</string>
 	color: #ffffff;
 	}
 QLineEdit:hover{
-	background-color: #rgba(56, 57, 61, 10);
+	background-color: rgba(56, 57, 61, 10);
 	}
 </string>
    </property>
@@ -277,7 +277,7 @@ QLineEdit:hover{
 	color: #ffffff;
 	}
 QLineEdit:hover{
-	background-color: #rgba(56, 57, 61, 10);
+	background-color: rgba(56, 57, 61, 10);
 	}
 </string>
    </property>

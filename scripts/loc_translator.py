@@ -64,7 +64,7 @@ def replacing_invalid_new_line_symbol(func):
 
 @replacing_invalid_new_line_symbol
 def translating_line(line: str, translator=None) -> str:
-	translation = translator.translate(line, dest=properties["output_language"])
+	translation = translator.translate(line, dest=properties["translation_language"])
 	return translation.text
 
 
@@ -98,7 +98,7 @@ def translate_line(line, translator=None):
 	translation = ''
 	if len(line) > 2:
 		test = detect(line)
-		if test != properties["output_language"]:
+		if test != properties["translation_language"]:
 			translation = line_processing(line, translator)
 		else:
 			translation = line

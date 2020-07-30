@@ -215,7 +215,7 @@ color: #ffffff;</string>
 	color: #ffffff;
 	}
 QLineEdit:hover{
-	background-color: #rgba(56, 57, 61, 70);
+	background-color: rgba(56, 57, 61, 70);
 	}
 </string>
    </property>

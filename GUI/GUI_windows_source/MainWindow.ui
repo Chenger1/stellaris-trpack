@@ -45,8 +45,7 @@
    </iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #1f2533;
-background-image: url('pictures/background.png')</string>
+   <string notr="true">background-color: #1f2533;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -148,7 +147,7 @@ QPushButton:pressed{
 	color: #ffffff;
 	}
 QLineEdit:hover{
-	background-color: #rgba(56, 57, 61, 50);
+	background-color: rgba(56, 57, 61, 50);
 	}
 </string>
     </property>
@@ -539,7 +538,7 @@ QPushButton:pressed{
 	color: #ffffff;
 	}
 QTextEdit:hover{
-	background-color: #rgba(56, 57, 61, 50);
+	background-color: rgba(56, 57, 61, 50);
 	}
 </string>
     </property>
@@ -579,7 +578,7 @@ p, li { white-space: pre-wrap; }
 	color: #ffffff;
 	}
 QTextEdit:hover{
-	background-color: #rgba(56, 57, 61, 50);
+	background-color: rgba(56, 57, 61, 50);
 	}
 </string>
     </property>
@@ -616,7 +615,7 @@ p, li { white-space: pre-wrap; }
 	color: #ffffff;
 	}
 QTextEdit:hover{
-	background-color: #rgba(56, 57, 61, 50);
+	background-color: rgba(56, 57, 61, 50);
 	}
 </string>
     </property>
@@ -1320,7 +1319,6 @@ QPushButton:pressed{
   </widget>
  </widget>
  <resources>
-  <include location="../pictures/resources.qrc"/>
   <include location="../pictures/resources.qrc"/>
  </resources>
  <connections/>
