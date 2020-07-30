@@ -6,6 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+from GUI.pictures import resources
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -34,17 +35,17 @@ class Ui_Dialog(object):
         font.setWeight(75)
         self.ExitButton.setFont(font)
         self.ExitButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: rgb(255, 60, 63)\n"
-"    }")
+                                      "    background-color: rgba(31, 37, 51, 10);\n"
+                                      "    color: #ffffff;\n"
+                                      "    }\n"
+                                      "QPushButton:hover{\n"
+                                      "    background-color: rgba(56, 57, 61, 50);\n"
+                                      "    color: rgb(199, 199, 199);\n"
+                                      "    }\n"
+                                      "QPushButton:pressed{\n"
+                                      "    background-color: rgba(194, 194, 194, 50);\n"
+                                      "    color: rgb(255, 60, 63)\n"
+                                      "    }")
         self.ExitButton.setObjectName("ExitButton")
         self.RollUpButton = QtWidgets.QPushButton(Dialog)
         self.RollUpButton.setGeometry(QtCore.QRect(600, 0, 21, 21))
@@ -55,17 +56,17 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.RollUpButton.setFont(font)
         self.RollUpButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: #5abe41\n"
-"    }")
+                                        "    background-color: rgba(31, 37, 51, 10);\n"
+                                        "    color: #ffffff;\n"
+                                        "    }\n"
+                                        "QPushButton:hover{\n"
+                                        "    background-color: rgba(56, 57, 61, 50);\n"
+                                        "    color: rgb(199, 199, 199);\n"
+                                        "    }\n"
+                                        "QPushButton:pressed{\n"
+                                        "    background-color: rgba(194, 194, 194, 50);\n"
+                                        "    color: #5abe41\n"
+                                        "    }")
         self.RollUpButton.setObjectName("RollUpButton")
         self.InfoLabel_0 = QtWidgets.QLabel(Dialog)
         self.InfoLabel_0.setGeometry(QtCore.QRect(50, 30, 561, 31))
@@ -76,7 +77,7 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.InfoLabel_0.setFont(font)
         self.InfoLabel_0.setStyleSheet("background-color: none;\n"
-"color: #ffffff;")
+                                       "color: #ffffff;")
         self.InfoLabel_0.setAlignment(QtCore.Qt.AlignCenter)
         self.InfoLabel_0.setObjectName("InfoLabel_0")
         self.InfoLabel_2 = QtWidgets.QLabel(Dialog)
@@ -88,7 +89,7 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.InfoLabel_2.setFont(font)
         self.InfoLabel_2.setStyleSheet("background-color: none;\n"
-"color: #ffffff;")
+                                       "color: #ffffff;")
         self.InfoLabel_2.setAlignment(QtCore.Qt.AlignCenter)
         self.InfoLabel_2.setOpenExternalLinks(True)
         self.InfoLabel_2.setObjectName("InfoLabel_2")
@@ -101,7 +102,7 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.VersionLabel.setFont(font)
         self.VersionLabel.setStyleSheet("background-color: none;\n"
-"color: #ffffff;")
+                                        "color: #ffffff;")
         self.VersionLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.VersionLabel.setObjectName("VersionLabel")
         self.InfoLabel_1 = QtWidgets.QLabel(Dialog)
@@ -113,7 +114,7 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.InfoLabel_1.setFont(font)
         self.InfoLabel_1.setStyleSheet("background-color: none;\n"
-"color: #ffffff;")
+                                       "color: #ffffff;")
         self.InfoLabel_1.setAlignment(QtCore.Qt.AlignCenter)
         self.InfoLabel_1.setObjectName("InfoLabel_1")
         self.ContactUsButton = QtWidgets.QPushButton(Dialog)
@@ -125,18 +126,18 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ContactUsButton.setFont(font)
         self.ContactUsButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 20px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
+                                           "    background-color: rgba(31, 37, 51, 50);\n"
+                                           "    border: 2px solid #ffffff;\n"
+                                           "    border-radius: 20px;\n"
+                                           "    color: #ffffff;\n"
+                                           "    }\n"
+                                           "QPushButton:hover{\n"
+                                           "    background-color: rgba(56, 57, 61, 50);\n"
+                                           "    }\n"
+                                           "QPushButton:pressed{\n"
+                                           "    background-color: rgba(194, 194, 194, 50);\n"
+                                           "    border: #c2c2c2;\n"
+                                           "    }")
         self.ContactUsButton.setObjectName("ContactUsButton")
         self.WindowMoveButton = QtWidgets.QPushButton(Dialog)
         self.WindowMoveButton.setGeometry(QtCore.QRect(0, 0, 651, 21))
@@ -147,8 +148,8 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.WindowMoveButton.setFont(font)
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
-"    color: transparent;\n"
-"}")
+                                            "    color: transparent;\n"
+                                            "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
@@ -169,9 +170,12 @@ class Ui_Dialog(object):
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.RollUpButton.setText(_translate("Dialog", "_"))
         self.InfoLabel_0.setText(_translate("Dialog", "О Stellaris True Machine Translation Tool"))
-        self.InfoLabel_2.setText(_translate("Dialog", "<html><head/><body><p>при использовании Python 3 на основе <a href=\"https://github.com/pacas/stellaris-trpack\"><span style=\" text-decoration: underline; color:#ffffff;\">софта Pacas</span></a><span style=\" color:#ffffff;\">.</span></p></body></html>"))
+        self.InfoLabel_2.setText(_translate("Dialog", "<html><head/><body><p>при использовании Python 3 на основе <a "
+                                                      "href=\"https://github.com/pacas/stellaris-trpack\"><span "
+                                                      "style=\" text-decoration: underline; color:#ffffff;\">софта "
+                                                      "Pacas</span></a><span style=\" "
+                                                      "color:#ffffff;\">.</span></p></body></html>"))
         self.VersionLabel.setText(_translate("Dialog", "Версия ПО: 0.5.5"))
         self.InfoLabel_1.setText(_translate("Dialog", "Приложение разработано Letiso и Chenger"))
         self.ContactUsButton.setText(_translate("Dialog", "Связаться с разработчиками"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-from GUI.pictures import resources

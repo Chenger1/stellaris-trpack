@@ -2,14 +2,14 @@
 from googletrans import Translator
 from langdetect import detect, DetectorFactory
 
-import re
-import json
+from re import compile
+from json import load
 
 from scripts.utils import data, set_translated_file
 
 
 with open("Properties.json", 'r', encoding='utf-8') as prop:
-	properties = json.load(prop)
+	properties = load(prop)
 
 
 def file_len(fname):
@@ -30,12 +30,12 @@ def search(subs, line):
 		return 0
 
 
-def slice_string(line:str, specials={'§', '$', '£'}):
+def slice_string(line: str, specials={'§', '$', '£'}):
 	result = []
 	if '[' in line:
-		pattern = re.compile(r'\[.*?\]')
+		pattern = compile(r'\[.*?]')
 	elif set(line) & specials:
-		pattern = re.compile(r'[§$£].*?[§$£]')
+		pattern = compile(r'[§$£].*?[§$£]')
 	else:
 		result.append(line)
 		return result
@@ -95,7 +95,6 @@ def defining_translator(func):
 
 @defining_translator
 def translate_line(line, translator=None):
-	translation = ''
 	if len(line) > 2:
 		test = detect(line)
 		if test != properties["translation_language"]:

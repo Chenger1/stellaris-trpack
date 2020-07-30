@@ -55,7 +55,7 @@ def paradox_mod_way_to_content(mod_id):
 
 
 def get_mod_id(file_path):
-    pattern = re.compile(r'281990\/(.*?)\/localisation')
+    pattern = re.compile(r'281990/(.*?)/localisation')
     mod_id = pattern.findall(file_path)[0]
     return mod_id
 

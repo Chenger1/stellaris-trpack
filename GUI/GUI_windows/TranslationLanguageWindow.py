@@ -1,7 +1,8 @@
 from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import TranslationLanguage
-import json
+from json import load, dump
+
 
 class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog):
     def __init__(self, parent):
@@ -53,7 +54,7 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
 
     def set_inactive(self):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
-            properties = json.load(prop)
+            properties = load(prop)
         button = self.active_button[properties["translation_language"]]
         button.setStyleSheet("""
         QPushButton{
@@ -73,7 +74,7 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
 
     def set_active(self):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
-            properties = json.load(prop)
+            properties = load(prop)
         button = self.active_button[properties["translation_language"]]
         button.setStyleSheet("""
 QPushButton{
@@ -95,11 +96,11 @@ QPushButton:pressed{
 
     def set_translation_language(self, translation_language):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
-            properties = json.load(prop)
+            properties = load(prop)
             properties["translation_language"] = translation_language
         self.set_inactive()
         with open("Properties.json", 'w', encoding='utf-8') as prop:
-            json.dump(properties, prop)
+            dump(properties, prop)
         self.set_active()
 
     def init_handlers(self):

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import tkinter as tk
 from tkinter import filedialog
-import re
+from re import compile
 import webbrowser
 
 
@@ -15,7 +15,7 @@ def search(subs, line):
 
 def checker(subs, line):
 	if len(line) > 2:
-		if ((line[0] and line[1]) != '#'):
+		if (line[0] and line[1]) != '#':
 			if search(subs, line) == 1:
 				return 1
 
@@ -32,7 +32,7 @@ def main():
 	original = open(file1, 'r', encoding='utf-8')
 	translated = open(file2, 'r', encoding='utf-8')
 	combined = open(file3, 'w', encoding='utf-8')
-	subs = re.compile(': |:0|:1|:"')
+	subs = compile(': |:0|:1|:"')
 	pairs = {}
 
 	for line in translated:

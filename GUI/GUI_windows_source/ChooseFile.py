@@ -6,6 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+from GUI.pictures import resources
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -26,18 +27,18 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ManualButton.setFont(font)
         self.ManualButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 20px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
+                                        "    background-color: rgba(31, 37, 51, 50);\n"
+                                        "    border: 2px solid #ffffff;\n"
+                                        "    border-radius: 20px;\n"
+                                        "    color: #ffffff;\n"
+                                        "    }\n"
+                                        "QPushButton:hover{\n"
+                                        "    background-color: rgba(56, 57, 61, 50);\n"
+                                        "    }\n"
+                                        "QPushButton:pressed{\n"
+                                        "    background-color: rgba(194, 194, 194, 50);\n"
+                                        "    border: #c2c2c2;\n"
+                                        "    }")
         self.ManualButton.setObjectName("ManualButton")
         self.SteamButton = QtWidgets.QPushButton(Dialog)
         self.SteamButton.setGeometry(QtCore.QRect(360, 190, 261, 41))
@@ -48,31 +49,31 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.SteamButton.setFont(font)
         self.SteamButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 20px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
+                                       "    background-color: rgba(31, 37, 51, 50);\n"
+                                       "    border: 2px solid #ffffff;\n"
+                                       "    border-radius: 20px;\n"
+                                       "    color: #ffffff;\n"
+                                       "    }\n"
+                                       "QPushButton:hover{\n"
+                                       "    background-color: rgba(56, 57, 61, 50);\n"
+                                       "    }\n"
+                                       "QPushButton:pressed{\n"
+                                       "    background-color: rgba(194, 194, 194, 50);\n"
+                                       "    border: #c2c2c2;\n"
+                                       "    }")
         self.SteamButton.setObjectName("SteamButton")
         self.steam_logo = QtWidgets.QLabel(Dialog)
         self.steam_logo.setGeometry(QtCore.QRect(560, 180, 71, 61))
         self.steam_logo.setStyleSheet("background-color: none;\n"
-"image: url(:/icons/icons/steam.png);\n"
-"")
+                                      "image: url(:/icons/icons/steam.png);\n"
+                                      "")
         self.steam_logo.setText("")
         self.steam_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.steam_logo.setObjectName("steam_logo")
         self.file_explorer_logo = QtWidgets.QLabel(Dialog)
         self.file_explorer_logo.setGeometry(QtCore.QRect(130, 180, 61, 61))
         self.file_explorer_logo.setStyleSheet("background-color: none;\n"
-"image: url(:/icons/icons/explorer.png);")
+                                              "image: url(:/icons/icons/explorer.png);")
         self.file_explorer_logo.setText("")
         self.file_explorer_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.file_explorer_logo.setObjectName("file_explorer_logo")
@@ -93,17 +94,17 @@ class Ui_Dialog(object):
         font.setWeight(75)
         self.ExitButton.setFont(font)
         self.ExitButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: rgb(255, 60, 63)\n"
-"    }")
+                                      "    background-color: rgba(31, 37, 51, 10);\n"
+                                      "    color: #ffffff;\n"
+                                      "    }\n"
+                                      "QPushButton:hover{\n"
+                                      "    background-color: rgba(56, 57, 61, 50);\n"
+                                      "    color: rgb(199, 199, 199);\n"
+                                      "    }\n"
+                                      "QPushButton:pressed{\n"
+                                      "    background-color: rgba(194, 194, 194, 50);\n"
+                                      "    color: rgb(255, 60, 63)\n"
+                                      "    }")
         self.ExitButton.setObjectName("ExitButton")
         self.RollUpButton = QtWidgets.QPushButton(Dialog)
         self.RollUpButton.setGeometry(QtCore.QRect(600, 0, 21, 21))
@@ -114,17 +115,17 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.RollUpButton.setFont(font)
         self.RollUpButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: #5abe41\n"
-"    }")
+                                        "    background-color: rgba(31, 37, 51, 10);\n"
+                                        "    color: #ffffff;\n"
+                                        "    }\n"
+                                        "QPushButton:hover{\n"
+                                        "    background-color: rgba(56, 57, 61, 50);\n"
+                                        "    color: rgb(199, 199, 199);\n"
+                                        "    }\n"
+                                        "QPushButton:pressed{\n"
+                                        "    background-color: rgba(194, 194, 194, 50);\n"
+                                        "    color: #5abe41\n"
+                                        "    }")
         self.RollUpButton.setObjectName("RollUpButton")
         self.ChooseFileLabel = QtWidgets.QLabel(Dialog)
         self.ChooseFileLabel.setGeometry(QtCore.QRect(200, 70, 441, 51))
@@ -135,7 +136,7 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ChooseFileLabel.setFont(font)
         self.ChooseFileLabel.setStyleSheet("background-color: none;\n"
-"color: #ffffff;")
+                                           "color: #ffffff;")
         self.ChooseFileLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.ChooseFileLabel.setObjectName("ChooseFileLabel")
         self.ReferenceButton = QtWidgets.QPushButton(Dialog)
@@ -147,17 +148,17 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ReferenceButton.setFont(font)
         self.ReferenceButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: #5abe41\n"
-"    }")
+                                           "    background-color: rgba(31, 37, 51, 10);\n"
+                                           "    color: #ffffff;\n"
+                                           "    }\n"
+                                           "QPushButton:hover{\n"
+                                           "    background-color: rgba(56, 57, 61, 50);\n"
+                                           "    color: rgb(199, 199, 199);\n"
+                                           "    }\n"
+                                           "QPushButton:pressed{\n"
+                                           "    background-color: rgba(194, 194, 194, 50);\n"
+                                           "    color: #5abe41\n"
+                                           "    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.WindowMoveButton = QtWidgets.QPushButton(Dialog)
         self.WindowMoveButton.setGeometry(QtCore.QRect(0, 0, 651, 21))
@@ -168,8 +169,8 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.WindowMoveButton.setFont(font)
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
-"    color: transparent;\n"
-"}")
+                                            "    color: transparent;\n"
+                                            "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
@@ -195,4 +196,3 @@ class Ui_Dialog(object):
         self.ChooseFileLabel.setText(_translate("Dialog", "Выбрать файл"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-from GUI.pictures import resources

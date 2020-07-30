@@ -6,6 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+from GUI.pictures import resources
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -20,8 +21,8 @@ class Ui_Dialog(object):
         self.lang_logo = QtWidgets.QLabel(Dialog)
         self.lang_logo.setGeometry(QtCore.QRect(10, 30, 61, 51))
         self.lang_logo.setStyleSheet("background-color: none;\n"
-"image: url(:/icons/icons/lang.png);\n"
-"")
+                                     "image: url(:/icons/icons/lang.png);\n"
+                                     "")
         self.lang_logo.setText("")
         self.lang_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.lang_logo.setObjectName("lang_logo")
@@ -42,17 +43,17 @@ class Ui_Dialog(object):
         font.setWeight(75)
         self.ExitButton.setFont(font)
         self.ExitButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: rgb(255, 60, 63)\n"
-"    }")
+                                      "    background-color: rgba(31, 37, 51, 10);\n"
+                                      "    color: #ffffff;\n"
+                                      "    }\n"
+                                      "QPushButton:hover{\n"
+                                      "    background-color: rgba(56, 57, 61, 50);\n"
+                                      "    color: rgb(199, 199, 199);\n"
+                                      "    }\n"
+                                      "QPushButton:pressed{\n"
+                                      "    background-color: rgba(194, 194, 194, 50);\n"
+                                      "    color: rgb(255, 60, 63)\n"
+                                      "    }")
         self.ExitButton.setObjectName("ExitButton")
         self.RollUpButton = QtWidgets.QPushButton(Dialog)
         self.RollUpButton.setGeometry(QtCore.QRect(600, 0, 21, 21))
@@ -63,17 +64,17 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.RollUpButton.setFont(font)
         self.RollUpButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: #5abe41\n"
-"    }")
+                                        "    background-color: rgba(31, 37, 51, 10);\n"
+                                        "    color: #ffffff;\n"
+                                        "    }\n"
+                                        "QPushButton:hover{\n"
+                                        "    background-color: rgba(56, 57, 61, 50);\n"
+                                        "    color: rgb(199, 199, 199);\n"
+                                        "    }\n"
+                                        "QPushButton:pressed{\n"
+                                        "    background-color: rgba(194, 194, 194, 50);\n"
+                                        "    color: #5abe41\n"
+                                        "    }")
         self.RollUpButton.setObjectName("RollUpButton")
         self.ToolLanguageLabel = QtWidgets.QLabel(Dialog)
         self.ToolLanguageLabel.setGeometry(QtCore.QRect(20, 90, 271, 61))
@@ -84,7 +85,7 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ToolLanguageLabel.setFont(font)
         self.ToolLanguageLabel.setStyleSheet("background-color: none;\n"
-"color: #ffffff;")
+                                             "color: #ffffff;")
         self.ToolLanguageLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.ToolLanguageLabel.setObjectName("ToolLanguageLabel")
         self.ReferenceButton = QtWidgets.QPushButton(Dialog)
@@ -96,17 +97,17 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ReferenceButton.setFont(font)
         self.ReferenceButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: #5abe41\n"
-"    }")
+                                           "    background-color: rgba(31, 37, 51, 10);\n"
+                                           "    color: #ffffff;\n"
+                                           "    }\n"
+                                           "QPushButton:hover{\n"
+                                           "    background-color: rgba(56, 57, 61, 50);\n"
+                                           "    color: rgb(199, 199, 199);\n"
+                                           "    }\n"
+                                           "QPushButton:pressed{\n"
+                                           "    background-color: rgba(194, 194, 194, 50);\n"
+                                           "    color: #5abe41\n"
+                                           "    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.RussianButton = QtWidgets.QPushButton(Dialog)
         self.RussianButton.setGeometry(QtCore.QRect(480, 50, 131, 31))
@@ -117,18 +118,18 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.RussianButton.setFont(font)
         self.RussianButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
+                                         "    background-color: rgba(31, 37, 51, 50);\n"
+                                         "    border: 2px solid #ffffff;\n"
+                                         "    border-radius: 15px;\n"
+                                         "    color: #ffffff;\n"
+                                         "    }\n"
+                                         "QPushButton:hover{\n"
+                                         "    background-color: rgba(56, 57, 61, 50);\n"
+                                         "    }\n"
+                                         "QPushButton:pressed{\n"
+                                         "    background-color: rgba(194, 194, 194, 50);\n"
+                                         "    border: #c2c2c2;\n"
+                                         "    }")
         self.RussianButton.setObjectName("RussianButton")
         self.UkrainianButton = QtWidgets.QPushButton(Dialog)
         self.UkrainianButton.setGeometry(QtCore.QRect(320, 110, 131, 31))
@@ -139,18 +140,18 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.UkrainianButton.setFont(font)
         self.UkrainianButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
+                                           "    background-color: rgba(31, 37, 51, 50);\n"
+                                           "    border: 2px solid #ffffff;\n"
+                                           "    border-radius: 15px;\n"
+                                           "    color: #ffffff;\n"
+                                           "    }\n"
+                                           "QPushButton:hover{\n"
+                                           "    background-color: rgba(56, 57, 61, 50);\n"
+                                           "    }\n"
+                                           "QPushButton:pressed{\n"
+                                           "    background-color: rgba(194, 194, 194, 50);\n"
+                                           "    border: #c2c2c2;\n"
+                                           "    }")
         self.UkrainianButton.setObjectName("UkrainianButton")
         self.PolishButton = QtWidgets.QPushButton(Dialog)
         self.PolishButton.setGeometry(QtCore.QRect(480, 110, 131, 31))
@@ -161,18 +162,18 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.PolishButton.setFont(font)
         self.PolishButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
+                                        "    background-color: rgba(31, 37, 51, 50);\n"
+                                        "    border: 2px solid #ffffff;\n"
+                                        "    border-radius: 15px;\n"
+                                        "    color: #ffffff;\n"
+                                        "    }\n"
+                                        "QPushButton:hover{\n"
+                                        "    background-color: rgba(56, 57, 61, 50);\n"
+                                        "    }\n"
+                                        "QPushButton:pressed{\n"
+                                        "    background-color: rgba(194, 194, 194, 50);\n"
+                                        "    border: #c2c2c2;\n"
+                                        "    }")
         self.PolishButton.setObjectName("PolishButton")
         self.EnglishButton = QtWidgets.QPushButton(Dialog)
         self.EnglishButton.setGeometry(QtCore.QRect(320, 50, 131, 31))
@@ -183,18 +184,18 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.EnglishButton.setFont(font)
         self.EnglishButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
+                                         "    background-color: rgba(31, 37, 51, 50);\n"
+                                         "    border: 2px solid #ffffff;\n"
+                                         "    border-radius: 15px;\n"
+                                         "    color: #ffffff;\n"
+                                         "    }\n"
+                                         "QPushButton:hover{\n"
+                                         "    background-color: rgba(56, 57, 61, 50);\n"
+                                         "    }\n"
+                                         "QPushButton:pressed{\n"
+                                         "    background-color: rgba(194, 194, 194, 50);\n"
+                                         "    border: #c2c2c2;\n"
+                                         "    }")
         self.EnglishButton.setObjectName("EnglishButton")
         self.ChineseButton = QtWidgets.QPushButton(Dialog)
         self.ChineseButton.setGeometry(QtCore.QRect(400, 170, 131, 31))
@@ -205,18 +206,18 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ChineseButton.setFont(font)
         self.ChineseButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
+                                         "    background-color: rgba(31, 37, 51, 50);\n"
+                                         "    border: 2px solid #ffffff;\n"
+                                         "    border-radius: 15px;\n"
+                                         "    color: #ffffff;\n"
+                                         "    }\n"
+                                         "QPushButton:hover{\n"
+                                         "    background-color: rgba(56, 57, 61, 50);\n"
+                                         "    }\n"
+                                         "QPushButton:pressed{\n"
+                                         "    background-color: rgba(194, 194, 194, 50);\n"
+                                         "    border: #c2c2c2;\n"
+                                         "    }")
         self.ChineseButton.setObjectName("ChineseButton")
         self.WindowMoveButton = QtWidgets.QPushButton(Dialog)
         self.WindowMoveButton.setGeometry(QtCore.QRect(0, 0, 651, 21))
@@ -227,8 +228,8 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.WindowMoveButton.setFont(font)
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
-"    color: transparent;\n"
-"}")
+                                            "    color: transparent;\n"
+                                            "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
@@ -259,4 +260,3 @@ class Ui_Dialog(object):
         self.EnglishButton.setText(_translate("Dialog", "English"))
         self.ChineseButton.setText(_translate("Dialog", "中文"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-from GUI.pictures import resources

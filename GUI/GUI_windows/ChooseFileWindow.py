@@ -45,5 +45,3 @@ class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
             elif event.type() == QtCore.QEvent.MouseButtonRelease:
                 self.oldPos = None
         return super().eventFilter(source, event)
-
-

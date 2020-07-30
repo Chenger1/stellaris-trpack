@@ -6,6 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+from GUI.pictures import resources
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -17,7 +18,7 @@ class Ui_Dialog(object):
         Dialog.setMinimumSize(QtCore.QSize(1000, 650))
         Dialog.setMaximumSize(QtCore.QSize(1000, 650))
         Dialog.setStyleSheet("background-color: transparent;\n"
-"")
+                             "")
         self.BackgroundFrame = QtWidgets.QFrame(Dialog)
         self.BackgroundFrame.setGeometry(QtCore.QRect(0, -10, 1050, 700))
         self.BackgroundFrame.setMinimumSize(QtCore.QSize(1050, 700))
@@ -35,17 +36,17 @@ class Ui_Dialog(object):
         font.setWeight(75)
         self.ExitButton.setFont(font)
         self.ExitButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: rgb(255, 60, 63)\n"
-"    }")
+                                      "    background-color: rgba(31, 37, 51, 10);\n"
+                                      "    color: #ffffff;\n"
+                                      "    }\n"
+                                      "QPushButton:hover{\n"
+                                      "    background-color: rgba(56, 57, 61, 50);\n"
+                                      "    color: rgb(199, 199, 199);\n"
+                                      "    }\n"
+                                      "QPushButton:pressed{\n"
+                                      "    background-color: rgba(194, 194, 194, 50);\n"
+                                      "    color: rgb(255, 60, 63)\n"
+                                      "    }")
         self.ExitButton.setObjectName("ExitButton")
         self.RollUpButton = QtWidgets.QPushButton(Dialog)
         self.RollUpButton.setGeometry(QtCore.QRect(950, 0, 21, 21))
@@ -56,17 +57,17 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.RollUpButton.setFont(font)
         self.RollUpButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: #5abe41\n"
-"    }")
+                                        "    background-color: rgba(31, 37, 51, 10);\n"
+                                        "    color: #ffffff;\n"
+                                        "    }\n"
+                                        "QPushButton:hover{\n"
+                                        "    background-color: rgba(56, 57, 61, 50);\n"
+                                        "    color: rgb(199, 199, 199);\n"
+                                        "    }\n"
+                                        "QPushButton:pressed{\n"
+                                        "    background-color: rgba(194, 194, 194, 50);\n"
+                                        "    color: #5abe41\n"
+                                        "    }")
         self.RollUpButton.setObjectName("RollUpButton")
         self.ReferenceButton = QtWidgets.QPushButton(Dialog)
         self.ReferenceButton.setGeometry(QtCore.QRect(10, 0, 21, 21))
@@ -77,17 +78,17 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ReferenceButton.setFont(font)
         self.ReferenceButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 0);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: #5abe41\n"
-"    }")
+                                           "    background-color: rgba(31, 37, 51, 0);\n"
+                                           "    color: #ffffff;\n"
+                                           "    }\n"
+                                           "QPushButton:hover{\n"
+                                           "    background-color: rgba(56, 57, 61, 50);\n"
+                                           "    color: rgb(199, 199, 199);\n"
+                                           "    }\n"
+                                           "QPushButton:pressed{\n"
+                                           "    background-color: rgba(194, 194, 194, 50);\n"
+                                           "    color: #5abe41\n"
+                                           "    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.ReferenceLabel = QtWidgets.QLabel(Dialog)
         self.ReferenceLabel.setGeometry(QtCore.QRect(50, 40, 231, 41))
@@ -98,7 +99,7 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ReferenceLabel.setFont(font)
         self.ReferenceLabel.setStyleSheet("background-color: none;\n"
-"color: #ffffff;")
+                                          "color: #ffffff;")
         self.ReferenceLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.ReferenceLabel.setObjectName("ReferenceLabel")
         self.scrollArea = QtWidgets.QScrollArea(Dialog)
@@ -110,26 +111,26 @@ class Ui_Dialog(object):
         self.scrollArea.setSizePolicy(sizePolicy)
         self.scrollArea.setFocusPolicy(QtCore.Qt.NoFocus)
         self.scrollArea.setStyleSheet("QScrollBar:vertical{\n"
-"    background: transparent;\n"
-"    width: 5px;\n"
-"    margin: 0;\n"
-"    }\n"
-"QScrollBar::handle:vertical{\n"
-"    background-color: #5abe41;\n"
-"    min-height: 20px;\n"
-"    }\n"
-"QScrollBar::add-line:vertical{\n"
-"    background: transparent;\n"
-"    height: 0px;\n"
-"    }\n"
-"QScrollBar::sub-line:vertical{\n"
-"    background: transparent;\n"
-"    height: 0px;\n"
-"    }\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{\n"
-"    background: transparent;\n"
-"    height: 0px;\n"
-"    }")
+                                      "    background: transparent;\n"
+                                      "    width: 5px;\n"
+                                      "    margin: 0;\n"
+                                      "    }\n"
+                                      "QScrollBar::handle:vertical{\n"
+                                      "    background-color: #5abe41;\n"
+                                      "    min-height: 20px;\n"
+                                      "    }\n"
+                                      "QScrollBar::add-line:vertical{\n"
+                                      "    background: transparent;\n"
+                                      "    height: 0px;\n"
+                                      "    }\n"
+                                      "QScrollBar::sub-line:vertical{\n"
+                                      "    background: transparent;\n"
+                                      "    height: 0px;\n"
+                                      "    }\n"
+                                      "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{\n"
+                                      "    background: transparent;\n"
+                                      "    height: 0px;\n"
+                                      "    }")
         self.scrollArea.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.scrollArea.setFrameShadow(QtWidgets.QFrame.Plain)
         self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
@@ -157,16 +158,16 @@ class Ui_Dialog(object):
         font.setPointSize(11)
         self.SearchLine.setFont(font)
         self.SearchLine.setStyleSheet("QLineEdit{\n"
-"    background-color: #5abe41;\n"
-"    border: 2px solid #5abe41;\n"
-"    border-radius: 15px;\n"
-"    color: #1f2533;\n"
-"    }\n"
-"QLineEdit:hover{\n"
-"    background-color: #438e30;\n"
-"    border: #438e30;\n"
-"    color: #ffffff;\n"
-"    }")
+                                      "    background-color: #5abe41;\n"
+                                      "    border: 2px solid #5abe41;\n"
+                                      "    border-radius: 15px;\n"
+                                      "    color: #1f2533;\n"
+                                      "    }\n"
+                                      "QLineEdit:hover{\n"
+                                      "    background-color: #438e30;\n"
+                                      "    border: #438e30;\n"
+                                      "    color: #ffffff;\n"
+                                      "    }")
         self.SearchLine.setAlignment(QtCore.Qt.AlignCenter)
         self.SearchLine.setReadOnly(False)
         self.SearchLine.setObjectName("SearchLine")
@@ -189,18 +190,18 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.AboutToolButton.setFont(font)
         self.AboutToolButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 20px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
+                                           "    background-color: rgba(31, 37, 51, 50);\n"
+                                           "    border: 2px solid #ffffff;\n"
+                                           "    border-radius: 20px;\n"
+                                           "    color: #ffffff;\n"
+                                           "    }\n"
+                                           "QPushButton:hover{\n"
+                                           "    background-color: rgba(56, 57, 61, 50);\n"
+                                           "    }\n"
+                                           "QPushButton:pressed{\n"
+                                           "    background-color: rgba(194, 194, 194, 50);\n"
+                                           "    border: #c2c2c2;\n"
+                                           "    }")
         self.AboutToolButton.setObjectName("AboutToolButton")
         self.WindowMoveButton = QtWidgets.QPushButton(Dialog)
         self.WindowMoveButton.setGeometry(QtCore.QRect(0, 0, 1001, 21))
@@ -211,8 +212,8 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.WindowMoveButton.setFont(font)
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
-"    color: transparent;\n"
-"}")
+                                            "    color: transparent;\n"
+                                            "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
@@ -238,4 +239,3 @@ class Ui_Dialog(object):
         self.SearchLine.setText(_translate("Dialog", "Поиск"))
         self.AboutToolButton.setText(_translate("Dialog", "Об утилите"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-from GUI.pictures import resources
