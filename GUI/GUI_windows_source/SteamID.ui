@@ -55,19 +55,19 @@ image: url(:/icons/icons/steam.png);
      <x>-20</x>
      <y>-10</y>
      <width>687</width>
-     <height>264</height>
+     <height>260</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
      <width>687</width>
-     <height>264</height>
+     <height>260</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>687</width>
-     <height>250</height>
+     <height>260</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -253,7 +253,7 @@ QPushButton:pressed{
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-10</y>
+     <y>0</y>
      <width>651</width>
      <height>21</height>
     </rect>

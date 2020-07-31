@@ -65,9 +65,11 @@ def paradox_mod_way_to_content(mod_id):
     ugc_id_mod = F'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris\\mod\\ugc_{mod_id}.mod'
     with open(ugc_id_mod, 'r', encoding='utf-8') as reading:
         for line in reading.readlines():
-            if 'steamapps' in line:
+            if 'path' in line:
                 path = line.split('"')[1].replace('/', '\\')
-    return path
+            if 'name' in line:
+                name = line.split('"')[1].replace('/', '\\')
+    return path, name
 
 
 def get_mod_id(file_path):

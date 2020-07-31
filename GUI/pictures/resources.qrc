@@ -22,6 +22,7 @@
     <file>icons/telegram.png</file>
   </qresource>
   <qresource prefix="effects">
+    <file>effects/large_bottom_shadow.png</file>
     <file>effects/bottom_shadow.png</file>
     <file>effects/mid_line.png</file>
   </qresource>

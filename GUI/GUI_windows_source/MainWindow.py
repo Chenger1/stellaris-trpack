@@ -184,7 +184,7 @@ class Ui_MainWindow(object):
         self.stmtt_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.stmtt_logo.setObjectName("stmtt_logo")
         self.TranslationLanguageButton = QtWidgets.QPushButton(self.centralwidget)
-        self.TranslationLanguageButton.setGeometry(QtCore.QRect(1040, 50, 231, 31))
+        self.TranslationLanguageButton.setGeometry(QtCore.QRect(1030, 50, 191, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
@@ -286,7 +286,7 @@ class Ui_MainWindow(object):
 "background-image: url(:/backgrounds/backgrounds/MainBackground.png);")
         self.BackgroundFrame.setObjectName("BackgroundFrame")
         self.lang_logo = QtWidgets.QLabel(self.centralwidget)
-        self.lang_logo.setGeometry(QtCore.QRect(1210, 50, 71, 31))
+        self.lang_logo.setGeometry(QtCore.QRect(1220, 30, 61, 51))
         self.lang_logo.setStyleSheet("background-color: none;\n"
 "image: url(:/icons/icons/lang.png);")
         self.lang_logo.setText("")
@@ -296,8 +296,8 @@ class Ui_MainWindow(object):
         self.StringOrder = QtWidgets.QLineEdit(self.centralwidget)
         self.StringOrder.setGeometry(QtCore.QRect(580, 400, 131, 91))
         font = QtGui.QFont()
-        font.setFamily("AnyNumber_Cyrillic")
-        font.setPointSize(22)
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(20)
         self.StringOrder.setFont(font)
         self.StringOrder.setStyleSheet("QLineEdit{\n"
 "    background-color: transparent;\n"
@@ -589,10 +589,10 @@ class Ui_MainWindow(object):
 "    }")
         self.ToolLanguageButton.setObjectName("ToolLanguageButton")
         self.ModNameLine = QtWidgets.QLineEdit(self.centralwidget)
-        self.ModNameLine.setGeometry(QtCore.QRect(10, 270, 1281, 31))
+        self.ModNameLine.setGeometry(QtCore.QRect(0, 200, 1301, 121))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
+        font.setPointSize(14)
         self.ModNameLine.setFont(font)
         self.ModNameLine.setStyleSheet("QLineEdit{\n"
 "    background-color: transparent;\n"
@@ -603,21 +603,6 @@ class Ui_MainWindow(object):
         self.ModNameLine.setAlignment(QtCore.Qt.AlignCenter)
         self.ModNameLine.setReadOnly(True)
         self.ModNameLine.setObjectName("ModNameLine")
-        self.ModPathLine = QtWidgets.QLineEdit(self.centralwidget)
-        self.ModPathLine.setGeometry(QtCore.QRect(10, 220, 1281, 41))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(9)
-        self.ModPathLine.setFont(font)
-        self.ModPathLine.setStyleSheet("QLineEdit{\n"
-"    background-color: transparent;\n"
-"    border: transparent;\n"
-"    color: #ffffff;\n"
-"    }")
-        self.ModPathLine.setText("")
-        self.ModPathLine.setAlignment(QtCore.Qt.AlignCenter)
-        self.ModPathLine.setReadOnly(True)
-        self.ModPathLine.setObjectName("ModPathLine")
         self.BackgroundFrame.raise_()
         self.lang_logo.raise_()
         self.ProgressBarFrame.raise_()
@@ -643,7 +628,6 @@ class Ui_MainWindow(object):
         self.paradox_logo.raise_()
         self.ToolLanguageButton.raise_()
         self.ModNameLine.raise_()
-        self.ModPathLine.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -660,7 +644,7 @@ class Ui_MainWindow(object):
         self.EditLabel.setText(_translate("MainWindow", "Можно заменить машинный перевод на свой вариант"))
         self.NextStringButton.setText(_translate("MainWindow", "Следующая строка"))
         self.PreviousString.setText(_translate("MainWindow", "Предыдущая строка"))
-        self.TranslationLanguageButton.setText(_translate("MainWindow", "Язык перевода   "))
+        self.TranslationLanguageButton.setText(_translate("MainWindow", "Язык перевода"))
         self.SortModListButton.setText(_translate("MainWindow", "Сортировать моды"))
         self.OriginalString.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"

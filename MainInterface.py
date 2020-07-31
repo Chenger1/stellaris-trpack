@@ -1,5 +1,4 @@
 from sys import argv
-
 from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import MainWindow
@@ -8,7 +7,7 @@ from GUI.GUI_windows.ErrorMessageWindow import ErrorMessageWindow
 from GUI.GUI_windows.SuccessMessageWindow import SuccessMessageWindow
 from GUI.GUI_windows.TranslationLanguageWindow import TranslationLanguageWindow
 from GUI.GUI_windows.ToolLanguageWindow import ToolLanguageWindow
-
+from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
 
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translate_line
@@ -50,6 +49,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.FileSelectionButton.clicked.connect(self.show_choose_file_window)
         self.TranslationLanguageButton.clicked.connect(self.translation_language_window)
         self.ToolLanguageButton.clicked.connect(self.tool_language_window)
+        self.ReferenceButton.clicked.connect(self.reference_window)
         self.NextStringButton.clicked.connect(self.pointer_inc)
         self.PreviousString.clicked.connect(self.pointer_red)
         self.ExitButton.clicked.connect(self.close)
@@ -77,16 +77,21 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         translation_language_window.show()
 
     def tool_language_window(self):
-        translation_language_window = ToolLanguageWindow(self)
-        translation_language_window.show()
+        tool_language_window = ToolLanguageWindow(self)
+        tool_language_window.show()
 
+    def reference_window(self):
+        reference_window = ReferenceWindow(self)
+        reference_window.show()
 
     @staticmethod
     def mod_status():
         local_mod_status()
 
-    def get_steam_id(self, path):
-        self.ModIDLine.setText(path)
+    def get_steam_id(self, mod_id):
+        self.ModIDLine.setText(mod_id)
+        data = paradox_mod_way_to_content(mod_id)
+        self.ModNameLine.setText(data[1])
 
     def centering_lines(self):
         self.OriginalString.setAlignment(QtCore.Qt.AlignCenter)
@@ -144,9 +149,9 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.set_lines()
 
     def clean_state(self):
-        elements = [self.LocalizeButton, self.ModIDLine, self.OriginalString, self.TranslateString,
+        elements = [self.LocalizeButton, self.ModIDLine, self.ModNameLine, self.OriginalString, self.TranslateString,
                     self.EditString, self.StringOrder]
-        text = ['Локализировать'] + ['SteamWorkshop ID'] + [''] * 3 + ['0']
+        text = ['Локализировать'] + ['SteamWorkshop ID'] + [''] * 4 + ['0']
         for elem, line in zip(elements, text):
             elem.setText(line)
             elem.repaint()
@@ -176,7 +181,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def start_local(self):
         try:
             workshop_id = self.ModIDLine.text()
-            path = paradox_mod_way_to_content(workshop_id)
+            path = paradox_mod_way_to_content(workshop_id)[0]
             self.orig_text = cutter_main(path, workshop_id)
             self.progressbar_set_maximum(len(self.orig_text))
         except FileNotFoundError as Error:

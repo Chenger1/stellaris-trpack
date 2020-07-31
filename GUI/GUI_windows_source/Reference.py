@@ -120,7 +120,7 @@ class Ui_Dialog(object):
         self.scrollArea.setAlignment(QtCore.Qt.AlignCenter)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 976, 561))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 976, 1169))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -129,6 +129,84 @@ class Ui_Dialog(object):
         self.verticalLayout_3.setContentsMargins(-1, 150, -1, 150)
         self.verticalLayout_3.setSpacing(149)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.OriginalLabel = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.OriginalLabel.setFont(font)
+        self.OriginalLabel.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.OriginalLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.OriginalLabel.setObjectName("OriginalLabel")
+        self.verticalLayout_3.addWidget(self.OriginalLabel)
+        self.OriginalLabel_3 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.OriginalLabel_3.setFont(font)
+        self.OriginalLabel_3.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.OriginalLabel_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.OriginalLabel_3.setObjectName("OriginalLabel_3")
+        self.verticalLayout_3.addWidget(self.OriginalLabel_3)
+        self.OriginalLabel_6 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.OriginalLabel_6.setFont(font)
+        self.OriginalLabel_6.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.OriginalLabel_6.setAlignment(QtCore.Qt.AlignCenter)
+        self.OriginalLabel_6.setObjectName("OriginalLabel_6")
+        self.verticalLayout_3.addWidget(self.OriginalLabel_6)
+        self.OriginalLabel_5 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.OriginalLabel_5.setFont(font)
+        self.OriginalLabel_5.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.OriginalLabel_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.OriginalLabel_5.setObjectName("OriginalLabel_5")
+        self.verticalLayout_3.addWidget(self.OriginalLabel_5)
+        self.OriginalLabel_4 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.OriginalLabel_4.setFont(font)
+        self.OriginalLabel_4.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.OriginalLabel_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.OriginalLabel_4.setObjectName("OriginalLabel_4")
+        self.verticalLayout_3.addWidget(self.OriginalLabel_4)
+        self.OriginalLabel_2 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.OriginalLabel_2.setFont(font)
+        self.OriginalLabel_2.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.OriginalLabel_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.OriginalLabel_2.setObjectName("OriginalLabel_2")
+        self.verticalLayout_3.addWidget(self.OriginalLabel_2)
         self.verticalLayout.addLayout(self.verticalLayout_3)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.SearchLine = QtWidgets.QLineEdit(Dialog)
@@ -151,16 +229,6 @@ class Ui_Dialog(object):
         self.SearchLine.setAlignment(QtCore.Qt.AlignCenter)
         self.SearchLine.setReadOnly(False)
         self.SearchLine.setObjectName("SearchLine")
-        self.BottomShadowFrame = QtWidgets.QFrame(Dialog)
-        self.BottomShadowFrame.setGeometry(QtCore.QRect(-10, 580, 1050, 80))
-        self.BottomShadowFrame.setMinimumSize(QtCore.QSize(1050, 80))
-        self.BottomShadowFrame.setMaximumSize(QtCore.QSize(1050, 80))
-        self.BottomShadowFrame.setMouseTracking(False)
-        self.BottomShadowFrame.setAcceptDrops(False)
-        self.BottomShadowFrame.setStyleSheet("background-image: url(:/background/bottom_shadow.png);")
-        self.BottomShadowFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.BottomShadowFrame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.BottomShadowFrame.setObjectName("BottomShadowFrame")
         self.AboutToolButton = QtWidgets.QPushButton(Dialog)
         self.AboutToolButton.setGeometry(QtCore.QRect(770, 40, 161, 41))
         font = QtGui.QFont()
@@ -195,6 +263,16 @@ class Ui_Dialog(object):
 "    color: transparent;\n"
 "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
+        self.BottomShadowFrame = QtWidgets.QFrame(Dialog)
+        self.BottomShadowFrame.setGeometry(QtCore.QRect(-50, 610, 1100, 80))
+        self.BottomShadowFrame.setMinimumSize(QtCore.QSize(1100, 80))
+        self.BottomShadowFrame.setMaximumSize(QtCore.QSize(1100, 200))
+        self.BottomShadowFrame.setMouseTracking(False)
+        self.BottomShadowFrame.setAcceptDrops(False)
+        self.BottomShadowFrame.setStyleSheet("image: url(:/effects/effects/large_bottom_shadow.png);")
+        self.BottomShadowFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.BottomShadowFrame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.BottomShadowFrame.setObjectName("BottomShadowFrame")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.scrollArea.raise_()
@@ -202,8 +280,8 @@ class Ui_Dialog(object):
         self.ExitButton.raise_()
         self.ReferenceLabel.raise_()
         self.SearchLine.raise_()
-        self.BottomShadowFrame.raise_()
         self.AboutToolButton.raise_()
+        self.BottomShadowFrame.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -214,6 +292,12 @@ class Ui_Dialog(object):
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.ReferenceLabel.setText(_translate("Dialog", "Справка"))
+        self.OriginalLabel.setText(_translate("Dialog", "Оригинальная строка"))
+        self.OriginalLabel_3.setText(_translate("Dialog", "Оригинальная строка"))
+        self.OriginalLabel_6.setText(_translate("Dialog", "Оригинальная строка"))
+        self.OriginalLabel_5.setText(_translate("Dialog", "Оригинальная строка"))
+        self.OriginalLabel_4.setText(_translate("Dialog", "Оригинальная строка"))
+        self.OriginalLabel_2.setText(_translate("Dialog", "Оригинальная строка"))
         self.SearchLine.setText(_translate("Dialog", "Поиск"))
         self.AboutToolButton.setText(_translate("Dialog", "Об утилите"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))

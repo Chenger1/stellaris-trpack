@@ -226,7 +226,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
       <x>0</x>
       <y>0</y>
       <width>976</width>
-      <height>561</height>
+      <height>1169</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -244,6 +244,144 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
        <property name="bottomMargin">
         <number>150</number>
        </property>
+       <item>
+        <widget class="QLabel" name="OriginalLabel">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>Оригинальная строка</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_3">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>Оригинальная строка</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_6">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>Оригинальная строка</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_5">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>Оригинальная строка</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_4">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>Оригинальная строка</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_2">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>Оригинальная строка</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
     </layout>
@@ -285,43 +423,6 @@ QLineEdit:hover{
    </property>
    <property name="readOnly">
     <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QFrame" name="BottomShadowFrame">
-   <property name="geometry">
-    <rect>
-     <x>-10</x>
-     <y>580</y>
-     <width>1050</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>1050</width>
-     <height>80</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>1050</width>
-     <height>80</height>
-    </size>
-   </property>
-   <property name="mouseTracking">
-    <bool>false</bool>
-   </property>
-   <property name="acceptDrops">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-image: url(:/background/bottom_shadow.png);</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
    </property>
   </widget>
   <widget class="QPushButton" name="AboutToolButton">
@@ -386,6 +487,43 @@ QPushButton:pressed{
     <string>Steam</string>
    </property>
   </widget>
+  <widget class="QFrame" name="BottomShadowFrame">
+   <property name="geometry">
+    <rect>
+     <x>-50</x>
+     <y>610</y>
+     <width>1100</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>1100</width>
+     <height>80</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1100</width>
+     <height>200</height>
+    </size>
+   </property>
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/effects/effects/large_bottom_shadow.png);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>scrollArea</zorder>
@@ -393,8 +531,8 @@ QPushButton:pressed{
   <zorder>ExitButton</zorder>
   <zorder>ReferenceLabel</zorder>
   <zorder>SearchLine</zorder>
-  <zorder>BottomShadowFrame</zorder>
   <zorder>AboutToolButton</zorder>
+  <zorder>BottomShadowFrame</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>
