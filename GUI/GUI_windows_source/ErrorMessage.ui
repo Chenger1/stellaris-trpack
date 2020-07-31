@@ -223,47 +223,6 @@ QPushButton:pressed{
     <string>X</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="RollUpButton">
-   <property name="geometry">
-    <rect>
-     <x>610</x>
-     <y>0</y>
-     <width>20</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>20</width>
-     <height>20</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat</family>
-     <pointsize>9</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 10);
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	color: rgb(199, 199, 199);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	color: #5abe41
-	}</string>
-   </property>
-   <property name="text">
-    <string>_</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="ReferenceButton">
    <property name="geometry">
     <rect>
@@ -305,7 +264,6 @@ QPushButton:pressed{
   <zorder>ErrorLabel</zorder>
   <zorder>ErrorMessageLine</zorder>
   <zorder>ExitButton</zorder>
-  <zorder>RollUpButton</zorder>
   <zorder>ReferenceButton</zorder>
  </widget>
  <resources>

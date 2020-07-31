@@ -22,8 +22,8 @@ class Ui_Dialog(object):
         self.steam_logo = QtWidgets.QLabel(Dialog)
         self.steam_logo.setGeometry(QtCore.QRect(260, 50, 71, 61))
         self.steam_logo.setStyleSheet("background-color: none;\n"
-                                      "image: url(:/icons/icons/steam.png);\n"
-                                      "")
+"image: url(:/icons/icons/steam.png);\n"
+"")
         self.steam_logo.setText("")
         self.steam_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.steam_logo.setObjectName("steam_logo")
@@ -44,39 +44,18 @@ class Ui_Dialog(object):
         font.setWeight(75)
         self.ExitButton.setFont(font)
         self.ExitButton.setStyleSheet("QPushButton{\n"
-                                      "    background-color: rgba(31, 37, 51, 10);\n"
-                                      "    color: #ffffff;\n"
-                                      "    }\n"
-                                      "QPushButton:hover{\n"
-                                      "    background-color: rgba(56, 57, 61, 50);\n"
-                                      "    color: rgb(199, 199, 199);\n"
-                                      "    }\n"
-                                      "QPushButton:pressed{\n"
-                                      "    background-color: rgba(194, 194, 194, 50);\n"
-                                      "    color: rgb(255, 60, 63)\n"
-                                      "    }")
+"    background-color: rgba(31, 37, 51, 10);\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    color: rgb(199, 199, 199);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    color: rgb(255, 60, 63)\n"
+"    }")
         self.ExitButton.setObjectName("ExitButton")
-        self.RollUpButton = QtWidgets.QPushButton(Dialog)
-        self.RollUpButton.setGeometry(QtCore.QRect(600, 0, 21, 21))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.RollUpButton.setFont(font)
-        self.RollUpButton.setStyleSheet("QPushButton{\n"
-                                        "    background-color: rgba(31, 37, 51, 10);\n"
-                                        "    color: #ffffff;\n"
-                                        "    }\n"
-                                        "QPushButton:hover{\n"
-                                        "    background-color: rgba(56, 57, 61, 50);\n"
-                                        "    color: rgb(199, 199, 199);\n"
-                                        "    }\n"
-                                        "QPushButton:pressed{\n"
-                                        "    background-color: rgba(194, 194, 194, 50);\n"
-                                        "    color: #5abe41\n"
-                                        "    }")
-        self.RollUpButton.setObjectName("RollUpButton")
         self.SteamLabel = QtWidgets.QLabel(Dialog)
         self.SteamLabel.setGeometry(QtCore.QRect(310, 70, 321, 51))
         font = QtGui.QFont()
@@ -86,7 +65,7 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.SteamLabel.setFont(font)
         self.SteamLabel.setStyleSheet("background-color: none;\n"
-                                      "color: #ffffff;")
+"color: #ffffff;")
         self.SteamLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.SteamLabel.setObjectName("SteamLabel")
         self.IDLine = QtWidgets.QLineEdit(Dialog)
@@ -96,14 +75,14 @@ class Ui_Dialog(object):
         font.setPointSize(9)
         self.IDLine.setFont(font)
         self.IDLine.setStyleSheet("QLineEdit{\n"
-                                  "    background-color: rgba(31, 37, 51, 50);\n"
-                                  "    border: 1px solid #ffffff;\n"
-                                  "    color: #ffffff;\n"
-                                  "    }\n"
-                                  "QLineEdit:hover{\n"
-                                  "    background-color: rgba(56, 57, 61, 50);\n"
-                                  "    }\n"
-                                  "")
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 1px solid #ffffff;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QLineEdit:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }\n"
+"")
         self.IDLine.setText("")
         self.IDLine.setAlignment(QtCore.Qt.AlignCenter)
         self.IDLine.setObjectName("IDLine")
@@ -116,20 +95,20 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.AcceptButton.setFont(font)
         self.AcceptButton.setStyleSheet("QPushButton{\n"
-                                        "    background-color: #5abe41;\n"
-                                        "    border: 3px solid #5abe41;\n"
-                                        "    border-radius: 20px;\n"
-                                        "    color: #1f2533;\n"
-                                        "    }\n"
-                                        "QPushButton:hover{\n"
-                                        "    background-color: #438e30;\n"
-                                        "    border: #438e30;\n"
-                                        "    color: #ffffff;\n"
-                                        "    }\n"
-                                        "QPushButton:pressed{\n"
-                                        "    background-color: #c2c2c2;\n"
-                                        "    color: #1f2533;\n"
-                                        "    }")
+"    background-color: #5abe41;\n"
+"    border: 3px solid #5abe41;\n"
+"    border-radius: 20px;\n"
+"    color: #1f2533;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #438e30;\n"
+"    border: #438e30;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: #c2c2c2;\n"
+"    color: #1f2533;\n"
+"    }")
         self.AcceptButton.setObjectName("AcceptButton")
         self.ReferenceButton = QtWidgets.QPushButton(Dialog)
         self.ReferenceButton.setGeometry(QtCore.QRect(10, 0, 21, 21))
@@ -140,17 +119,17 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ReferenceButton.setFont(font)
         self.ReferenceButton.setStyleSheet("QPushButton{\n"
-                                           "    background-color: rgba(31, 37, 51, 10);\n"
-                                           "    color: #ffffff;\n"
-                                           "    }\n"
-                                           "QPushButton:hover{\n"
-                                           "    background-color: rgba(56, 57, 61, 50);\n"
-                                           "    color: rgb(199, 199, 199);\n"
-                                           "    }\n"
-                                           "QPushButton:pressed{\n"
-                                           "    background-color: rgba(194, 194, 194, 50);\n"
-                                           "    color: #5abe41\n"
-                                           "    }")
+"    background-color: rgba(31, 37, 51, 10);\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    color: rgb(199, 199, 199);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    color: #5abe41\n"
+"    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.WindowMoveButton = QtWidgets.QPushButton(Dialog)
         self.WindowMoveButton.setGeometry(QtCore.QRect(0, -10, 651, 21))
@@ -161,14 +140,13 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.WindowMoveButton.setFont(font)
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
-                                            "    color: transparent;\n"
-                                            "}")
+"    color: transparent;\n"
+"}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.steam_logo.raise_()
         self.ExitButton.raise_()
-        self.RollUpButton.raise_()
         self.SteamLabel.raise_()
         self.IDLine.raise_()
         self.AcceptButton.raise_()
@@ -181,7 +159,6 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.ExitButton.setText(_translate("Dialog", "X"))
-        self.RollUpButton.setText(_translate("Dialog", "_"))
         self.SteamLabel.setText(_translate("Dialog", "SteamWorkshop ID"))
         self.AcceptButton.setText(_translate("Dialog", "Подтвердить"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))

@@ -97,41 +97,6 @@ QPushButton:pressed{
     <string>X</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="RollUpButton">
-   <property name="geometry">
-    <rect>
-     <x>600</x>
-     <y>0</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 10);
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	color: rgb(199, 199, 199);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	color: #5abe41
-	}</string>
-   </property>
-   <property name="text">
-    <string>_</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="InfoLabel_0">
    <property name="geometry">
     <rect>
@@ -755,7 +720,6 @@ QPushButton:pressed{
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>ExitButton</zorder>
-  <zorder>RollUpButton</zorder>
   <zorder>InfoLabel_0</zorder>
   <zorder>ChengerLabel</zorder>
   <zorder>InfoLabel_1</zorder>

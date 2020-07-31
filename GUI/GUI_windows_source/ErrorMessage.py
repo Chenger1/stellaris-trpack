@@ -28,18 +28,18 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.AcceptButton.setFont(font)
         self.AcceptButton.setStyleSheet("QPushButton{\n"
-                                        "    background-color: rgba(31, 37, 51, 50);\n"
-                                        "    border: 2px solid #ffffff;\n"
-                                        "    border-radius: 20px;\n"
-                                        "    color: #ffffff;\n"
-                                        "    }\n"
-                                        "QPushButton:hover{\n"
-                                        "    background-color: rgba(56, 57, 61, 50);\n"
-                                        "    }\n"
-                                        "QPushButton:pressed{\n"
-                                        "    background-color: rgba(194, 194, 194, 50);\n"
-                                        "    border: #c2c2c2;\n"
-                                        "    }")
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #ffffff;\n"
+"    border-radius: 20px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    }")
         self.AcceptButton.setObjectName("AcceptButton")
         self.BackgroundFrame = QtWidgets.QFrame(Dialog)
         self.BackgroundFrame.setGeometry(QtCore.QRect(-20, -10, 687, 264))
@@ -58,7 +58,7 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ErrorLabel.setFont(font)
         self.ErrorLabel.setStyleSheet("background-color: none;\n"
-                                      "color: #ffffff;")
+"color: #ffffff;")
         self.ErrorLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.ErrorLabel.setObjectName("ErrorLabel")
         self.ErrorMessageLine = QtWidgets.QLineEdit(Dialog)
@@ -68,14 +68,14 @@ class Ui_Dialog(object):
         font.setPointSize(10)
         self.ErrorMessageLine.setFont(font)
         self.ErrorMessageLine.setStyleSheet("QLineEdit{\n"
-                                            "    background-color: rgba(31, 37, 51, 50);\n"
-                                            "    border: 1px solid #ffffff;\n"
-                                            "    color: #ffffff;\n"
-                                            "    }\n"
-                                            "QLineEdit:hover{\n"
-                                            "    background-color: rgba(56, 57, 61, 50);\n"
-                                            "    }\n"
-                                            "")
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 1px solid #ffffff;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QLineEdit:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }\n"
+"")
         self.ErrorMessageLine.setText("")
         self.ErrorMessageLine.setAlignment(QtCore.Qt.AlignCenter)
         self.ErrorMessageLine.setObjectName("ErrorMessageLine")
@@ -88,8 +88,8 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.WindowMoveButton.setFont(font)
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
-                                            "    color: transparent;\n"
-                                            "}")
+"    color: transparent;\n"
+"}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.ExitButton = QtWidgets.QPushButton(Dialog)
         self.ExitButton.setGeometry(QtCore.QRect(630, 0, 21, 21))
@@ -101,40 +101,18 @@ class Ui_Dialog(object):
         font.setWeight(75)
         self.ExitButton.setFont(font)
         self.ExitButton.setStyleSheet("QPushButton{\n"
-                                      "    background-color: rgba(31, 37, 51, 10);\n"
-                                      "    color: #ffffff;\n"
-                                      "    }\n"
-                                      "QPushButton:hover{\n"
-                                      "    background-color: rgba(56, 57, 61, 50);\n"
-                                      "    color: rgb(199, 199, 199);\n"
-                                      "    }\n"
-                                      "QPushButton:pressed{\n"
-                                      "    background-color: rgba(194, 194, 194, 50);\n"
-                                      "    color: rgb(255, 60, 63)\n"
-                                      "    }")
+"    background-color: rgba(31, 37, 51, 10);\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    color: rgb(199, 199, 199);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    color: rgb(255, 60, 63)\n"
+"    }")
         self.ExitButton.setObjectName("ExitButton")
-        self.RollUpButton = QtWidgets.QPushButton(Dialog)
-        self.RollUpButton.setGeometry(QtCore.QRect(610, 0, 20, 21))
-        self.RollUpButton.setMinimumSize(QtCore.QSize(20, 20))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.RollUpButton.setFont(font)
-        self.RollUpButton.setStyleSheet("QPushButton{\n"
-                                        "    background-color: rgba(31, 37, 51, 10);\n"
-                                        "    color: #ffffff;\n"
-                                        "    }\n"
-                                        "QPushButton:hover{\n"
-                                        "    background-color: rgba(56, 57, 61, 50);\n"
-                                        "    color: rgb(199, 199, 199);\n"
-                                        "    }\n"
-                                        "QPushButton:pressed{\n"
-                                        "    background-color: rgba(194, 194, 194, 50);\n"
-                                        "    color: #5abe41\n"
-                                        "    }")
-        self.RollUpButton.setObjectName("RollUpButton")
         self.ReferenceButton = QtWidgets.QPushButton(Dialog)
         self.ReferenceButton.setGeometry(QtCore.QRect(10, 0, 21, 21))
         font = QtGui.QFont()
@@ -144,17 +122,17 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ReferenceButton.setFont(font)
         self.ReferenceButton.setStyleSheet("QPushButton{\n"
-                                           "    background-color: rgba(31, 37, 51, 10);\n"
-                                           "    color: #ffffff;\n"
-                                           "    }\n"
-                                           "QPushButton:hover{\n"
-                                           "    background-color: rgba(56, 57, 61, 50);\n"
-                                           "    color: rgb(199, 199, 199);\n"
-                                           "    }\n"
-                                           "QPushButton:pressed{\n"
-                                           "    background-color: rgba(194, 194, 194, 50);\n"
-                                           "    color: #5abe41\n"
-                                           "    }")
+"    background-color: rgba(31, 37, 51, 10);\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    color: rgb(199, 199, 199);\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    color: #5abe41\n"
+"    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
@@ -162,7 +140,6 @@ class Ui_Dialog(object):
         self.ErrorLabel.raise_()
         self.ErrorMessageLine.raise_()
         self.ExitButton.raise_()
-        self.RollUpButton.raise_()
         self.ReferenceButton.raise_()
 
         self.retranslateUi(Dialog)
@@ -175,5 +152,4 @@ class Ui_Dialog(object):
         self.ErrorLabel.setText(_translate("Dialog", "Ошибка"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.ExitButton.setText(_translate("Dialog", "X"))
-        self.RollUpButton.setText(_translate("Dialog", "_"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))

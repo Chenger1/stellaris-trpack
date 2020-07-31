@@ -3,10 +3,26 @@ import os
 import re
 import win32api
 
-
 drive = win32api.GetSystemDirectory().split(':')[0]
 user = win32api.GetUserName()
 data = {}
+
+
+def local_mod_status():
+    mod_name = 'local_localisation'
+    loc_mod_path = F'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris\\mod\\{mod_name}'
+    try:
+        with open(loc_mod_path + '.mod', 'r', encoding='utf-8') as mod:
+            pass
+    except FileNotFoundError:
+        os.mkdir(loc_mod_path)
+        os.mkdir(loc_mod_path + '\\localisation')
+        with open(loc_mod_path + '.mod', 'w', encoding='utf-8') as mod:
+            mod_description = 'version="2.7.*"\ntags={\n	"Translation"\n}\nname="Stellaris True Machine Translation ' \
+                          'Tool"\nsupported_version="2.7.2"\npath=' + F'"{loc_mod_path}"'.replace('\\', '/')
+            mod.write(mod_description)
+        with open(loc_mod_path + '\\descriptor.mod', 'w', encoding='utf-8') as descriptor:
+            descriptor.write(mod_description.split('path=')[0])
 
 
 def create_temp_folder(mod_id, loc_path):
