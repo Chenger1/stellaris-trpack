@@ -16,12 +16,12 @@ def abort(message):
 
 
 class Mod():
-    def __init__(self, hashKey, name, modId):
+    def __init__(self, hashKey, name, modId, isEnabled):
         self.hashKey = hashKey
         self.name = name
         self.modId = modId
         self.sortRequired = True
-        self.isEnabled = True
+        self.isEnabled = isEnabled
         self.sortedKey = name.encode('ascii', errors='ignore')
 
 
@@ -29,27 +29,31 @@ def sortedKey(mod):
     return mod.sortedKey
 
 
-def getModList(data):
+def getModList(data, enabled_mods):
     modList = []
     for key, data in data.items():
         try:
             name = data['displayName']
             modId = data['gameRegistryId']
-            mod = Mod(key, name, modId)
+            isEnabled = True if modId in enabled_mods else False
+            mod = Mod(key, name, modId, isEnabled)
             modList.append(mod)
         except KeyError:
             try:
                 name = data['displayName']
                 modId = data['steamId']
-                mod = Mod(key, name, modId)
+                isEnabled = True if modId in enabled_mods else False
+                mod = Mod(key, name, modId, isEnabled)
                 modList.append(mod)
             except KeyError:
                 print('key not found in ', key, data)
     return modList
 
+
 def sortModlist(m_list):
     modList = m_list.sort(key=sortedKey, reverse=True)
     return modList  # Todo
+
 
 def checkIfSortRequired(m_list):
     modListSort, modListNonSort = [], []
@@ -94,8 +98,6 @@ def writeLoadOrder(idList, dlc_load, enabled_mods):
     if len(data) < 1:
         abort('dlc_load.json loading failed')
 
-    if enabled_mods is not None:
-        idList = [m for m in idList if m in enabled_mods]
     data['enabled_mods'] = idList
 
     with open(dlc_load, 'w') as json_file:
@@ -137,23 +139,24 @@ def prep_data(settingPath):
     modList = []
     with open(registry, encoding='UTF-8') as json_file:
         data = json.load(json_file)
-        modList = getModList(data)
-    return registry, modList, dlc_load_data, game_data, enabled_mods
+        modList = getModList(data, enabled_mods)
+    return registry, modList, dlc_load, game_data, enabled_mods
 
 
-# # Todo. Output mod list to user through window
-# modListSort, modListNonSort = checkIfSortRequired(modList)
-# modListSort.sort(key=sortedKey, reverse=True)
-# # move Dark UI and UIOverhual to the bottom
-# modList = specialOrder(modListSort, modListNonSort)
-# # make sure UIOverhual+SpeedDial will load after UIOverhual
-# modList = tweakModOrder(modList)
-# if len(modList) <= 0:
-#     abort('no mod found')
-# idList = [mod.modId for mod in modList if mod.isEnabled is True]
-# hashList = [mod.hashKey for mod in modList]
-# writeDisplayOrder(hashList, game_data)
-# writeLoadOrder(idList, dlc_load, enabled_mods)
+def sorting(modList, game_data, dlc_load, enabled_mods):
+    modListSort, modListNonSort = checkIfSortRequired(modList)
+    modListSort.sort(key=sortedKey, reverse=True)
+    # move Dark UI and UIOverhual to the bottom
+    modList = specialOrder(modListSort, modListNonSort)
+    # make sure UIOverhual+SpeedDial will load after UIOverhual
+    modList = tweakModOrder(modList)
+    if len(modList) <= 0:
+        return ('error', 'Моды не найдены')
+    idList = [mod.modId for mod in modList if mod.isEnabled is True]
+    hashList = [mod.hashKey for mod in modList]
+    writeDisplayOrder(hashList, game_data)
+    writeLoadOrder(idList, dlc_load, enabled_mods)
+    return ('success', 'Моды успешно отсортированы')
 
 
 def Mbox(title, text, style):
@@ -190,14 +193,3 @@ def set_settings():
     ]
     return settingPaths
 
-
-# if (len(settingPaths) > 0):
-#     print('find Stellaris setting at ', settingPaths[0])
-#     try:
-#         run(settingPaths[0])
-#         Mbox('', 'done', 0)
-#     except Exception as e:
-#         print(errorMesssage(e))
-#         Mbox('error', errorMesssage(e), 0)
-# else:
-#     Mbox('error', 'unable to location "mods_registry.json', 0)

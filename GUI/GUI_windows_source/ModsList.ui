@@ -280,9 +280,9 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-61</y>
+      <y>0</y>
       <width>626</width>
-      <height>322</height>
+      <height>261</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -295,7 +295,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
         <enum>QLayout::SetDefaultConstraint</enum>
        </property>
        <property name="topMargin">
-        <number>150</number>
+        <number>0</number>
        </property>
        <property name="bottomMargin">
         <number>150</number>
