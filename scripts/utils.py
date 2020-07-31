@@ -8,8 +8,7 @@ user = win32api.GetUserName()
 data = {}
 
 
-def local_mod_status():
-    mod_name = 'local_localisation'
+def local_mod_status(mod_name='local_localisation'):
     loc_mod_path = F'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris\\mod\\{mod_name}'
     try:
         with open(loc_mod_path + '.mod', 'r', encoding='utf-8') as mod:
@@ -84,6 +83,6 @@ def check_new_line_sym_ending(line):
 
 def check_if_line_translated(orig_line, tr_line):
     if orig_line.replace('\n', '').strip() == tr_line.replace('\n', '').strip():
-        return 'Извините, переводчик не смог перевести эту строку'
+        return 'Извините, переводчик не смог перевести эту строку.'
     else:
         return tr_line

@@ -134,7 +134,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.user_text.append(translate_line(self.orig_text[self.pointer]))
             self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
             self.set_lines()
-            print(Error)
 
     def pointer_red(self):
         self.NextStringButton.setEnabled(True)
@@ -171,12 +170,10 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         except FileNotFoundError as Error:
             if self.orig_text:
                 self.show_system_message('error', 'Перевод уже был записан')
-                print(Error)
             else:
                 self.show_system_message('error', 'Ошибка записи файла. Нет перевода.')
         except IndexError as Error:
             self.show_system_message('error', 'Вы ещё не закончили перевод')
-            print(Error)
 
     def start_local(self):
         try:
@@ -186,7 +183,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.progressbar_set_maximum(len(self.orig_text))
         except FileNotFoundError as Error:
             self.show_system_message('error', 'Вы не выбрали мод')
-            print(Error)
         else:
             self.NextStringButton.setEnabled(True)
             self.LocalizeButton.setText('Закончить перевод')

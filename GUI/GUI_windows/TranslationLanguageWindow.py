@@ -31,7 +31,6 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
             'de': self.GermanButton,
             'el': self.GreekButton,
             'hu': self.HungarianButton,
-            'is': self.IcelandicButton,
             'it': self.ItalianButton,
             'ja': self.JapaneseButton,
             'ko': self.KoreanButton,
@@ -41,7 +40,6 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
             'pt': self.PortugueseButton,
             'ro': self.RomanianButton,
             'ru': self.RussianButton,
-            'sr': self.SerbianButton,
             'sk': self.SlovakButton,
             'sl': self.SlovenianButton,
             'es': self.SpanishButton,
@@ -123,7 +121,6 @@ QPushButton:pressed{
         self.GermanButton.clicked.connect(lambda: self.set_translation_language('de'))
         self.GreekButton.clicked.connect(lambda: self.set_translation_language('el'))
         self.HungarianButton.clicked.connect(lambda: self.set_translation_language('hu'))
-        self.IcelandicButton.clicked.connect(lambda: self.set_translation_language('is'))
         self.ItalianButton.clicked.connect(lambda: self.set_translation_language('it'))
         self.JapaneseButton.clicked.connect(lambda: self.set_translation_language('ja'))
         self.KoreanButton.clicked.connect(lambda: self.set_translation_language('ko'))
@@ -133,7 +130,6 @@ QPushButton:pressed{
         self.PortugueseButton.clicked.connect(lambda: self.set_translation_language('pt'))
         self.RomanianButton.clicked.connect(lambda: self.set_translation_language('ro'))
         self.RussianButton.clicked.connect(lambda: self.set_translation_language('ru'))
-        self.SerbianButton.clicked.connect(lambda: self.set_translation_language('sr'))
         self.SlovakButton.clicked.connect(lambda: self.set_translation_language('sk'))
         self.SlovenianButton.clicked.connect(lambda: self.set_translation_language('sl'))
         self.SpanishButton.clicked.connect(lambda: self.set_translation_language('es'))
@@ -141,6 +137,14 @@ QPushButton:pressed{
         self.TurkishButton.clicked.connect(lambda: self.set_translation_language('tr'))
         self.UkrainianButton.clicked.connect(lambda: self.set_translation_language('uk'))
         self.FilipinoButton.clicked.connect(lambda: self.set_translation_language('fil'))
+        self.SearchLine.textChanged.connect(self.sync_lineEdit)
+
+    def sync_lineEdit(self, text):
+        for language in self.active_button:
+            if text.lower() in self.active_button[language].text().lower():
+                self.active_button[language].setVisible(True)
+            else:
+                self.active_button[language].setVisible(False)
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:
