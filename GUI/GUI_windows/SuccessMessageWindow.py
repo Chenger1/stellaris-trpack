@@ -15,7 +15,6 @@ class SuccessMessageWindow(QtWidgets.QDialog, SuccessMessage.Ui_Dialog):
 
     def init_handlers(self):
         self.AcceptButton.clicked.connect(self.close)
-        self.RollUpButton.clicked.connect(self.showMinimized)
         self.ExitButton.clicked.connect(self.close)
 
     def eventFilter(self, source, event):

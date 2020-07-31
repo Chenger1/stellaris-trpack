@@ -4,7 +4,7 @@ from GUI.GUI_windows_source import ChooseFile
 
 from GUI.GUI_windows.SteamIDWindow import SteamIDWindow
 
-from scripts.utils import get_mod_id
+from scripts.utils import get_mod_id, paradox_mod_way_to_content
 
 
 class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
@@ -21,7 +21,6 @@ class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
         self.ManualButton.clicked.connect(self.choose_file)
         self.SteamButton.clicked.connect(self.show_steam_id_window)
         self.ExitButton.clicked.connect(self.close)
-        self.RollUpButton.clicked.connect(self.showMinimized)
         self.WindowMoveButton.installEventFilter(self)
 
     def choose_file(self):
@@ -34,6 +33,7 @@ class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
     def show_steam_id_window(self):
         steam_id_window = SteamIDWindow(self)
         steam_id_window.show()
+        self.close()
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:
@@ -45,5 +45,3 @@ class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
             elif event.type() == QtCore.QEvent.MouseButtonRelease:
                 self.oldPos = None
         return super().eventFilter(source, event)
-
-

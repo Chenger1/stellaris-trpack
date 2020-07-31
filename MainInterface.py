@@ -1,5 +1,4 @@
-import sys
-
+from sys import argv
 from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import MainWindow
@@ -7,11 +6,14 @@ from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
 from GUI.GUI_windows.ErrorMessageWindow import ErrorMessageWindow
 from GUI.GUI_windows.SuccessMessageWindow import SuccessMessageWindow
 from GUI.GUI_windows.TranslationLanguageWindow import TranslationLanguageWindow
+from GUI.GUI_windows.ToolLanguageWindow import ToolLanguageWindow
+from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
 
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translate_line
 from scripts.loc_putter import put_lines
-from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated
+from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
+    local_mod_status
 
 
 class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
@@ -19,6 +21,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
+        self.mod_status()
         self.init_handlers()
         self.init_helpers()
         self.oldPos = self.pos()
@@ -37,14 +40,16 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         for i in self.bar:
             i.setValue(self.pointer if self.NextStringButton.isEnabled() is True else len(self.orig_text))
 
-    def progressbar_set_maximum(self, max):
+    def progressbar_set_maximum(self, max_value):
         for i in self.bar:
-            i.setMaximum(max)
+            i.setMaximum(max_value)
 
     def init_handlers(self):
         self.LocalizeButton.clicked.connect(self.start_local)
         self.FileSelectionButton.clicked.connect(self.show_choose_file_window)
-        self.OutputLanguageButton.clicked.connect(self.translation_language_window)
+        self.TranslationLanguageButton.clicked.connect(self.translation_language_window)
+        self.ToolLanguageButton.clicked.connect(self.tool_language_window)
+        self.ReferenceButton.clicked.connect(self.reference_window)
         self.NextStringButton.clicked.connect(self.pointer_inc)
         self.PreviousString.clicked.connect(self.pointer_red)
         self.ExitButton.clicked.connect(self.close)
@@ -59,7 +64,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def show_system_message(self, mes_type, text, label=None):
         self.system_messages[mes_type].show()
         self.system_messages[mes_type].ErrorMessageLine.setText(text)
-        if label: self.system_messages[mes_type].ErrorLabel.setText(label)
+        if label:
+            self.system_messages[mes_type].ErrorLabel.setText(label)
         self.system_messages[mes_type].repaint()
 
     def show_choose_file_window(self):
@@ -70,8 +76,22 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         translation_language_window = TranslationLanguageWindow(self)
         translation_language_window.show()
 
-    def get_steam_id(self, path):
-        self.ModIDLine.setText(path)
+    def tool_language_window(self):
+        tool_language_window = ToolLanguageWindow(self)
+        tool_language_window.show()
+
+    def reference_window(self):
+        reference_window = ReferenceWindow(self)
+        reference_window.show()
+
+    @staticmethod
+    def mod_status():
+        local_mod_status()
+
+    def get_steam_id(self, mod_id):
+        self.ModIDLine.setText(mod_id)
+        data = paradox_mod_way_to_content(mod_id)
+        self.ModNameLine.setText(data[1])
 
     def centering_lines(self):
         self.OriginalString.setAlignment(QtCore.Qt.AlignCenter)
@@ -87,11 +107,11 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.progressbar_set_value()
 
     def check_new_line_symbol_string(self, value):
-        while self.pointer < len(self.orig_text)-self.orig_text[self.pointer:].count('\n'):
+        while self.pointer < len(self.orig_text) - self.orig_text[self.pointer:].count('\n'):
             if self.orig_text[self.pointer].startswith('\n'):
                 if value is True:
                     self.pointer += 1
-                    if self.pointer > len(self.machine_text)-1:
+                    if self.pointer > len(self.machine_text) - 1:
                         self.machine_text.append('\n')
                         self.user_text.append('\n')
                 if value is False:
@@ -114,6 +134,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.user_text.append(translate_line(self.orig_text[self.pointer]))
             self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
             self.set_lines()
+            print(Error)
 
     def pointer_red(self):
         self.NextStringButton.setEnabled(True)
@@ -128,16 +149,16 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.set_lines()
 
     def clean_state(self):
-        elems = [self.LocalizeButton, self.OriginalString, self.TranslateString,
-                 self.EditString, self.ModIDLine, self.StringOrder]
-        text = ['Локализировать'] + ['']*4 + ['0']
-        for elem, line in zip(elems, text):
+        elements = [self.LocalizeButton, self.ModIDLine, self.ModNameLine, self.OriginalString, self.TranslateString,
+                    self.EditString, self.StringOrder]
+        text = ['Локализировать'] + ['SteamWorkshop ID'] + [''] * 4 + ['0']
+        for elem, line in zip(elements, text):
             elem.setText(line)
             elem.repaint()
         self.LocalizeButton.disconnect()
         self.LocalizeButton.clicked.connect(self.start_local)
         self.pointer = 0
-        self.orig_text, self.machine_text, self.user_text = [], [],[]
+        self.orig_text, self.machine_text, self.user_text = [], [], []
 
     def write_translation(self):
         try:
@@ -145,26 +166,29 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             writing_translation(self.user_text)
             put_lines()
             self.show_system_message('success', 'Файл перевода успешно записан')
+            self.progressbar_set_maximum(0)
             self.clean_state()
         except FileNotFoundError as Error:
             if self.orig_text:
                 self.show_system_message('error', 'Перевод уже был записан')
+                print(Error)
             else:
                 self.show_system_message('error', 'Ошибка записи файла. Нет перевода.')
         except IndexError as Error:
             self.show_system_message('error', 'Вы ещё не закончили перевод')
+            print(Error)
 
     def start_local(self):
         try:
             workshop_id = self.ModIDLine.text()
-            path = paradox_mod_way_to_content(workshop_id)
+            path = paradox_mod_way_to_content(workshop_id)[0]
             self.orig_text = cutter_main(path, workshop_id)
             self.progressbar_set_maximum(len(self.orig_text))
         except FileNotFoundError as Error:
             self.show_system_message('error', 'Вы не выбрали мод')
+            print(Error)
         else:
             self.NextStringButton.setEnabled(True)
-            self.show_system_message('success', 'Идет процесс перевода', 'Перевод')
             self.LocalizeButton.setText('Закончить перевод')
             self.LocalizeButton.repaint()
             self.LocalizeButton.disconnect()
@@ -179,7 +203,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             if event.type() == QtCore.QEvent.MouseButtonPress:
                 self.oldPos = event.pos()
             elif event.type() == QtCore.QEvent.MouseMove and self.oldPos is not None:
-                self.move(self.pos() - self.oldPos+event.pos())
+                self.move(self.pos() - self.oldPos + event.pos())
                 return True
             elif event.type() == QtCore.QEvent.MouseButtonRelease:
                 self.oldPos = None
@@ -187,7 +211,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
 
 def main():
-    app = QtWidgets.QApplication(sys.argv)
+    app = QtWidgets.QApplication(argv)
     window = MainApp()
     window.show()
     app.exec_()

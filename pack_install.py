@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-import subprocess
-import sys
+from subprocess import call
+from sys import executable
+
 
 def install(package):
-    subprocess.call([sys.executable, "-m", "pip", "install", package])
+    call([executable, "-m", "pip", "install", package])
+
 
 if __name__ == '__main__':
     install('setuptools')

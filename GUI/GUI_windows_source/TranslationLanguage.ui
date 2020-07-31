@@ -116,41 +116,6 @@ QPushButton:pressed{
     <string>X</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="RollUpButton">
-   <property name="geometry">
-    <rect>
-     <x>600</x>
-     <y>0</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 10);
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	color: rgb(199, 199, 199);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	color: #5abe41
-	}</string>
-   </property>
-   <property name="text">
-    <string>_</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="ReferenceButton">
    <property name="geometry">
     <rect>
@@ -306,8 +271,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
        <property name="verticalSpacing">
         <number>40</number>
        </property>
-       <item row="9" column="2">
-        <widget class="QPushButton" name="SlovakButton">
+       <item row="2" column="1">
+        <widget class="QPushButton" name="ChineseButton">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -338,12 +303,12 @@ QPushButton:pressed{
 	}</string>
          </property>
          <property name="text">
-          <string>Словацкий</string>
+          <string>Китайский</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="0">
-        <widget class="QPushButton" name="KoreanButton">
+       <item row="0" column="2">
+        <widget class="QPushButton" name="DanishButton">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -374,7 +339,187 @@ QPushButton:pressed{
 	}</string>
          </property>
          <property name="text">
-          <string>Корейский</string>
+          <string>Датский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="BulgarianButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Болгарский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QPushButton" name="CroatianButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Хорватский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="DutchButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Нидерландский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QPushButton" name="GermanButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Немецкий</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="CzechButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Чешский</string>
          </property>
         </widget>
        </item>
@@ -414,8 +559,8 @@ QPushButton:pressed{
          </property>
         </widget>
        </item>
-       <item row="8" column="0">
-        <widget class="QPushButton" name="PolishButton">
+       <item row="9" column="1">
+        <widget class="QPushButton" name="SerbianButton">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -446,7 +591,334 @@ QPushButton:pressed{
 	}</string>
          </property>
          <property name="text">
-          <string>Польский</string>
+          <string>Сербский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QPushButton" name="FinnishButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Финский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QPushButton" name="LithuanianButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Литовский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="2">
+        <widget class="QPushButton" name="RomanianButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Румынский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="ArabicButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Арабский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="QPushButton" name="FrenchButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Французский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QPushButton" name="TurkishButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Турецкий</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QPushButton" name="EnglishButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Английский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="ArmenianButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Армянский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QPushButton" name="IcelandicButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Исландский</string>
          </property>
         </widget>
        </item>
@@ -522,438 +994,6 @@ QPushButton:pressed{
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
-        <widget class="QPushButton" name="CzechButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Чешский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QPushButton" name="FinnishButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Финский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QPushButton" name="ItalianButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Итальянский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="2">
-        <widget class="QPushButton" name="FrenchButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Французский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QPushButton" name="DanishButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Датский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QPushButton" name="ArmenianButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Армянский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QPushButton" name="EnglishButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Английский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="1">
-        <widget class="QPushButton" name="UkrainianButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Украинский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="2">
-        <widget class="QPushButton" name="EstonianButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Эстонский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="1">
-        <widget class="QPushButton" name="LithuanianButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Литовский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QPushButton" name="ChineseButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Китайский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="2">
-        <widget class="QPushButton" name="HungarianButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Венгерский</string>
-         </property>
-        </widget>
-       </item>
        <item row="5" column="1">
         <widget class="QPushButton" name="GreekButton">
          <property name="minimumSize">
@@ -987,366 +1027,6 @@ QPushButton:pressed{
          </property>
          <property name="text">
           <string>Греческий</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="0">
-        <widget class="QPushButton" name="TurkishButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Турецкий</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QPushButton" name="DutchButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Нидерландский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QPushButton" name="IcelandicButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Исландский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="BelarusianButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Белорусский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="AzerbaijaniButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Азербайджанский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="0">
-        <widget class="QPushButton" name="SlovenianButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Словенский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="2">
-        <widget class="QPushButton" name="FilipinoButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Филиппинский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="2">
-        <widget class="QPushButton" name="NorwegianButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Норвежский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QPushButton" name="ArabicButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Арабский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QPushButton" name="BulgarianButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Болгарский</string>
          </property>
         </widget>
        </item>
@@ -1386,8 +1066,8 @@ QPushButton:pressed{
          </property>
         </widget>
        </item>
-       <item row="5" column="0">
-        <widget class="QPushButton" name="GermanButton">
+       <item row="7" column="2">
+        <widget class="QPushButton" name="NorwegianButton">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1418,7 +1098,367 @@ QPushButton:pressed{
 	}</string>
          </property>
          <property name="text">
-          <string>Немецкий</string>
+          <string>Норвежский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="EstonianButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Эстонский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QPushButton" name="SlovenianButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Словенский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QPushButton" name="UkrainianButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Украинский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="2">
+        <widget class="QPushButton" name="SlovakButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Словацкий</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="BelarusianButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Белорусский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QPushButton" name="PolishButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Польский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QPushButton" name="KoreanButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Корейский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="AzerbaijaniButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Азербайджанский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QPushButton" name="ItalianButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Итальянский</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="2">
+        <widget class="QPushButton" name="FilipinoButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+         </property>
+         <property name="text">
+          <string>Филиппинский</string>
          </property>
         </widget>
        </item>
@@ -1458,8 +1498,8 @@ QPushButton:pressed{
          </property>
         </widget>
        </item>
-       <item row="8" column="2">
-        <widget class="QPushButton" name="RomanianButton">
+       <item row="5" column="2">
+        <widget class="QPushButton" name="HungarianButton">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1490,79 +1530,7 @@ QPushButton:pressed{
 	}</string>
          </property>
          <property name="text">
-          <string>Румынский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QPushButton" name="CroatianButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Хорватский</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="1">
-        <widget class="QPushButton" name="SerbianButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-         </property>
-         <property name="text">
-          <string>Сербский</string>
+          <string>Венгерский</string>
          </property>
         </widget>
        </item>
@@ -1677,7 +1645,6 @@ QLineEdit:hover{
   <zorder>LandingArea</zorder>
   <zorder>ReferenceButton</zorder>
   <zorder>lang_logo</zorder>
-  <zorder>RollUpButton</zorder>
   <zorder>ExitButton</zorder>
   <zorder>LanguagesListLabel</zorder>
   <zorder>SearchLine</zorder>

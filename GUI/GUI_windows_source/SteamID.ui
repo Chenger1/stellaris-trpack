@@ -55,19 +55,19 @@ image: url(:/icons/icons/steam.png);
      <x>-20</x>
      <y>-10</y>
      <width>687</width>
-     <height>264</height>
+     <height>260</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
      <width>687</width>
-     <height>264</height>
+     <height>260</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>687</width>
-     <height>250</height>
+     <height>260</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -113,41 +113,6 @@ QPushButton:pressed{
    </property>
    <property name="text">
     <string>X</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="RollUpButton">
-   <property name="geometry">
-    <rect>
-     <x>600</x>
-     <y>0</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 10);
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	color: rgb(199, 199, 199);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	color: #5abe41
-	}</string>
-   </property>
-   <property name="text">
-    <string>_</string>
    </property>
   </widget>
   <widget class="QLabel" name="SteamLabel">
@@ -200,7 +165,7 @@ color: #ffffff;</string>
 	color: #ffffff;
 	}
 QLineEdit:hover{
-	background-color: #rgba(56, 57, 61, 50);
+	background-color: rgba(56, 57, 61, 50);
 	}
 </string>
    </property>
@@ -288,7 +253,7 @@ QPushButton:pressed{
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-10</y>
+     <y>0</y>
      <width>651</width>
      <height>21</height>
     </rect>
@@ -314,7 +279,6 @@ QPushButton:pressed{
   <zorder>WindowMoveButton</zorder>
   <zorder>steam_logo</zorder>
   <zorder>ExitButton</zorder>
-  <zorder>RollUpButton</zorder>
   <zorder>SteamLabel</zorder>
   <zorder>IDLine</zorder>
   <zorder>AcceptButton</zorder>

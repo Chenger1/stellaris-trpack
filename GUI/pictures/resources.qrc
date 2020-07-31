@@ -13,6 +13,7 @@
     <file>backgrounds/TranslationProgress.png</file>
   </qresource>
   <qresource prefix="icons">
+    <file>icons/paradox.png</file>
     <file>icons/explorer.png</file>
     <file>icons/github.png</file>
     <file>icons/lang.png</file>
@@ -21,6 +22,7 @@
     <file>icons/telegram.png</file>
   </qresource>
   <qresource prefix="effects">
+    <file>effects/large_bottom_shadow.png</file>
     <file>effects/bottom_shadow.png</file>
     <file>effects/mid_line.png</file>
   </qresource>
