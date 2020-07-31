@@ -114,7 +114,7 @@ def writeDisplayOrder(hashList, game_data):
         json.dump(data, json_file)
 
 
-def run(settingPath):
+def prep_data(settingPath):
     registry = os.path.join(settingPath, 'mods_registry.json')
 
     dlc_load = os.path.join(settingPath, 'dlc_load.json')
@@ -138,19 +138,22 @@ def run(settingPath):
     with open(registry, encoding='UTF-8') as json_file:
         data = json.load(json_file)
         modList = getModList(data)
-        # Todo. Output mod list to user through window
-        modListSort, modListNonSort = checkIfSortRequired(modList)
-        modListSort.sort(key=sortedKey, reverse=True)
-        # move Dark UI and UIOverhual to the bottom
-        modList = specialOrder(modListSort, modListNonSort)
-        # make sure UIOverhual+SpeedDial will load after UIOverhual
-        modList = tweakModOrder(modList)
-    if len(modList) <= 0:
-        abort('no mod found')
-    idList = [mod.modId for mod in modList if mod.isEnabled is True]
-    hashList = [mod.hashKey for mod in modList]
-    writeDisplayOrder(hashList, game_data)
-    writeLoadOrder(idList, dlc_load, enabled_mods)
+    return registry, modList, dlc_load_data, game_data, enabled_mods
+
+
+# # Todo. Output mod list to user through window
+# modListSort, modListNonSort = checkIfSortRequired(modList)
+# modListSort.sort(key=sortedKey, reverse=True)
+# # move Dark UI and UIOverhual to the bottom
+# modList = specialOrder(modListSort, modListNonSort)
+# # make sure UIOverhual+SpeedDial will load after UIOverhual
+# modList = tweakModOrder(modList)
+# if len(modList) <= 0:
+#     abort('no mod found')
+# idList = [mod.modId for mod in modList if mod.isEnabled is True]
+# hashList = [mod.hashKey for mod in modList]
+# writeDisplayOrder(hashList, game_data)
+# writeLoadOrder(idList, dlc_load, enabled_mods)
 
 
 def Mbox(title, text, style):
@@ -172,46 +175,29 @@ def errorMesssage(error):
         fileName, lineNum, funcName, error_class, detail)
 
 
-def test():
-    mod1 = Mod("", "!(", "")
-    mod2 = Mod("", "!（更多中文", "")
-    mod3 = Mod("", "UI + PD", "")
-    mod4 = Mod("", "UI", "")
-    mod5 = Mod("", "UI + Speed Dial", "")
-    modList = [mod1, mod2, mod3, mod4, mod5]
-    modList.sort(key=sortedKey, reverse=True)
-    print([x.sortedKey for x in modList])
-    tweaked = tweakModOrder(modList)
-    print([x.sortedKey for x in tweaked])
+def set_settings():
+    # check Stellaris settings location
+    locations = [
+        ".", "..",
+        os.path.join(os.path.expanduser('~'), 'Documents', 'Paradox Interactive',
+                     'Stellaris'),
+        os.path.join(os.path.expanduser('~'), '.local', 'share',
+                     'Paradox Interactive', 'Stellaris')
+    ]
+    settingPaths = [
+        settingPath for settingPath in locations
+        if os.path.isfile(os.path.join(settingPath, "mods_registry.json"))
+    ]
+    return settingPaths
 
 
-try:
-    # sys.setdefaultencoding() does not exist, here!
-    reload(sys)  # Reload does the trick!
-    sys.setdefaultencoding('UTF8')
-except:
-    print('set encoding failed')
-
-# check Stellaris settings location
-locations = [
-    ".", "..",
-    os.path.join(os.path.expanduser('~'), 'Documents', 'Paradox Interactive',
-                 'Stellaris'),
-    os.path.join(os.path.expanduser('~'), '.local', 'share',
-                 'Paradox Interactive', 'Stellaris')
-]
-settingPaths = [
-    settingPath for settingPath in locations
-    if os.path.isfile(os.path.join(settingPath, "mods_registry.json"))
-]
-
-if (len(settingPaths) > 0):
-    print('find Stellaris setting at ', settingPaths[0])
-    try:
-        run(settingPaths[0])
-        Mbox('', 'done', 0)
-    except Exception as e:
-        print(errorMesssage(e))
-        Mbox('error', errorMesssage(e), 0)
-else:
-    Mbox('error', 'unable to location "mods_registry.json', 0)
+# if (len(settingPaths) > 0):
+#     print('find Stellaris setting at ', settingPaths[0])
+#     try:
+#         run(settingPaths[0])
+#         Mbox('', 'done', 0)
+#     except Exception as e:
+#         print(errorMesssage(e))
+#         Mbox('error', errorMesssage(e), 0)
+# else:
+#     Mbox('error', 'unable to location "mods_registry.json', 0)

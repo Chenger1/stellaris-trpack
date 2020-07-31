@@ -8,6 +8,7 @@ from GUI.GUI_windows.SuccessMessageWindow import SuccessMessageWindow
 from GUI.GUI_windows.TranslationLanguageWindow import TranslationLanguageWindow
 from GUI.GUI_windows.ToolLanguageWindow import ToolLanguageWindow
 from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
+from GUI.GUI_windows.ModsListWindow import ModsListWindow
 
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translate_line
@@ -54,6 +55,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.PreviousString.clicked.connect(self.pointer_red)
         self.ExitButton.clicked.connect(self.close)
         self.RollUpButton.clicked.connect(self.showMinimized)
+        self.SortModListButton.clicked.connect(self.show_mods_list_window)
         self.WindowMoveButton.installEventFilter(self)
 
     def init_helpers(self):
@@ -71,6 +73,10 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def show_choose_file_window(self):
         choose_file_window = ChooseFileWindow(self)
         choose_file_window.show()
+
+    def show_mods_list_window(self):
+        mod_list_window = ModsListWindow(self)
+        mod_list_window.show()
 
     def translation_language_window(self):
         translation_language_window = TranslationLanguageWindow(self)
