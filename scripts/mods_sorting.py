@@ -90,7 +90,7 @@ def specialOrder(modListSort, modListNonSort):
     return modListSort + specialList + modListNonSort
 
 
-def writeLoadOrder(idList, dlc_load, enabled_mods):
+def writeLoadOrder(idList, dlc_load):
     data = {}
     with open(dlc_load, 'r+') as json_file:
         data = json.load(json_file)
@@ -140,10 +140,10 @@ def prep_data(settingPath):
     with open(registry, encoding='UTF-8') as json_file:
         data = json.load(json_file)
         modList = getModList(data, enabled_mods)
-    return registry, modList, dlc_load, game_data, enabled_mods
+    return modList, dlc_load, game_data
 
 
-def sorting(modList, game_data, dlc_load, enabled_mods):
+def sorting(modList, game_data, dlc_load):
     modListSort, modListNonSort = checkIfSortRequired(modList)
     modListSort.sort(key=sortedKey, reverse=True)
     # move Dark UI and UIOverhual to the bottom
@@ -155,7 +155,7 @@ def sorting(modList, game_data, dlc_load, enabled_mods):
     idList = [mod.modId for mod in modList if mod.isEnabled is True]
     hashList = [mod.hashKey for mod in modList]
     writeDisplayOrder(hashList, game_data)
-    writeLoadOrder(idList, dlc_load, enabled_mods)
+    writeLoadOrder(idList, dlc_load)
     return ('success', 'Моды успешно отсортированы')
 
 
