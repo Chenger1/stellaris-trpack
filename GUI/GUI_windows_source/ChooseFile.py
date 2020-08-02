@@ -79,9 +79,9 @@ class Ui_Dialog(object):
         self.file_explorer_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.file_explorer_logo.setObjectName("file_explorer_logo")
         self.BackgroundFrame = QtWidgets.QFrame(Dialog)
-        self.BackgroundFrame.setGeometry(QtCore.QRect(-20, -10, 687, 264))
-        self.BackgroundFrame.setMinimumSize(QtCore.QSize(687, 264))
-        self.BackgroundFrame.setMaximumSize(QtCore.QSize(687, 250))
+        self.BackgroundFrame.setGeometry(QtCore.QRect(-20, -10, 687, 260))
+        self.BackgroundFrame.setMinimumSize(QtCore.QSize(687, 260))
+        self.BackgroundFrame.setMaximumSize(QtCore.QSize(687, 260))
         self.BackgroundFrame.setStyleSheet("background-image: url(:/backgrounds/backgrounds/ChooseFile.png);")
         self.BackgroundFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.BackgroundFrame.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -108,10 +108,10 @@ class Ui_Dialog(object):
 "    }")
         self.ExitButton.setObjectName("ExitButton")
         self.ChooseFileLabel = QtWidgets.QLabel(Dialog)
-        self.ChooseFileLabel.setGeometry(QtCore.QRect(200, 70, 441, 51))
+        self.ChooseFileLabel.setGeometry(QtCore.QRect(20, 30, 251, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(16)
+        font.setPointSize(14)
         font.setBold(False)
         font.setWeight(50)
         self.ChooseFileLabel.setFont(font)
@@ -152,6 +152,29 @@ class Ui_Dialog(object):
 "    color: transparent;\n"
 "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
+        self.CollectionButton = QtWidgets.QPushButton(Dialog)
+        self.CollectionButton.setGeometry(QtCore.QRect(470, 30, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.CollectionButton.setFont(font)
+        self.CollectionButton.setStyleSheet("QPushButton{\n"
+"    background-color: #05B8CC;\n"
+"    border: 2px solid #05B8CC;\n"
+"    border-radius: 15px;\n"
+"    color: #1f2533;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #31858f;\n"
+"    border: #31858f;\n"
+"    color: #ffffff;    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    }")
+        self.CollectionButton.setObjectName("CollectionButton")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.ManualButton.raise_()
@@ -161,6 +184,7 @@ class Ui_Dialog(object):
         self.ExitButton.raise_()
         self.ChooseFileLabel.raise_()
         self.ReferenceButton.raise_()
+        self.CollectionButton.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -174,3 +198,4 @@ class Ui_Dialog(object):
         self.ChooseFileLabel.setText(_translate("Dialog", "Выбрать файл"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
+        self.CollectionButton.setText(_translate("Dialog", "Коллекция"))

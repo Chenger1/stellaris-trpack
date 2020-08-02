@@ -31,7 +31,7 @@ class Ui_Dialog(object):
         self.BackgroundFrame.setGeometry(QtCore.QRect(-20, -10, 687, 260))
         self.BackgroundFrame.setMinimumSize(QtCore.QSize(687, 260))
         self.BackgroundFrame.setMaximumSize(QtCore.QSize(687, 260))
-        self.BackgroundFrame.setStyleSheet("background-image: url(:/backgrounds/backgrounds/ChooseFile.png);")
+        self.BackgroundFrame.setStyleSheet("background-image: url(:/backgrounds/backgrounds/SteamID.png);")
         self.BackgroundFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.BackgroundFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.BackgroundFrame.setObjectName("BackgroundFrame")

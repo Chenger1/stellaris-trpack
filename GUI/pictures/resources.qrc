@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="backgrounds">
+    <file>backgrounds/SteamID.png</file>
     <file>backgrounds/AboutTool.png</file>
     <file>backgrounds/ChooseFile.png</file>
     <file>backgrounds/Contact.png</file>
@@ -10,7 +11,6 @@
     <file>backgrounds/Reference.png</file>
     <file>backgrounds/SuccessMessage.png</file>
     <file>backgrounds/ToolLanguage.png</file>
-    <file>backgrounds/TranslationProgress.png</file>
   </qresource>
   <qresource prefix="icons">
     <file>icons/paradox.png</file>

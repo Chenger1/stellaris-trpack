@@ -147,19 +147,19 @@ image: url(:/icons/icons/explorer.png);</string>
      <x>-20</x>
      <y>-10</y>
      <width>687</width>
-     <height>264</height>
+     <height>260</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
      <width>687</width>
-     <height>264</height>
+     <height>260</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>687</width>
-     <height>250</height>
+     <height>260</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -210,16 +210,16 @@ QPushButton:pressed{
   <widget class="QLabel" name="ChooseFileLabel">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>70</y>
-     <width>441</width>
-     <height>51</height>
+     <x>20</x>
+     <y>30</y>
+     <width>251</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>KB Astrolyte</family>
-     <pointsize>16</pointsize>
+     <pointsize>14</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -296,6 +296,43 @@ QPushButton:pressed{
     <string>Steam</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="CollectionButton">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>30</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: #05B8CC;
+    border: 2px solid #05B8CC;
+    border-radius: 15px;
+    color: #1f2533;
+	}
+QPushButton:hover{
+    background-color: #31858f;
+    border: #31858f;
+    color: #ffffff;	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+   </property>
+   <property name="text">
+    <string>Коллекция</string>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>ManualButton</zorder>
@@ -305,6 +342,7 @@ QPushButton:pressed{
   <zorder>ExitButton</zorder>
   <zorder>ChooseFileLabel</zorder>
   <zorder>ReferenceButton</zorder>
+  <zorder>CollectionButton</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

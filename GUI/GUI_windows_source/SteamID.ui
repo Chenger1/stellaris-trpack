@@ -71,7 +71,7 @@ image: url(:/icons/icons/steam.png);
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/backgrounds/backgrounds/ChooseFile.png);</string>
+    <string notr="true">background-image: url(:/backgrounds/backgrounds/SteamID.png);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
