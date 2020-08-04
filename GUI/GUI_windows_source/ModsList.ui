@@ -29,27 +29,6 @@
    <string notr="true">background-color: transparent;
 </string>
   </property>
-  <widget class="QLabel" name="lang_logo">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>51</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: none;
-image: url(:/icons/icons/lang.png);
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QFrame" name="BackgroundFrame">
    <property name="geometry">
     <rect>
@@ -72,7 +51,7 @@ image: url(:/icons/icons/lang.png);
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/backgrounds/backgrounds/MoreOutputLanguage.png);</string>
+    <string notr="true">background-image: url(:/backgrounds/backgrounds/ModList.png);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -189,9 +168,9 @@ QPushButton:pressed{
   <widget class="QLabel" name="LanguagesListLabel">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>20</x>
      <y>20</y>
-     <width>231</width>
+     <width>251</width>
      <height>61</height>
     </rect>
    </property>
@@ -218,9 +197,9 @@ color: #ffffff;</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>100</y>
+     <y>90</y>
      <width>631</width>
-     <height>261</height>
+     <height>231</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -282,7 +261,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
       <x>0</x>
       <y>0</y>
       <width>626</width>
-      <height>261</height>
+      <height>231</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -374,15 +353,53 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <string>Steam</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="LocalizeButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>320</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: #5abe41;
+	border: 3px solid #5abe41;
+	border-radius: 20px;
+	color: #1f2533;
+	}
+QPushButton:hover{
+	background-color: #438e30;
+	border: #438e30;
+	color: #ffffff;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	color: #1f2533;
+	}</string>
+   </property>
+   <property name="text">
+    <string>Сортировать</string>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>LandingArea</zorder>
   <zorder>ReferenceButton</zorder>
-  <zorder>lang_logo</zorder>
   <zorder>RollUpButton</zorder>
   <zorder>ExitButton</zorder>
   <zorder>LanguagesListLabel</zorder>
   <zorder>BottomShadowFrame</zorder>
+  <zorder>LocalizeButton</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

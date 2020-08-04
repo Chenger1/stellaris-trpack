@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="backgrounds">
+    <file>backgrounds/Collection.png</file>
+    <file>backgrounds/ModList.png</file>
     <file>backgrounds/SteamID.png</file>
     <file>backgrounds/AboutTool.png</file>
     <file>backgrounds/ChooseFile.png</file>
