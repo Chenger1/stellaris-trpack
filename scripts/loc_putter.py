@@ -28,7 +28,6 @@ def put_lines():
 	newloc = open(file2, 'r', encoding='utf-8')
 	itog = open(f'{file3}.yml', 'w', encoding='utf-8')
 
-	i = -1
 	subs = re.compile(': |:0|:1|:"')
 	trlist = []
 	nonlist = []
@@ -42,7 +41,6 @@ def put_lines():
 
 	for index, line in enumerate(islice(loc, 1, None)):
 		nonlist.append(line.rstrip())
-		#i += 1
 		if (search(subs, line) == 1) and ((line[0] and line[1]) != '#'):
 			a = line.find('"')
 			curstr = line[0:a + 1] + trlist[index+1] + '"'
