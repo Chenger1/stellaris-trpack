@@ -3,6 +3,8 @@ import os
 import re
 import win32api
 
+from googletrans.constants import LANGUAGES
+
 drive = win32api.GetSystemDirectory().split(':')[0]
 user = win32api.GetUserName()
 data = {}
@@ -45,10 +47,15 @@ def create_temp_folder(mod_id, loc_path):
     return temp_folder
 
 
-def creating_temp_files_names(original):
-    return {'rus': 'rus_' + original,
-            'translated': 'tr_' + original,
-            'final': 'final_' + original}
+def creating_temp_files_names(original_file_name):
+    files_names = {}
+    mod_name = re.findall('.*_l_', original_file_name)
+    with open('Properties.json', 'r') as languages_json:
+        languages = json.load(languages_json)
+        files_names = {'cutter': 'cutter_' + original_file_name,
+                       'translated': 'tr_' + original_file_name,
+                       'final': f'{mod_name[0]}{LANGUAGES[languages["translation_language"]]}'}
+    return files_names
 
 
 def write_data_about_mode(temp_folder, temp_files):
@@ -56,11 +63,11 @@ def write_data_about_mode(temp_folder, temp_files):
     with open(f'{temp_folder}\\data.json', 'w') as d_file:
         json.dump({
             'folder_path': temp_folder,
-            'cutter_file_name': filenames['rus'],
+            'cutter_file_name': filenames['cutter'],
             'translated': filenames['translated'],
             'final': filenames['final']
         }, d_file)
-    data['cutter_file_name'] = filenames['rus']
+    data['cutter_file_name'] = filenames['cutter']
     data['translated_name'] = filenames['translated']
     data['final_name'] = filenames['final']
     data['original_name'] = temp_files['english_name']

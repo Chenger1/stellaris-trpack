@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 import re
 import shutil
+import json
+
+from itertools import islice
+
+from googletrans.constants import LANGUAGES
 
 from scripts.utils import data
 
@@ -21,7 +26,7 @@ def put_lines():
 	file3 = file1.replace(eng, neweng)
 	loc = open(file1, 'r', encoding='utf-8')
 	newloc = open(file2, 'r', encoding='utf-8')
-	itog = open(file3, 'w', encoding='utf-8')
+	itog = open(f'{file3}.yml', 'w', encoding='utf-8')
 
 	i = -1
 	subs = re.compile(': |:0|:1|:"')
@@ -31,7 +36,11 @@ def put_lines():
 	for line in newloc:
 		trlist.append(line.rstrip())
 
-	for line in loc:
+	with open('Properties.json', 'r') as languages_json:
+		languages = json.load(languages_json)
+		itog.write(f'l_{LANGUAGES[languages["translation_language"]]}:\n')
+
+	for line in islice(loc, 1, None):
 		nonlist.append(line.rstrip())
 		i += 1
 		if (search(subs, line) == 1) and ((line[0] and line[1]) != '#'):

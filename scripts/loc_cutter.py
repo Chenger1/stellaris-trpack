@@ -45,11 +45,11 @@ def creating_temp_files(loc_path, temp_folder):
                 l_english = path_to_file
 
     eng = l_english.split('\\')[-1]
-    rus = 'rus_' + eng
+    cutter = 'cutter_' + eng
     loc = open(l_english, 'r', encoding='utf-8')
-    newloc = open(f'{temp_folder}\\{rus}', 'w', encoding='utf-8')
+    newloc = open(f'{temp_folder}\\{cutter}', 'w', encoding='utf-8')
     return {'english_name': eng,
-            'cutter_file': rus,
+            'cutter_file': cutter,
             'loc': loc,
             'cuttered': newloc}
 
