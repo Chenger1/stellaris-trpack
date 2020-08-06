@@ -40,14 +40,14 @@ def put_lines():
 		languages = json.load(languages_json)
 		itog.write(f'l_{LANGUAGES[languages["translation_language"]]}:\n')
 
-	for line in islice(loc, 1, None):
+	for index, line in enumerate(islice(loc, 1, None)):
 		nonlist.append(line.rstrip())
-		i += 1
+		#i += 1
 		if (search(subs, line) == 1) and ((line[0] and line[1]) != '#'):
 			a = line.find('"')
-			curstr = line[0:a + 1] + trlist[i] + '"'
+			curstr = line[0:a + 1] + trlist[index+1] + '"'
 		else:
-			curstr = nonlist[i]
+			curstr = nonlist[index]
 		itog.write(curstr + '\n')
 
 	loc.close()
