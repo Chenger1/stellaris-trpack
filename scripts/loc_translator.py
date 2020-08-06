@@ -8,10 +8,6 @@ from json import load
 from scripts.utils import data, set_translated_file
 
 
-with open("Properties.json", 'r', encoding='utf-8') as prop:
-	properties = load(prop)
-
-
 def file_len(fname):
 	with open(fname) as f:
 		for i, l in enumerate(f):
@@ -54,8 +50,8 @@ def replacing_invalid_new_line_symbol(func):
 		'. \\n': '.\\n',
 	}
 
-	def wrapper(line, translator):
-		ru_line = func(line, translator)
+	def wrapper(line, tr_language, translator):
+		ru_line = func(line, tr_language, translator)
 		for sym in symbols:
 			ru_line = ru_line.replace(sym, symbols[sym])
 		return ru_line
@@ -63,14 +59,14 @@ def replacing_invalid_new_line_symbol(func):
 
 
 @replacing_invalid_new_line_symbol
-def translating_line(line: str, translator=None) -> str:
-	translation = translator.translate(line, dest=properties["translation_language"])
+def translating_line(line: str, tr_language, translator=None) -> str:
+	translation = translator.translate(line, dest=tr_language)
 	return translation.text
 
 
-def line_processing(line: str, translator) -> str:
+def line_processing(line: str, translator, tr_language) -> str:
 	temp = slice_string(line)
-	translated = list(map(lambda x: translating_line(x, translator), temp))
+	translated = list(map(lambda x: translating_line(x, tr_language, translator), temp))
 	for en, ru in zip(temp, translated):
 		line = line.replace(en[:-1], ru)
 	return line
@@ -88,19 +84,21 @@ def defining_translator(func):
 	DetectorFactory.seed = 0
 
 	def wrapper(line):
-		ru_line = func(line, translator)
-		return ru_line
+		tr_line = func(line, translator)
+		return tr_line
 	return wrapper
 
 
 @defining_translator
 def translate_line(line, translator=None):
-	if len(line) > 2:
-		test = detect(line)
-		if test != properties["translation_language"]:
-			translation = line_processing(line, translator)
+	with open("Properties.json", 'r', encoding='utf-8') as prop:
+		properties = load(prop)
+		if len(line) > 2:
+			test = detect(line)
+			if test != properties["translation_language"]:
+				translation = line_processing(line, translator, properties["translation_language"])
+			else:
+				translation = line
 		else:
 			translation = line
-	else:
-		translation = line
-	return translation
+		return translation
