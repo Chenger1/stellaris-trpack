@@ -17,12 +17,13 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.settingPaths = set_settings()
         self.modList, self.dlc_load, self.game_data = prep_data(self.settingPaths[0])
         self.checkboxes = []
-        self.MakeSortButton = QtWidgets.QPushButton('Sort')
+        self.some = QtWidgets.QPushButton()
         self.paint_elements()
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.WindowMoveButton.installEventFilter(self)
+        self.LocalizeButton.clicked.connect(self.make_sort)
 
     def make_sort(self):
         for checkbox, mod in zip(self.checkboxes, self.modList):
@@ -34,35 +35,51 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
 
     def paint_elements(self):
         grid = self.gridLayout
+        help_label_1 = QtWidgets.QLabel('Название мода')
+        help_label_2 = QtWidgets.QLabel('Вкл/Выкл')
+        help_label_3 = QtWidgets.QLabel('Будет ли сортироваться')
+        help_label_1.setStyleSheet('color:white')
+        help_label_2.setStyleSheet('color:white')
+        help_label_3.setStyleSheet('color:white')
+        help_label_3.setWordWrap(True)
+        grid.addWidget(help_label_1, 0, 0, 1, 5)
+        grid.addWidget(help_label_2, 0, 6)
+        grid.addWidget(help_label_3, 0, 7)
         for index, elem in enumerate(self.modList):
+            grid.setSpacing(10)
             label = QtWidgets.QLabel(str(elem.name))
-            checkbox1 = QtWidgets.QCheckBox('Активный/Неактивный')
+            checkbox1 = QtWidgets.QCheckBox()
             checkbox1.setChecked(elem.isEnabled)
-            checkbox2 = QtWidgets.QCheckBox('Будет ли сортироваться')
+            checkbox2 = QtWidgets.QCheckBox()
             checkbox2.setChecked(elem.sortRequired)
             label.setStyleSheet('color:white')
             label.setWordWrap(True)
-            checkbox1.setStyleSheet('color:white;')
-            checkbox2.setStyleSheet('color:white;')
-            grid.addWidget(label, index, 0)
-            grid.addWidget(checkbox1, index, 1)
-            grid.addWidget(checkbox2, index, 2)
+            checkbox1.setStyleSheet("""
+                                    QCheckBox{
+                                                color:white;
+                                             }
+                                    QCheckBox:indicator:unchecked{
+                                            image: url(:/icons/icons/pass.png)
+                                    }
+                                    QCheckBox:indicator:checked{
+                                            image: url(:/icons/icons/active.png)
+                                    }
+                                    """)
+            checkbox2.setStyleSheet("""
+                                    QCheckBox{
+                                                color:white;
+                                             }
+                                    QCheckBox:indicator:unchecked{
+                                            image: url(:/icons/icons/pass_sorting.png)
+                                    }
+                                    QCheckBox:indicator:checked{
+                                            image: url(:/icons/icons/sorting.png)
+                                    }
+                                    """)
+            grid.addWidget(label, index+1, 0, 1, 5)
+            grid.addWidget(checkbox1, index+1, 6)
+            grid.addWidget(checkbox2, index+1, 7)
             self.checkboxes.append((checkbox1, checkbox2))
-        self.MakeSortButton.setStyleSheet("""
-        QPushButton{
-            background-color: #5abe41;;
-            border: 3px solid #5abe41;
-            border-radius: 20px;
-            color: #1f2533;
-        }
-        QPushButton:hover{
-            background-color: #438e30;
-            border: #438e30;
-            color: #ffffff;
-        }
-        """)
-        grid.addWidget(self.MakeSortButton)
-        self.MakeSortButton.clicked.connect(self.make_sort)
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:
