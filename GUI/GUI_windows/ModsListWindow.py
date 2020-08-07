@@ -17,7 +17,6 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.settingPaths = set_settings()
         self.modList, self.dlc_load, self.game_data = prep_data(self.settingPaths[0])
         self.checkboxes = []
-        self.some = QtWidgets.QPushButton()
         self.paint_elements()
 
     def init_handlers(self):
