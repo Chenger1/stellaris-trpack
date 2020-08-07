@@ -2,7 +2,7 @@
 import re
 import os
 
-from scripts.utils import write_data_about_mode, create_temp_folder
+from scripts.utils import write_data_about_mode, create_temp_folder, data
 
 
 def search(subs, line):
@@ -37,18 +37,11 @@ def cutting_lines(temp_files):
 
 
 def creating_temp_files(loc_path, temp_folder):
-    l_english = ''
-    for path, folders, files in os.walk(loc_path):
-        for file in files:
-            path_to_file = os.path.join(path, file)
-            if 'english' in path_to_file and '.yml' in path_to_file:
-                l_english = path_to_file
-
-    eng = l_english.split('\\')[-1]
-    cutter = 'cutter_' + eng
-    loc = open(l_english, 'r', encoding='utf-8')
+    orig = data['mod_name']
+    cutter = 'cutter_' + orig
+    loc = open(data['full_path'], 'r', encoding='utf-8')
     newloc = open(f'{temp_folder}\\{cutter}', 'w', encoding='utf-8')
-    return {'english_name': eng,
+    return {'orig_name': orig,
             'cutter_file': cutter,
             'loc': loc,
             'cuttered': newloc}

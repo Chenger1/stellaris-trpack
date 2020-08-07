@@ -48,18 +48,17 @@ def create_temp_folder(mod_id, loc_path):
 
 
 def creating_temp_files_names(original_file_name):
-    files_names = {}
-    mod_name = re.findall('.*_l_', original_file_name)
+    mod_lang = list(filter(lambda x: x in original_file_name, LANGUAGES.values()))
     with open('Properties.json', 'r') as languages_json:
         languages = json.load(languages_json)
         files_names = {'cutter': 'cutter_' + original_file_name,
                        'translated': 'tr_' + original_file_name,
-                       'final': f'{mod_name[0]}{LANGUAGES[languages["translation_language"]]}'}
+                       'final': original_file_name.replace(mod_lang[0], LANGUAGES[languages["translation_language"]])}
     return files_names
 
 
 def write_data_about_mode(temp_folder, temp_files):
-    filenames = creating_temp_files_names(temp_files['english_name'])
+    filenames = creating_temp_files_names(temp_files['orig_name'])
     with open(f'{temp_folder}\\data.json', 'w') as d_file:
         json.dump({
             'folder_path': temp_folder,
@@ -70,7 +69,7 @@ def write_data_about_mode(temp_folder, temp_files):
     data['cutter_file_name'] = filenames['cutter']
     data['translated_name'] = filenames['translated']
     data['final_name'] = filenames['final']
-    data['original_name'] = temp_files['english_name']
+    data['original_name'] = temp_files['orig_name']
     data['loc'] = temp_files['loc']
     data['cuttered'] = temp_files['cuttered']
 
@@ -93,6 +92,8 @@ def paradox_mod_way_to_content(mod_id):
 def get_mod_id(file_path):
     pattern = re.compile(r'281990/(.*?)/localisation')
     mod_id = pattern.findall(file_path)[0]
+    data['mod_name'] = file_path.split('/')[-1]
+    data['full_path'] = file_path
     return mod_id
 
 
