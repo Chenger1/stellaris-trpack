@@ -18,11 +18,25 @@ class SteamIDWindow(QtWidgets.QDialog, SteamID.Ui_Dialog):
         self.AcceptButton.clicked.connect(self.get_steam_id)
         self.ExitButton.clicked.connect(self.close)
 
-    def get_steam_id(self):
-        path = self.IDLine.text()
-        self.parent.parent.get_steam_id(path.split('=')[-1])
+    def accept_file(self):
         self.parent.close()
         self.close()
+
+    def get_steam_id(self):
+        try:
+            path = self.IDLine.text().strip()
+            if path.isnumeric():
+                mod_data = self.parent.parent.get_steam_id(path.split('=')[-1])
+                f_path = QtWidgets.QFileDialog.getOpenFileName(directory=f"{mod_data['path']}\\localisation")
+                self.AcceptButton.setText('Подтвердить файл')
+                self.AcceptButton.repaint()
+                self.AcceptButton.disconnect()
+                self.AcceptButton.clicked.connect(self.accept_file)
+                self.parent.choose_file(f_path[0])
+            else:
+                self.parent.parent.show_system_message('error', 'Строка ID содержит сторонние символы')
+        except OSError:
+            self.parent.parent.show_system_message('error', 'Вы не ввели ID мода')
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:

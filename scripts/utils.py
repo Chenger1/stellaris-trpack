@@ -86,7 +86,7 @@ def paradox_mod_way_to_content(mod_id):
                 path = line.split('"')[1].replace('/', '\\')
             if 'name' in line:
                 name = line.split('"')[1].replace('/', '\\')
-    return path, name
+    return {'path': path, 'name': name}
 
 
 def get_mod_id(file_path):

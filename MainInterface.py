@@ -97,7 +97,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def get_steam_id(self, mod_id):
         self.ModIDLine.setText(mod_id)
         data = paradox_mod_way_to_content(mod_id)
-        self.ModNameLine.setText(data[1])
+        self.ModNameLine.setText(data['name'])
+        return data
 
     def centering_lines(self):
         self.OriginalString.setAlignment(QtCore.Qt.AlignCenter)
@@ -184,7 +185,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def start_local(self):
         try:
             workshop_id = self.ModIDLine.text()
-            path = paradox_mod_way_to_content(workshop_id)[0]
+            path = paradox_mod_way_to_content(workshop_id)['path']
             self.orig_text = cutter_main(path, workshop_id)
             self.progressbar_set_maximum(len(self.orig_text))
         except FileNotFoundError as Error:
