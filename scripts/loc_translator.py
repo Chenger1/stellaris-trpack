@@ -81,7 +81,6 @@ def writing_translation(translation):
 
 def defining_translator(func):
 	translator = Translator()
-	DetectorFactory.seed = 0
 
 	def wrapper(line):
 		tr_line = func(line, translator)
@@ -91,6 +90,7 @@ def defining_translator(func):
 
 @defining_translator
 def translate_line(line, translator=None):
+	DetectorFactory.seed = 0
 	with open("Properties.json", 'r', encoding='utf-8') as prop:
 		properties = load(prop)
 		if len(line) > 2:
