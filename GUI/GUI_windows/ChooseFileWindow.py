@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import ChooseFile
-
+from  GUI.GUI_windows.CollectionWindow import CollectionWindow
 from GUI.GUI_windows.SteamIDWindow import SteamIDWindow
 
 from scripts.utils import get_mod_id, paradox_mod_way_to_content
@@ -20,6 +20,7 @@ class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
     def init_handlers(self):
         self.ManualButton.clicked.connect(lambda :self.choose_file(QtWidgets.QFileDialog.getOpenFileName()[0]))
         self.SteamButton.clicked.connect(self.show_steam_id_window)
+        self.CollectionButton.clicked.connect(self.show_collection_window)
         self.ExitButton.clicked.connect(self.close)
         self.WindowMoveButton.installEventFilter(self)
 
@@ -32,6 +33,11 @@ class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
     def show_steam_id_window(self):
         steam_id_window = SteamIDWindow(self)
         steam_id_window.show()
+        self.close()
+
+    def show_collection_window(self):
+        collection_window = CollectionWindow(self)
+        collection_window.show()
         self.close()
 
     def eventFilter(self, source, event):

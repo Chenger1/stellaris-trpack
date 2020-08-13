@@ -145,7 +145,7 @@ class Ui_Dialog(object):
 "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.LocalizeButton = QtWidgets.QPushButton(Dialog)
-        self.LocalizeButton.setGeometry(QtCore.QRect(180, 320, 291, 41))
+        self.LocalizeButton.setGeometry(QtCore.QRect(400, 320, 191, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
@@ -168,23 +168,36 @@ class Ui_Dialog(object):
 "    }")
         self.LocalizeButton.setObjectName("LocalizeButton")
         self.SearchLine = QtWidgets.QLineEdit(Dialog)
-        self.SearchLine.setGeometry(QtCore.QRect(90, 30, 471, 41))
+        self.SearchLine.setGeometry(QtCore.QRect(190, 30, 391, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
         self.SearchLine.setFont(font)
         self.SearchLine.setStyleSheet("QLineEdit{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 20px;\n"
+"    background-color: transparent;\n"
+"    border: transparent; \n"
 "    color: #ffffff;\n"
 "    }\n"
 "QLineEdit:hover{\n"
 "    background-color: rgba(56, 57, 61, 50);\n"
+"    border-radius: 15px;\n"
 "    }")
         self.SearchLine.setAlignment(QtCore.Qt.AlignCenter)
         self.SearchLine.setReadOnly(False)
         self.SearchLine.setObjectName("SearchLine")
+        self.OriginalLabel = QtWidgets.QLabel(Dialog)
+        self.OriginalLabel.setGeometry(QtCore.QRect(20, 29, 181, 51))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(14)
+        self.OriginalLabel.setFont(font)
+        self.OriginalLabel.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.OriginalLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.OriginalLabel.setObjectName("OriginalLabel")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.LandingArea.raise_()
@@ -193,6 +206,7 @@ class Ui_Dialog(object):
         self.BottomShadowFrame.raise_()
         self.LocalizeButton.raise_()
         self.SearchLine.raise_()
+        self.OriginalLabel.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -203,5 +217,6 @@ class Ui_Dialog(object):
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-        self.LocalizeButton.setText(_translate("Dialog", "Переименовать коллекцию"))
+        self.LocalizeButton.setText(_translate("Dialog", "Переименовать"))
         self.SearchLine.setText(_translate("Dialog", "Stellaris True Machine Tranlsation Tool"))
+        self.OriginalLabel.setText(_translate("Dialog", "Коллекция"))

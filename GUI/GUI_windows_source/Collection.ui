@@ -299,9 +299,9 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
   <widget class="QPushButton" name="LocalizeButton">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>400</x>
      <y>320</y>
-     <width>291</width>
+     <width>191</width>
      <height>41</height>
     </rect>
    </property>
@@ -330,16 +330,16 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>Переименовать коллекцию</string>
+    <string>Переименовать</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="SearchLine">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>190</x>
      <y>30</y>
-     <width>471</width>
-     <height>41</height>
+     <width>391</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -350,13 +350,13 @@ QPushButton:pressed{
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 20px;
+	background-color: transparent;
+	border: transparent; 
 	color: #ffffff;
 	}
 QLineEdit:hover{
 	background-color: rgba(56, 57, 61, 50);
+	border-radius: 15px;
 	}</string>
    </property>
    <property name="text">
@@ -369,6 +369,35 @@ QLineEdit:hover{
     <bool>false</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="OriginalLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>29</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+   </property>
+   <property name="text">
+    <string>Коллекция</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>LandingArea</zorder>
@@ -377,6 +406,7 @@ QLineEdit:hover{
   <zorder>BottomShadowFrame</zorder>
   <zorder>LocalizeButton</zorder>
   <zorder>SearchLine</zorder>
+  <zorder>OriginalLabel</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>
