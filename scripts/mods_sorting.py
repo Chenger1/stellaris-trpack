@@ -6,7 +6,6 @@ from shutil import copyfile
 import os
 import ctypes  # An included library with Python install.
 import sys
-import traceback
 import platform
 
 
@@ -164,18 +163,6 @@ def Mbox(title, text, style):
         return ctypes.windll.user32.MessageBoxW(0, text, title, style)
     else:
         print(title + ": " + text)
-
-
-def errorMesssage(error):
-    error_class = e.__class__.__name__
-    detail = e.args[0]
-    _, _, tb = sys.exc_info()
-    lastCallStack = traceback.extract_tb(tb)[-1]
-    fileName = lastCallStack[0]
-    lineNum = lastCallStack[1]
-    funcName = lastCallStack[2]
-    return "File \"{}\", line {}, in {}: [{}] {}".format(
-        fileName, lineNum, funcName, error_class, detail)
 
 
 def set_settings():
