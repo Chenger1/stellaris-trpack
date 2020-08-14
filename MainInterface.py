@@ -1,6 +1,8 @@
 from sys import argv
 from PyQt5 import QtWidgets, QtCore
 
+from json.decoder import JSONDecodeError
+
 from GUI.GUI_windows_source import MainWindow
 from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
 from GUI.GUI_windows.ErrorMessageWindow import ErrorMessageWindow
@@ -75,8 +77,15 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         choose_file_window.show()
 
     def show_mods_list_window(self):
-        mod_list_window = ModsListWindow(self)
-        mod_list_window.show()
+        try:
+            mod_list_window = ModsListWindow(self)
+        except FileNotFoundError as error:
+            filename = error.filename.split("\\")[-1]
+            self.show_system_message('error', f'Не найден файл {filename}')
+        except JSONDecodeError as error:
+            self.show_system_message('error', f'{error.msg}')
+        else:
+            mod_list_window.show()
 
     def translation_language_window(self):
         translation_language_window = TranslationLanguageWindow(self)

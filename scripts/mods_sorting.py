@@ -4,14 +4,7 @@
 import json
 from shutil import copyfile
 import os
-import ctypes  # An included library with Python install.
-import sys
-import platform
-
-
-def abort(message):
-    Mbox('abort', message, 0)
-    sys.exit(1)
+import errno
 
 
 class Mod():
@@ -95,7 +88,7 @@ def writeLoadOrder(idList, dlc_load):
         data = json.load(json_file)
 
     if len(data) < 1:
-        abort('dlc_load.json loading failed')
+        raise FileNotFoundError('Ошибка загрузки dlc_load.json', errno.ENOENT, os.strerror(errno.ENOENT), dlc_load)
 
     data['enabled_mods'] = idList
 
@@ -105,10 +98,11 @@ def writeLoadOrder(idList, dlc_load):
 
 def writeDisplayOrder(hashList, game_data):
     data = {}
-    with open(game_data, 'r+') as json_file:
-        data = json.load(json_file)
-    if len(data) < 1:
-        abort('game_data.json loading failed')
+    try:
+        with open(game_data, 'r+') as json_file:
+            data = json.load(json_file)
+    except json.decoder.JSONDecodeError:
+        raise json.decoder.JSONDecodeError(pos=0, doc='', msg='Файл game_data.json пустой')
 
     data['modsOrder'] = hashList
     with open(game_data, 'w') as json_file:
@@ -117,28 +111,32 @@ def writeDisplayOrder(hashList, game_data):
 
 def prep_data(settingPath):
     registry = os.path.join(settingPath, 'mods_registry.json')
-
     dlc_load = os.path.join(settingPath, 'dlc_load.json')
-    if os.path.isfile(dlc_load):
-        copyfile(dlc_load, dlc_load + '.bak')
-    else:
-        abort('please enable at least one mod')
+    copyfile(dlc_load, dlc_load + '.bak')
 
     enabled_mods = None
-    if os.path.exists(dlc_load):
+    try:
         with open(dlc_load) as dlc_load_file:
             dlc_load_data = json.load(dlc_load_file)
 
-            # Do some legwork ahead of time to put into a set to avoidic quadratic loop later for filtering.
-            enabled_mods = frozenset(dlc_load_data.get("enabled_mods", []))
+    except json.decoder.JSONDecodeError:
+        raise json.decoder.JSONDecodeError(pos=0, doc='', msg='Файл dlc_load.json пустой')
+
+    # Do some legwork ahead of time to put into a set to avoidic quadratic loop later for filtering.
+    enabled_mods = frozenset(dlc_load_data.get("enabled_mods", []))
 
     game_data = os.path.join(settingPath, 'game_data.json')
     copyfile(game_data, game_data + '.bak')
 
     modList = []
-    with open(registry, encoding='UTF-8') as json_file:
-        data = json.load(json_file)
-        modList = getModList(data, enabled_mods)
+    try:
+        with open(registry, encoding='UTF-8') as json_file:
+            data = json.load(json_file)
+            modList = getModList(data, enabled_mods)
+
+    except json.decoder.JSONDecodeError:
+        raise json.decoder.JSONDecodeError(pos=0, doc='', msg='Файл mods_registry.json пустой')
+
     return modList, dlc_load, game_data
 
 
@@ -156,13 +154,6 @@ def sorting(modList, game_data, dlc_load):
     writeDisplayOrder(hashList, game_data)
     writeLoadOrder(idList, dlc_load)
     return ('success', 'Моды успешно отсортированы')
-
-
-def Mbox(title, text, style):
-    if platform.system() == 'Windows':
-        return ctypes.windll.user32.MessageBoxW(0, text, title, style)
-    else:
-        print(title + ": " + text)
 
 
 def set_settings():
