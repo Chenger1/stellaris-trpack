@@ -133,7 +133,6 @@ def prep_data(settingPath):
         with open(registry, encoding='UTF-8') as json_file:
             data = json.load(json_file)
             modList = getModList(data, enabled_mods)
-
     except json.decoder.JSONDecodeError:
         raise json.decoder.JSONDecodeError(pos=0, doc='', msg='Файл mods_registry.json пустой')
 
@@ -169,5 +168,8 @@ def set_settings():
         settingPath for settingPath in locations
         if os.path.isfile(os.path.join(settingPath, "mods_registry.json"))
     ]
-    return settingPaths
-
+    if settingPaths:
+        return settingPaths
+    else:
+        raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT),
+                                os.path.join(locations[2], "mods_registry.json"))
