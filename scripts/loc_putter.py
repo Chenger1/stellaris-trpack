@@ -7,7 +7,7 @@ from itertools import islice
 
 from googletrans.constants import LANGUAGES
 
-from scripts.utils import data
+from scripts.utils import data, paradox_folder
 
 
 def search(subs, line):
@@ -20,10 +20,9 @@ def search(subs, line):
 
 def put_lines():
 	file1 = data['loc'].name
-	eng = data['original_name']
 	neweng = data['final_name']
 	file2 = data['translated_file'].name
-	file3 = file1.replace(eng, neweng)
+	file3 = f'{paradox_folder}\\local_localisation\\localisation\\{neweng}'
 	loc = open(file1, 'r', encoding='utf-8')
 	newloc = open(file2, 'r', encoding='utf-8')
 	itog = open(f'{file3}.yml', 'w', encoding='utf-8')
