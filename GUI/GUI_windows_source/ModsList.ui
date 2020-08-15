@@ -165,7 +165,7 @@ QPushButton:pressed{
     <string>?</string>
    </property>
   </widget>
-  <widget class="QLabel" name="LanguagesListLabel">
+  <widget class="QLabel" name="ModListLabel">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -353,7 +353,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <string>Steam</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="LocalizeButton">
+  <widget class="QPushButton" name="SortButton">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -397,9 +397,9 @@ QPushButton:pressed{
   <zorder>ReferenceButton</zorder>
   <zorder>RollUpButton</zorder>
   <zorder>ExitButton</zorder>
-  <zorder>LanguagesListLabel</zorder>
+  <zorder>ModListLabel</zorder>
   <zorder>BottomShadowFrame</zorder>
-  <zorder>LocalizeButton</zorder>
+  <zorder>SortButton</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

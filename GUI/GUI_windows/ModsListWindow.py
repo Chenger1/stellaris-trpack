@@ -22,7 +22,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.WindowMoveButton.installEventFilter(self)
-        self.LocalizeButton.clicked.connect(self.make_sort)
+        self.SortButton.clicked.connect(self.make_sort)
 
     def make_sort(self):
         for checkbox, mod in zip(self.checkboxes, self.modList):

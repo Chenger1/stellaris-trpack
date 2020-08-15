@@ -140,9 +140,9 @@ QPushButton:pressed{
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>80</y>
+     <y>100</y>
      <width>631</width>
-     <height>241</height>
+     <height>231</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -204,7 +204,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
       <x>0</x>
       <y>0</y>
       <width>626</width>
-      <height>241</height>
+      <height>231</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -296,12 +296,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <string>Steam</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="LocalizeButton">
+  <widget class="QPushButton" name="RenameButton">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>220</x>
      <y>320</y>
-     <width>191</width>
+     <width>211</width>
      <height>41</height>
     </rect>
    </property>
@@ -333,48 +333,12 @@ QPushButton:pressed{
     <string>Переименовать</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="SearchLine">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>30</y>
-     <width>391</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>11</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit{
-	background-color: transparent;
-	border: transparent; 
-	color: #ffffff;
-	}
-QLineEdit:hover{
-	background-color: rgba(56, 57, 61, 50);
-	border-radius: 15px;
-	}</string>
-   </property>
-   <property name="text">
-    <string>Stellaris True Machine Tranlsation Tool</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="readOnly">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="OriginalLabel">
+  <widget class="QLabel" name="CollectionLabel">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>29</y>
-     <width>181</width>
+     <width>601</width>
      <height>51</height>
     </rect>
    </property>
@@ -398,15 +362,104 @@ QLineEdit:hover{
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="CollectionLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>80</y>
+     <width>181</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+   </property>
+   <property name="text">
+    <string>Название мода</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="CollectionLabel_3">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>80</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+   </property>
+   <property name="text">
+    <string>Статус</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="CollectionLabel_4">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>80</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+   </property>
+   <property name="text">
+    <string>ID</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>LandingArea</zorder>
   <zorder>ReferenceButton</zorder>
   <zorder>ExitButton</zorder>
   <zorder>BottomShadowFrame</zorder>
-  <zorder>LocalizeButton</zorder>
-  <zorder>SearchLine</zorder>
-  <zorder>OriginalLabel</zorder>
+  <zorder>RenameButton</zorder>
+  <zorder>CollectionLabel</zorder>
+  <zorder>CollectionLabel_2</zorder>
+  <zorder>CollectionLabel_3</zorder>
+  <zorder>CollectionLabel_4</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

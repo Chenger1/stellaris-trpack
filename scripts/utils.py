@@ -90,6 +90,36 @@ def paradox_mod_way_to_content(mod_id):
     return {'path': path, 'name': name}
 
 
+def get_collection():
+    collection_path = f'{paradox_folder}\\local_localisation\\collection.json'
+    try:
+        with open(collection_path, 'r', encoding='utf-8') as collection:
+            info = json.load(collection)
+    except FileNotFoundError:
+        with open(collection_path, 'w', encoding='utf-8') as collection:
+            info = {}
+            json.dump(info, collection)
+    return info
+
+
+def get_mod_info(mod_id):
+    name = paradox_mod_way_to_content(mod_id)['name']
+    picture = "thumbnail.png"
+    status = "complete"
+    mod_info = [name, picture, status]
+    return mod_info
+
+
+def collection_append(mod_id):
+    collection_path = f'{paradox_folder}\\local_localisation\\collection.json'
+    mod_info = get_mod_info(mod_id)
+    with open(collection_path, 'r', encoding='utf-8') as collection:
+        info = json.load(collection)
+        info[mod_id] = mod_info
+    with open(collection_path, 'w', encoding='utf-8') as collection:
+        json.dump(info, collection)
+
+
 def get_mod_id(file_path):
     pattern = re.compile(r'281990/(.*?)/localisation')
     mod_id = pattern.findall(file_path)[0]

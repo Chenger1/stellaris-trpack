@@ -87,7 +87,7 @@ class Ui_Dialog(object):
         self.IDLine.setAlignment(QtCore.Qt.AlignCenter)
         self.IDLine.setObjectName("IDLine")
         self.AcceptButton = QtWidgets.QPushButton(Dialog)
-        self.AcceptButton.setGeometry(QtCore.QRect(50, 190, 191, 41))
+        self.AcceptButton.setGeometry(QtCore.QRect(50, 190, 241, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)

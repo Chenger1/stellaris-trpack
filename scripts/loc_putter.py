@@ -25,7 +25,7 @@ def put_lines():
 	file3 = f'{paradox_folder}\\local_localisation\\localisation\\{neweng}'
 	loc = open(file1, 'r', encoding='utf-8')
 	newloc = open(file2, 'r', encoding='utf-8')
-	itog = open(f'{file3}.yml', 'w', encoding='utf-8')
+	itog = open(f"{file3}", 'w', encoding='utf-8')
 
 	subs = re.compile(': |:0|:1|:"')
 	trlist = []

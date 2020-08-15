@@ -91,20 +91,20 @@ class Ui_Dialog(object):
 "    color: #5abe41\n"
 "    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
-        self.LanguagesListLabel = QtWidgets.QLabel(Dialog)
-        self.LanguagesListLabel.setGeometry(QtCore.QRect(20, 20, 251, 61))
+        self.ModListLabel = QtWidgets.QLabel(Dialog)
+        self.ModListLabel.setGeometry(QtCore.QRect(20, 20, 251, 61))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(14)
         font.setBold(False)
         font.setWeight(50)
-        self.LanguagesListLabel.setFont(font)
-        self.LanguagesListLabel.setStyleSheet("background-color: none;\n"
+        self.ModListLabel.setFont(font)
+        self.ModListLabel.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
-        self.LanguagesListLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.LanguagesListLabel.setObjectName("LanguagesListLabel")
+        self.ModListLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.ModListLabel.setObjectName("ModListLabel")
         self.LandingArea = QtWidgets.QScrollArea(Dialog)
-        self.LandingArea.setGeometry(QtCore.QRect(10, 90, 631, 251))
+        self.LandingArea.setGeometry(QtCore.QRect(10, 90, 631, 231))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -141,7 +141,7 @@ class Ui_Dialog(object):
         self.LandingArea.setAlignment(QtCore.Qt.AlignCenter)
         self.LandingArea.setObjectName("LandingArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 626, 251))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 626, 231))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -176,15 +176,15 @@ class Ui_Dialog(object):
 "    color: transparent;\n"
 "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
-        self.LocalizeButton = QtWidgets.QPushButton(Dialog)
-        self.LocalizeButton.setGeometry(QtCore.QRect(30, 320, 181, 41))
+        self.SortButton = QtWidgets.QPushButton(Dialog)
+        self.SortButton.setGeometry(QtCore.QRect(30, 320, 181, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
-        self.LocalizeButton.setFont(font)
-        self.LocalizeButton.setStyleSheet("QPushButton{\n"
+        self.SortButton.setFont(font)
+        self.SortButton.setStyleSheet("QPushButton{\n"
 "    background-color: #5abe41;\n"
 "    border: 3px solid #5abe41;\n"
 "    border-radius: 20px;\n"
@@ -199,16 +199,16 @@ class Ui_Dialog(object):
 "    background-color: #c2c2c2;\n"
 "    color: #1f2533;\n"
 "    }")
-        self.LocalizeButton.setObjectName("LocalizeButton")
+        self.SortButton.setObjectName("SortButton")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.LandingArea.raise_()
         self.ReferenceButton.raise_()
         self.RollUpButton.raise_()
         self.ExitButton.raise_()
-        self.LanguagesListLabel.raise_()
+        self.ModListLabel.raise_()
         self.BottomShadowFrame.raise_()
-        self.LocalizeButton.raise_()
+        self.SortButton.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -219,6 +219,6 @@ class Ui_Dialog(object):
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.RollUpButton.setText(_translate("Dialog", "_"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
-        self.LanguagesListLabel.setText(_translate("Dialog", "Список модов"))
+        self.ModListLabel.setText(_translate("Dialog", "Список модов"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-        self.LocalizeButton.setText(_translate("Dialog", "Сортировать"))
+        self.SortButton.setText(_translate("Dialog", "Сортировать"))

@@ -72,7 +72,7 @@ class Ui_Dialog(object):
 "    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.LandingArea = QtWidgets.QScrollArea(Dialog)
-        self.LandingArea.setGeometry(QtCore.QRect(10, 80, 631, 241))
+        self.LandingArea.setGeometry(QtCore.QRect(10, 100, 631, 231))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -109,7 +109,7 @@ class Ui_Dialog(object):
         self.LandingArea.setAlignment(QtCore.Qt.AlignCenter)
         self.LandingArea.setObjectName("LandingArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 626, 241))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 626, 231))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -144,15 +144,15 @@ class Ui_Dialog(object):
 "    color: transparent;\n"
 "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
-        self.LocalizeButton = QtWidgets.QPushButton(Dialog)
-        self.LocalizeButton.setGeometry(QtCore.QRect(400, 320, 191, 41))
+        self.RenameButton = QtWidgets.QPushButton(Dialog)
+        self.RenameButton.setGeometry(QtCore.QRect(220, 320, 211, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
-        self.LocalizeButton.setFont(font)
-        self.LocalizeButton.setStyleSheet("QPushButton{\n"
+        self.RenameButton.setFont(font)
+        self.RenameButton.setStyleSheet("QPushButton{\n"
 "    background-color: #05B8CC;\n"
 "    border: 2px solid #05B8CC;\n"
 "    border-radius: 20px;\n"
@@ -166,47 +166,70 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.LocalizeButton.setObjectName("LocalizeButton")
-        self.SearchLine = QtWidgets.QLineEdit(Dialog)
-        self.SearchLine.setGeometry(QtCore.QRect(190, 30, 391, 31))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
-        self.SearchLine.setFont(font)
-        self.SearchLine.setStyleSheet("QLineEdit{\n"
-"    background-color: transparent;\n"
-"    border: transparent; \n"
-"    color: #ffffff;\n"
-"    }\n"
-"QLineEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
-"    }")
-        self.SearchLine.setAlignment(QtCore.Qt.AlignCenter)
-        self.SearchLine.setReadOnly(False)
-        self.SearchLine.setObjectName("SearchLine")
-        self.OriginalLabel = QtWidgets.QLabel(Dialog)
-        self.OriginalLabel.setGeometry(QtCore.QRect(20, 29, 181, 51))
+        self.RenameButton.setObjectName("RenameButton")
+        self.CollectionLabel = QtWidgets.QLabel(Dialog)
+        self.CollectionLabel.setGeometry(QtCore.QRect(20, 29, 601, 51))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(14)
-        self.OriginalLabel.setFont(font)
-        self.OriginalLabel.setStyleSheet("QLabel{\n"
+        self.CollectionLabel.setFont(font)
+        self.CollectionLabel.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
 "    }\n"
 "")
-        self.OriginalLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.OriginalLabel.setObjectName("OriginalLabel")
+        self.CollectionLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.CollectionLabel.setObjectName("CollectionLabel")
+        self.CollectionLabel_2 = QtWidgets.QLabel(Dialog)
+        self.CollectionLabel_2.setGeometry(QtCore.QRect(30, 80, 181, 21))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        self.CollectionLabel_2.setFont(font)
+        self.CollectionLabel_2.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.CollectionLabel_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.CollectionLabel_2.setObjectName("CollectionLabel_2")
+        self.CollectionLabel_3 = QtWidgets.QLabel(Dialog)
+        self.CollectionLabel_3.setGeometry(QtCore.QRect(490, 80, 131, 21))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        self.CollectionLabel_3.setFont(font)
+        self.CollectionLabel_3.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.CollectionLabel_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.CollectionLabel_3.setObjectName("CollectionLabel_3")
+        self.CollectionLabel_4 = QtWidgets.QLabel(Dialog)
+        self.CollectionLabel_4.setGeometry(QtCore.QRect(390, 80, 111, 21))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        self.CollectionLabel_4.setFont(font)
+        self.CollectionLabel_4.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.CollectionLabel_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.CollectionLabel_4.setObjectName("CollectionLabel_4")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.LandingArea.raise_()
         self.ReferenceButton.raise_()
         self.ExitButton.raise_()
         self.BottomShadowFrame.raise_()
-        self.LocalizeButton.raise_()
-        self.SearchLine.raise_()
-        self.OriginalLabel.raise_()
+        self.RenameButton.raise_()
+        self.CollectionLabel.raise_()
+        self.CollectionLabel_2.raise_()
+        self.CollectionLabel_3.raise_()
+        self.CollectionLabel_4.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -217,6 +240,8 @@ class Ui_Dialog(object):
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-        self.LocalizeButton.setText(_translate("Dialog", "Переименовать"))
-        self.SearchLine.setText(_translate("Dialog", "Stellaris True Machine Tranlsation Tool"))
-        self.OriginalLabel.setText(_translate("Dialog", "Коллекция"))
+        self.RenameButton.setText(_translate("Dialog", "Переименовать"))
+        self.CollectionLabel.setText(_translate("Dialog", "Коллекция"))
+        self.CollectionLabel_2.setText(_translate("Dialog", "Название мода"))
+        self.CollectionLabel_3.setText(_translate("Dialog", "Статус"))
+        self.CollectionLabel_4.setText(_translate("Dialog", "ID"))

@@ -2,6 +2,11 @@ from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import Collection
 
+from scripts.utils import get_collection, collection_append
+
+
+# collection_append() нужно перенести то ли в putter, то ли в translator
+
 
 class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
     def __init__(self, parent):
@@ -12,17 +17,37 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.parent = parent
         self.oldPos = self.pos()
         self.init_handlers()
+        self.collection = get_collection()
+        # И передавать в него mod_id
+        self.append = collection_append('1448888608')
+        #
+        self.paint_elements()
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.WindowMoveButton.installEventFilter(self)
+
+    def paint_elements(self):
+        grid = self.gridLayout
+        for index, elem in enumerate(self.collection):
+            grid.setSpacing(10)
+            label = QtWidgets.QLabel(f'{index + 1}: {self.collection[elem][0]}')
+            steam_id = QtWidgets.QLabel(elem)
+            status = QtWidgets.QLabel(self.collection[elem][-1])
+            label.setStyleSheet('color:white')
+            label.setWordWrap(True)
+            steam_id.setStyleSheet('color:white')
+            status.setStyleSheet('color:white')
+            grid.addWidget(label, index + 1, 0, 1, 5)
+            grid.addWidget(steam_id, index + 1, 6)
+            grid.addWidget(status, index + 1, 7)
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:
             if event.type() == QtCore.QEvent.MouseButtonPress:
                 self.oldPos = event.pos()
             elif event.type() == QtCore.QEvent.MouseMove and self.oldPos is not None:
-                self.move(self.pos() - self.oldPos+event.pos())
+                self.move(self.pos() - self.oldPos + event.pos())
                 return True
             elif event.type() == QtCore.QEvent.MouseButtonRelease:
                 self.oldPos = None
