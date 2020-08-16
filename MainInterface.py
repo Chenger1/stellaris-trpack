@@ -38,7 +38,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             'error': ErrorMessageWindow(self),
             'success': SuccessMessageWindow(self),
         }
-        init_collection()
 
     def progressbar_set_value(self):
         for i in self.bar:
@@ -65,6 +64,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.PreviousString.setEnabled(False)
         self.NextStringButton.setEnabled(False)
         self.StringOrder.setText('0')
+        init_collection()
 
     def show_system_message(self, mes_type, text, label=None):
         self.system_messages[mes_type].show()
