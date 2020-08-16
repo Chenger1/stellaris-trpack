@@ -32,7 +32,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             label.setWordWrap(True)
             steam_id.setStyleSheet('color:white')
             status.setStyleSheet('color:white')
-            grid.addWidget(label, index + 1, 0, 1, 5)
+            grid.addWidget(label, index + 1, 2, 1, 4)
             grid.addWidget(steam_id, index + 1, 6)
             grid.addWidget(status, index + 1, 7)
 

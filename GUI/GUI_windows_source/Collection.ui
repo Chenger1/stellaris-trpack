@@ -212,7 +212,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <layout class="QGridLayout" name="gridLayout" columnstretch="0">
+      <layout class="QGridLayout" name="gridLayout" rowstretch="0" columnstretch="0">
        <property name="sizeConstraint">
         <enum>QLayout::SetDefaultConstraint</enum>
        </property>
@@ -339,7 +339,7 @@ QPushButton:pressed{
      <x>20</x>
      <y>29</y>
      <width>601</width>
-     <height>51</height>
+     <height>71</height>
     </rect>
    </property>
    <property name="font">
@@ -357,35 +357,6 @@ QPushButton:pressed{
    </property>
    <property name="text">
     <string>Коллекция</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="CollectionLabel_2">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>80</y>
-     <width>181</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>11</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel{
-	background-color: transparent;
-	color: #ffffff;
-	}
-</string>
-   </property>
-   <property name="text">
-    <string>Название мода</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -423,9 +394,9 @@ QPushButton:pressed{
   <widget class="QLabel" name="CollectionLabel_4">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>400</x>
      <y>80</y>
-     <width>111</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -449,6 +420,35 @@ QPushButton:pressed{
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="CollectionLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>80</y>
+     <width>181</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+   </property>
+   <property name="text">
+    <string>Название мода</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>LandingArea</zorder>
@@ -457,9 +457,9 @@ QPushButton:pressed{
   <zorder>BottomShadowFrame</zorder>
   <zorder>RenameButton</zorder>
   <zorder>CollectionLabel</zorder>
-  <zorder>CollectionLabel_2</zorder>
   <zorder>CollectionLabel_3</zorder>
   <zorder>CollectionLabel_4</zorder>
+  <zorder>CollectionLabel_2</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>
