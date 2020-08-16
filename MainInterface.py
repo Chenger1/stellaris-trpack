@@ -16,7 +16,7 @@ from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translate_line
 from scripts.loc_putter import put_lines
 from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
-    local_mod_status
+    local_mod_status, collection_append, init_collection
 
 
 class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
@@ -38,6 +38,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             'error': ErrorMessageWindow(self),
             'success': SuccessMessageWindow(self),
         }
+        init_collection()
 
     def progressbar_set_value(self):
         for i in self.bar:
@@ -180,6 +181,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
             writing_translation(self.user_text)
             put_lines()
+            collection_append(self.ModIDLine.text())
             self.show_system_message('success', 'Файл перевода успешно записан')
             self.progressbar_set_maximum(0)
             self.clean_state()

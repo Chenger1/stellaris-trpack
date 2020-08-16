@@ -2,10 +2,7 @@ from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import Collection
 
-from scripts.utils import get_collection, collection_append
-
-
-# collection_append() нужно перенести то ли в putter, то ли в translator
+from scripts.utils import get_collection
 
 
 class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
@@ -18,9 +15,6 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.oldPos = self.pos()
         self.init_handlers()
         self.collection = get_collection()
-        # И передавать в него mod_id
-        self.append = collection_append('1448888608')
-        #
         self.paint_elements()
 
     def init_handlers(self):
