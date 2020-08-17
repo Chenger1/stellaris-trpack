@@ -7,6 +7,7 @@ import os
 import errno
 
 from scripts.utils import paradox_folder
+from scripts.db import get_mods_from_playset, get_data_about_mods, write_data
 
 
 class Mod():
@@ -25,7 +26,7 @@ def sortedKey(mod):
 
 def open_sorting_order_file():
     try:
-        with open(f'{paradox_folder}\\local_localisation\\sorting_order.json', 'r', encoding='utf-8') as order:
+        with open(f'{paradox_folder}\\mod\\local_localisation\\sorting_order.json', 'r', encoding='utf-8') as order:
             mod_data = json.load(order)
         return mod_data
     except FileNotFoundError:
@@ -33,37 +34,37 @@ def open_sorting_order_file():
 
 
 def write_mod_sorting_order_in_json(mod_data):
-    with open(f'{paradox_folder}\\local_localisation\\sorting_order.json', 'w', encoding='utf-8') as file:
+    with open(f'{paradox_folder}\\mod\\local_localisation\\sorting_order.json', 'w', encoding='utf-8') as file:
         json.dump(mod_data, file)
 
 
 def getModList(data, enabled_mods):
     modList = []
     mod_data = open_sorting_order_file()
-    for key, data in data.items():
+    for key, value in data.items():
         try:
-            name = data['displayName']
-            modId = data['gameRegistryId']
-            isEnabled = True if modId in enabled_mods else False
+            name = value['displayName']
+            modId = value['gameRegistryId']
+            isEnabled = True if key in enabled_mods else False
             try:
-                isSortingRequired = mod_data[name]
+                isSortingRequired = mod_data[key]
             except KeyError:
                 isSortingRequired = True
             mod = Mod(key, name, modId, isEnabled, isSortingRequired)
             modList.append(mod)
         except KeyError:
             try:
-                name = data['displayName']
-                modId = data['steamId']
-                isEnabled = True if modId in enabled_mods else False
+                name = value['displayName']
+                modId = value['steamId']
+                isEnabled = True if key in enabled_mods else False
                 try:
-                    isSortingRequired = mod_data[name]
+                    isSortingRequired = mod_data[key]
                 except KeyError:
                     isSortingRequired = True
                 mod = Mod(key, name, modId, isEnabled, isSortingRequired)
                 modList.append(mod)
             except KeyError:
-                print('key not found in ', key, data)
+                print('key not found in ')
     return modList
 
 
@@ -137,37 +138,44 @@ def writeDisplayOrder(hashList, game_data):
         json.dump(data, json_file)
 
 
-def prep_data(settingPath):
-    registry = os.path.join(settingPath, 'mods_registry.json')
+def prep_data(settingPath, playset):
+    # dlc_load = os.path.join(settingPath, 'dlc_load.json')
+    # copyfile(dlc_load, dlc_load + '.bak')
+    #
+    # enabled_mods = None
+    # try:
+    #     with open(dlc_load) as dlc_load_file:
+    #         dlc_load_data = json.load(dlc_load_file)
+    #
+    # except json.decoder.JSONDecodeError:
+    #     raise json.decoder.JSONDecodeError(pos=0, doc='', msg='Файл dlc_load.json пустой')
+    #
+    # # Do some legwork ahead of time to put into a set to avoidic quadratic loop later for filtering.
+    # enabled_mods = frozenset(dlc_load_data.get("enabled_mods", []))
+    #
+    # game_data = os.path.join(settingPath, 'game_data.json')
+    # copyfile(game_data, game_data + '.bak')
+    #
+    # modList = []
+    #
+    # data = get_data_about_mods()
+    # modList = getModList(data, enabled_mods)
+    #
+    # return modList, dlc_load, game_data
     dlc_load = os.path.join(settingPath, 'dlc_load.json')
     copyfile(dlc_load, dlc_load + '.bak')
-
-    enabled_mods = None
-    try:
-        with open(dlc_load) as dlc_load_file:
-            dlc_load_data = json.load(dlc_load_file)
-
-    except json.decoder.JSONDecodeError:
-        raise json.decoder.JSONDecodeError(pos=0, doc='', msg='Файл dlc_load.json пустой')
-
-    # Do some legwork ahead of time to put into a set to avoidic quadratic loop later for filtering.
-    enabled_mods = frozenset(dlc_load_data.get("enabled_mods", []))
 
     game_data = os.path.join(settingPath, 'game_data.json')
     copyfile(game_data, game_data + '.bak')
 
-    modList = []
-    try:
-        with open(registry, encoding='UTF-8') as json_file:
-            data = json.load(json_file)
-            modList = getModList(data, enabled_mods)
-    except json.decoder.JSONDecodeError:
-        raise json.decoder.JSONDecodeError(pos=0, doc='', msg='Файл mods_registry.json пустой')
-
-    return modList, dlc_load, game_data
+    mods_id = get_mods_from_playset('get_mods_from_playset', playset[0])
+    mods = get_data_about_mods('get_mods_data_from_playset', mods_id)
+    enabled_mods = [key for key, data in mods.items() if data['isEnabled'] == 1]
+    mod_list = getModList(mods, enabled_mods)
+    return mod_list, dlc_load, game_data, playset
 
 
-def sorting(modList, game_data, dlc_load):
+def sorting(modList, game_data, dlc_load, playset):
     modListSort, modListNonSort = checkIfSortRequired(modList)
     modListSort.sort(key=sortedKey, reverse=True)
     # move Dark UI and UIOverhual to the bottom
@@ -180,6 +188,7 @@ def sorting(modList, game_data, dlc_load):
     hashList = [mod.hashKey for mod in modList]
     writeDisplayOrder(hashList, game_data)
     writeLoadOrder(idList, dlc_load)
+    write_data('write_data', modList, playset)
     return ('success', 'Моды успешно отсортированы')
 
 
@@ -194,10 +203,10 @@ def set_settings():
     ]
     settingPaths = [
         settingPath for settingPath in locations
-        if os.path.isfile(os.path.join(settingPath, "mods_registry.json"))
+        if os.path.isfile(os.path.join(settingPath, "launcher-v2.sqlite"))
     ]
     if settingPaths:
         return settingPaths
     else:
         raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT),
-                                os.path.join(locations[2], "mods_registry.json"))
+                                os.path.join(locations[2], "launcher-v2.sqlite"))

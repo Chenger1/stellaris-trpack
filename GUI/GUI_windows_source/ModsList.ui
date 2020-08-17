@@ -170,7 +170,7 @@ QPushButton:pressed{
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>251</width>
+     <width>431</width>
      <height>61</height>
     </rect>
    </property>
@@ -391,6 +391,16 @@ QPushButton:pressed{
     <string>Сортировать</string>
    </property>
   </widget>
+  <widget class="QComboBox" name="PlaysetsList">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>40</y>
+     <width>73</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>LandingArea</zorder>
@@ -400,6 +410,7 @@ QPushButton:pressed{
   <zorder>ModListLabel</zorder>
   <zorder>BottomShadowFrame</zorder>
   <zorder>SortButton</zorder>
+  <zorder>PlaysetsList</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

@@ -3,6 +3,7 @@ from PyQt5 import QtWidgets, QtCore
 from GUI.GUI_windows_source import ModsList
 
 from scripts.mods_sorting import set_settings, prep_data, sorting
+from scripts.db import get_info_from_db
 
 
 class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
@@ -15,21 +16,31 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.oldPos = self.pos()
         self.init_handlers()
         self.settingPaths = set_settings()
-        self.modList, self.dlc_load, self.game_data = prep_data(self.settingPaths[0])
+        self.playset_list = self.playset_check()
+        self.modList, self.dlc_load, self.game_data, self.playset = prep_data(self.settingPaths[0],
+                                                                              self.playset_list[0])
         self.checkboxes = []
+        self.PlaysetsList.setStyleSheet('color:white')
         self.paint_elements()
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
-        self.WindowMoveButton.installEventFilter(self)
         self.SortButton.clicked.connect(self.make_sort)
+        self.WindowMoveButton.installEventFilter(self)
+        #self.PlaysetsList.activated[str].connect(self.updateModList)
+
+    def playset_check(self):
+        playset_list = get_info_from_db('get_playset_list')
+        for id, name, _ in playset_list:
+            self.PlaysetsList.addItem(name)
+        return playset_list
 
     def make_sort(self):
         for checkbox, mod in zip(self.checkboxes, self.modList):
             mod.isEnabled = checkbox[0].isChecked()
             mod.sortRequired = checkbox[1].isChecked()
         try:
-            status = sorting(self.modList, self.game_data, self.dlc_load)
+            status = sorting(self.modList, self.game_data, self.dlc_load, self.playset)
             self.parent.show_system_message(status[0], status[1])
         except FileNotFoundError as error:
             self.parent.show_system_message('error', error.args[0])
