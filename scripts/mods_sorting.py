@@ -11,12 +11,13 @@ from scripts.db import get_mods_from_playset, get_data_about_mods, write_data
 
 
 class Mod():
-    def __init__(self, hashKey, name, modId, isEnabled, isSortRequired):
+    def __init__(self, hashKey, name, modId, isEnabled, isSortRequired, position):
         self.hashKey = hashKey
         self.name = name
         self.modId = modId
         self.sortRequired = isSortRequired
         self.isEnabled = isEnabled
+        self.position = position
         self.sortedKey = name.encode('ascii', errors='ignore')
 
 
@@ -50,7 +51,8 @@ def getModList(data, enabled_mods):
                 isSortingRequired = mod_data[key]
             except KeyError:
                 isSortingRequired = True
-            mod = Mod(key, name, modId, isEnabled, isSortingRequired)
+            mod = Mod(key, name, modId, isEnabled, isSortingRequired,
+                      value['position'])
             modList.append(mod)
         except KeyError:
             try:
@@ -61,7 +63,8 @@ def getModList(data, enabled_mods):
                     isSortingRequired = mod_data[key]
                 except KeyError:
                     isSortingRequired = True
-                mod = Mod(key, name, modId, isEnabled, isSortingRequired)
+                mod = Mod(key, name, modId, isEnabled, isSortingRequired,
+                          value['position'])
                 modList.append(mod)
             except KeyError:
                 print('key not found in ')
@@ -176,12 +179,16 @@ def prep_data(settingPath, playset):
 
 
 def sorting(modList, game_data, dlc_load, playset):
+    positions = [elem.position for elem in modList]
+    positions.sort()
     modListSort, modListNonSort = checkIfSortRequired(modList)
     modListSort.sort(key=sortedKey, reverse=True)
     # move Dark UI and UIOverhual to the bottom
     modList = specialOrder(modListSort, modListNonSort)
     # make sure UIOverhual+SpeedDial will load after UIOverhual
     modList = tweakModOrder(modList)
+    for pos, mod in zip(positions, modList):
+        mod.position = pos
     if len(modList) <= 0:
         return ('error', 'Моды не найдены')
     idList = [mod.modId for mod in modList if mod.isEnabled is True]
