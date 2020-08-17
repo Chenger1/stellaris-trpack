@@ -7,8 +7,8 @@ from googletrans.constants import LANGUAGES
 
 drive = win32api.GetSystemDirectory().split(':')[0]
 user = win32api.GetUserName()
-paradox_folder = f'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris\\mod'
-collection_path = f'{paradox_folder}\\local_localisation\\collection.json'
+paradox_folder = f'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris'
+collection_path = f'{paradox_folder}\\mod\\local_localisation\\collection.json'
 data = {}
 
 
@@ -80,7 +80,7 @@ def set_translated_file(file):
 
 
 def paradox_mod_way_to_content(mod_id):
-    ugc_id_mod = f'{paradox_folder}\\ugc_{mod_id}.mod'
+    ugc_id_mod = f'{paradox_folder}\\mod\\ugc_{mod_id}.mod'
     with open(ugc_id_mod, 'r', encoding='utf-8') as reading:
         for line in reading.readlines():
             if 'path' in line:

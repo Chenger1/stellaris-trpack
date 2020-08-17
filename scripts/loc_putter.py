@@ -22,7 +22,7 @@ def put_lines():
 	file1 = data['loc'].name
 	neweng = data['final_name']
 	file2 = data['translated_file'].name
-	file3 = f'{paradox_folder}\\local_localisation\\localisation\\{neweng}'
+	file3 = f'{paradox_folder}\\mod\\local_localisation\\localisation\\{neweng}'
 	loc = open(file1, 'r', encoding='utf-8')
 	newloc = open(file2, 'r', encoding='utf-8')
 	itog = open(f"{file3}", 'w', encoding='utf-8')
