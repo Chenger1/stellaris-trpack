@@ -60,7 +60,7 @@ def creating_temp_files_names(original_file_name):
 
 
 def write_data_about_mode(temp_folder, temp_files):
-    filenames = creating_temp_files_names(temp_files['orig_name'])
+    filenames = creating_temp_files_names(data['original_name'])
     with open(f'{temp_folder}\\data.json', 'w') as d_file:
         json.dump({
             'folder_path': temp_folder,
@@ -71,7 +71,6 @@ def write_data_about_mode(temp_folder, temp_files):
     data['cutter_file_name'] = filenames['cutter']
     data['translated_name'] = filenames['translated']
     data['final_name'] = filenames['final']
-    data['original_name'] = temp_files['orig_name']
     data['loc'] = temp_files['loc']
     data['cuttered'] = temp_files['cuttered']
 
@@ -88,6 +87,7 @@ def paradox_mod_way_to_content(mod_id):
                 path = line.split('"')[1].replace('/', '\\')
             if 'name' in line:
                 name = line.split('"')[1].replace('/', '\\')
+                data['mod_name'] = name
     return {'path': path, 'name': name}
 
 
@@ -109,7 +109,7 @@ def get_collection():
 
 
 def get_mod_info():
-    name = data['mod_name'].split('.yml')[0]
+    name = data['mod_name']
     picture = "thumbnail.png"
     status = "complete"
     mod_info = [name, picture, status]
@@ -128,7 +128,7 @@ def collection_append(mod_id):
 def get_mod_id(file_path):
     pattern = re.compile(r'281990/(.*?)/localisation')
     mod_id = pattern.findall(file_path)[0]
-    data['mod_name'] = file_path.split('/')[-1]
+    data['original_name'] = file_path.split('/')[-1]
     data['full_path'] = file_path
     return mod_id
 

@@ -37,12 +37,10 @@ def cutting_lines(temp_files):
 
 
 def creating_temp_files(temp_folder):
-    orig = data['mod_name']
-    cutter = 'cutter_' + orig
+    cutter = 'cutter_' + data['original_name']
     loc = open(data['full_path'], 'r', encoding='utf-8')
     newloc = open(f'{temp_folder}\\{cutter}', 'w', encoding='utf-8')
-    return {'orig_name': orig,
-            'cutter_file': cutter,
+    return {'cutter_file': cutter,
             'loc': loc,
             'cuttered': newloc}
 
