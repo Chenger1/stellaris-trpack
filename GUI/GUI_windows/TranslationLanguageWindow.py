@@ -13,6 +13,7 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         self.setModal(True)
         self.oldPos = self.pos()
         self.parent = parent
+        # Сделать перебор по словарю на случай совпадений и добавлять кнопку к сетке
         self.active_button = {
             'ar': self.ArabicButton,
             'hy': self.ArmenianButton,

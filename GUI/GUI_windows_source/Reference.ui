@@ -224,9 +224,9 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>-142</y>
       <width>976</width>
-      <height>1169</height>
+      <height>738</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -236,7 +236,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <property name="spacing">
-        <number>149</number>
+        <number>40</number>
        </property>
        <property name="topMargin">
         <number>150</number>
@@ -260,7 +260,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
 </string>
          </property>
          <property name="text">
-          <string>Оригинальная строка</string>
+          <string>Процесс локализации модификаций</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -283,7 +283,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
 </string>
          </property>
          <property name="text">
-          <string>Оригинальная строка</string>
+          <string>1. Модификация</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -306,7 +306,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
 </string>
          </property>
          <property name="text">
-          <string>Оригинальная строка</string>
+          <string>1.1. Вручную</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -329,7 +329,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
 </string>
          </property>
          <property name="text">
-          <string>Оригинальная строка</string>
+          <string>1.2. SteamWorkshop ID</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -352,7 +352,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
 </string>
          </property>
          <property name="text">
-          <string>Оригинальная строка</string>
+          <string>2. Язык перевода</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -375,7 +375,53 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
 </string>
          </property>
          <property name="text">
-          <string>Оригинальная строка</string>
+          <string>3. Язык интерфейса</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_7">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>4. Коллекция</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_8">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>5. Расширенный сортировщик модов</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>

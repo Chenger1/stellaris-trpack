@@ -24,14 +24,48 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
     def paint_elements(self):
         grid = self.gridLayout
         for index, elem in enumerate(self.collection):
+            status = QtWidgets.QProgressBar()
+            status.setFormat("%p% ")
             grid.setSpacing(10)
             label = QtWidgets.QLabel(f'{index + 1}: {self.collection[elem][0]}')
             steam_id = QtWidgets.QLabel(elem)
-            status = QtWidgets.QLabel(self.collection[elem][-1])
             label.setStyleSheet('color:white')
             label.setWordWrap(True)
             steam_id.setStyleSheet('color:white')
-            status.setStyleSheet('color:white')
+            status.setValue(self.collection[elem][-2])
+            if status.value() != 100:
+                status.setInvertedAppearance(True)
+                status.setStyleSheet("""
+                                 QProgressBar{
+                background-color:  #1f2533;
+                border: solid grey;
+                border-radius: 10px;
+                color: white;
+                font-family: "KB Astrolyte";
+                text-align: right;
+                max-height: 20px;
+                max-width: 110px;
+                }
+                QProgressBar::chunk {
+                background-color: #05B8CC;
+                border-radius :10px;
+                }      """)
+            else:
+                status.setStyleSheet("""
+                                 QProgressBar{
+                background-color: #1f2533;
+                border: solid grey;
+                border-radius: 10px;
+                color: white;
+                font-family: "KB Astrolyte";
+                text-align: right;
+                max-height: 20px;
+                max-width: 110px;
+                }
+                QProgressBar::chunk {
+                background-color: #5abe41;
+                border-radius :10px;
+                }      """)
             grid.addWidget(label, index + 1, 2, 1, 4)
             grid.addWidget(steam_id, index + 1, 6)
             grid.addWidget(status, index + 1, 7)
