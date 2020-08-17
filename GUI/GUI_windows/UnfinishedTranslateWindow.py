@@ -26,6 +26,7 @@ class UnfinishedTranslateWindow(QtWidgets.QDialog, UnfinishedTranslate.Ui_Dialog
         translation_status = round((len(self.parent.user_text*100))/len(self.parent.orig_text))
         collection_append(self.parent.ModIDLine.text(), pointer_position,
                           translation_status)
+        self.parent.clean_state()
         self.parent.show_system_message('success', 'Файл сохранен')
         self.close()
 
