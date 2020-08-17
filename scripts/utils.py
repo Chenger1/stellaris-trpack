@@ -111,7 +111,9 @@ def get_collection():
 def get_mod_info(pointer_pos, tr_status):
     name = data['mod_name']
     picture = "thumbnail.png"
-    mod_info = [name, picture, tr_status, pointer_pos]
+    # Сюда следует передавать имя переводимого файла
+    file_name = "default_l_russian.yml"
+    mod_info = [name, picture, file_name, tr_status, pointer_pos]
     return mod_info
 
 

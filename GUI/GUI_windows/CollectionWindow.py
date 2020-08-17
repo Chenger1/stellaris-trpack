@@ -24,19 +24,38 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
     def paint_elements(self):
         grid = self.gridLayout
         for index, elem in enumerate(self.collection):
-            status = QtWidgets.QProgressBar()
-            status.setFormat("%p% ")
             grid.setSpacing(10)
             label = QtWidgets.QLabel(f'{index + 1}: {self.collection[elem][0]}')
             steam_id = QtWidgets.QLabel(elem)
-            label.setStyleSheet('color:white')
+            file_name = QtWidgets.QLineEdit(self.collection[elem][2])
+            status = QtWidgets.QProgressBar()
+            label.setStyleSheet("""
+            QLabel{
+            background-color: transparent;
+            min-height: 40px;
+            max-width: 260px;
+            color: #ffffff;
+            }
+            """)
             label.setWordWrap(True)
             steam_id.setStyleSheet('color:white')
+            file_name.setStyleSheet("""
+            QLineEdit{           
+            background-color: transparent;
+            border: transparent;
+            max-width: 130px;
+            color: #ffffff;
+            }
+            QLineEdit:hover{
+            background-color: transparent;
+            }
+            """)
+            status.setFormat("%p% ")
             status.setValue(self.collection[elem][-2])
             if status.value() != 100:
                 status.setInvertedAppearance(True)
                 status.setStyleSheet("""
-                                 QProgressBar{
+                QProgressBar{
                 background-color:  #1f2533;
                 border: solid grey;
                 border-radius: 10px;
@@ -52,7 +71,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                 }      """)
             else:
                 status.setStyleSheet("""
-                                 QProgressBar{
+                QProgressBar{
                 background-color: #1f2533;
                 border: solid grey;
                 border-radius: 10px;
@@ -67,7 +86,8 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                 border-radius :10px;
                 }      """)
             grid.addWidget(label, index + 1, 2, 1, 4)
-            grid.addWidget(steam_id, index + 1, 6)
+            grid.addWidget(steam_id, index + 1, 5)
+            grid.addWidget(file_name, index + 1, 6)
             grid.addWidget(status, index + 1, 7)
 
     def eventFilter(self, source, event):
