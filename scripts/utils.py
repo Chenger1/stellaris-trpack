@@ -108,16 +108,15 @@ def get_collection():
     return info
 
 
-def get_mod_info():
+def get_mod_info(pointer_pos, tr_status):
     name = data['mod_name']
     picture = "thumbnail.png"
-    status = "complete"
-    mod_info = [name, picture, status]
+    mod_info = [name, picture, tr_status, pointer_pos]
     return mod_info
 
 
-def collection_append(mod_id):
-    mod_info = get_mod_info()
+def collection_append(mod_id, pointer_pos, tr_status):
+    mod_info = get_mod_info(pointer_pos, tr_status)
     with open(collection_path, 'r', encoding='utf-8') as collection:
         info = json.load(collection)
         info[mod_id] = mod_info

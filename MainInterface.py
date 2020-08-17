@@ -11,6 +11,7 @@ from GUI.GUI_windows.TranslationLanguageWindow import TranslationLanguageWindow
 from GUI.GUI_windows.ToolLanguageWindow import ToolLanguageWindow
 from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
 from GUI.GUI_windows.ModsListWindow import ModsListWindow
+from GUI.GUI_windows.UnfinishedTranslateWindow import UnfinishedTranslateWindow
 
 from scripts.loc_cutter import cutter_main
 from scripts.loc_translator import writing_translation, translate_line
@@ -100,6 +101,10 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         reference_window = ReferenceWindow(self)
         reference_window.show()
 
+    def show_unfinished_translation_window(self):
+        unfinished_translation_window = UnfinishedTranslateWindow(self)
+        unfinished_translation_window.show()
+
     @staticmethod
     def mod_status():
         local_mod_status()
@@ -181,7 +186,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
             writing_translation(self.user_text)
             put_lines()
-            collection_append(self.ModIDLine.text())
+            collection_append(self.ModIDLine.text(), self.pointer, 100)
             self.show_system_message('success', 'Файл перевода успешно записан')
             self.progressbar_set_maximum(0)
             self.clean_state()
@@ -191,7 +196,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             else:
                 self.show_system_message('error', 'Ошибка записи файла. Нет перевода.')
         except IndexError as Error:
-            self.show_system_message('error', 'Вы ещё не закончили перевод')
+            #self.show_system_message('error', 'Вы ещё не закончили перевод')
+            self.show_unfinished_translation_window()
 
     def start_local(self):
         try:
