@@ -6,13 +6,15 @@ from shutil import copyfile
 import os
 import errno
 
+from scripts.utils import paradox_folder
+
 
 class Mod():
-    def __init__(self, hashKey, name, modId, isEnabled):
+    def __init__(self, hashKey, name, modId, isEnabled, isSortRequired):
         self.hashKey = hashKey
         self.name = name
         self.modId = modId
-        self.sortRequired = True
+        self.sortRequired = isSortRequired
         self.isEnabled = isEnabled
         self.sortedKey = name.encode('ascii', errors='ignore')
 
@@ -21,21 +23,44 @@ def sortedKey(mod):
     return mod.sortedKey
 
 
+def open_sorting_order_file():
+    try:
+        with open(f'{paradox_folder}\\local_localisation\\sorting_order.json', 'r', encoding='utf-8') as order:
+            mod_data = json.load(order)
+        return mod_data
+    except FileNotFoundError:
+        return {}
+
+
+def write_mod_sorting_order_in_json(mod_data):
+    with open(f'{paradox_folder}\\local_localisation\\sorting_order.json', 'w', encoding='utf-8') as file:
+        json.dump(mod_data, file)
+
+
 def getModList(data, enabled_mods):
     modList = []
+    mod_data = open_sorting_order_file()
     for key, data in data.items():
         try:
             name = data['displayName']
             modId = data['gameRegistryId']
             isEnabled = True if modId in enabled_mods else False
-            mod = Mod(key, name, modId, isEnabled)
+            try:
+                isSortingRequired = mod_data[name]
+            except KeyError:
+                isSortingRequired = True
+            mod = Mod(key, name, modId, isEnabled, isSortingRequired)
             modList.append(mod)
         except KeyError:
             try:
                 name = data['displayName']
                 modId = data['steamId']
                 isEnabled = True if modId in enabled_mods else False
-                mod = Mod(key, name, modId, isEnabled)
+                try:
+                    isSortingRequired = mod_data[name]
+                except KeyError:
+                    isSortingRequired = True
+                mod = Mod(key, name, modId, isEnabled, isSortingRequired)
                 modList.append(mod)
             except KeyError:
                 print('key not found in ', key, data)
@@ -49,11 +74,14 @@ def sortModlist(m_list):
 
 def checkIfSortRequired(m_list):
     modListSort, modListNonSort = [], []
+    mod_data = {}
     for mod in m_list:
         if mod.sortRequired is True:
             modListSort.append(mod)
         else:
             modListNonSort.append(mod)
+        mod_data[mod.name] = mod.sortRequired
+    write_mod_sorting_order_in_json(mod_data)
     return modListSort, modListNonSort
 
 
