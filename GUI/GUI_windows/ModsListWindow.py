@@ -16,9 +16,9 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.oldPos = self.pos()
         self.init_handlers()
         self.settingPaths = set_settings()
-        self.playset_list = self.playset_check()
+        self.playsets = self.playset_check()
         self.modList, self.dlc_load, self.game_data, self.playset = prep_data(self.settingPaths[0],
-                                                                              self.playset_list[0])
+                                                                              list(self.playsets.items())[0])
         self.checkboxes = []
         self.PlaysetsList.setStyleSheet('color:white')
         self.paint_elements()
@@ -27,13 +27,22 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.ExitButton.clicked.connect(self.close)
         self.SortButton.clicked.connect(self.make_sort)
         self.WindowMoveButton.installEventFilter(self)
-        #self.PlaysetsList.activated[str].connect(self.updateModList)
+        self.PlaysetsList.activated[str].connect(self.update_mod_list)
+
+    def update_mod_list(self, text):
+        self.modList, self.dlc_load, self.game_data, self.playset = prep_data(self.settingPaths[0],
+                                                                              self.playset_list[0])
 
     def playset_check(self):
-        playset_list = get_info_from_db('get_playset_list')
-        for id, name, _ in playset_list:
-            self.PlaysetsList.addItem(name)
-        return playset_list
+        playsets = {
+                    elem[0]: {
+                            'name': elem[1],
+                            'isActive': elem[2]
+                             } for elem in get_info_from_db('get_playset_list')
+                   }
+        for elem in playsets.items():
+            self.PlaysetsList.addItem(elem[1]['name'])
+        return playsets
 
     def make_sort(self):
         for checkbox, mod in zip(self.checkboxes, self.modList):

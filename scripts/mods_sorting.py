@@ -84,7 +84,7 @@ def checkIfSortRequired(m_list):
             modListSort.append(mod)
         else:
             modListNonSort.append(mod)
-        mod_data[mod.name] = mod.sortRequired
+        mod_data[mod.hashKey] = mod.sortRequired
     write_mod_sorting_order_in_json(mod_data)
     return modListSort, modListNonSort
 
@@ -142,29 +142,6 @@ def writeDisplayOrder(hashList, game_data):
 
 
 def prep_data(settingPath, playset):
-    # dlc_load = os.path.join(settingPath, 'dlc_load.json')
-    # copyfile(dlc_load, dlc_load + '.bak')
-    #
-    # enabled_mods = None
-    # try:
-    #     with open(dlc_load) as dlc_load_file:
-    #         dlc_load_data = json.load(dlc_load_file)
-    #
-    # except json.decoder.JSONDecodeError:
-    #     raise json.decoder.JSONDecodeError(pos=0, doc='', msg='Файл dlc_load.json пустой')
-    #
-    # # Do some legwork ahead of time to put into a set to avoidic quadratic loop later for filtering.
-    # enabled_mods = frozenset(dlc_load_data.get("enabled_mods", []))
-    #
-    # game_data = os.path.join(settingPath, 'game_data.json')
-    # copyfile(game_data, game_data + '.bak')
-    #
-    # modList = []
-    #
-    # data = get_data_about_mods()
-    # modList = getModList(data, enabled_mods)
-    #
-    # return modList, dlc_load, game_data
     dlc_load = os.path.join(settingPath, 'dlc_load.json')
     copyfile(dlc_load, dlc_load + '.bak')
 
