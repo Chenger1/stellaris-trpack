@@ -43,7 +43,10 @@ def write_mod_sorting_order_in_json(playset_id, mod_data):
 
 def getModList(data, enabled_mods, playset):
     modList = []
-    mod_data = open_sorting_order_file()[playset[0]]
+    try:
+        mod_data = open_sorting_order_file()[playset[0]]
+    except KeyError:
+        mod_data = {}
     for key, value in data.items():
         try:
             name = value['displayName']
