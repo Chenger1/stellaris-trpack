@@ -34,14 +34,16 @@ def open_sorting_order_file():
         return {}
 
 
-def write_mod_sorting_order_in_json(mod_data):
+def write_mod_sorting_order_in_json(playset_id, mod_data):
+    sort_file = open_sorting_order_file()
+    sort_file[playset_id] = mod_data
     with open(f'{paradox_folder}\\mod\\local_localisation\\sorting_order.json', 'w', encoding='utf-8') as file:
-        json.dump(mod_data, file)
+        json.dump(sort_file, file)
 
 
-def getModList(data, enabled_mods):
+def getModList(data, enabled_mods, playset):
     modList = []
-    mod_data = open_sorting_order_file()
+    mod_data = open_sorting_order_file()[playset[0]]
     for key, value in data.items():
         try:
             name = value['displayName']
@@ -76,7 +78,7 @@ def sortModlist(m_list):
     return modList  # Todo
 
 
-def checkIfSortRequired(m_list):
+def checkIfSortRequired(m_list, playset):
     modListSort, modListNonSort = [], []
     mod_data = {}
     for mod in m_list:
@@ -85,7 +87,7 @@ def checkIfSortRequired(m_list):
         else:
             modListNonSort.append(mod)
         mod_data[mod.hashKey] = mod.sortRequired
-    write_mod_sorting_order_in_json(mod_data)
+    write_mod_sorting_order_in_json(playset, mod_data)
     return modListSort, modListNonSort
 
 
@@ -151,14 +153,14 @@ def prep_data(settingPath, playset):
     mods_id = get_mods_from_playset('get_mods_from_playset', playset[0])
     mods = get_data_about_mods('get_mods_data_from_playset', mods_id)
     enabled_mods = [key for key, data in mods.items() if data['isEnabled'] == 1]
-    mod_list = getModList(mods, enabled_mods)
+    mod_list = getModList(mods, enabled_mods, playset)
     return mod_list, dlc_load, game_data, playset
 
 
 def sorting(modList, game_data, dlc_load, playset):
     positions = [elem.position for elem in modList]
     positions.sort()
-    modListSort, modListNonSort = checkIfSortRequired(modList)
+    modListSort, modListNonSort = checkIfSortRequired(modList, playset[0])
     modListSort.sort(key=sortedKey, reverse=True)
     # move Dark UI and UIOverhual to the bottom
     modList = specialOrder(modListSort, modListNonSort)
