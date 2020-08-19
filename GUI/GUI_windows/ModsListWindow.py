@@ -20,25 +20,25 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.modList, self.dlc_load, self.game_data, self.playset = prep_data(self.settingPaths[0],
                                                                               list(self.playsets.items())[0])
         self.checkboxes = []
-        self.act_trigger = True
         self.switch = {
             True: {
-                'act_switcher': lambda: self.ActivationSwticherButton.setText('Вкл все моды'),
+                'act_switcher': lambda: self.ActivationSwticherButton.setText('Выкл все моды'),
                 'reversing': lambda: self.ReverseSortingButton.setText('Z-A')
             },
             False: {
-                'act_switcher': lambda: self.ActivationSwticherButton.setText('Выкл все моды'),
+                'act_switcher': lambda: self.ActivationSwticherButton.setText('Вкл все моды'),
                 'reversing': lambda: self.ReverseSortingButton.setText('A-Z')
             }
         }
         self.check_enabling_status()
-        self.switch[self.act_trigger]['act_switcher']()
+        self.switch[self.ActivationSwticherButton.isChecked()]['act_switcher']()
         self.switch[self.ReverseSortingButton.isChecked()]['reversing']()
         self.grid = self.gridLayout
         self.paint_elements()
 
     def init_handlers(self):
         self.ReverseSortingButton.setCheckable(True)
+        self.ActivationSwticherButton.setCheckable(True)
         self.ExitButton.clicked.connect(self.close)
         self.SortButton.clicked.connect(self.make_sort)
         self.ActivationSwticherButton.clicked.connect(self.activation_switcher)
@@ -52,14 +52,14 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
 
     def check_enabling_status(self):
         disabled_mods = list(filter(lambda x: x.isEnabled is False, self.modList))
-        self.act_trigger = len(disabled_mods) >= 1
+        self.ActivationSwticherButton.setChecked(not len(disabled_mods) >= 1)
 
     def activation_switcher(self):
         for checkbox, mod in zip(self.checkboxes, self.modList):
-            mod.isEnabled = self.act_trigger
-            checkbox[0].setChecked(self.act_trigger)
-        self.act_trigger = not self.act_trigger
-        self.switch[self.act_trigger]['act_switcher']()
+            mod.isEnabled = self.ActivationSwticherButton.isChecked()
+            checkbox[0].setChecked(self.ActivationSwticherButton.isChecked())
+        self.switch[self.ActivationSwticherButton.isChecked()]['act_switcher']()
+        self.ActivationSwticherButton.setChecked(self.ActivationSwticherButton.isChecked())
 
     def update_mod_list(self, text):
         self.modList, self.dlc_load, \
@@ -67,7 +67,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                                                  self.playsets[self.PlaysetsList.currentData()]))
         self.checkboxes = []
         self.check_enabling_status()
-        self.switch[self.act_trigger]['act_switcher']()
+        self.switch[self.ActivationSwticherButton.isChecked()]['act_switcher']()
         self.clear_grid_layout()
         self.paint_elements()
 
