@@ -73,7 +73,7 @@ def getModList(data, enabled_mods, playset):
                 modList.append(mod)
             except KeyError:
                 print('key not found in ')
-    return modList
+    return sorted(modList, key=lambda x: x.position)
 
 
 def sortModlist(m_list):
