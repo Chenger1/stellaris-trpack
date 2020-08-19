@@ -250,6 +250,54 @@ class Ui_Dialog(object):
 "    left: 1px;\n"
 "}")
         self.PlaysetsList.setObjectName("PlaysetsList")
+        self.ActivationSwticherButton = QtWidgets.QPushButton(Dialog)
+        self.ActivationSwticherButton.setGeometry(QtCore.QRect(260, 320, 181, 41))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.ActivationSwticherButton.setFont(font)
+        self.ActivationSwticherButton.setStyleSheet("QPushButton{\n"
+"    background-color: #5abe41;\n"
+"    border: 3px solid #5abe41;\n"
+"    border-radius: 20px;\n"
+"    color: #1f2533;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #438e30;\n"
+"    border: #438e30;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: #c2c2c2;\n"
+"    color: #1f2533;\n"
+"    }")
+        self.ActivationSwticherButton.setObjectName("ActivationSwticherButton")
+        self.ReverseSortingButton = QtWidgets.QPushButton(Dialog)
+        self.ReverseSortingButton.setGeometry(QtCore.QRect(510, 320, 91, 41))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.ReverseSortingButton.setFont(font)
+        self.ReverseSortingButton.setStyleSheet("QPushButton{\n"
+"    background-color: #5abe41;\n"
+"    border: 3px solid #5abe41;\n"
+"    border-radius: 20px;\n"
+"    color: #1f2533;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #438e30;\n"
+"    border: #438e30;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: #c2c2c2;\n"
+"    color: #1f2533;\n"
+"    }")
+        self.ReverseSortingButton.setObjectName("ReverseSortingButton")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.LandingArea.raise_()
@@ -260,6 +308,8 @@ class Ui_Dialog(object):
         self.BottomShadowFrame.raise_()
         self.SortButton.raise_()
         self.PlaysetsList.raise_()
+        self.ActivationSwticherButton.raise_()
+        self.ReverseSortingButton.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -273,4 +323,6 @@ class Ui_Dialog(object):
         self.ModListLabel.setText(_translate("Dialog", "Список модов"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.SortButton.setText(_translate("Dialog", "Сортировать"))
+        self.ActivationSwticherButton.setText(_translate("Dialog", "Вкл. все моды"))
+        self.ReverseSortingButton.setText(_translate("Dialog", "A-Z"))
 from GUI.pictures import resources

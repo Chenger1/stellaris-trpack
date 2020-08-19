@@ -452,6 +452,82 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
 }</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="ActivationSwticherButton">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>320</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: #5abe41;
+	border: 3px solid #5abe41;
+	border-radius: 20px;
+	color: #1f2533;
+	}
+QPushButton:hover{
+	background-color: #438e30;
+	border: #438e30;
+	color: #ffffff;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	color: #1f2533;
+	}</string>
+   </property>
+   <property name="text">
+    <string>Вкл. все моды</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ReverseSortingButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>320</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: #5abe41;
+	border: 3px solid #5abe41;
+	border-radius: 20px;
+	color: #1f2533;
+	}
+QPushButton:hover{
+	background-color: #438e30;
+	border: #438e30;
+	color: #ffffff;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	color: #1f2533;
+	}</string>
+   </property>
+   <property name="text">
+    <string>A-Z</string>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>LandingArea</zorder>
@@ -462,6 +538,8 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
   <zorder>BottomShadowFrame</zorder>
   <zorder>SortButton</zorder>
   <zorder>PlaysetsList</zorder>
+  <zorder>ActivationSwticherButton</zorder>
+  <zorder>ReverseSortingButton</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

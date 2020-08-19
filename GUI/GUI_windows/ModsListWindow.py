@@ -20,20 +20,41 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.modList, self.dlc_load, self.game_data, self.playset = prep_data(self.settingPaths[0],
                                                                               list(self.playsets.items())[0])
         self.checkboxes = []
+        self.act_trigger = True
+        self.switch = {
+            True: lambda: self.ActivationSwticherButton.setText('Вкл все моды'),
+            False: lambda: self.ActivationSwticherButton.setText('Выкл все моды')
+        }
+        self.check_enabling_status()
+        self.switch[self.act_trigger]()
         self.grid = self.gridLayout
         self.paint_elements()
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.SortButton.clicked.connect(self.make_sort)
+        self.ActivationSwticherButton.clicked.connect(self.activation_switcher)
         self.WindowMoveButton.installEventFilter(self)
         self.PlaysetsList.activated[str].connect(self.update_mod_list)
+
+    def check_enabling_status(self):
+        disabled_mods = list(filter(lambda x: x.isEnabled is False, self.modList))
+        self.act_trigger = len(disabled_mods) >= 1
+
+    def activation_switcher(self):
+        for checkbox, mod in zip(self.checkboxes, self.modList):
+            mod.isEnabled = self.act_trigger
+            checkbox[0].setChecked(self.act_trigger)
+        self.act_trigger = not self.act_trigger
+        self.switch[self.act_trigger]()
 
     def update_mod_list(self, text):
         self.modList, self.dlc_load, \
         self.game_data, self.playset = prep_data(self.settingPaths[0], (self.PlaysetsList.currentData(),
                                                  self.playsets[self.PlaysetsList.currentData()]))
         self.checkboxes = []
+        self.check_enabling_status()
+        self.switch[self.act_trigger]()
         self.clear_grid_layout()
         self.paint_elements()
 
