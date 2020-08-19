@@ -20,7 +20,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.modList, self.dlc_load, self.game_data, self.playset = prep_data(self.settingPaths[0],
                                                                               list(self.playsets.items())[0])
         self.checkboxes = []
-        self.PlaysetsList.setStyleSheet('color:white')
+        #self.PlaysetsList.setStyleSheet('color:white')
         self.grid = self.gridLayout
         self.paint_elements()
 
