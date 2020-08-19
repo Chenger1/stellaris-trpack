@@ -22,20 +22,33 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.checkboxes = []
         self.act_trigger = True
         self.switch = {
-            True: lambda: self.ActivationSwticherButton.setText('Вкл все моды'),
-            False: lambda: self.ActivationSwticherButton.setText('Выкл все моды')
+            True: {
+                'act_switcher': lambda: self.ActivationSwticherButton.setText('Вкл все моды'),
+                'reversing': lambda: self.ReverseSortingButton.setText('Z-A')
+            },
+            False: {
+                'act_switcher': lambda: self.ActivationSwticherButton.setText('Выкл все моды'),
+                'reversing': lambda: self.ReverseSortingButton.setText('A-Z')
+            }
         }
         self.check_enabling_status()
-        self.switch[self.act_trigger]()
+        self.switch[self.act_trigger]['act_switcher']()
+        self.switch[self.ReverseSortingButton.isChecked()]['reversing']()
         self.grid = self.gridLayout
         self.paint_elements()
 
     def init_handlers(self):
+        self.ReverseSortingButton.setCheckable(True)
         self.ExitButton.clicked.connect(self.close)
         self.SortButton.clicked.connect(self.make_sort)
         self.ActivationSwticherButton.clicked.connect(self.activation_switcher)
+        self.ReverseSortingButton.clicked.connect(self.reversing)
         self.WindowMoveButton.installEventFilter(self)
         self.PlaysetsList.activated[str].connect(self.update_mod_list)
+
+    def reversing(self):
+        self.ReverseSortingButton.setChecked(self.ReverseSortingButton.isChecked())
+        self.switch[self.ReverseSortingButton.isChecked()]['reversing']()
 
     def check_enabling_status(self):
         disabled_mods = list(filter(lambda x: x.isEnabled is False, self.modList))
@@ -46,7 +59,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             mod.isEnabled = self.act_trigger
             checkbox[0].setChecked(self.act_trigger)
         self.act_trigger = not self.act_trigger
-        self.switch[self.act_trigger]()
+        self.switch[self.act_trigger]['act_switcher']()
 
     def update_mod_list(self, text):
         self.modList, self.dlc_load, \
@@ -54,7 +67,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                                                  self.playsets[self.PlaysetsList.currentData()]))
         self.checkboxes = []
         self.check_enabling_status()
-        self.switch[self.act_trigger]()
+        self.switch[self.act_trigger]['act_switcher']()
         self.clear_grid_layout()
         self.paint_elements()
 
@@ -75,7 +88,8 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             mod.isEnabled = checkbox[0].isChecked()
             mod.sortRequired = checkbox[1].isChecked()
         try:
-            status = sorting(self.modList, self.game_data, self.dlc_load, self.playset)
+            status = sorting(self.modList, self.game_data, self.dlc_load, self.playset,
+                             self.ReverseSortingButton.isChecked())
             self.parent.show_system_message(status[0], status[1])
         except FileNotFoundError as error:
             self.parent.show_system_message('error', error.args[0])

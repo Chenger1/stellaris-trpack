@@ -160,11 +160,11 @@ def prep_data(settingPath, playset):
     return mod_list, dlc_load, game_data, playset
 
 
-def sorting(modList, game_data, dlc_load, playset):
+def sorting(modList, game_data, dlc_load, playset, reversing):
     positions = [elem.position for elem in modList]
     positions.sort()
     modListSort, modListNonSort = checkIfSortRequired(modList, playset[0])
-    modListSort.sort(key=sortedKey, reverse=True)
+    modListSort.sort(key=sortedKey, reverse=not reversing)
     # move Dark UI and UIOverhual to the bottom
     modList = specialOrder(modListSort, modListNonSort)
     # make sure UIOverhual+SpeedDial will load after UIOverhual
