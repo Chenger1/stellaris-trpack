@@ -33,10 +33,12 @@ class SteamIDWindow(QtWidgets.QDialog, SteamID.Ui_Dialog):
                 self.AcceptButton.disconnect()
                 self.AcceptButton.clicked.connect(self.accept_file)
                 self.parent.choose_file(f_path[0])
+            elif path == '':
+                self.parent.parent.show_system_message('error', 'Вы не ввели ID мода')
             else:
                 self.parent.parent.show_system_message('error', 'Строка ID содержит сторонние символы')
         except OSError:
-            self.parent.parent.show_system_message('error', 'Вы не ввели ID мода')
+            self.parent.parent.show_system_message('error', 'Мод не найден')
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:
