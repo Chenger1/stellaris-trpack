@@ -5,6 +5,7 @@ import win32api
 
 from googletrans.constants import LANGUAGES
 
+
 drive = win32api.GetSystemDirectory().split(':')[0]
 user = win32api.GetUserName()
 paradox_folder = f'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris'
@@ -44,7 +45,7 @@ def create_temp_folder(mod_id, loc_path):
     temp_folder = f'{loc_path}\\{mod_id}_temp'
     data['folder_path'] = temp_folder
     data['base_dir'] = loc_path
-    if os.path.isdir(f'{temp_folder}') is False:
+    if os.path.isdir(f'{data["folder_path"]}') is False:
         os.mkdir(temp_folder)
     return temp_folder
 
@@ -59,19 +60,11 @@ def creating_temp_files_names(original_file_name):
     return files_names
 
 
-def write_data_about_mode(temp_folder, temp_files):
+def write_data_about_mode(temp_files):
     filenames = creating_temp_files_names(data['original_name'])
-    with open(f'{temp_folder}\\data.json', 'w') as d_file:
-        json.dump({
-            'folder_path': temp_folder,
-            'cutter_file_name': filenames['cutter'],
-            'translated': filenames['translated'],
-            'final': filenames['final']
-        }, d_file)
     data['cutter_file_name'] = filenames['cutter']
     data['translated_name'] = filenames['translated']
     data['final_name'] = filenames['final']
-    data['loc'] = temp_files['loc']
     data['cuttered'] = temp_files['cuttered']
 
 
@@ -111,9 +104,16 @@ def get_collection():
 def get_mod_info(pointer_pos, tr_status):
     name = data['mod_name']
     picture = "thumbnail.png"
-    # Сюда следует передавать имя переводимого файла
     file_name = data['original_name']
-    mod_info = [name, picture, file_name, tr_status, pointer_pos]
+    mod_info = {
+        'name': name,
+        'picture': picture,
+        'file_name': file_name,
+        'file_path': f'{paradox_folder}\\mod\\local_localisation\\localisation\\{data["final_name"]}',
+        'data': data,
+        'tr_status': tr_status,
+        'pointer_pos': pointer_pos
+    }
     return mod_info
 
 
@@ -143,3 +143,31 @@ def check_if_line_translated(orig_line, tr_line):
         return 'Извините, переводчик не смог перевести эту строку.'
     else:
         return tr_line
+
+
+def save_unfinished_machine_text(mac_text):
+    with open(f'{data["folder_path"]}\\machine_text.txt', 'w', encoding='utf-8') as file:
+        for line in mac_text:
+            file.write(line)
+        data['machine_text'] = file.name
+
+
+def set_data(collection):
+    data['original_name'] = collection['data']['original_name']
+    data['full_path'] = collection['data']['full_path']
+    data['mod_name'] = collection['data']['mod_name']
+    data['folder_path'] = collection['data']['folder_path']
+    data['base_dir'] = collection['data']['base_dir']
+    data['cutter_file_name'] = collection['data']['cutter_file_name']
+    data['translated_name'] = collection['data']['translated_name']
+    data['final_name'] = collection['data']['final_name']
+    data['cuttered'] = collection['data']['cuttered']
+    data['translated_file'] = collection['data']['translated_file']
+    data['machine_text'] = collection['data']['machine_text']
+
+
+def open_file_for_resuming(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        text = [line for line in file]
+    return text
+

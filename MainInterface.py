@@ -13,11 +13,11 @@ from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
 from GUI.GUI_windows.ModsListWindow import ModsListWindow
 from GUI.GUI_windows.UnfinishedTranslateWindow import UnfinishedTranslateWindow
 
-from scripts.loc_cutter import cutter_main
+from scripts.loc_cutter import cutter_main, cutting_lines
 from scripts.loc_translator import writing_translation, translate_line
 from scripts.loc_putter import put_lines
 from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
-    local_mod_status, collection_append, init_collection
+    local_mod_status, collection_append, init_collection, open_file_for_resuming
 
 
 class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
@@ -196,8 +196,23 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             else:
                 self.show_system_message('error', 'Ошибка записи файла. Нет перевода.')
         except IndexError as Error:
-            #self.show_system_message('error', 'Вы ещё не закончили перевод')
             self.show_unfinished_translation_window()
+
+    def continue_local(self, collection):
+        self.pointer = collection['pointer_pos']
+        self.PreviousString.setEnabled(True if self.pointer >= 1 else False)
+        self.orig_text = open_file_for_resuming(collection['data']['cuttered'])
+        self.machine_text = open_file_for_resuming(collection['data']['machine_text'])
+        self.user_text = cutting_lines(f'{collection["data"]["folder_path"]}\\{collection["name"]}_temp',
+                                       collection['file_path'])
+        self.progressbar_set_maximum(len(self.orig_text))
+        self.NextStringButton.setEnabled(True)
+        self.LocalizeButton.setText('Закончить перевод')
+        self.LocalizeButton.repaint()
+        self.LocalizeButton.disconnect()
+        self.LocalizeButton.clicked.connect(self.write_translation)
+        self.check_new_line_symbol_string(True)
+        self.set_lines()
 
     def start_local(self):
         try:

@@ -19,9 +19,9 @@ def search(subs, line):
 
 
 def put_lines():
-	file1 = data['loc'].name
+	file1 = data['full_path']
 	neweng = data['final_name']
-	file2 = data['translated_file'].name
+	file2 = data['translated_file']
 	file3 = f'{paradox_folder}\\mod\\local_localisation\\localisation\\{neweng}'
 	loc = open(file1, 'r', encoding='utf-8')
 	newloc = open(file2, 'r', encoding='utf-8')

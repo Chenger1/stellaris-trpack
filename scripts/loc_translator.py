@@ -76,7 +76,7 @@ def writing_translation(translation):
 	with open(f"{data['folder_path']}\\{data['translated_name']}", 'w', encoding='utf-8') as translated:
 		for line in translation:
 			translated.write(line)
-	set_translated_file(translated)
+	set_translated_file(translated.name)
 
 
 def defining_translator(func):

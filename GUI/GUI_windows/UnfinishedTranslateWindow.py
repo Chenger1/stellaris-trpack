@@ -2,7 +2,7 @@ from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import UnfinishedTranslate
 
-from scripts.utils import collection_append
+from scripts.utils import collection_append, save_unfinished_machine_text
 
 
 class UnfinishedTranslateWindow(QtWidgets.QDialog, UnfinishedTranslate.Ui_Dialog):
@@ -24,6 +24,7 @@ class UnfinishedTranslateWindow(QtWidgets.QDialog, UnfinishedTranslate.Ui_Dialog
     def save_translation_state(self):
         pointer_position = self.parent.pointer
         translation_status = round((len(self.parent.user_text*100))/len(self.parent.orig_text))
+        save_unfinished_machine_text(self.parent.machine_text)
         collection_append(self.parent.ModIDLine.text(), pointer_position,
                           translation_status)
         self.parent.clean_state()

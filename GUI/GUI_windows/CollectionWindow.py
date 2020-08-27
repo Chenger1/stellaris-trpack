@@ -1,8 +1,12 @@
 from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import Collection
+from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
-from scripts.utils import get_collection
+from scripts.utils import get_collection, set_data
+
+from functools import partial
+import os
 
 
 class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
@@ -15,29 +19,49 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.oldPos = self.pos()
         self.init_handlers()
         self.collection = get_collection()
+        self.buttons = {}
+        self.accept_window = AcceptWindow
         self.paint_elements()
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.WindowMoveButton.installEventFilter(self)
 
+    def open_accept_window(self, elem):
+        accept_window = AcceptWindow(self, f'Хотите продолжить перевод мода - {self.collection[elem]["name"]}',
+                                     lambda: self.open_mod_loc(elem))
+        accept_window.AcceptButton.setText('Да, хочу')
+        accept_window.DeniedButton.setText('Нет')
+        accept_window.show()
+
+    def open_mod_loc(self, elem):
+        if os.path.isdir(self.collection[elem]['data']['folder_path']) is False:
+            self.parent.parent.show_system_message('error', 'Файл перевода поврежден или удален')
+            self.findChild(QtWidgets.QDialog).close()
+        else:
+            self.parent.parent.ModIDLine.setText(elem)
+            set_data(self.collection[elem])
+            self.findChild(QtWidgets.QDialog).close()
+            self.close()
+            self.parent.parent.continue_local(self.collection[elem])
+
     def paint_elements(self):
         grid = self.gridLayout
         for index, elem in enumerate(self.collection):
             grid.setSpacing(10)
-            label = QtWidgets.QLabel(f'{index + 1}: {self.collection[elem][0]}')
+            self.buttons[f'{elem}'] = QtWidgets.QPushButton(f'{index + 1}: {self.collection[elem]["name"]}')
             steam_id = QtWidgets.QLabel(elem)
-            file_name = QtWidgets.QLineEdit(self.collection[elem][2])
+            file_name = QtWidgets.QLineEdit(self.collection[elem]['file_name'])
             status = QtWidgets.QProgressBar()
-            label.setStyleSheet("""
-            QLabel{
+            self.buttons[f'{elem}'].setStyleSheet("""
+            QPushButton{
             background-color: transparent;
             min-height: 40px;
-            max-width: 260px;
+            max-width: 200px;
             color: #ffffff;
             }
             """)
-            label.setWordWrap(True)
+            self.buttons[f'{elem}'].clicked.connect(partial(self.open_accept_window, elem))
             steam_id.setStyleSheet('color:white')
             file_name.setStyleSheet("""
             QLineEdit{           
@@ -51,7 +75,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             }
             """)
             status.setFormat("%p% ")
-            status.setValue(self.collection[elem][-2])
+            status.setValue(self.collection[elem]['tr_status'])
             if status.value() != 100:
                 status.setInvertedAppearance(True)
                 status.setStyleSheet("""
@@ -85,7 +109,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                 background-color: #5abe41;
                 border-radius :10px;
                 }      """)
-            grid.addWidget(label, index + 1, 2, 1, 4)
+            grid.addWidget(self.buttons[f'{elem}'], index + 1, 3, 1, 4)
             grid.addWidget(steam_id, index + 1, 5)
             grid.addWidget(file_name, index + 1, 6)
             grid.addWidget(status, index + 1, 7)
