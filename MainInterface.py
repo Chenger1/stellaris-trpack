@@ -17,7 +17,7 @@ from scripts.loc_cutter import cutter_main, cutting_lines
 from scripts.loc_translator import writing_translation, translate_line
 from scripts.loc_putter import put_lines
 from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
-    local_mod_status, collection_append, init_collection, open_file_for_resuming
+    local_mod_status, collection_append, init_collection, open_file_for_resuming, remove_extra_new_line_symbols
 
 
 class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
@@ -205,6 +205,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.machine_text = open_file_for_resuming(collection['data']['machine_text'])
         self.user_text = cutting_lines(f'{collection["data"]["folder_path"]}\\{collection["name"]}_temp',
                                        collection['file_path'])
+        self.user_text = remove_extra_new_line_symbols(self.user_text)
         self.progressbar_set_maximum(len(self.orig_text))
         self.NextStringButton.setEnabled(True)
         self.LocalizeButton.setText('Закончить перевод')

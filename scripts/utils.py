@@ -171,3 +171,8 @@ def open_file_for_resuming(file_path):
         text = [line for line in file]
     return text
 
+
+def remove_extra_new_line_symbols(text):
+    while text[-1] == '\n':
+        text.pop()
+    return text
