@@ -140,7 +140,7 @@ def check_new_line_sym_ending(line):
 
 def check_if_line_translated(orig_line, tr_line):
     if orig_line.replace('\n', '').strip() == tr_line.replace('\n', '').strip():
-        return 'Извините, переводчик не смог перевести эту строку.'
+        return 'Извините, переводчик не смог перевести эту строку.\n'
     else:
         return tr_line
 
