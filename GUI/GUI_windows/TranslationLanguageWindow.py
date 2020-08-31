@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 
 from GUI.GUI_windows_source import TranslationLanguage
 from json import load, dump
@@ -77,12 +77,10 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
             'LithuanianButton': [self.LithuanianButton, 'lt'],
             'NorwegianButton': [self.NorwegianButton, 'no'],
             'PortugueseButton': [self.PortugueseButton, 'pt'],
-            'RomanianButton': [self.RomanianButton, 'ro'],
             'SlovakButton': [self.SlovakButton, 'sk'],
             'SpanishButton': [self.SpanishButton, 'es'],
             'SwedishButton': [self.SwedishButton, 'sv'],
             'TurkishButton': [self.TurkishButton, 'tr'],
-            'FilipinoButton': [self.FilipinoButton, 'fil']
         }
         self.generator = copy.copy(self.buttons)
         self.set_active()
@@ -94,6 +92,7 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
 
     @staticmethod
     def set_inactive(button):
+        button.setFont(QtGui.QFont("KB Astrolyte", 9))
         button.setStyleSheet("""
         QPushButton{
             background-color: rgba(31, 37, 51, 50);
@@ -101,7 +100,7 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
             border-radius: 12px;
             color: #ffffff;
             min-height: 20px;
-            max-width: 180px;       
+            max-width: 180px;
             }
         QPushButton:hover{
             background-color: rgba(56, 57, 61, 50);
@@ -137,6 +136,7 @@ QPushButton:pressed{
     border: #c2c2c2;
 }
 """)
+                self.generator[button][0].setFont(QtGui.QFont("KB Astrolyte", 9))
             else:
                 self.set_inactive(self.buttons[button][0])
         self.set_object_name()
@@ -205,7 +205,6 @@ QPushButton:pressed{
         self.NorwegianButton.clicked.connect(lambda: self.set_translation_language('no'))
         self.PolishButton.clicked.connect(lambda: self.set_translation_language('pl'))
         self.PortugueseButton.clicked.connect(lambda: self.set_translation_language('pt'))
-        self.RomanianButton.clicked.connect(lambda: self.set_translation_language('ro'))
         self.RussianButton.clicked.connect(lambda: self.set_translation_language('ru'))
         self.SlovakButton.clicked.connect(lambda: self.set_translation_language('sk'))
         self.SlovenianButton.clicked.connect(lambda: self.set_translation_language('sl'))
@@ -213,7 +212,6 @@ QPushButton:pressed{
         self.SwedishButton.clicked.connect(lambda: self.set_translation_language('sv'))
         self.TurkishButton.clicked.connect(lambda: self.set_translation_language('tr'))
         self.UkrainianButton.clicked.connect(lambda: self.set_translation_language('uk'))
-        self.FilipinoButton.clicked.connect(lambda: self.set_translation_language('fil'))
         self.SearchLine.textChanged.connect(self.sync_lineEdit)
 
     def sync_lineEdit(self, text):
