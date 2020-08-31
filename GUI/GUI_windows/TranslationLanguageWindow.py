@@ -2,6 +2,7 @@ from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import TranslationLanguage
 from json import load, dump
+import copy
 
 
 class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog):
@@ -9,59 +10,99 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         super().__init__(parent)
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
-        self.init_handlers()
         self.setModal(True)
         self.oldPos = self.pos()
         self.parent = parent
-        # Сделать перебор по словарю на случай совпадений и добавлять кнопку к сетке
-        self.active_button = {
-            'ar': self.ArabicButton,
-            'hy': self.ArmenianButton,
-            'az': self.AzerbaijaniButton,
-            'be': self.BelarusianButton,
-            'bg': self.BulgarianButton,
-            'zh-cn': self.ChineseButton,
-            'hr': self.CroatianButton,
-            'cs': self.CzechButton,
-            'da': self.DanishButton,
-            'nl': self.DutchButton,
-            'en': self.EnglishButton,
-            'et': self.EstonianButton,
-            'fi': self.FinnishButton,
-            'fr': self.FrenchButton,
-            'de': self.GermanButton,
-            'el': self.GreekButton,
-            'hu': self.HungarianButton,
-            'it': self.ItalianButton,
-            'ja': self.JapaneseButton,
-            'ko': self.KoreanButton,
-            'lt': self.LithuanianButton,
-            'no': self.NorwegianButton,
-            'pl': self.PolishButton,
-            'pt': self.PortugueseButton,
-            'ro': self.RomanianButton,
-            'ru': self.RussianButton,
-            'sk': self.SlovakButton,
-            'sl': self.SlovenianButton,
-            'es': self.SpanishButton,
-            'sv': self.SwedishButton,
-            'tr': self.TurkishButton,
-            'uk': self.UkrainianButton,
-            'fil': self.FilipinoButton
-        }
-        self.set_active()
+        self.grid = self.GridLangButtonsLayout
 
-    def set_inactive(self):
-        with open("Properties.json", 'r', encoding='utf-8') as prop:
-            properties = load(prop)
-        button = self.active_button[properties["translation_language"]]
+        # Необходимо сделать мультиязычность
+        self.ArabicButton = QtWidgets.QPushButton('Арабский')
+        self.ArmenianButton = QtWidgets.QPushButton('Армянский')
+        self.AzerbaijaniButton = QtWidgets.QPushButton('Азербайджанский')
+        self.BelarusianButton = QtWidgets.QPushButton('Белорусский')
+        self.BulgarianButton = QtWidgets.QPushButton('Болгарский')
+        self.ChineseButton = QtWidgets.QPushButton('Китайский')
+        self.CroatianButton = QtWidgets.QPushButton('Хорватский')
+        self.CzechButton = QtWidgets.QPushButton('Чешский')
+        self.DanishButton = QtWidgets.QPushButton('Датский')
+        self.DutchButton = QtWidgets.QPushButton('Нидерландский')
+        self.EnglishButton = QtWidgets.QPushButton('Английский')
+        self.EstonianButton = QtWidgets.QPushButton('Эстонский')
+        self.FinnishButton = QtWidgets.QPushButton('Финский')
+        self.FrenchButton = QtWidgets.QPushButton('Французский')
+        self.GermanButton = QtWidgets.QPushButton('Немецкий')
+        self.GreekButton = QtWidgets.QPushButton('Греческий')
+        self.HungarianButton = QtWidgets.QPushButton('Венгерский')
+        self.ItalianButton = QtWidgets.QPushButton('Итальянский')
+        self.JapaneseButton = QtWidgets.QPushButton('Японский')
+        self.KoreanButton = QtWidgets.QPushButton('Корейский')
+        self.LithuanianButton = QtWidgets.QPushButton('Литовский')
+        self.NorwegianButton = QtWidgets.QPushButton('Норвежский')
+        self.PolishButton = QtWidgets.QPushButton('Польский')
+        self.PortugueseButton = QtWidgets.QPushButton('Португальский')
+        self.RomanianButton = QtWidgets.QPushButton('Румынский')
+        self.RussianButton = QtWidgets.QPushButton('Русский')
+        self.SlovakButton = QtWidgets.QPushButton('Словацкий')
+        self.SlovenianButton = QtWidgets.QPushButton('Словенский')
+        self.SpanishButton = QtWidgets.QPushButton('Испанский')
+        self.SwedishButton = QtWidgets.QPushButton('Шведский')
+        self.TurkishButton = QtWidgets.QPushButton('Турецкий')
+        self.UkrainianButton = QtWidgets.QPushButton('Украинский')
+        self.FilipinoButton = QtWidgets.QPushButton('Филиппинский')
+
+        self.buttons = {
+            'EnglishButton': [self.EnglishButton, 'en'],
+            'RussianButton': [self.RussianButton, 'ru'],
+            'PolishButton': [self.PolishButton, 'pl'],
+            'ChineseButton': [self.ChineseButton, 'zh-cn'],
+            'UkrainianButton': [self.UkrainianButton, 'uk'],
+            'ArabicButton': [self.ArabicButton, 'ar'],
+            'ArmenianButton': [self.ArmenianButton, 'hy'],
+            'AzerbaijaniButton': [self.AzerbaijaniButton, 'az'],
+            'BelarusianButton': [self.BelarusianButton, 'be'],
+            'BulgarianButton': [self.BulgarianButton, 'bg'],
+            'CroatianButton': [self.CroatianButton, 'hr'],
+            'CzechButton': [self.CzechButton, 'cs'],
+            'DanishButton': [self.DanishButton, 'da'],
+            'DutchButton': [self.DutchButton, 'nl'],
+            'EstonianButton': [self.EstonianButton, 'et'],
+            'FinnishButton': [self.FinnishButton, 'fi'],
+            'FrenchButton': [self.FrenchButton, 'fr'],
+            'GermanButton': [self.GermanButton, 'de'],
+            'GreekButton': [self.GreekButton, 'el'],
+            'HungarianButton': [self.HungarianButton, 'hu'],
+            'ItalianButton': [self.ItalianButton, 'it'],
+            'JapaneseButton': [self.JapaneseButton, 'ja'],
+            'KoreanButton': [self.KoreanButton, 'ko'],
+            'LithuanianButton': [self.LithuanianButton, 'lt'],
+            'NorwegianButton': [self.NorwegianButton, 'no'],
+            'PortugueseButton': [self.PortugueseButton, 'pt'],
+            'RomanianButton': [self.RomanianButton, 'ro'],
+            'SlovakButton': [self.SlovakButton, 'sk'],
+            'SpanishButton': [self.SpanishButton, 'es'],
+            'SwedishButton': [self.SwedishButton, 'sv'],
+            'TurkishButton': [self.TurkishButton, 'tr'],
+            'FilipinoButton': [self.FilipinoButton, 'fil']
+        }
+        self.generator = copy.copy(self.buttons)
+        self.set_active()
+        self.init_handlers()
+
+    def set_object_name(self):
+        for button in self.buttons:
+            self.buttons[button][0].setObjectName(button)
+
+    @staticmethod
+    def set_inactive(button):
         button.setStyleSheet("""
         QPushButton{
             background-color: rgba(31, 37, 51, 50);
             border: 2px solid #ffffff;
-            border-radius: 15px;
+            border-radius: 12px;
             color: #ffffff;
-        }
+            min-height: 20px;
+            max-width: 180px;       
+            }
         QPushButton:hover{
             background-color: rgba(56, 57, 61, 50);
         }
@@ -74,13 +115,17 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
     def set_active(self):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
             properties = load(prop)
-        button = self.active_button[properties["translation_language"]]
-        button.setStyleSheet("""
+        for button in self.buttons:
+            if self.buttons[button][1] == properties["translation_language"]:
+                self.buttons[button][0].setStyleSheet("""
 QPushButton{
     background-color: #05B8CC;
     border: 2px solid #05B8CC;
-    border-radius: 15px;
+    border-radius: 12px;
     color: #1f2533;
+    min-height: 20px;
+    max-width: 180px;       
+
 }
 QPushButton:hover{
     background-color: #31858f;
@@ -92,12 +137,43 @@ QPushButton:pressed{
     border: #c2c2c2;
 }
 """)
+            else:
+                self.set_inactive(self.buttons[button][0])
+        self.set_object_name()
+        self.gen()
+
+    def gen(self):
+        n = 0
+        k = -1
+        for button in self.generator:
+            if k != 2:
+                k += 1
+            else:
+                k = 0
+                n += 1
+            self.grid.addWidget(self.buttons[button][0], n, k)
+
+    def clean(self):
+        # for button in self.buttons:
+        #     self.grid.removeWidget(self.buttons[button][0])
+        for i in reversed(range(self.grid.count())):
+            self.grid.itemAt(i).widget().setParent(None)
+
+    def search(self, text):
+        with open('Properties.json', 'r', encoding='utf-8') as prop:
+            properties = load(prop)
+        self.generator = copy.copy(self.buttons)
+        for button in self.buttons:
+            if text in self.buttons[button][0].text().lower():
+                pass
+            else:
+                if properties["translation_language"] != self.buttons[button][1]:
+                    del self.generator[button]
 
     def set_translation_language(self, translation_language):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
             properties = load(prop)
             properties["translation_language"] = translation_language
-        self.set_inactive()
         with open("Properties.json", 'w', encoding='utf-8') as prop:
             dump(properties, prop)
         self.set_active()
@@ -141,18 +217,16 @@ QPushButton:pressed{
         self.SearchLine.textChanged.connect(self.sync_lineEdit)
 
     def sync_lineEdit(self, text):
-        for language in self.active_button:
-            if text.lower() in self.active_button[language].text().lower():
-                self.active_button[language].setVisible(True)
-            else:
-                self.active_button[language].setVisible(False)
+        self.clean()
+        self.search(text)
+        self.set_active()
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:
             if event.type() == QtCore.QEvent.MouseButtonPress:
                 self.oldPos = event.pos()
             elif event.type() == QtCore.QEvent.MouseMove and self.oldPos is not None:
-                self.move(self.pos() - self.oldPos+event.pos())
+                self.move(self.pos() - self.oldPos + event.pos())
                 return True
             elif event.type() == QtCore.QEvent.MouseButtonRelease:
                 self.oldPos = None
