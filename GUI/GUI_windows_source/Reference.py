@@ -49,27 +49,6 @@ class Ui_Dialog(object):
 "    color: rgb(255, 60, 63)\n"
 "    }")
         self.ExitButton.setObjectName("ExitButton")
-        self.ReferenceButton = QtWidgets.QPushButton(Dialog)
-        self.ReferenceButton.setGeometry(QtCore.QRect(10, 0, 21, 21))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.ReferenceButton.setFont(font)
-        self.ReferenceButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 0);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: #5abe41\n"
-"    }")
-        self.ReferenceButton.setObjectName("ReferenceButton")
         self.ReferenceLabel = QtWidgets.QLabel(Dialog)
         self.ReferenceLabel.setGeometry(QtCore.QRect(50, 40, 231, 41))
         font = QtGui.QFont()
@@ -120,7 +99,7 @@ class Ui_Dialog(object):
         self.scrollArea.setAlignment(QtCore.Qt.AlignCenter)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1456, 976, 2681))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -3199, 976, 4358))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -129,397 +108,509 @@ class Ui_Dialog(object):
         self.verticalLayout_3.setContentsMargins(-1, 150, -1, 150)
         self.verticalLayout_3.setSpacing(40)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.OriginalLabel = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.QLabel_1_Modification = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(12)
-        self.OriginalLabel.setFont(font)
-        self.OriginalLabel.setStyleSheet("QLabel{\n"
+        self.QLabel_1_Modification.setFont(font)
+        self.QLabel_1_Modification.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 25px;\n"
 "    }\n"
 "")
-        self.OriginalLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.OriginalLabel.setObjectName("OriginalLabel")
-        self.verticalLayout_3.addWidget(self.OriginalLabel)
-        self.OriginalLabel_3 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.QLabel_1_Modification.setAlignment(QtCore.Qt.AlignCenter)
+        self.QLabel_1_Modification.setObjectName("QLabel_1_Modification")
+        self.verticalLayout_3.addWidget(self.QLabel_1_Modification)
+        self.QLabel_1_1_Manually = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        self.QLabel_1_1_Manually.setFont(font)
+        self.QLabel_1_1_Manually.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    padding: 25px;\n"
+"    }\n"
+"")
+        self.QLabel_1_1_Manually.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.QLabel_1_1_Manually.setObjectName("QLabel_1_1_Manually")
+        self.verticalLayout_3.addWidget(self.QLabel_1_1_Manually)
+        self.Description_1_1 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.Description_1_1.setMinimumSize(QtCore.QSize(0, 135))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.Description_1_1.setFont(font)
+        self.Description_1_1.setStyleSheet("QTextEdit{\n"
+"    background-color: transparent;\n"
+"    border: transparent;\n"
+"    color: #ffffff;\n"
+"    padding: 10px;\n"
+"    }\n"
+"QTextEdit:hover{\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
+"    }\n"
+"")
+        self.Description_1_1.setReadOnly(True)
+        self.Description_1_1.setObjectName("Description_1_1")
+        self.verticalLayout_3.addWidget(self.Description_1_1)
+        self.QLabel_1_2_SteamID = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        self.QLabel_1_2_SteamID.setFont(font)
+        self.QLabel_1_2_SteamID.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    padding: 25px;\n"
+"    }\n"
+"")
+        self.QLabel_1_2_SteamID.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.QLabel_1_2_SteamID.setObjectName("QLabel_1_2_SteamID")
+        self.verticalLayout_3.addWidget(self.QLabel_1_2_SteamID)
+        self.Description_1_2 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.Description_1_2.setMinimumSize(QtCore.QSize(0, 185))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.Description_1_2.setFont(font)
+        self.Description_1_2.setStyleSheet("QTextEdit{\n"
+"    background-color: transparent;\n"
+"    border: transparent;\n"
+"    color: #ffffff;\n"
+"    padding: 10px;\n"
+"    }\n"
+"QTextEdit:hover{\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
+"    }\n"
+"")
+        self.Description_1_2.setReadOnly(True)
+        self.Description_1_2.setObjectName("Description_1_2")
+        self.verticalLayout_3.addWidget(self.Description_1_2)
+        self.QLabel_1_3_Collection = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        self.QLabel_1_3_Collection.setFont(font)
+        self.QLabel_1_3_Collection.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    padding: 25px;\n"
+"    }\n"
+"")
+        self.QLabel_1_3_Collection.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.QLabel_1_3_Collection.setObjectName("QLabel_1_3_Collection")
+        self.verticalLayout_3.addWidget(self.QLabel_1_3_Collection)
+        self.PossibleMistakes_1 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        self.PossibleMistakes_1.setFont(font)
+        self.PossibleMistakes_1.setStyleSheet("QLineEdit{\n"
+"    background-color: transparent;\n"
+"    border: transparent;\n"
+"    color: #ffffff;\n"
+"    padding: 25px;\n"
+"    }")
+        self.PossibleMistakes_1.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.PossibleMistakes_1.setReadOnly(True)
+        self.PossibleMistakes_1.setObjectName("PossibleMistakes_1")
+        self.verticalLayout_3.addWidget(self.PossibleMistakes_1)
+        self.MistakeDescription_1_1 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.MistakeDescription_1_1.setMinimumSize(QtCore.QSize(0, 100))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.MistakeDescription_1_1.setFont(font)
+        self.MistakeDescription_1_1.setStyleSheet("QTextEdit{\n"
+"    background-color: transparent;\n"
+"    border: transparent;\n"
+"    color: #ffffff;\n"
+"    padding: 10px;\n"
+"    }\n"
+"QTextEdit:hover{\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
+"    }\n"
+"")
+        self.MistakeDescription_1_1.setReadOnly(True)
+        self.MistakeDescription_1_1.setObjectName("MistakeDescription_1_1")
+        self.verticalLayout_3.addWidget(self.MistakeDescription_1_1)
+        self.QLabel_2_Collection = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(12)
-        self.OriginalLabel_3.setFont(font)
-        self.OriginalLabel_3.setStyleSheet("QLabel{\n"
+        self.QLabel_2_Collection.setFont(font)
+        self.QLabel_2_Collection.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 25px;\n"
 "    }\n"
 "")
-        self.OriginalLabel_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.OriginalLabel_3.setObjectName("OriginalLabel_3")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_3)
-        self.OriginalLabel_6 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.QLabel_2_Collection.setAlignment(QtCore.Qt.AlignCenter)
+        self.QLabel_2_Collection.setObjectName("QLabel_2_Collection")
+        self.verticalLayout_3.addWidget(self.QLabel_2_Collection)
+        self.QLabel_2_1_Functional = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
-        self.OriginalLabel_6.setFont(font)
-        self.OriginalLabel_6.setStyleSheet("QLabel{\n"
+        self.QLabel_2_1_Functional.setFont(font)
+        self.QLabel_2_1_Functional.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 25px;\n"
 "    }\n"
 "")
-        self.OriginalLabel_6.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.OriginalLabel_6.setObjectName("OriginalLabel_6")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_6)
-        self.TranslateString = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.TranslateString.setMinimumSize(QtCore.QSize(0, 100))
+        self.QLabel_2_1_Functional.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.QLabel_2_1_Functional.setObjectName("QLabel_2_1_Functional")
+        self.verticalLayout_3.addWidget(self.QLabel_2_1_Functional)
+        self.Description_2_1 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.Description_2_1.setMinimumSize(QtCore.QSize(0, 135))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
-        self.TranslateString.setFont(font)
-        self.TranslateString.setStyleSheet("QTextEdit{\n"
+        self.Description_2_1.setFont(font)
+        self.Description_2_1.setStyleSheet("QTextEdit{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 10px;\n"
 "    }\n"
 "QTextEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.TranslateString.setReadOnly(True)
-        self.TranslateString.setObjectName("TranslateString")
-        self.verticalLayout_3.addWidget(self.TranslateString)
-        self.OriginalLabel_5 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_2_1.setReadOnly(True)
+        self.Description_2_1.setObjectName("Description_2_1")
+        self.verticalLayout_3.addWidget(self.Description_2_1)
+        self.QLabel_2_2_ModCollection = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
-        self.OriginalLabel_5.setFont(font)
-        self.OriginalLabel_5.setStyleSheet("QLabel{\n"
+        self.QLabel_2_2_ModCollection.setFont(font)
+        self.QLabel_2_2_ModCollection.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 25px;\n"
 "    }\n"
 "")
-        self.OriginalLabel_5.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.OriginalLabel_5.setObjectName("OriginalLabel_5")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_5)
-        self.TranslateString_2 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.TranslateString_2.setMinimumSize(QtCore.QSize(0, 100))
+        self.QLabel_2_2_ModCollection.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.QLabel_2_2_ModCollection.setObjectName("QLabel_2_2_ModCollection")
+        self.verticalLayout_3.addWidget(self.QLabel_2_2_ModCollection)
+        self.Description_2_2 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.Description_2_2.setMinimumSize(QtCore.QSize(0, 170))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
-        self.TranslateString_2.setFont(font)
-        self.TranslateString_2.setStyleSheet("QTextEdit{\n"
+        self.Description_2_2.setFont(font)
+        self.Description_2_2.setStyleSheet("QTextEdit{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 10px;\n"
 "    }\n"
 "QTextEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.TranslateString_2.setReadOnly(True)
-        self.TranslateString_2.setObjectName("TranslateString_2")
-        self.verticalLayout_3.addWidget(self.TranslateString_2)
-        self.OriginalLabel_9 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_2_2.setReadOnly(True)
+        self.Description_2_2.setObjectName("Description_2_2")
+        self.verticalLayout_3.addWidget(self.Description_2_2)
+        self.PossibleMistakes_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
-        self.OriginalLabel_9.setFont(font)
-        self.OriginalLabel_9.setStyleSheet("QLabel{\n"
+        self.PossibleMistakes_2.setFont(font)
+        self.PossibleMistakes_2.setStyleSheet("QLineEdit{\n"
 "    background-color: transparent;\n"
+"    border: transparent;\n"
 "    color: #ffffff;\n"
-"    }\n"
-"")
-        self.OriginalLabel_9.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.OriginalLabel_9.setObjectName("OriginalLabel_9")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_9)
-        self.OriginalLabel_10 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
-        self.OriginalLabel_10.setFont(font)
-        self.OriginalLabel_10.setStyleSheet("QLabel{\n"
-"    background-color: transparent;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"")
-        self.OriginalLabel_10.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.OriginalLabel_10.setObjectName("OriginalLabel_10")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_10)
-        self.TranslateString_3 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.TranslateString_3.setMinimumSize(QtCore.QSize(0, 100))
+"    padding: 25px;\n"
+"    }")
+        self.PossibleMistakes_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.PossibleMistakes_2.setReadOnly(True)
+        self.PossibleMistakes_2.setObjectName("PossibleMistakes_2")
+        self.verticalLayout_3.addWidget(self.PossibleMistakes_2)
+        self.MistakeDescription_2_1 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.MistakeDescription_2_1.setMinimumSize(QtCore.QSize(0, 100))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
-        self.TranslateString_3.setFont(font)
-        self.TranslateString_3.setStyleSheet("QTextEdit{\n"
+        self.MistakeDescription_2_1.setFont(font)
+        self.MistakeDescription_2_1.setStyleSheet("QTextEdit{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 10px;\n"
 "    }\n"
 "QTextEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.TranslateString_3.setReadOnly(True)
-        self.TranslateString_3.setObjectName("TranslateString_3")
-        self.verticalLayout_3.addWidget(self.TranslateString_3)
-        self.OriginalLabel_4 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.MistakeDescription_2_1.setReadOnly(True)
+        self.MistakeDescription_2_1.setObjectName("MistakeDescription_2_1")
+        self.verticalLayout_3.addWidget(self.MistakeDescription_2_1)
+        self.QLabel_3_InterfaceLanguage = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(12)
-        self.OriginalLabel_4.setFont(font)
-        self.OriginalLabel_4.setStyleSheet("QLabel{\n"
+        self.QLabel_3_InterfaceLanguage.setFont(font)
+        self.QLabel_3_InterfaceLanguage.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 25px;\n"
 "    }\n"
 "")
-        self.OriginalLabel_4.setAlignment(QtCore.Qt.AlignCenter)
-        self.OriginalLabel_4.setObjectName("OriginalLabel_4")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_4)
-        self.TranslateString_4 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.TranslateString_4.setMinimumSize(QtCore.QSize(0, 100))
+        self.QLabel_3_InterfaceLanguage.setAlignment(QtCore.Qt.AlignCenter)
+        self.QLabel_3_InterfaceLanguage.setObjectName("QLabel_3_InterfaceLanguage")
+        self.verticalLayout_3.addWidget(self.QLabel_3_InterfaceLanguage)
+        self.Description_3 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.Description_3.setMinimumSize(QtCore.QSize(0, 165))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
-        self.TranslateString_4.setFont(font)
-        self.TranslateString_4.setStyleSheet("QTextEdit{\n"
+        self.Description_3.setFont(font)
+        self.Description_3.setStyleSheet("QTextEdit{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 10px;\n"
 "    }\n"
 "QTextEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.TranslateString_4.setReadOnly(True)
-        self.TranslateString_4.setObjectName("TranslateString_4")
-        self.verticalLayout_3.addWidget(self.TranslateString_4)
-        self.OriginalLabel_11 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_3.setReadOnly(True)
+        self.Description_3.setObjectName("Description_3")
+        self.verticalLayout_3.addWidget(self.Description_3)
+        self.PossibleMistakes_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
-        self.OriginalLabel_11.setFont(font)
-        self.OriginalLabel_11.setStyleSheet("QLabel{\n"
-"    background-color: transparent;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"")
-        self.OriginalLabel_11.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.OriginalLabel_11.setObjectName("OriginalLabel_11")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_11)
-        self.TranslateString_5 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.TranslateString_5.setMinimumSize(QtCore.QSize(0, 100))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(9)
-        self.TranslateString_5.setFont(font)
-        self.TranslateString_5.setStyleSheet("QTextEdit{\n"
+        self.PossibleMistakes_3.setFont(font)
+        self.PossibleMistakes_3.setStyleSheet("QLineEdit{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 25px;\n"
+"    }")
+        self.PossibleMistakes_3.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.PossibleMistakes_3.setReadOnly(True)
+        self.PossibleMistakes_3.setObjectName("PossibleMistakes_3")
+        self.verticalLayout_3.addWidget(self.PossibleMistakes_3)
+        self.MistakeDescription_3_1 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.MistakeDescription_3_1.setMinimumSize(QtCore.QSize(0, 100))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.MistakeDescription_3_1.setFont(font)
+        self.MistakeDescription_3_1.setStyleSheet("QTextEdit{\n"
+"    background-color: transparent;\n"
+"    border: transparent;\n"
+"    color: #ffffff;\n"
+"    padding: 10px;\n"
 "    }\n"
 "QTextEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.TranslateString_5.setReadOnly(True)
-        self.TranslateString_5.setObjectName("TranslateString_5")
-        self.verticalLayout_3.addWidget(self.TranslateString_5)
-        self.OriginalLabel_2 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.MistakeDescription_3_1.setReadOnly(True)
+        self.MistakeDescription_3_1.setObjectName("MistakeDescription_3_1")
+        self.verticalLayout_3.addWidget(self.MistakeDescription_3_1)
+        self.QLabel_4_TranslationLanguage = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(12)
-        self.OriginalLabel_2.setFont(font)
-        self.OriginalLabel_2.setStyleSheet("QLabel{\n"
+        self.QLabel_4_TranslationLanguage.setFont(font)
+        self.QLabel_4_TranslationLanguage.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 25px;\n"
 "    }\n"
 "")
-        self.OriginalLabel_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.OriginalLabel_2.setObjectName("OriginalLabel_2")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_2)
-        self.TranslateString_6 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.TranslateString_6.setMinimumSize(QtCore.QSize(0, 100))
+        self.QLabel_4_TranslationLanguage.setAlignment(QtCore.Qt.AlignCenter)
+        self.QLabel_4_TranslationLanguage.setObjectName("QLabel_4_TranslationLanguage")
+        self.verticalLayout_3.addWidget(self.QLabel_4_TranslationLanguage)
+        self.Description_4 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.Description_4.setMinimumSize(QtCore.QSize(0, 80))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
-        self.TranslateString_6.setFont(font)
-        self.TranslateString_6.setStyleSheet("QTextEdit{\n"
+        self.Description_4.setFont(font)
+        self.Description_4.setStyleSheet("QTextEdit{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 10px;\n"
 "    }\n"
 "QTextEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.TranslateString_6.setReadOnly(True)
-        self.TranslateString_6.setObjectName("TranslateString_6")
-        self.verticalLayout_3.addWidget(self.TranslateString_6)
-        self.OriginalLabel_12 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_4.setReadOnly(True)
+        self.Description_4.setObjectName("Description_4")
+        self.verticalLayout_3.addWidget(self.Description_4)
+        self.PossibleMistakes_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
-        self.OriginalLabel_12.setFont(font)
-        self.OriginalLabel_12.setStyleSheet("QLabel{\n"
-"    background-color: transparent;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"")
-        self.OriginalLabel_12.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.OriginalLabel_12.setObjectName("OriginalLabel_12")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_12)
-        self.TranslateString_7 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.TranslateString_7.setMinimumSize(QtCore.QSize(0, 100))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(9)
-        self.TranslateString_7.setFont(font)
-        self.TranslateString_7.setStyleSheet("QTextEdit{\n"
+        self.PossibleMistakes_4.setFont(font)
+        self.PossibleMistakes_4.setStyleSheet("QLineEdit{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
-"    }\n"
-"QTextEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
-"    }\n"
-"")
-        self.TranslateString_7.setReadOnly(True)
-        self.TranslateString_7.setObjectName("TranslateString_7")
-        self.verticalLayout_3.addWidget(self.TranslateString_7)
-        self.OriginalLabel_7 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(12)
-        self.OriginalLabel_7.setFont(font)
-        self.OriginalLabel_7.setStyleSheet("QLabel{\n"
-"    background-color: transparent;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"")
-        self.OriginalLabel_7.setAlignment(QtCore.Qt.AlignCenter)
-        self.OriginalLabel_7.setObjectName("OriginalLabel_7")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_7)
-        self.TranslateString_8 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.TranslateString_8.setMinimumSize(QtCore.QSize(0, 100))
+"    padding: 25px;\n"
+"    }")
+        self.PossibleMistakes_4.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.PossibleMistakes_4.setReadOnly(True)
+        self.PossibleMistakes_4.setObjectName("PossibleMistakes_4")
+        self.verticalLayout_3.addWidget(self.PossibleMistakes_4)
+        self.MistakeDescription_4_1 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.MistakeDescription_4_1.setMinimumSize(QtCore.QSize(0, 100))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
-        self.TranslateString_8.setFont(font)
-        self.TranslateString_8.setStyleSheet("QTextEdit{\n"
+        self.MistakeDescription_4_1.setFont(font)
+        self.MistakeDescription_4_1.setStyleSheet("QTextEdit{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 10px;\n"
 "    }\n"
 "QTextEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.TranslateString_8.setReadOnly(True)
-        self.TranslateString_8.setObjectName("TranslateString_8")
-        self.verticalLayout_3.addWidget(self.TranslateString_8)
-        self.OriginalLabel_13 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.MistakeDescription_4_1.setReadOnly(True)
+        self.MistakeDescription_4_1.setObjectName("MistakeDescription_4_1")
+        self.verticalLayout_3.addWidget(self.MistakeDescription_4_1)
+        self.QLabel_5_AdvancedSorter = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
-        self.OriginalLabel_13.setFont(font)
-        self.OriginalLabel_13.setStyleSheet("QLabel{\n"
+        self.QLabel_5_AdvancedSorter.setFont(font)
+        self.QLabel_5_AdvancedSorter.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 25px;\n"
 "    }\n"
 "")
-        self.OriginalLabel_13.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.OriginalLabel_13.setObjectName("OriginalLabel_13")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_13)
-        self.TranslateString_9 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.TranslateString_9.setMinimumSize(QtCore.QSize(0, 100))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(9)
-        self.TranslateString_9.setFont(font)
-        self.TranslateString_9.setStyleSheet("QTextEdit{\n"
-"    background-color: transparent;\n"
-"    border: transparent;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QTextEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
-"    }\n"
-"")
-        self.TranslateString_9.setReadOnly(True)
-        self.TranslateString_9.setObjectName("TranslateString_9")
-        self.verticalLayout_3.addWidget(self.TranslateString_9)
-        self.OriginalLabel_8 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.QLabel_5_AdvancedSorter.setAlignment(QtCore.Qt.AlignCenter)
+        self.QLabel_5_AdvancedSorter.setObjectName("QLabel_5_AdvancedSorter")
+        self.verticalLayout_3.addWidget(self.QLabel_5_AdvancedSorter)
+        self.QLabel_5_1_Introduce = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
-        self.OriginalLabel_8.setFont(font)
-        self.OriginalLabel_8.setStyleSheet("QLabel{\n"
+        self.QLabel_5_1_Introduce.setFont(font)
+        self.QLabel_5_1_Introduce.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 25px;\n"
 "    }\n"
 "")
-        self.OriginalLabel_8.setAlignment(QtCore.Qt.AlignCenter)
-        self.OriginalLabel_8.setObjectName("OriginalLabel_8")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_8)
-        self.TranslateString_10 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.TranslateString_10.setMinimumSize(QtCore.QSize(0, 100))
+        self.QLabel_5_1_Introduce.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.QLabel_5_1_Introduce.setObjectName("QLabel_5_1_Introduce")
+        self.verticalLayout_3.addWidget(self.QLabel_5_1_Introduce)
+        self.Description_5_1 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.Description_5_1.setMinimumSize(QtCore.QSize(0, 170))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
-        self.TranslateString_10.setFont(font)
-        self.TranslateString_10.setStyleSheet("QTextEdit{\n"
+        self.Description_5_1.setFont(font)
+        self.Description_5_1.setStyleSheet("QTextEdit{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 10px;\n"
 "    }\n"
 "QTextEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.TranslateString_10.setReadOnly(True)
-        self.TranslateString_10.setObjectName("TranslateString_10")
-        self.verticalLayout_3.addWidget(self.TranslateString_10)
-        self.OriginalLabel_14 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_5_1.setReadOnly(True)
+        self.Description_5_1.setObjectName("Description_5_1")
+        self.verticalLayout_3.addWidget(self.Description_5_1)
+        self.QLabel_5_2_DoNotSorting = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
-        self.OriginalLabel_14.setFont(font)
-        self.OriginalLabel_14.setStyleSheet("QLabel{\n"
+        self.QLabel_5_2_DoNotSorting.setFont(font)
+        self.QLabel_5_2_DoNotSorting.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 25px;\n"
 "    }\n"
 "")
-        self.OriginalLabel_14.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.OriginalLabel_14.setObjectName("OriginalLabel_14")
-        self.verticalLayout_3.addWidget(self.OriginalLabel_14)
-        self.TranslateString_11 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.TranslateString_11.setMinimumSize(QtCore.QSize(0, 100))
+        self.QLabel_5_2_DoNotSorting.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.QLabel_5_2_DoNotSorting.setObjectName("QLabel_5_2_DoNotSorting")
+        self.verticalLayout_3.addWidget(self.QLabel_5_2_DoNotSorting)
+        self.Description_5_2 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.Description_5_2.setMinimumSize(QtCore.QSize(0, 115))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
-        self.TranslateString_11.setFont(font)
-        self.TranslateString_11.setStyleSheet("QTextEdit{\n"
+        self.Description_5_2.setFont(font)
+        self.Description_5_2.setStyleSheet("QTextEdit{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
+"    padding: 10px;\n"
 "    }\n"
 "QTextEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.TranslateString_11.setReadOnly(True)
-        self.TranslateString_11.setObjectName("TranslateString_11")
-        self.verticalLayout_3.addWidget(self.TranslateString_11)
+        self.Description_5_2.setReadOnly(True)
+        self.Description_5_2.setObjectName("Description_5_2")
+        self.verticalLayout_3.addWidget(self.Description_5_2)
+        self.PossibleMistakes_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        self.PossibleMistakes_5.setFont(font)
+        self.PossibleMistakes_5.setStyleSheet("QLineEdit{\n"
+"    background-color: transparent;\n"
+"    border: transparent;\n"
+"    color: #ffffff;\n"
+"    padding: 25px;\n"
+"    }")
+        self.PossibleMistakes_5.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.PossibleMistakes_5.setReadOnly(True)
+        self.PossibleMistakes_5.setObjectName("PossibleMistakes_5")
+        self.verticalLayout_3.addWidget(self.PossibleMistakes_5)
+        self.MistakeDescription_5_1 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.MistakeDescription_5_1.setMinimumSize(QtCore.QSize(0, 100))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.MistakeDescription_5_1.setFont(font)
+        self.MistakeDescription_5_1.setStyleSheet("QTextEdit{\n"
+"    background-color: transparent;\n"
+"    border: transparent;\n"
+"    color: #ffffff;\n"
+"    padding: 10px;\n"
+"    }\n"
+"QTextEdit:hover{\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
+"    }\n"
+"")
+        self.MistakeDescription_5_1.setReadOnly(True)
+        self.MistakeDescription_5_1.setObjectName("MistakeDescription_5_1")
+        self.verticalLayout_3.addWidget(self.MistakeDescription_5_1)
         self.verticalLayout.addLayout(self.verticalLayout_3)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.SearchLine = QtWidgets.QLineEdit(Dialog)
@@ -589,7 +680,6 @@ class Ui_Dialog(object):
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.scrollArea.raise_()
-        self.ReferenceButton.raise_()
         self.ExitButton.raise_()
         self.ReferenceLabel.raise_()
         self.SearchLine.raise_()
@@ -603,77 +693,123 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.ExitButton.setText(_translate("Dialog", "X"))
-        self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.ReferenceLabel.setText(_translate("Dialog", "Справка"))
-        self.OriginalLabel.setText(_translate("Dialog", "Процесс локализации модификаций"))
-        self.OriginalLabel_3.setText(_translate("Dialog", "1. Модификация"))
-        self.OriginalLabel_6.setText(_translate("Dialog", "1.1. Вручную"))
-        self.TranslateString.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.QLabel_1_Modification.setText(_translate("Dialog", "1. Модификация"))
+        self.QLabel_1_1_Manually.setText(_translate("Dialog", "1.1. Вручную"))
+        self.Description_1_1.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.</p></body></html>"))
-        self.OriginalLabel_5.setText(_translate("Dialog", "1.2. SteamWorkshop ID"))
-        self.TranslateString_2.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Данная функция позволяет найти в файловом менеджере необходимый файл локализации, обычно имеющий вид *mod_name*_l_english.yml</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Локализации хранятся среди файлов мода в папке localisation</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Где лежит сам мод, думаю, объяснять не требуется</p></body></html>"))
+        self.QLabel_1_2_SteamID.setText(_translate("Dialog", "1.2. SteamWorkshop ID"))
+        self.Description_1_2.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.</p></body></html>"))
-        self.OriginalLabel_9.setText(_translate("Dialog", "1.3. Коллекция (Смотри пункт 2.)"))
-        self.OriginalLabel_10.setText(_translate("Dialog", "Возможные ошибки"))
-        self.TranslateString_3.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Функция позволяет указать SteamWorkshop ID в специальном поле, чтобы сразу открыть папку localisation мода, идентификатор которого был введен</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">ID имеет следующий вид: 2185302571</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">А получить его можно, если нажать на кнопку &quot;поделиться&quot; на странице мода в мастерской Steam и скопировать цифры в конце ссылки</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Далее выбор файла аналогичен пункту 1.1</p></body></html>"))
+        self.QLabel_1_3_Collection.setText(_translate("Dialog", "1.3. Коллекция (Смотри пункт 2.)"))
+        self.PossibleMistakes_1.setText(_translate("Dialog", "Возможные ошибки"))
+        self.MistakeDescription_1_1.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Пока что ошибок не обнаружено.</p></body></html>"))
-        self.OriginalLabel_4.setText(_translate("Dialog", "2. Коллекция"))
-        self.TranslateString_4.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Пока что ошибок не обнаружено</p></body></html>"))
+        self.QLabel_2_Collection.setText(_translate("Dialog", "2. Коллекция"))
+        self.QLabel_2_1_Functional.setText(_translate("Dialog", "2.1. Функционал внутри утилиты"))
+        self.Description_2_1.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.</p></body></html>"))
-        self.OriginalLabel_11.setText(_translate("Dialog", "Возможные ошибки"))
-        self.TranslateString_5.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Окно содержит в себе основные данные о локализированных модах, такие как: </p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">        имя мода, идентификатор, имя файла и на сколько процентов завершена локализация</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Если перевод еще не завершен, есть возможность продолжить процесс с последней активной строки</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Чтобы сделать это, достаточно нажать на имя мода</p></body></html>"))
+        self.QLabel_2_2_ModCollection.setText(_translate("Dialog", "2.2. Локальный мод-сборник из локализаций"))
+        self.Description_2_2.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Пока что ошибок не обнаружено.</p></body></html>"))
-        self.OriginalLabel_2.setText(_translate("Dialog", "3. Язык интерфейса"))
-        self.TranslateString_6.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">В целом, Коллецкция - самостоятельный мод, генерируемый утилитой и расположенный в документах Stellaris, который состоит из вышеупомянутых локализаций, то есть содержит в себе все переводы из данной утилиты</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Коллекцию можно опубликовать в мастерской Steam, используя лаунчер Stellaris, как обычный мод</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Стандартным именем является &quot;Stellaris True Machine Translation Tool&quot;, но вы всегда можете его изменить, нажав кнопку &quot;Переименовать&quot;</p></body></html>"))
+        self.PossibleMistakes_2.setText(_translate("Dialog", "Возможные ошибки"))
+        self.MistakeDescription_2_1.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.</p></body></html>"))
-        self.OriginalLabel_12.setText(_translate("Dialog", "Возможные ошибки"))
-        self.TranslateString_7.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Пока что ошибок не обнаружено</p></body></html>"))
+        self.QLabel_3_InterfaceLanguage.setText(_translate("Dialog", "3. Язык интерфейса"))
+        self.Description_3.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Пока что ошибок не обнаружено.</p></body></html>"))
-        self.OriginalLabel_7.setText(_translate("Dialog", "4. Язык перевода"))
-        self.TranslateString_8.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Все просто - нажимаем на кнопочку с нужным языком и магия в деле</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">К выбору доступно 5 языков:</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Английский, Русский, Украинский, Польский и Китайский</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Просьба обращаться к разработчикам, если заметите неточности в переводе, т.к. перевод, в большинстве своем, машинный</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.PossibleMistakes_3.setText(_translate("Dialog", "Возможные ошибки"))
+        self.MistakeDescription_3_1.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.</p></body></html>"))
-        self.OriginalLabel_13.setText(_translate("Dialog", "Возможные ошибки"))
-        self.TranslateString_9.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Пока что ошибок не обнаружено</p></body></html>"))
+        self.QLabel_4_TranslationLanguage.setText(_translate("Dialog", "4. Язык перевода"))
+        self.Description_4.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Пока что ошибок не обнаружено.</p></body></html>"))
-        self.OriginalLabel_8.setText(_translate("Dialog", "5. Расширенный сортировщик модов"))
-        self.TranslateString_10.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Тут все аналогично пункту 3, только есть возможность использовать поиск</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Нужно два раза кликнуть и удалить текст поиска, затем __ на языке интерфейса __ ввести искомый язык</p></body></html>"))
+        self.PossibleMistakes_4.setText(_translate("Dialog", "Возможные ошибки"))
+        self.MistakeDescription_4_1.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.</p></body></html>"))
-        self.OriginalLabel_14.setText(_translate("Dialog", "Возможные ошибки"))
-        self.TranslateString_11.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Пока что ошибок не обнаружено</p></body></html>"))
+        self.QLabel_5_AdvancedSorter.setText(_translate("Dialog", "5. Расширенный сортировщик модов"))
+        self.QLabel_5_1_Introduce.setText(_translate("Dialog", "5.1. Введение"))
+        self.Description_5_1.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Пока что ошибок не обнаружено.</p></body></html>"))
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Эта функция начала разрабатываться еще до появления сортировки в лаунчере игры, но, все же, свое преимущество она имеет</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Довольно часто, особенно при большом количестве модов, возникает потребность изменить порядок модов не совсем по алфавиту, чтобы избежать конфликтов</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">В частности, игра принимает только первый файл с локализацией, а потому при неправильном расположении модов с списке загрузки переводы могут не работать</p></body></html>"))
+        self.QLabel_5_2_DoNotSorting.setText(_translate("Dialog", "5.2. Не сортировать"))
+        self.Description_5_2.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Важно помещать моды с локализациями в самом низу списка загрузки, при этом не хочется каждый раз двигать моды вручную, а потому в Сортировщике есть функция &quot;Не сортировать&quot;</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Если отметить мод как &quot;Не сортировать&quot; то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модицикациями, что будут сортироваться по алфавиту</p></body></html>"))
+        self.PossibleMistakes_5.setText(_translate("Dialog", "Возможные ошибки"))
+        self.MistakeDescription_5_1.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Пока что ошибок не обнаружено</p></body></html>"))
         self.SearchLine.setText(_translate("Dialog", "Поиск"))
         self.AboutToolButton.setText(_translate("Dialog", "Об утилите"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))

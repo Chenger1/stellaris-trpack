@@ -95,41 +95,6 @@ QPushButton:pressed{
     <string>X</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="ReferenceButton">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>0</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 0);
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	color: rgb(199, 199, 199);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	color: #5abe41
-	}</string>
-   </property>
-   <property name="text">
-    <string>?</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="ReferenceLabel">
    <property name="geometry">
     <rect>
@@ -224,9 +189,9 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-1456</y>
+      <y>-3199</y>
       <width>976</width>
-      <height>2681</height>
+      <height>4358</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -245,7 +210,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
         <number>150</number>
        </property>
        <item>
-        <widget class="QLabel" name="OriginalLabel">
+        <widget class="QLabel" name="QLabel_1_Modification">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -256,29 +221,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
           <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
-	}
-</string>
-         </property>
-         <property name="text">
-          <string>Процесс локализации модификаций</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="OriginalLabel_3">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
-	background-color: transparent;
-	color: #ffffff;
+	padding: 25px;
 	}
 </string>
          </property>
@@ -291,7 +234,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="OriginalLabel_6">
+        <widget class="QLabel" name="QLabel_1_1_Manually">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -302,6 +245,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
           <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
+	padding: 25px;
 	}
 </string>
          </property>
@@ -314,11 +258,11 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="TranslateString">
+        <widget class="QTextEdit" name="Description_1_1">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>100</height>
+           <height>135</height>
           </size>
          </property>
          <property name="font">
@@ -332,10 +276,11 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
+	padding: 10px;
 	}
 QTextEdit:hover{
-	background-color: rgba(56, 57, 61, 50);
-	border-radius: 15px;
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
 	}
 </string>
          </property>
@@ -347,12 +292,16 @@ QTextEdit:hover{
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Данная функция позволяет найти в файловом менеджере необходимый файл локализации, обычно имеющий вид *mod_name*_l_english.yml&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Локализации хранятся среди файлов мода в папке localisation&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Где лежит сам мод, думаю, объяснять не требуется&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="OriginalLabel_5">
+        <widget class="QLabel" name="QLabel_1_2_SteamID">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -363,6 +312,7 @@ p, li { white-space: pre-wrap; }
           <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
+	padding: 25px;
 	}
 </string>
          </property>
@@ -375,11 +325,11 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="TranslateString_2">
+        <widget class="QTextEdit" name="Description_1_2">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>100</height>
+           <height>185</height>
           </size>
          </property>
          <property name="font">
@@ -393,10 +343,11 @@ p, li { white-space: pre-wrap; }
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
+	padding: 10px;
 	}
 QTextEdit:hover{
-	background-color: rgba(56, 57, 61, 50);
-	border-radius: 15px;
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
 	}
 </string>
          </property>
@@ -408,12 +359,18 @@ QTextEdit:hover{
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Функция позволяет указать SteamWorkshop ID в специальном поле, чтобы сразу открыть папку localisation мода, идентификатор которого был введен&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;ID имеет следующий вид: 2185302571&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;А получить его можно, если нажать на кнопку &amp;quot;поделиться&amp;quot; на странице мода в мастерской Steam и скопировать цифры в конце ссылки&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Далее выбор файла аналогичен пункту 1.1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="OriginalLabel_9">
+        <widget class="QLabel" name="QLabel_1_3_Collection">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -424,6 +381,7 @@ p, li { white-space: pre-wrap; }
           <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
+	padding: 25px;
 	}
 </string>
          </property>
@@ -436,7 +394,7 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="OriginalLabel_10">
+        <widget class="QLineEdit" name="PossibleMistakes_1">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -444,11 +402,12 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QLabel{
+          <string notr="true">QLineEdit{
 	background-color: transparent;
+	border: transparent;
 	color: #ffffff;
-	}
-</string>
+	padding: 25px;
+	}</string>
          </property>
          <property name="text">
           <string>Возможные ошибки</string>
@@ -456,10 +415,13 @@ p, li { white-space: pre-wrap; }
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="TranslateString_3">
+        <widget class="QTextEdit" name="MistakeDescription_1_1">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -477,10 +439,11 @@ p, li { white-space: pre-wrap; }
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
+	padding: 10px;
 	}
 QTextEdit:hover{
-	background-color: rgba(56, 57, 61, 50);
-	border-radius: 15px;
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
 	}
 </string>
          </property>
@@ -492,12 +455,12 @@ QTextEdit:hover{
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="OriginalLabel_4">
+        <widget class="QLabel" name="QLabel_2_Collection">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -508,6 +471,7 @@ p, li { white-space: pre-wrap; }
           <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
+	padding: 25px;
 	}
 </string>
          </property>
@@ -520,45 +484,7 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="TranslateString_4">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>100</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QTextEdit{
-	background-color: transparent;
-	border: transparent;
-	color: #ffffff;
-	}
-QTextEdit:hover{
-	background-color: rgba(56, 57, 61, 50);
-	border-radius: 15px;
-	}
-</string>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="OriginalLabel_11">
+        <widget class="QLabel" name="QLabel_2_1_Functional">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -569,8 +495,145 @@ p, li { white-space: pre-wrap; }
           <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
+	padding: 25px;
 	}
 </string>
+         </property>
+         <property name="text">
+          <string>2.1. Функционал внутри утилиты</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="Description_2_1">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>135</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	padding: 10px;
+	}
+QTextEdit:hover{
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Окно содержит в себе основные данные о локализированных модах, такие как: &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;		имя мода, идентификатор, имя файла и на сколько процентов завершена локализация&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Если перевод еще не завершен, есть возможность продолжить процесс с последней активной строки&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Чтобы сделать это, достаточно нажать на имя мода&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="QLabel_2_2_ModCollection">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	padding: 25px;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>2.2. Локальный мод-сборник из локализаций</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="Description_2_2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>170</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	padding: 10px;
+	}
+QTextEdit:hover{
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;В целом, Коллецкция - самостоятельный мод, генерируемый утилитой и расположенный в документах Stellaris, который состоит из вышеупомянутых локализаций, то есть содержит в себе все переводы из данной утилиты&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Коллекцию можно опубликовать в мастерской Steam, используя лаунчер Stellaris, как обычный мод&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Стандартным именем является &amp;quot;Stellaris True Machine Translation Tool&amp;quot;, но вы всегда можете его изменить, нажав кнопку &amp;quot;Переименовать&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="PossibleMistakes_2">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	padding: 25px;
+	}</string>
          </property>
          <property name="text">
           <string>Возможные ошибки</string>
@@ -578,10 +641,13 @@ p, li { white-space: pre-wrap; }
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="TranslateString_5">
+        <widget class="QTextEdit" name="MistakeDescription_2_1">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -599,10 +665,11 @@ p, li { white-space: pre-wrap; }
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
+	padding: 10px;
 	}
 QTextEdit:hover{
-	background-color: rgba(56, 57, 61, 50);
-	border-radius: 15px;
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
 	}
 </string>
          </property>
@@ -614,12 +681,12 @@ QTextEdit:hover{
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="OriginalLabel_2">
+        <widget class="QLabel" name="QLabel_3_InterfaceLanguage">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -630,6 +697,7 @@ p, li { white-space: pre-wrap; }
           <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
+	padding: 25px;
 	}
 </string>
          </property>
@@ -642,11 +710,11 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="TranslateString_6">
+        <widget class="QTextEdit" name="Description_3">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>100</height>
+           <height>165</height>
           </size>
          </property>
          <property name="font">
@@ -660,10 +728,11 @@ p, li { white-space: pre-wrap; }
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
+	padding: 10px;
 	}
 QTextEdit:hover{
-	background-color: rgba(56, 57, 61, 50);
-	border-radius: 15px;
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
 	}
 </string>
          </property>
@@ -675,12 +744,18 @@ QTextEdit:hover{
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Все просто - нажимаем на кнопочку с нужным языком и магия в деле&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;К выбору доступно 5 языков:&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Английский, Русский, Украинский, Польский и Китайский&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Просьба обращаться к разработчикам, если заметите неточности в переводе, т.к. перевод, в большинстве своем, машинный&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="OriginalLabel_12">
+        <widget class="QLineEdit" name="PossibleMistakes_3">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -688,11 +763,12 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QLabel{
+          <string notr="true">QLineEdit{
 	background-color: transparent;
+	border: transparent;
 	color: #ffffff;
-	}
-</string>
+	padding: 25px;
+	}</string>
          </property>
          <property name="text">
           <string>Возможные ошибки</string>
@@ -700,10 +776,13 @@ p, li { white-space: pre-wrap; }
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="TranslateString_7">
+        <widget class="QTextEdit" name="MistakeDescription_3_1">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -721,10 +800,11 @@ p, li { white-space: pre-wrap; }
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
+	padding: 10px;
 	}
 QTextEdit:hover{
-	background-color: rgba(56, 57, 61, 50);
-	border-radius: 15px;
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
 	}
 </string>
          </property>
@@ -736,12 +816,12 @@ QTextEdit:hover{
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="OriginalLabel_7">
+        <widget class="QLabel" name="QLabel_4_TranslationLanguage">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -752,6 +832,7 @@ p, li { white-space: pre-wrap; }
           <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
+	padding: 25px;
 	}
 </string>
          </property>
@@ -764,11 +845,11 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="TranslateString_8">
+        <widget class="QTextEdit" name="Description_4">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>100</height>
+           <height>80</height>
           </size>
          </property>
          <property name="font">
@@ -782,10 +863,11 @@ p, li { white-space: pre-wrap; }
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
+	padding: 10px;
 	}
 QTextEdit:hover{
-	background-color: rgba(56, 57, 61, 50);
-	border-radius: 15px;
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
 	}
 </string>
          </property>
@@ -797,12 +879,14 @@ QTextEdit:hover{
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Тут все аналогично пункту 3, только есть возможность использовать поиск&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Нужно два раза кликнуть и удалить текст поиска, затем __ на языке интерфейса __ ввести искомый язык&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="OriginalLabel_13">
+        <widget class="QLineEdit" name="PossibleMistakes_4">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -810,11 +894,12 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QLabel{
+          <string notr="true">QLineEdit{
 	background-color: transparent;
+	border: transparent;
 	color: #ffffff;
-	}
-</string>
+	padding: 25px;
+	}</string>
          </property>
          <property name="text">
           <string>Возможные ошибки</string>
@@ -822,10 +907,13 @@ p, li { white-space: pre-wrap; }
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="TranslateString_9">
+        <widget class="QTextEdit" name="MistakeDescription_4_1">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -843,10 +931,11 @@ p, li { white-space: pre-wrap; }
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
+	padding: 10px;
 	}
 QTextEdit:hover{
-	background-color: rgba(56, 57, 61, 50);
-	border-radius: 15px;
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
 	}
 </string>
          </property>
@@ -858,12 +947,12 @@ QTextEdit:hover{
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="OriginalLabel_8">
+        <widget class="QLabel" name="QLabel_5_AdvancedSorter">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -874,6 +963,7 @@ p, li { white-space: pre-wrap; }
           <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
+	padding: 25px;
 	}
 </string>
          </property>
@@ -886,45 +976,7 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="TranslateString_10">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>100</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QTextEdit{
-	background-color: transparent;
-	border: transparent;
-	color: #ffffff;
-	}
-QTextEdit:hover{
-	background-color: rgba(56, 57, 61, 50);
-	border-radius: 15px;
-	}
-</string>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="OriginalLabel_14">
+        <widget class="QLabel" name="QLabel_5_1_Introduce">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -935,8 +987,141 @@ p, li { white-space: pre-wrap; }
           <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
+	padding: 25px;
 	}
 </string>
+         </property>
+         <property name="text">
+          <string>5.1. Введение</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="Description_5_1">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>170</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	padding: 10px;
+	}
+QTextEdit:hover{
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Эта функция начала разрабатываться еще до появления сортировки в лаунчере игры, но, все же, свое преимущество она имеет&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Довольно часто, особенно при большом количестве модов, возникает потребность изменить порядок модов не совсем по алфавиту, чтобы избежать конфликтов&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;В частности, игра принимает только первый файл с локализацией, а потому при неправильном расположении модов с списке загрузки переводы могут не работать&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="QLabel_5_2_DoNotSorting">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	padding: 25px;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>5.2. Не сортировать</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="Description_5_2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>115</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	padding: 10px;
+	}
+QTextEdit:hover{
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Важно помещать моды с локализациями в самом низу списка загрузки, при этом не хочется каждый раз двигать моды вручную, а потому в Сортировщике есть функция &amp;quot;Не сортировать&amp;quot;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Если отметить мод как &amp;quot;Не сортировать&amp;quot; то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модицикациями, что будут сортироваться по алфавиту&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="PossibleMistakes_5">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	padding: 25px;
+	}</string>
          </property>
          <property name="text">
           <string>Возможные ошибки</string>
@@ -944,10 +1129,13 @@ p, li { white-space: pre-wrap; }
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="TranslateString_11">
+        <widget class="QTextEdit" name="MistakeDescription_5_1">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -965,10 +1153,11 @@ p, li { white-space: pre-wrap; }
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
+	padding: 10px;
 	}
 QTextEdit:hover{
-	background-color: rgba(56, 57, 61, 50);
-	border-radius: 15px;
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
 	}
 </string>
          </property>
@@ -980,7 +1169,7 @@ QTextEdit:hover{
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -1129,7 +1318,6 @@ QPushButton:pressed{
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>scrollArea</zorder>
-  <zorder>ReferenceButton</zorder>
   <zorder>ExitButton</zorder>
   <zorder>ReferenceLabel</zorder>
   <zorder>SearchLine</zorder>
