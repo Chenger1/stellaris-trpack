@@ -45,6 +45,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.ReverseSortingButton.clicked.connect(self.reversing)
         self.WindowMoveButton.installEventFilter(self)
         self.PlaysetsList.activated[str].connect(self.update_mod_list)
+        self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_5_AdvancedSorter'))
 
     def reversing(self):
         self.ReverseSortingButton.setChecked(self.ReverseSortingButton.isChecked())
