@@ -52,9 +52,9 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         self.buttons = {
             'EnglishButton': [self.EnglishButton, 'en'],
             'RussianButton': [self.RussianButton, 'ru'],
+            'UkrainianButton': [self.UkrainianButton, 'uk'],
             'PolishButton': [self.PolishButton, 'pl'],
             'ChineseButton': [self.ChineseButton, 'zh-cn'],
-            'UkrainianButton': [self.UkrainianButton, 'uk'],
             'ArabicButton': [self.ArabicButton, 'ar'],
             'ArmenianButton': [self.ArmenianButton, 'hy'],
             'AzerbaijaniButton': [self.AzerbaijaniButton, 'az'],
