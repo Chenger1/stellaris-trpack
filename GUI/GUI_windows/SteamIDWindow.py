@@ -17,6 +17,7 @@ class SteamIDWindow(QtWidgets.QDialog, SteamID.Ui_Dialog):
     def init_handlers(self):
         self.AcceptButton.clicked.connect(self.get_steam_id)
         self.ExitButton.clicked.connect(self.close)
+        self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_1_2_SteamID'))
 
     def accept_file(self):
         self.parent.close()

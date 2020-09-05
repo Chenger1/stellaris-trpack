@@ -19,6 +19,7 @@ class AcceptWindow(QtWidgets.QDialog, Accept.Ui_Dialog):
         self.ExitButton.clicked.connect(self.close)
         self.AcceptButton.clicked.connect(accept_func)
         self.DeniedButton.clicked.connect(denied_func or self.close)
+        self.ReferenceButton.clicked.connect(lambda: self.parent.parent.parent.reference_window('QLabel_2_1_Functional'))
         self.WindowMoveButton.installEventFilter(self)
 
     def eventFilter(self, source, event):

@@ -22,6 +22,7 @@ class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
         self.SteamButton.clicked.connect(self.show_steam_id_window)
         self.CollectionButton.clicked.connect(self.show_collection_window)
         self.ExitButton.clicked.connect(self.close)
+        self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_1_1_Manually'))
         self.WindowMoveButton.installEventFilter(self)
 
     def choose_file(self, f_path):

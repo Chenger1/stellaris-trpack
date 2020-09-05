@@ -25,6 +25,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
+        self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_Collection'))
         self.WindowMoveButton.installEventFilter(self)
 
     def open_accept_window(self, elem):

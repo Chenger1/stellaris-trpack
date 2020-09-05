@@ -19,6 +19,7 @@ class UnfinishedTranslateWindow(QtWidgets.QDialog, UnfinishedTranslate.Ui_Dialog
         self.ExitButton.clicked.connect(self.close)
         self.DeniedButton.clicked.connect(self.close)
         self.AcceptButton.clicked.connect(self.save_translation_state)
+        self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_2_1_Functional'))
         self.WindowMoveButton.installEventFilter(self)
 
     def save_translation_state(self):

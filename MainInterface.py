@@ -53,7 +53,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.FileSelectionButton.clicked.connect(self.show_choose_file_window)
         self.TranslationLanguageButton.clicked.connect(self.translation_language_window)
         self.ToolLanguageButton.clicked.connect(self.tool_language_window)
-        self.ReferenceButton.clicked.connect(self.reference_window)
+        self.ReferenceButton.clicked.connect(lambda: self.reference_window())
         self.NextStringButton.clicked.connect(self.pointer_inc)
         self.PreviousString.clicked.connect(self.pointer_red)
         self.ExitButton.clicked.connect(self.close)
@@ -97,8 +97,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         tool_language_window = ToolLanguageWindow(self)
         tool_language_window.show()
 
-    def reference_window(self):
-        reference_window = ReferenceWindow(self)
+    def reference_window(self, to_scroll='QLabel_1_Modification'):
+        reference_window = ReferenceWindow(self, to_scroll)
         reference_window.show()
 
     def show_unfinished_translation_window(self):
