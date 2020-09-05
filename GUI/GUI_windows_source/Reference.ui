@@ -224,9 +224,9 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-142</y>
+      <y>-1456</y>
       <width>976</width>
-      <height>738</height>
+      <height>2681</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -249,7 +249,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
+           <pointsize>12</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -272,7 +272,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
+           <pointsize>12</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -295,7 +295,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -309,7 +309,45 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
           <string>1.1. Вручную</string>
          </property>
          <property name="alignment">
-          <set>Qt::AlignCenter</set>
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="TranslateString">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: rgba(56, 57, 61, 50);
+	border-radius: 15px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -318,7 +356,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -332,16 +370,54 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
           <string>1.2. SteamWorkshop ID</string>
          </property>
          <property name="alignment">
-          <set>Qt::AlignCenter</set>
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="OriginalLabel_4">
+        <widget class="QTextEdit" name="TranslateString_2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
            <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: rgba(56, 57, 61, 50);
+	border-radius: 15px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_9">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>11</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -352,10 +428,193 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
 </string>
          </property>
          <property name="text">
-          <string>2. Язык перевода</string>
+          <string>1.3. Коллекция (Смотри пункт 2.)</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_10">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>Возможные ошибки</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="TranslateString_3">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: rgba(56, 57, 61, 50);
+	border-radius: 15px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_4">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>2. Коллекция</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="TranslateString_4">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: rgba(56, 57, 61, 50);
+	border-radius: 15px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_11">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>Возможные ошибки</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="TranslateString_5">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: rgba(56, 57, 61, 50);
+	border-radius: 15px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -364,7 +623,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
+           <pointsize>12</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -383,11 +642,49 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="OriginalLabel_7">
+        <widget class="QTextEdit" name="TranslateString_6">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
            <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: rgba(56, 57, 61, 50);
+	border-radius: 15px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_12">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>11</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -398,10 +695,170 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
 </string>
          </property>
          <property name="text">
-          <string>4. Коллекция</string>
+          <string>Возможные ошибки</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="TranslateString_7">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: rgba(56, 57, 61, 50);
+	border-radius: 15px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_7">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>4. Язык перевода</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="TranslateString_8">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: rgba(56, 57, 61, 50);
+	border-radius: 15px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_13">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>Возможные ошибки</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="TranslateString_9">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: rgba(56, 57, 61, 50);
+	border-radius: 15px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -410,7 +867,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -425,6 +882,105 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="TranslateString_10">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: rgba(56, 57, 61, 50);
+	border-radius: 15px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Следует отметить, что внедрение современных методик предопределяет высокую востребованность системы массового участия. Предварительные выводы неутешительны: современная методология разработки обеспечивает широкому кругу (специалистов) участие в формировании укрепления моральных ценностей. Следует отметить, что понимание сути ресурсосберегающих технологий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса первоочередных требований.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OriginalLabel_14">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>Возможные ошибки</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="TranslateString_11">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	}
+QTextEdit:hover{
+	background-color: rgba(56, 57, 61, 50);
+	border-radius: 15px;
+	}
+</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пока что ошибок не обнаружено.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>

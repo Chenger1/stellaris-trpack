@@ -40,7 +40,6 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         self.NorwegianButton = QtWidgets.QPushButton('Норвежский')
         self.PolishButton = QtWidgets.QPushButton('Польский')
         self.PortugueseButton = QtWidgets.QPushButton('Португальский')
-        self.RomanianButton = QtWidgets.QPushButton('Румынский')
         self.RussianButton = QtWidgets.QPushButton('Русский')
         self.SlovakButton = QtWidgets.QPushButton('Словацкий')
         self.SlovenianButton = QtWidgets.QPushButton('Словенский')
@@ -85,10 +84,6 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         self.generator = copy.copy(self.buttons)
         self.set_active()
         self.init_handlers()
-
-    def set_object_name(self):
-        for button in self.buttons:
-            self.buttons[button][0].setObjectName(button)
 
     @staticmethod
     def set_inactive(button):
@@ -139,7 +134,6 @@ QPushButton:pressed{
                 self.generator[button][0].setFont(QtGui.QFont("KB Astrolyte", 9))
             else:
                 self.set_inactive(self.buttons[button][0])
-        self.set_object_name()
         self.gen()
 
     def gen(self):
