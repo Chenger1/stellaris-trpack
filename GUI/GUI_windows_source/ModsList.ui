@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>650</width>
-    <height>380</height>
+    <width>900</width>
+    <height>580</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>650</width>
-    <height>380</height>
+    <width>900</width>
+    <height>580</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>650</width>
-    <height>380</height>
+    <width>900</width>
+    <height>580</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -34,14 +34,14 @@
     <rect>
      <x>0</x>
      <y>-10</y>
-     <width>687</width>
-     <height>387</height>
+     <width>900</width>
+     <height>610</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>687</width>
-     <height>387</height>
+     <width>900</width>
+     <height>610</height>
     </size>
    </property>
    <property name="maximumSize">
@@ -58,76 +58,6 @@
    </property>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="ExitButton">
-   <property name="geometry">
-    <rect>
-     <x>620</x>
-     <y>0</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat</family>
-     <pointsize>9</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 10);
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	color: rgb(199, 199, 199);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	color: rgb(255, 60, 63)
-	}</string>
-   </property>
-   <property name="text">
-    <string>X</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="RollUpButton">
-   <property name="geometry">
-    <rect>
-     <x>600</x>
-     <y>0</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 10);
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	color: rgb(199, 199, 199);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	color: #5abe41
-	}</string>
-   </property>
-   <property name="text">
-    <string>_</string>
    </property>
   </widget>
   <widget class="QPushButton" name="ReferenceButton">
@@ -170,7 +100,7 @@ QPushButton:pressed{
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>431</width>
+     <width>491</width>
      <height>61</height>
     </rect>
    </property>
@@ -198,8 +128,8 @@ color: #ffffff;</string>
     <rect>
      <x>10</x>
      <y>90</y>
-     <width>631</width>
-     <height>231</height>
+     <width>880</width>
+     <height>410</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -207,6 +137,18 @@ color: #ffffff;</string>
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>880</width>
+     <height>410</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>880</width>
+     <height>410</height>
+    </size>
    </property>
    <property name="focusPolicy">
     <enum>Qt::NoFocus</enum>
@@ -260,8 +202,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>626</width>
-      <height>231</height>
+      <width>875</width>
+      <height>410</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -293,21 +235,21 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
   <widget class="QFrame" name="BottomShadowFrame">
    <property name="geometry">
     <rect>
-     <x>-20</x>
-     <y>300</y>
-     <width>687</width>
+     <x>0</x>
+     <y>481</y>
+     <width>900</width>
      <height>100</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>687</width>
+     <width>900</width>
      <height>100</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>687</width>
+     <width>900</width>
      <height>100</height>
     </size>
    </property>
@@ -356,8 +298,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
   <widget class="QPushButton" name="SortButton">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>320</y>
+     <x>70</x>
+     <y>510</y>
      <width>181</width>
      <height>41</height>
     </rect>
@@ -372,19 +314,18 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	background-color: #5abe41;
-	border: 3px solid #5abe41;
-	border-radius: 20px;
-	color: #1f2533;
+    background-color: #05B8CC;
+    border: 2px solid #05B8CC;
+    border-radius: 20px;
+    color: #1f2533;
 	}
 QPushButton:hover{
-	background-color: #438e30;
-	border: #438e30;
-	color: #ffffff;
-	}
+    background-color: #31858f;
+    border: #31858f;
+    color: #ffffff;	}
 QPushButton:pressed{
-	background-color: #c2c2c2;
-	color: #1f2533;
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
 	}</string>
    </property>
    <property name="text">
@@ -394,77 +335,43 @@ QPushButton:pressed{
   <widget class="QComboBox" name="PlaysetsList">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>540</x>
      <y>40</y>
-     <width>183</width>
+     <width>281</width>
      <height>22</height>
     </rect>
    </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
    <property name="styleSheet">
-    <string notr="true">QComboBox {
-    border: 1px solid gray;
-    border-radius: 3px;
-    padding: 1px 18px 1px 3px;
-    min-width: 6em;
+    <string notr="true"> QComboBox {
+	color: white;
+    background: transparent;
 }
 
-QComboBox:editable {
-    background: white;
-}
-
-QComboBox:!editable, QComboBox::drop-down:editable {
-     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
-                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
-}
-
-/* QComboBox gets the &quot;on&quot; state when the popup is open */
-QComboBox:!editable:on, QComboBox::drop-down:editable:on {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,
-                                stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);
-}
-
-QComboBox:on { /* shift the text when the popup opens */
-    padding-top: 3px;
-    padding-left: 4px;
-}
-
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 15px;
-
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid; /* just a single line */
-    border-top-right-radius: 3px; /* same radius as the QComboBox */
-    border-bottom-right-radius: 3px;
-}
-
-QComboBox::down-arrow {
-    image: url(/usr/share/icons/crystalsvg/16x16/actions/1downarrow.png);
-}
-
-QComboBox::down-arrow:on { /* shift the arrow when popup is open */
-    top: 1px;
-    left: 1px;
+ QListView {
+	background: transparent;
+	color: white;
 }</string>
+   </property>
+   <property name="editable">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="ActivationSwticherButton">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>320</y>
-     <width>181</width>
-     <height>41</height>
+     <x>450</x>
+     <y>520</y>
+     <width>171</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>KB Astrolyte</family>
-     <pointsize>11</pointsize>
+     <pointsize>10</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -473,7 +380,7 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
     <string notr="true">QPushButton{
 	background-color: #5abe41;
 	border: 3px solid #5abe41;
-	border-radius: 20px;
+	border-radius: 15px;
 	color: #1f2533;
 	}
 QPushButton:hover{
@@ -487,22 +394,22 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>Вкл. все моды</string>
+    <string>Активировать</string>
    </property>
   </widget>
   <widget class="QPushButton" name="ReverseSortingButton">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>320</y>
+     <x>30</x>
+     <y>40</y>
      <width>91</width>
-     <height>41</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>KB Astrolyte</family>
-     <pointsize>11</pointsize>
+     <pointsize>10</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -511,7 +418,7 @@ QPushButton:pressed{
     <string notr="true">QPushButton{
 	background-color: #5abe41;
 	border: 3px solid #5abe41;
-	border-radius: 20px;
+	border-radius: 10px;
 	color: #1f2533;
 	}
 QPushButton:hover{
@@ -528,18 +435,127 @@ QPushButton:pressed{
     <string>A-Z</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="ResetButton">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>520</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: #5abe41;
+	border: 3px solid #5abe41;
+	border-radius: 15px;
+	color: #1f2533;
+	}
+QPushButton:hover{
+	background-color: #438e30;
+	border: #438e30;
+	color: #ffffff;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	color: #1f2533;
+	}</string>
+   </property>
+   <property name="text">
+    <string>Сбросить</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RollUpButton">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>0</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 10);
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	color: rgb(199, 199, 199);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	color: #5abe41
+	}</string>
+   </property>
+   <property name="text">
+    <string>_</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ExitButton">
+   <property name="geometry">
+    <rect>
+     <x>870</x>
+     <y>0</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>9</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 10);
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: rgba(56, 57, 61, 50);
+	color: rgb(199, 199, 199);
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	color: rgb(255, 60, 63)
+	}</string>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>LandingArea</zorder>
   <zorder>ReferenceButton</zorder>
-  <zorder>RollUpButton</zorder>
-  <zorder>ExitButton</zorder>
   <zorder>ModListLabel</zorder>
   <zorder>BottomShadowFrame</zorder>
   <zorder>SortButton</zorder>
   <zorder>PlaysetsList</zorder>
   <zorder>ActivationSwticherButton</zorder>
   <zorder>ReverseSortingButton</zorder>
+  <zorder>ResetButton</zorder>
+  <zorder>RollUpButton</zorder>
+  <zorder>ExitButton</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>
