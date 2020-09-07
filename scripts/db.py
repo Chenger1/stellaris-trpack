@@ -36,7 +36,7 @@ def get_mods_from_playset(request, playset_id):
     return data
 
 
-def get_info_from_db(request, count=1):
+def get_info_from_db(request, count=0):
     with sqlite3.connect(f'{paradox_folder}\\launcher-v2.sqlite') as conn:
         cur = conn.cursor()
         row_data = cur.execute(queries[request])
