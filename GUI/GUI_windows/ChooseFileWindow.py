@@ -51,7 +51,7 @@ class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
         self.close()
 
     def get_mods_folder_path(self):
-        raw_path = get_info_from_db('get_path_to_mods')[0]
+        raw_path = get_info_from_db('get_path_to_mods', 1)[0]
         if 'SteamLibrary' not in raw_path:
             self.parent.show_system_message('error', 'Не найдено установленных модов для Stellaris')
         try:
