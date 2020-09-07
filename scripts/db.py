@@ -7,7 +7,8 @@ queries = {
     'get_playset_list': f'SELECT id, name, isActive FROM playsets',
     'get_mods_from_playset': f'SELECT modId, enabled, position FROM playsets_mods WHERE playsetId=?',
     'get_mods_data_from_playset': f'SELECT steamId, gameRegistryId, displayName FROM mods WHERE id=? ',
-    'write_data': f'UPDATE playsets_mods SET enabled=?, position=? WHERE modId=? AND playsetId=?'
+    'write_data': f'UPDATE playsets_mods SET enabled=?, position=? WHERE modId=? AND playsetId=?',
+    'get_path_to_mods': f'SELECT dirPath FROM mods',
 }
 
 
@@ -35,11 +36,14 @@ def get_mods_from_playset(request, playset_id):
     return data
 
 
-def get_info_from_db(request):
+def get_info_from_db(request, count=1):
     with sqlite3.connect(f'{paradox_folder}\\launcher-v2.sqlite') as conn:
         cur = conn.cursor()
         row_data = cur.execute(queries[request])
-        data = row_data.fetchall()
+        if count == 0:
+            data = row_data.fetchall()
+        elif count == 1:
+            data = row_data.fetchone()
     return data
 
 
