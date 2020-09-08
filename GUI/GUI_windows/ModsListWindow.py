@@ -69,7 +69,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             mod.sortRequired = True
             checkbox[1].setChecked(True)
 
-    def update_mod_list(self, text):
+    def update_mod_list(self):
         self.modList, self.dlc_load, \
         self.game_data, self.playset = prep_data(self.settingPaths[0], (self.PlaysetsList.currentData(),
                                                  self.playsets[self.PlaysetsList.currentData()]))
@@ -101,7 +101,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             self.parent.show_system_message(status[0], status[1])
         except FileNotFoundError as error:
             self.parent.show_system_message('error', error.args[0])
-        self.close()
+        self.update_mod_list()
 
     def clear_grid_layout(self):
         for elem in reversed(range(self.gridLayout.count())):
@@ -116,7 +116,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             checkbox2 = QtWidgets.QCheckBox()
             checkbox2.setChecked(elem.sortRequired)
             label.setStyleSheet('color:white')
-            label.setFont(QtGui.QFont("Arkhip", 10))
+            label.setFont(QtGui.QFont("Arkhip", 9))
             label.setWordWrap(True)
             checkbox1.setStyleSheet("""
                                     QCheckBox{
