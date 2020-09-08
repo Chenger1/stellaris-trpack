@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 
 from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
@@ -14,6 +14,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         super().__init__(parent)
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
+        self.PlaysetsList.view().parentWidget().setStyleSheet("background: #05B8CC;")
         self.setModal(True)
         self.parent = parent
         self.oldPos = self.pos()
@@ -51,31 +52,44 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         for index, elem in enumerate(self.collection):
             grid.setSpacing(10)
             self.buttons[f'{elem}'] = QtWidgets.QPushButton(f'{index + 1}: {self.collection[elem]["name"]}')
-            steam_id = QtWidgets.QLabel(elem)
+            # steam_id = QtWidgets.QLabel(elem)
             file_name = QtWidgets.QLineEdit(self.collection[elem]['file_name'])
             status = QtWidgets.QProgressBar()
             self.buttons[f'{elem}'].setStyleSheet("""
             QPushButton{
             background-color: transparent;
             min-height: 40px;
-            max-width: 200px;
+            max-width: 400px;
             color: #ffffff;
+            text-align: left;            
+            }
+            QPushButton::hover {
+            color: #05B8CC;
+            }
+            QPushButton::pressed {
+            color: rgba(194, 194, 194, 50);
             }
             """)
+            self.buttons[f'{elem}'].setFont(QtGui.QFont("Arkhip", 9))
             self.buttons[f'{elem}'].clicked.connect(partial(self.open_accept_window, elem))
-            steam_id.setStyleSheet('color:white')
+            # steam_id.setStyleSheet('color:white')
             file_name.setStyleSheet("""
-            QLineEdit{           
+            QLineEdit{
             background-color: transparent;
             border: transparent;
-            max-width: 130px;
+            max-width: 245px;
             color: #ffffff;
+            text-align: left;            
             }
             QLineEdit:hover{
-            background-color: transparent;
+            color: #05B8CC;
             }
+            # QLineEdit::pressed {
+            # color: rgba(194, 194, 194, 50);
+            # }
             """)
-            status.setFormat("%p% ")
+            file_name.setFont(QtGui.QFont("Arkhip", 9))
+            status.setFormat("%p%   ")
             status.setValue(self.collection[elem]['tr_status'])
             if status.value() != 100:
                 status.setInvertedAppearance(True)
@@ -88,7 +102,8 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                 font-family: "KB Astrolyte";
                 text-align: right;
                 max-height: 20px;
-                max-width: 110px;
+                max-width: 125;
+                margin-right: 10px;
                 }
                 QProgressBar::chunk {
                 background-color: #05B8CC;
@@ -104,14 +119,15 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                 font-family: "KB Astrolyte";
                 text-align: right;
                 max-height: 20px;
-                max-width: 110px;
+                max-width: 125;
+                margin-right: 10px;
                 }
                 QProgressBar::chunk {
                 background-color: #5abe41;
                 border-radius :10px;
                 }      """)
             grid.addWidget(self.buttons[f'{elem}'], index + 1, 3, 1, 4)
-            grid.addWidget(steam_id, index + 1, 5)
+            # grid.addWidget(steam_id, index + 1, 5)
             grid.addWidget(file_name, index + 1, 6)
             grid.addWidget(status, index + 1, 7)
 
