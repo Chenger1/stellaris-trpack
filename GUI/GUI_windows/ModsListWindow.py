@@ -46,6 +46,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.WindowMoveButton.installEventFilter(self)
         self.PlaysetsList.activated[str].connect(self.update_mod_list)
         self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_5_AdvancedSorter'))
+        self.ResetButton.clicked.connect(self.reset_sorting_requiring)
 
     def reversing(self):
         self.ReverseSortingButton.setChecked(self.ReverseSortingButton.isChecked())
@@ -61,6 +62,11 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             checkbox[0].setChecked(self.ActivationSwticherButton.isChecked())
         self.switch[self.ActivationSwticherButton.isChecked()]['act_switcher']()
         self.ActivationSwticherButton.setChecked(self.ActivationSwticherButton.isChecked())
+
+    def reset_sorting_requiring(self):
+        for checkbox, mod in zip(self.checkboxes, self.modList):
+            mod.sortRequired = True
+            checkbox[1].setChecked(True)
 
     def update_mod_list(self, text):
         self.modList, self.dlc_load, \
