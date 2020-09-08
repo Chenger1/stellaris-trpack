@@ -9,6 +9,7 @@ queries = {
     'get_mods_data_from_playset': f'SELECT steamId, gameRegistryId, displayName FROM mods WHERE id=? ',
     'write_data': f'UPDATE playsets_mods SET enabled=?, position=? WHERE modId=? AND playsetId=?',
     'get_path_to_mods': f'SELECT dirPath FROM mods',
+    'get_mod_path': f'SELECT dirPath FROM mods WHERE displayName=?'
 }
 
 

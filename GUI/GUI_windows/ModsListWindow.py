@@ -3,7 +3,10 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from GUI.GUI_windows_source import ModsList
 
 from scripts.mods_sorting import set_settings, prep_data, sorting
-from scripts.db import get_info_from_db
+from scripts.db import get_info_from_db, get_mods_from_playset
+from scripts.utils import get_mod_id
+
+from functools import partial
 
 
 class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
@@ -35,6 +38,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.switch[self.ActivationSwticherButton.isChecked()]['act_switcher']()
         self.switch[self.ReverseSortingButton.isChecked()]['reversing']()
         self.grid = self.gridLayout
+        self.buttons = {}
         self.paint_elements()
 
     def init_handlers(self):
@@ -107,21 +111,45 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         for elem in reversed(range(self.gridLayout.count())):
             self.grid.itemAt(elem).widget().setParent(None)
 
+    def open_mod(self, name):
+        mod_loc = get_mods_from_playset('get_mod_path', name)[0][0]
+        f_path = QtWidgets.QFileDialog.getOpenFileName(directory=mod_loc)[0]
+        if f_path:
+            try:
+                mod_id = get_mod_id(f_path)
+                self.parent.ModIDLine.setText(mod_id)
+                self.close()
+            except IndexError:
+                self.parent.show_system_message('error', 'Вы выбрали не тот файл')
+
     def paint_elements(self):
         for index, elem in enumerate(self.modList):
             self.grid.setSpacing(10)
-            label = QtWidgets.QLabel(str(elem.name))
+            self.buttons[f'{elem.name}'] = QtWidgets.QPushButton(f'{elem.name}')
             checkbox1 = QtWidgets.QCheckBox()
             checkbox1.setChecked(elem.isEnabled)
             checkbox2 = QtWidgets.QCheckBox()
             checkbox2.setChecked(elem.sortRequired)
-            label.setStyleSheet('color:white')
-            label.setFont(QtGui.QFont("Arkhip", 9))
-            label.setWordWrap(True)
+            self.buttons[f'{elem.name}'].setStyleSheet("""
+                                    QPushButton{
+                                                background-color: transparent;
+                                                min-height: 40px;
+                                                max-width: 400px;
+                                                color: #ffffff;
+                                                text-align: left;            
+                                    }
+                                    QPushButton::hover {
+                                                color: #05B8CC;
+                                    }
+                                    QPushButton::pressed {
+                                                color: rgba(194, 194, 194, 50);
+                                    }
+            """)
+            self.buttons[f'{elem.name}'].setFont(QtGui.QFont("Arkhip", 9))
             checkbox1.setStyleSheet("""
                                     QCheckBox{
                                                 color:white;
-                                                margin-left: 60px;
+                                                margin-left: 30px;
                                              }
                                     QCheckBox:indicator:unchecked{
                                             image: url(:/icons/icons/pass.png)
@@ -142,7 +170,8 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                                             image: url(:/icons/icons/sorting.png)
                                     }
                                     """)
-            self.grid.addWidget(label, index+1, 0, 1, 5)
+            self.buttons[f'{elem.name}'].clicked.connect(partial(self.open_mod, elem.name))
+            self.grid.addWidget(self.buttons[f'{elem.name}'], index+1, 0, 1, 5)
             self.grid.addWidget(checkbox1, index+1, 6)
             self.grid.addWidget(checkbox2, index+1, 7)
             self.checkboxes.append((checkbox1, checkbox2))
