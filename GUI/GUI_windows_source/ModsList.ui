@@ -95,19 +95,19 @@ QPushButton:pressed{
     <string>?</string>
    </property>
   </widget>
-  <widget class="QLabel" name="ModListLabel">
+  <widget class="QLabel" name="ModNameLabel">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
-     <width>491</width>
-     <height>61</height>
+     <y>81</y>
+     <width>241</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>KB Astrolyte</family>
-     <pointsize>14</pointsize>
+     <pointsize>10</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -117,7 +117,7 @@ QPushButton:pressed{
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Список модов</string>
+    <string>Название мода</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -127,9 +127,9 @@ color: #ffffff;</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
+     <y>101</y>
      <width>880</width>
-     <height>410</height>
+     <height>391</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -141,13 +141,13 @@ color: #ffffff;</string>
    <property name="minimumSize">
     <size>
      <width>880</width>
-     <height>410</height>
+     <height>360</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>880</width>
-     <height>410</height>
+     <height>400</height>
     </size>
    </property>
    <property name="focusPolicy">
@@ -203,7 +203,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
       <x>0</x>
       <y>0</y>
       <width>875</width>
-      <height>410</height>
+      <height>391</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -372,59 +372,6 @@ QPushButton:pressed{
    <property name="editable">
     <bool>false</bool>
    </property>
-   <item>
-    <property name="text">
-     <string>Основной</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Мультиплеер</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Для отладки</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QPushButton" name="ActivationSwticherButton">
-   <property name="geometry">
-    <rect>
-     <x>450</x>
-     <y>520</y>
-     <width>171</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	background-color: #5abe41;
-	border: 3px solid #5abe41;
-	border-radius: 15px;
-	color: #1f2533;
-	}
-QPushButton:hover{
-	background-color: #438e30;
-	border: #438e30;
-	color: #ffffff;
-	}
-QPushButton:pressed{
-	background-color: #c2c2c2;
-	color: #1f2533;
-	}</string>
-   </property>
-   <property name="text">
-    <string>Активировать</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="ReverseSortingButton">
    <property name="geometry">
@@ -467,9 +414,9 @@ QPushButton:pressed{
   <widget class="QPushButton" name="ResetButton">
    <property name="geometry">
     <rect>
-     <x>680</x>
+     <x>760</x>
      <y>520</y>
-     <width>131</width>
+     <width>111</width>
      <height>31</height>
     </rect>
    </property>
@@ -483,58 +430,22 @@ QPushButton:pressed{
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	background-color: #5abe41;
-	border: 3px solid #5abe41;
-	border-radius: 15px;
-	color: #1f2533;
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+    border-radius: 15px;
+    color: #ffffff;
 	}
 QPushButton:hover{
-	background-color: #438e30;
-	border: #438e30;
-	color: #ffffff;
-	}
+    background-color: #31858f;
+    border: #31858f;
+    color: #ffffff;	}
 QPushButton:pressed{
-	background-color: #c2c2c2;
-	color: #1f2533;
-	}</string>
+    background-color: #05B8CC;
+    border: 2px solid #05B8CC;
+	}r</string>
    </property>
    <property name="text">
     <string>Сбросить</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="RollUpButton">
-   <property name="geometry">
-    <rect>
-     <x>850</x>
-     <y>0</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 10);
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	color: rgb(199, 199, 199);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	color: #5abe41
-	}</string>
-   </property>
-   <property name="text">
-    <string>_</string>
    </property>
   </widget>
   <widget class="QPushButton" name="ExitButton">
@@ -572,19 +483,114 @@ QPushButton:pressed{
     <string>X</string>
    </property>
   </widget>
+  <widget class="QLabel" name="ModListLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>491</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: none;
+color: #ffffff;</string>
+   </property>
+   <property name="text">
+    <string>Список модов</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ActivateSortLabel">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>81</y>
+     <width>251</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: none;
+color: #ffffff;</string>
+   </property>
+   <property name="text">
+    <string>Активация и сортировка</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ActivationSwticherButton">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>520</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color: #5abe41;
+	border: 3px solid #5abe41;
+	border-radius: 15px;
+	color: #1f2533;
+	}
+QPushButton:hover{
+	background-color: #438e30;
+	border: #438e30;
+	color: #ffffff;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	color: #1f2533;
+	}</string>
+   </property>
+   <property name="text">
+    <string>Активировать</string>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>LandingArea</zorder>
   <zorder>ReferenceButton</zorder>
-  <zorder>ModListLabel</zorder>
+  <zorder>ModNameLabel</zorder>
   <zorder>BottomShadowFrame</zorder>
   <zorder>SortButton</zorder>
   <zorder>PlaysetsList</zorder>
+  <zorder>ResetButton</zorder>
+  <zorder>ExitButton</zorder>
+  <zorder>ModListLabel</zorder>
+  <zorder>ActivateSortLabel</zorder>
   <zorder>ActivationSwticherButton</zorder>
   <zorder>ReverseSortingButton</zorder>
-  <zorder>ResetButton</zorder>
-  <zorder>RollUpButton</zorder>
-  <zorder>ExitButton</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

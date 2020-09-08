@@ -49,27 +49,27 @@ class Ui_Dialog(object):
 "    color: #5abe41\n"
 "    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
-        self.ModListLabel = QtWidgets.QLabel(Dialog)
-        self.ModListLabel.setGeometry(QtCore.QRect(20, 20, 491, 61))
+        self.ModNameLabel = QtWidgets.QLabel(Dialog)
+        self.ModNameLabel.setGeometry(QtCore.QRect(20, 81, 241, 20))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(14)
+        font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.ModListLabel.setFont(font)
-        self.ModListLabel.setStyleSheet("background-color: none;\n"
+        self.ModNameLabel.setFont(font)
+        self.ModNameLabel.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
-        self.ModListLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.ModListLabel.setObjectName("ModListLabel")
+        self.ModNameLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.ModNameLabel.setObjectName("ModNameLabel")
         self.LandingArea = QtWidgets.QScrollArea(Dialog)
-        self.LandingArea.setGeometry(QtCore.QRect(10, 90, 880, 410))
+        self.LandingArea.setGeometry(QtCore.QRect(10, 101, 880, 391))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.LandingArea.sizePolicy().hasHeightForWidth())
         self.LandingArea.setSizePolicy(sizePolicy)
-        self.LandingArea.setMinimumSize(QtCore.QSize(880, 410))
-        self.LandingArea.setMaximumSize(QtCore.QSize(880, 410))
+        self.LandingArea.setMinimumSize(QtCore.QSize(880, 360))
+        self.LandingArea.setMaximumSize(QtCore.QSize(880, 400))
         self.LandingArea.setFocusPolicy(QtCore.Qt.NoFocus)
         self.LandingArea.setStyleSheet("QScrollBar:vertical{\n"
 "    background: transparent;\n"
@@ -101,7 +101,7 @@ class Ui_Dialog(object):
         self.LandingArea.setAlignment(QtCore.Qt.AlignCenter)
         self.LandingArea.setObjectName("LandingArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 875, 410))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 875, 391))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -185,30 +185,6 @@ class Ui_Dialog(object):
 "}")
         self.PlaysetsList.setEditable(False)
         self.PlaysetsList.setObjectName("PlaysetsList")
-        self.ActivationSwticherButton = QtWidgets.QPushButton(Dialog)
-        self.ActivationSwticherButton.setGeometry(QtCore.QRect(450, 520, 171, 31))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.ActivationSwticherButton.setFont(font)
-        self.ActivationSwticherButton.setStyleSheet("QPushButton{\n"
-"    background-color: #5abe41;\n"
-"    border: 3px solid #5abe41;\n"
-"    border-radius: 15px;\n"
-"    color: #1f2533;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: #438e30;\n"
-"    border: #438e30;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: #c2c2c2;\n"
-"    color: #1f2533;\n"
-"    }")
-        self.ActivationSwticherButton.setObjectName("ActivationSwticherButton")
         self.ReverseSortingButton = QtWidgets.QPushButton(Dialog)
         self.ReverseSortingButton.setGeometry(QtCore.QRect(30, 40, 91, 21))
         font = QtGui.QFont()
@@ -234,7 +210,7 @@ class Ui_Dialog(object):
 "    }")
         self.ReverseSortingButton.setObjectName("ReverseSortingButton")
         self.ResetButton = QtWidgets.QPushButton(Dialog)
-        self.ResetButton.setGeometry(QtCore.QRect(680, 520, 131, 31))
+        self.ResetButton.setGeometry(QtCore.QRect(760, 520, 111, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
@@ -242,42 +218,20 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.ResetButton.setFont(font)
         self.ResetButton.setStyleSheet("QPushButton{\n"
-"    background-color: #5abe41;\n"
-"    border: 3px solid #5abe41;\n"
-"    border-radius: 15px;\n"
-"    color: #1f2533;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: #438e30;\n"
-"    border: #438e30;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: #c2c2c2;\n"
-"    color: #1f2533;\n"
-"    }")
-        self.ResetButton.setObjectName("ResetButton")
-        self.RollUpButton = QtWidgets.QPushButton(Dialog)
-        self.RollUpButton.setGeometry(QtCore.QRect(850, 0, 21, 21))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.RollUpButton.setFont(font)
-        self.RollUpButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
 "    background-color: rgba(194, 194, 194, 50);\n"
-"    color: #5abe41\n"
-"    }")
-        self.RollUpButton.setObjectName("RollUpButton")
+"    border: #c2c2c2;\n"
+"    border-radius: 15px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #31858f;\n"
+"    border: #31858f;\n"
+"    color: #ffffff;    }\n"
+"QPushButton:pressed{\n"
+"    background-color: #05B8CC;\n"
+"    border: 2px solid #05B8CC;\n"
+"    }r")
+        self.ResetButton.setObjectName("ResetButton")
         self.ExitButton = QtWidgets.QPushButton(Dialog)
         self.ExitButton.setGeometry(QtCore.QRect(870, 0, 21, 21))
         font = QtGui.QFont()
@@ -299,19 +253,68 @@ class Ui_Dialog(object):
 "    color: rgb(255, 60, 63)\n"
 "    }")
         self.ExitButton.setObjectName("ExitButton")
+        self.ModListLabel = QtWidgets.QLabel(Dialog)
+        self.ModListLabel.setGeometry(QtCore.QRect(10, 30, 491, 41))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.ModListLabel.setFont(font)
+        self.ModListLabel.setStyleSheet("background-color: none;\n"
+"color: #ffffff;")
+        self.ModListLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.ModListLabel.setObjectName("ModListLabel")
+        self.ActivateSortLabel = QtWidgets.QLabel(Dialog)
+        self.ActivateSortLabel.setGeometry(QtCore.QRect(620, 81, 251, 21))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.ActivateSortLabel.setFont(font)
+        self.ActivateSortLabel.setStyleSheet("background-color: none;\n"
+"color: #ffffff;")
+        self.ActivateSortLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.ActivateSortLabel.setObjectName("ActivateSortLabel")
+        self.ActivationSwticherButton = QtWidgets.QPushButton(Dialog)
+        self.ActivationSwticherButton.setGeometry(QtCore.QRect(580, 520, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.ActivationSwticherButton.setFont(font)
+        self.ActivationSwticherButton.setStyleSheet("QPushButton{\n"
+"    background-color: #5abe41;\n"
+"    border: 3px solid #5abe41;\n"
+"    border-radius: 15px;\n"
+"    color: #1f2533;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #438e30;\n"
+"    border: #438e30;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: #c2c2c2;\n"
+"    color: #1f2533;\n"
+"    }")
+        self.ActivationSwticherButton.setObjectName("ActivationSwticherButton")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.LandingArea.raise_()
         self.ReferenceButton.raise_()
-        self.ModListLabel.raise_()
+        self.ModNameLabel.raise_()
         self.BottomShadowFrame.raise_()
         self.SortButton.raise_()
         self.PlaysetsList.raise_()
+        self.ResetButton.raise_()
+        self.ExitButton.raise_()
+        self.ModListLabel.raise_()
+        self.ActivateSortLabel.raise_()
         self.ActivationSwticherButton.raise_()
         self.ReverseSortingButton.raise_()
-        self.ResetButton.raise_()
-        self.RollUpButton.raise_()
-        self.ExitButton.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -320,11 +323,12 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
-        self.ModListLabel.setText(_translate("Dialog", "Список модов"))
+        self.ModNameLabel.setText(_translate("Dialog", "Название мода"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.SortButton.setText(_translate("Dialog", "Сортировать"))
-        self.ActivationSwticherButton.setText(_translate("Dialog", "Активировать"))
         self.ReverseSortingButton.setText(_translate("Dialog", "A-Z"))
         self.ResetButton.setText(_translate("Dialog", "Сбросить"))
-        self.RollUpButton.setText(_translate("Dialog", "_"))
         self.ExitButton.setText(_translate("Dialog", "X"))
+        self.ModListLabel.setText(_translate("Dialog", "Список модов"))
+        self.ActivateSortLabel.setText(_translate("Dialog", "Активация и сортировка"))
+        self.ActivationSwticherButton.setText(_translate("Dialog", "Активировать"))
