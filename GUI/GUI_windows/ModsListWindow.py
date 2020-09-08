@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 
 from GUI.GUI_windows_source import ModsList
 
@@ -108,16 +108,6 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             self.grid.itemAt(elem).widget().setParent(None)
 
     def paint_elements(self):
-        help_label_1 = QtWidgets.QLabel('Название мода')
-        help_label_2 = QtWidgets.QLabel('Вкл/Выкл')
-        help_label_3 = QtWidgets.QLabel('Будет ли сортироваться')
-        help_label_1.setStyleSheet('color:white')
-        help_label_2.setStyleSheet('color:white')
-        help_label_3.setStyleSheet('color:white')
-        help_label_3.setWordWrap(True)
-        self.grid.addWidget(help_label_1, 0, 0, 1, 5)
-        self.grid.addWidget(help_label_2, 0, 6)
-        self.grid.addWidget(help_label_3, 0, 7)
         for index, elem in enumerate(self.modList):
             self.grid.setSpacing(10)
             label = QtWidgets.QLabel(str(elem.name))
@@ -126,10 +116,12 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             checkbox2 = QtWidgets.QCheckBox()
             checkbox2.setChecked(elem.sortRequired)
             label.setStyleSheet('color:white')
+            label.setFont(QtGui.QFont("Arkhip", 10))
             label.setWordWrap(True)
             checkbox1.setStyleSheet("""
                                     QCheckBox{
                                                 color:white;
+                                                margin-left: 60px;
                                              }
                                     QCheckBox:indicator:unchecked{
                                             image: url(:/icons/icons/pass.png)
@@ -141,6 +133,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             checkbox2.setStyleSheet("""
                                     QCheckBox{
                                                 color:white;
+                                                margin-right: 10px;
                                              }
                                     QCheckBox:indicator:unchecked{
                                             image: url(:/icons/icons/pass_sorting.png)
