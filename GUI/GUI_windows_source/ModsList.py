@@ -160,16 +160,28 @@ class Ui_Dialog(object):
 "    }")
         self.SortButton.setObjectName("SortButton")
         self.PlaysetsList = QtWidgets.QComboBox(Dialog)
-        self.PlaysetsList.setGeometry(QtCore.QRect(540, 40, 281, 22))
+        self.PlaysetsList.setGeometry(QtCore.QRect(540, 40, 281, 51))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(10)
+        self.PlaysetsList.setFont(font)
         self.PlaysetsList.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         self.PlaysetsList.setStyleSheet(" QComboBox {\n"
+"    padding-bottom: 30px;\n"
 "    color: white;\n"
-"    background: transparent;\n"
+"    border: transparent;\n"
+"    margin: 30px;\n"
 "}\n"
 "\n"
-" QListView {\n"
-"    background: transparent;\n"
+" QAbstractItemView {\n"
+"    background-color: #141821;\n"
+"    border: 1px solid #141821;\n"
+"    border-radius: 15px;\n"
+"    selection-background-color: transparent;\n"
+"    selection-color: #05B8CC;\n"
 "    color: white;\n"
+"    padding: 10px;\n"
+"    outline: 0px;\n"
 "}")
         self.PlaysetsList.setEditable(False)
         self.PlaysetsList.setObjectName("PlaysetsList")

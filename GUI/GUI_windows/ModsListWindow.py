@@ -11,6 +11,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         super().__init__(parent)
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
+        self.PlaysetsList.view().parentWidget().setStyleSheet("background: #05B8CC;")
         self.setModal(True)
         self.parent = parent
         self.oldPos = self.pos()
