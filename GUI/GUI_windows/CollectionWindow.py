@@ -14,18 +14,19 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         super().__init__(parent)
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
-        self.PlaysetsList.view().parentWidget().setStyleSheet("background: #05B8CC;")
+        self.OptionsListComboBox.view().parentWidget().setStyleSheet("background: #05B8CC;")
         self.setModal(True)
         self.parent = parent
         self.oldPos = self.pos()
-        self.init_handlers()
         self.collection = get_collection()
         self.buttons = {}
         self.accept_window = AcceptWindow
+        self.init_handlers()
         self.paint_elements()
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
+        self.OptionsListComboBox.activated[str].connect(lambda: self.paint_elements())
         self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_Collection'))
         self.WindowMoveButton.installEventFilter(self)
 
@@ -47,15 +48,10 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             self.close()
             self.parent.parent.continue_local(self.collection[elem])
 
-    def paint_elements(self):
-        grid = self.gridLayout
-        for index, elem in enumerate(self.collection):
-            grid.setSpacing(10)
-            self.buttons[f'{elem}'] = QtWidgets.QPushButton(f'{index + 1}: {self.collection[elem]["name"]}')
-            # steam_id = QtWidgets.QLabel(elem)
-            file_name = QtWidgets.QLineEdit(self.collection[elem]['file_name'])
-            status = QtWidgets.QProgressBar()
-            self.buttons[f'{elem}'].setStyleSheet("""
+    @staticmethod
+    def set_button_style(button):
+        button.setFont(QtGui.QFont("Arkhip", 9))
+        button.setStyleSheet("""
             QPushButton{
             background-color: transparent;
             min-height: 40px;
@@ -70,66 +66,132 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             color: rgba(194, 194, 194, 50);
             }
             """)
-            self.buttons[f'{elem}'].setFont(QtGui.QFont("Arkhip", 9))
+
+    @staticmethod
+    def set_data_style(data_field):
+        data_field.setFont(QtGui.QFont("Arkhip", 9))
+        data_field.setStyleSheet("""
+                            QLineEdit{
+                        background-color: transparent;
+                        border: transparent;
+                        max-width: 245px;
+                        color: #ffffff;
+                        text-align: left;            
+                        }
+                            QLineEdit:hover{
+                        color: #05B8CC;
+                        }
+                        """)
+
+    @staticmethod
+    def set_incomplete_style(status):
+        status.setFormat("%p%   ")
+        status.setInvertedAppearance(True)
+        status.setFont(QtGui.QFont("Arkhip", 9))
+        status.setStyleSheet("""
+                        QProgressBar{
+                        background-color:  #1f2533;
+                        border: solid grey;
+                        border-radius: 10px;
+                        color: white;
+                        font-family: "KB Astrolyte";
+                        text-align: right;
+                        max-height: 20px;
+                        max-width: 125;
+                        margin-right: 10px;
+                        }
+                        QProgressBar::chunk {
+                        background-color: #05B8CC;
+                        border-radius :10px;
+                        }      """)
+
+    @staticmethod
+    def set_complete_style(status):
+        status.setFormat("%p%   ")
+        status.setInvertedAppearance(True)
+        status.setFont(QtGui.QFont("Arkhip", 9))
+        status.setStyleSheet("""
+                        QProgressBar{
+                        background-color: #1f2533;
+                        border: solid grey;
+                        border-radius: 10px;
+                        color: white;
+                        font-family: "KB Astrolyte";
+                        text-align: right;
+                        max-height: 20px;
+                        max-width: 125;
+                        margin-right: 10px;
+                        }
+                        QProgressBar::chunk {
+                        background-color: #5abe41;
+                        border-radius :10px;
+                        }      """)
+
+    def clean(self, grid):
+        for i in reversed(range(grid.count())):
+            grid.itemAt(i).widget().setParent(None)
+
+    def paint_elements(self):
+        grid = self.gridLayout
+        self.clean(grid)
+        for index, elem in enumerate(self.collection):
+            grid.setSpacing(10)
+            self.buttons[f'{elem}'] = QtWidgets.QPushButton(f'{index + 1}: {self.collection[elem]["name"]}')
+            #
+            self.set_button_style(self.buttons[f'{elem}'])
+            #
             self.buttons[f'{elem}'].clicked.connect(partial(self.open_accept_window, elem))
-            # steam_id.setStyleSheet('color:white')
-            file_name.setStyleSheet("""
-            QLineEdit{
-            background-color: transparent;
-            border: transparent;
-            max-width: 245px;
-            color: #ffffff;
-            text-align: left;            
-            }
-            QLineEdit:hover{
-            color: #05B8CC;
-            }
-            # QLineEdit::pressed {
-            # color: rgba(194, 194, 194, 50);
-            # }
-            """)
-            file_name.setFont(QtGui.QFont("Arkhip", 9))
-            status.setFormat("%p%   ")
-            status.setValue(self.collection[elem]['tr_status'])
-            if status.value() != 100:
-                status.setInvertedAppearance(True)
-                status.setStyleSheet("""
-                QProgressBar{
-                background-color:  #1f2533;
-                border: solid grey;
-                border-radius: 10px;
-                color: white;
-                font-family: "KB Astrolyte";
-                text-align: right;
-                max-height: 20px;
-                max-width: 125;
-                margin-right: 10px;
-                }
-                QProgressBar::chunk {
-                background-color: #05B8CC;
-                border-radius :10px;
-                }      """)
-            else:
-                status.setStyleSheet("""
-                QProgressBar{
-                background-color: #1f2533;
-                border: solid grey;
-                border-radius: 10px;
-                color: white;
-                font-family: "KB Astrolyte";
-                text-align: right;
-                max-height: 20px;
-                max-width: 125;
-                margin-right: 10px;
-                }
-                QProgressBar::chunk {
-                background-color: #5abe41;
-                border-radius :10px;
-                }      """)
             grid.addWidget(self.buttons[f'{elem}'], index + 1, 3, 1, 4)
-            # grid.addWidget(steam_id, index + 1, 5)
-            grid.addWidget(file_name, index + 1, 6)
-            grid.addWidget(status, index + 1, 7)
+
+            if self.OptionsListComboBox.currentText() == (self.OptionsListComboBox.itemText(0)):
+                file_name = QtWidgets.QLineEdit(self.collection[elem]['file_name'])
+                #
+                self.set_data_style(file_name)
+                #
+                grid.addWidget(file_name, index + 1, 6)
+
+                status = QtWidgets.QProgressBar()
+                status.setValue(self.collection[elem]['tr_status'])
+                if status.value() != 100:
+                    #
+                    self.set_incomplete_style(status)
+                    #
+                else:
+                    #
+                    self.set_complete_style(status)
+                    #
+                grid.addWidget(status, index + 1, 7)
+
+            elif self.OptionsListComboBox.currentText() == (self.OptionsListComboBox.itemText(1)):
+                # name_list = QtWidgets.QLineEdit(self.collection[elem]['file_name'])
+                name_list = QtWidgets.QLineEdit('-' * 20)
+                self.OptionDataLabel.setText('Файлы')
+                self.set_data_style(name_list)
+                grid.addWidget(name_list, index + 1, 6)
+
+                status = QtWidgets.QProgressBar()
+                # status.setValue(self.collection[elem]['tr_status'])
+                status.setValue(0)
+                if status.value() != 100:
+                    self.set_incomplete_style(status)
+                else:
+                    self.set_complete_style(status)
+                grid.addWidget(status, index + 1, 7)
+
+            elif self.OptionsListComboBox.currentText() == (self.OptionsListComboBox.itemText(2)):
+                steam_id = QtWidgets.QLineEdit(f'{" " * 12}{elem}')
+                self.OptionDataLabel.setText('  ID')
+                self.set_data_style(steam_id)
+                grid.addWidget(steam_id, index + 1, 6)
+
+                status = QtWidgets.QProgressBar()
+                # status.setValue(self.collection[elem]['tr_status'])
+                status.setValue(0)
+                if status.value() != 100:
+                    self.set_incomplete_style(status)
+                else:
+                    self.set_complete_style(status)
+                grid.addWidget(status, index + 1, 7)
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:

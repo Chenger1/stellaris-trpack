@@ -134,7 +134,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                                     QPushButton{
                                                 background-color: transparent;
                                                 min-height: 40px;
-                                                max-width: 400px;
+                                                max-width: 600px;
                                                 color: #ffffff;
                                                 text-align: left;            
                                     }

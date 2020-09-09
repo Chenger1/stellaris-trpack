@@ -136,14 +136,14 @@ class Ui_Dialog(object):
 "    color: transparent;\n"
 "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
-        self.PlaysetsList = QtWidgets.QComboBox(Dialog)
-        self.PlaysetsList.setGeometry(QtCore.QRect(570, 40, 251, 51))
+        self.OptionsListComboBox = QtWidgets.QComboBox(Dialog)
+        self.OptionsListComboBox.setGeometry(QtCore.QRect(570, 40, 251, 51))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
-        self.PlaysetsList.setFont(font)
-        self.PlaysetsList.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
-        self.PlaysetsList.setStyleSheet(" QComboBox {\n"
+        self.OptionsListComboBox.setFont(font)
+        self.OptionsListComboBox.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.OptionsListComboBox.setStyleSheet(" QComboBox {\n"
 "    padding-bottom: 30px;\n"
 "    color: white;\n"
 "    border: transparent;\n"
@@ -160,11 +160,11 @@ class Ui_Dialog(object):
 "    padding: 10px;\n"
 "    outline: 0px;\n"
 "}")
-        self.PlaysetsList.setEditable(False)
-        self.PlaysetsList.setObjectName("PlaysetsList")
-        self.PlaysetsList.addItem("")
-        self.PlaysetsList.addItem("")
-        self.PlaysetsList.addItem("")
+        self.OptionsListComboBox.setEditable(False)
+        self.OptionsListComboBox.setObjectName("OptionsListComboBox")
+        self.OptionsListComboBox.addItem("")
+        self.OptionsListComboBox.addItem("")
+        self.OptionsListComboBox.addItem("")
         self.ResetButton = QtWidgets.QPushButton(Dialog)
         self.ResetButton.setGeometry(QtCore.QRect(30, 510, 221, 31))
         font = QtGui.QFont()
@@ -188,32 +188,32 @@ class Ui_Dialog(object):
 "    border: #c2c2c2;\n"
 "    }")
         self.ResetButton.setObjectName("ResetButton")
-        self.CollectionLabel_3 = QtWidgets.QLabel(Dialog)
-        self.CollectionLabel_3.setGeometry(QtCore.QRect(690, 80, 171, 21))
+        self.StatusLabel = QtWidgets.QLabel(Dialog)
+        self.StatusLabel.setGeometry(QtCore.QRect(690, 80, 171, 21))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
-        self.CollectionLabel_3.setFont(font)
-        self.CollectionLabel_3.setStyleSheet("QLabel{\n"
+        self.StatusLabel.setFont(font)
+        self.StatusLabel.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
 "    }\n"
 "")
-        self.CollectionLabel_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.CollectionLabel_3.setObjectName("CollectionLabel_3")
-        self.CollectionLabel_5 = QtWidgets.QLabel(Dialog)
-        self.CollectionLabel_5.setGeometry(QtCore.QRect(490, 81, 121, 21))
+        self.StatusLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.StatusLabel.setObjectName("StatusLabel")
+        self.OptionDataLabel = QtWidgets.QLabel(Dialog)
+        self.OptionDataLabel.setGeometry(QtCore.QRect(490, 81, 121, 21))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
-        self.CollectionLabel_5.setFont(font)
-        self.CollectionLabel_5.setStyleSheet("QLabel{\n"
+        self.OptionDataLabel.setFont(font)
+        self.OptionDataLabel.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
 "    }\n"
 "")
-        self.CollectionLabel_5.setAlignment(QtCore.Qt.AlignCenter)
-        self.CollectionLabel_5.setObjectName("CollectionLabel_5")
+        self.OptionDataLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.OptionDataLabel.setObjectName("OptionDataLabel")
         self.CollectionLabel = QtWidgets.QLabel(Dialog)
         self.CollectionLabel.setGeometry(QtCore.QRect(90, 29, 201, 41))
         font = QtGui.QFont()
@@ -249,18 +249,18 @@ class Ui_Dialog(object):
 "    border: #c2c2c2;\n"
 "    }")
         self.RenameButton.setObjectName("RenameButton")
-        self.ModNameLabel_2 = QtWidgets.QLabel(Dialog)
-        self.ModNameLabel_2.setGeometry(QtCore.QRect(250, 520, 401, 41))
+        self.CollectionNameLabel = QtWidgets.QLabel(Dialog)
+        self.CollectionNameLabel.setGeometry(QtCore.QRect(250, 520, 401, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.ModNameLabel_2.setFont(font)
-        self.ModNameLabel_2.setStyleSheet("background-color: none;\n"
+        self.CollectionNameLabel.setFont(font)
+        self.CollectionNameLabel.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
-        self.ModNameLabel_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.ModNameLabel_2.setObjectName("ModNameLabel_2")
+        self.CollectionNameLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.CollectionNameLabel.setObjectName("CollectionNameLabel")
         self.ExitButton = QtWidgets.QPushButton(Dialog)
         self.ExitButton.setGeometry(QtCore.QRect(850, 0, 21, 21))
         font = QtGui.QFont()
@@ -288,13 +288,13 @@ class Ui_Dialog(object):
         self.ReferenceButton.raise_()
         self.ModNameLabel.raise_()
         self.BottomShadowFrame.raise_()
-        self.PlaysetsList.raise_()
+        self.OptionsListComboBox.raise_()
         self.ResetButton.raise_()
-        self.CollectionLabel_3.raise_()
-        self.CollectionLabel_5.raise_()
+        self.StatusLabel.raise_()
+        self.OptionDataLabel.raise_()
         self.CollectionLabel.raise_()
         self.RenameButton.raise_()
-        self.ModNameLabel_2.raise_()
+        self.CollectionNameLabel.raise_()
         self.ExitButton.raise_()
 
         self.retranslateUi(Dialog)
@@ -306,13 +306,13 @@ class Ui_Dialog(object):
         self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.ModNameLabel.setText(_translate("Dialog", "Название мода"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-        self.PlaysetsList.setItemText(0, _translate("Dialog", "Локализации"))
-        self.PlaysetsList.setItemText(1, _translate("Dialog", "Нейм-листы"))
-        self.PlaysetsList.setItemText(2, _translate("Dialog", "SteamWorkshop ID"))
+        self.OptionsListComboBox.setItemText(0, _translate("Dialog", "Локализации"))
+        self.OptionsListComboBox.setItemText(1, _translate("Dialog", "Нейм-листы"))
+        self.OptionsListComboBox.setItemText(2, _translate("Dialog", "SteamWorkshop ID"))
         self.ResetButton.setText(_translate("Dialog", "Продолжить перевод"))
-        self.CollectionLabel_3.setText(_translate("Dialog", "Статус"))
-        self.CollectionLabel_5.setText(_translate("Dialog", "Файлы"))
+        self.StatusLabel.setText(_translate("Dialog", "Статус"))
+        self.OptionDataLabel.setText(_translate("Dialog", "Файлы"))
         self.CollectionLabel.setText(_translate("Dialog", "Коллекция"))
         self.RenameButton.setText(_translate("Dialog", "Переименовать"))
-        self.ModNameLabel_2.setText(_translate("Dialog", "Stellaris True Machine Translation Tool"))
+        self.CollectionNameLabel.setText(_translate("Dialog", "Stellaris True Machine Translation Tool"))
         self.ExitButton.setText(_translate("Dialog", "X"))

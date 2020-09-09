@@ -148,8 +148,6 @@ QPushButton:pressed{
             self.grid.addWidget(self.buttons[button][0], n, k)
 
     def clean(self):
-        # for button in self.buttons:
-        #     self.grid.removeWidget(self.buttons[button][0])
         for i in reversed(range(self.grid.count())):
             self.grid.itemAt(i).widget().setParent(None)
 

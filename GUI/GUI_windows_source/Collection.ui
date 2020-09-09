@@ -295,7 +295,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <string>Steam</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="PlaysetsList">
+  <widget class="QComboBox" name="OptionsListComboBox">
    <property name="geometry">
     <rect>
      <x>570</x>
@@ -388,7 +388,7 @@ QPushButton:pressed{
     <string>Продолжить перевод</string>
    </property>
   </widget>
-  <widget class="QLabel" name="CollectionLabel_3">
+  <widget class="QLabel" name="StatusLabel">
    <property name="geometry">
     <rect>
      <x>690</x>
@@ -417,7 +417,7 @@ QPushButton:pressed{
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="CollectionLabel_5">
+  <widget class="QLabel" name="OptionDataLabel">
    <property name="geometry">
     <rect>
      <x>490</x>
@@ -511,7 +511,7 @@ QPushButton:pressed{
     <string>Переименовать</string>
    </property>
   </widget>
-  <widget class="QLabel" name="ModNameLabel_2">
+  <widget class="QLabel" name="CollectionNameLabel">
    <property name="geometry">
     <rect>
      <x>250</x>
@@ -580,13 +580,13 @@ QPushButton:pressed{
   <zorder>ReferenceButton</zorder>
   <zorder>ModNameLabel</zorder>
   <zorder>BottomShadowFrame</zorder>
-  <zorder>PlaysetsList</zorder>
+  <zorder>OptionsListComboBox</zorder>
   <zorder>ResetButton</zorder>
-  <zorder>CollectionLabel_3</zorder>
-  <zorder>CollectionLabel_5</zorder>
+  <zorder>StatusLabel</zorder>
+  <zorder>OptionDataLabel</zorder>
   <zorder>CollectionLabel</zorder>
   <zorder>RenameButton</zorder>
-  <zorder>ModNameLabel_2</zorder>
+  <zorder>CollectionNameLabel</zorder>
   <zorder>ExitButton</zorder>
  </widget>
  <resources>
