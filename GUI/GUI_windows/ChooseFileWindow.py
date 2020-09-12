@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import ChooseFile
-from  GUI.GUI_windows.CollectionWindow import CollectionWindow
+from GUI.GUI_windows.CollectionWindow import CollectionWindow
 from GUI.GUI_windows.SteamIDWindow import SteamIDWindow
 
 from scripts.utils import get_mod_id

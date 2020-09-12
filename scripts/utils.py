@@ -2,9 +2,9 @@ import json
 import os
 import re
 import win32api
+from PyQt5 import QtGui
 
 from googletrans.constants import LANGUAGES
-
 
 drive = win32api.GetSystemDirectory().split(':')[0]
 user = win32api.GetUserName()
@@ -110,7 +110,7 @@ def get_mod_info(pointer_pos, tr_status):
         'picture': picture,
         'file_name': file_name,
         'file_path': f'{paradox_folder}\\mod\\local_localisation\\localisation\\{data["final_name"]}',
-        'data': data,
+        # 'data': data,
         'tr_status': tr_status,
         'pointer_pos': pointer_pos
     }
@@ -152,18 +152,18 @@ def save_unfinished_machine_text(mac_text):
         data['machine_text'] = file.name
 
 
-def set_data(collection):
-    data['original_name'] = collection['data']['original_name']
-    data['full_path'] = collection['data']['full_path']
-    data['mod_name'] = collection['data']['mod_name']
-    data['folder_path'] = collection['data']['folder_path']
-    data['base_dir'] = collection['data']['base_dir']
-    data['cutter_file_name'] = collection['data']['cutter_file_name']
-    data['translated_name'] = collection['data']['translated_name']
-    data['final_name'] = collection['data']['final_name']
-    data['cuttered'] = collection['data']['cuttered']
-    data['translated_file'] = collection['data']['translated_file']
-    data['machine_text'] = collection['data']['machine_text']
+def set_data(resume):
+    data['original_name'] = resume['original_name']
+    data['full_path'] = resume['full_path']
+    data['mod_name'] = resume['mod_name']
+    data['folder_path'] = resume['folder_path']
+    data['base_dir'] = resume['base_dir']
+    data['cutter_file_name'] = resume['cutter_file_name']
+    data['translated_name'] = resume['translated_name']
+    data['final_name'] = resume['final_name']
+    data['cuttered'] = resume['cuttered']
+    data['translated_file'] = resume['translated_file']
+    data['machine_text'] = resume['machine_text']
 
 
 def open_file_for_resuming(file_path):
@@ -176,3 +176,94 @@ def remove_extra_new_line_symbols(text):
     while text[-1] == '\n':
         text.pop()
     return text
+
+
+def set_button_style(button):
+    button.setFont(QtGui.QFont("Arkhip", 9))
+    button.setStyleSheet("""
+            QPushButton{
+            background-color: transparent;
+            min-height: 40px;
+            max-width: 400px;
+            color: #ffffff;
+            text-align: left;            
+            }
+            QPushButton::hover {
+            color: #05B8CC;
+            }
+            QPushButton::pressed {
+            color: rgba(194, 194, 194, 50);
+            }
+            """)
+
+
+def set_data_style(data_field):
+    data_field.setFont(QtGui.QFont("Arkhip", 9))
+    data_field.setStyleSheet("""
+                            QLineEdit{
+                        background-color: transparent;
+                        border: transparent;
+                        max-width: 245px;
+                        color: #ffffff;
+                        text-align: left;            
+                        }
+                            QLineEdit:hover{
+                        color: #05B8CC;
+                        }
+                        """)
+
+
+def set_incomplete_style(status):
+    status.setFormat("%p%   ")
+    status.setInvertedAppearance(True)
+    status.setFont(QtGui.QFont("Arkhip", 9))
+    status.setStyleSheet("""
+                        QProgressBar{
+                        background-color:  #1f2533;
+                        border: solid grey;
+                        border-radius: 10px;
+                        color: white;
+                        font-family: "KB Astrolyte";
+                        text-align: right;
+                        max-height: 20px;
+                        max-width: 125;
+                        margin-right: 10px;
+                        }
+                        QProgressBar::chunk {
+                        background-color: #05B8CC;
+                        border-radius :10px;
+                        }      """)
+
+
+def set_complete_style(status):
+    status.setFormat("%p%   ")
+    status.setInvertedAppearance(True)
+    status.setFont(QtGui.QFont("Arkhip", 9))
+    status.setStyleSheet("""
+                        QProgressBar{
+                        background-color: #1f2533;
+                        border: solid grey;
+                        border-radius: 10px;
+                        color: white;
+                        font-family: "KB Astrolyte";
+                        text-align: right;
+                        max-height: 20px;
+                        max-width: 125;
+                        margin-right: 10px;
+                        }
+                        QProgressBar::chunk {
+                        background-color: #5abe41;
+                        border-radius :10px;
+                        }      """)
+
+
+def clean(grid):
+    for i in reversed(range(grid.count())):
+        grid.itemAt(i).widget().setParent(None)
+
+
+def scaner():
+    l_english = os.listdir('D:\Games\SteamLibrary\steamapps\workshop\content\\281990\\1067631798\localisation')
+    if '.yml' not in l_english[0]:
+        l_english = os.listdir('D:\Games\SteamLibrary\steamapps\workshop\content\\281990\\1067631798\localisation\english')
+    return [l_english, ]
