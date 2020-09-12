@@ -20,7 +20,8 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.parent = parent
         self.oldPos = self.pos()
         self.collection = get_collection()
-        self.buttons = {}
+        # self.buttons = {}
+        self.row_index = 0
         self.accept_window = AcceptWindow
         self.init_handlers()
         self.paint_elements()
@@ -49,68 +50,102 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             self.close()
             self.parent.parent.continue_local(self.collection[elem])
 
+    #         # self.buttons[f'{mod_id}'] = QtWidgets.QPushButton(f'{index + 1}: {self.collection[mod_id]["name"]}')
+    #         # #
+    #         # set_button_style(self.buttons[f'{mod_id}'])
+    #         # #
+    #         # self.buttons[f'{mod_id}'].clicked.connect(partial(self.open_accept_window, mod_id))
+    #         # grid.addWidget(self.buttons[f'{mod_id}'], index + 1, 3, 1, 4)
+
+    def print_files_names(self, grid, mod_id):
+        for file_name in self.collection[mod_id]['file_name_list']:
+            file_name_index = self.collection[mod_id]['file_name_list'].index(file_name)
+            file_name = QtWidgets.QLineEdit(file_name)
+            status = QtWidgets.QProgressBar()
+            self.OptionDataLabel.setText('Файлы')
+            status.setValue(self.collection[mod_id]['file_tr_status_list'][file_name_index])
+            set_data_style(file_name)
+            if status.value() != 100:
+                set_incomplete_style(status)
+            else:
+                set_complete_style(status)
+            grid.addWidget(file_name, self.row_index + 1, 6)
+            grid.addWidget(status, self.row_index + 1, 7)
+            self.row_index += 1
+
+    def print_name_lists(self, grid, mod_id):
+        for name_list in self.collection[mod_id]['name_lists_list']:
+            name_list_index = self.collection[mod_id]['name_lists_list'].index(name_list)
+            name_list = QtWidgets.QLineEdit(name_list)
+            status = QtWidgets.QProgressBar()
+            self.OptionDataLabel.setText('Файлы')
+            status.setValue(self.collection[mod_id]['name_list_tr_status_list'][name_list_index])
+            set_data_style(name_list)
+            if status.value() != 100:
+                set_incomplete_style(status)
+            else:
+                set_complete_style(status)
+            grid.addWidget(name_list, self.row_index + 1, 6)
+            grid.addWidget(status, self.row_index + 1, 7)
+            self.row_index += 1
+
+    def print_mod_id(self, grid, mod_id):
+        steam_id = QtWidgets.QLineEdit(f'{" " * 12}{mod_id}')
+        status = QtWidgets.QProgressBar()
+        self.OptionDataLabel.setText('  ID')
+        status.setValue(self.get_total_value(mod_id))
+        set_data_style(steam_id)
+        if status.value() != 100:
+            set_incomplete_style(status)
+        else:
+            set_complete_style(status)
+        grid.addWidget(steam_id, self.row_index + 1, 6)
+        grid.addWidget(status, self.row_index + 1, 7)
+        self.row_index += 1
+
+    def get_total_value(self, mod_id):
+        total_value = 0
+        count = 0
+        for file_value in self.collection[mod_id]["file_tr_status_list"]:
+            total_value = total_value + file_value
+            count += 1
+        for name_list_value in self.collection[mod_id]["name_list_tr_status_list"]:
+            total_value = total_value + name_list_value
+            count += 1
+        total_value /= count
+        return total_value
+
+    @staticmethod
+    def add_separator():
+        separator = QtWidgets.QLineEdit()
+        separator.setStyleSheet("""
+        QLineEdit {
+            max-height: 0px;
+            max-width: 250px;
+            border: 1px solid #05B8CC;
+        }
+        """)
+        return separator
+
     def paint_elements(self):
         grid = self.gridLayout
+        options = self.OptionsListComboBox
+        grid.setSpacing(10)
         clean(grid)
-        for index, elem in enumerate(self.collection):
-            grid.setSpacing(10)
-            self.buttons[f'{elem}'] = QtWidgets.QPushButton(f'{index + 1}: {self.collection[elem]["name"]}')
-            #
-            set_button_style(self.buttons[f'{elem}'])
-            #
-            self.buttons[f'{elem}'].clicked.connect(partial(self.open_accept_window, elem))
-            grid.addWidget(self.buttons[f'{elem}'], index + 1, 3, 1, 4)
-
-            if self.OptionsListComboBox.currentText() == (self.OptionsListComboBox.itemText(0)):
-                file_name = QtWidgets.QLineEdit(self.collection[elem]['file_name'])
-                self.OptionDataLabel.setText('Файлы')
-                #
-                set_data_style(file_name)
-                #
-                grid.addWidget(file_name, index + 1, 6)
-
-                status = QtWidgets.QProgressBar()
-                status.setValue(self.collection[elem]['tr_status'])
-                if status.value() != 100:
-                    #
-                    set_incomplete_style(status)
-                    #
-                else:
-                    #
-                    set_complete_style(status)
-                    #
-                grid.addWidget(status, index + 1, 7)
-
-            elif self.OptionsListComboBox.currentText() == (self.OptionsListComboBox.itemText(1)):
-                # name_list = QtWidgets.QLineEdit(self.collection[elem]['file_name'])
-                name_list = QtWidgets.QLineEdit('-' * 20)
-                self.OptionDataLabel.setText('Файлы')
-                set_data_style(name_list)
-                grid.addWidget(name_list, index + 1, 6)
-
-                status = QtWidgets.QProgressBar()
-                # status.setValue(self.collection[elem]['tr_status'])
-                status.setValue(0)
-                if status.value() != 100:
-                    set_incomplete_style(status)
-                else:
-                    set_complete_style(status)
-                grid.addWidget(status, index + 1, 7)
-
-            elif self.OptionsListComboBox.currentText() == (self.OptionsListComboBox.itemText(2)):
-                steam_id = QtWidgets.QLineEdit(f'{" " * 12}{elem}')
-                self.OptionDataLabel.setText('  ID')
-                set_data_style(steam_id)
-                grid.addWidget(steam_id, index + 1, 6)
-
-                status = QtWidgets.QProgressBar()
-                # status.setValue(self.collection[elem]['tr_status'])
-                status.setValue(0)
-                if status.value() != 100:
-                    set_incomplete_style(status)
-                else:
-                    set_complete_style(status)
-                grid.addWidget(status, index + 1, 7)
+        for mod_id in self.collection:
+            separator = self.add_separator()
+            mod_name = QtWidgets.QLineEdit(self.collection[mod_id]['mod_name'])
+            set_data_style(mod_name)
+            grid.addWidget(separator, self.row_index + 1, 3, 1, 4)
+            self.row_index += 1
+            grid.addWidget(mod_name, self.row_index + 1, 3, 1, 4)
+            if options.currentText() in options.itemText(0):
+                self.print_files_names(grid, mod_id)
+            elif options.currentText() in options.itemText(1):
+                self.print_name_lists(grid, mod_id)
+            elif options.currentText() in options.itemText(2):
+                self.print_mod_id(grid, mod_id)
+            self.row_index += 1
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:
@@ -122,5 +157,5 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             elif event.type() == QtCore.QEvent.MouseButtonRelease:
                 self.oldPos = None
         return super().eventFilter(source, event)
-    file_names = scaner()
-    print(file_names)
+    # file_names = scaner()
+    # print(file_names)

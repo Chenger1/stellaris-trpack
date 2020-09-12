@@ -109,7 +109,11 @@ def get_mod_info(pointer_pos, tr_status):
         'name': name,
         'picture': picture,
         'file_name': file_name,
-        'file_path': f'{paradox_folder}\\mod\\local_localisation\\localisation\\{data["final_name"]}',
+        # т.к. файл теперь может быть не один и лежит в списке, но путь к ним одинаковый за исключением имени, надо что-то придумать
+        'file_path': f'{paradox_folder}\\mod\\local_localisation\\localisation\\',
+        # 'file_path': f'{paradox_folder}\\mod\\local_localisation\\localisation\\{data["final_name"]}',
+
+        # и вынести data в другой json
         # 'data': data,
         'tr_status': tr_status,
         'pointer_pos': pointer_pos
@@ -203,7 +207,7 @@ def set_data_style(data_field):
                             QLineEdit{
                         background-color: transparent;
                         border: transparent;
-                        max-width: 245px;
+                        max-width: 250px;
                         color: #ffffff;
                         text-align: left;            
                         }
