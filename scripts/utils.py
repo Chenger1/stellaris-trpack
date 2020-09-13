@@ -104,19 +104,28 @@ def get_collection():
 def get_mod_info(pointer_pos, tr_status):
     name = data['mod_name']
     picture = "thumbnail.png"
-    file_name = data['original_name']
+    file_name_list = scan_for_localisations()
+    name_lists_list = scan_for_names()
+    file_tr_status_list = []
+    name_list_tr_status_list = []
+    pointer_pos_list = []
+
+    # file_name = data['original_name']
     mod_info = {
         'name': name,
         'picture': picture,
-        'file_name': file_name,
-        # т.к. файл теперь может быть не один и лежит в списке, но путь к ним одинаковый за исключением имени, надо что-то придумать
+        'file_name_list': file_name_list,
+        # 'file_name': file_name,
+
+        # т.к. файл теперь может быть не один и лежаи они в списке, но путь к ним одинаковый, за исключением имени, надо что-то придумать
         'file_path': f'{paradox_folder}\\mod\\local_localisation\\localisation\\',
         # 'file_path': f'{paradox_folder}\\mod\\local_localisation\\localisation\\{data["final_name"]}',
 
-        # и вынести data в другой json
-        # 'data': data,
-        'tr_status': tr_status,
-        'pointer_pos': pointer_pos
+        'name_lists_list': name_lists_list,
+        'file_tr_status_list': file_tr_status_list,
+        'name_list_tr_status_list': name_list_tr_status_list,
+        'pointer_pos_list': pointer_pos_list,
+        # 'data': data
     }
     return mod_info
 
@@ -266,8 +275,26 @@ def clean(grid):
         grid.itemAt(i).widget().setParent(None)
 
 
-def scaner():
-    l_english = os.listdir('D:\Games\SteamLibrary\steamapps\workshop\content\\281990\\1067631798\localisation')
-    if '.yml' not in l_english[0]:
+def scan_for_localisations():
+    l_english = os.listdir('D:\Games\SteamLibrary\steamapps\workshop\content\\281990\\751394361')
+    if 'l_english.yml' not in l_english[0]:
         l_english = os.listdir('D:\Games\SteamLibrary\steamapps\workshop\content\\281990\\1067631798\localisation\english')
-    return [l_english, ]
+    return l_english
+
+
+def dirs_list(directory='', path=f'D:\Games\SteamLibrary\steamapps\workshop\content\\281990\\751394361\common\\'):
+    folders = os.listdir(f'{path + directory}')
+    return folders
+
+
+def scan_for_names(names=[]):
+    folders = dirs_list()
+    folders = list(filter(lambda x: 'name' in x, folders))
+    for folder in folders:
+        txt_list = dirs_list(folder)
+        names += txt_list
+    return names
+
+
+# print(scan_for_localisations())
+# print(scan_for_names())

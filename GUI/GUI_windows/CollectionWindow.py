@@ -4,9 +4,8 @@ from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
 from scripts.utils import get_collection, set_data, set_data_style, set_button_style, set_complete_style, \
-    set_incomplete_style, clean, scaner
+    set_incomplete_style, clean
 
-from functools import partial
 import os
 
 
@@ -57,6 +56,32 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
     #         # self.buttons[f'{mod_id}'].clicked.connect(partial(self.open_accept_window, mod_id))
     #         # grid.addWidget(self.buttons[f'{mod_id}'], index + 1, 3, 1, 4)
 
+    def print_mod_id(self, grid, mod_id):
+        steam_id = QtWidgets.QLineEdit(f'{" " * 12}{mod_id}')
+        status = QtWidgets.QProgressBar()
+        self.OptionDataLabel.setText('  ID')
+        status.setValue(self.get_total_value(mod_id))
+        set_data_style(steam_id)
+        if status.value() != 100:
+            set_incomplete_style(status)
+        else:
+            set_complete_style(status)
+        grid.addWidget(steam_id, self.row_index + 1, 6)
+        grid.addWidget(status, self.row_index + 1, 7)
+        self.row_index += 1
+
+    def get_total_value(self, mod_id):
+        total_value = 0
+        count = 0
+        for file_value in self.collection[mod_id]["file_tr_status_list"]:
+            total_value = total_value + file_value
+            count += 1
+        for name_list_value in self.collection[mod_id]["name_list_tr_status_list"]:
+            total_value = total_value + name_list_value
+            count += 1
+        total_value /= count
+        return total_value
+
     def print_files_names(self, grid, mod_id):
         for file_name in self.collection[mod_id]['file_name_list']:
             file_name_index = self.collection[mod_id]['file_name_list'].index(file_name)
@@ -89,39 +114,14 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             grid.addWidget(status, self.row_index + 1, 7)
             self.row_index += 1
 
-    def print_mod_id(self, grid, mod_id):
-        steam_id = QtWidgets.QLineEdit(f'{" " * 12}{mod_id}')
-        status = QtWidgets.QProgressBar()
-        self.OptionDataLabel.setText('  ID')
-        status.setValue(self.get_total_value(mod_id))
-        set_data_style(steam_id)
-        if status.value() != 100:
-            set_incomplete_style(status)
-        else:
-            set_complete_style(status)
-        grid.addWidget(steam_id, self.row_index + 1, 6)
-        grid.addWidget(status, self.row_index + 1, 7)
-        self.row_index += 1
-
-    def get_total_value(self, mod_id):
-        total_value = 0
-        count = 0
-        for file_value in self.collection[mod_id]["file_tr_status_list"]:
-            total_value = total_value + file_value
-            count += 1
-        for name_list_value in self.collection[mod_id]["name_list_tr_status_list"]:
-            total_value = total_value + name_list_value
-            count += 1
-        total_value /= count
-        return total_value
-
     @staticmethod
     def add_separator():
         separator = QtWidgets.QLineEdit()
         separator.setStyleSheet("""
         QLineEdit {
             max-height: 0px;
-            max-width: 250px;
+            max-width: 100px;
+            margin-left: 65px;
             border: 1px solid #05B8CC;
         }
         """)
@@ -140,11 +140,11 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             self.row_index += 1
             grid.addWidget(mod_name, self.row_index + 1, 3, 1, 4)
             if options.currentText() in options.itemText(0):
-                self.print_files_names(grid, mod_id)
-            elif options.currentText() in options.itemText(1):
-                self.print_name_lists(grid, mod_id)
-            elif options.currentText() in options.itemText(2):
                 self.print_mod_id(grid, mod_id)
+            elif options.currentText() in options.itemText(1):
+                self.print_files_names(grid, mod_id)
+            elif options.currentText() in options.itemText(2):
+                self.print_name_lists(grid, mod_id)
             self.row_index += 1
 
     def eventFilter(self, source, event):
@@ -157,5 +157,3 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             elif event.type() == QtCore.QEvent.MouseButtonRelease:
                 self.oldPos = None
         return super().eventFilter(source, event)
-    # file_names = scaner()
-    # print(file_names)

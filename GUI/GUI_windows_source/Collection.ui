@@ -337,17 +337,17 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
    </property>
    <item>
     <property name="text">
+     <string>SteamWorkshop ID</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
      <string>Локализации</string>
     </property>
    </item>
    <item>
     <property name="text">
      <string>Нейм-листы</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>SteamWorkshop ID</string>
     </property>
    </item>
   </widget>
