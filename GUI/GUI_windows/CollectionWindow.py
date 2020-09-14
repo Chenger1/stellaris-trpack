@@ -4,7 +4,7 @@ from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
 from scripts.utils import get_collection, set_data, set_data_style, set_button_style, set_complete_style, \
-    set_incomplete_style, clean
+    set_incomplete_style, clean, add_separator
 
 import os
 
@@ -114,26 +114,13 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             grid.addWidget(status, self.row_index + 1, 7)
             self.row_index += 1
 
-    @staticmethod
-    def add_separator():
-        separator = QtWidgets.QLineEdit()
-        separator.setStyleSheet("""
-        QLineEdit {
-            max-height: 0px;
-            max-width: 100px;
-            margin-left: 65px;
-            border: 1px solid #05B8CC;
-        }
-        """)
-        return separator
-
     def paint_elements(self):
         grid = self.gridLayout
         options = self.OptionsListComboBox
         grid.setSpacing(10)
         clean(grid)
         for mod_id in self.collection:
-            separator = self.add_separator()
+            separator = add_separator()
             mod_name = QtWidgets.QLineEdit(self.collection[mod_id]['mod_name'])
             set_data_style(mod_name)
             grid.addWidget(separator, self.row_index + 1, 3, 1, 4)

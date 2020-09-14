@@ -2,7 +2,7 @@ import json
 import os
 import re
 import win32api
-from PyQt5 import QtGui
+from PyQt5 import QtWidgets, QtGui
 
 from googletrans.constants import LANGUAGES
 
@@ -101,18 +101,18 @@ def get_collection():
     return info
 
 
-def get_mod_info(pointer_pos, tr_status):
+def get_mod_info(mod_id, tr_status, pointer_pos):
     name = data['mod_name']
+    file_name = data['original_name']
     picture = "thumbnail.png"
-    file_name_list = scan_for_localisations()
-    name_lists_list = scan_for_names()
-    file_tr_status_list = []
-    name_list_tr_status_list = []
-    pointer_pos_list = []
-
-    # file_name = data['original_name']
+    file_name_list = scan_for_localisations(mod_id)
+    name_lists_list = scan_for_names(mod_id)
+    file_tr_status_list = set_file_tr_status_list(file_name_list, file_name, tr_status)
+    name_list_tr_status_list = set_name_list_tr_status_list(name_lists_list, file_name, tr_status)
+    file_name_pointer_pos_list = set_file_name_pointer_pos_list(file_name_list, file_name, pointer_pos)
+    name_lists_pointer_pos_list = set_name_list_pointer_pos_list(name_lists_list, file_name, pointer_pos)
     mod_info = {
-        'name': name,
+        'mod_name': name,
         'picture': picture,
         'file_name_list': file_name_list,
         # 'file_name': file_name,
@@ -124,14 +124,15 @@ def get_mod_info(pointer_pos, tr_status):
         'name_lists_list': name_lists_list,
         'file_tr_status_list': file_tr_status_list,
         'name_list_tr_status_list': name_list_tr_status_list,
-        'pointer_pos_list': pointer_pos_list,
+        'file_name_pointer_pos_list': file_name_pointer_pos_list,
+        'name_lists_pointer_pos_list': name_lists_pointer_pos_list,
         # 'data': data
     }
     return mod_info
 
 
-def collection_append(mod_id, pointer_pos, tr_status):
-    mod_info = get_mod_info(pointer_pos, tr_status)
+def collection_append(mod_id, tr_status, pointer_pos):
+    mod_info = get_mod_info(mod_id, tr_status, pointer_pos)
     with open(collection_path, 'r', encoding='utf-8') as collection:
         info = json.load(collection)
         info[mod_id] = mod_info
@@ -270,31 +271,110 @@ def set_complete_style(status):
                         }      """)
 
 
+def add_separator():
+    separator = QtWidgets.QLineEdit()
+    separator.setStyleSheet("""
+        QLineEdit {
+            max-height: 0px;
+            max-width: 100px;
+            margin-left: 65px;
+            border: 1px solid #05B8CC;
+        }
+        """)
+    return separator
+
+
 def clean(grid):
     for i in reversed(range(grid.count())):
         grid.itemAt(i).widget().setParent(None)
 
 
-def scan_for_localisations():
-    l_english = os.listdir('D:\Games\SteamLibrary\steamapps\workshop\content\\281990\\751394361')
-    if 'l_english.yml' not in l_english[0]:
-        l_english = os.listdir('D:\Games\SteamLibrary\steamapps\workshop\content\\281990\\1067631798\localisation\english')
-    return l_english
+def scan_for_localisations(mod_id):
+    folders_for_scan = ['', ]
+    l_english_list = []
+    for directory in folders_for_scan:
+        path = f'{paradox_mod_way_to_content(mod_id)["path"]}\\localisation{directory}'
+        scan = os.listdir(path)
+        folders = [folder for folder in scan if ".yml" not in folder and 'temp' not in folder]
+        l_english = [file for file in scan if "l_english.yml" in file]
+        try:
+            for folder in folders:
+                folders_for_scan.append(f'{directory}\\{folder}')
+            for file in l_english:
+                l_english_list.append(file)
+        except IndexError:
+            pass
+    return l_english_list
 
 
-def dirs_list(directory='', path=f'D:\Games\SteamLibrary\steamapps\workshop\content\\281990\\751394361\common\\'):
-    folders = os.listdir(f'{path + directory}')
-    return folders
+def scan_for_names(mod_id):
+    try:
+        path = f'{paradox_mod_way_to_content(mod_id)["path"]}\\common\\name_lists'
+        name_lists_list = os.listdir(path)
+    except FileNotFoundError:
+        name_lists_list = []
+    return name_lists_list
 
 
-def scan_for_names(names=[]):
-    folders = dirs_list()
-    folders = list(filter(lambda x: 'name' in x, folders))
-    for folder in folders:
-        txt_list = dirs_list(folder)
-        names += txt_list
-    return names
+def set_file_tr_status_list(file_name_list, file_name, tr_status):
+    count = len(file_name_list)
+    file_tr_status_list = []
+    while len(file_tr_status_list) != count:
+        file_tr_status_list.append(0)
+    if '.yml' in file_name:
+        file_tr_status_list[file_name_list.index(file_name)] = tr_status
+    return file_tr_status_list
 
 
-# print(scan_for_localisations())
-# print(scan_for_names())
+def set_name_list_tr_status_list(name_lists_list, file_name, tr_status):
+    count = len(name_lists_list)
+    name_list_tr_status_list = []
+    while len(name_list_tr_status_list) != count:
+        name_list_tr_status_list.append(0)
+    if '.txt' in file_name:
+        name_list_tr_status_list[name_lists_list.index(file_name)] = tr_status
+    return name_list_tr_status_list
+
+
+def set_file_name_pointer_pos_list(file_name_list, file_name, pointer_pos):
+    count = len(file_name_list)
+    file_name_pointer_pos_list = []
+    while len(file_name_pointer_pos_list) != count:
+        file_name_pointer_pos_list.append(0)
+    if '.yml' in file_name:
+        file_name_pointer_pos_list[file_name_list.index(file_name)] = pointer_pos
+    return file_name_pointer_pos_list
+
+
+def set_name_list_pointer_pos_list(name_lists_list, file_name, pointer_pos):
+    count = len(name_lists_list)
+    name_list_pointer_pos_list = []
+    while len(name_list_pointer_pos_list) != count:
+        name_list_pointer_pos_list.append(0)
+    if '.txt' in file_name:
+        name_list_pointer_pos_list[name_lists_list.index(file_name)] = pointer_pos
+    return name_list_pointer_pos_list
+
+# Для быстрых тестов данных без дебагера
+
+# mod_id = '790903721'
+# file_name = 'mec_asari_events_l_english.yml'
+# tr_status = 27
+# pointer_pos = 9
+#
+# file_name_list = scan_for_localisations(mod_id)
+# print(file_name_list)
+#
+# name_lists_list = scan_for_names(mod_id)
+# print(name_lists_list)
+#
+# a = set_file_tr_status_list(file_name_list, file_name, tr_status)
+# print(a)
+#
+# b = set_name_list_tr_status_list(name_lists_list, file_name, tr_status)
+# print(b)
+#
+# c = set_file_name_pointer_pos_list(file_name_list, file_name, pointer_pos)
+# print(c)
+# d = set_name_list_pointer_pos_list(name_lists_list, file_name, pointer_pos)
+# print(d)

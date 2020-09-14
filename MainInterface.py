@@ -186,7 +186,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
             writing_translation(self.user_text)
             put_lines()
-            collection_append(self.ModIDLine.text(), self.pointer, 100)
+            collection_append(self.ModIDLine.text(), 100, self.pointer)
             self.show_system_message('success', 'Файл перевода успешно записан')
             self.progressbar_set_maximum(0)
             self.clean_state()
