@@ -122,6 +122,11 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             except IndexError:
                 self.parent.show_system_message('error', 'Вы выбрали не тот файл')
 
+    @staticmethod
+    def get_images(mod_id):
+        image_pth = get_mods_from_playset('get_image_path', mod_id, count=1)
+        return image_pth[1]
+
     def paint_elements(self):
         for index, elem in enumerate(self.modList):
             self.grid.setSpacing(10)
@@ -171,7 +176,12 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                                     }
                                     """)
             self.buttons[f'{elem.name}'].clicked.connect(partial(self.open_mod, elem.name))
-            self.grid.addWidget(self.buttons[f'{elem.name}'], index+1, 0, 1, 5)
+            label = QtWidgets.QLabel(self)
+            pixmap = QtGui.QPixmap(self.get_images(elem.hashKey))
+            pixmap = pixmap.scaled(100, 100, QtCore.Qt.KeepAspectRatio)
+            label.setPixmap(pixmap)
+            self.grid.addWidget(label, index+1, 1)
+            self.grid.addWidget(self.buttons[f'{elem.name}'], index+1, 2, 1, 5)
             self.grid.addWidget(checkbox1, index+1, 6)
             self.grid.addWidget(checkbox2, index+1, 7)
             self.checkboxes.append((checkbox1, checkbox2))
