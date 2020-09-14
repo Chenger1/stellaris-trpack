@@ -134,7 +134,10 @@ def get_mod_info(mod_id, tr_status, pointer_pos, collection):
 def collection_append(mod_id, tr_status, pointer_pos):
     with open(collection_path, 'r', encoding='utf-8') as collection:
         info = json.load(collection)
-        mod_info = get_mod_info(mod_id, tr_status, pointer_pos, info[mod_id])
+        try:
+            mod_info = get_mod_info(mod_id, tr_status, pointer_pos, info[mod_id])
+        except KeyError:
+            mod_info = get_mod_info(mod_id, tr_status, pointer_pos, {})
         info[mod_id] = mod_info
     with open(collection_path, 'w', encoding='utf-8') as collection:
         json.dump(info, collection)
@@ -296,7 +299,7 @@ def scan_for_localisations(mod_id):
         path = f'{paradox_mod_way_to_content(mod_id)["path"]}\\localisation{directory}'
         scan = os.listdir(path)
         folders = [folder for folder in scan if ".yml" not in folder and 'temp' not in folder]
-        l_english = [file for file in scan if "l_english.yml" in file]
+        l_english = [file for file in scan if "l_english" in file and '.yml' in file]
         try:
             for folder in folders:
                 folders_for_scan.append(f'{directory}\\{folder}')

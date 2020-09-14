@@ -180,6 +180,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.LocalizeButton.clicked.connect(self.start_local)
         self.pointer = 0
         self.orig_text, self.machine_text, self.user_text = [], [], []
+        for i in self.bar:
+            i.setValue(0)
 
     def write_translation(self):
         try:
@@ -188,7 +190,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             put_lines()
             collection_append(self.ModIDLine.text(), 100, self.pointer)
             self.show_system_message('success', 'Файл перевода успешно записан')
-            self.progressbar_set_maximum(0)
             self.clean_state()
         except FileNotFoundError as Error:
             if self.orig_text:
