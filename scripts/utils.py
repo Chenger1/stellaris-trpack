@@ -101,16 +101,16 @@ def get_collection():
     return info
 
 
-def get_mod_info(mod_id, tr_status, pointer_pos):
+def get_mod_info(mod_id, tr_status, pointer_pos, collection):
     name = data['mod_name']
     file_name = data['original_name']
     picture = "thumbnail.png"
     file_name_list = scan_for_localisations(mod_id)
     name_lists_list = scan_for_names(mod_id)
-    file_tr_status_list = set_file_tr_status_list(file_name_list, file_name, tr_status)
-    name_list_tr_status_list = set_name_list_tr_status_list(name_lists_list, file_name, tr_status)
-    file_name_pointer_pos_list = set_file_name_pointer_pos_list(file_name_list, file_name, pointer_pos)
-    name_lists_pointer_pos_list = set_name_list_pointer_pos_list(name_lists_list, file_name, pointer_pos)
+    file_tr_status_list = set_file_tr_status_list(file_name_list, file_name, tr_status, collection)
+    name_list_tr_status_list = set_name_list_tr_status_list(name_lists_list, file_name, tr_status, collection)
+    file_name_pointer_pos_list = set_file_name_pointer_pos_list(file_name_list, file_name, pointer_pos, collection)
+    name_lists_pointer_pos_list = set_name_list_pointer_pos_list(name_lists_list, file_name, pointer_pos, collection)
     mod_info = {
         'mod_name': name,
         'picture': picture,
@@ -132,9 +132,9 @@ def get_mod_info(mod_id, tr_status, pointer_pos):
 
 
 def collection_append(mod_id, tr_status, pointer_pos):
-    mod_info = get_mod_info(mod_id, tr_status, pointer_pos)
     with open(collection_path, 'r', encoding='utf-8') as collection:
         info = json.load(collection)
+        mod_info = get_mod_info(mod_id, tr_status, pointer_pos, info[mod_id])
         info[mod_id] = mod_info
     with open(collection_path, 'w', encoding='utf-8') as collection:
         json.dump(info, collection)
@@ -316,9 +316,12 @@ def scan_for_names(mod_id):
     return name_lists_list
 
 
-def set_file_tr_status_list(file_name_list, file_name, tr_status):
+def set_file_tr_status_list(file_name_list, file_name, tr_status, collection):
     count = len(file_name_list)
-    file_tr_status_list = []
+    try:
+        file_tr_status_list = collection["file_tr_status_list"]
+    except KeyError:
+        file_tr_status_list = []
     while len(file_tr_status_list) != count:
         file_tr_status_list.append(0)
     if '.yml' in file_name:
@@ -326,9 +329,12 @@ def set_file_tr_status_list(file_name_list, file_name, tr_status):
     return file_tr_status_list
 
 
-def set_name_list_tr_status_list(name_lists_list, file_name, tr_status):
+def set_name_list_tr_status_list(name_lists_list, file_name, tr_status, collection):
     count = len(name_lists_list)
-    name_list_tr_status_list = []
+    try:
+        name_list_tr_status_list = collection["name_list_tr_status_list"]
+    except KeyError:
+        name_list_tr_status_list = []
     while len(name_list_tr_status_list) != count:
         name_list_tr_status_list.append(0)
     if '.txt' in file_name:
@@ -336,9 +342,12 @@ def set_name_list_tr_status_list(name_lists_list, file_name, tr_status):
     return name_list_tr_status_list
 
 
-def set_file_name_pointer_pos_list(file_name_list, file_name, pointer_pos):
+def set_file_name_pointer_pos_list(file_name_list, file_name, pointer_pos, collection):
     count = len(file_name_list)
-    file_name_pointer_pos_list = []
+    try:
+        file_name_pointer_pos_list = collection["file_name_pointer_pos_list"]
+    except KeyError:
+        file_name_pointer_pos_list = []
     while len(file_name_pointer_pos_list) != count:
         file_name_pointer_pos_list.append(0)
     if '.yml' in file_name:
@@ -346,35 +355,15 @@ def set_file_name_pointer_pos_list(file_name_list, file_name, pointer_pos):
     return file_name_pointer_pos_list
 
 
-def set_name_list_pointer_pos_list(name_lists_list, file_name, pointer_pos):
+def set_name_list_pointer_pos_list(name_lists_list, file_name, pointer_pos, collection):
     count = len(name_lists_list)
-    name_list_pointer_pos_list = []
+    try:
+        name_list_pointer_pos_list = collection["name_list_pointer_pos_list"]
+    except KeyError:
+        name_list_pointer_pos_list = []
     while len(name_list_pointer_pos_list) != count:
         name_list_pointer_pos_list.append(0)
     if '.txt' in file_name:
         name_list_pointer_pos_list[name_lists_list.index(file_name)] = pointer_pos
     return name_list_pointer_pos_list
 
-# Для быстрых тестов данных без дебагера
-
-# mod_id = '790903721'
-# file_name = 'mec_asari_events_l_english.yml'
-# tr_status = 27
-# pointer_pos = 9
-#
-# file_name_list = scan_for_localisations(mod_id)
-# print(file_name_list)
-#
-# name_lists_list = scan_for_names(mod_id)
-# print(name_lists_list)
-#
-# a = set_file_tr_status_list(file_name_list, file_name, tr_status)
-# print(a)
-#
-# b = set_name_list_tr_status_list(name_lists_list, file_name, tr_status)
-# print(b)
-#
-# c = set_file_name_pointer_pos_list(file_name_list, file_name, pointer_pos)
-# print(c)
-# d = set_name_list_pointer_pos_list(name_lists_list, file_name, pointer_pos)
-# print(d)

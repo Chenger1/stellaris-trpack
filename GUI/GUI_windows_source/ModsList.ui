@@ -274,7 +274,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>651</width>
+     <width>901</width>
      <height>21</height>
     </rect>
    </property>

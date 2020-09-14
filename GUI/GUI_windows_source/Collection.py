@@ -125,7 +125,7 @@ class Ui_Dialog(object):
         self.BottomShadowFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.BottomShadowFrame.setObjectName("BottomShadowFrame")
         self.WindowMoveButton = QtWidgets.QPushButton(Dialog)
-        self.WindowMoveButton.setGeometry(QtCore.QRect(0, 0, 651, 21))
+        self.WindowMoveButton.setGeometry(QtCore.QRect(0, 0, 881, 21))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
