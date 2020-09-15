@@ -95,41 +95,13 @@ QPushButton:pressed{
     <string>?</string>
    </property>
   </widget>
-  <widget class="QLabel" name="ModNameLabel">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>81</y>
-     <width>241</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: none;
-color: #ffffff;</string>
-   </property>
-   <property name="text">
-    <string>Название мода</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QScrollArea" name="LandingArea">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>101</y>
+     <y>71</y>
      <width>860</width>
-     <height>391</height>
+     <height>421</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -147,7 +119,7 @@ color: #ffffff;</string>
    <property name="maximumSize">
     <size>
      <width>860</width>
-     <height>400</height>
+     <height>500</height>
     </size>
    </property>
    <property name="focusPolicy">
@@ -203,7 +175,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
       <x>0</x>
       <y>0</y>
       <width>855</width>
-      <height>391</height>
+      <height>421</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -298,16 +270,16 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
   <widget class="QComboBox" name="OptionsListComboBox">
    <property name="geometry">
     <rect>
-     <x>570</x>
+     <x>470</x>
      <y>40</y>
-     <width>251</width>
+     <width>271</width>
      <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="contextMenuPolicy">
@@ -350,13 +322,18 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
      <string>Нейм-листы</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>Переименовать</string>
+    </property>
+   </item>
   </widget>
-  <widget class="QPushButton" name="ResetButton">
+  <widget class="QPushButton" name="ContinueButton">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>510</y>
-     <width>221</width>
+     <x>60</x>
+     <y>520</y>
+     <width>171</width>
      <height>31</height>
     </rect>
    </property>
@@ -385,14 +362,14 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>Продолжить перевод</string>
+    <string>Продолжить</string>
    </property>
   </widget>
   <widget class="QLabel" name="StatusLabel">
    <property name="geometry">
     <rect>
      <x>690</x>
-     <y>80</y>
+     <y>40</y>
      <width>171</width>
      <height>21</height>
     </rect>
@@ -417,48 +394,19 @@ QPushButton:pressed{
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="OptionDataLabel">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>81</y>
-     <width>121</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>11</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel{
-	background-color: transparent;
-	color: #ffffff;
-	}
-</string>
-   </property>
-   <property name="text">
-    <string>Файлы</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QLabel" name="CollectionLabel">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>29</y>
-     <width>201</width>
-     <height>41</height>
+     <x>20</x>
+     <y>39</y>
+     <width>151</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>KB Astrolyte</family>
-     <pointsize>14</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -470,70 +418,6 @@ QPushButton:pressed{
    </property>
    <property name="text">
     <string>Коллекция</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="RenameButton">
-   <property name="geometry">
-    <rect>
-     <x>670</x>
-     <y>530</y>
-     <width>181</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>11</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-   </property>
-   <property name="text">
-    <string>Переименовать</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="CollectionNameLabel">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>520</y>
-     <width>401</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: none;
-color: #ffffff;</string>
-   </property>
-   <property name="text">
-    <string>Stellaris True Machine Translation Tool</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -574,20 +458,46 @@ QPushButton:pressed{
     <string>X</string>
    </property>
   </widget>
+  <widget class="QLabel" name="CollectionNameLabel">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>530</y>
+     <width>481</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	}
+</string>
+   </property>
+   <property name="text">
+    <string>Stellaris True Machine Translation Tool</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>LandingArea</zorder>
   <zorder>ReferenceButton</zorder>
-  <zorder>ModNameLabel</zorder>
   <zorder>BottomShadowFrame</zorder>
   <zorder>OptionsListComboBox</zorder>
-  <zorder>ResetButton</zorder>
+  <zorder>ContinueButton</zorder>
   <zorder>StatusLabel</zorder>
-  <zorder>OptionDataLabel</zorder>
   <zorder>CollectionLabel</zorder>
-  <zorder>RenameButton</zorder>
-  <zorder>CollectionNameLabel</zorder>
   <zorder>ExitButton</zorder>
+  <zorder>CollectionNameLabel</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

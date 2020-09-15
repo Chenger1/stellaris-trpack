@@ -203,7 +203,6 @@ def set_button_style(button):
             min-height: 40px;
             max-width: 400px;
             color: #ffffff;
-            text-align: left;            
             }
             QPushButton::hover {
             color: #05B8CC;
@@ -216,15 +215,15 @@ def set_button_style(button):
 
 def set_data_style(data_field):
     data_field.setFont(QtGui.QFont("Arkhip", 9))
+    data_field.setReadOnly(True)
     data_field.setStyleSheet("""
-                            QLineEdit{
+                            QTextEdit{
                         background-color: transparent;
                         border: transparent;
                         max-width: 250px;
                         color: #ffffff;
-                        text-align: left;            
                         }
-                            QLineEdit:hover{
+                            QTextEdit:hover{
                         color: #05B8CC;
                         }
                         """)
@@ -274,22 +273,33 @@ def set_complete_style(status):
                         }      """)
 
 
-def add_separator():
-    separator = QtWidgets.QLineEdit()
+def set_files_not_found_style(data_field):
+    data_field.setFont(QtGui.QFont("Arkhip", 9))
+    data_field.setReadOnly(True)
+    data_field.setStyleSheet("""
+                            QTextEdit{
+                        background-color: transparent;
+                        border: transparent;
+                        max-width: 240px;
+                        color: #abb8b7;
+                        }
+                            QTextEdit:hover{
+                        color: #05B8CC;
+                        }
+                        """)
+
+
+def create_separator():
+    separator = QtWidgets.QTextEdit()
     separator.setStyleSheet("""
-        QLineEdit {
+        QTextEdit {
             max-height: 0px;
             max-width: 100px;
-            margin-left: 65px;
+            margin-left: 100px;
             border: 1px solid #05B8CC;
         }
         """)
     return separator
-
-
-def clean(grid):
-    for i in reversed(range(grid.count())):
-        grid.itemAt(i).widget().setParent(None)
 
 
 def scan_for_localisations(mod_id):

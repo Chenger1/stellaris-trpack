@@ -49,27 +49,15 @@ class Ui_Dialog(object):
 "    color: #5abe41\n"
 "    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
-        self.ModNameLabel = QtWidgets.QLabel(Dialog)
-        self.ModNameLabel.setGeometry(QtCore.QRect(20, 81, 241, 20))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.ModNameLabel.setFont(font)
-        self.ModNameLabel.setStyleSheet("background-color: none;\n"
-"color: #ffffff;")
-        self.ModNameLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.ModNameLabel.setObjectName("ModNameLabel")
         self.LandingArea = QtWidgets.QScrollArea(Dialog)
-        self.LandingArea.setGeometry(QtCore.QRect(10, 101, 860, 391))
+        self.LandingArea.setGeometry(QtCore.QRect(10, 71, 860, 421))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.LandingArea.sizePolicy().hasHeightForWidth())
         self.LandingArea.setSizePolicy(sizePolicy)
         self.LandingArea.setMinimumSize(QtCore.QSize(860, 360))
-        self.LandingArea.setMaximumSize(QtCore.QSize(860, 400))
+        self.LandingArea.setMaximumSize(QtCore.QSize(860, 500))
         self.LandingArea.setFocusPolicy(QtCore.Qt.NoFocus)
         self.LandingArea.setStyleSheet("QScrollBar:vertical{\n"
 "    background: transparent;\n"
@@ -101,7 +89,7 @@ class Ui_Dialog(object):
         self.LandingArea.setAlignment(QtCore.Qt.AlignCenter)
         self.LandingArea.setObjectName("LandingArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 855, 391))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 855, 421))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -137,10 +125,10 @@ class Ui_Dialog(object):
 "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.OptionsListComboBox = QtWidgets.QComboBox(Dialog)
-        self.OptionsListComboBox.setGeometry(QtCore.QRect(570, 40, 251, 51))
+        self.OptionsListComboBox.setGeometry(QtCore.QRect(470, 40, 271, 51))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
+        font.setPointSize(11)
         self.OptionsListComboBox.setFont(font)
         self.OptionsListComboBox.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         self.OptionsListComboBox.setStyleSheet(" QComboBox {\n"
@@ -165,15 +153,16 @@ class Ui_Dialog(object):
         self.OptionsListComboBox.addItem("")
         self.OptionsListComboBox.addItem("")
         self.OptionsListComboBox.addItem("")
-        self.ResetButton = QtWidgets.QPushButton(Dialog)
-        self.ResetButton.setGeometry(QtCore.QRect(30, 510, 221, 31))
+        self.OptionsListComboBox.addItem("")
+        self.ContinueButton = QtWidgets.QPushButton(Dialog)
+        self.ContinueButton.setGeometry(QtCore.QRect(60, 520, 171, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.ResetButton.setFont(font)
-        self.ResetButton.setStyleSheet("QPushButton{\n"
+        self.ContinueButton.setFont(font)
+        self.ContinueButton.setStyleSheet("QPushButton{\n"
 "    background-color: #05B8CC;\n"
 "    border: 2px solid #05B8CC;\n"
 "    border-radius: 15px;\n"
@@ -187,9 +176,9 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
-        self.ResetButton.setObjectName("ResetButton")
+        self.ContinueButton.setObjectName("ContinueButton")
         self.StatusLabel = QtWidgets.QLabel(Dialog)
-        self.StatusLabel.setGeometry(QtCore.QRect(690, 80, 171, 21))
+        self.StatusLabel.setGeometry(QtCore.QRect(690, 40, 171, 21))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
@@ -201,24 +190,11 @@ class Ui_Dialog(object):
 "")
         self.StatusLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.StatusLabel.setObjectName("StatusLabel")
-        self.OptionDataLabel = QtWidgets.QLabel(Dialog)
-        self.OptionDataLabel.setGeometry(QtCore.QRect(490, 81, 121, 21))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
-        self.OptionDataLabel.setFont(font)
-        self.OptionDataLabel.setStyleSheet("QLabel{\n"
-"    background-color: transparent;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"")
-        self.OptionDataLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.OptionDataLabel.setObjectName("OptionDataLabel")
         self.CollectionLabel = QtWidgets.QLabel(Dialog)
-        self.CollectionLabel.setGeometry(QtCore.QRect(90, 29, 201, 41))
+        self.CollectionLabel.setGeometry(QtCore.QRect(20, 39, 151, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(14)
+        font.setPointSize(12)
         self.CollectionLabel.setFont(font)
         self.CollectionLabel.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
@@ -227,40 +203,6 @@ class Ui_Dialog(object):
 "")
         self.CollectionLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.CollectionLabel.setObjectName("CollectionLabel")
-        self.RenameButton = QtWidgets.QPushButton(Dialog)
-        self.RenameButton.setGeometry(QtCore.QRect(670, 530, 181, 31))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.RenameButton.setFont(font)
-        self.RenameButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
-        self.RenameButton.setObjectName("RenameButton")
-        self.CollectionNameLabel = QtWidgets.QLabel(Dialog)
-        self.CollectionNameLabel.setGeometry(QtCore.QRect(250, 520, 401, 41))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.CollectionNameLabel.setFont(font)
-        self.CollectionNameLabel.setStyleSheet("background-color: none;\n"
-"color: #ffffff;")
-        self.CollectionNameLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.CollectionNameLabel.setObjectName("CollectionNameLabel")
         self.ExitButton = QtWidgets.QPushButton(Dialog)
         self.ExitButton.setGeometry(QtCore.QRect(850, 0, 21, 21))
         font = QtGui.QFont()
@@ -282,20 +224,30 @@ class Ui_Dialog(object):
 "    color: rgb(255, 60, 63)\n"
 "    }")
         self.ExitButton.setObjectName("ExitButton")
+        self.CollectionNameLabel = QtWidgets.QLabel(Dialog)
+        self.CollectionNameLabel.setGeometry(QtCore.QRect(380, 530, 481, 21))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(12)
+        self.CollectionNameLabel.setFont(font)
+        self.CollectionNameLabel.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"")
+        self.CollectionNameLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.CollectionNameLabel.setObjectName("CollectionNameLabel")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.LandingArea.raise_()
         self.ReferenceButton.raise_()
-        self.ModNameLabel.raise_()
         self.BottomShadowFrame.raise_()
         self.OptionsListComboBox.raise_()
-        self.ResetButton.raise_()
+        self.ContinueButton.raise_()
         self.StatusLabel.raise_()
-        self.OptionDataLabel.raise_()
         self.CollectionLabel.raise_()
-        self.RenameButton.raise_()
-        self.CollectionNameLabel.raise_()
         self.ExitButton.raise_()
+        self.CollectionNameLabel.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -304,15 +256,13 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
-        self.ModNameLabel.setText(_translate("Dialog", "Название мода"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.OptionsListComboBox.setItemText(0, _translate("Dialog", "SteamWorkshop ID"))
         self.OptionsListComboBox.setItemText(1, _translate("Dialog", "Локализации"))
         self.OptionsListComboBox.setItemText(2, _translate("Dialog", "Нейм-листы"))
-        self.ResetButton.setText(_translate("Dialog", "Продолжить перевод"))
+        self.OptionsListComboBox.setItemText(3, _translate("Dialog", "Переименовать"))
+        self.ContinueButton.setText(_translate("Dialog", "Продолжить"))
         self.StatusLabel.setText(_translate("Dialog", "Статус"))
-        self.OptionDataLabel.setText(_translate("Dialog", "Файлы"))
         self.CollectionLabel.setText(_translate("Dialog", "Коллекция"))
-        self.RenameButton.setText(_translate("Dialog", "Переименовать"))
-        self.CollectionNameLabel.setText(_translate("Dialog", "Stellaris True Machine Translation Tool"))
         self.ExitButton.setText(_translate("Dialog", "X"))
+        self.CollectionNameLabel.setText(_translate("Dialog", "Stellaris True Machine Translation Tool"))

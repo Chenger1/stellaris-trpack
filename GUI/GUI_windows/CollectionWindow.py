@@ -4,7 +4,7 @@ from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
 from scripts.utils import get_collection, set_data, set_data_style, set_button_style, set_complete_style, \
-    set_incomplete_style, clean, add_separator
+    set_incomplete_style, create_separator, set_files_not_found_style
 
 import os
 
@@ -57,9 +57,10 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
     #         # grid.addWidget(self.buttons[f'{mod_id}'], index + 1, 3, 1, 4)
 
     def print_mod_id(self, grid, mod_id):
-        steam_id = QtWidgets.QLineEdit(f'{" " * 12}{mod_id}')
+        steam_id = QtWidgets.QTextEdit(mod_id)
+        steam_id.setAlignment(QtCore.Qt.AlignCenter)
+        separator = create_separator()
         status = QtWidgets.QProgressBar()
-        self.OptionDataLabel.setText('  ID')
         status.setValue(self.get_total_value(mod_id))
         set_data_style(steam_id)
         if status.value() != 100:
@@ -83,55 +84,88 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         return total_value
 
     def print_files_names(self, grid, mod_id):
-        for file_name in self.collection[mod_id]['file_name_list']:
-            file_name_index = self.collection[mod_id]['file_name_list'].index(file_name)
-            file_name = QtWidgets.QLineEdit(file_name)
-            status = QtWidgets.QProgressBar()
-            self.OptionDataLabel.setText('Файлы')
-            status.setValue(self.collection[mod_id]['file_tr_status_list'][file_name_index])
-            set_data_style(file_name)
-            if status.value() != 100:
-                set_incomplete_style(status)
-            else:
-                set_complete_style(status)
-            grid.addWidget(file_name, self.row_index + 1, 6)
-            grid.addWidget(status, self.row_index + 1, 7)
-            self.row_index += 1
+        if self.collection[mod_id]['file_name_list']:
+            for file_name in self.collection[mod_id]['file_name_list']:
+                file_name_index = self.collection[mod_id]['file_name_list'].index(file_name)
+                if '.yml' not in file_name.split('_l_english.yml')[0]:
+                    file_name = QtWidgets.QTextEdit(file_name.split('_l_english.yml')[0])
+                else:
+                    file_name = QtWidgets.QTextEdit(file_name.split('l_english_')[-1].split('.yml')[0])
+                file_name.setAlignment(QtCore.Qt.AlignRight)
+                status = QtWidgets.QProgressBar()
+                status.setValue(self.collection[mod_id]['file_tr_status_list'][file_name_index])
+                set_data_style(file_name)
+                if status.value() != 100:
+                    set_incomplete_style(status)
+                else:
+                    set_complete_style(status)
+                grid.addWidget(file_name, self.row_index + 1, 6)
+                grid.addWidget(status, self.row_index + 1, 7)
+                self.row_index += 1
+        else:
+            files_not_found = QtWidgets.QTextEdit(f"{'—' * 8}")
+            files_not_found.setAlignment(QtCore.Qt.AlignRight)
+            set_files_not_found_style(files_not_found)
+            grid.addWidget(files_not_found, self.row_index + 1, 6)
 
     def print_name_lists(self, grid, mod_id):
-        for name_list in self.collection[mod_id]['name_lists_list']:
-            name_list_index = self.collection[mod_id]['name_lists_list'].index(name_list)
-            name_list = QtWidgets.QLineEdit(name_list)
-            status = QtWidgets.QProgressBar()
-            self.OptionDataLabel.setText('Файлы')
-            status.setValue(self.collection[mod_id]['name_list_tr_status_list'][name_list_index])
-            set_data_style(name_list)
-            if status.value() != 100:
-                set_incomplete_style(status)
-            else:
-                set_complete_style(status)
-            grid.addWidget(name_list, self.row_index + 1, 6)
-            grid.addWidget(status, self.row_index + 1, 7)
-            self.row_index += 1
+        if self.collection[mod_id]['name_lists_list']:
+            for name_list in self.collection[mod_id]['name_lists_list']:
+                name_list_index = self.collection[mod_id]['name_lists_list'].index(name_list)
+                name_list = QtWidgets.QTextEdit(name_list.split('_namelist.txt')[0])
+                name_list.setAlignment(QtCore.Qt.AlignRight)
+                status = QtWidgets.QProgressBar()
+                status.setValue(self.collection[mod_id]['name_list_tr_status_list'][name_list_index])
+                set_data_style(name_list)
+                if status.value() != 100:
+                    set_incomplete_style(status)
+                else:
+                    set_complete_style(status)
+                grid.addWidget(name_list, self.row_index + 1, 6)
+                grid.addWidget(status, self.row_index + 1, 7)
+                self.row_index += 1
+        else:
+            files_not_found = QtWidgets.QTextEdit(f"{'—' * 8}")
+            files_not_found.setAlignment(QtCore.Qt.AlignRight)
+            set_files_not_found_style(files_not_found)
+            grid.addWidget(files_not_found, self.row_index + 1, 6)
+
+    def clean(self, grid):
+        self.CollectionLabel.show()
+        self.CollectionNameLabel.show()
+        self.StatusLabel.show()
+        for i in reversed(range(grid.count())):
+            grid.itemAt(i).widget().setParent(None)
+
+    def rename(self, grid):
+        self.CollectionLabel.hide()
+        self.CollectionNameLabel.hide()
+        self.StatusLabel.hide()
+        for i in reversed(range(grid.count())):
+            grid.itemAt(i).widget().setParent(None)
 
     def paint_elements(self):
         grid = self.gridLayout
         options = self.OptionsListComboBox
         grid.setSpacing(10)
-        clean(grid)
+        self.clean(grid)
         for mod_id in self.collection:
-            separator = add_separator()
-            mod_name = QtWidgets.QLineEdit(self.collection[mod_id]['mod_name'])
+            mod_name = QtWidgets.QTextEdit(self.collection[mod_id]['mod_name'])
+            separator = create_separator()
             set_data_style(mod_name)
-            grid.addWidget(separator, self.row_index + 1, 3, 1, 4)
             self.row_index += 1
-            grid.addWidget(mod_name, self.row_index + 1, 3, 1, 4)
+            grid.addWidget(mod_name, self.row_index + 1, 1, 1, 4)
             if options.currentText() in options.itemText(0):
                 self.print_mod_id(grid, mod_id)
+                grid.addWidget(separator, self.row_index + 1, 6)
             elif options.currentText() in options.itemText(1):
                 self.print_files_names(grid, mod_id)
+                grid.addWidget(separator, self.row_index + 1, 6)
             elif options.currentText() in options.itemText(2):
                 self.print_name_lists(grid, mod_id)
+                grid.addWidget(separator, self.row_index + 1, 6)
+            elif options.currentText() in options.itemText(3):
+                self.rename(grid)
             self.row_index += 1
 
     def eventFilter(self, source, event):
