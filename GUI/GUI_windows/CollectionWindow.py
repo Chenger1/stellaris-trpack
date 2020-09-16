@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 
 from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
@@ -143,6 +143,27 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.StatusLabel.hide()
         for i in reversed(range(grid.count())):
             grid.itemAt(i).widget().setParent(None)
+        label = QtWidgets.QLabel(self.CollectionNameLabel.text())
+        label.setAlignment(QtCore.Qt.AlignCenter)
+        label.setFont(QtGui.QFont("Arkhip", 14))
+        label.setStyleSheet("""
+            QLabel{
+        color: white;    
+        }
+        """)
+        grid.addWidget(label, self.row_index + 1, 6)
+        input_text = QtWidgets.QTextEdit('Новое имя')
+        input_text.setAlignment(QtCore.Qt.AlignCenter)
+        input_text.setFont(QtGui.QFont("Arkhip", 12))
+        input_text.setStyleSheet("""
+            QTextEdit{
+            border: 1px solid #05B8CC;
+        border-radius: 20px;
+        color: white;
+        max-height: 40px;    
+        }
+        """)
+        grid.addWidget(input_text, self.row_index + 2, 6)
 
     def paint_elements(self):
         grid = self.gridLayout
