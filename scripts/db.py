@@ -10,7 +10,9 @@ queries = {
     'write_data': f'UPDATE playsets_mods SET enabled=?, position=? WHERE modId=? AND playsetId=?',
     'get_path_to_mods': f'SELECT dirPath FROM mods',
     'get_mod_path': f'SELECT dirPath FROM mods WHERE displayName=?',
-    'get_image_path': f'SELECT thumbnailUrl, thumbnailPath FROM mods WHERE id=?'
+    'get_image_path': f'SELECT thumbnailUrl, thumbnailPath, steamId FROM mods WHERE id=?',
+    'get_images': f'SELECT id, thumbnailUrl, thumbnailPath, steamId FROM mods',
+    'write_new_image_path': f'UPDATE mods SET thumbnailPath=? WHERE steamId=?'
 }
 
 
@@ -56,5 +58,12 @@ def write_data(request, data, playset):
     with sqlite3.connect(f'{paradox_folder}\\launcher-v2.sqlite') as conn:
         for elem in data:
             conn.execute(queries[request], (elem.isEnabled, elem.position, elem.hashKey, playset[0]))
+        conn.commit()
+    return True
+
+
+def write_data_into_db(request, data):
+    with sqlite3.connect(f'{paradox_folder}\\launcher-v2.sqlite') as conn:
+        conn.execute(queries[request], (data['image_path'], data['steam_id']))
         conn.commit()
     return True

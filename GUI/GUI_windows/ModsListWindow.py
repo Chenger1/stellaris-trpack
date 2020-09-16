@@ -3,10 +3,12 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from GUI.GUI_windows_source import ModsList
 
 from scripts.mods_sorting import set_settings, prep_data, sorting
-from scripts.db import get_info_from_db, get_mods_from_playset
-from scripts.utils import get_mod_id
+from scripts.db import get_info_from_db, get_mods_from_playset, write_data_into_db
+from scripts.utils import get_mod_id, paradox_folder
 
 from functools import partial
+import os
+import requests
 
 
 class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
@@ -39,6 +41,13 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.switch[self.ReverseSortingButton.isChecked()]['reversing']()
         self.grid = self.gridLayout
         self.buttons = {}
+        self.images = {
+                    elem[0]: {
+                            'steam_path': elem[1],
+                            'cache_path': elem[2],
+                            'steam_id': elem[3],
+                             } for elem in get_info_from_db('get_images')
+                   }
         self.paint_elements()
 
     def init_handlers(self):
@@ -87,7 +96,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         playsets = {
                     elem[0]: {
                             'name': elem[1],
-                            'isActive': elem[2]
+                            'isActive': elem[2],
                              } for elem in get_info_from_db('get_playset_list')
                    }
         for index, elem in enumerate(playsets.items()):
@@ -123,9 +132,42 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                 self.parent.show_system_message('error', 'Вы выбрали не тот файл')
 
     @staticmethod
-    def get_images(mod_id):
-        image_pth = get_mods_from_playset('get_image_path', mod_id, count=1)
-        return image_pth[1]
+    def download_image(url, file_name, steam_id):
+        response = requests.get(url)
+        if '.' in file_name:
+            path = f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{steam_id}\\{file_name}'
+        else:
+            path = f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{steam_id}\\{file_name}' #TODO
+            write_data_into_db('write_new_image_path', {'image_path': path,
+                                                        'steam_id': steam_id})
+        with open(path, 'wb') as file:
+            file.write(response.content)
+
+        return path
+
+    def get_images(self, mod_id):
+        image_pth = self.images[mod_id]
+        if image_pth['cache_path'] is None and image_pth['steam_path'] is None:
+            return None
+        if image_pth['cache_path'] is None and image_pth['steam_path']:
+            image_pth['cache_path'] = self.download_image(image_pth['steam_path'],
+                                                          image_pth['steam_path'].split('/')[-2].lower(),
+                                                          image_pth['steam_id'])
+            return image_pth['cache_path']
+        try:
+            dir = os.listdir(f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{image_pth["steam_id"]}')
+            if dir:
+                return image_pth['cache_path']
+            image_pth['cache_path'] = self.download_image(image_pth['steam_path'],
+                                                          image_pth['cache_path'].split('\\')[-1],
+                                                          image_pth['steam_id'])
+            return image_pth['cache_path']
+        except FileNotFoundError:
+            os.mkdir(f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{image_pth["steam_id"]}')
+            image_pth['cache_path'] = self.download_image(image_pth['steam_path'],
+                                                          image_pth['cache_path'].split('\\')[-1],
+                                                          image_pth['steam_id'])
+            return image_pth['cache_path']
 
     def paint_elements(self):
         for index, elem in enumerate(self.modList):
