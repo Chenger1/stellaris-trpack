@@ -147,9 +147,10 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
 
     def get_images(self, mod_id):
         image_pth = self.images[mod_id]
-        if image_pth['cache_path'] is None and image_pth['steam_path'] is None:
+        if not image_pth['cache_path'] and not image_pth['steam_path']:
             return None
-        if image_pth['cache_path'] is None and image_pth['steam_path']:
+        if not image_pth['cache_path'] and image_pth['steam_path']:
+            os.mkdir(f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{image_pth["steam_id"]}')
             image_pth['cache_path'] = self.download_image(image_pth['steam_path'],
                                                           image_pth['steam_path'].split('/')[-2].lower(),
                                                           image_pth['steam_id'])
