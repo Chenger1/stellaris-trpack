@@ -34,12 +34,12 @@ def local_mod_create():
 
 
 def local_mod_status():
+    properties_status()
     try:
         with open(mod_path + '.mod', 'r', encoding='utf-8') as mod:
             pass
     except FileNotFoundError:
         local_mod_create()
-    properties_status()
 
 
 def properties_create():
@@ -54,17 +54,6 @@ def properties_status():
             pass
     except FileNotFoundError:
         properties_create()
-
-
-def local_mod_rename(new_name):
-    with open('Properties.json', 'r', encoding='utf-8') as prop:
-        properties = json.load(prop)
-        print(properties)
-        properties["collection_name"] = new_name
-        print(properties)
-    with open("Properties.json", 'w', encoding='utf-8') as prop:
-        json.dump(properties, prop)
-    local_mod_create()
 
 
 def create_temp_folder(mod_id, loc_path):

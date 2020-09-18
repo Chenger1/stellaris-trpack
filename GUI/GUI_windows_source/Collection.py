@@ -100,6 +100,18 @@ class Ui_Dialog(object):
         self.gridLayout.setHorizontalSpacing(20)
         self.gridLayout.setVerticalSpacing(40)
         self.gridLayout.setObjectName("gridLayout")
+        self.InputTextEdit = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("Arkhip")
+        font.setPointSize(14)
+        self.InputTextEdit.setFont(font)
+        self.InputTextEdit.setStyleSheet("QTextEdit{\n"
+"    border: transparent;\n"
+"    color: white;\n"
+"    max-height: 40px;\n"
+"}")
+        self.InputTextEdit.setObjectName("InputTextEdit")
+        self.gridLayout.addWidget(self.InputTextEdit, 0, 0, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
         self.LandingArea.setWidget(self.scrollAreaWidgetContents)
         self.BottomShadowFrame = QtWidgets.QFrame(Dialog)
@@ -155,7 +167,7 @@ class Ui_Dialog(object):
         self.OptionsListComboBox.addItem("")
         self.OptionsListComboBox.addItem("")
         self.ContinueButton = QtWidgets.QPushButton(Dialog)
-        self.ContinueButton.setGeometry(QtCore.QRect(60, 520, 171, 31))
+        self.ContinueButton.setGeometry(QtCore.QRect(60, 520, 221, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
@@ -237,17 +249,41 @@ class Ui_Dialog(object):
 "")
         self.CollectionNameLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.CollectionNameLabel.setObjectName("CollectionNameLabel")
+        self.RenameCollectionButton = QtWidgets.QPushButton(Dialog)
+        self.RenameCollectionButton.setGeometry(QtCore.QRect(60, 520, 171, 31))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.RenameCollectionButton.setFont(font)
+        self.RenameCollectionButton.setStyleSheet("QPushButton{\n"
+"    background-color: #05B8CC;\n"
+"    border: 2px solid #05B8CC;\n"
+"    border-radius: 15px;\n"
+"    color: #1f2533;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #31858f;\n"
+"    border: #31858f;\n"
+"    color: #ffffff;    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    }")
+        self.RenameCollectionButton.setObjectName("RenameCollectionButton")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.LandingArea.raise_()
         self.ReferenceButton.raise_()
         self.BottomShadowFrame.raise_()
         self.OptionsListComboBox.raise_()
-        self.ContinueButton.raise_()
         self.StatusLabel.raise_()
         self.CollectionLabel.raise_()
         self.ExitButton.raise_()
         self.CollectionNameLabel.raise_()
+        self.RenameCollectionButton.raise_()
+        self.ContinueButton.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -256,13 +292,19 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
+        self.InputTextEdit.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Arkhip\'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.OptionsListComboBox.setItemText(0, _translate("Dialog", "SteamWorkshop ID"))
         self.OptionsListComboBox.setItemText(1, _translate("Dialog", "Локализации"))
         self.OptionsListComboBox.setItemText(2, _translate("Dialog", "Нейм-листы"))
         self.OptionsListComboBox.setItemText(3, _translate("Dialog", "Переименовать"))
-        self.ContinueButton.setText(_translate("Dialog", "Продолжить"))
+        self.ContinueButton.setText(_translate("Dialog", "Продолжить перевод"))
         self.StatusLabel.setText(_translate("Dialog", "Статус"))
         self.CollectionLabel.setText(_translate("Dialog", "Коллекция"))
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.CollectionNameLabel.setText(_translate("Dialog", "Stellaris True Machine Translation Tool"))
+        self.RenameCollectionButton.setText(_translate("Dialog", "Продолжить"))

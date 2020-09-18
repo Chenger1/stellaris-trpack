@@ -1,12 +1,13 @@
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
 from scripts.utils import get_collection, set_data, set_data_style, set_button_style, set_complete_style, \
-    set_incomplete_style, create_separator, set_files_not_found_style, local_mod_rename
+    set_incomplete_style, create_separator, set_files_not_found_style, local_mod_create
 
 import os
+import json
 
 
 class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
@@ -28,6 +29,8 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.OptionsListComboBox.activated[str].connect(lambda: self.paint_elements())
+        # self.RenameCollectionButton.clicked.connect(lambda: self.local_mod_rename)
+        # self.ContinueButton.clicked.connect(lambda: self.clean)
         self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_Collection'))
         self.WindowMoveButton.installEventFilter(self)
 
@@ -133,38 +136,29 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.CollectionLabel.show()
         self.CollectionNameLabel.show()
         self.StatusLabel.show()
-        self.ContinueButton.clicked.connect(lambda: self.clean(grid))
+        self.ContinueButton.show()
+        self.RenameCollectionButton.hide()
         for i in reversed(range(grid.count())):
             grid.itemAt(i).widget().setParent(None)
 
-    def rename(self, grid):
+    def local_mod_rename(self):
+        with open('Properties.json', 'r', encoding='utf-8') as prop:
+            properties = json.load(prop)
+            properties["collection_name"] = self.InputTextEdit.toPlainText()
+        with open("Properties.json", 'w', encoding='utf-8') as prop:
+            json.dump(properties, prop)
+        self.CollectionNameLabel.setText(properties["collection_name"])
+        local_mod_create()
+
+    def print_rename(self, grid):
         self.CollectionLabel.hide()
         self.CollectionNameLabel.hide()
         self.StatusLabel.hide()
+        self.ContinueButton.hide()
+        self.RenameCollectionButton.show()
         for i in reversed(range(grid.count())):
             grid.itemAt(i).widget().setParent(None)
-        label = QtWidgets.QLabel(self.CollectionNameLabel.text())
-        label.setAlignment(QtCore.Qt.AlignCenter)
-        label.setFont(QtGui.QFont("Arkhip", 14))
-        label.setStyleSheet("""
-            QLabel{
-        color: white;    
-        }
-        """)
-        grid.addWidget(label, self.row_index + 1, 6)
-        input_text = QtWidgets.QTextEdit('Новое имя')
-        input_text.setAlignment(QtCore.Qt.AlignCenter)
-        input_text.setFont(QtGui.QFont("Arkhip", 12))
-        input_text.setStyleSheet("""
-            QTextEdit{
-        border: 1px solid #05B8CC;
-        border-radius: 20px;
-        color: white;
-        max-height: 40px;    
-        }
-        """)
-        grid.addWidget(input_text, self.row_index + 2, 6)
-        self.ContinueButton.clicked.connect(lambda: local_mod_rename(input_text.toPlainText()))
+        # self.InputTextEdit.setParent(grid)
 
     def paint_elements(self):
         grid = self.gridLayout
@@ -187,7 +181,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                 self.print_name_lists(grid, mod_id)
                 grid.addWidget(separator, self.row_index + 1, 6)
             elif options.currentText() in options.itemText(3):
-                self.rename(grid)
+                self.print_rename(grid)
             self.row_index += 1
 
     def eventFilter(self, source, event):
