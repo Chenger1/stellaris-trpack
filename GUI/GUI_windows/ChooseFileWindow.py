@@ -4,7 +4,7 @@ from GUI.GUI_windows_source import ChooseFile
 from GUI.GUI_windows.CollectionWindow import CollectionWindow
 from GUI.GUI_windows.SteamIDWindow import SteamIDWindow
 
-from scripts.utils import get_mod_id
+from scripts.utils import get_mod_id, open_zip_file
 from scripts.db import get_info_from_db
 
 
@@ -30,6 +30,9 @@ class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
     def open_file_dialog(self):
         if self.mods_folder:
             f_path = QtWidgets.QFileDialog.getOpenFileName(directory=self.mods_folder)[0]
+            if '.zip' in f_path.split('/')[-1]:
+                open_zip_file(f_path)
+                f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
         else:
             f_path = QtWidgets.QFileDialog.getOpenFileName()[0]
         self.choose_file(f_path)

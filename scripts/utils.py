@@ -2,6 +2,9 @@ import json
 import os
 import re
 import win32api
+import zipfile
+import shutil
+
 from PyQt5 import QtWidgets, QtGui
 
 from googletrans.constants import LANGUAGES
@@ -101,9 +104,12 @@ def paradox_mod_way_to_content(mod_id):
         for line in reading.readlines():
             if 'path' in line:
                 path = line.split('"')[1].replace('/', '\\')
-            if 'name' in line:
+            elif 'name' in line:
                 name = line.split('"')[1].replace('/', '\\')
                 data['mod_name'] = name
+            elif 'archive' in line:
+                pre_path = line.split('"')[1]
+                path = '\\'.join(pre_path.split('/')[:-1])
     return {'path': path, 'name': name}
 
 
@@ -403,3 +409,25 @@ def set_name_list_pointer_pos_list(name_lists_list, file_name, pointer_pos, coll
         name_list_pointer_pos_list[name_lists_list.index(file_name)] = pointer_pos
     return name_list_pointer_pos_list
 
+
+def open_zip_file(file):
+    directory = '/'.join(file.split('/')[:-1])
+    with zipfile.ZipFile(file, 'r') as zip_file:
+        zip_file.extractall(directory)
+
+
+def remove_unpacked_files():
+    path = data['full_path'].split('/')[:-3]
+    path = '/'.join(path)
+    dir = list(filter(lambda x: '.zip' not in x, os.listdir(path)))
+    if len(dir) != os.listdir(path):
+        folders, files = [], []
+        for item in dir:
+            if item.split('.')[-1] in '.txt.yml.yaml.mod.json.png.jpeg.jpg.mp.bin.py.db':
+                files.append(item)
+            else:
+                folders.append(item)
+        for item in files:
+            os.remove(f'{path}/{item}')
+        for item in folders:
+            shutil.rmtree(f'{path}/{item}')

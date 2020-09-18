@@ -7,7 +7,7 @@ from itertools import islice
 
 from googletrans.constants import LANGUAGES
 
-from scripts.utils import data, paradox_folder
+from scripts.utils import data, paradox_folder, remove_unpacked_files
 
 
 def search(subs, line):
@@ -51,6 +51,7 @@ def put_lines():
 	newloc.close()
 	itog.close()
 	shutil.rmtree(data['folder_path'])
+	remove_unpacked_files()
 
 
 if __name__ == "__main__":
