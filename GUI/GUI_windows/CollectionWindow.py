@@ -4,7 +4,7 @@ from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
 from scripts.utils import get_collection, set_data, set_data_style, set_button_style, set_complete_style, \
-    set_incomplete_style, create_separator, set_files_not_found_style
+    set_incomplete_style, create_separator, set_files_not_found_style, local_mod_rename
 
 import os
 
@@ -59,7 +59,6 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
     def print_mod_id(self, grid, mod_id):
         steam_id = QtWidgets.QTextEdit(mod_id)
         steam_id.setAlignment(QtCore.Qt.AlignCenter)
-        separator = create_separator()
         status = QtWidgets.QProgressBar()
         status.setValue(self.get_total_value(mod_id))
         set_data_style(steam_id)
@@ -134,6 +133,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.CollectionLabel.show()
         self.CollectionNameLabel.show()
         self.StatusLabel.show()
+        self.ContinueButton.clicked.connect(lambda: self.clean(grid))
         for i in reversed(range(grid.count())):
             grid.itemAt(i).widget().setParent(None)
 
@@ -157,13 +157,14 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         input_text.setFont(QtGui.QFont("Arkhip", 12))
         input_text.setStyleSheet("""
             QTextEdit{
-            border: 1px solid #05B8CC;
+        border: 1px solid #05B8CC;
         border-radius: 20px;
         color: white;
         max-height: 40px;    
         }
         """)
         grid.addWidget(input_text, self.row_index + 2, 6)
+        self.ContinueButton.clicked.connect(lambda: local_mod_rename(input_text.toPlainText()))
 
     def paint_elements(self):
         grid = self.gridLayout

@@ -9,36 +9,59 @@ from googletrans.constants import LANGUAGES
 drive = win32api.GetSystemDirectory().split(':')[0]
 user = win32api.GetUserName()
 paradox_folder = f'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris'
-collection_path = f'{paradox_folder}\\mod\\local_localisation\\collection.json'
+mod_path = F'{paradox_folder}\\mod\\local_localisation'
+collection_path = f'{mod_path}\\collection.json'
+version = '2.7.2'
 data = {}
 
 
-def local_mod_create(mod_path, name="Stellaris True Machine Translation Tool"):
+def local_mod_create():
+    with open('Properties.json', 'r', encoding='utf-8') as prop:
+        properties = json.load(prop)
     try:
         os.mkdir(mod_path)
         os.mkdir(mod_path + '\\localisation')
     except FileExistsError:
         pass
     with open(mod_path + '.mod', 'w', encoding='utf-8') as mod:
-        mod_description = 'version="2.7.2"\ntags={\n	"Translation"\n}\nname=' + F'"{name}"\n' + \
-                          'supported_version="2.7.2"\npath=' + F'"{mod_path}"'.replace('\\', '/')
+        mod_description = f'name="{properties["collection_name"]}"' + '\ntags={\n	"Translation"\n}' + f'\npicture="thumbnail.png"\nsupported_version="{version}"\npath="{paradox_folder}\mod\local_localisation"'.replace('\\', '/')
         mod.write(mod_description)
     with open(mod_path + '\\descriptor.mod', 'w', encoding='utf-8') as descriptor:
         descriptor.write(mod_description.split('path=')[0])
 
 
-def local_mod_status(mod_name="local_localisation"):
-    mod_path = F'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris\\mod\\{mod_name}'
+def local_mod_status():
     try:
         with open(mod_path + '.mod', 'r', encoding='utf-8') as mod:
             pass
     except FileNotFoundError:
-        local_mod_create(mod_path)
+        local_mod_create()
+    properties_status()
 
 
-def local_mod_rename(name, mod_name="local_localisation"):
-    mod_path = F'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris\\mod\\{mod_name}'
-    local_mod_create(mod_path, name)
+def properties_create():
+    with open('Properties.json', 'w', encoding='utf-8') as prop:
+        properties = {"collection_name": "Stellaris True Machine Translation Tool", "tool_language": "en", "translation_language": "en"}
+        json.dump(properties, prop)
+
+
+def properties_status():
+    try:
+        with open('Properties.json', 'r', encoding='utf-8') as prop:
+            pass
+    except FileNotFoundError:
+        properties_create()
+
+
+def local_mod_rename(new_name):
+    with open('Properties.json', 'r', encoding='utf-8') as prop:
+        properties = json.load(prop)
+        print(properties)
+        properties["collection_name"] = new_name
+        print(properties)
+    with open("Properties.json", 'w', encoding='utf-8') as prop:
+        json.dump(properties, prop)
+    local_mod_create()
 
 
 def create_temp_folder(mod_id, loc_path):
