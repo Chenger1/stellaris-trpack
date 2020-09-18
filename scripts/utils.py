@@ -417,8 +417,7 @@ def open_zip_file(file):
 
 
 def remove_unpacked_files():
-    path = data['full_path'].split('/')[:-3]
-    path = '/'.join(path)
+    path = data['base_dir'].split('\\localisation')[0]
     dir = list(filter(lambda x: '.zip' not in x, os.listdir(path)))
     if len(dir) != os.listdir(path):
         folders, files = [], []
@@ -428,6 +427,6 @@ def remove_unpacked_files():
             else:
                 folders.append(item)
         for item in files:
-            os.remove(f'{path}/{item}')
+            os.remove(f'{path}\\{item}')
         for item in folders:
-            shutil.rmtree(f'{path}/{item}')
+            shutil.rmtree(f'{path}\\{item}')
