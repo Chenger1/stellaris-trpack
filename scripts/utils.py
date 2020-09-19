@@ -407,10 +407,10 @@ def open_zip_file(file):
 
 def remove_unpacked_files():
     path = data['base_dir'].split('\\localisation')[0]
-    dir = list(filter(lambda x: '.zip' not in x, os.listdir(path)))
-    if len(dir) != os.listdir(path):
+    if list(filter(lambda x: '.zip' in x, os.listdir(path))):
+        directory = list(filter(lambda x: '.zip' not in x, os.listdir(path)))
         folders, files = [], []
-        for item in dir:
+        for item in directory:
             if item.split('.')[-1] in '.txt.yml.yaml.mod.json.png.jpeg.jpg.mp.bin.py.db':
                 files.append(item)
             else:

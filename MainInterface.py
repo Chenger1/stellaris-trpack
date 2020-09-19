@@ -17,7 +17,8 @@ from scripts.loc_cutter import cutter_main, cutting_lines
 from scripts.loc_translator import writing_translation, translate_line
 from scripts.loc_putter import put_lines
 from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
-    local_mod_status, collection_append, init_collection, open_file_for_resuming, remove_extra_new_line_symbols
+    local_mod_status, collection_append, init_collection, open_file_for_resuming, remove_extra_new_line_symbols,\
+    remove_unpacked_files
 
 
 class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
@@ -189,6 +190,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             writing_translation(self.user_text)
             put_lines()
             collection_append(self.ModIDLine.text(), 100, self.pointer)
+            remove_unpacked_files()
             self.show_system_message('success', 'Файл перевода успешно записан')
             self.clean_state()
         except FileNotFoundError as Error:
