@@ -219,8 +219,9 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def start_local(self):
         try:
             workshop_id = self.ModIDLine.text()
-            path = paradox_mod_way_to_content(workshop_id)['path']
-            self.orig_text = cutter_main(path, workshop_id)
+            data = paradox_mod_way_to_content(workshop_id)
+            self.ModNameLine.setText(data['name'])
+            self.orig_text = cutter_main(data['path'], workshop_id)
             self.progressbar_set_maximum(len(self.orig_text))
         except FileNotFoundError as Error:
             self.show_system_message('error', 'Вы не выбрали мод')
