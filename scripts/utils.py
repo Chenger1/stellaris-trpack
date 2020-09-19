@@ -238,7 +238,8 @@ def set_data_style(data_field):
                             QTextEdit{
                         background-color: transparent;
                         border: transparent;
-                        max-width: 250px;
+                        max-width: 350px;
+                        max-height: 70px;
                         color: #ffffff;
                         }
                             QTextEdit:hover{
@@ -291,29 +292,13 @@ def set_complete_style(status):
                         }      """)
 
 
-def set_files_not_found_style(data_field):
-    data_field.setFont(QtGui.QFont("Arkhip", 9))
-    data_field.setReadOnly(True)
-    data_field.setStyleSheet("""
-                            QTextEdit{
-                        background-color: transparent;
-                        border: transparent;
-                        max-width: 240px;
-                        color: #abb8b7;
-                        }
-                            QTextEdit:hover{
-                        color: #05B8CC;
-                        }
-                        """)
-
-
 def create_separator():
     separator = QtWidgets.QTextEdit()
     separator.setStyleSheet("""
         QTextEdit {
             max-height: 0px;
             max-width: 100px;
-            margin-left: 100px;
+            margin-right: 75px;
             border: 1px solid #05B8CC;
         }
         """)

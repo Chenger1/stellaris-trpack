@@ -100,18 +100,26 @@ class Ui_Dialog(object):
         self.gridLayout.setHorizontalSpacing(20)
         self.gridLayout.setVerticalSpacing(40)
         self.gridLayout.setObjectName("gridLayout")
-        self.InputTextEdit = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.NewNameText = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.NewNameText.setMaximumSize(QtCore.QSize(16777215, 35))
         font = QtGui.QFont()
-        font.setFamily("Arkhip")
+        font.setFamily("KB Astrolyte")
         font.setPointSize(14)
-        self.InputTextEdit.setFont(font)
-        self.InputTextEdit.setStyleSheet("QTextEdit{\n"
+        self.NewNameText.setFont(font)
+        self.NewNameText.setStyleSheet("QTextEdit{\n"
+"    background-color: transparent;\n"
 "    border: transparent;\n"
-"    color: white;\n"
-"    max-height: 40px;\n"
-"}")
-        self.InputTextEdit.setObjectName("InputTextEdit")
-        self.gridLayout.addWidget(self.InputTextEdit, 0, 0, 1, 1)
+"    color: #ffffff;\n"
+"    }\n"
+"QTextEdit:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    border-radius: 15px;\n"
+"    }\n"
+"")
+        self.NewNameText.setReadOnly(False)
+        self.NewNameText.setTextInteractionFlags(QtCore.Qt.TextEditorInteraction)
+        self.NewNameText.setObjectName("NewNameText")
+        self.gridLayout.addWidget(self.NewNameText, 0, 0, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
         self.LandingArea.setWidget(self.scrollAreaWidgetContents)
         self.BottomShadowFrame = QtWidgets.QFrame(Dialog)
@@ -292,10 +300,10 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
-        self.InputTextEdit.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.NewNameText.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Arkhip\'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.OptionsListComboBox.setItemText(0, _translate("Dialog", "SteamWorkshop ID"))

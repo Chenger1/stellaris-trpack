@@ -4,7 +4,7 @@ from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
 from scripts.utils import get_collection, set_data, set_data_style, set_button_style, set_complete_style, \
-    set_incomplete_style, create_separator, set_files_not_found_style, local_mod_create
+    set_incomplete_style, create_separator, local_mod_create
 
 import os
 import json
@@ -20,17 +20,18 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.parent = parent
         self.oldPos = self.pos()
         self.collection = get_collection()
-        # self.buttons = {}
+        self.buttons = {}
         self.row_index = 0
         self.accept_window = AcceptWindow
         self.init_handlers()
+        self.set_collection_name()
         self.paint_elements()
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.OptionsListComboBox.activated[str].connect(lambda: self.paint_elements())
-        # self.RenameCollectionButton.clicked.connect(lambda: self.local_mod_rename)
-        # self.ContinueButton.clicked.connect(lambda: self.clean)
+        self.RenameCollectionButton.clicked.connect(lambda: self.local_mod_rename())
+        self.ContinueButton.clicked.connect(lambda: self.clean(self.gridLayout))
         self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_Collection'))
         self.WindowMoveButton.installEventFilter(self)
 
@@ -52,24 +53,17 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             self.close()
             self.parent.parent.continue_local(self.collection[elem])
 
-    #         # self.buttons[f'{mod_id}'] = QtWidgets.QPushButton(f'{index + 1}: {self.collection[mod_id]["name"]}')
-    #         # #
-    #         # set_button_style(self.buttons[f'{mod_id}'])
-    #         # #
-    #         # self.buttons[f'{mod_id}'].clicked.connect(partial(self.open_accept_window, mod_id))
-    #         # grid.addWidget(self.buttons[f'{mod_id}'], index + 1, 3, 1, 4)
-
     def print_mod_id(self, grid, mod_id):
-        steam_id = QtWidgets.QTextEdit(mod_id)
-        steam_id.setAlignment(QtCore.Qt.AlignCenter)
+        self.buttons[f'{mod_id}'] = QtWidgets.QPushButton(f'{mod_id}')
         status = QtWidgets.QProgressBar()
+        # self.buttons[f'{mod_id}'].clicked.connect(partial(self.open_accept_window, mod_id))
         status.setValue(self.get_total_value(mod_id))
-        set_data_style(steam_id)
+        set_button_style(self.buttons[f'{mod_id}'])
         if status.value() != 100:
             set_incomplete_style(status)
         else:
             set_complete_style(status)
-        grid.addWidget(steam_id, self.row_index + 1, 6)
+        grid.addWidget(self.buttons[f'{mod_id}'], self.row_index + 1, 6)
         grid.addWidget(status, self.row_index + 1, 7)
         self.row_index += 1
 
@@ -90,47 +84,57 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             for file_name in self.collection[mod_id]['file_name_list']:
                 file_name_index = self.collection[mod_id]['file_name_list'].index(file_name)
                 if '.yml' not in file_name.split('_l_english.yml')[0]:
-                    file_name = QtWidgets.QTextEdit(file_name.split('_l_english.yml')[0])
+                    self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(file_name.split('_l_english.yml')[0])
                 else:
-                    file_name = QtWidgets.QTextEdit(file_name.split('l_english_')[-1].split('.yml')[0])
-                file_name.setAlignment(QtCore.Qt.AlignRight)
+                    self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(file_name.split('l_english_')[-1].split('.yml')[0])
                 status = QtWidgets.QProgressBar()
+                # self.buttons[f'{mod_id}-{file_name}'].clicked.connect(partial(self.open_accept_window, mod_id))
                 status.setValue(self.collection[mod_id]['file_tr_status_list'][file_name_index])
-                set_data_style(file_name)
+                set_button_style(self.buttons[f'{mod_id}-{file_name}'])
                 if status.value() != 100:
                     set_incomplete_style(status)
                 else:
                     set_complete_style(status)
-                grid.addWidget(file_name, self.row_index + 1, 6)
+                grid.addWidget(self.buttons[f'{mod_id}-{file_name}'], self.row_index + 1, 6)
                 grid.addWidget(status, self.row_index + 1, 7)
                 self.row_index += 1
         else:
-            files_not_found = QtWidgets.QTextEdit(f"{'—' * 8}")
-            files_not_found.setAlignment(QtCore.Qt.AlignRight)
-            set_files_not_found_style(files_not_found)
+            files_not_found = QtWidgets.QPushButton(f"{'—' * 8}")
+            status = QtWidgets.QProgressBar()
+            set_button_style(files_not_found)
+            set_incomplete_style(status)
+            status.setValue(0)
+            status.setFormat("——   ")
             grid.addWidget(files_not_found, self.row_index + 1, 6)
+            grid.addWidget(status, self.row_index + 1, 7)
+            self.row_index += 1
 
     def print_name_lists(self, grid, mod_id):
         if self.collection[mod_id]['name_lists_list']:
             for name_list in self.collection[mod_id]['name_lists_list']:
                 name_list_index = self.collection[mod_id]['name_lists_list'].index(name_list)
-                name_list = QtWidgets.QTextEdit(name_list.split('_namelist.txt')[0])
-                name_list.setAlignment(QtCore.Qt.AlignRight)
+                self.buttons[f'{mod_id}-{name_list}'] = QtWidgets.QPushButton(name_list.split('_namelist.txt')[0])
                 status = QtWidgets.QProgressBar()
+                # self.buttons[f'{mod_id}-{name_list}'].clicked.connect(partial(self.open_accept_window, mod_id))
                 status.setValue(self.collection[mod_id]['name_list_tr_status_list'][name_list_index])
-                set_data_style(name_list)
+                set_button_style(self.buttons[f'{mod_id}-{name_list}'])
                 if status.value() != 100:
                     set_incomplete_style(status)
                 else:
                     set_complete_style(status)
-                grid.addWidget(name_list, self.row_index + 1, 6)
+                grid.addWidget(self.buttons[f'{mod_id}-{name_list}'], self.row_index + 1, 6)
                 grid.addWidget(status, self.row_index + 1, 7)
                 self.row_index += 1
         else:
-            files_not_found = QtWidgets.QTextEdit(f"{'—' * 8}")
-            files_not_found.setAlignment(QtCore.Qt.AlignRight)
-            set_files_not_found_style(files_not_found)
+            files_not_found = QtWidgets.QPushButton(f"{'—' * 8}")
+            status = QtWidgets.QProgressBar()
+            set_button_style(files_not_found)
+            set_incomplete_style(status)
+            status.setValue(0)
+            status.setFormat("——   ")
             grid.addWidget(files_not_found, self.row_index + 1, 6)
+            grid.addWidget(status, self.row_index + 1, 7)
+            self.row_index += 1
 
     def clean(self, grid):
         self.CollectionLabel.show()
@@ -141,13 +145,20 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         for i in reversed(range(grid.count())):
             grid.itemAt(i).widget().setParent(None)
 
+    def set_collection_name(self):
+        with open('Properties.json', 'r', encoding='utf-8') as prop:
+            properties = json.load(prop)
+            self.NewNameText.setText(properties["collection_name"])
+            self.NewNameText.setAlignment(QtCore.Qt.AlignCenter)
+            self.CollectionNameLabel.setText(properties["collection_name"])
+
     def local_mod_rename(self):
         with open('Properties.json', 'r', encoding='utf-8') as prop:
             properties = json.load(prop)
-            properties["collection_name"] = self.InputTextEdit.toPlainText()
+            properties["collection_name"] = self.NewNameText.toPlainText()
         with open("Properties.json", 'w', encoding='utf-8') as prop:
             json.dump(properties, prop)
-        self.CollectionNameLabel.setText(properties["collection_name"])
+        self.set_collection_name()
         local_mod_create()
 
     def print_rename(self, grid):
@@ -158,7 +169,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.RenameCollectionButton.show()
         for i in reversed(range(grid.count())):
             grid.itemAt(i).widget().setParent(None)
-        # self.InputTextEdit.setParent(grid)
+        grid.addWidget(self.NewNameText)
 
     def paint_elements(self):
         grid = self.gridLayout
