@@ -2,6 +2,8 @@ from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import SteamID
 
+from scripts.utils import open_zip_file
+
 
 class SteamIDWindow(QtWidgets.QDialog, SteamID.Ui_Dialog):
     def __init__(self, parent):
@@ -28,12 +30,15 @@ class SteamIDWindow(QtWidgets.QDialog, SteamID.Ui_Dialog):
             path = self.IDLine.text().strip()
             if path.isnumeric():
                 mod_data = self.parent.parent.get_steam_id(path.split('=')[-1])
-                f_path = QtWidgets.QFileDialog.getOpenFileName(directory=f"{mod_data['path']}\\localisation")
+                f_path = QtWidgets.QFileDialog.getOpenFileName(directory=f"{mod_data['path']}\\localisation")[0]
+                if '.zip' in f_path.split('/')[-1]:
+                    open_zip_file(f_path)
+                    f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
                 self.AcceptButton.setText('Подтвердить файл')
                 self.AcceptButton.repaint()
                 self.AcceptButton.disconnect()
                 self.AcceptButton.clicked.connect(self.accept_file)
-                self.parent.choose_file(f_path[0])
+                self.parent.choose_file(f_path)
             elif path == '':
                 self.parent.parent.show_system_message('error', 'Вы не ввели ID мода')
             else:

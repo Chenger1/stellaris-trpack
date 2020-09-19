@@ -4,7 +4,7 @@ from GUI.GUI_windows_source import ModsList
 
 from scripts.mods_sorting import set_settings, prep_data, sorting
 from scripts.db import get_info_from_db, get_mods_from_playset, write_data_into_db
-from scripts.utils import get_mod_id, paradox_folder
+from scripts.utils import get_mod_id, paradox_folder, open_zip_file
 
 from functools import partial
 import os
@@ -123,6 +123,9 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
     def open_mod(self, name):
         mod_loc = get_mods_from_playset('get_mod_path', name)[0][0]
         f_path = QtWidgets.QFileDialog.getOpenFileName(directory=mod_loc)[0]
+        if '.zip' in f_path.split('/')[-1]:
+            open_zip_file(f_path)
+            f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
         if f_path:
             try:
                 mod_id = get_mod_id(f_path)
