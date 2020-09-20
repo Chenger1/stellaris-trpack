@@ -9,6 +9,7 @@ from scripts.utils import get_mod_id, paradox_folder, open_zip_file
 from functools import partial
 import os
 import requests
+import copy
 
 
 class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
@@ -41,6 +42,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.switch[self.ReverseSortingButton.isChecked()]['reversing']()
         self.grid = self.gridLayout
         self.buttons = {}
+        self.generator = copy.copy(self.modList)
         self.images = {
                     elem[0]: {
                             'steam_path': elem[1],
@@ -58,6 +60,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.ActivationSwticherButton.clicked.connect(self.activation_switcher)
         self.ReverseSortingButton.clicked.connect(self.reversing)
         self.WindowMoveButton.installEventFilter(self)
+        self.SearchLine.textChanged.connect(self.sync_lineEdit)
         self.PlaysetsList.activated[str].connect(self.update_mod_list)
         self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_5_AdvancedSorter'))
         self.ResetButton.clicked.connect(self.reset_sorting_requiring)
@@ -173,30 +176,47 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                                                           image_pth['steam_id'])
             return image_pth['cache_path']
 
+    def search(self, text):
+        self.generator = copy.copy(self.modList)
+        # self.checkboxes = []
+        # self.buttons = {}
+        for elem in self.modList:
+            if text.lower() in elem.name.lower():
+                pass
+            else:
+                del self.generator[self.generator.index(elem)]
+        print(len(self.generator))
+
+    def sync_lineEdit(self, text):
+        self.clear_grid_layout()
+        self.search(text)
+        self.paint_elements()
+
     def paint_elements(self):
-        for index, elem in enumerate(self.modList):
+        for index, elem in enumerate(self.generator):
             self.grid.setSpacing(10)
             self.buttons[f'{elem.name}'] = QtWidgets.QPushButton(f'{elem.name}')
+            self.buttons[f'{elem.name}'].setStyleSheet("""
+                                                    QPushButton{
+                                                                background-color: transparent;
+                                                                min-height: 40px;
+                                                                max-width: 600px;
+                                                                color: #ffffff;
+                                                                text-align: left;            
+                                                    }
+                                                    QPushButton::hover {
+                                                                color: #05B8CC;
+                                                    }
+                                                    QPushButton::pressed {
+                                                                color: rgba(194, 194, 194, 50);
+                                                    }
+                            """)
+            self.buttons[f'{elem.name}'].setFont(QtGui.QFont("Arkhip", 9))
+            self.buttons[f'{elem.name}'].clicked.connect(partial(self.open_mod, elem.name))
             checkbox1 = QtWidgets.QCheckBox()
             checkbox1.setChecked(elem.isEnabled)
             checkbox2 = QtWidgets.QCheckBox()
             checkbox2.setChecked(elem.sortRequired)
-            self.buttons[f'{elem.name}'].setStyleSheet("""
-                                    QPushButton{
-                                                background-color: transparent;
-                                                min-height: 40px;
-                                                max-width: 600px;
-                                                color: #ffffff;
-                                                text-align: left;            
-                                    }
-                                    QPushButton::hover {
-                                                color: #05B8CC;
-                                    }
-                                    QPushButton::pressed {
-                                                color: rgba(194, 194, 194, 50);
-                                    }
-            """)
-            self.buttons[f'{elem.name}'].setFont(QtGui.QFont("Arkhip", 9))
             checkbox1.setStyleSheet("""
                                     QCheckBox{
                                                 color:white;
@@ -221,11 +241,10 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                                             image: url(:/icons/icons/sorting.png)
                                     }
                                     """)
-            self.buttons[f'{elem.name}'].clicked.connect(partial(self.open_mod, elem.name))
             label = QtWidgets.QLabel(self)
-            pixmap = QtGui.QPixmap(self.get_images(elem.hashKey))
-            pixmap = pixmap.scaled(100, 100, QtCore.Qt.KeepAspectRatio)
-            label.setPixmap(pixmap)
+            # pixmap = QtGui.QPixmap(self.get_images(elem.hashKey))
+            # pixmap = pixmap.scaled(100, 100, QtCore.Qt.KeepAspectRatio)
+            # label.setPixmap(pixmap)
             self.grid.addWidget(label, index+1, 1)
             self.grid.addWidget(self.buttons[f'{elem.name}'], index+1, 2, 1, 5)
             self.grid.addWidget(checkbox1, index+1, 6)

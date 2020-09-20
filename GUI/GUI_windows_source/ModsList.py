@@ -137,7 +137,7 @@ class Ui_Dialog(object):
 "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.SortButton = QtWidgets.QPushButton(Dialog)
-        self.SortButton.setGeometry(QtCore.QRect(70, 510, 181, 41))
+        self.SortButton.setGeometry(QtCore.QRect(30, 520, 171, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
@@ -147,7 +147,7 @@ class Ui_Dialog(object):
         self.SortButton.setStyleSheet("QPushButton{\n"
 "    background-color: #05B8CC;\n"
 "    border: 2px solid #05B8CC;\n"
-"    border-radius: 20px;\n"
+"    border-radius: 15px;\n"
 "    color: #1f2533;\n"
 "    }\n"
 "QPushButton:hover{\n"
@@ -301,6 +301,24 @@ class Ui_Dialog(object):
 "    color: #1f2533;\n"
 "    }")
         self.ActivationSwticherButton.setObjectName("ActivationSwticherButton")
+        self.SearchLine = QtWidgets.QLineEdit(Dialog)
+        self.SearchLine.setGeometry(QtCore.QRect(220, 520, 221, 31))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        self.SearchLine.setFont(font)
+        self.SearchLine.setStyleSheet("QLineEdit{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #ffffff;\n"
+"    border-radius: 15px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QLineEdit:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }")
+        self.SearchLine.setAlignment(QtCore.Qt.AlignCenter)
+        self.SearchLine.setReadOnly(False)
+        self.SearchLine.setObjectName("SearchLine")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.LandingArea.raise_()
@@ -315,6 +333,7 @@ class Ui_Dialog(object):
         self.ActivateSortLabel.raise_()
         self.ActivationSwticherButton.raise_()
         self.ReverseSortingButton.raise_()
+        self.SearchLine.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -332,3 +351,4 @@ class Ui_Dialog(object):
         self.ModListLabel.setText(_translate("Dialog", "Список модов"))
         self.ActivateSortLabel.setText(_translate("Dialog", "Активация и сортировка"))
         self.ActivationSwticherButton.setText(_translate("Dialog", "Активировать"))
+        self.SearchLine.setText(_translate("Dialog", "Поиск"))
