@@ -5,8 +5,6 @@ import win32api
 import zipfile
 import shutil
 
-from PyQt5 import QtWidgets, QtGui
-
 from googletrans.constants import LANGUAGES
 
 drive = win32api.GetSystemDirectory().split(':')[0]
@@ -16,6 +14,20 @@ mod_path = F'{paradox_folder}\\mod\\local_localisation'
 collection_path = f'{mod_path}\\collection.json'
 version = '2.7.2'
 data = {}
+
+
+def properties_create():
+    with open('Properties.json', 'w', encoding='utf-8') as prop:
+        properties = {"collection_name": "Stellaris True Machine Translation Tool", "tool_language": "en", "translation_language": "en"}
+        json.dump(properties, prop)
+
+
+def properties_status():
+    try:
+        with open('Properties.json', 'r', encoding='utf-8') as prop:
+            pass
+    except FileNotFoundError:
+        properties_create()
 
 
 def local_mod_create():
@@ -40,20 +52,6 @@ def local_mod_status():
             pass
     except FileNotFoundError:
         local_mod_create()
-
-
-def properties_create():
-    with open('Properties.json', 'w', encoding='utf-8') as prop:
-        properties = {"collection_name": "Stellaris True Machine Translation Tool", "tool_language": "en", "translation_language": "en"}
-        json.dump(properties, prop)
-
-
-def properties_status():
-    try:
-        with open('Properties.json', 'r', encoding='utf-8') as prop:
-            pass
-    except FileNotFoundError:
-        properties_create()
 
 
 def create_temp_folder(mod_id, loc_path):
@@ -134,12 +132,7 @@ def get_mod_info(mod_id, tr_status, pointer_pos, collection):
         'mod_name': name,
         'picture': picture,
         'file_name_list': file_name_list,
-        # 'file_name': file_name,
-
-        # т.к. файл теперь может быть не один и лежаи они в списке, но путь к ним одинаковый, за исключением имени, надо что-то придумать
         'file_path': f'{paradox_folder}\\mod\\local_localisation\\localisation\\',
-        # 'file_path': f'{paradox_folder}\\mod\\local_localisation\\localisation\\{data["final_name"]}',
-
         'name_lists_list': name_lists_list,
         'file_tr_status_list': file_tr_status_list,
         'name_list_tr_status_list': name_list_tr_status_list,
@@ -214,98 +207,6 @@ def remove_extra_new_line_symbols(text):
     while text[-1] == '\n':
         text.pop()
     return text
-
-
-def set_button_style(button):
-    button.setFont(QtGui.QFont("Arkhip", 9))
-    button.setStyleSheet("""
-            QPushButton{
-            background-color: transparent;
-            min-height: 40px;
-            max-width: 400px;
-            color: #ffffff;
-            }
-            QPushButton::hover {
-            color: #05B8CC;
-            }
-            QPushButton::pressed {
-            color: rgba(194, 194, 194, 50);
-            }
-            """)
-
-
-def set_data_style(data_field):
-    data_field.setFont(QtGui.QFont("Arkhip", 9))
-    data_field.setReadOnly(True)
-    data_field.setStyleSheet("""
-                            QTextEdit{
-                        background-color: transparent;
-                        border: transparent;
-                        max-width: 350px;
-                        max-height: 70px;
-                        color: #ffffff;
-                        }
-                            QTextEdit:hover{
-                        color: #05B8CC;
-                        }
-                        """)
-
-
-def set_incomplete_style(status):
-    status.setFormat("%p%   ")
-    status.setInvertedAppearance(True)
-    status.setFont(QtGui.QFont("Arkhip", 9))
-    status.setStyleSheet("""
-                        QProgressBar{
-                        background-color:  #1f2533;
-                        border: solid grey;
-                        border-radius: 10px;
-                        color: white;
-                        font-family: "KB Astrolyte";
-                        text-align: right;
-                        max-height: 20px;
-                        max-width: 125;
-                        margin-right: 10px;
-                        }
-                        QProgressBar::chunk {
-                        background-color: #05B8CC;
-                        border-radius :10px;
-                        }      """)
-
-
-def set_complete_style(status):
-    status.setFormat("%p%   ")
-    status.setInvertedAppearance(True)
-    status.setFont(QtGui.QFont("Arkhip", 9))
-    status.setStyleSheet("""
-                        QProgressBar{
-                        background-color: #1f2533;
-                        border: solid grey;
-                        border-radius: 10px;
-                        color: white;
-                        font-family: "KB Astrolyte";
-                        text-align: right;
-                        max-height: 20px;
-                        max-width: 125;
-                        margin-right: 10px;
-                        }
-                        QProgressBar::chunk {
-                        background-color: #5abe41;
-                        border-radius :10px;
-                        }      """)
-
-
-def create_separator():
-    separator = QtWidgets.QTextEdit()
-    separator.setStyleSheet("""
-        QTextEdit {
-            max-height: 0px;
-            max-width: 100px;
-            margin-right: 75px;
-            border: 1px solid #05B8CC;
-        }
-        """)
-    return separator
 
 
 def scan_for_localisations(mod_id, file_name):

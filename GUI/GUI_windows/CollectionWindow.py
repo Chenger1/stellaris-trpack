@@ -3,8 +3,8 @@ from PyQt5 import QtWidgets, QtCore
 from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
-from scripts.utils import get_collection, set_data, set_data_style, set_button_style, set_complete_style, \
-    set_incomplete_style, create_separator, local_mod_create, open_zip_file, paradox_mod_way_to_content, mod_path
+from scripts.utils import get_collection, set_data, local_mod_create, open_zip_file, paradox_mod_way_to_content, mod_path
+from scripts.stylesheets import set_data_style, set_button_style, set_complete_style, set_incomplete_style, create_separator
 
 import os
 import json

@@ -30,7 +30,31 @@ class Ui_MainWindow(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("pictures/logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         MainWindow.setWindowIcon(icon)
-        MainWindow.setStyleSheet("background-color: #1f2533;")
+        MainWindow.setStyleSheet("QMainWindow{\n"
+"    background-color: #1f2533;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical{\n"
+"    background: transparent;\n"
+"    width: 5px;\n"
+"    margin: 0;\n"
+"    }\n"
+"QScrollBar::handle:vertical{\n"
+"    background-color: #5abe41;\n"
+"    min-height: 20px;\n"
+"    }\n"
+"QScrollBar::add-line:vertical{\n"
+"    background: transparent;\n"
+"    height: 0px;\n"
+"    }\n"
+"QScrollBar::sub-line:vertical{\n"
+"    background: transparent;\n"
+"    height: 0px;\n"
+"    }\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{\n"
+"    background: transparent;\n"
+"    height: 0px;\n"
+"    }")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("background-color: transparent;")
         self.centralwidget.setObjectName("centralwidget")

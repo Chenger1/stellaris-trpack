@@ -45,7 +45,31 @@
    </iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #1f2533;</string>
+   <string notr="true">QMainWindow{
+	background-color: #1f2533;
+}
+
+QScrollBar:vertical{
+	background: transparent;
+	width: 5px;
+	margin: 0;
+	}
+QScrollBar::handle:vertical{
+	background-color: #5abe41;
+    min-height: 20px;
+	}
+QScrollBar::add-line:vertical{
+	background: transparent;
+	height: 0px;
+	}
+QScrollBar::sub-line:vertical{
+	background: transparent;
+	height: 0px;
+	}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
+	background: transparent;
+	height: 0px;
+	}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
