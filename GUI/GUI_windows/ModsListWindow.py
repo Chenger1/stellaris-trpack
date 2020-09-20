@@ -227,7 +227,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             try:
                 checkbox1.setChecked(elem.checkboxes[0][0].isChecked())
                 checkbox2.setChecked(elem.checkboxes[0][1].isChecked())
-            except IndexError:
+            except AttributeError:
                 checkbox1.setChecked(elem.isEnabled)
                 checkbox2.setChecked(elem.sortRequired)
 
@@ -264,7 +264,9 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             self.grid.addWidget(checkbox1, index+1, 6)
             self.grid.addWidget(checkbox2, index+1, 7)
             #self.checkboxes.append((checkbox1, checkbox2))
-            elem.checkboxes.append((checkbox1, checkbox2))
+            #elem.checkboxes.append((checkbox1, checkbox2))
+            elem.checkboxes[0][0] = checkbox1
+            elem.checkboxes[0][1] = checkbox2
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:

@@ -15,7 +15,7 @@ class Mod():
         self.hashKey = hashKey
         self.name = name
         self.modId = modId
-        self.checkboxes = []
+        self.checkboxes = [[0, 1]]
         self.sortRequired = isSortRequired
         self.isEnabled = isEnabled
         self.position = position
