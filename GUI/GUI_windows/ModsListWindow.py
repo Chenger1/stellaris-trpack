@@ -74,16 +74,22 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.ActivationSwticherButton.setChecked(not len(disabled_mods) >= 1)
 
     def activation_switcher(self):
-        for checkbox, mod in zip(self.checkboxes, self.modList):
+        # for checkbox, mod in zip(self.checkboxes, self.modList):
+        #     mod.isEnabled = self.ActivationSwticherButton.isChecked()
+        #     checkbox[0].setChecked(self.ActivationSwticherButton.isChecked())
+        for mod in self.modList:
             mod.isEnabled = self.ActivationSwticherButton.isChecked()
-            checkbox[0].setChecked(self.ActivationSwticherButton.isChecked())
+            mod.checkboxes[0][0].setChecked(self.ActivationSwticherButton.isChecked())
         self.switch[self.ActivationSwticherButton.isChecked()]['act_switcher']()
         self.ActivationSwticherButton.setChecked(self.ActivationSwticherButton.isChecked())
 
     def reset_sorting_requiring(self):
-        for checkbox, mod in zip(self.checkboxes, self.modList):
+        # for checkbox, mod in zip(self.checkboxes, self.modList):
+        #     mod.sortRequired = True
+        #     checkbox[1].setChecked(True)
+        for mod in self.modList:
             mod.sortRequired = True
-            checkbox[1].setChecked(True)
+            mod.checkboxes[0][1].setChecked(True)
 
     def update_mod_list(self):
         self.modList, self.dlc_load, \
@@ -108,9 +114,12 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         return playsets
 
     def make_sort(self):
-        for checkbox, mod in zip(self.checkboxes, self.modList):
-            mod.isEnabled = checkbox[0].isChecked()
-            mod.sortRequired = checkbox[1].isChecked()
+        # for checkbox, mod in zip(self.checkboxes, self.modList):
+        #     mod.isEnabled = checkbox[0].isChecked()
+        #     mod.sortRequired = checkbox[1].isChecked()
+        for mod in self.modList:
+            mod.isEnabled = mod.checkboxes[0][0].isChecked()
+            mod.sortRequired = mod.checkboxes[0][1].isChecked()
         try:
             status = sorting(self.modList, self.game_data, self.dlc_load, self.playset,
                              self.ReverseSortingButton.isChecked())
@@ -214,9 +223,14 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             self.buttons[f'{elem.name}'].setFont(QtGui.QFont("Arkhip", 9))
             self.buttons[f'{elem.name}'].clicked.connect(partial(self.open_mod, elem.name))
             checkbox1 = QtWidgets.QCheckBox()
-            checkbox1.setChecked(elem.isEnabled)
             checkbox2 = QtWidgets.QCheckBox()
-            checkbox2.setChecked(elem.sortRequired)
+            try:
+                checkbox1.setChecked(elem.checkboxes[0][0].isChecked())
+                checkbox2.setChecked(elem.checkboxes[0][1].isChecked())
+            except IndexError:
+                checkbox1.setChecked(elem.isEnabled)
+                checkbox2.setChecked(elem.sortRequired)
+
             checkbox1.setStyleSheet("""
                                     QCheckBox{
                                                 color:white;
@@ -249,7 +263,8 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             self.grid.addWidget(self.buttons[f'{elem.name}'], index+1, 2, 1, 5)
             self.grid.addWidget(checkbox1, index+1, 6)
             self.grid.addWidget(checkbox2, index+1, 7)
-            self.checkboxes.append((checkbox1, checkbox2))
+            #self.checkboxes.append((checkbox1, checkbox2))
+            elem.checkboxes.append((checkbox1, checkbox2))
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:
