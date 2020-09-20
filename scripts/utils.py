@@ -72,6 +72,7 @@ def creating_temp_files_names(original_file_name):
         files_names = {'cutter': 'cutter_' + original_file_name,
                        'translated': 'tr_' + original_file_name,
                        'final': original_file_name.replace(mod_lang[0], LANGUAGES[languages["translation_language"]])}
+        data['language'] = LANGUAGES[languages["translation_language"]]
     return files_names
 
 
@@ -121,9 +122,9 @@ def get_collection():
 
 def get_mod_info(mod_id, tr_status, pointer_pos, collection):
     name = data['mod_name']
-    file_name = data['original_name']
+    file_name = data['original_name'] if tr_status == 0 else data['final_name']
     picture = "thumbnail.png"
-    file_name_list = scan_for_localisations(mod_id)
+    file_name_list = scan_for_localisations(mod_id, file_name)
     name_lists_list = scan_for_names(mod_id)
     file_tr_status_list = set_file_tr_status_list(file_name_list, file_name, tr_status, collection)
     name_list_tr_status_list = set_name_list_tr_status_list(name_lists_list, file_name, tr_status, collection)
@@ -144,7 +145,8 @@ def get_mod_info(mod_id, tr_status, pointer_pos, collection):
         'name_list_tr_status_list': name_list_tr_status_list,
         'file_name_pointer_pos_list': file_name_pointer_pos_list,
         'name_lists_pointer_pos_list': name_lists_pointer_pos_list,
-        # 'data': data
+        'language': data['language'],
+        'data': data
     }
     return mod_info
 
@@ -199,6 +201,7 @@ def set_data(resume):
     data['cuttered'] = resume['cuttered']
     data['translated_file'] = resume['translated_file']
     data['machine_text'] = resume['machine_text']
+    data['language'] = resume['language']
 
 
 def open_file_for_resuming(file_path):
@@ -305,7 +308,7 @@ def create_separator():
     return separator
 
 
-def scan_for_localisations(mod_id):
+def scan_for_localisations(mod_id, file_name):
     folders_for_scan = ['', ]
     l_english_list = []
     for directory in folders_for_scan:
@@ -320,6 +323,8 @@ def scan_for_localisations(mod_id):
                 l_english_list.append(file)
         except IndexError:
             pass
+    if '_l_english' not in file_name:
+        l_english_list[l_english_list.index(data['original_name'])] = file_name
     return l_english_list
 
 

@@ -202,12 +202,12 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.show_unfinished_translation_window()
 
     def continue_local(self, collection):
-        self.pointer = collection['pointer_pos']
+        self.pointer = collection['file_name_pointer_pos_list'][0]
         self.PreviousString.setEnabled(True if self.pointer >= 1 else False)
         self.orig_text = open_file_for_resuming(collection['data']['cuttered'])
         self.machine_text = open_file_for_resuming(collection['data']['machine_text'])
-        self.user_text = cutting_lines(f'{collection["data"]["folder_path"]}\\{collection["name"]}_temp',
-                                       collection['file_path'])
+        self.user_text = cutting_lines(f'{collection["data"]["folder_path"]}\\{collection["data"]["original_name"]}_temp',
+                                       f'{collection["file_path"]}{collection["file_name_list"][0]}')
         self.user_text = remove_extra_new_line_symbols(self.user_text)
         self.progressbar_set_maximum(len(self.orig_text))
         self.NextStringButton.setEnabled(True)

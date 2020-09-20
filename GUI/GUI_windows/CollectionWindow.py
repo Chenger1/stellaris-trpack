@@ -4,10 +4,11 @@ from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
 from scripts.utils import get_collection, set_data, set_data_style, set_button_style, set_complete_style, \
-    set_incomplete_style, create_separator, local_mod_create
+    set_incomplete_style, create_separator, local_mod_create, open_zip_file, paradox_mod_way_to_content, mod_path
 
 import os
 import json
+from functools import partial
 
 
 class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
@@ -36,7 +37,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.WindowMoveButton.installEventFilter(self)
 
     def open_accept_window(self, elem):
-        accept_window = AcceptWindow(self, f'Хотите продолжить перевод мода - {self.collection[elem]["name"]}',
+        accept_window = AcceptWindow(self, f'Хотите продолжить перевод мода - {self.collection[elem]["mod_name"]}',
                                      lambda: self.open_mod_loc(elem))
         accept_window.AcceptButton.setText('Да, хочу')
         accept_window.DeniedButton.setText('Нет')
@@ -45,25 +46,35 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
     def open_mod_loc(self, elem):
         if os.path.isdir(self.collection[elem]['data']['folder_path']) is False:
             self.parent.parent.show_system_message('error', 'Файл перевода поврежден или удален')
-            self.findChild(QtWidgets.QDialog).close()
+            #self.findChild(QtWidgets.QDialog).close()
         else:
             self.parent.parent.ModIDLine.setText(elem)
-            set_data(self.collection[elem])
-            self.findChild(QtWidgets.QDialog).close()
+            set_data(self.collection[elem]['data'])
+            #self.findChild(QtWidgets.QDialog).close()
             self.close()
             self.parent.parent.continue_local(self.collection[elem])
 
+    def open_mod_by_id(self, mod_id):
+        mod_data = self.parent.parent.get_steam_id(mod_id)
+        f_path = QtWidgets.QFileDialog.getOpenFileName(directory=f"{mod_data['path']}\\localisation")[0]
+        if f_path:
+            if '.zip' in f_path.split('/')[-1]:
+                open_zip_file(f_path)
+                f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
+            self.parent.choose_file(f_path)
+            self.close()
+
     def print_mod_id(self, grid, mod_id):
-        self.buttons[f'{mod_id}'] = QtWidgets.QPushButton(f'{mod_id}')
+        self.buttons[mod_id] = QtWidgets.QPushButton(f'{mod_id}')
+        self.buttons[mod_id].clicked.connect(partial(self.open_mod_by_id, mod_id))
         status = QtWidgets.QProgressBar()
-        # self.buttons[f'{mod_id}'].clicked.connect(partial(self.open_accept_window, mod_id))
         status.setValue(self.get_total_value(mod_id))
-        set_button_style(self.buttons[f'{mod_id}'])
+        set_button_style(self.buttons[mod_id])
         if status.value() != 100:
             set_incomplete_style(status)
         else:
             set_complete_style(status)
-        grid.addWidget(self.buttons[f'{mod_id}'], self.row_index + 1, 6)
+        grid.addWidget(self.buttons[mod_id], self.row_index + 1, 6)
         grid.addWidget(status, self.row_index + 1, 7)
         self.row_index += 1
 
@@ -79,14 +90,33 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         total_value /= count
         return total_value
 
+    def open_mod_by_file_name(self, mod_id):
+        self.open_mod_loc(mod_id)
+
     def print_files_names(self, grid, mod_id):
+        split_setting = {
+            False: lambda x, tr: x.split('_l_english.yml'),
+            True: lambda x, tr: x.split(f'_l_{tr}.yml')
+        }
         if self.collection[mod_id]['file_name_list']:
             for file_name in self.collection[mod_id]['file_name_list']:
+                lang = self.collection[mod_id]['language']
                 file_name_index = self.collection[mod_id]['file_name_list'].index(file_name)
-                if '.yml' not in file_name.split('_l_english.yml')[0]:
-                    self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(file_name.split('_l_english.yml')[0])
+                if '.yml' not in split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[0]:
+                    self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(
+                        split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[0])
+
+                    if self.collection[mod_id]['file_tr_status_list'] != 0:
+                        self.buttons[f'{mod_id}-{file_name}'].clicked.\
+                            connect(partial(self.open_mod_by_file_name, mod_id))
+                    else:
+                        self.buttons[f'{mod_id}-{file_name}'].clicked.\
+                            connect(partial(self.open_mod_by_file_name, mod_id))
                 else:
-                    self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(file_name.split('l_english_')[-1].split('.yml')[0])
+                    self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(
+                        split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[-1].split('.yml')[0])
+
+                    self.buttons[f'{mod_id}-{file_name}'].clicked.connect(partial(self.open_mod_by_file_name))
                 status = QtWidgets.QProgressBar()
                 # self.buttons[f'{mod_id}-{file_name}'].clicked.connect(partial(self.open_accept_window, mod_id))
                 status.setValue(self.collection[mod_id]['file_tr_status_list'][file_name_index])
