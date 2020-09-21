@@ -12,7 +12,6 @@ user = win32api.GetUserName()
 paradox_folder = f'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris'
 mod_path = F'{paradox_folder}\\mod\\local_localisation'
 collection_path = f'{mod_path}\\collection.json'
-version = '2.7.2'
 data = {}
 
 
@@ -30,6 +29,12 @@ def properties_status():
         properties_create()
 
 
+def current_stellaris_version():
+    with open(f'{paradox_folder}\settings.txt', 'r', encoding='utf-8') as file:
+        current_version = file.readlines()[-3].split('"')[1].split()[1]
+    return current_version
+
+
 def local_mod_create():
     with open('Properties.json', 'r', encoding='utf-8') as prop:
         properties = json.load(prop)
@@ -39,7 +44,7 @@ def local_mod_create():
     except FileExistsError:
         pass
     with open(mod_path + '.mod', 'w', encoding='utf-8') as mod:
-        mod_description = f'name="{properties["collection_name"]}"' + '\ntags={\n	"Translation"\n}' + f'\npicture="thumbnail.png"\nsupported_version="{version}"\npath="{paradox_folder}\mod\local_localisation"'.replace('\\', '/')
+        mod_description = f'name="{properties["collection_name"]}"' + '\ntags={\n	"Translation"\n}' + f'\npicture="thumbnail.png"\nsupported_version="{current_stellaris_version()}"\npath="{paradox_folder}\mod\local_localisation"'.replace('\\', '/')
         mod.write(mod_description)
     with open(mod_path + '\\descriptor.mod', 'w', encoding='utf-8') as descriptor:
         descriptor.write(mod_description.split('path=')[0])
@@ -292,7 +297,7 @@ def set_name_list_pointer_pos_list(name_lists_list, file_name, pointer_pos, coll
 
 def open_zip_file(file):
     directory = '/'.join(file.split('/')[:-1])
-    with zipfile.ZipFile(file, 'r') as zip_file:
+    with zipfile.ZipFile(file) as zip_file:
         zip_file.extractall(directory)
 
 
@@ -312,18 +317,20 @@ def remove_unpacked_files():
             shutil.rmtree(f'{path}\\{item}')
 
 
-def mod_name_wrap(mod_name, word_wrap='', first_raw='', second_raw=''):
+def mod_name_wrap(mod_name):
+    row = ['', '', '']
     if len(mod_name) > 60:
         mod_name = mod_name.split()
         for word in mod_name:
-            if len(f'{word_wrap} {word}') < 50:
-                word_wrap += f' {word}'
+            if len(f'{row[0]} {word}') < 50:
+                row[0] += f' {word}'
             else:
-                word_wrap += '\n'
-                if not first_raw:
-                    first_raw = word_wrap
+                row[0] += '\n'
+                if not row[1]:
+                    row[1] = row[0]
                 else:
-                    second_raw = word_wrap
-                word_wrap = ''
-        mod_name = f'{first_raw}{second_raw}{word_wrap}'
+                    row[2] = row[0]
+                row[0] = ''
+                row[0] += f' {word}'
+        mod_name = f'{row[1]}{row[2]}{row[0]}'
     return mod_name
