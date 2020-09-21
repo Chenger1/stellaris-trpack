@@ -183,6 +183,19 @@ class Ui_Dialog(object):
 "    color: transparent;\n"
 "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
+        self.LanguagesList = QtWidgets.QLabel(Dialog)
+        self.LanguagesList.setGeometry(QtCore.QRect(100, 40, 141, 20))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.LanguagesList.setFont(font)
+        self.LanguagesList.setStyleSheet("background-color: none;\n"
+"color: #ffffff;")
+        self.LanguagesList.setAlignment(QtCore.Qt.AlignCenter)
+        self.LanguagesList.setObjectName("LanguagesList")
+        self.LanguagesList.raise_()
         self.BackgroundFrame.raise_()
         self.lang_logo.raise_()
         self.LanguagesListLabel.raise_()
@@ -204,3 +217,5 @@ class Ui_Dialog(object):
         self.LanguagesListLabel.setText(_translate("Dialog", "Список языков"))
         self.SearchLine.setText(_translate("Dialog", "Поиск"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
+        self.LanguagesList.setText(_translate("Dialog", " Арабский Армянский Азербайджанский Белорусский Болгарский Китайский Хорватский Чешский Датский Нидерландский Английский Эстонский Финский Французский Немецкий Греческий Венгерский Итальянский Японский Корейский Литовский Норвежский Польский Португальский Русский Словацкий Словенский Испанский Шведский Турецкий Украинский Филиппинский\n"
+""))

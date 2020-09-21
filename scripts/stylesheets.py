@@ -85,11 +85,11 @@ def set_complete_style(status):
 
 
 def create_separator():
-    separator = QtWidgets.QTextEdit()
+    separator = QtWidgets.QLabel()
     separator.setStyleSheet("""
-    QTextEdit {
+    QLabel {
         max-height: 0px;
-        max-width: 100px;
+        min-width: 100px;
         margin-right: 75px;
         border: 1px solid #05B8CC;
     }

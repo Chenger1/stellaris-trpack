@@ -50,7 +50,7 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/backgrounds/backgrounds/ErrorMessage.png);</string>
+    <string notr="true">background-image: url(:/backgrounds/backgrounds/AcceptMessage.png);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -65,7 +65,7 @@
      <x>30</x>
      <y>40</y>
      <width>581</width>
-     <height>141</height>
+     <height>111</height>
     </rect>
    </property>
    <property name="font">
@@ -81,7 +81,7 @@
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Information</string>
+    <string>Информация</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -192,10 +192,10 @@ QPushButton:pressed{
   <widget class="QPushButton" name="DeniedButton">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>150</y>
-     <width>201</width>
-     <height>41</height>
+     <x>380</x>
+     <y>170</y>
+     <width>191</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -210,7 +210,7 @@ QPushButton:pressed{
     <string notr="true">QPushButton{
 	background-color: rgba(31, 37, 51, 50);
 	border: 2px solid #ffffff;
-	border-radius: 20px;
+	border-radius: 15px;
 	color: #ffffff;
 	}
 QPushButton:hover{
@@ -222,16 +222,16 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>Button2</string>
+    <string>Отмена</string>
    </property>
   </widget>
   <widget class="QPushButton" name="AcceptButton">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>150</y>
-     <width>241</width>
-     <height>41</height>
+     <x>80</x>
+     <y>170</y>
+     <width>191</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -246,7 +246,7 @@ QPushButton:pressed{
     <string notr="true">QPushButton{
 	background-color: rgba(31, 37, 51, 50);
 	border: 2px solid #ffffff;
-	border-radius: 20px;
+	border-radius: 15px;
 	color: #ffffff;
 	}
 QPushButton:hover{
@@ -258,7 +258,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>Button1</string>
+    <string>Подтвердить</string>
    </property>
   </widget>
   <zorder>BackgroundFrame</zorder>

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="backgrounds">
+    <file>backgrounds/AcceptMessage.png</file>
     <file>backgrounds/Collection.png</file>
     <file>backgrounds/ModList.png</file>
     <file>backgrounds/SteamID.png</file>
