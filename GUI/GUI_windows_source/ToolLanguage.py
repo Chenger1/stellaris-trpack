@@ -90,113 +90,128 @@ class Ui_Dialog(object):
 "    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.RussianButton = QtWidgets.QPushButton(Dialog)
-        self.RussianButton.setGeometry(QtCore.QRect(480, 50, 131, 31))
+        self.RussianButton.setGeometry(QtCore.QRect(470, 60, 131, 26))
+        self.RussianButton.setMinimumSize(QtCore.QSize(0, 26))
+        self.RussianButton.setMaximumSize(QtCore.QSize(16777215, 22))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
+        font.setPointSize(9)
         font.setBold(False)
         font.setWeight(50)
         self.RussianButton.setFont(font)
-        self.RussianButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
+        self.RussianButton.setStyleSheet("    QPushButton{\n"
+"        background-color: rgba(31, 37, 51, 50);\n"
+"        border: 2px solid #ffffff;\n"
+"        border-radius: 13px;\n"
+"        min-height: 22px;\n"
+"        color: #ffffff;\n"
 "    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
+"    QPushButton:hover{\n"
+"        background-color: rgba(56, 57, 61, 50);\n"
 "    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
+"    QPushButton:pressed{\n"
+"        background-color: rgba(194, 194, 194, 50);\n"
+"        border: #c2c2c2;\n"
 "    }")
         self.RussianButton.setObjectName("RussianButton")
         self.UkrainianButton = QtWidgets.QPushButton(Dialog)
-        self.UkrainianButton.setGeometry(QtCore.QRect(320, 110, 131, 31))
+        self.UkrainianButton.setGeometry(QtCore.QRect(310, 120, 131, 26))
+        self.UkrainianButton.setMinimumSize(QtCore.QSize(0, 26))
+        self.UkrainianButton.setMaximumSize(QtCore.QSize(16777215, 22))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
+        font.setPointSize(9)
         font.setBold(False)
         font.setWeight(50)
         self.UkrainianButton.setFont(font)
-        self.UkrainianButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
+        self.UkrainianButton.setStyleSheet("    QPushButton{\n"
+"        background-color: rgba(31, 37, 51, 50);\n"
+"        border: 2px solid #ffffff;\n"
+"        border-radius: 13px;\n"
+"        min-height: 22px;\n"
+"        color: #ffffff;\n"
 "    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
+"    QPushButton:hover{\n"
+"        background-color: rgba(56, 57, 61, 50);\n"
 "    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
+"    QPushButton:pressed{\n"
+"        background-color: rgba(194, 194, 194, 50);\n"
+"        border: #c2c2c2;\n"
 "    }")
         self.UkrainianButton.setObjectName("UkrainianButton")
         self.PolishButton = QtWidgets.QPushButton(Dialog)
-        self.PolishButton.setGeometry(QtCore.QRect(480, 110, 131, 31))
+        self.PolishButton.setGeometry(QtCore.QRect(470, 120, 131, 26))
+        self.PolishButton.setMinimumSize(QtCore.QSize(0, 26))
+        self.PolishButton.setMaximumSize(QtCore.QSize(16777215, 22))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
+        font.setPointSize(9)
         font.setBold(False)
         font.setWeight(50)
         self.PolishButton.setFont(font)
-        self.PolishButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
+        self.PolishButton.setStyleSheet("    QPushButton{\n"
+"        background-color: rgba(31, 37, 51, 50);\n"
+"        border: 2px solid #ffffff;\n"
+"        border-radius: 13px;\n"
+"        min-height: 22px;\n"
+"        color: #ffffff;\n"
 "    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
+"    QPushButton:hover{\n"
+"        background-color: rgba(56, 57, 61, 50);\n"
 "    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
+"    QPushButton:pressed{\n"
+"        background-color: rgba(194, 194, 194, 50);\n"
+"        border: #c2c2c2;\n"
 "    }")
         self.PolishButton.setObjectName("PolishButton")
         self.EnglishButton = QtWidgets.QPushButton(Dialog)
-        self.EnglishButton.setGeometry(QtCore.QRect(320, 50, 131, 31))
+        self.EnglishButton.setGeometry(QtCore.QRect(310, 60, 131, 26))
+        self.EnglishButton.setMinimumSize(QtCore.QSize(0, 26))
+        self.EnglishButton.setMaximumSize(QtCore.QSize(16777215, 22))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
+        font.setPointSize(9)
         font.setBold(False)
         font.setWeight(50)
         self.EnglishButton.setFont(font)
-        self.EnglishButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
+        self.EnglishButton.setStyleSheet("    QPushButton{\n"
+"        background-color: rgba(31, 37, 51, 50);\n"
+"        border: 2px solid #ffffff;\n"
+"        border-radius: 13px;\n"
+"        min-height: 22px;\n"
+"        color: #ffffff;\n"
 "    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
+"    QPushButton:hover{\n"
+"        background-color: rgba(56, 57, 61, 50);\n"
 "    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
+"    QPushButton:pressed{\n"
+"        background-color: rgba(194, 194, 194, 50);\n"
+"        border: #c2c2c2;\n"
 "    }")
         self.EnglishButton.setObjectName("EnglishButton")
         self.ChineseButton = QtWidgets.QPushButton(Dialog)
-        self.ChineseButton.setGeometry(QtCore.QRect(400, 170, 131, 31))
+        self.ChineseButton.setGeometry(QtCore.QRect(390, 180, 131, 26))
+        self.ChineseButton.setMinimumSize(QtCore.QSize(0, 26))
+        self.ChineseButton.setMaximumSize(QtCore.QSize(16777215, 22))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
+        font.setPointSize(9)
         font.setBold(False)
         font.setWeight(50)
         self.ChineseButton.setFont(font)
-        self.ChineseButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
+        self.ChineseButton.setStyleSheet("    QPushButton{\n"
+"        background-color: rgba(31, 37, 51, 50);\n"
+"        border: 2px solid #ffffff;\n"
+"        border-radius: 13px;\n"
+"        min-height: 22px;\n"
+"        color: #ffffff;\n"
 "    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
+"    QPushButton:hover{\n"
+"        background-color: rgba(56, 57, 61, 50);\n"
 "    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
+"    QPushButton:pressed{\n"
+"        background-color: rgba(194, 194, 194, 50);\n"
+"        border: #c2c2c2;\n"
 "    }")
         self.ChineseButton.setObjectName("ChineseButton")
         self.WindowMoveButton = QtWidgets.QPushButton(Dialog)

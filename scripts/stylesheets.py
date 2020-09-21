@@ -95,3 +95,75 @@ def create_separator():
     }
 """)
     return separator
+
+
+def mod_avtivation_status_style(checkbox):
+    checkbox.setStyleSheet("""
+    QCheckBox{
+        color:white;
+        margin-left: 30px;
+    }
+    QCheckBox:indicator:unchecked{
+        image: url(:/icons/icons/pass.png)
+    }
+    QCheckBox:indicator:checked{
+        image: url(:/icons/icons/active.png)
+    }
+""")
+
+
+def mod_sorting_status_style(checkbox):
+    checkbox.setStyleSheet("""
+    QCheckBox{
+        color:white;
+        margin-right: 10px;
+    }
+    QCheckBox:indicator:unchecked{
+        image: url(:/icons/icons/pass_sorting.png)
+    }
+    QCheckBox:indicator:checked{
+        image: url(:/icons/icons/sorting.png)
+    }
+""")
+
+
+def inactive_lang_style(button):
+    button.setFont(QtGui.QFont("KB Astrolyte", 9))
+    button.setStyleSheet("""
+    QPushButton{
+        background-color: rgba(31, 37, 51, 50);
+        border: 2px solid #ffffff;
+        border-radius: 13px;
+        min-height: 22px;
+        color: #ffffff;
+    }
+    QPushButton:hover{
+        background-color: rgba(56, 57, 61, 50);
+    }
+    QPushButton:pressed{
+        background-color: rgba(194, 194, 194, 50);
+        border: #c2c2c2;
+    }
+""")
+
+
+def active_lang_style(button):
+    button.setFont(QtGui.QFont("KB Astrolyte", 10))
+    button.setStyleSheet("""
+    QPushButton{
+        background-color: #05B8CC;
+        border: 2px solid #05B8CC;
+        border-radius: 13px;
+        min-height: 22px;
+        color: #1f2533;
+    }
+    QPushButton:hover{
+        background-color: #31858f;
+        border: #31858f;
+        color: #ffffff;
+    }
+    QPushButton:pressed{
+        background-color: rgba(194, 194, 194, 50);
+        border: #c2c2c2;
+    }
+    """)

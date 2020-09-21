@@ -5,7 +5,7 @@ from GUI.GUI_windows_source import ModsList
 from scripts.mods_sorting import set_settings, prep_data, sorting
 from scripts.db import get_info_from_db, get_mods_from_playset, write_data_into_db
 from scripts.utils import get_mod_id, paradox_folder, open_zip_file, mod_name_wrap
-from scripts.stylesheets import set_name_style
+from scripts.stylesheets import set_name_style, mod_avtivation_status_style, mod_sorting_status_style
 
 from functools import partial
 import os
@@ -213,30 +213,8 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                 checkbox1.setChecked(elem.isEnabled)
                 checkbox2.setChecked(elem.sortRequired)
 
-            checkbox1.setStyleSheet("""
-                                    QCheckBox{
-                                                color:white;
-                                                margin-left: 30px;
-                                             }
-                                    QCheckBox:indicator:unchecked{
-                                            image: url(:/icons/icons/pass.png)
-                                    }
-                                    QCheckBox:indicator:checked{
-                                            image: url(:/icons/icons/active.png)
-                                    }
-                                    """)
-            checkbox2.setStyleSheet("""
-                                    QCheckBox{
-                                                color:white;
-                                                margin-right: 10px;
-                                             }
-                                    QCheckBox:indicator:unchecked{
-                                            image: url(:/icons/icons/pass_sorting.png)
-                                    }
-                                    QCheckBox:indicator:checked{
-                                            image: url(:/icons/icons/sorting.png)
-                                    }
-                                    """)
+            mod_avtivation_status_style(checkbox1)
+            mod_sorting_status_style(checkbox2)
             label = QtWidgets.QLabel(self)
 
             pixmap = QtGui.QPixmap(self.get_images(elem.hashKey))

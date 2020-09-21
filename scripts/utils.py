@@ -320,8 +320,7 @@ def remove_unpacked_files():
 def mod_name_wrap(mod_name):
     row = ['', '', '']
     if len(mod_name) > 60:
-        mod_name = mod_name.split()
-        for word in mod_name:
+        for word in mod_name.split():
             if len(f'{row[0]} {word}') < 50:
                 row[0] += f' {word}'
             else:

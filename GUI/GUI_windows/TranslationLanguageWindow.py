@@ -4,6 +4,8 @@ from GUI.GUI_windows_source import TranslationLanguage
 from json import load, dump
 import copy
 
+from scripts.stylesheets import active_lang_style, inactive_lang_style
+
 
 class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog):
     def __init__(self, parent):
@@ -14,6 +16,7 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         self.oldPos = self.pos()
         self.parent = parent
         self.grid = self.GridLangButtonsLayout
+        self.grid.setColumnMinimumWidth(1, 50)
 
         # Необходимо сделать мультиязычность
         self.ArabicButton = QtWidgets.QPushButton('Арабский')
@@ -85,55 +88,14 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         self.set_active()
         self.init_handlers()
 
-    @staticmethod
-    def set_inactive(button):
-        button.setFont(QtGui.QFont("KB Astrolyte", 9))
-        button.setStyleSheet("""
-        QPushButton{
-            background-color: rgba(31, 37, 51, 50);
-            border: 2px solid #ffffff;
-            border-radius: 12px;
-            color: #ffffff;
-            min-height: 20px;
-            max-width: 180px;
-            }
-        QPushButton:hover{
-            background-color: rgba(56, 57, 61, 50);
-        }
-        QPushButton:pressed{
-            background-color: rgba(194, 194, 194, 50);
-            border: #c2c2c2;
-        }
-        """)
-
     def set_active(self):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
             properties = load(prop)
         for button in self.buttons:
             if self.buttons[button][1] == properties["translation_language"]:
-                self.buttons[button][0].setStyleSheet("""
-QPushButton{
-    background-color: #05B8CC;
-    border: 2px solid #05B8CC;
-    border-radius: 12px;
-    color: #1f2533;
-    min-height: 20px;
-    max-width: 180px;       
-
-}
-QPushButton:hover{
-    background-color: #31858f;
-    border: #31858f;
-    color: #ffffff;
-}
-QPushButton:pressed{
-    background-color: rgba(194, 194, 194, 50);
-    border: #c2c2c2;
-}
-""")
-                self.generator[button][0].setFont(QtGui.QFont("KB Astrolyte", 9))
+                active_lang_style(self.buttons[button][0])
             else:
-                self.set_inactive(self.buttons[button][0])
+                inactive_lang_style(self.buttons[button][0])
         self.gen()
 
     def gen(self):

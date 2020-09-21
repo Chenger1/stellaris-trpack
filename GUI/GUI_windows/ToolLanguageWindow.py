@@ -3,6 +3,8 @@ from json import load, dump
 
 from GUI.GUI_windows_source import ToolLanguage
 
+from scripts.stylesheets import active_lang_style, inactive_lang_style
+
 
 class ToolLanguageWindow(QtWidgets.QDialog, ToolLanguage.Ui_Dialog):
     def __init__(self, parent):
@@ -26,43 +28,13 @@ class ToolLanguageWindow(QtWidgets.QDialog, ToolLanguage.Ui_Dialog):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
             properties = load(prop)
         button = self.active_button[properties["tool_language"]]
-        button.setStyleSheet("""
-            QPushButton{
-                background-color: rgba(31, 37, 51, 50);
-                border: 2px solid #ffffff;
-                border-radius: 15px;
-                color: #ffffff;
-            }
-            QPushButton:hover{
-                background-color: rgba(56, 57, 61, 50);
-            }
-            QPushButton:pressed{
-                background-color: rgba(194, 194, 194, 50);
-                border: #c2c2c2;
-            }
-            """)
+        inactive_lang_style(button)
 
     def set_active(self):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
             properties = load(prop)
         button = self.active_button[properties["tool_language"]]
-        button.setStyleSheet("""
-    QPushButton{
-        background-color: #05B8CC;
-        border: 2px solid #05B8CC;
-        border-radius: 15px;
-        color: #1f2533;
-    }
-    QPushButton:hover{
-        background-color: #31858f;
-        border: #31858f;
-        color: #ffffff;
-    }
-    QPushButton:pressed{
-        background-color: rgba(194, 194, 194, 50);
-        border: #c2c2c2;
-    }
-    """)
+        active_lang_style(button)
 
     def set_translation_language(self, translation_language):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
