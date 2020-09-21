@@ -310,3 +310,20 @@ def remove_unpacked_files():
             os.remove(f'{path}\\{item}')
         for item in folders:
             shutil.rmtree(f'{path}\\{item}')
+
+
+def mod_name_wrap(mod_name, word_wrap='', first_raw='', second_raw=''):
+    if len(mod_name) > 60:
+        mod_name = mod_name.split()
+        for word in mod_name:
+            if len(f'{word_wrap} {word}') < 50:
+                word_wrap += f' {word}'
+            else:
+                word_wrap += '\n'
+                if not first_raw:
+                    first_raw = word_wrap
+                else:
+                    second_raw = word_wrap
+                word_wrap = ''
+        mod_name = f'{first_raw}{second_raw}{word_wrap}'
+    return mod_name

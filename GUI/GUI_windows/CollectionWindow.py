@@ -3,8 +3,8 @@ from PyQt5 import QtWidgets, QtCore
 from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
-from scripts.utils import get_collection, set_data, local_mod_create, open_zip_file, paradox_mod_way_to_content, mod_path
-from scripts.stylesheets import set_data_style, set_button_style, set_complete_style, set_incomplete_style, create_separator
+from scripts.utils import get_collection, set_data, local_mod_create, open_zip_file, paradox_mod_way_to_content, mod_path, mod_name_wrap
+from scripts.stylesheets import set_name_style, set_button_style, set_complete_style, set_incomplete_style, create_separator
 
 import os
 import json
@@ -207,9 +207,9 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         grid.setSpacing(10)
         self.clean(grid)
         for mod_id in self.collection:
-            mod_name = QtWidgets.QTextEdit(self.collection[mod_id]['mod_name'])
+            mod_name = QtWidgets.QPushButton(mod_name_wrap(self.collection[mod_id]['mod_name']))
             separator = create_separator()
-            set_data_style(mod_name)
+            set_name_style(mod_name)
             self.row_index += 1
             grid.addWidget(mod_name, self.row_index + 1, 1, 1, 4)
             if options.currentText() in options.itemText(0):

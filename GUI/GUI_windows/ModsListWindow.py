@@ -4,7 +4,7 @@ from GUI.GUI_windows_source import ModsList
 
 from scripts.mods_sorting import set_settings, prep_data, sorting
 from scripts.db import get_info_from_db, get_mods_from_playset, write_data_into_db
-from scripts.utils import get_mod_id, paradox_folder, open_zip_file
+from scripts.utils import get_mod_id, paradox_folder, open_zip_file, mod_name_wrap
 from scripts.stylesheets import set_name_style
 
 from functools import partial
@@ -201,10 +201,8 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
     def paint_elements(self):
         for index, elem in enumerate(self.generator):
             self.grid.setSpacing(10)
-            self.buttons[f'{elem.name}'] = QtWidgets.QPushButton(f'{elem.name}')
+            self.buttons[f'{elem.name}'] = QtWidgets.QPushButton(mod_name_wrap(elem.name))
             set_name_style(self.buttons[f'{elem.name}'])
-
-            self.buttons[f'{elem.name}'].setFont(QtGui.QFont("Arkhip", 9))
             self.buttons[f'{elem.name}'].clicked.connect(partial(self.open_mod, elem.name))
             checkbox1 = QtWidgets.QCheckBox()
             checkbox2 = QtWidgets.QCheckBox()

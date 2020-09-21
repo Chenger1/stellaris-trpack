@@ -1,24 +1,8 @@
 from PyQt5 import QtWidgets, QtGui
 
 
-def set_data_style(data_field):
-    data_field.setFont(QtGui.QFont("Arkhip", 9))
-    data_field.setReadOnly(True)
-    data_field.setStyleSheet("""
-    QTextEdit{
-        background-color: transparent;
-        border: transparent;
-        max-width: 350px;
-        max-height: 70px;
-        color: #ffffff;
-    }
-    QTextEdit:hover{
-        color: #05B8CC;
-    }
-""")
-
-
 def set_name_style(button):
+    button.setFont(QtGui.QFont("Arkhip", 9))
     button.setStyleSheet("""
     QPushButton{
         background-color: transparent;
@@ -59,7 +43,7 @@ def set_button_style(button):
 def set_incomplete_style(status):
     status.setFormat("%p%   ")
     status.setInvertedAppearance(True)
-    status.setFont(QtGui.QFont("Arkhip", 9))
+    status.setFont(QtGui.QFont("KB Astrolyte", 9))
     status.setStyleSheet("""
     QProgressBar{
         background-color:  #1f2533;
@@ -81,7 +65,7 @@ def set_incomplete_style(status):
 def set_complete_style(status):
     status.setFormat("%p%   ")
     status.setInvertedAppearance(True)
-    status.setFont(QtGui.QFont("Arkhip", 9))
+    status.setFont(QtGui.QFont("KB Astrolyte", 9))
     status.setStyleSheet("""
     QProgressBar{
         background-color: #1f2533;
