@@ -46,12 +46,11 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
     def open_mod_loc(self, elem):
         if os.path.isdir(self.collection[elem]['data']['folder_path']) is False:
             self.parent.parent.show_system_message('error', 'Файл перевода поврежден или удален')
-            #self.findChild(QtWidgets.QDialog).close()
         else:
             self.parent.parent.ModIDLine.setText(elem)
             set_data(self.collection[elem]['data'])
-            #self.findChild(QtWidgets.QDialog).close()
             self.close()
+            self.parent.parent.ModNameLine.setText(self.collection[elem]['mod_name'])
             self.parent.parent.continue_local(self.collection[elem])
 
     def open_mod_by_id(self, mod_id):
@@ -90,28 +89,41 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         total_value /= count
         return total_value
 
-    def open_mod_by_file_name(self, mod_id):
-        self.open_mod_loc(mod_id)
+    def start_translation(self, mod_id, loc_name, full_path):
+        path = f'{full_path}\\{loc_name}'
+
+        if os.path.exists(path) is False:
+            dirs = list(filter(lambda x: os.path.isdir(f'{full_path}/{x}'), os.listdir(full_path)))
+            target_dir = list(filter(lambda x: loc_name in os.listdir(f'{full_path}/{x}'), dirs))
+            path = '/'.join(f'{full_path}\\{target_dir[0]}\\{loc_name}'.split('\\'))
+
+        self.parent.choose_file(path)
+        self.parent.parent.ModNameLine.setText(self.collection[mod_id]['mod_name'])
+        self.close()
 
     def print_files_names(self, grid, mod_id):
         split_setting = {
             False: lambda x, tr: x.split('_l_english.yml'),
             True: lambda x, tr: x.split(f'_l_{tr}.yml')
         }
+
         if self.collection[mod_id]['file_name_list']:
             for file_name in self.collection[mod_id]['file_name_list']:
                 lang = self.collection[mod_id]['language']
                 file_name_index = self.collection[mod_id]['file_name_list'].index(file_name)
+
                 if '.yml' not in split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[0]:
                     self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(
                         split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[0])
 
-                    if self.collection[mod_id]['file_tr_status_list'] != 0:
-                        self.buttons[f'{mod_id}-{file_name}'].clicked.\
-                            connect(partial(self.open_mod_by_file_name, mod_id))
+                    if self.collection[mod_id]['file_tr_status_list'][file_name_index] > 0:
+                        self.buttons[f'{mod_id}-{file_name}'].clicked. \
+                            connect(partial(self.open_mod_loc, mod_id))
                     else:
-                        self.buttons[f'{mod_id}-{file_name}'].clicked.\
-                            connect(partial(self.open_mod_by_file_name, mod_id))
+                        self.buttons[f'{mod_id}-{file_name}'].clicked. \
+                            connect(partial(self.start_translation, mod_id, file_name,
+                                            self.collection[mod_id]['data']['base_dir']))
+
                 else:
                     self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(
                         split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[-1].split('.yml')[0])

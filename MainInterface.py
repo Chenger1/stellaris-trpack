@@ -207,7 +207,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.orig_text = open_file_for_resuming(collection['data']['cuttered'])
         self.machine_text = open_file_for_resuming(collection['data']['machine_text'])
         self.user_text = cutting_lines(f'{collection["data"]["folder_path"]}\\{collection["data"]["original_name"]}_temp',
-                                       f'{collection["file_path"]}{collection["file_name_list"][0]}')
+                                       f'{collection["file_path"]}{collection["data"]["final_name"]}')
+        #collection["file_name_list"][0]
         self.user_text = remove_extra_new_line_symbols(self.user_text)
         self.progressbar_set_maximum(len(self.orig_text))
         self.NextStringButton.setEnabled(True)
