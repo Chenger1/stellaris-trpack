@@ -27,31 +27,30 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.init_handlers()
         self.set_collection_name()
         self.paint_elements()
-        self.message = ''
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.OptionsListComboBox.activated[str].connect(lambda: self.paint_elements())
-        self.RenameCollectionButton.clicked.connect(lambda: self.local_mod_rename())
+        self.RenameCollectionButton.clicked.connect(self.local_mod_rename)
         self.ContinueButton.clicked.connect(lambda: self.clean(self.gridLayout))
         self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_Collection'))
         self.WindowMoveButton.installEventFilter(self)
 
-    def call_accept_message(self, message):
-        window = AcceptWindow(self, message)
+    def call_accept_message(self, message, **kwargs):
+        window = AcceptWindow(self, message, lambda: self.open_mod_loc(**kwargs))
         window.show()
 
-    def open_mod_loc(self, elem):
-        if os.path.isdir(self.collection[elem]['data']['folder_path']) is False:
+    def open_mod_loc(self, **kwargs):
+        if os.path.isdir(self.collection[kwargs['mod_id']]['data']['folder_path']) is False:
             message = 'invalid_file'
-            self.message = ''
             call_error_message(self, message)
         else:
-            self.parent.parent.ModIDLine.setText(elem)
-            set_data(self.collection[elem]['data'])
+            self.parent.parent.ModIDLine.setText(kwargs['mod_id'])
+            set_data(self.collection[kwargs['mod_id']]['data'])
+            self.findChild(QtWidgets.QDialog).close()
             self.close()
-            self.parent.parent.ModNameLine.setText(self.collection[elem]['mod_name'])
-            self.parent.parent.continue_local(self.collection[elem])
+            self.parent.parent.ModNameLine.setText(self.collection[kwargs['mod_id']]['mod_name'])
+            self.parent.parent.continue_local(self.collection[kwargs['mod_id']])
 
     def open_mod_by_id(self, mod_id):
         mod_data = self.parent.parent.get_steam_id(mod_id)
@@ -89,16 +88,17 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         total_value /= count
         return total_value
 
-    def start_translation(self, mod_id, loc_name, full_path):
-        path = f'{full_path}\\{loc_name}'
+    def start_translation(self, **kwargs):
+        path = f'{kwargs["base_dir"]}\\{kwargs["file_name"]}'
 
         if os.path.exists(path) is False:
-            dirs = list(filter(lambda x: os.path.isdir(f'{full_path}/{x}'), os.listdir(full_path)))
-            target_dir = list(filter(lambda x: loc_name in os.listdir(f'{full_path}/{x}'), dirs))
-            path = '/'.join(f'{full_path}\\{target_dir[0]}\\{loc_name}'.split('\\'))
+            dirs = list(filter(lambda x: os.path.isdir(f'{kwargs["base_dir"]}/{x}'), os.listdir(kwargs["base_dir"])))
+            target_dir = list(filter(lambda x: kwargs["file_name"] in os.listdir(f'{kwargs["base_dir"]}/{x}'), dirs))
+            path = '/'.join(f'{kwargs["base_dir"]}\\{target_dir[0]}\\{kwargs["file_name"]}'.split('\\'))
 
         self.parent.choose_file(path)
-        self.parent.parent.ModNameLine.setText(self.collection[mod_id]['mod_name'])
+        self.parent.parent.ModNameLine.setText(self.collection[kwargs['mod_id']]['mod_name'])
+        self.findChild(QtWidgets.QDialog).close()
         self.close()
 
     def print_files_names(self, grid, mod_id):
@@ -117,21 +117,29 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                         split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[0])
 
                     if self.collection[mod_id]['file_tr_status_list'][file_name_index] > 0:
+                        message = f'Вы уверены что хотите продолжить перевод  - {file_name}'
                         self.buttons[f'{mod_id}-{file_name}'].clicked. \
-                            connect(partial(self.open_mod_loc, mod_id))
+                            connect(partial(self.call_accept_message, message, mod_id=mod_id))
+
                     else:
+                        message = f'Вы уверены что хотите начать перевод  - {file_name}'
                         self.buttons[f'{mod_id}-{file_name}'].clicked. \
-                            connect(partial(self.start_translation, mod_id, file_name,
-                                            self.collection[mod_id]['data']['base_dir']))
+                            connect(partial(self.call_accept_message, message,
+                                            mod_id=mod_id, file_name=file_name,
+                                            base_dir=self.collection[mod_id]['data']['base_dir']))
+                        # self.buttons[f'{mod_id}-{file_name}'].clicked. \
+                        #     connect(partial(self.start_translation, mod_id, file_name,
+                        #                     self.collection[mod_id]['data']['base_dir']))
+
                 else:
                     self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(
                         split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[-1].split('.yml')[0])
 
                     self.buttons[f'{mod_id}-{file_name}'].clicked.connect(partial(self.open_mod_by_file_name))
                 status = QtWidgets.QProgressBar()
-                message = 'collection_continue_translation'
-                self.messege = mod_id
-                self.buttons[f'{mod_id}-{file_name}'].clicked.connect(partial(self.call_accept_message, message))
+
+                # message = 'collection_continue_translation'
+                # self.buttons[f'{mod_id}-{file_name}'].clicked.connect(partial(self.call_accept_message, message))
 
                 status.setValue(self.collection[mod_id]['file_tr_status_list'][file_name_index])
                 set_button_style(self.buttons[f'{mod_id}-{file_name}'])
