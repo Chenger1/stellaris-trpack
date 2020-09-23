@@ -20,7 +20,7 @@ class Ui_Dialog(object):
         Dialog.setMaximumSize(QtCore.QSize(650, 250))
         Dialog.setStyleSheet("background-color: transparent;")
         self.AcceptButton = QtWidgets.QPushButton(Dialog)
-        self.AcceptButton.setGeometry(QtCore.QRect(250, 190, 151, 41))
+        self.AcceptButton.setGeometry(QtCore.QRect(250, 190, 151, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
@@ -30,7 +30,7 @@ class Ui_Dialog(object):
         self.AcceptButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
-"    border-radius: 20px;\n"
+"    border-radius: 15px;\n"
 "    color: #ffffff;\n"
 "    }\n"
 "QPushButton:hover{\n"
@@ -70,36 +70,18 @@ class Ui_Dialog(object):
 "    color: rgb(255, 60, 63)\n"
 "    }")
         self.ExitButton.setObjectName("ExitButton")
-        self.ErrorLabel = QtWidgets.QLabel(Dialog)
-        self.ErrorLabel.setGeometry(QtCore.QRect(490, 40, 131, 41))
+        self.SuccessLabel = QtWidgets.QLabel(Dialog)
+        self.SuccessLabel.setGeometry(QtCore.QRect(20, 30, 101, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(14)
         font.setBold(False)
         font.setWeight(50)
-        self.ErrorLabel.setFont(font)
-        self.ErrorLabel.setStyleSheet("background-color: none;\n"
+        self.SuccessLabel.setFont(font)
+        self.SuccessLabel.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
-        self.ErrorLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.ErrorLabel.setObjectName("ErrorLabel")
-        self.ErrorMessageLine = QtWidgets.QLineEdit(Dialog)
-        self.ErrorMessageLine.setGeometry(QtCore.QRect(40, 120, 571, 31))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
-        self.ErrorMessageLine.setFont(font)
-        self.ErrorMessageLine.setStyleSheet("QLineEdit{\n"
-"    background-color: rgba(31, 37, 51, 70);\n"
-"    border: 1px solid #ffffff;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QLineEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 70);\n"
-"    }\n"
-"")
-        self.ErrorMessageLine.setText("")
-        self.ErrorMessageLine.setAlignment(QtCore.Qt.AlignCenter)
-        self.ErrorMessageLine.setObjectName("ErrorMessageLine")
+        self.SuccessLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.SuccessLabel.setObjectName("SuccessLabel")
         self.WindowMoveButton = QtWidgets.QPushButton(Dialog)
         self.WindowMoveButton.setGeometry(QtCore.QRect(0, 0, 651, 21))
         font = QtGui.QFont()
@@ -112,12 +94,24 @@ class Ui_Dialog(object):
 "    color: transparent;\n"
 "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
+        self.InfoLabel = QtWidgets.QLabel(Dialog)
+        self.InfoLabel.setGeometry(QtCore.QRect(30, 70, 591, 91))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.InfoLabel.setFont(font)
+        self.InfoLabel.setStyleSheet("background-color: none;\n"
+"color: #ffffff;")
+        self.InfoLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.InfoLabel.setObjectName("InfoLabel")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.AcceptButton.raise_()
         self.ExitButton.raise_()
-        self.ErrorLabel.raise_()
-        self.ErrorMessageLine.raise_()
+        self.SuccessLabel.raise_()
+        self.InfoLabel.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -127,5 +121,6 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.AcceptButton.setText(_translate("Dialog", "Отлично"))
         self.ExitButton.setText(_translate("Dialog", "X"))
-        self.ErrorLabel.setText(_translate("Dialog", "Успех"))
+        self.SuccessLabel.setText(_translate("Dialog", "Успех"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
+        self.InfoLabel.setText(_translate("Dialog", "Информация"))

@@ -5,6 +5,7 @@ from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
 from scripts.utils import get_collection, set_data, local_mod_create, open_zip_file, paradox_mod_way_to_content, mod_path, mod_name_wrap
 from scripts.stylesheets import set_name_style, set_button_style, set_complete_style, set_incomplete_style, create_separator
+from scripts.messeges import call_error_message
 
 import os
 import json
@@ -23,10 +24,10 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.collection = get_collection()
         self.buttons = {}
         self.row_index = 0
-        self.accept_window = AcceptWindow
         self.init_handlers()
         self.set_collection_name()
         self.paint_elements()
+        self.message = ''
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
@@ -36,16 +37,15 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_Collection'))
         self.WindowMoveButton.installEventFilter(self)
 
-    def open_accept_window(self, elem):
-        accept_window = AcceptWindow(self, f'Хотите продолжить перевод мода - {self.collection[elem]["mod_name"]}',
-                                     lambda: self.open_mod_loc(elem))
-        accept_window.AcceptButton.setText('Да, хочу')
-        accept_window.DeniedButton.setText('Нет')
-        accept_window.show()
+    def call_accept_message(self, message):
+        window = AcceptWindow(self, message)
+        window.show()
 
     def open_mod_loc(self, elem):
         if os.path.isdir(self.collection[elem]['data']['folder_path']) is False:
-            self.parent.parent.show_system_message('error', 'Файл перевода поврежден или удален')
+            message = 'invalid_file'
+            self.message = ''
+            call_error_message(self, message)
         else:
             self.parent.parent.ModIDLine.setText(elem)
             set_data(self.collection[elem]['data'])
@@ -123,14 +123,16 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                         self.buttons[f'{mod_id}-{file_name}'].clicked. \
                             connect(partial(self.start_translation, mod_id, file_name,
                                             self.collection[mod_id]['data']['base_dir']))
-
                 else:
                     self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(
                         split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[-1].split('.yml')[0])
 
                     self.buttons[f'{mod_id}-{file_name}'].clicked.connect(partial(self.open_mod_by_file_name))
                 status = QtWidgets.QProgressBar()
-                # self.buttons[f'{mod_id}-{file_name}'].clicked.connect(partial(self.open_accept_window, mod_id))
+                message = 'collection_continue_translation'
+                self.messege = mod_id
+                self.buttons[f'{mod_id}-{file_name}'].clicked.connect(partial(self.call_accept_message, message))
+
                 status.setValue(self.collection[mod_id]['file_tr_status_list'][file_name_index])
                 set_button_style(self.buttons[f'{mod_id}-{file_name}'])
                 if status.value() != 100:

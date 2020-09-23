@@ -1287,10 +1287,47 @@ QPushButton:pressed{
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="FinishButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>780</y>
+      <width>231</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #5abe41;
+	border: 3px solid #5abe41;
+	border-radius: 20px;
+	color: #1f2533;
+	}
+QPushButton:hover{
+	background-color: #438e30;
+	border: #438e30;
+	color: #ffffff;
+	}
+QPushButton:pressed{
+	background-color: #c2c2c2;
+	color: #1f2533;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Сохранить перевод</string>
+    </property>
+   </widget>
    <zorder>BackgroundFrame</zorder>
    <zorder>lang_logo</zorder>
    <zorder>ProgressBarFrame</zorder>
-   <zorder>LocalizeButton</zorder>
    <zorder>ModIDLine</zorder>
    <zorder>FileSelectionButton</zorder>
    <zorder>OriginalLabel</zorder>
@@ -1312,6 +1349,8 @@ QPushButton:pressed{
    <zorder>paradox_logo</zorder>
    <zorder>ToolLanguageButton</zorder>
    <zorder>ModNameLine</zorder>
+   <zorder>FinishButton</zorder>
+   <zorder>LocalizeButton</zorder>
   </widget>
  </widget>
  <resources>

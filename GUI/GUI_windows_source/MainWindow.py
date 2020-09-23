@@ -627,10 +627,33 @@ class Ui_MainWindow(object):
         self.ModNameLine.setAlignment(QtCore.Qt.AlignCenter)
         self.ModNameLine.setReadOnly(True)
         self.ModNameLine.setObjectName("ModNameLine")
+        self.FinishButton = QtWidgets.QPushButton(self.centralwidget)
+        self.FinishButton.setGeometry(QtCore.QRect(20, 780, 231, 41))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.FinishButton.setFont(font)
+        self.FinishButton.setStyleSheet("QPushButton{\n"
+"    background-color: #5abe41;\n"
+"    border: 3px solid #5abe41;\n"
+"    border-radius: 20px;\n"
+"    color: #1f2533;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #438e30;\n"
+"    border: #438e30;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: #c2c2c2;\n"
+"    color: #1f2533;\n"
+"    }")
+        self.FinishButton.setObjectName("FinishButton")
         self.BackgroundFrame.raise_()
         self.lang_logo.raise_()
         self.ProgressBarFrame.raise_()
-        self.LocalizeButton.raise_()
         self.ModIDLine.raise_()
         self.FileSelectionButton.raise_()
         self.OriginalLabel.raise_()
@@ -652,6 +675,8 @@ class Ui_MainWindow(object):
         self.paradox_logo.raise_()
         self.ToolLanguageButton.raise_()
         self.ModNameLine.raise_()
+        self.FinishButton.raise_()
+        self.LocalizeButton.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -691,3 +716,4 @@ class Ui_MainWindow(object):
         self.ExitButton.setText(_translate("MainWindow", "X"))
         self.ReferenceButton.setText(_translate("MainWindow", "Справка"))
         self.ToolLanguageButton.setText(_translate("MainWindow", "Интерфейс"))
+        self.FinishButton.setText(_translate("MainWindow", "Сохранить перевод"))

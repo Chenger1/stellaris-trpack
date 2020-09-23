@@ -6,6 +6,7 @@ from GUI.GUI_windows.SteamIDWindow import SteamIDWindow
 
 from scripts.utils import get_mod_id, open_zip_file
 from scripts.db import get_info_from_db
+from scripts.messeges import call_error_message
 
 
 class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
@@ -18,6 +19,7 @@ class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
         self.init_handlers()
         self.parent = parent
         self.mods_folder = self.get_mods_folder_path()
+        self.message = ''
 
     def init_handlers(self):
         self.ManualButton.clicked.connect(self.open_file_dialog)
@@ -56,7 +58,9 @@ class ChooseFileWindow(QtWidgets.QDialog, ChooseFile.Ui_Dialog):
     def get_mods_folder_path(self):
         raw_path = get_info_from_db('get_path_to_mods', 1)[0]
         if 'SteamLibrary' not in raw_path:
-            self.parent.show_system_message('error', 'Не найдено установленных модов для Stellaris')
+            message = 'mods_not_found'
+            self.message = ''
+            call_error_message(self, message)
         try:
             raw_path = raw_path.split('\\')
             path = '\\'.join(raw_path[:len(raw_path) - 1]) + '\\'

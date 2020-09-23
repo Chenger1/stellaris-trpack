@@ -173,13 +173,13 @@ def sorting(modList, game_data, dlc_load, playset, reversing):
     for pos, mod in zip(positions, modList):
         mod.position = pos
     if len(modList) <= 0:
-        return ('error', 'Моды не найдены')
+        return 'mods_not_found'
     idList = [mod.modId for mod in modList if mod.isEnabled is True]
     hashList = [mod.hashKey for mod in modList]
     writeDisplayOrder(hashList, game_data)
     writeLoadOrder(idList, dlc_load)
     write_data('write_data', modList, playset)
-    return ('success', 'Моды успешно отсортированы')
+    return 'mods_successfully_sorted'
 
 
 def set_settings():

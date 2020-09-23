@@ -71,7 +71,7 @@
    <property name="font">
     <font>
      <family>KB Astrolyte</family>
-     <pointsize>14</pointsize>
+     <pointsize>12</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>

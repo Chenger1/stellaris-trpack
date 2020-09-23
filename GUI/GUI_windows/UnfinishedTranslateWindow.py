@@ -2,7 +2,7 @@ from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import UnfinishedTranslate
 
-from scripts.utils import collection_append, save_unfinished_machine_text
+from scripts.utils import collection_append, save_unfinished_machine_text, call_success_message
 
 
 class UnfinishedTranslateWindow(QtWidgets.QDialog, UnfinishedTranslate.Ui_Dialog):
@@ -14,6 +14,7 @@ class UnfinishedTranslateWindow(QtWidgets.QDialog, UnfinishedTranslate.Ui_Dialog
         self.init_handlers()
         self.oldPos = self.pos()
         self.parent = parent
+        self.messege = ''
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
@@ -29,7 +30,10 @@ class UnfinishedTranslateWindow(QtWidgets.QDialog, UnfinishedTranslate.Ui_Dialog
         collection_append(self.parent.ModIDLine.text(), translation_status, pointer_position
                           )
         self.parent.clean_state()
-        self.parent.show_system_message('success', 'Файл сохранен')
+        message = 'file_was_written'
+        self.message = ''
+        call_success_message(self, message)
+
         self.close()
 
     def eventFilter(self, source, event):

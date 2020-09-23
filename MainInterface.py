@@ -5,13 +5,10 @@ from json.decoder import JSONDecodeError
 
 from GUI.GUI_windows_source import MainWindow
 from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
-from GUI.GUI_windows.ErrorMessageWindow import ErrorMessageWindow
-from GUI.GUI_windows.SuccessMessageWindow import SuccessMessageWindow
 from GUI.GUI_windows.TranslationLanguageWindow import TranslationLanguageWindow
 from GUI.GUI_windows.ToolLanguageWindow import ToolLanguageWindow
 from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
 from GUI.GUI_windows.ModsListWindow import ModsListWindow
-from GUI.GUI_windows.UnfinishedTranslateWindow import UnfinishedTranslateWindow
 
 from scripts.loc_cutter import cutter_main, cutting_lines
 from scripts.loc_translator import writing_translation, translate_line
@@ -19,6 +16,7 @@ from scripts.loc_putter import put_lines
 from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
     local_mod_status, collection_append, init_collection, open_file_for_resuming, remove_extra_new_line_symbols,\
     remove_unpacked_files
+from  scripts.messeges import call_success_message, call_error_message
 
 
 class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
@@ -28,6 +26,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
         self.mod_status()
         self.init_handlers()
+        self.FinishButton.hide()
         self.init_helpers()
         self.oldPos = self.pos()
         self.pointer = 0
@@ -36,10 +35,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
                     self.BprogressBar_L, self.BprogressBar_R,
                     self.LprogressBar_T, self.LprogressBar_B,
                     self.RprogressBar_T, self.RprogressBar_B]
-        self.system_messages = {
-            'error': ErrorMessageWindow(self),
-            'success': SuccessMessageWindow(self),
-        }
+        self.message = ''
 
     def progressbar_set_value(self):
         for i in self.bar:
@@ -51,6 +47,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def init_handlers(self):
         self.LocalizeButton.clicked.connect(self.start_local)
+        self.FinishButton.clicked.connect(self.write_translation)
         self.FileSelectionButton.clicked.connect(self.show_choose_file_window)
         self.TranslationLanguageButton.clicked.connect(self.translation_language_window)
         self.ToolLanguageButton.clicked.connect(self.tool_language_window)
@@ -68,13 +65,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.StringOrder.setText('0')
         init_collection()
 
-    def show_system_message(self, mes_type, text, label=None):
-        self.system_messages[mes_type].show()
-        self.system_messages[mes_type].ErrorMessageLine.setText(text)
-        if label:
-            self.system_messages[mes_type].ErrorLabel.setText(label)
-        self.system_messages[mes_type].repaint()
-
     def show_choose_file_window(self):
         choose_file_window = ChooseFileWindow(self)
         choose_file_window.show()
@@ -83,10 +73,13 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         try:
             mod_list_window = ModsListWindow(self)
         except FileNotFoundError as error:
-            filename = error.filename.split("\\")[-1]
-            self.show_system_message('error', f'Не найден файл {filename}')
+            message = 'file_not_found'
+            self.message = error.filename.split("\\")[-1]
+            call_error_message(self, message)
         except JSONDecodeError as error:
-            self.show_system_message('error', f'{error.msg}')
+            message = 'JSONDecodeError'
+            self.message = error.msg
+            call_error_message(self, message)
         else:
             mod_list_window.show()
 
@@ -101,10 +94,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def reference_window(self, to_scroll='QLabel_1_Modification'):
         reference_window = ReferenceWindow(self, to_scroll)
         reference_window.show()
-
-    def show_unfinished_translation_window(self):
-        unfinished_translation_window = UnfinishedTranslateWindow(self)
-        unfinished_translation_window.show()
 
     @staticmethod
     def mod_status():
@@ -191,15 +180,23 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             put_lines()
             collection_append(self.ModIDLine.text(), 100, self.pointer)
             remove_unpacked_files()
-            self.show_system_message('success', 'Файл перевода успешно записан')
+            message = 'file_was_written'
+            self.message = ''
+            call_success_message(self, message)
             self.clean_state()
         except FileNotFoundError as Error:
             if self.orig_text:
-                self.show_system_message('error', 'Перевод уже был записан')
+                message = 'translation_already_written'
+                self.message = ''
+                call_error_message(self, message)
             else:
-                self.show_system_message('error', 'Ошибка записи файла. Нет перевода.')
+                message = 'no_translation'
+                self.message = ''
+                call_error_message(self, message)
         except IndexError as Error:
-            self.show_unfinished_translation_window()
+            message = 'save_translation'
+            self.message = ''
+
 
     def continue_local(self, collection):
         self.pointer = collection['file_name_pointer_pos_list'][0]
@@ -208,7 +205,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.machine_text = open_file_for_resuming(collection['data']['machine_text'])
         self.user_text = cutting_lines(f'{collection["data"]["folder_path"]}\\{collection["data"]["original_name"]}_temp',
                                        f'{collection["file_path"]}{collection["data"]["final_name"]}')
-        #collection["file_name_list"][0]
         self.user_text = remove_extra_new_line_symbols(self.user_text)
         self.progressbar_set_maximum(len(self.orig_text))
         self.NextStringButton.setEnabled(True)
@@ -220,6 +216,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.set_lines()
 
     def start_local(self):
+        self.LocalizeButton.hide()
         try:
             workshop_id = self.ModIDLine.text()
             data = paradox_mod_way_to_content(workshop_id)
@@ -227,13 +224,12 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.orig_text = cutter_main(data['path'], workshop_id)
             self.progressbar_set_maximum(len(self.orig_text))
         except FileNotFoundError as Error:
-            self.show_system_message('error', 'Вы не выбрали мод')
+            message = 'mod_not_choosen'
+            self.message = ''
+            call_error_message(self, message)
         else:
             self.NextStringButton.setEnabled(True)
-            self.LocalizeButton.setText('Закончить перевод')
-            self.LocalizeButton.repaint()
-            self.LocalizeButton.disconnect()
-            self.LocalizeButton.clicked.connect(self.write_translation)
+            self.FinishButton.show()
             self.check_new_line_symbol_string(True)
             self.user_text.append(translate_line(self.orig_text[self.pointer]))
             self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))

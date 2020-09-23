@@ -20,7 +20,7 @@ class Ui_Dialog(object):
         Dialog.setMaximumSize(QtCore.QSize(650, 250))
         Dialog.setStyleSheet("background-color: transparent;")
         self.AcceptButton = QtWidgets.QPushButton(Dialog)
-        self.AcceptButton.setGeometry(QtCore.QRect(250, 190, 151, 41))
+        self.AcceptButton.setGeometry(QtCore.QRect(250, 190, 151, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
@@ -30,7 +30,7 @@ class Ui_Dialog(object):
         self.AcceptButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(31, 37, 51, 50);\n"
 "    border: 2px solid #ffffff;\n"
-"    border-radius: 20px;\n"
+"    border-radius: 15px;\n"
 "    color: #ffffff;\n"
 "    }\n"
 "QPushButton:hover{\n"
@@ -50,7 +50,7 @@ class Ui_Dialog(object):
         self.BackgroundFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.BackgroundFrame.setObjectName("BackgroundFrame")
         self.ErrorLabel = QtWidgets.QLabel(Dialog)
-        self.ErrorLabel.setGeometry(QtCore.QRect(480, 40, 131, 41))
+        self.ErrorLabel.setGeometry(QtCore.QRect(480, 30, 131, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(14)
@@ -61,24 +61,6 @@ class Ui_Dialog(object):
 "color: #ffffff;")
         self.ErrorLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.ErrorLabel.setObjectName("ErrorLabel")
-        self.ErrorMessageLine = QtWidgets.QLineEdit(Dialog)
-        self.ErrorMessageLine.setGeometry(QtCore.QRect(40, 120, 571, 31))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
-        self.ErrorMessageLine.setFont(font)
-        self.ErrorMessageLine.setStyleSheet("QLineEdit{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 1px solid #ffffff;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QLineEdit:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"")
-        self.ErrorMessageLine.setText("")
-        self.ErrorMessageLine.setAlignment(QtCore.Qt.AlignCenter)
-        self.ErrorMessageLine.setObjectName("ErrorMessageLine")
         self.WindowMoveButton = QtWidgets.QPushButton(Dialog)
         self.WindowMoveButton.setGeometry(QtCore.QRect(0, 0, 651, 21))
         font = QtGui.QFont()
@@ -134,13 +116,25 @@ class Ui_Dialog(object):
 "    color: #5abe41\n"
 "    }")
         self.ReferenceButton.setObjectName("ReferenceButton")
+        self.InfoLabel = QtWidgets.QLabel(Dialog)
+        self.InfoLabel.setGeometry(QtCore.QRect(30, 70, 591, 91))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.InfoLabel.setFont(font)
+        self.InfoLabel.setStyleSheet("background-color: none;\n"
+"color: #ffffff;")
+        self.InfoLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.InfoLabel.setObjectName("InfoLabel")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.AcceptButton.raise_()
         self.ErrorLabel.raise_()
-        self.ErrorMessageLine.raise_()
         self.ExitButton.raise_()
         self.ReferenceButton.raise_()
+        self.InfoLabel.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -153,3 +147,4 @@ class Ui_Dialog(object):
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
+        self.InfoLabel.setText(_translate("Dialog", "Информация"))

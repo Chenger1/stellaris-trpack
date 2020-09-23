@@ -3,6 +3,7 @@ from PyQt5 import QtWidgets, QtCore
 from GUI.GUI_windows_source import SteamID
 
 from scripts.utils import open_zip_file
+from scripts.messeges import call_error_message
 
 
 class SteamIDWindow(QtWidgets.QDialog, SteamID.Ui_Dialog):
@@ -15,6 +16,7 @@ class SteamIDWindow(QtWidgets.QDialog, SteamID.Ui_Dialog):
         self.parent = parent
         self.oldPos = self.pos()
         self.WindowMoveButton.installEventFilter(self)
+        self.message = ''
 
     def init_handlers(self):
         self.AcceptButton.clicked.connect(self.get_steam_id)
@@ -40,11 +42,17 @@ class SteamIDWindow(QtWidgets.QDialog, SteamID.Ui_Dialog):
                 self.AcceptButton.clicked.connect(self.accept_file)
                 self.parent.choose_file(f_path)
             elif path == '':
-                self.parent.parent.show_system_message('error', 'Вы не ввели ID мода')
+                message = 'invalid_id'
+                self.message = ''
+                call_error_message(self, message)
             else:
-                self.parent.parent.show_system_message('error', 'Строка ID содержит сторонние символы')
+                message = 'invalid_id_symbols'
+                self.message = ''
+                call_error_message(self, message)
         except OSError:
-            self.parent.parent.show_system_message('error', 'Мод не найден')
+            message = 'OSError'
+            self.message = ''
+            call_error_message(self, message)
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:

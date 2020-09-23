@@ -31,7 +31,7 @@ class Ui_Dialog(object):
         self.InfoLabel.setGeometry(QtCore.QRect(30, 40, 581, 111))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(14)
+        font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
         self.InfoLabel.setFont(font)

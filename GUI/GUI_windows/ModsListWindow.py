@@ -6,7 +6,7 @@ from scripts.mods_sorting import set_settings, prep_data, sorting
 from scripts.db import get_info_from_db, get_mods_from_playset, write_data_into_db
 from scripts.utils import get_mod_id, paradox_folder, open_zip_file, mod_name_wrap
 from scripts.stylesheets import set_name_style, mod_avtivation_status_style, mod_sorting_status_style
-
+from scripts.messeges import call_success_message, call_error_message
 from functools import partial
 import os
 import requests
@@ -52,6 +52,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                              } for elem in get_info_from_db('get_images')
                    }
         self.paint_elements()
+        self.message = ''
 
     def init_handlers(self):
         self.ReverseSortingButton.setCheckable(True)
@@ -125,9 +126,18 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         try:
             status = sorting(self.modList, self.game_data, self.dlc_load, self.playset,
                              self.ReverseSortingButton.isChecked())
-            self.parent.show_system_message(status[0], status[1])
+            if status in 'mods_successfully_sorted':
+                message = status
+                self.message = ''
+                call_success_message(self, message)
+            else:
+                message = status
+                self.message = ''
+                call_error_message(self, message)
         except FileNotFoundError as error:
-            self.parent.show_system_message('error', error.args[0])
+            message = 'FileNotFoundError'
+            self.message = error.args[0]
+            call_error_message(self, message)
         self.update_mod_list()
 
     def clear_grid_layout(self):
@@ -146,7 +156,9 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                 self.parent.ModIDLine.setText(mod_id)
                 self.close()
             except IndexError:
-                self.parent.show_system_message('error', 'Вы выбрали не тот файл')
+                message = 'IndexError'
+                self.message = ''
+                call_error_message(self, message)
 
     @staticmethod
     def download_image(url, file_name, steam_id):
