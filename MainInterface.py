@@ -216,7 +216,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.set_lines()
 
     def start_local(self):
-        self.LocalizeButton.hide()
         try:
             workshop_id = self.ModIDLine.text()
             data = paradox_mod_way_to_content(workshop_id)
@@ -234,6 +233,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.user_text.append(translate_line(self.orig_text[self.pointer]))
             self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
             self.set_lines()
+            self.LocalizeButton.hide()
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:

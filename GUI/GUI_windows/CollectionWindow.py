@@ -27,6 +27,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.init_handlers()
         self.set_collection_name()
         self.paint_elements()
+        self.message = ''
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
