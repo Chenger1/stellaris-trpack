@@ -13,13 +13,9 @@ class AcceptWindow(QtWidgets.QDialog, Accept.Ui_Dialog):
         self.setModal(True)
         self.parent = parent
         self.oldPos = self.pos()
-        self.messages = {'collection_continue_translation': f'Хотите продолжить перевод мода - ',
+        self.messages = {'collection_continue_translation': f'Желаете продолжить перевод мода - {parent.message}',
                          'save_translation': 'Вы уверены что хотите сохранить перевод?',
                          'invalid_key': 'Неверный ключ [Для разработчиков]'}
-
-        self.functions = {'collection_continue_translation': lambda: parent.open_mod_loc(parent.message),
-                          'save_translation': self.save_translation_state,
-                          'invalid_key': self.close()}
         try:
             self.InfoLabel.setText(self.messages[message])
         except AttributeError:
@@ -27,7 +23,6 @@ class AcceptWindow(QtWidgets.QDialog, Accept.Ui_Dialog):
         except KeyError:
             #self.InfoLabel.setText(self.messages['invalid_key'])
             self.InfoLabel.setText(message)
-
 
         self.InfoLabel.setWordWrap(True)
         self.init_handlers(accept_func, denied_func)

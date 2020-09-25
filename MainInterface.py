@@ -26,7 +26,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
         self.mod_status()
         self.init_handlers()
-        self.FinishButton.hide()
         self.init_helpers()
         self.oldPos = self.pos()
         self.pointer = 0
@@ -160,18 +159,20 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.set_lines()
 
     def clean_state(self):
-        elements = [self.LocalizeButton, self.ModIDLine, self.ModNameLine, self.OriginalString, self.TranslateString,
+        elements = [self.ModIDLine, self.ModNameLine, self.OriginalString, self.TranslateString,
                     self.EditString, self.StringOrder]
-        text = ['Локализировать'] + ['SteamWorkshop ID'] + [''] * 4 + ['0']
+        text = ['SteamWorkshop ID'] + [''] * 4 + ['0']
         for elem, line in zip(elements, text):
             elem.setText(line)
             elem.repaint()
-        self.LocalizeButton.disconnect()
+        self.LocalizeButton.show()
+        # self.LocalizeButton.disconnect()
         self.LocalizeButton.clicked.connect(self.start_local)
         self.pointer = 0
         self.orig_text, self.machine_text, self.user_text = [], [], []
         for i in self.bar:
             i.setValue(0)
+        self.FinishButton.hide()
 
     def write_translation(self):
         try:
@@ -197,7 +198,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             message = 'save_translation'
             self.message = ''
 
-
     def continue_local(self, collection):
         self.pointer = collection['file_name_pointer_pos_list'][0]
         self.PreviousString.setEnabled(True if self.pointer >= 1 else False)
@@ -208,10 +208,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.user_text = remove_extra_new_line_symbols(self.user_text)
         self.progressbar_set_maximum(len(self.orig_text))
         self.NextStringButton.setEnabled(True)
-        self.LocalizeButton.setText('Закончить перевод')
-        self.LocalizeButton.repaint()
-        self.LocalizeButton.disconnect()
-        self.LocalizeButton.clicked.connect(self.write_translation)
+        self.FinishButton.show()
+        # self.FinishButton.clicked.connect(self.write_translation)
         self.check_new_line_symbol_string(True)
         self.set_lines()
 
@@ -229,6 +227,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         else:
             self.NextStringButton.setEnabled(True)
             self.FinishButton.show()
+            self.FinishButton.clicked.connect(self.write_translation)
             self.check_new_line_symbol_string(True)
             self.user_text.append(translate_line(self.orig_text[self.pointer]))
             self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))

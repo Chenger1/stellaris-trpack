@@ -118,12 +118,14 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                         split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[0])
 
                     if self.collection[mod_id]['file_tr_status_list'][file_name_index] > 0:
-                        message = f'Вы уверены что хотите продолжить перевод  - {file_name}'
+                        self.message = file_name
+                        message = 'collection_continue_translation'
                         self.buttons[f'{mod_id}-{file_name}'].clicked. \
                             connect(partial(self.call_accept_message, message, mod_id=mod_id))
 
                     else:
-                        message = f'Вы уверены что хотите начать перевод  - {file_name}'
+                        self.message = file_name
+                        message = 'save_translation'
                         self.buttons[f'{mod_id}-{file_name}'].clicked. \
                             connect(partial(self.call_accept_message, message,
                                             mod_id=mod_id, file_name=file_name,
