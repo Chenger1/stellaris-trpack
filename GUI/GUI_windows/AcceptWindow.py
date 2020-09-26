@@ -13,9 +13,13 @@ class AcceptWindow(QtWidgets.QDialog, Accept.Ui_Dialog):
         self.setModal(True)
         self.parent = parent
         self.oldPos = self.pos()
-        self.messages = {'collection_continue_translation': f'Желаете продолжить перевод мода - {parent.message}',
-                         'save_translation': 'Вы уверены что хотите сохранить перевод?',
-                         'invalid_key': 'Неверный ключ [Для разработчиков]'}
+        self.string = self.StringsList.text().split('.')
+        # в цикле создания кнопок self.message перезаписывается до вызова фукции, поэтому
+        # надо как-то сохранять или передавать название мода
+        self.messages = {'collection_continue_translation': f'{self.string[0]} - {parent.message}',
+                         'save_translation': f'{self.string[1]}',
+                         'invalid_key': f'{self.string[2]}'}
+        # 'Желаете продолжить перевод мода.Вы уверены что хотите сохранить перевод?.Неверный ключ [Для разработчиков]'
         try:
             self.InfoLabel.setText(self.messages[message])
         except AttributeError:

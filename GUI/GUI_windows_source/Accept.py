@@ -138,6 +138,10 @@ class Ui_Dialog(object):
 "    border: #c2c2c2;\n"
 "    }")
         self.AcceptButton.setObjectName("AcceptButton")
+        self.StringsList = QtWidgets.QLabel(Dialog)
+        self.StringsList.setGeometry(QtCore.QRect(80, 70, 55, 16))
+        self.StringsList.setObjectName("StringsList")
+        self.StringsList.raise_()
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.InfoLabel.raise_()
@@ -158,3 +162,4 @@ class Ui_Dialog(object):
         self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.DeniedButton.setText(_translate("Dialog", "Отмена"))
         self.AcceptButton.setText(_translate("Dialog", "Подтвердить"))
+        self.StringsList.setText(_translate("Dialog", "\'Желаете продолжить перевод мода.Вы уверены что хотите сохранить перевод?.Неверный ключ [Для разработчиков]\'"))
