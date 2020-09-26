@@ -677,6 +677,21 @@ class Ui_MainWindow(object):
 "    border: 2px solid #05B8CC;\n"
 "    }")
         self.ManualButton.setObjectName("ManualButton")
+        self.FileNameLine = QtWidgets.QLineEdit(self.centralwidget)
+        self.FileNameLine.setGeometry(QtCore.QRect(490, 810, 561, 31))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        self.FileNameLine.setFont(font)
+        self.FileNameLine.setStyleSheet("QLineEdit{\n"
+"    background-color: transparent;\n"
+"    border: transparent;\n"
+"    color: #ffffff;\n"
+"    }")
+        self.FileNameLine.setText("")
+        self.FileNameLine.setAlignment(QtCore.Qt.AlignCenter)
+        self.FileNameLine.setReadOnly(True)
+        self.FileNameLine.setObjectName("FileNameLine")
         self.BackgroundFrame.raise_()
         self.lang_logo.raise_()
         self.ProgressBarFrame.raise_()
@@ -704,6 +719,7 @@ class Ui_MainWindow(object):
         self.LocalizeButton.raise_()
         self.CollectionButton.raise_()
         self.ManualButton.raise_()
+        self.FileNameLine.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)

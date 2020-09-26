@@ -196,13 +196,12 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def clean_state(self):
         elements = [self.ModIDLine, self.ModNameLine, self.OriginalString, self.TranslateString,
-                    self.EditString, self.StringOrder]
-        text = ['SteamWorkshop ID'] + [''] * 4 + ['0']
+                    self.EditString, self.FileNameLine, self.StringOrder]
+        text = ['SteamWorkshop ID'] + [''] * 5 + ['0']
         for elem, line in zip(elements, text):
             elem.setText(line)
             elem.repaint()
         self.LocalizeButton.show()
-        # self.LocalizeButton.disconnect()
         self.LocalizeButton.clicked.connect(self.start_local)
         self.pointer = 0
         self.orig_text, self.machine_text, self.user_text = [], [], []
@@ -231,8 +230,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
                 self.message = ''
                 call_error_message(self, message)
         except IndexError as Error:
-            message = ('save_translation', )
-            self.message = ''
+            message = ('save_translation', '')
             self.show_accept_window(message)
 
     def continue_local(self, collection):

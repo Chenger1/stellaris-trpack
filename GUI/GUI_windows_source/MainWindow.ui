@@ -1365,6 +1365,38 @@ QPushButton:pressed{
      <string>Вручную</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="FileNameLine">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>810</y>
+      <width>561</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
    <zorder>BackgroundFrame</zorder>
    <zorder>lang_logo</zorder>
    <zorder>ProgressBarFrame</zorder>
@@ -1392,6 +1424,7 @@ QPushButton:pressed{
    <zorder>LocalizeButton</zorder>
    <zorder>CollectionButton</zorder>
    <zorder>ManualButton</zorder>
+   <zorder>FileNameLine</zorder>
   </widget>
  </widget>
  <resources>
