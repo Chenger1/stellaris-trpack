@@ -253,6 +253,21 @@ color: #ffffff;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="StringsList">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>110</y>
+     <width>55</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>.Не найден файл.Перевод уже был записан.Ошибка записи файла: отсутствует перевод.Вы не выбрали мод.Файл перевода поврежден или удален.Моды не найдены.Вы выбрали не тот файл.Вы не ввели ID мода.Строка ID содержит сторонние символы.Мод не найден.Неверный ключ [Для разработчиков]
+</string>
+   </property>
+  </widget>
+  <zorder>StringsList</zorder>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>AcceptButton</zorder>

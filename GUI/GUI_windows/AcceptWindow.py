@@ -15,19 +15,15 @@ class AcceptWindow(QtWidgets.QDialog, Accept.Ui_Dialog):
         self.parent = parent
         self.oldPos = self.pos()
         self.string = self.StringsList.text().split('.')
-        # в цикле создания кнопок self.message перезаписывается до вызова фукции, поэтому
-        # надо как-то сохранять или передавать название мода
-        self.messages = {'collection_continue_translation': f'{self.string[0]} - {parent.message}',
+        self.messages = {'collection_continue_translation': f'{self.string[0]} - {message[1]}',
                          'save_translation': f'{self.string[1]}',
                          'invalid_key': f'{self.string[2]}'}
-        # 'Желаете продолжить перевод мода.Вы уверены что хотите сохранить перевод?.Неверный ключ [Для разработчиков]'
         try:
-            self.InfoLabel.setText(self.messages[message])
+            self.InfoLabel.setText(self.messages[message[0]])
         except AttributeError:
             self.InfoLabel.setText(message)
         except KeyError:
-            #self.InfoLabel.setText(self.messages['invalid_key'])
-            self.InfoLabel.setText(message)
+            self.InfoLabel.setText(self.messages['invalid_key'])
 
         self.InfoLabel.setWordWrap(True)
         self.init_handlers(accept_func, denied_func)
