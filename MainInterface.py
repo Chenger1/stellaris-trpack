@@ -4,7 +4,7 @@ from PyQt5 import QtWidgets, QtCore
 from json.decoder import JSONDecodeError
 
 from GUI.GUI_windows_source import MainWindow
-from GUI.GUI_windows.ChooseFileWindow import ChooseFileWindow
+from GUI.GUI_windows.CollectionWindow import CollectionWindow
 from GUI.GUI_windows.TranslationLanguageWindow import TranslationLanguageWindow
 from GUI.GUI_windows.ToolLanguageWindow import ToolLanguageWindow
 from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
@@ -14,9 +14,10 @@ from GUI.GUI_windows.AcceptWindow import AcceptWindow
 from scripts.loc_cutter import cutter_main, cutting_lines
 from scripts.loc_translator import writing_translation, translate_line
 from scripts.loc_putter import put_lines
+from scripts.db import get_info_from_db
 from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
     local_mod_status, collection_append, init_collection, open_file_for_resuming, remove_extra_new_line_symbols,\
-    remove_unpacked_files
+    remove_unpacked_files, get_mod_id, open_zip_file
 from scripts.messeges import call_success_message, call_error_message
 
 
@@ -30,6 +31,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.init_helpers()
         self.oldPos = self.pos()
         self.pointer = 0
+        self.mods_folder = self.get_mods_folder_path()
         self.orig_text, self.machine_text, self.user_text = [], [], []
         self.bar = [self.TprogressBar_L, self.TprogressBar_R,
                     self.BprogressBar_L, self.BprogressBar_R,
@@ -47,9 +49,11 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def init_handlers(self):
         self.LocalizeButton.clicked.connect(self.start_local)
-        self.FileSelectionButton.clicked.connect(self.show_choose_file_window)
+        # self.FileSelectionButton.clicked.connect(self.show_choose_file_window)
         self.TranslationLanguageButton.clicked.connect(self.translation_language_window)
         self.ToolLanguageButton.clicked.connect(self.tool_language_window)
+        self.CollectionButton.clicked.connect(self.show_collection_window)
+        self.ManualButton.clicked.connect(self.open_file_dialog)
         self.ReferenceButton.clicked.connect(lambda: self.reference_window())
         self.NextStringButton.clicked.connect(self.pointer_inc)
         self.PreviousString.clicked.connect(self.pointer_red)
@@ -64,13 +68,41 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.StringOrder.setText('0')
         init_collection()
 
+    def get_mods_folder_path(self):
+        raw_path = get_info_from_db('get_path_to_mods', 1)[0]
+        if 'SteamLibrary' not in raw_path:
+            message = 'mods_not_found'
+            self.message = ''
+            call_error_message(self, message)
+        try:
+            raw_path = raw_path.split('\\')
+            path = '\\'.join(raw_path[:len(raw_path) - 1]) + '\\'
+        except IndexError:
+            path = []
+        return path
+
+    def open_file_dialog(self):
+        if self.mods_folder:
+            f_path = QtWidgets.QFileDialog.getOpenFileName(directory=self.mods_folder)[0]
+            if '.zip' in f_path.split('/')[-1]:
+                open_zip_file(f_path)
+                f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
+        else:
+            f_path = QtWidgets.QFileDialog.getOpenFileName()[0]
+        self.choose_file(f_path)
+
+    def choose_file(self, f_path):
+        if f_path:
+            mod_id = get_mod_id(f_path)
+            self.ModIDLine.setText(mod_id)
+
+    def show_collection_window(self):
+        collection_window = CollectionWindow(self)
+        collection_window.show()
+
     def show_accept_window(self, message):
         accept_window = AcceptWindow(self, message)
         accept_window.show()
-
-    def show_choose_file_window(self):
-        choose_file_window = ChooseFileWindow(self)
-        choose_file_window.show()
 
     def show_mods_list_window(self):
         try:
@@ -199,7 +231,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
                 self.message = ''
                 call_error_message(self, message)
         except IndexError as Error:
-            message = 'save_translation'
+            message = ('save_translation', )
             self.message = ''
             self.show_accept_window(message)
 
@@ -217,6 +249,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         # self.FinishButton.clicked.connect(self.write_translation)
         self.check_new_line_symbol_string(True)
         self.set_lines()
+        self.LocalizeButton.hide()
 
     def start_local(self):
         try:

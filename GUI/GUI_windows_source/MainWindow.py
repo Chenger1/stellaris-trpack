@@ -96,28 +96,6 @@ class Ui_MainWindow(object):
         self.ModIDLine.setAlignment(QtCore.Qt.AlignCenter)
         self.ModIDLine.setReadOnly(True)
         self.ModIDLine.setObjectName("ModIDLine")
-        self.FileSelectionButton = QtWidgets.QPushButton(self.centralwidget)
-        self.FileSelectionButton.setGeometry(QtCore.QRect(30, 100, 191, 31))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.FileSelectionButton.setFont(font)
-        self.FileSelectionButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
-        self.FileSelectionButton.setObjectName("FileSelectionButton")
         self.OriginalLabel = QtWidgets.QLabel(self.centralwidget)
         self.OriginalLabel.setGeometry(QtCore.QRect(80, 360, 501, 20))
         font = QtGui.QFont()
@@ -230,7 +208,7 @@ class Ui_MainWindow(object):
 "    }")
         self.TranslationLanguageButton.setObjectName("TranslationLanguageButton")
         self.SortModListButton = QtWidgets.QPushButton(self.centralwidget)
-        self.SortModListButton.setGeometry(QtCore.QRect(270, 780, 251, 41))
+        self.SortModListButton.setGeometry(QtCore.QRect(270, 780, 181, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
@@ -651,11 +629,58 @@ class Ui_MainWindow(object):
 "    color: #1f2533;\n"
 "    }")
         self.FinishButton.setObjectName("FinishButton")
+        self.CollectionButton = QtWidgets.QPushButton(self.centralwidget)
+        self.CollectionButton.setGeometry(QtCore.QRect(40, 100, 171, 31))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.CollectionButton.setFont(font)
+        self.CollectionButton.setStyleSheet("QPushButton{\n"
+"    background-color: #05B8CC;\n"
+"    border: 2px solid #05B8CC;\n"
+"    border-radius: 15px;\n"
+"    color: #1f2533;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #31858f;\n"
+"    border: #31858f;\n"
+"    color: #ffffff;    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    }")
+        self.CollectionButton.setObjectName("CollectionButton")
+        self.ManualButton = QtWidgets.QPushButton(self.centralwidget)
+        self.ManualButton.setGeometry(QtCore.QRect(50, 151, 121, 27))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.ManualButton.setFont(font)
+        self.ManualButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    border-radius: 13px;\n"
+"    min-height: 27px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #31858f;\n"
+"    border: #31858f;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: #05B8CC;\n"
+"    border: 2px solid #05B8CC;\n"
+"    }")
+        self.ManualButton.setObjectName("ManualButton")
         self.BackgroundFrame.raise_()
         self.lang_logo.raise_()
         self.ProgressBarFrame.raise_()
         self.ModIDLine.raise_()
-        self.FileSelectionButton.raise_()
         self.OriginalLabel.raise_()
         self.TranslatedLabel.raise_()
         self.EditLabel.raise_()
@@ -677,6 +702,8 @@ class Ui_MainWindow(object):
         self.ModNameLine.raise_()
         self.FinishButton.raise_()
         self.LocalizeButton.raise_()
+        self.CollectionButton.raise_()
+        self.ManualButton.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -687,14 +714,13 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Stellaris True Machine Translation Tool"))
         self.LocalizeButton.setText(_translate("MainWindow", "Локализировать"))
         self.ModIDLine.setText(_translate("MainWindow", "SteamWorkshop ID"))
-        self.FileSelectionButton.setText(_translate("MainWindow", "Модификация"))
         self.OriginalLabel.setText(_translate("MainWindow", "Оригинальная строка"))
         self.TranslatedLabel.setText(_translate("MainWindow", "Машинный перевод"))
         self.EditLabel.setText(_translate("MainWindow", "Можно заменить машинный перевод на свой вариант"))
         self.NextStringButton.setText(_translate("MainWindow", "Следующая строка"))
         self.PreviousString.setText(_translate("MainWindow", "Предыдущая строка"))
         self.TranslationLanguageButton.setText(_translate("MainWindow", "Язык перевода"))
-        self.SortModListButton.setText(_translate("MainWindow", "Сортировать моды"))
+        self.SortModListButton.setText(_translate("MainWindow", "Модификации"))
         self.OriginalString.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -717,3 +743,5 @@ class Ui_MainWindow(object):
         self.ReferenceButton.setText(_translate("MainWindow", "Справка"))
         self.ToolLanguageButton.setText(_translate("MainWindow", "Интерфейс"))
         self.FinishButton.setText(_translate("MainWindow", "Сохранить перевод"))
+        self.CollectionButton.setText(_translate("MainWindow", "Коллекция"))
+        self.ManualButton.setText(_translate("MainWindow", "Вручную"))

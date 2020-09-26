@@ -46,12 +46,12 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             message = 'invalid_file'
             call_error_message(self, message)
         else:
-            self.parent.parent.ModIDLine.setText(kwargs['mod_id'])
+            self.parent.ModIDLine.setText(kwargs['mod_id'])
             set_data(self.collection[kwargs['mod_id']]['data'])
             self.findChild(QtWidgets.QDialog).close()
             self.close()
-            self.parent.parent.ModNameLine.setText(self.collection[kwargs['mod_id']]['mod_name'])
-            self.parent.parent.continue_local(self.collection[kwargs['mod_id']])
+            self.parent.ModNameLine.setText(self.collection[kwargs['mod_id']]['mod_name'])
+            self.parent.continue_local(self.collection[kwargs['mod_id']])
 
     def open_mod_by_id(self, mod_id):
         mod_data = self.parent.parent.get_steam_id(mod_id)
@@ -98,7 +98,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             path = '/'.join(f'{kwargs["base_dir"]}\\{target_dir[0]}\\{kwargs["file_name"]}'.split('\\'))
 
         self.parent.choose_file(path)
-        self.parent.parent.ModNameLine.setText(self.collection[kwargs['mod_id']]['mod_name'])
+        self.parent.ModNameLine.setText(self.collection[kwargs['mod_id']]['mod_name'])
         self.findChild(QtWidgets.QDialog).close()
         self.close()
 

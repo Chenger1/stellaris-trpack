@@ -145,42 +145,6 @@ QPushButton:pressed{
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="FileSelectionButton">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>100</y>
-      <width>191</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>KB Astrolyte</family>
-      <pointsize>11</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-    </property>
-    <property name="text">
-     <string>Модификация</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="OriginalLabel">
     <property name="geometry">
      <rect>
@@ -400,7 +364,7 @@ QPushButton:pressed{
      <rect>
       <x>270</x>
       <y>780</y>
-      <width>251</width>
+      <width>181</width>
       <height>41</height>
      </rect>
     </property>
@@ -428,7 +392,7 @@ QPushButton:pressed{
 	}</string>
     </property>
     <property name="text">
-     <string>Сортировать моды</string>
+     <string>Модификации</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="OriginalString">
@@ -1325,11 +1289,86 @@ QPushButton:pressed{
      <string>Сохранить перевод</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="CollectionButton">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>100</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>KB Astrolyte</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    background-color: #05B8CC;
+    border: 2px solid #05B8CC;
+    border-radius: 15px;
+    color: #1f2533;
+	}
+QPushButton:hover{
+    background-color: #31858f;
+    border: #31858f;
+    color: #ffffff;	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Коллекция</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ManualButton">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>151</y>
+      <width>121</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>KB Astrolyte</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+    border-radius: 13px;
+	min-height: 27px;
+    color: #ffffff;
+	}
+QPushButton:hover{
+    background-color: #31858f;
+    border: #31858f;
+    color: #ffffff;
+	}
+QPushButton:pressed{
+    background-color: #05B8CC;
+    border: 2px solid #05B8CC;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Вручную</string>
+    </property>
+   </widget>
    <zorder>BackgroundFrame</zorder>
    <zorder>lang_logo</zorder>
    <zorder>ProgressBarFrame</zorder>
    <zorder>ModIDLine</zorder>
-   <zorder>FileSelectionButton</zorder>
    <zorder>OriginalLabel</zorder>
    <zorder>TranslatedLabel</zorder>
    <zorder>EditLabel</zorder>
@@ -1351,6 +1390,8 @@ QPushButton:pressed{
    <zorder>ModNameLine</zorder>
    <zorder>FinishButton</zorder>
    <zorder>LocalizeButton</zorder>
+   <zorder>CollectionButton</zorder>
+   <zorder>ManualButton</zorder>
   </widget>
  </widget>
  <resources>
