@@ -9,6 +9,7 @@ from GUI.GUI_windows.TranslationLanguageWindow import TranslationLanguageWindow
 from GUI.GUI_windows.ToolLanguageWindow import ToolLanguageWindow
 from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
 from GUI.GUI_windows.ModsListWindow import ModsListWindow
+from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
 from scripts.loc_cutter import cutter_main, cutting_lines
 from scripts.loc_translator import writing_translation, translate_line
@@ -16,7 +17,7 @@ from scripts.loc_putter import put_lines
 from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
     local_mod_status, collection_append, init_collection, open_file_for_resuming, remove_extra_new_line_symbols,\
     remove_unpacked_files
-from  scripts.messeges import call_success_message, call_error_message
+from scripts.messeges import call_success_message, call_error_message
 
 
 class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
@@ -46,7 +47,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def init_handlers(self):
         self.LocalizeButton.clicked.connect(self.start_local)
-        self.FinishButton.clicked.connect(self.write_translation)
         self.FileSelectionButton.clicked.connect(self.show_choose_file_window)
         self.TranslationLanguageButton.clicked.connect(self.translation_language_window)
         self.ToolLanguageButton.clicked.connect(self.tool_language_window)
@@ -63,6 +63,10 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.NextStringButton.setEnabled(False)
         self.StringOrder.setText('0')
         init_collection()
+
+    def show_accept_window(self, message):
+        accept_window = AcceptWindow(self, message)
+        accept_window.show()
 
     def show_choose_file_window(self):
         choose_file_window = ChooseFileWindow(self)
@@ -197,6 +201,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         except IndexError as Error:
             message = 'save_translation'
             self.message = ''
+            self.show_accept_window(message)
 
     def continue_local(self, collection):
         self.pointer = collection['file_name_pointer_pos_list'][0]

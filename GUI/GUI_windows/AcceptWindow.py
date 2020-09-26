@@ -3,10 +3,11 @@ from PyQt5 import QtWidgets, QtCore
 from GUI.GUI_windows_source import Accept
 
 from scripts.utils import collection_append, save_unfinished_machine_text
+from scripts.messeges import call_success_message
 
 
 class AcceptWindow(QtWidgets.QDialog, Accept.Ui_Dialog):
-    def __init__(self, parent, message, accept_func, denied_func=None):
+    def __init__(self, parent, message, accept_func=None, denied_func=None):
         super().__init__(parent)
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
@@ -34,7 +35,7 @@ class AcceptWindow(QtWidgets.QDialog, Accept.Ui_Dialog):
 
     def init_handlers(self, accept_func, denied_func):
         self.ExitButton.clicked.connect(self.close)
-        self.AcceptButton.clicked.connect(accept_func)
+        self.AcceptButton.clicked.connect(accept_func or self.save_translation_state)
         self.DeniedButton.clicked.connect(denied_func or self.close)
         self.ReferenceButton.clicked.connect(lambda: self.parent.parent.parent.reference_window('QLabel_2_1_Functional'))
         self.WindowMoveButton.installEventFilter(self)
@@ -47,7 +48,7 @@ class AcceptWindow(QtWidgets.QDialog, Accept.Ui_Dialog):
         self.parent.clean_state()
         message = 'file_was_written'
         self.message = ''
-        self.call_success_message(self, message)
+        call_success_message(self, message)
         self.close()
 
     def eventFilter(self, source, event):
