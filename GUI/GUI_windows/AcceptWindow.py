@@ -21,7 +21,7 @@ class AcceptWindow(QtWidgets.QDialog, Accept.Ui_Dialog):
         try:
             self.InfoLabel.setText(self.messages[message[0]])
         except AttributeError:
-            self.InfoLabel.setText(message)
+            self.InfoLabel.setText(self.messages['invalid_key'])
         except KeyError:
             self.InfoLabel.setText(self.messages['invalid_key'])
 

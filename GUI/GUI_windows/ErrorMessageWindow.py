@@ -25,7 +25,6 @@ class ErrorMessageWindow(QtWidgets.QDialog, ErrorMessage.Ui_Dialog):
                          'invalid_id_symbols': f'{self.string[8]}',
                          'OSError': f'{self.string[9]}',
                          'invalid_key': f'{self.string[10]}'}
-        print(self.messages)
         try:
             self.InfoLabel.setText(self.messages[message])
         except KeyError:

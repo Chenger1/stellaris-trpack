@@ -11,10 +11,11 @@ class SuccessMessageWindow(QtWidgets.QDialog, SuccessMessage.Ui_Dialog):
         self.setModal(True)
         self.init_handlers()
         self.oldPos = self.pos()
-        self.messages = {'file_was_written': 'Файл перевода успешно записан',
-                         'file_was_saved': 'Файл сохранен',
-                         'mods_successfully_sorted': 'Моды успешно отсортированы',
-                         'invalid_key': 'Неверный ключ [Для разработчиков]'}
+        self.string = self.StringsList.text().split('.')
+        self.messages = {'file_was_written': f'{self.string[0]}',
+                         'file_was_saved': f'{self.string[1]}',
+                         'mods_successfully_sorted': f'{self.string[2]}',
+                         'invalid_key': f'{self.string[3]}'}
         try:
             self.InfoLabel.setText(self.messages[message])
         except KeyError:

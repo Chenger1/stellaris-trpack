@@ -106,6 +106,10 @@ class Ui_Dialog(object):
 "color: #ffffff;")
         self.InfoLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.InfoLabel.setObjectName("InfoLabel")
+        self.StringsList = QtWidgets.QLabel(Dialog)
+        self.StringsList.setGeometry(QtCore.QRect(230, 110, 271, 20))
+        self.StringsList.setObjectName("StringsList")
+        self.StringsList.raise_()
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.AcceptButton.raise_()
@@ -124,3 +128,5 @@ class Ui_Dialog(object):
         self.SuccessLabel.setText(_translate("Dialog", "Успех"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.InfoLabel.setText(_translate("Dialog", "Информация"))
+        self.StringsList.setText(_translate("Dialog", "Файл перевода успешно записан.Файл сохранен.Моды успешно отсортированы.Неверный ключ [Для разработчиков]\n"
+""))

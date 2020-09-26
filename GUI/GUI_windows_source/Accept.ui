@@ -271,7 +271,7 @@ QPushButton:pressed{
     </rect>
    </property>
    <property name="text">
-    <string>'Желаете продолжить перевод мода.Вы уверены что хотите сохранить перевод?.Неверный ключ [Для разработчиков]'</string>
+    <string>Желаете продолжить перевод мода.Вы уверены что хотите сохранить перевод?.Неверный ключ [Для разработчиков]</string>
    </property>
   </widget>
   <zorder>StringsList</zorder>

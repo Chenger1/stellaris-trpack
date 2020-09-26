@@ -212,6 +212,21 @@ color: #ffffff;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="StringsList">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>110</y>
+     <width>271</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Файл перевода успешно записан.Файл сохранен.Моды успешно отсортированы.Неверный ключ [Для разработчиков]
+</string>
+   </property>
+  </widget>
+  <zorder>StringsList</zorder>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>AcceptButton</zorder>
