@@ -7,11 +7,13 @@ import shutil
 
 from googletrans.constants import LANGUAGES
 
+from scripts.collection_db import create_db, write_data_in_collection, get_data_from_collection
+
 drive = win32api.GetSystemDirectory().split(':')[0]
 user = win32api.GetUserName()
 paradox_folder = f'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris'
 mod_path = F'{paradox_folder}\\mod\\local_localisation'
-collection_path = f'{mod_path}\\collection.json'
+collection_path = f'{mod_path}\\collection.db'
 data = {}
 
 
@@ -108,57 +110,47 @@ def paradox_mod_way_to_content(mod_id):
 
 def init_collection():
     if os.path.isfile(collection_path) is False:
-        with open(collection_path, 'w', encoding='utf-8') as collection:
-            json.dump({}, collection)
+        create_db(collection_path)
 
 
 def get_collection():
-    try:
-        with open(collection_path, 'r', encoding='utf-8') as collection:
-            info = json.load(collection)
-    except FileNotFoundError:
-        with open(collection_path, 'w', encoding='utf-8') as collection:
-            info = {}
-            json.dump(info, collection)
+    info = get_data_from_collection(collection_path)
     return info
 
 
-def get_mod_info(mod_id, tr_status, pointer_pos, collection):
+def get_mod_info(mod_id, tr_status, pointer_pos):
     name = data['mod_name']
     file_name = data['original_name'] if tr_status == 0 else data['final_name']
     picture = "thumbnail.png"
     file_name_list = scan_for_localisations(mod_id, file_name)
     name_lists_list = scan_for_names(mod_id)
-    file_tr_status_list = set_file_tr_status_list(file_name_list, file_name, tr_status, collection)
-    name_list_tr_status_list = set_name_list_tr_status_list(name_lists_list, file_name, tr_status, collection)
-    file_name_pointer_pos_list = set_file_name_pointer_pos_list(file_name_list, file_name, pointer_pos, collection)
-    name_lists_pointer_pos_list = set_name_list_pointer_pos_list(name_lists_list, file_name, pointer_pos, collection)
     mod_info = {
-        'mod_name': name,
+        'mod_id': mod_id,
+        'file_name': file_name,
         'picture': picture,
-        'file_name_list': file_name_list,
-        'file_path': f'{paradox_folder}\\mod\\local_localisation\\localisation\\',
-        'name_lists_list': name_lists_list,
-        'file_tr_status_list': file_tr_status_list,
-        'name_list_tr_status_list': name_list_tr_status_list,
-        'file_name_pointer_pos_list': file_name_pointer_pos_list,
-        'name_lists_pointer_pos_list': name_lists_pointer_pos_list,
+        'file_tr_status': tr_status,
+        'name_list_tr_status': 0,
+        'file_name_pointer_pos': pointer_pos,
+        'name_list_pointer_pos': 0,
         'language': data['language'],
-        'data': data
+        'original_name': data['original_name'],
+        'full_path': data['full_path'],
+        'mod_name': name,
+        'folder_path': data['folder_path'],
+        'cutter_file_name': data['cutter_file_name'],
+        'translated_name': data['translated_name'],
+        'cuttered': data['cuttered'],
+        'translated_file': data['translated_file'],
+        'machine_text': data['machine_text'],
+        'status': 'mod_file',
+        'base_dir': data['base_dir']
     }
-    return mod_info
+    return mod_info, file_name_list, name_lists_list
 
 
 def collection_append(mod_id, tr_status, pointer_pos):
-    with open(collection_path, 'r', encoding='utf-8') as collection:
-        info = json.load(collection)
-        try:
-            mod_info = get_mod_info(mod_id, tr_status, pointer_pos, info[mod_id])
-        except KeyError:
-            mod_info = get_mod_info(mod_id, tr_status, pointer_pos, {})
-        info[mod_id] = mod_info
-    with open(collection_path, 'w', encoding='utf-8') as collection:
-        json.dump(info, collection)
+    mod_info = get_mod_info(mod_id, tr_status, pointer_pos)
+    write_data_in_collection(collection_path, mod_info)
 
 
 def get_mod_id(file_path):
