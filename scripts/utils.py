@@ -33,7 +33,7 @@ def properties_status():
 
 def current_stellaris_version():
     with open(f'{paradox_folder}\settings.txt', 'r', encoding='utf-8') as file:
-        current_version = file.readlines()[-3].split('"')[1].split()[1]
+        current_version = file.readlines()[-3].split('"')[1].split()[1] + '.*'
     return current_version
 
 

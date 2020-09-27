@@ -3,7 +3,7 @@ from PyQt5 import QtWidgets, QtCore
 from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
 
-from scripts.utils import get_collection, set_data, local_mod_create, open_zip_file, paradox_mod_way_to_content, mod_path, mod_name_wrap
+from scripts.utils import get_collection, set_data, local_mod_create, open_zip_file, mod_name_wrap
 from scripts.stylesheets import set_name_style, set_button_style, set_complete_style, set_incomplete_style, create_separator
 from scripts.messeges import call_error_message
 

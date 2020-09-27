@@ -1397,6 +1397,28 @@ QPushButton:pressed{
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="steam_logo">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>61</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../pictures/resources.qrc">:/icons/icons/steam.png</pixmap>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
    <zorder>BackgroundFrame</zorder>
    <zorder>lang_logo</zorder>
    <zorder>ProgressBarFrame</zorder>
@@ -1425,6 +1447,7 @@ QPushButton:pressed{
    <zorder>CollectionButton</zorder>
    <zorder>ManualButton</zorder>
    <zorder>FileNameLine</zorder>
+   <zorder>steam_logo</zorder>
   </widget>
  </widget>
  <resources>

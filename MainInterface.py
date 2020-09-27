@@ -26,7 +26,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
-        self.mod_status()
+        local_mod_status()
         self.init_handlers()
         self.init_helpers()
         self.oldPos = self.pos()
@@ -37,7 +37,16 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
                     self.BprogressBar_L, self.BprogressBar_R,
                     self.LprogressBar_T, self.LprogressBar_B,
                     self.RprogressBar_T, self.RprogressBar_B]
+        self.mod_type_pixmap(self.ModIDLine.text())
         self.message = ''
+
+    def mod_type_pixmap(self, mod_id):
+        if mod_id.isdigit() or self.ModIDLine.text() == 'SteamWorkshop ID':
+            self.paradox_logo.hide()
+            self.steam_logo.show()
+        else:
+            self.paradox_logo.show()
+            self.steam_logo.hide()
 
     def progressbar_set_value(self):
         for i in self.bar:
@@ -129,10 +138,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def reference_window(self, to_scroll='QLabel_1_Modification'):
         reference_window = ReferenceWindow(self, to_scroll)
         reference_window.show()
-
-    @staticmethod
-    def mod_status():
-        local_mod_status()
 
     def get_steam_id(self, mod_id):
         self.ModIDLine.setText(mod_id)
