@@ -58,7 +58,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def init_handlers(self):
         self.LocalizeButton.clicked.connect(self.start_local)
-        # self.FileSelectionButton.clicked.connect(self.show_choose_file_window)
         self.TranslationLanguageButton.clicked.connect(self.translation_language_window)
         self.ToolLanguageButton.clicked.connect(self.tool_language_window)
         self.CollectionButton.clicked.connect(self.show_collection_window)
@@ -104,6 +103,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         if f_path:
             mod_id = get_mod_id(f_path)
             self.ModIDLine.setText(mod_id)
+            self.mod_type_pixmap(self.ModIDLine.text())
 
     def show_collection_window(self):
         collection_window = CollectionWindow(self)
@@ -141,6 +141,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def get_steam_id(self, mod_id):
         self.ModIDLine.setText(mod_id)
+        self.mod_type_pixmap(self.ModIDLine.text())
         data = paradox_mod_way_to_content(mod_id)
         self.ModNameLine.setText(data['name'])
         return data
@@ -213,6 +214,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         for i in self.bar:
             i.setValue(0)
         self.FinishButton.hide()
+        self.mod_type_pixmap(self.ModIDLine.text())
 
     def write_translation(self):
         try:
@@ -259,6 +261,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             workshop_id = self.ModIDLine.text()
             data = paradox_mod_way_to_content(workshop_id)
             self.ModNameLine.setText(data['name'])
+            self.mod_type_pixmap(self.ModIDLine.text())
             self.orig_text = cutter_main(data['path'], workshop_id)
             self.progressbar_set_maximum(len(self.orig_text))
         except FileNotFoundError as Error:
