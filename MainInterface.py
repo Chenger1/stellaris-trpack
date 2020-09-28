@@ -17,7 +17,7 @@ from scripts.loc_putter import put_lines
 from scripts.db import get_info_from_db
 from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
     local_mod_status, collection_append, init_collection, open_file_for_resuming, remove_extra_new_line_symbols,\
-    remove_unpacked_files, get_mod_id, open_zip_file
+    remove_unpacked_files, get_mod_id, open_zip_file, mod_path
 from scripts.messeges import call_success_message, call_error_message
 
 
@@ -241,17 +241,18 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.show_accept_window(message)
 
     def continue_local(self, collection):
-        self.pointer = collection['file_name_pointer_pos_list'][0]
+        self.pointer = collection['file_name_pointer_pos']
         self.PreviousString.setEnabled(True if self.pointer >= 1 else False)
-        self.orig_text = open_file_for_resuming(collection['data']['cuttered'])
-        self.machine_text = open_file_for_resuming(collection['data']['machine_text'])
-        self.user_text = cutting_lines(f'{collection["data"]["folder_path"]}\\{collection["data"]["original_name"]}_temp',
-                                       f'{collection["file_path"]}{collection["data"]["final_name"]}')
+        self.orig_text = open_file_for_resuming(collection['cuttered'])
+        self.machine_text = open_file_for_resuming(collection['machine_text'])
+        self.user_text = cutting_lines(f'{collection["folder_path"]}\\{collection["original_name"]}_temp',
+                                       f'{mod_path}\\localisation\\{collection["final_name"]}')
+
         self.user_text = remove_extra_new_line_symbols(self.user_text)
         self.progressbar_set_maximum(len(self.orig_text))
         self.NextStringButton.setEnabled(True)
         self.FinishButton.show()
-        # self.FinishButton.clicked.connect(self.write_translation)
+        self.FinishButton.clicked.connect(self.write_translation)
         self.check_new_line_symbol_string(True)
         self.set_lines()
         self.LocalizeButton.hide()

@@ -94,7 +94,7 @@ class Mod:
         self.mod_id = mod_id
         self.mod_name = mod_name,
         self.base_dir = None
-        self.files = []
+        self.files = {}
 
 
 def write_data_in_collection(db_path, data):
@@ -155,7 +155,7 @@ def get_data_from_collection(db_path):
                 if elem[18] and not mod.base_dir:
                     mod.base_dir = elem[18]
                 mods[elem[0]] = mod
-            data[elem[1]] = {
+            mod.files[elem[1]] = {
                     'mod_id': elem[0],
                     'file_name': elem[1],
                     'picture': elem[2],
@@ -176,7 +176,6 @@ def get_data_from_collection(db_path):
                     'status': elem[17],
                     'base_dir': elem[18]
             }
-            mod.files.append(data)
     return mods
 
 
