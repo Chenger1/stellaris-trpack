@@ -161,48 +161,20 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             grid.addWidget(status, self.row_index + 1, 7)
             self.row_index += 1
 
-
-        # if self.collection[mod_id]['file_name_list']:
-        #     for file_name in self.collection[mod_id]['file_name_list']:
-        #         lang = self.collection[mod_id]['language']
-        #         file_name_index = self.collection[mod_id]['file_name_list'].index(file_name)
-        #
-        #         if '.yml' not in split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[0]:
-        #             self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(
-        #                 split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[0])
-        #
-        #             if self.collection[mod_id]['file_tr_status_list'][file_name_index] > 0:
-        #                 message = ('collection_continue_translation', file_name)
-        #                 self.buttons[f'{mod_id}-{file_name}'].clicked. \
-        #                     connect(partial(self.call_accept_message, message, mod_id=mod_id))
-        #
-        #             else:
-        #                 message = ('save_translation', file_name)
-        #                 self.buttons[f'{mod_id}-{file_name}'].clicked. \
-        #                     connect(partial(self.call_accept_message, message,
-        #                                     mod_id=mod_id, file_name=file_name,
-        #                                     base_dir=self.collection[mod_id]['data']['base_dir']))
-        #                 # self.buttons[f'{mod_id}-{file_name}'].clicked. \
-        #                 #     connect(partial(self.start_translation, mod_id, file_name,
-        #                 #                     self.collection[mod_id]['data']['base_dir']))
-        #
-        #         else:
-        #             self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(
-        #                 split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[-1].split('.yml')[0])
-        #
-        #             self.buttons[f'{mod_id}-{file_name}'].clicked.connect(partial(self.open_mod_by_file_name))
+    def print_name_lists(self, grid, mod_id):
+        # if self.collection[mod_id]['name_lists_list']:
+        #     for name_list in self.collection[mod_id]['name_lists_list']:
+        #         name_list_index = self.collection[mod_id]['name_lists_list'].index(name_list)
+        #         self.buttons[f'{mod_id}-{name_list}'] = QtWidgets.QPushButton(name_list.split('_namelist.txt')[0])
         #         status = QtWidgets.QProgressBar()
-        #
-        #         # message = 'collection_continue_translation'
-        #         # self.buttons[f'{mod_id}-{file_name}'].clicked.connect(partial(self.call_accept_message, message))
-        #
-        #         status.setValue(self.collection[mod_id]['file_tr_status_list'][file_name_index])
-        #         set_button_style(self.buttons[f'{mod_id}-{file_name}'])
+        #         # self.buttons[f'{mod_id}-{name_list}'].clicked.connect(partial(self.open_accept_window, mod_id))
+        #         status.setValue(self.collection[mod_id]['name_list_tr_status_list'][name_list_index])
+        #         set_button_style(self.buttons[f'{mod_id}-{name_list}'])
         #         if status.value() != 100:
         #             set_incomplete_style(status)
         #         else:
         #             set_complete_style(status)
-        #         grid.addWidget(self.buttons[f'{mod_id}-{file_name}'], self.row_index + 1, 6)
+        #         grid.addWidget(self.buttons[f'{mod_id}-{name_list}'], self.row_index + 1, 6)
         #         grid.addWidget(status, self.row_index + 1, 7)
         #         self.row_index += 1
         # else:
@@ -215,33 +187,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         #     grid.addWidget(files_not_found, self.row_index + 1, 6)
         #     grid.addWidget(status, self.row_index + 1, 7)
         #     self.row_index += 1
-
-    def print_name_lists(self, grid, mod_id):
-        if self.collection[mod_id]['name_lists_list']:
-            for name_list in self.collection[mod_id]['name_lists_list']:
-                name_list_index = self.collection[mod_id]['name_lists_list'].index(name_list)
-                self.buttons[f'{mod_id}-{name_list}'] = QtWidgets.QPushButton(name_list.split('_namelist.txt')[0])
-                status = QtWidgets.QProgressBar()
-                # self.buttons[f'{mod_id}-{name_list}'].clicked.connect(partial(self.open_accept_window, mod_id))
-                status.setValue(self.collection[mod_id]['name_list_tr_status_list'][name_list_index])
-                set_button_style(self.buttons[f'{mod_id}-{name_list}'])
-                if status.value() != 100:
-                    set_incomplete_style(status)
-                else:
-                    set_complete_style(status)
-                grid.addWidget(self.buttons[f'{mod_id}-{name_list}'], self.row_index + 1, 6)
-                grid.addWidget(status, self.row_index + 1, 7)
-                self.row_index += 1
-        else:
-            files_not_found = QtWidgets.QPushButton(f"{'—' * 8}")
-            status = QtWidgets.QProgressBar()
-            set_button_style(files_not_found)
-            set_incomplete_style(status)
-            status.setValue(0)
-            status.setFormat("——   ")
-            grid.addWidget(files_not_found, self.row_index + 1, 6)
-            grid.addWidget(status, self.row_index + 1, 7)
-            self.row_index += 1
+        pass
 
     def clean(self, grid):
         self.CollectionLabel.show()
@@ -296,25 +242,12 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             elif options.currentText() in options.itemText(1):
                 self.print_files_names(grid, mod_id)
                 grid.addWidget(separator, self.row_index+1, 6)
-
-        # for mod_id in self.collection:
-        #     mod_name = QtWidgets.QPushButton(mod_name_wrap(self.collection[mod_id]['mod_name']))
-        #     separator = create_separator()
-        #     set_name_style(mod_name)
-        #     self.row_index += 1
-        #     grid.addWidget(mod_name, self.row_index + 1, 1, 1, 4)
-        #     if options.currentText() in options.itemText(0):
-        #         self.print_mod_id(grid, mod_id)
-        #         grid.addWidget(separator, self.row_index + 1, 6)
-        #     elif options.currentText() in options.itemText(1):
-        #         self.print_files_names(grid, mod_id)
-        #         grid.addWidget(separator, self.row_index + 1, 6)
-        #     elif options.currentText() in options.itemText(2):
-        #         self.print_name_lists(grid, mod_id)
-        #         grid.addWidget(separator, self.row_index + 1, 6)
-        #     elif options.currentText() in options.itemText(3):
-        #         self.print_rename(grid)
-        #     self.row_index += 1
+            elif options.currentText() in options.itemText(2):
+                self.print_name_lists(grid, mod_id)
+                grid.addWidget(separator, self.row_index + 1, 6)
+            elif options.currentText() in options.itemText(3):
+                self.print_rename(grid)
+            self.row_index += 1
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:
