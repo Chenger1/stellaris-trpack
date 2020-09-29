@@ -3,13 +3,12 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from GUI.GUI_windows_source import ModsList
 
 from scripts.mods_sorting import set_settings, prep_data, sorting
-from scripts.db import get_info_from_db, get_mods_from_playset, write_data_into_db
-from scripts.utils import get_mod_id, paradox_folder, open_zip_file, mod_name_wrap
+from scripts.db import get_info_from_db, get_mods_from_playset
+from scripts.utils import get_mod_id, open_zip_file, mod_name_wrap
 from scripts.stylesheets import set_name_style, mod_avtivation_status_style, mod_sorting_status_style
 from scripts.messeges import call_success_message, call_error_message
 from functools import partial
-import os
-import requests
+from scripts.pictures import get_images
 import copy
 
 
@@ -44,13 +43,6 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.grid = self.gridLayout
         self.buttons = {}
         self.generator = copy.copy(self.modList)
-        self.images = {
-                    elem[0]: {
-                            'steam_path': elem[1],
-                            'cache_path': elem[2],
-                            'steam_id': elem[3],
-                             } for elem in get_info_from_db('get_images')
-                   }
         self.paint_elements()
         self.message = ''
 
@@ -160,45 +152,6 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                 self.message = ''
                 call_error_message(self, message)
 
-    @staticmethod
-    def download_image(url, file_name, steam_id):
-        response = requests.get(url)
-        if '.' in file_name:
-            path = f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{steam_id}\\{file_name}'
-        else:
-            path = f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{steam_id}\\{file_name}' #TODO
-            write_data_into_db('write_new_image_path', {'image_path': path,
-                                                        'steam_id': steam_id})
-        with open(path, 'wb') as file:
-            file.write(response.content)
-
-        return path
-
-    def get_images(self, mod_id):
-        image_pth = self.images[mod_id]
-        if not image_pth['cache_path'] and not image_pth['steam_path']:
-            return None
-        if not image_pth['cache_path'] and image_pth['steam_path']:
-            os.mkdir(f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{image_pth["steam_id"]}')
-            image_pth['cache_path'] = self.download_image(image_pth['steam_path'],
-                                                          image_pth['steam_path'].split('/')[-2].lower(),
-                                                          image_pth['steam_id'])
-            return image_pth['cache_path']
-        try:
-            dir = os.listdir(f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{image_pth["steam_id"]}')
-            if dir:
-                return image_pth['cache_path']
-            image_pth['cache_path'] = self.download_image(image_pth['steam_path'],
-                                                          image_pth['cache_path'].split('\\')[-1],
-                                                          image_pth['steam_id'])
-            return image_pth['cache_path']
-        except FileNotFoundError:
-            os.mkdir(f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{image_pth["steam_id"]}')
-            image_pth['cache_path'] = self.download_image(image_pth['steam_path'],
-                                                          image_pth['cache_path'].split('\\')[-1],
-                                                          image_pth['steam_id'])
-            return image_pth['cache_path']
-
     def search(self, text):
         self.generator = copy.copy(self.modList)
         for elem in self.modList:
@@ -224,12 +177,10 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             except AttributeError:
                 checkbox1.setChecked(elem.isEnabled)
                 checkbox2.setChecked(elem.sortRequired)
-
             mod_avtivation_status_style(checkbox1)
             mod_sorting_status_style(checkbox2)
             label = QtWidgets.QLabel(self)
-
-            pixmap = QtGui.QPixmap(self.get_images(elem.hashKey))
+            pixmap = QtGui.QPixmap(get_images(elem.hashKey))
             pixmap = pixmap.scaled(120, 120, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
             label.setPixmap(pixmap)
 
