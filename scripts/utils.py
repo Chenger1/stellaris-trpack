@@ -14,6 +14,7 @@ user = win32api.GetUserName()
 paradox_folder = f'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris'
 mod_path = F'{paradox_folder}\\mod\\local_localisation'
 collection_path = f'{mod_path}\\collection.db'
+finished_folders_path = f'{mod_path}\\finished_translations'
 data = {}
 
 
@@ -43,6 +44,7 @@ def local_mod_create():
     try:
         os.mkdir(mod_path)
         os.mkdir(mod_path + '\\localisation')
+        os.mkdir(f'{mod_path}\\finished_translations')
     except FileExistsError:
         pass
     with open(mod_path + '.mod', 'w', encoding='utf-8') as mod:
@@ -325,3 +327,14 @@ def mod_name_wrap(mod_name):
                 row[0] += f' {word}'
         mod_name = f'{row[1]}{row[2]}{row[0]}'
     return mod_name
+
+
+def move_folder():
+    try:
+        new_folder_path = shutil.move(data['folder_path'], finished_folders_path)
+        data['folder_path'] = new_folder_path
+        data['cuttered'] = f'{new_folder_path}\\{data["cutter_file_name"]}'
+        data['translated_file'] = f'{new_folder_path}\\{data["translated_name"]}'
+        data['machine_text'] = f'{new_folder_path}\\machine_text.txt'
+    except shutil.Error:
+        return None

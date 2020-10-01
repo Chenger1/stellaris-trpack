@@ -17,7 +17,7 @@ from scripts.loc_putter import put_lines
 from scripts.db import get_info_from_db
 from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
     local_mod_status, collection_append, init_collection, open_file_for_resuming, remove_extra_new_line_symbols,\
-    remove_unpacked_files, get_mod_id, open_zip_file, mod_path
+    remove_unpacked_files, get_mod_id, open_zip_file, mod_path, move_folder, save_unfinished_machine_text
 from scripts.messeges import call_success_message, call_error_message
 
 
@@ -221,6 +221,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
             writing_translation(self.user_text)
             put_lines()
+            save_unfinished_machine_text(self.machine_text)
+            move_folder()
             collection_append(self.ModIDLine.text(), 100, self.pointer)
             remove_unpacked_files()
             message = 'file_was_written'
