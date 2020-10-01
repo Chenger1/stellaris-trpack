@@ -50,7 +50,7 @@ def put_lines():
 	loc.close()
 	newloc.close()
 	itog.close()
-	shutil.rmtree(data['folder_path'])
+	#shutil.rmtree(data['folder_path'])
 
 
 if __name__ == "__main__":

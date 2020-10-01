@@ -42,9 +42,9 @@ def creating_temp_files(temp_folder):
     return r_data
 
 
-def cutter_main(path, mod_id):
+def cutter_main(path, mod_id, file_name):
     loc_path = f'{path}\\localisation'
-    temp_folder = create_temp_folder(mod_id, loc_path)
+    temp_folder = create_temp_folder(mod_id, loc_path, file_name)
     temp_files = creating_temp_files(temp_folder)
     write_data_about_mode(temp_files)
     orig_text = cutting_lines(temp_files['cuttered'], data['full_path'])

@@ -263,7 +263,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             data = paradox_mod_way_to_content(workshop_id)
             self.ModNameLine.setText(data['name'])
             self.mod_type_pixmap(self.ModIDLine.text())
-            self.orig_text = cutter_main(data['path'], workshop_id)
+            self.orig_text = cutter_main(data['path'], workshop_id, data['file_name'])
             self.progressbar_set_maximum(len(self.orig_text))
         except FileNotFoundError as Error:
             message = 'mod_not_choosen'
