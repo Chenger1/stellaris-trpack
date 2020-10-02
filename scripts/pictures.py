@@ -1,8 +1,11 @@
-from requests import get
-from os import mkdir, listdir
-from scripts.db import write_data_into_db, get_info_from_db
-from scripts.utils import paradox_folder
+from PIL import Image
+from json import load, dump
+from os import remove
+from copy import copy
 
+from scripts.db import get_info_from_db
+
+output_path = 'GUI\pictures\\thumbs\\'
 images = {
     elem[0]: {
         'steam_path': elem[1],
@@ -12,40 +15,54 @@ images = {
 }
 
 
-def download_image(url, file_name, steam_id):
-    response = get(url)
-    if '.' in file_name:
-        path = f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{steam_id}\\{file_name}'
-    else:
-        path = f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{steam_id}\\{file_name}'  # TODO
-        write_data_into_db('write_new_image_path', {'image_path': path,
-                                                    'steam_id': steam_id})
-    with open(path, 'wb') as file:
-        file.write(response.content)
-    return path
+def scale_image(path, hashKey):
+    size = (160, 100)
+    original_image = Image.open(path)
+    width, height = original_image.size
+
+    if width - height > 200:
+        cutter = (0, 0, height * 1.6, height)
+        original_image = original_image.crop(cutter)
+    elif width >= height:
+        cutter = (0, 0, height, height / 1.6)
+        original_image = original_image.crop(cutter)
+    elif height > width:
+        cutter = (0, 0, width, width / 1.6)
+        original_image = original_image.crop(cutter)
+
+    original_image.thumbnail(size)
+    original_image.save(f'{output_path}{hashKey}.png', format='png')
+    with open(f'{output_path}thumbs.json', 'r', encoding='utf-8') as thumb:
+        thumbnails = load(thumb)
+        thumbnails[hashKey] = f'{output_path}{hashKey}.png'
+    with open(f'{output_path}thumbs.json', 'w', encoding='utf-8') as thumb:
+        dump(thumbnails, thumb)
 
 
-def get_images(mod_id):
-    image_pth = images[mod_id]
-    if not image_pth['cache_path'] and not image_pth['steam_path']:
-        return None
-    if not image_pth['cache_path'] and image_pth['steam_path']:
-        mkdir(f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{image_pth["steam_id"]}')
-        image_pth['cache_path'] = download_image(image_pth['steam_path'],
-                                                 image_pth['steam_path'].split('/')[-2].lower(),
-                                                 image_pth['steam_id'])
-        return image_pth['cache_path']
+def get_thumbnail(hashKey):
     try:
-        directory = listdir(f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{image_pth["steam_id"]}')
-        if directory:
-            return image_pth['cache_path']
-        image_pth['cache_path'] = download_image(image_pth['steam_path'],
-                                                 image_pth['cache_path'].split('\\')[-1],
-                                                 image_pth['steam_id'])
-        return image_pth['cache_path']
-    except FileNotFoundError:
-        mkdir(f'{paradox_folder}\\.launcher-cache\\steam-mod-thumbnail-{image_pth["steam_id"]}')
-        image_pth['cache_path'] = download_image(image_pth['steam_path'],
-                                                 image_pth['cache_path'].split('\\')[-1],
-                                                 image_pth['steam_id'])
-        return image_pth['cache_path']
+        with open(f'{output_path}\\thumbs.json', 'r', encoding='utf-8') as thumb:
+            thumbnails = load(thumb)
+        return thumbnails[hashKey]
+    except KeyError:
+        return f'{output_path}DoesNotExists.png'
+
+
+def thumbs_synchronize():
+    with open(f'{output_path}thumbs.json', 'r', encoding='utf-8') as thumbs:
+        thumbnails = load(thumbs)
+        scan = copy(thumbnails)
+    for hashKey in scan:
+        if hashKey not in images:
+            del thumbnails[hashKey]
+            remove(f'{output_path}{hashKey}.png')
+    with open(f'{output_path}thumbs.json', 'w', encoding='utf-8') as thumb:
+        dump(thumbnails, thumb)
+    for hashKey in images:
+        if hashKey not in thumbnails:
+            try:
+                scale_image(images[hashKey]["cache_path"], hashKey)
+            except FileNotFoundError:
+                pass
+            except AttributeError:
+                pass

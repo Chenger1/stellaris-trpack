@@ -18,35 +18,35 @@ finished_folders_path = f'{mod_path}\\finished_translations'
 data = {}
 
 
-def properties_create():
-    with open('Properties.json', 'w', encoding='utf-8') as prop:
-        properties = {"collection_name": "Stellaris True Machine Translation Tool", "tool_language": "en", "translation_language": "en"}
-        json.dump(properties, prop)
-
-
-def properties_status():
-    try:
-        with open('Properties.json', 'r', encoding='utf-8') as prop:
-            pass
-    except FileNotFoundError:
-        properties_create()
-
-
 def current_stellaris_version():
     with open(f'{paradox_folder}\settings.txt', 'r', encoding='utf-8') as file:
         current_version = file.readlines()[-3].split('"')[1].split()[1] + '.*'
     return current_version
 
 
+def thumbs_create():
+    os.mkdir("GUI\pictures\\thumbs")
+    shutil.copy("GUI\pictures\\icons\\DoesNotExists.png", "GUI\pictures\\thumbs\\DoesNotExists.png")
+    with open("GUI\pictures\\thumbs\\thumbs.json", "w", encoding="utf-8") as thumb:
+        thumbnails = {}
+        json.dump(thumbnails, thumb)
+
+
+def properties_create():
+    with open('Properties.json', 'w', encoding='utf-8') as prop:
+        properties = {"collection_name": "Stellaris True Machine Translation Tool", "tool_language": "en", "translation_language": "en"}
+        json.dump(properties, prop)
+
+
 def local_mod_create():
-    with open('Properties.json', 'r', encoding='utf-8') as prop:
-        properties = json.load(prop)
     try:
         os.mkdir(mod_path)
-        os.mkdir(mod_path + '\\localisation')
+        os.mkdir(f'{mod_path}\\localisation')
         os.mkdir(f'{mod_path}\\finished_translations')
     except FileExistsError:
         pass
+    with open('Properties.json', 'r', encoding='utf-8') as prop:
+        properties = json.load(prop)
     with open(mod_path + '.mod', 'w', encoding='utf-8') as mod:
         mod_description = f'name="{properties["collection_name"]}"' + '\ntags={\n	"Translation"\n}' + f'\npicture="thumbnail.png"\nsupported_version="{current_stellaris_version()}"\npath="{paradox_folder}\mod\local_localisation"'.replace('\\', '/')
         mod.write(mod_description)
@@ -54,13 +54,22 @@ def local_mod_create():
         descriptor.write(mod_description.split('path=')[0])
 
 
-def local_mod_status():
-    properties_status()
+def generated_files_status():
+    try:
+        with open('Properties.json', 'r', encoding='utf-8') as prop:
+            pass
+    except FileNotFoundError:
+        properties_create()
     try:
         with open(mod_path + '.mod', 'r', encoding='utf-8') as mod:
             pass
     except FileNotFoundError:
         local_mod_create()
+    try:
+        with open("GUI\pictures\\thumbs\\thumbs.json", "r", encoding="utf-8") as thumb:
+            pass
+    except FileNotFoundError:
+        thumbs_create()
 
 
 def create_temp_folder(mod_id, loc_path, file_name):

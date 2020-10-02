@@ -8,7 +8,7 @@ from scripts.utils import get_mod_id, open_zip_file, mod_name_wrap
 from scripts.stylesheets import set_name_style, mod_avtivation_status_style, mod_sorting_status_style
 from scripts.messeges import call_success_message, call_error_message
 from functools import partial
-from scripts.pictures import get_images
+from scripts.pictures import get_thumbnail
 import copy
 
 
@@ -27,6 +27,9 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.modList, self.dlc_load, self.game_data, self.playset = prep_data(self.settingPaths[0],
                                                                               list(self.playsets.items())[0])
         self.checkboxes = []
+        self.borders = {'transparent': 'border: transparent;',
+                        'blue': 'border: 3px solid #05B8CC;',
+                        'green': 'border: 3px solid #5abe41;'}
         self.switch = {
             True: {
                 'act_switcher': lambda: self.ActivationSwticherButton.setText('Выкл все моды'),
@@ -180,10 +183,10 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             mod_avtivation_status_style(checkbox1)
             mod_sorting_status_style(checkbox2)
             label = QtWidgets.QLabel(self)
-            pixmap = QtGui.QPixmap(get_images(elem.hashKey))
-            pixmap = pixmap.scaled(120, 120, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
+            label.setStyleSheet(self.borders['green'])
+            pixmap = QtGui.QPixmap(get_thumbnail(elem.hashKey))
+            pixmap = pixmap.scaled(160, 100, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
             label.setPixmap(pixmap)
-
             self.grid.addWidget(label, index+1, 1)
             self.grid.addWidget(self.buttons[f'{elem.name}'], index+1, 2, 1, 5)
             self.grid.addWidget(checkbox1, index+1, 6)
