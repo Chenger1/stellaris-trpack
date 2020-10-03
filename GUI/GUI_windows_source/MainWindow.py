@@ -726,8 +726,8 @@ class Ui_MainWindow(object):
         self.LocalizeButton.raise_()
         self.CollectionButton.raise_()
         self.ManualButton.raise_()
-        self.FileNameLine.raise_()
         self.steam_logo.raise_()
+        self.FileNameLine.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)

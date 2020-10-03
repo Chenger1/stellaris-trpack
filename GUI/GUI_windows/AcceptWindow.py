@@ -3,6 +3,7 @@ from PyQt5 import QtWidgets, QtCore
 from GUI.GUI_windows_source import Accept
 
 from scripts.utils import collection_append, save_unfinished_machine_text
+from scripts.db import get_info_from_db
 from scripts.messeges import call_success_message
 
 
@@ -33,14 +34,15 @@ class AcceptWindow(QtWidgets.QDialog, Accept.Ui_Dialog):
         self.ExitButton.clicked.connect(self.close)
         self.AcceptButton.clicked.connect(accept_func or self.save_translation_state)
         self.DeniedButton.clicked.connect(denied_func or self.close)
-        self.ReferenceButton.clicked.connect(lambda: self.parent.parent.parent.reference_window('QLabel_2_1_Functional'))
+        self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_1_Functional'))
         self.WindowMoveButton.installEventFilter(self)
 
     def save_translation_state(self):
         pointer_position = self.parent.pointer
         translation_status = round((len(self.parent.user_text*100))/len(self.parent.orig_text))
         save_unfinished_machine_text(self.parent.machine_text)
-        collection_append(self.parent.ModIDLine.text(), translation_status, pointer_position)
+        hashKey = tuple(filter(lambda x: x[1] in self.parent.ModIDLine.text(), get_info_from_db('get_mod_data')))[0][0]
+        collection_append(self.parent.ModIDLine.text(), translation_status, pointer_position, hashKey)
         self.parent.clean_state()
         message = 'file_was_written'
         self.message = ''

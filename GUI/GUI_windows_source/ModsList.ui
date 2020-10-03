@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Dialog</class>
  <widget class="QDialog" name="Dialog">
@@ -93,34 +93,6 @@ QPushButton:pressed{
    </property>
    <property name="text">
     <string>?</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="ModNameLabel">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>81</y>
-     <width>241</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: none;
-color: #ffffff;</string>
-   </property>
-   <property name="text">
-    <string>Название мода</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QScrollArea" name="LandingArea">
@@ -335,9 +307,9 @@ QPushButton:pressed{
   <widget class="QComboBox" name="PlaysetsList">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>520</x>
      <y>40</y>
-     <width>281</width>
+     <width>301</width>
      <height>51</height>
     </rect>
    </property>
@@ -542,9 +514,9 @@ color: #ffffff;</string>
   <widget class="QPushButton" name="ActivationSwticherButton">
    <property name="geometry">
     <rect>
-     <x>580</x>
+     <x>570</x>
      <y>520</y>
-     <width>161</width>
+     <width>171</width>
      <height>31</height>
     </rect>
    </property>
@@ -574,7 +546,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>Активировать</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLineEdit" name="SearchLine">
@@ -613,11 +585,35 @@ QLineEdit:hover{
     <bool>false</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="StringsList">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>40</y>
+     <width>241</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Отключить.Активировать</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <zorder>StringsList</zorder>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>LandingArea</zorder>
   <zorder>ReferenceButton</zorder>
-  <zorder>ModNameLabel</zorder>
   <zorder>BottomShadowFrame</zorder>
   <zorder>SortButton</zorder>
   <zorder>PlaysetsList</zorder>

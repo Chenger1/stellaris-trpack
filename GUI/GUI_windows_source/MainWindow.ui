@@ -1446,8 +1446,8 @@ QPushButton:pressed{
    <zorder>LocalizeButton</zorder>
    <zorder>CollectionButton</zorder>
    <zorder>ManualButton</zorder>
-   <zorder>FileNameLine</zorder>
    <zorder>steam_logo</zorder>
+   <zorder>FileNameLine</zorder>
   </widget>
  </widget>
  <resources>

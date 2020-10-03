@@ -22,7 +22,9 @@ sql = {
             "translated_file"	TEXT,
             "machine_text"	TEXT,
             "status" TEXT,
-            "base_dir" TEXT
+            "base_dir" TEXT,
+            "id" INTEGER
+
             )
         """
 }
@@ -49,7 +51,8 @@ collection_queries = {
                               translated_file,
                               machine_text,
                               status,
-                              base_dir) VALUES(
+                              base_dir,
+                              id) VALUES(
                               @mod_id, 
                               @file_name,
                               @picture,
@@ -68,7 +71,8 @@ collection_queries = {
                               @translated_file,
                               @machine_text,
                               @status,
-                              @base_dir
+                              @base_dir,
+                              @id
                               )
     """,
     'set_other_mods': """
@@ -95,6 +99,7 @@ class Mod:
         self.mod_name = mod_name,
         self.base_dir = None
         self.files = {}
+        self.hashKey = ''
 
 
 def write_data_in_collection(db_path, data):
@@ -121,7 +126,8 @@ def write_data_in_collection(db_path, data):
                                    mod_info['translated_file'],
                                    mod_info['machine_text'],
                                    mod_info['status'],
-                                   mod_info['base_dir']
+                                   mod_info['base_dir'],
+                                   mod_info['id']
                                )
                      )
         conn.commit()
@@ -154,6 +160,7 @@ def get_data_from_collection(db_path):
                 mod = Mod(elem[0], elem[10])
                 if elem[18] and not mod.base_dir:
                     mod.base_dir = elem[18]
+                mod.hashKey = elem[19]
                 mods[elem[0]] = mod
             mod.files[elem[1]] = {
                     'mod_id': elem[0],
@@ -174,7 +181,8 @@ def get_data_from_collection(db_path):
                     'translated_file': elem[15],
                     'machine_text': elem[16],
                     'status': elem[17],
-                    'base_dir': elem[18]
+                    'base_dir': elem[18],
+                    'id': elem[19]
             }
     return mods
 

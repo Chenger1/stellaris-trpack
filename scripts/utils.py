@@ -55,21 +55,14 @@ def local_mod_create():
 
 
 def generated_files_status():
-    try:
-        with open('Properties.json', 'r', encoding='utf-8') as prop:
-            pass
-    except FileNotFoundError:
+    if os.path.isfile('Properties.json') is False:
         properties_create()
-    try:
-        with open(mod_path + '.mod', 'r', encoding='utf-8') as mod:
-            pass
-    except FileNotFoundError:
+    if os.path.isfile(f'{mod_path}.mod') is False:
         local_mod_create()
-    try:
-        with open("GUI\pictures\\thumbs\\thumbs.json", "r", encoding="utf-8") as thumb:
-            pass
-    except FileNotFoundError:
+    if os.path.isfile('GUI\pictures\\thumbs\\thumbs.json') is False:
         thumbs_create()
+    if os.path.isfile(collection_path) is False:
+        create_db(collection_path)
 
 
 def create_temp_folder(mod_id, loc_path, file_name):
@@ -119,17 +112,12 @@ def paradox_mod_way_to_content(mod_id):
     return {'path': path, 'name': name, 'file_name': data['original_name'].split('.yml')[0]}
 
 
-def init_collection():
-    if os.path.isfile(collection_path) is False:
-        create_db(collection_path)
-
-
 def get_collection():
     info = get_data_from_collection(collection_path)
     return info
 
 
-def get_mod_info(mod_id, tr_status, pointer_pos):
+def get_mod_info(mod_id, tr_status, pointer_pos, hashKey):
     name = data['mod_name']
     file_name = data['original_name'] if tr_status == 0 else data['final_name']
     picture = "thumbnail.png"
@@ -154,13 +142,14 @@ def get_mod_info(mod_id, tr_status, pointer_pos):
         'translated_file': data['translated_file'],
         'machine_text': data['machine_text'],
         'status': 'mod_file',
-        'base_dir': data['base_dir']
+        'base_dir': data['base_dir'],
+        'id': hashKey
     }
     return mod_info, file_name_list, name_lists_list
 
 
-def collection_append(mod_id, tr_status, pointer_pos):
-    mod_info = get_mod_info(mod_id, tr_status, pointer_pos)
+def collection_append(mod_id, tr_status, pointer_pos, hashKey):
+    mod_info = get_mod_info(mod_id, tr_status, pointer_pos, hashKey)
     write_data_in_collection(collection_path, mod_info)
 
 

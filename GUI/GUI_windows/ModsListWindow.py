@@ -27,16 +27,17 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.modList, self.dlc_load, self.game_data, self.playset = prep_data(self.settingPaths[0],
                                                                               list(self.playsets.items())[0])
         self.checkboxes = []
+        self.string = self.StringsList.text().split('.')
         self.borders = {'transparent': 'border: transparent;',
                         'blue': 'border: 3px solid #05B8CC;',
                         'green': 'border: 3px solid #5abe41;'}
         self.switch = {
             True: {
-                'act_switcher': lambda: self.ActivationSwticherButton.setText('Выкл все моды'),
+                'act_switcher': lambda: self.ActivationSwticherButton.setText(self.string[0]),
                 'reversing': lambda: self.ReverseSortingButton.setText('Z-A')
             },
             False: {
-                'act_switcher': lambda: self.ActivationSwticherButton.setText('Вкл все моды'),
+                'act_switcher': lambda: self.ActivationSwticherButton.setText(self.string[1]),
                 'reversing': lambda: self.ReverseSortingButton.setText('A-Z')
             }
         }

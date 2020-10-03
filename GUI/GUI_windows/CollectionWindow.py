@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 
 from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptWindow import AcceptWindow
@@ -6,6 +6,7 @@ from GUI.GUI_windows.AcceptWindow import AcceptWindow
 from scripts.utils import get_collection, set_data, local_mod_create, open_zip_file, mod_name_wrap
 from scripts.stylesheets import set_name_style, set_button_style, set_complete_style, set_incomplete_style, create_separator
 from scripts.messeges import call_error_message
+from scripts.pictures import get_thumbnail
 
 import os
 import json
@@ -178,16 +179,15 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         #         grid.addWidget(status, self.row_index + 1, 7)
         #         self.row_index += 1
         # else:
-        #     files_not_found = QtWidgets.QPushButton(f"{'—' * 8}")
-        #     status = QtWidgets.QProgressBar()
-        #     set_button_style(files_not_found)
-        #     set_incomplete_style(status)
-        #     status.setValue(0)
-        #     status.setFormat("——   ")
-        #     grid.addWidget(files_not_found, self.row_index + 1, 6)
-        #     grid.addWidget(status, self.row_index + 1, 7)
-        #     self.row_index += 1
-        pass
+        files_not_found = QtWidgets.QPushButton(f"{'—' * 8}")
+        status = QtWidgets.QProgressBar()
+        set_button_style(files_not_found)
+        set_incomplete_style(status)
+        status.setValue(0)
+        status.setFormat("——   ")
+        grid.addWidget(files_not_found, self.row_index + 1, 6)
+        grid.addWidget(status, self.row_index + 1, 7)
+        self.row_index += 1
 
     def clean(self, grid):
         self.CollectionLabel.show()
@@ -231,10 +231,17 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.clean(grid)
 
         for mod_id, mod in self.collection.items():
+            label = QtWidgets.QLabel(self)
+            # label.setStyleSheet(self.borders['green'])
+            pixmap = QtGui.QPixmap(get_thumbnail(mod.hashKey))
+            pixmap = pixmap.scaled(160, 100, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
+            label.setPixmap(pixmap)
+
             mod_name = QtWidgets.QPushButton(mod_name_wrap(mod.mod_name[0]))
             separator = create_separator()
             set_name_style(mod_name)
             self.row_index += 1
+            grid.addWidget(label, self.row_index+1, 0)
             grid.addWidget(mod_name, self.row_index+1, 1, 1, 4)
             if options.currentText() in options.itemText(0):
                 self.print_mod_id(grid, mod_id)

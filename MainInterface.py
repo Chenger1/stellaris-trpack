@@ -16,7 +16,7 @@ from scripts.loc_translator import writing_translation, translate_line
 from scripts.loc_putter import put_lines
 from scripts.db import get_info_from_db
 from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
-    generated_files_status, collection_append, init_collection, open_file_for_resuming, remove_extra_new_line_symbols,\
+    generated_files_status, collection_append, open_file_for_resuming, remove_extra_new_line_symbols,\
     remove_unpacked_files, get_mod_id, open_zip_file, mod_path, move_folder, save_unfinished_machine_text
 from scripts.messeges import call_success_message, call_error_message
 from scripts.pictures import thumbs_synchronize
@@ -76,7 +76,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.PreviousString.setEnabled(False)
         self.NextStringButton.setEnabled(False)
         self.StringOrder.setText('0')
-        init_collection()
 
     def get_mods_folder_path(self):
         raw_path = get_info_from_db('get_path_to_mods', 1)[0]
@@ -184,7 +183,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         try:
             self.check_new_line_symbol_string(True)
             self.set_lines()
-        except IndexError as Error:
+        except IndexError:
             self.check_new_line_symbol_string(True)
             self.user_text.append(translate_line(self.orig_text[self.pointer]))
             self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
@@ -225,13 +224,14 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             put_lines()
             save_unfinished_machine_text(self.machine_text)
             move_folder()
-            collection_append(self.ModIDLine.text(), 100, self.pointer)
+            hashKey = tuple(filter(lambda x: x[1] in self.ModIDLine.text(), get_info_from_db('get_mod_data')))[0][0]
+            collection_append(self.ModIDLine.text(), 100, self.pointer, hashKey)
             remove_unpacked_files()
             message = 'file_was_written'
             self.message = ''
             call_success_message(self, message)
             self.clean_state()
-        except FileNotFoundError as Error:
+        except FileNotFoundError:
             if self.orig_text:
                 message = 'translation_already_written'
                 self.message = ''
@@ -240,7 +240,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
                 message = 'no_translation'
                 self.message = ''
                 call_error_message(self, message)
-        except IndexError as Error:
+        except IndexError:
             message = ('save_translation', '')
             self.show_accept_window(message)
 
@@ -266,10 +266,11 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             workshop_id = self.ModIDLine.text()
             data = paradox_mod_way_to_content(workshop_id)
             self.ModNameLine.setText(data['name'])
+            self.FileNameLine.setText(data['file_name'])
             self.mod_type_pixmap(self.ModIDLine.text())
             self.orig_text = cutter_main(data['path'], workshop_id, data['file_name'])
             self.progressbar_set_maximum(len(self.orig_text))
-        except FileNotFoundError as Error:
+        except FileNotFoundError:
             message = 'mod_not_choosen'
             self.message = ''
             call_error_message(self, message)
