@@ -37,7 +37,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.ExitButton.clicked.connect(self.close)
         self.OptionsListComboBox.activated[str].connect(lambda: self.paint_elements())
         self.RenameCollectionButton.clicked.connect(self.local_mod_rename)
-        self.ContinueButton.clicked.connect(lambda: self.clean(self.gridLayout))
+        self.ContinueButton.clicked.connect(lambda: self.continue_last_translation())
         self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_Collection'))
         self.WindowMoveButton.installEventFilter(self)
 
@@ -72,6 +72,14 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                 f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
             self.parent.choose_file(f_path)
             self.close()
+
+    def continue_last_translation(self):
+        if False:
+            pass
+        else:
+            self.message = ''
+            message = 'all_is_complete'
+            call_error_message(self, message)
 
     def print_mod_id(self, grid, mod_id):
         self.buttons[mod_id] = QtWidgets.QPushButton(f'{mod_id}')

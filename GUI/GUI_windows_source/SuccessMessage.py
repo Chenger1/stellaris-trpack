@@ -128,5 +128,4 @@ class Ui_Dialog(object):
         self.SuccessLabel.setText(_translate("Dialog", "Успех"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.InfoLabel.setText(_translate("Dialog", "Информация"))
-        self.StringsList.setText(_translate("Dialog", "Файл перевода успешно записан.Файл сохранен.Моды успешно отсортированы.Неверный ключ [Для разработчиков]\n"
-""))
+        self.StringsList.setText(_translate("Dialog", "Файл перевода успешно записан.Файл сохранен.Моды успешно отсортированы.Неверный ключ [Для разработчиков]"))

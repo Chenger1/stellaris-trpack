@@ -26,7 +26,8 @@ def set_button_style(button):
     QPushButton{
         background-color: transparent;
         min-height: 40px;
-        max-width: 400px;
+        max-width: 160px;
+        min-width: 160px;
         text-align: right;
         margin-right: 20px;
         color: #ffffff;
