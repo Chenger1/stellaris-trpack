@@ -4,7 +4,7 @@ import sqlite3
 sql = {
     'mod_files': """
             CREATE TABLE "mod_files" (
-            "mod_id"	INTEGER NOT NULL,
+            "mod_id"	TEXT NOT NULL,
             "file_name"	TEXT NOT NULL UNIQUE,
             "picture"	TEXT,
             "file_tr_status"	INTEGER DEFAULT 0,
@@ -23,7 +23,7 @@ sql = {
             "machine_text"	TEXT,
             "status" TEXT,
             "base_dir" TEXT,
-            "id" INTEGER
+            "id" TEXT
 
             )
         """
@@ -81,12 +81,14 @@ collection_queries = {
                               file_name,
                               original_name,
                               mod_name,
-                              status) VALUES(
+                              status,
+                              id) VALUES(
                               @mod_id, 
                               @file_name,
                               @original_name,
                               @mod_name,
-                              @status
+                              @status,
+                              @id
                               )
     """,
     'get_info': 'SELECT * from mod_files'
@@ -140,6 +142,7 @@ def write_data_in_collection(db_path, data):
                                     file_name,
                                     mod_info['mod_name'],
                                     mod_info['status'],
+                                    mod_info['id']
                                 )
                              )
             conn.commit()

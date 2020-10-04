@@ -24,6 +24,9 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.oldPos = self.pos()
         self.collection = get_collection()
         self.buttons = {}
+        self.borders = {'blue': 'border: 3px solid #05B8CC;',
+                        'green': 'border: 3px solid #5abe41;',
+                        'gray': 'border: 3px solid gray'}
         self.row_index = 0
         self.init_handlers()
         self.set_collection_name()
@@ -92,9 +95,10 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             total_value += file_data['file_tr_status']
             count += 1
 
-        for file_name, file_data in self.collection[mod_id].files.items():
-            total_value += file_data['name_list_tr_status']
-            count += 1
+        # for file_name, file_data in self.collection[mod_id].files.items():
+        #     total_value += file_data['name_list_tr_status']
+        #     count += 1
+
         total_value /= count
         return total_value
 
@@ -229,14 +233,16 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         options = self.OptionsListComboBox
         grid.setSpacing(10)
         self.clean(grid)
-
         for mod_id, mod in self.collection.items():
             label = QtWidgets.QLabel(self)
-            # label.setStyleSheet(self.borders['green'])
+            value = self.get_total_value(mod_id)
+            if value == 100:
+                label.setStyleSheet(self.borders['green'])
+            elif value < 100:
+                label.setStyleSheet(self.borders['blue'])
             pixmap = QtGui.QPixmap(get_thumbnail(mod.hashKey))
             pixmap = pixmap.scaled(160, 100, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
             label.setPixmap(pixmap)
-
             mod_name = QtWidgets.QPushButton(mod_name_wrap(mod.mod_name[0]))
             separator = create_separator()
             set_name_style(mod_name)

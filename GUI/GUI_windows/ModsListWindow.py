@@ -2,14 +2,15 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 
 from GUI.GUI_windows_source import ModsList
 
+from functools import partial
+import copy
+
 from scripts.mods_sorting import set_settings, prep_data, sorting
 from scripts.db import get_info_from_db, get_mods_from_playset
-from scripts.utils import get_mod_id, open_zip_file, mod_name_wrap
+from scripts.utils import get_mod_id, open_zip_file, mod_name_wrap, get_collection
 from scripts.stylesheets import set_name_style, mod_avtivation_status_style, mod_sorting_status_style
 from scripts.messeges import call_success_message, call_error_message
-from functools import partial
 from scripts.pictures import get_thumbnail
-import copy
 
 
 class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
@@ -21,6 +22,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.setModal(True)
         self.parent = parent
         self.oldPos = self.pos()
+        self.collection = get_collection()
         self.init_handlers()
         self.settingPaths = set_settings()
         self.playsets = self.playset_check()
@@ -28,9 +30,9 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                                                                               list(self.playsets.items())[0])
         self.checkboxes = []
         self.string = self.StringsList.text().split('.')
-        self.borders = {'transparent': 'border: transparent;',
-                        'blue': 'border: 3px solid #05B8CC;',
-                        'green': 'border: 3px solid #5abe41;'}
+        self.borders = {'blue': 'border: 3px solid #05B8CC;',
+                        'green': 'border: 3px solid #5abe41;',
+                        'gray': 'border: 3px solid gray'}
         self.switch = {
             True: {
                 'act_switcher': lambda: self.ActivationSwticherButton.setText(self.string[0]),
@@ -72,9 +74,6 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.ActivationSwticherButton.setChecked(not len(disabled_mods) >= 1)
 
     def activation_switcher(self):
-        # for checkbox, mod in zip(self.checkboxes, self.modList):
-        #     mod.isEnabled = self.ActivationSwticherButton.isChecked()
-        #     checkbox[0].setChecked(self.ActivationSwticherButton.isChecked())
         for mod in self.modList:
             mod.isEnabled = self.ActivationSwticherButton.isChecked()
             mod.checkboxes[0][0].setChecked(self.ActivationSwticherButton.isChecked())
@@ -82,9 +81,6 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.ActivationSwticherButton.setChecked(self.ActivationSwticherButton.isChecked())
 
     def reset_sorting_requiring(self):
-        # for checkbox, mod in zip(self.checkboxes, self.modList):
-        #     mod.sortRequired = True
-        #     checkbox[1].setChecked(True)
         for mod in self.modList:
             mod.sortRequired = True
             mod.checkboxes[0][1].setChecked(True)
@@ -113,9 +109,6 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         return playsets
 
     def make_sort(self):
-        # for checkbox, mod in zip(self.checkboxes, self.modList):
-        #     mod.isEnabled = checkbox[0].isChecked()
-        #     mod.sortRequired = checkbox[1].isChecked()
         for mod in self.modList:
             mod.isEnabled = mod.checkboxes[0][0].isChecked()
             mod.sortRequired = mod.checkboxes[0][1].isChecked()
@@ -167,6 +160,21 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.search(text)
         self.paint_elements()
 
+    def get_total_value(self, mod_id):
+        total_value = 0
+        if mod_id in self.collection:
+            count = 0
+            for file_name, file_data in self.collection[mod_id].files.items():
+                total_value += file_data['file_tr_status']
+                count += 1
+
+            # for file_name, file_data in self.collection[mod_id].files.items():
+            #     total_value += file_data['name_list_tr_status']
+            #     count += 1
+
+            total_value /= count
+        return total_value
+
     def paint_elements(self):
         for index, elem in enumerate(self.generator):
             self.grid.setSpacing(10)
@@ -184,7 +192,14 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             mod_avtivation_status_style(checkbox1)
             mod_sorting_status_style(checkbox2)
             label = QtWidgets.QLabel(self)
-            label.setStyleSheet(self.borders['green'])
+            value = self.get_total_value(elem.modId.split('_')[-1].split('.')[0])
+            if value == 0:
+                label.setStyleSheet(self.borders['gray'])
+            elif value == 100:
+                label.setStyleSheet(self.borders['green'])
+            elif value < 100:
+                label.setStyleSheet(self.borders['blue'])
+
             pixmap = QtGui.QPixmap(get_thumbnail(elem.hashKey))
             pixmap = pixmap.scaled(160, 100, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
             label.setPixmap(pixmap)
@@ -192,8 +207,6 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             self.grid.addWidget(self.buttons[f'{elem.name}'], index+1, 2, 1, 5)
             self.grid.addWidget(checkbox1, index+1, 6)
             self.grid.addWidget(checkbox2, index+1, 7)
-            #self.checkboxes.append((checkbox1, checkbox2))
-            #elem.checkboxes.append((checkbox1, checkbox2))
             elem.checkboxes[0][0] = checkbox1
             elem.checkboxes[0][1] = checkbox2
 
