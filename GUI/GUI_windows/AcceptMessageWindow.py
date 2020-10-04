@@ -1,13 +1,13 @@
 from PyQt5 import QtWidgets, QtCore
 
-from GUI.GUI_windows_source import Accept
+from GUI.GUI_windows_source import AcceptMessage
 
 from scripts.utils import collection_append, save_unfinished_machine_text
 from scripts.db import get_info_from_db
 from scripts.messeges import call_success_message
 
 
-class AcceptWindow(QtWidgets.QDialog, Accept.Ui_Dialog):
+class AcceptMessageWindow(QtWidgets.QDialog, AcceptMessage.Ui_Dialog):
     def __init__(self, parent, message, accept_func=None, denied_func=None):
         super().__init__(parent)
         self.setupUi(self)
@@ -46,8 +46,8 @@ class AcceptWindow(QtWidgets.QDialog, Accept.Ui_Dialog):
         self.parent.clean_state()
         message = 'file_was_written'
         self.message = ''
-        call_success_message(self, message)
         self.close()
+        call_success_message(self, message)
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:

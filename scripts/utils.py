@@ -311,7 +311,12 @@ def remove_unpacked_files():
 
 def mod_name_wrap(mod_name):
     row = ['', '', '']
-    if len(mod_name) > 60:
+    special_symbols = {'&', }
+    check = [symbol for symbol in special_symbols & set(mod_name)]
+    if check:
+        for symbol in check:
+            mod_name = mod_name.replace(symbol, symbol * 2)
+    if len(mod_name) > 50:
         for word in mod_name.split():
             if len(f'{row[0]} {word}') < 50:
                 row[0] += f' {word}'
@@ -324,6 +329,7 @@ def mod_name_wrap(mod_name):
                 row[0] = ''
                 row[0] += f' {word}'
         mod_name = f'{row[1]}{row[2]}{row[0]}'
+
     return mod_name
 
 

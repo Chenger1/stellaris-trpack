@@ -9,7 +9,7 @@ from GUI.GUI_windows.TranslationLanguageWindow import TranslationLanguageWindow
 from GUI.GUI_windows.ToolLanguageWindow import ToolLanguageWindow
 from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
 from GUI.GUI_windows.ModsListWindow import ModsListWindow
-from GUI.GUI_windows.AcceptWindow import AcceptWindow
+from GUI.GUI_windows.AcceptMessageWindow import AcceptMessageWindow
 
 from scripts.loc_cutter import cutter_main, cutting_lines
 from scripts.loc_translator import writing_translation, translate_line
@@ -111,7 +111,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         collection_window.show()
 
     def show_accept_window(self, message):
-        accept_window = AcceptWindow(self, message)
+        accept_window = AcceptMessageWindow(self, message)
         accept_window.show()
 
     def show_mods_list_window(self):
@@ -256,6 +256,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.progressbar_set_maximum(len(self.orig_text))
         self.NextStringButton.setEnabled(True)
         self.FinishButton.show()
+        self.FinishButton.disconnect()
         self.FinishButton.clicked.connect(self.write_translation)
         self.check_new_line_symbol_string(True)
         self.set_lines()
@@ -277,6 +278,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         else:
             self.NextStringButton.setEnabled(True)
             self.FinishButton.show()
+            self.FinishButton.disconnect()
             self.FinishButton.clicked.connect(self.write_translation)
             self.check_new_line_symbol_string(True)
             self.user_text.append(translate_line(self.orig_text[self.pointer]))

@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 from GUI.GUI_windows_source import Collection
-from GUI.GUI_windows.AcceptWindow import AcceptWindow
+from GUI.GUI_windows.AcceptMessageWindow import AcceptMessageWindow
 
 from scripts.utils import get_collection, set_data, local_mod_create, open_zip_file, mod_name_wrap
 from scripts.stylesheets import set_name_style, set_button_style, set_complete_style, set_incomplete_style, create_separator
@@ -46,7 +46,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             'save_translation': lambda: self.start_translation(**kwargs),
             'collection_continue_translation': lambda: self.open_mod_loc(**kwargs)
         }
-        window = AcceptWindow(self, message, types[message[0]])
+        window = AcceptMessageWindow(self, message, types[message[0]])
         window.show()
 
     def open_mod_loc(self, **kwargs):
