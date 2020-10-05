@@ -74,7 +74,7 @@ class Ui_Dialog(object):
 "}")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.ExitButton = QtWidgets.QPushButton(Dialog)
-        self.ExitButton.setGeometry(QtCore.QRect(630, 0, 21, 21))
+        self.ExitButton.setGeometry(QtCore.QRect(620, 0, 21, 21))
         self.ExitButton.setMinimumSize(QtCore.QSize(20, 20))
         font = QtGui.QFont()
         font.setFamily("Montserrat")

@@ -37,7 +37,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.ExitButton.clicked.connect(self.close)
         self.OptionsListComboBox.activated[str].connect(lambda: self.paint_elements())
         self.RenameCollectionButton.clicked.connect(self.local_mod_rename)
-        self.ContinueButton.clicked.connect(lambda: self.continue_last_translation())
+        # self.ContinueButton.clicked.connect(lambda: self.continue_last_translation(self.stack_connect()))
         self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_Collection'))
         self.WindowMoveButton.installEventFilter(self)
 
@@ -73,13 +73,17 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             self.parent.choose_file(f_path)
             self.close()
 
-    def continue_last_translation(self):
-        if False:
-            pass
-        else:
-            self.message = ''
-            message = 'all_is_complete'
-            call_error_message(self, message)
+    # def continue_last_translation(self, current_mod):
+    #     if current_mod:
+    #         self.ContinueButton.clicked.connect(self.buttons[current_mod].click)
+    #     else:
+    #         self.message = ''
+    #         message = 'all_is_complete'
+    #         call_error_message(self, message)
+    #
+    # def stack_connect(self):
+    #     current_mod = '1869107647-xtracivics_l_russian.yml'
+    #     return current_mod
 
     def print_mod_id(self, grid, mod_id):
         self.buttons[mod_id] = QtWidgets.QPushButton(f'{mod_id}')
@@ -151,7 +155,6 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                     self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(
                         split_setting[f'_l_{lang}.yml' in file_name](file_name, lang)[-1].split('.yml')[0])
 
-                    self.buttons[f'{mod_id}-{file_name}'].clicked.connect(partial(self.open_mod_by_file_name))
                 status = QtWidgets.QProgressBar()
 
                 status.setValue(file_data['file_tr_status'])

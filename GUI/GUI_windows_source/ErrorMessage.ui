@@ -152,7 +152,7 @@ color: #ffffff;</string>
   <widget class="QPushButton" name="ExitButton">
    <property name="geometry">
     <rect>
-     <x>630</x>
+     <x>620</x>
      <y>0</y>
      <width>21</width>
      <height>21</height>

@@ -20,7 +20,9 @@ data = {}
 
 def current_stellaris_version():
     with open(f'{paradox_folder}\settings.txt', 'r', encoding='utf-8') as file:
-        current_version = file.readlines()[-3].split('"')[1].split()[1] + '.*'
+        for line in file.readlines():
+            if 'info' in line:
+                current_version = f'{line[-5:-2]}.*'
     return current_version
 
 
