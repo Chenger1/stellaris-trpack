@@ -15,6 +15,7 @@ paradox_folder = f'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stel
 mod_path = F'{paradox_folder}\\mod\\local_localisation'
 collection_path = f'{mod_path}\\collection.db'
 finished_folders_path = f'{mod_path}\\finished_translations'
+stack_path = f'{mod_path}\\stack.json'
 data = {}
 
 
@@ -56,6 +57,12 @@ def local_mod_create():
         descriptor.write(mod_description.split('path=')[0])
 
 
+def init_stack():
+    with open(stack_path, 'w', encoding='utf-8') as stack:
+        temp = []
+        json.dump(temp, stack)
+
+
 def generated_files_status():
     if os.path.isfile('Properties.json') is False:
         properties_create()
@@ -65,6 +72,8 @@ def generated_files_status():
         thumbs_create()
     if os.path.isfile(collection_path) is False:
         create_db(collection_path)
+    if os.path.isfile(stack_path) is False:
+        init_stack()
 
 
 def create_temp_folder(mod_id, loc_path, file_name):
@@ -119,6 +128,19 @@ def get_collection():
     return info
 
 
+def save_stack(mod_id, file_name):
+    with open(stack_path, 'r', encoding='utf-8') as stack_file:
+        stack = json.load(stack_file)
+
+    for elem in stack:  # Удаляет дубликаты
+        if elem[1] == file_name:
+            stack.remove(elem)
+
+    stack.append((mod_id, file_name))
+    with open(stack_path, 'w', encoding='utf-8') as stack_file:
+        json.dump(stack, stack_file)
+
+
 def get_mod_info(mod_id, tr_status, pointer_pos, hashKey):
     name = data['mod_name']
     file_name = data['original_name'] if tr_status == 0 else data['final_name']
@@ -147,11 +169,18 @@ def get_mod_info(mod_id, tr_status, pointer_pos, hashKey):
         'base_dir': data['base_dir'],
         'id': hashKey
     }
-    return mod_info, file_name_list, name_lists_list
+    return mod_info, file_name_list, name_lists_list, file_name
 
 
 def collection_append(mod_id, tr_status, pointer_pos, hashKey):
-    mod_info = get_mod_info(mod_id, tr_status, pointer_pos, hashKey)
+    """
+    *mod_info, name -  означает что из функции get_mod_info произойдет распаковка значений
+    в следующем порядке:
+        mod_info = [mod_info, file_name_list, name_lists_list]
+        name = file_name
+    """
+    *mod_info, name = get_mod_info(mod_id, tr_status, pointer_pos, hashKey)
+    save_stack(mod_id, name)
     write_data_in_collection(collection_path, mod_info)
 
 
@@ -344,3 +373,12 @@ def move_folder():
         data['machine_text'] = f'{new_folder_path}\\machine_text.txt'
     except shutil.Error:
         return None
+
+
+def get_info_from_stack():
+    """
+    :return: [(id, file_name)] последнего мода если стек заполнен или [] если стек пуст
+    """
+    with open(stack_path, 'r', encoding='utf-8') as stack_file:
+        stack: list = json.load(stack_file)
+    return stack[-1] if stack else stack

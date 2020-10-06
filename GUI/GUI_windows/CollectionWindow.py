@@ -3,7 +3,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptMessageWindow import AcceptMessageWindow
 
-from scripts.utils import get_collection, set_data, local_mod_create, open_zip_file, mod_name_wrap
+from scripts.utils import get_collection, set_data, local_mod_create, open_zip_file, mod_name_wrap, get_info_from_stack
 from scripts.stylesheets import set_name_style, set_button_style, set_complete_style, set_incomplete_style, create_separator
 from scripts.messeges import call_error_message
 from scripts.pictures import get_thumbnail
@@ -40,6 +40,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         # self.ContinueButton.clicked.connect(lambda: self.continue_last_translation(self.stack_connect()))
         self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_Collection'))
         self.WindowMoveButton.installEventFilter(self)
+        self.ContinueButton.clicked.connect(self.continue_last_translation)
 
     def call_accept_message(self, message, **kwargs):
         types = {
@@ -73,17 +74,11 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             self.parent.choose_file(f_path)
             self.close()
 
-    # def continue_last_translation(self, current_mod):
-    #     if current_mod:
-    #         self.ContinueButton.clicked.connect(self.buttons[current_mod].click)
-    #     else:
-    #         self.message = ''
-    #         message = 'all_is_complete'
-    #         call_error_message(self, message)
-    #
-    # def stack_connect(self):
-    #     current_mod = '1869107647-xtracivics_l_russian.yml'
-    #     return current_mod
+    def continue_last_translation(self):
+        last_mod: list = get_info_from_stack()
+        if last_mod:
+            message = ('collection_continue_translation', last_mod[1])
+            self.call_accept_message(message, mod_id=last_mod[0], file_name=last_mod[1])
 
     def print_mod_id(self, grid, mod_id):
         self.buttons[mod_id] = QtWidgets.QPushButton(f'{mod_id}')
