@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ToolLanguage.ui'
+# Form implementation generated from reading ui file 'GUI_windows_source\ToolLanguage.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -243,7 +243,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Язык утилиты"))
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.ToolLanguageLabel.setText(_translate("Dialog", "Язык утилиты"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))

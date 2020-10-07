@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'SuccessMessage.ui'
+# Form implementation generated from reading ui file 'GUI_windows_source\SuccessMessage.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -122,7 +122,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Успех"))
         self.AcceptButton.setText(_translate("Dialog", "Отлично"))
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.SuccessLabel.setText(_translate("Dialog", "Успех"))

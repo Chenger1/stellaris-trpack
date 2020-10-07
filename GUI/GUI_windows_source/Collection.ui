@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Коллекция</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: transparent;

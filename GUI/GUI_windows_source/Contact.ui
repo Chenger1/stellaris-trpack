@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Связь</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: transparent;</string>
@@ -50,7 +50,7 @@
     </size>
    </property>
    <property name="cursor">
-    <cursorShape>UpArrowCursor</cursorShape>
+    <cursorShape>ArrowCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">background-image: url(:/backgrounds/backgrounds/Contact.png);</string>
@@ -128,9 +128,9 @@ color: #ffffff;</string>
   <widget class="QLabel" name="ChengerLabel">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>360</x>
      <y>120</y>
-     <width>121</width>
+     <width>111</width>
      <height>31</height>
     </rect>
    </property>
@@ -147,7 +147,7 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Chenger</string>
+    <string>Chenger1</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -247,7 +247,7 @@ QLineEdit:hover{
 </string>
    </property>
    <property name="text">
-    <string>chenger@gmail.com</string>
+    <string>exs2199@gmail.com</string>
    </property>
    <property name="frame">
     <bool>false</bool>
@@ -321,8 +321,8 @@ color: #ffffff;</string>
   <widget class="QLabel" name="SteamChengerLink">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>120</y>
+     <x>480</x>
+     <y>140</y>
      <width>101</width>
      <height>31</height>
     </rect>
@@ -340,7 +340,7 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Steam</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://steamcommunity.com/id/marik0660&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Steam&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -352,8 +352,8 @@ color: #ffffff;</string>
   <widget class="QLabel" name="GitHubChengerLink">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>80</y>
+     <x>460</x>
+     <y>90</y>
      <width>101</width>
      <height>31</height>
     </rect>
@@ -372,37 +372,6 @@ color: #ffffff;</string>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Chenger1&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="openExternalLinks">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="TelegramChengerLink">
-   <property name="geometry">
-    <rect>
-     <x>470</x>
-     <y>160</y>
-     <width>121</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>12</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: none;
-color: #ffffff;</string>
-   </property>
-   <property name="text">
-    <string>Telegram</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -442,8 +411,8 @@ color: #ffffff;</string>
   <widget class="QLabel" name="git_logo_1">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>70</y>
+     <x>550</x>
+     <y>80</y>
      <width>51</width>
      <height>51</height>
     </rect>
@@ -463,8 +432,8 @@ image: url(:/icons/icons/github.png);
   <widget class="QLabel" name="steam_logo_1">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>110</y>
+     <x>570</x>
+     <y>130</y>
      <width>51</width>
      <height>51</height>
     </rect>
@@ -472,27 +441,6 @@ image: url(:/icons/icons/github.png);
    <property name="styleSheet">
     <string notr="true">background-color: none;
 image: url(:/icons/icons/steam.png);
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="telegram_logo_1">
-   <property name="geometry">
-    <rect>
-     <x>580</x>
-     <y>150</y>
-     <width>51</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: none;
-image:  url(:/icons/icons/telegram.png);
 </string>
    </property>
    <property name="text">
@@ -656,41 +604,6 @@ color: #ffffff;</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="ReferenceButton">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>0</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 10);
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	color: rgb(199, 199, 199);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	color: #5abe41
-	}</string>
-   </property>
-   <property name="text">
-    <string>?</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="WindowMoveButton">
    <property name="geometry">
     <rect>
@@ -729,18 +642,15 @@ QPushButton:pressed{
   <zorder>MidLineFrame</zorder>
   <zorder>SteamChengerLink</zorder>
   <zorder>GitHubChengerLink</zorder>
-  <zorder>TelegramChengerLink</zorder>
   <zorder>LetisoLabel</zorder>
   <zorder>git_logo_1</zorder>
   <zorder>steam_logo_1</zorder>
-  <zorder>telegram_logo_1</zorder>
   <zorder>TelegramLetisoLink</zorder>
   <zorder>telegram_logo_0</zorder>
   <zorder>SteamLetisoLink</zorder>
   <zorder>steam_logo_0</zorder>
   <zorder>git_logo_0</zorder>
   <zorder>GitHubLetisoLink</zorder>
-  <zorder>ReferenceButton</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

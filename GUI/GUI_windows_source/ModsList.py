@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ModsList.ui'
+# Form implementation generated from reading ui file 'GUI_windows_source\ModsList.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -339,7 +339,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Модификации"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.SortButton.setText(_translate("Dialog", "Сортировать"))
