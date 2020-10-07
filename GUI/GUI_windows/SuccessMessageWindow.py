@@ -9,13 +9,15 @@ class SuccessMessageWindow(QtWidgets.QDialog, SuccessMessage.Ui_Dialog):
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
         self.setModal(True)
+        self.InfoLabel.setWordWrap(True)
         self.init_handlers()
         self.oldPos = self.pos()
         self.string = self.StringsList.text().split('.')
         self.messages = {'file_was_written': f'{self.string[0]}',
                          'file_was_saved': f'{self.string[1]}',
                          'mods_successfully_sorted': f'{self.string[2]}',
-                         'invalid_key': f'{self.string[3]}'}
+                         'language_was_changed': f'{self.string[3]}',
+                         'invalid_key': f'{self.string[4]}'}
         try:
             self.InfoLabel.setText(self.messages[message])
         except KeyError:

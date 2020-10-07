@@ -4,6 +4,7 @@ from json import load, dump
 from GUI.GUI_windows_source import ToolLanguage
 
 from scripts.stylesheets import active_lang_style, inactive_lang_style
+from scripts.messeges import call_success_message
 
 
 class ToolLanguageWindow(QtWidgets.QDialog, ToolLanguage.Ui_Dialog):
@@ -16,7 +17,7 @@ class ToolLanguageWindow(QtWidgets.QDialog, ToolLanguage.Ui_Dialog):
         self.init_handlers()
         self.parent = parent
         self.active_button = {
-            'zh-cn': self.ChineseButton,
+            'zh': self.ChineseButton,
             'en': self.EnglishButton,
             'pl': self.PolishButton,
             'ru': self.RussianButton,
@@ -44,11 +45,14 @@ class ToolLanguageWindow(QtWidgets.QDialog, ToolLanguage.Ui_Dialog):
         with open("Properties.json", 'w', encoding='utf-8') as prop:
             dump(properties, prop)
         self.set_active()
+        message = 'language_was_changed'
+        call_success_message(self, message)
+        self.close()
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.WindowMoveButton.installEventFilter(self)
-        self.ChineseButton.clicked.connect(lambda: self.set_translation_language('zh-cn'))
+        self.ChineseButton.clicked.connect(lambda: self.set_translation_language('zh'))
         self.EnglishButton.clicked.connect(lambda: self.set_translation_language('en'))
         self.PolishButton.clicked.connect(lambda: self.set_translation_language('pl'))
         self.RussianButton.clicked.connect(lambda: self.set_translation_language('ru'))

@@ -5,6 +5,7 @@ import win32api
 import zipfile
 import shutil
 
+from locale import getdefaultlocale
 from googletrans.constants import LANGUAGES
 
 from scripts.collection_db import create_db, write_data_in_collection, get_data_from_collection
@@ -27,6 +28,13 @@ def current_stellaris_version():
     return current_version
 
 
+def get_translation():
+    with open('Properties.json', 'r', encoding='utf-8') as prop:
+        properties = json.load(prop)
+        tool_language = f'GUI\\translations\\interface_{properties["tool_language"]}.qm'
+    return tool_language
+
+
 def thumbs_create():
     os.mkdir("GUI\pictures\\thumbs")
     shutil.copy("GUI\pictures\\icons\\DoesNotExists.png", "GUI\pictures\\thumbs\\DoesNotExists.png")
@@ -36,8 +44,11 @@ def thumbs_create():
 
 
 def properties_create():
+    tool_language = getdefaultlocale()[0].split('_')[0]
+    if tool_language not in ['en', 'ru', 'pl', 'uk', 'zh']:
+        tool_language = 'en'
     with open('Properties.json', 'w', encoding='utf-8') as prop:
-        properties = {"collection_name": "Stellaris True Machine Translation Tool", "tool_language": "en", "translation_language": "en"}
+        properties = {"collection_name": "Stellaris True Machine Translation Tool", "tool_language": f"{tool_language}", "translation_language": "en"}
         json.dump(properties, prop)
 
 

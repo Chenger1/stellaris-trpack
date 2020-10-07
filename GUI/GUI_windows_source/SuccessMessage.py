@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'GUI_windows_source\SuccessMessage.ui'
+# Form implementation generated from reading ui file 'SuccessMessage.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -128,4 +128,6 @@ class Ui_Dialog(object):
         self.SuccessLabel.setText(_translate("Dialog", "Успех"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.InfoLabel.setText(_translate("Dialog", "Информация"))
-        self.StringsList.setText(_translate("Dialog", "Файл перевода успешно записан.Файл сохранен.Моды успешно отсортированы.Неверный ключ [Для разработчиков]"))
+        self.StringsList.setText(_translate("Dialog", "Файл перевода успешно записан.Файл сохранен.Моды успешно отсортированы.Язык интерфейса был изменен\n"
+"\n"
+"Перезапустите утилиту, чтобы увидеть изменения.Неверный ключ [Для разработчиков]"))

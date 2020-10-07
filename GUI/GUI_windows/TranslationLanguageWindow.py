@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import TranslationLanguage
 from json import load, dump

@@ -17,7 +17,7 @@ from scripts.loc_putter import put_lines
 from scripts.db import get_info_from_db
 from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
     generated_files_status, collection_append, open_file_for_resuming, remove_extra_new_line_symbols,\
-    remove_unpacked_files, get_mod_id, open_zip_file, mod_path, move_folder, save_unfinished_machine_text
+    remove_unpacked_files, get_mod_id, open_zip_file, mod_path, move_folder, save_unfinished_machine_text, get_translation
 from scripts.messeges import call_success_message, call_error_message
 from scripts.pictures import thumbs_synchronize
 
@@ -26,9 +26,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.retranslateUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
-        generated_files_status()
-        thumbs_synchronize()
         self.init_handlers()
         self.init_helpers()
         self.oldPos = self.pos()
@@ -300,10 +299,15 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
 def main():
     app = QtWidgets.QApplication(argv)
+    translator = QtCore.QTranslator(app)
+    translator.load(get_translation())
+    app.installTranslator(translator)
     window = MainApp()
     window.show()
     app.exec_()
 
 
 if __name__ == '__main__':
+    generated_files_status()
+    thumbs_synchronize()
     main()
