@@ -189,9 +189,9 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>-1001</y>
       <width>976</width>
-      <height>3354</height>
+      <height>3545</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -210,11 +210,11 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
         <number>150</number>
        </property>
        <item>
-        <widget class="QLabel" name="QLabel_1_Modification">
+        <widget class="QLabel" name="QLabel_1_Translation">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
-           <pointsize>12</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -234,13 +234,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="Description_1_0">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>80</height>
-          </size>
-         </property>
+        <widget class="QLabel" name="Description_1_0">
          <property name="font">
           <font>
            <family>KB Astrolyte</family>
@@ -248,29 +242,30 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QTextEdit{
+          <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
 	padding: 10px;
 	}
-QTextEdit:hover{
+QLabel:hover{
 	background-color: rgba(50, 50, 50, 90);
 	border-radius: 25px;
 	}
 </string>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
+         <property name="text">
+          <string>Кнопка &quot;Локализировать&quot; - ваш лучший друг в процессе перевода, но она работает только когда выбран мод
+
+Перевод модификации можно сохранить на любом этапе, чтобы затем продолжить его из Коллекции
+
+Пункты про выбор модов:</string>
          </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Кнопка &amp;quot;Локализировать&amp;quot; - ваш лучший друг в процессе перевода, но он полезен только когда выбран мод.&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Пункты про выбор модов:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -299,11 +294,17 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="Description_1_1">
+        <widget class="QLabel" name="Description_1_1">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>165</height>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">
@@ -313,33 +314,32 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QTextEdit{
+          <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
 	padding: 10px;
 	}
-QTextEdit:hover{
+QLabel:hover{
 	background-color: rgba(50, 50, 50, 90);
 	border-radius: 25px;
 	}
 </string>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
+         <property name="text">
+          <string>Данная функция позволяет найти в файловом менеджере нужный вам файл локализации, обычно имеющий вид *mod_name*_l_english.yml или *name_list*.txt
+
+Утилита переводит только английские исходники
+
+Локализации хранятся среди файлов мода в папке localisation
+
+Где лежит сам мод, думаю, объяснять не требуется</string>
          </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Данная функция позволяет найти в файловом менеджере нужный вам файл локализации, обычно имеющий вид *mod_name*_l_english.yml или *name*_name_list.txt&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Утилита переводит только английские исходники&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Локализации хранятся среди файлов мода в папке localisation&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Где лежит сам мод, думаю, объяснять не требуется&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -440,11 +440,17 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="Description_2_1">
+        <widget class="QLabel" name="Description_2_1">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>70</height>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">
@@ -454,27 +460,26 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QTextEdit{
+          <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
 	padding: 10px;
 	}
-QTextEdit:hover{
+QLabel:hover{
 	background-color: rgba(50, 50, 50, 90);
 	border-radius: 25px;
 	}
 </string>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
+         <property name="text">
+          <string>Клик по названию нужной модификации откроет папку с одноименным модом, что позволит выбрать нужный файл, а также открыть архив в папке мода</string>
          </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Клик по названию нужной модификации откроет папку с одноименным модом, что позволит выбрать нужный файл, а также открыть архив в папке мода&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -503,11 +508,17 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="Description_2_3">
+        <widget class="QLabel" name="Description_2_2">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>170</height>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">
@@ -517,31 +528,30 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QTextEdit{
+          <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
 	padding: 10px;
 	}
-QTextEdit:hover{
+QLabel:hover{
 	background-color: rgba(50, 50, 50, 90);
 	border-radius: 25px;
 	}
 </string>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
+         <property name="text">
+          <string>Эта функция начала разрабатываться еще до появления сортировки в лаунчере игры, но, все же, свое преимущество она имеет
+
+Довольно часто, особенно при большом количестве модов, возникает потребность изменить порядок модов не совсем по алфавиту, чтобы избежать конфликтов
+
+В частности, игра принимает только первый одноименный файл с локализацией, а потому при неправильном расположении модов в списке загрузки переводы могут не работать</string>
          </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Эта функция начала разрабатываться еще до появления сортировки в лаунчере игры, но, все же, свое преимущество она имеет&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Довольно часто, особенно при большом количестве модов, возникает потребность изменить порядок модов не совсем по алфавиту, чтобы избежать конфликтов&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;В частности, игра принимает только первый одноименный файл с локализацией, а потому при неправильном расположении модов с списке загрузки переводы могут не работать&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -570,11 +580,17 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="Description_2_2">
+        <widget class="QLabel" name="Description_2_3">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>115</height>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">
@@ -584,29 +600,28 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QTextEdit{
+          <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
 	padding: 10px;
 	}
-QTextEdit:hover{
+QLabel:hover{
 	background-color: rgba(50, 50, 50, 90);
 	border-radius: 25px;
 	}
 </string>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
+         <property name="text">
+          <string>Важно помещать моды с локализациями в самом низу списка загрузки, при этом не хочется каждый раз двигать моды вручную, а потому в Сортировщике есть функция &quot;Не сортировать&quot;, которая выглядит как синяя стрелка, повернутая вниз
+
+Если отметить мод как &quot;Не сортировать&quot; то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модицикациями, что будут сортироваться по алфавиту</string>
          </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Важно помещать моды с локализациями в самом низу списка загрузки, при этом не хочется каждый раз двигать моды вручную, а потому в Сортировщике есть функция &amp;quot;Не сортировать&amp;quot;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Если отметить мод как &amp;quot;Не сортировать&amp;quot; то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модицикациями, что будут сортироваться по алфавиту&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -659,11 +674,17 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="Description_3_1">
+        <widget class="QLabel" name="Description_3_1">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>250</height>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">
@@ -673,35 +694,34 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QTextEdit{
+          <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
 	padding: 10px;
 	}
-QTextEdit:hover{
+QLabel:hover{
 	background-color: rgba(50, 50, 50, 90);
 	border-radius: 25px;
 	}
 </string>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
+         <property name="text">
+          <string>Окно не требует повторного ручного выбора файлов уже добавленных в коллекцию модификаций и содержит в себе основные данные, такие как:
+
+имя мода, идентификатор, имена всех файлов локализации и нейм-листов, которые связаны с сохраняемым модом, а также процент завершения локализаций
+
+Если перевод еще не завершен, есть возможность продолжить процесс с последней активной строки или начать новый перевод
+
+Чтобы сделать это, достаточно нажать на ID для открытия папки с модом, имя файла локализации или нейм-листа для продолжения или начала нового перевода
+
+Также можно переключать режимы отображения информации кликом по &quot;Steam ID&quot;</string>
          </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Окно не требует повторного ручного выбора файлов уже добавленных в коллекцию модификаций и содержит в себе основные данные, такие как:&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;имя мода, идентификатор, имена всех файлов локализации и нейм-листов, которые связаны с сохраняемым модом, а также процент завершения локализаций&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Если перевод еще не завершен, есть возможность продолжить процесс с последней активной строки или начать новый перевод&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Чтобы сделать это, достаточно нажать на ID для открытия папки с модом, имя файла локализации или нейм-листа для продолжения или начала нового перевода&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Также можно переключать режимы отображения информации кликом по &amp;quot;Steam ID&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -730,11 +750,17 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="Description_3_2">
+        <widget class="QLabel" name="Description_3_3">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>170</height>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">
@@ -744,32 +770,31 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QTextEdit{
+          <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
 	padding: 10px;
 	}
-QTextEdit:hover{
+QLabel:hover{
 	background-color: rgba(50, 50, 50, 90);
 	border-radius: 25px;
 	}
 </string>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
+         <property name="text">
+          <string>
+В целом, Коллецкция - самостоятельный мод, генерируемый утилитой и расположенный в документах Stellaris, который состоит из вышеупомянутых локализаций, то есть содержит в себе все переводы из данной утилиты
+
+Коллекцию можно опубликовать в мастерской Steam как обычный мод, используя лаунчер Stellaris
+
+Стандартным именем является &quot;Stellaris True Machine Translation Tool&quot;, но вы всегда можете его изменить, выбрав пункт &quot;Переименовать&quot;</string>
          </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;В целом, Коллецкция - самостоятельный мод, генерируемый утилитой и расположенный в документах Stellaris, который состоит из вышеупомянутых локализаций, то есть содержит в себе все переводы из данной утилиты&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Коллекцию можно опубликовать в мастерской Steam, используя лаунчер Stellaris, как обычный мод&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Стандартным именем является &amp;quot;Stellaris True Machine Translation Tool&amp;quot;, но вы всегда можете его изменить, нажав кнопку &amp;quot;Переименовать&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -798,11 +823,17 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="Description_4">
+        <widget class="QLabel" name="Description_4">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>165</height>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">
@@ -812,33 +843,32 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QTextEdit{
+          <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
 	padding: 10px;
 	}
-QTextEdit:hover{
+QLabel:hover{
 	background-color: rgba(50, 50, 50, 90);
 	border-radius: 25px;
 	}
 </string>
          </property>
-         <property name="readOnly">
-          <bool>true</bool>
+         <property name="text">
+          <string>Все просто - нажимаем на кнопочку с нужным языком и магия в деле
+
+К выбору доступно 5 языков:
+Английский, Русский, Украинский, Польский и Китайский
+
+Просьба обращаться к разработчикам, если заметите неточности в переводе, т.к. перевод, в большинстве своем, машинный
+</string>
          </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Все просто - нажимаем на кнопочку с нужным языком и магия в деле&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;К выбору доступно 5 языков:&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Английский, Русский, Украинский, Польский и Китайский&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Просьба обращаться к разработчикам, если заметите неточности в переводе, т.к. перевод, в большинстве своем, машинный&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -867,11 +897,17 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="Description_5">
+        <widget class="QLabel" name="Description_5">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>80</height>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">
@@ -881,29 +917,98 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QTextEdit{
+          <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
 	padding: 10px;
 	}
-QTextEdit:hover{
+QLabel:hover{
 	background-color: rgba(50, 50, 50, 90);
 	border-radius: 25px;
 	}
 </string>
          </property>
-         <property name="readOnly">
+         <property name="text">
+          <string>Тут все аналогично пункту 3, только есть возможность использовать поиск
+
+Нужно два раза кликнуть и удалить текст поиска, затем __ на языке интерфейса __ ввести искомый язык</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
           <bool>true</bool>
          </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Тут все аналогично пункту 3, только есть возможность использовать поиск&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Нужно два раза кликнуть и удалить текст поиска, затем __ на языке интерфейса __ ввести искомый язык&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="QLabel_6_AboutTool">
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	color: #ffffff;
+	padding: 25px;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>6. Об утилите</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="Description_6">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>KB Astrolyte</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: transparent;
+	border: transparent;
+	color: #ffffff;
+	padding: 10px;
+	}
+QLabel:hover{
+	background-color: rgba(50, 50, 50, 90);
+	border-radius: 25px;
+	}
+</string>
+         </property>
+         <property name="text">
+          <string>Окно содержит в себе ссылку на исходнки, с которых была начата работа,  а также контактные данные для связи с нами
+
+Все ссылки кликабельны, а почту можно выделить двойным кликом, чтобы скопировать</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>

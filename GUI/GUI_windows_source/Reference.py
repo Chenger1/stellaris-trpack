@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'GUI_windows_source\Reference.ui'
+# Form implementation generated from reading ui file 'Reference.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -99,7 +99,7 @@ class Ui_Dialog(object):
         self.scrollArea.setAlignment(QtCore.Qt.AlignCenter)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 976, 3354))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1001, 976, 3545))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -108,38 +108,38 @@ class Ui_Dialog(object):
         self.verticalLayout_3.setContentsMargins(-1, 150, -1, 150)
         self.verticalLayout_3.setSpacing(40)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.QLabel_1_Modification = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.QLabel_1_Translation = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(12)
-        self.QLabel_1_Modification.setFont(font)
-        self.QLabel_1_Modification.setStyleSheet("QLabel{\n"
+        font.setPointSize(11)
+        self.QLabel_1_Translation.setFont(font)
+        self.QLabel_1_Translation.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    color: #ffffff;\n"
 "    padding: 25px;\n"
 "    }\n"
 "")
-        self.QLabel_1_Modification.setAlignment(QtCore.Qt.AlignCenter)
-        self.QLabel_1_Modification.setObjectName("QLabel_1_Modification")
-        self.verticalLayout_3.addWidget(self.QLabel_1_Modification)
-        self.Description_1_0 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.Description_1_0.setMinimumSize(QtCore.QSize(0, 80))
+        self.QLabel_1_Translation.setAlignment(QtCore.Qt.AlignCenter)
+        self.QLabel_1_Translation.setObjectName("QLabel_1_Translation")
+        self.verticalLayout_3.addWidget(self.QLabel_1_Translation)
+        self.Description_1_0 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
         self.Description_1_0.setFont(font)
-        self.Description_1_0.setStyleSheet("QTextEdit{\n"
+        self.Description_1_0.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
 "    padding: 10px;\n"
 "    }\n"
-"QTextEdit:hover{\n"
+"QLabel:hover{\n"
 "    background-color: rgba(50, 50, 50, 90);\n"
 "    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.Description_1_0.setReadOnly(True)
+        self.Description_1_0.setAlignment(QtCore.Qt.AlignCenter)
+        self.Description_1_0.setWordWrap(True)
         self.Description_1_0.setObjectName("Description_1_0")
         self.verticalLayout_3.addWidget(self.Description_1_0)
         self.QLabel_1_1_Manually = QtWidgets.QLabel(self.scrollAreaWidgetContents)
@@ -156,24 +156,26 @@ class Ui_Dialog(object):
         self.QLabel_1_1_Manually.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.QLabel_1_1_Manually.setObjectName("QLabel_1_1_Manually")
         self.verticalLayout_3.addWidget(self.QLabel_1_1_Manually)
-        self.Description_1_1 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.Description_1_1.setMinimumSize(QtCore.QSize(0, 165))
+        self.Description_1_1 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_1_1.setMinimumSize(QtCore.QSize(0, 0))
+        self.Description_1_1.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
         self.Description_1_1.setFont(font)
-        self.Description_1_1.setStyleSheet("QTextEdit{\n"
+        self.Description_1_1.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
 "    padding: 10px;\n"
 "    }\n"
-"QTextEdit:hover{\n"
+"QLabel:hover{\n"
 "    background-color: rgba(50, 50, 50, 90);\n"
 "    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.Description_1_1.setReadOnly(True)
+        self.Description_1_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.Description_1_1.setWordWrap(True)
         self.Description_1_1.setObjectName("Description_1_1")
         self.verticalLayout_3.addWidget(self.Description_1_1)
         self.QLabel_1_2_Modification = QtWidgets.QLabel(self.scrollAreaWidgetContents)
@@ -232,24 +234,26 @@ class Ui_Dialog(object):
         self.QLabel_2_1_General_Capabilities.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.QLabel_2_1_General_Capabilities.setObjectName("QLabel_2_1_General_Capabilities")
         self.verticalLayout_3.addWidget(self.QLabel_2_1_General_Capabilities)
-        self.Description_2_1 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.Description_2_1.setMinimumSize(QtCore.QSize(0, 70))
+        self.Description_2_1 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_2_1.setMinimumSize(QtCore.QSize(0, 0))
+        self.Description_2_1.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
         self.Description_2_1.setFont(font)
-        self.Description_2_1.setStyleSheet("QTextEdit{\n"
+        self.Description_2_1.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
 "    padding: 10px;\n"
 "    }\n"
-"QTextEdit:hover{\n"
+"QLabel:hover{\n"
 "    background-color: rgba(50, 50, 50, 90);\n"
 "    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.Description_2_1.setReadOnly(True)
+        self.Description_2_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.Description_2_1.setWordWrap(True)
         self.Description_2_1.setObjectName("Description_2_1")
         self.verticalLayout_3.addWidget(self.Description_2_1)
         self.QLabel_2_2_Extended_Sorter = QtWidgets.QLabel(self.scrollAreaWidgetContents)
@@ -266,26 +270,28 @@ class Ui_Dialog(object):
         self.QLabel_2_2_Extended_Sorter.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.QLabel_2_2_Extended_Sorter.setObjectName("QLabel_2_2_Extended_Sorter")
         self.verticalLayout_3.addWidget(self.QLabel_2_2_Extended_Sorter)
-        self.Description_2_3 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.Description_2_3.setMinimumSize(QtCore.QSize(0, 170))
+        self.Description_2_2 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_2_2.setMinimumSize(QtCore.QSize(0, 0))
+        self.Description_2_2.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
-        self.Description_2_3.setFont(font)
-        self.Description_2_3.setStyleSheet("QTextEdit{\n"
+        self.Description_2_2.setFont(font)
+        self.Description_2_2.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
 "    padding: 10px;\n"
 "    }\n"
-"QTextEdit:hover{\n"
+"QLabel:hover{\n"
 "    background-color: rgba(50, 50, 50, 90);\n"
 "    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.Description_2_3.setReadOnly(True)
-        self.Description_2_3.setObjectName("Description_2_3")
-        self.verticalLayout_3.addWidget(self.Description_2_3)
+        self.Description_2_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.Description_2_2.setWordWrap(True)
+        self.Description_2_2.setObjectName("Description_2_2")
+        self.verticalLayout_3.addWidget(self.Description_2_2)
         self.QLabel_2_2_DoNotSorting = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
@@ -300,26 +306,28 @@ class Ui_Dialog(object):
         self.QLabel_2_2_DoNotSorting.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.QLabel_2_2_DoNotSorting.setObjectName("QLabel_2_2_DoNotSorting")
         self.verticalLayout_3.addWidget(self.QLabel_2_2_DoNotSorting)
-        self.Description_2_2 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.Description_2_2.setMinimumSize(QtCore.QSize(0, 115))
+        self.Description_2_3 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_2_3.setMinimumSize(QtCore.QSize(0, 0))
+        self.Description_2_3.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
-        self.Description_2_2.setFont(font)
-        self.Description_2_2.setStyleSheet("QTextEdit{\n"
+        self.Description_2_3.setFont(font)
+        self.Description_2_3.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
 "    padding: 10px;\n"
 "    }\n"
-"QTextEdit:hover{\n"
+"QLabel:hover{\n"
 "    background-color: rgba(50, 50, 50, 90);\n"
 "    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.Description_2_2.setReadOnly(True)
-        self.Description_2_2.setObjectName("Description_2_2")
-        self.verticalLayout_3.addWidget(self.Description_2_2)
+        self.Description_2_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.Description_2_3.setWordWrap(True)
+        self.Description_2_3.setObjectName("Description_2_3")
+        self.verticalLayout_3.addWidget(self.Description_2_3)
         self.QLabel_3_Collection = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
@@ -348,24 +356,26 @@ class Ui_Dialog(object):
         self.QLabel_3_1_Functional.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.QLabel_3_1_Functional.setObjectName("QLabel_3_1_Functional")
         self.verticalLayout_3.addWidget(self.QLabel_3_1_Functional)
-        self.Description_3_1 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.Description_3_1.setMinimumSize(QtCore.QSize(0, 250))
+        self.Description_3_1 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_3_1.setMinimumSize(QtCore.QSize(0, 0))
+        self.Description_3_1.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
         self.Description_3_1.setFont(font)
-        self.Description_3_1.setStyleSheet("QTextEdit{\n"
+        self.Description_3_1.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
 "    padding: 10px;\n"
 "    }\n"
-"QTextEdit:hover{\n"
+"QLabel:hover{\n"
 "    background-color: rgba(50, 50, 50, 90);\n"
 "    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.Description_3_1.setReadOnly(True)
+        self.Description_3_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.Description_3_1.setWordWrap(True)
         self.Description_3_1.setObjectName("Description_3_1")
         self.verticalLayout_3.addWidget(self.Description_3_1)
         self.QLabel_3_2_ModCollection = QtWidgets.QLabel(self.scrollAreaWidgetContents)
@@ -382,26 +392,28 @@ class Ui_Dialog(object):
         self.QLabel_3_2_ModCollection.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.QLabel_3_2_ModCollection.setObjectName("QLabel_3_2_ModCollection")
         self.verticalLayout_3.addWidget(self.QLabel_3_2_ModCollection)
-        self.Description_3_2 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.Description_3_2.setMinimumSize(QtCore.QSize(0, 170))
+        self.Description_3_3 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_3_3.setMinimumSize(QtCore.QSize(0, 0))
+        self.Description_3_3.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
-        self.Description_3_2.setFont(font)
-        self.Description_3_2.setStyleSheet("QTextEdit{\n"
+        self.Description_3_3.setFont(font)
+        self.Description_3_3.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
 "    padding: 10px;\n"
 "    }\n"
-"QTextEdit:hover{\n"
+"QLabel:hover{\n"
 "    background-color: rgba(50, 50, 50, 90);\n"
 "    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.Description_3_2.setReadOnly(True)
-        self.Description_3_2.setObjectName("Description_3_2")
-        self.verticalLayout_3.addWidget(self.Description_3_2)
+        self.Description_3_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.Description_3_3.setWordWrap(True)
+        self.Description_3_3.setObjectName("Description_3_3")
+        self.verticalLayout_3.addWidget(self.Description_3_3)
         self.QLabel_4_InterfaceLanguage = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
@@ -416,24 +428,26 @@ class Ui_Dialog(object):
         self.QLabel_4_InterfaceLanguage.setAlignment(QtCore.Qt.AlignCenter)
         self.QLabel_4_InterfaceLanguage.setObjectName("QLabel_4_InterfaceLanguage")
         self.verticalLayout_3.addWidget(self.QLabel_4_InterfaceLanguage)
-        self.Description_4 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.Description_4.setMinimumSize(QtCore.QSize(0, 165))
+        self.Description_4 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_4.setMinimumSize(QtCore.QSize(0, 0))
+        self.Description_4.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
         self.Description_4.setFont(font)
-        self.Description_4.setStyleSheet("QTextEdit{\n"
+        self.Description_4.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
 "    padding: 10px;\n"
 "    }\n"
-"QTextEdit:hover{\n"
+"QLabel:hover{\n"
 "    background-color: rgba(50, 50, 50, 90);\n"
 "    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.Description_4.setReadOnly(True)
+        self.Description_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.Description_4.setWordWrap(True)
         self.Description_4.setObjectName("Description_4")
         self.verticalLayout_3.addWidget(self.Description_4)
         self.QLabel_5_TranslationLanguage = QtWidgets.QLabel(self.scrollAreaWidgetContents)
@@ -450,26 +464,64 @@ class Ui_Dialog(object):
         self.QLabel_5_TranslationLanguage.setAlignment(QtCore.Qt.AlignCenter)
         self.QLabel_5_TranslationLanguage.setObjectName("QLabel_5_TranslationLanguage")
         self.verticalLayout_3.addWidget(self.QLabel_5_TranslationLanguage)
-        self.Description_5 = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.Description_5.setMinimumSize(QtCore.QSize(0, 80))
+        self.Description_5 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_5.setMinimumSize(QtCore.QSize(0, 0))
+        self.Description_5.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
         self.Description_5.setFont(font)
-        self.Description_5.setStyleSheet("QTextEdit{\n"
+        self.Description_5.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
 "    border: transparent;\n"
 "    color: #ffffff;\n"
 "    padding: 10px;\n"
 "    }\n"
-"QTextEdit:hover{\n"
+"QLabel:hover{\n"
 "    background-color: rgba(50, 50, 50, 90);\n"
 "    border-radius: 25px;\n"
 "    }\n"
 "")
-        self.Description_5.setReadOnly(True)
+        self.Description_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.Description_5.setWordWrap(True)
         self.Description_5.setObjectName("Description_5")
         self.verticalLayout_3.addWidget(self.Description_5)
+        self.QLabel_6_AboutTool = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(12)
+        self.QLabel_6_AboutTool.setFont(font)
+        self.QLabel_6_AboutTool.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    padding: 25px;\n"
+"    }\n"
+"")
+        self.QLabel_6_AboutTool.setAlignment(QtCore.Qt.AlignCenter)
+        self.QLabel_6_AboutTool.setObjectName("QLabel_6_AboutTool")
+        self.verticalLayout_3.addWidget(self.QLabel_6_AboutTool)
+        self.Description_6 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.Description_6.setMinimumSize(QtCore.QSize(0, 0))
+        self.Description_6.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.Description_6.setFont(font)
+        self.Description_6.setStyleSheet("QLabel{\n"
+"    background-color: transparent;\n"
+"    border: transparent;\n"
+"    color: #ffffff;\n"
+"    padding: 10px;\n"
+"    }\n"
+"QLabel:hover{\n"
+"    background-color: rgba(50, 50, 50, 90);\n"
+"    border-radius: 25px;\n"
+"    }\n"
+"")
+        self.Description_6.setAlignment(QtCore.Qt.AlignCenter)
+        self.Description_6.setWordWrap(True)
+        self.Description_6.setObjectName("Description_6")
+        self.verticalLayout_3.addWidget(self.Description_6)
         self.verticalLayout.addLayout(self.verticalLayout_3)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.SearchLine = QtWidgets.QLineEdit(Dialog)
@@ -553,99 +605,69 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Справка"))
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.ReferenceLabel.setText(_translate("Dialog", "Справка"))
-        self.QLabel_1_Modification.setText(_translate("Dialog", "1. Перевод"))
-        self.Description_1_0.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Кнопка &quot;Локализировать&quot; - ваш лучший друг в процессе перевода, но он полезен только когда выбран мод.</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Пункты про выбор модов:</p></body></html>"))
+        self.QLabel_1_Translation.setText(_translate("Dialog", "1. Перевод"))
+        self.Description_1_0.setText(_translate("Dialog", "Кнопка \"Локализировать\" - ваш лучший друг в процессе перевода, но она работает только когда выбран мод\n"
+"\n"
+"Перевод модификации можно сохранить на любом этапе, чтобы затем продолжить его из Коллекции\n"
+"\n"
+"Пункты про выбор модов:"))
         self.QLabel_1_1_Manually.setText(_translate("Dialog", "1.1. Вручную"))
-        self.Description_1_1.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Данная функция позволяет найти в файловом менеджере нужный вам файл локализации, обычно имеющий вид *mod_name*_l_english.yml или *name*_name_list.txt</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Утилита переводит только английские исходники</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Локализации хранятся среди файлов мода в папке localisation</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Где лежит сам мод, думаю, объяснять не требуется</p></body></html>"))
+        self.Description_1_1.setText(_translate("Dialog", "Данная функция позволяет найти в файловом менеджере нужный вам файл локализации, обычно имеющий вид *mod_name*_l_english.yml или *name_list*.txt\n"
+"\n"
+"Утилита переводит только английские исходники\n"
+"\n"
+"Локализации хранятся среди файлов мода в папке localisation\n"
+"\n"
+"Где лежит сам мод, думаю, объяснять не требуется"))
         self.QLabel_1_2_Modification.setText(_translate("Dialog", "1.2. Модификации (Смотри пункт 2.)"))
         self.QLabel_1_3_Collection.setText(_translate("Dialog", "1.3. Коллекция (Смотри пункт 3.)"))
         self.QLabel_2_Modifications.setText(_translate("Dialog", "2. Модификации"))
         self.QLabel_2_1_General_Capabilities.setText(_translate("Dialog", "2.1 Общие возможности"))
-        self.Description_2_1.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Клик по названию нужной модификации откроет папку с одноименным модом, что позволит выбрать нужный файл, а также открыть архив в папке мода</p></body></html>"))
+        self.Description_2_1.setText(_translate("Dialog", "Клик по названию нужной модификации откроет папку с одноименным модом, что позволит выбрать нужный файл, а также открыть архив в папке мода"))
         self.QLabel_2_2_Extended_Sorter.setText(_translate("Dialog", "2.2. Расширенный функционал сортировщика"))
-        self.Description_2_3.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Эта функция начала разрабатываться еще до появления сортировки в лаунчере игры, но, все же, свое преимущество она имеет</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Довольно часто, особенно при большом количестве модов, возникает потребность изменить порядок модов не совсем по алфавиту, чтобы избежать конфликтов</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">В частности, игра принимает только первый одноименный файл с локализацией, а потому при неправильном расположении модов с списке загрузки переводы могут не работать</p></body></html>"))
+        self.Description_2_2.setText(_translate("Dialog", "Эта функция начала разрабатываться еще до появления сортировки в лаунчере игры, но, все же, свое преимущество она имеет\n"
+"\n"
+"Довольно часто, особенно при большом количестве модов, возникает потребность изменить порядок модов не совсем по алфавиту, чтобы избежать конфликтов\n"
+"\n"
+"В частности, игра принимает только первый одноименный файл с локализацией, а потому при неправильном расположении модов в списке загрузки переводы могут не работать"))
         self.QLabel_2_2_DoNotSorting.setText(_translate("Dialog", "Не сортировать"))
-        self.Description_2_2.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Важно помещать моды с локализациями в самом низу списка загрузки, при этом не хочется каждый раз двигать моды вручную, а потому в Сортировщике есть функция &quot;Не сортировать&quot;</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Если отметить мод как &quot;Не сортировать&quot; то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модицикациями, что будут сортироваться по алфавиту</p></body></html>"))
+        self.Description_2_3.setText(_translate("Dialog", "Важно помещать моды с локализациями в самом низу списка загрузки, при этом не хочется каждый раз двигать моды вручную, а потому в Сортировщике есть функция \"Не сортировать\", которая выглядит как синяя стрелка, повернутая вниз\n"
+"\n"
+"Если отметить мод как \"Не сортировать\" то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модицикациями, что будут сортироваться по алфавиту"))
         self.QLabel_3_Collection.setText(_translate("Dialog", "3. Коллекция"))
         self.QLabel_3_1_Functional.setText(_translate("Dialog", "3.1. Функционал внутри утилиты"))
-        self.Description_3_1.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Окно не требует повторного ручного выбора файлов уже добавленных в коллекцию модификаций и содержит в себе основные данные, такие как:</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">имя мода, идентификатор, имена всех файлов локализации и нейм-листов, которые связаны с сохраняемым модом, а также процент завершения локализаций</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Если перевод еще не завершен, есть возможность продолжить процесс с последней активной строки или начать новый перевод</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Чтобы сделать это, достаточно нажать на ID для открытия папки с модом, имя файла локализации или нейм-листа для продолжения или начала нового перевода</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Также можно переключать режимы отображения информации кликом по &quot;Steam ID&quot;</p></body></html>"))
+        self.Description_3_1.setText(_translate("Dialog", "Окно не требует повторного ручного выбора файлов уже добавленных в коллекцию модификаций и содержит в себе основные данные, такие как:\n"
+"\n"
+"имя мода, идентификатор, имена всех файлов локализации и нейм-листов, которые связаны с сохраняемым модом, а также процент завершения локализаций\n"
+"\n"
+"Если перевод еще не завершен, есть возможность продолжить процесс с последней активной строки или начать новый перевод\n"
+"\n"
+"Чтобы сделать это, достаточно нажать на ID для открытия папки с модом, имя файла локализации или нейм-листа для продолжения или начала нового перевода\n"
+"\n"
+"Также можно переключать режимы отображения информации кликом по \"Steam ID\""))
         self.QLabel_3_2_ModCollection.setText(_translate("Dialog", "3.2. Локальный мод-сборник из локализаций"))
-        self.Description_3_2.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">В целом, Коллецкция - самостоятельный мод, генерируемый утилитой и расположенный в документах Stellaris, который состоит из вышеупомянутых локализаций, то есть содержит в себе все переводы из данной утилиты</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Коллекцию можно опубликовать в мастерской Steam, используя лаунчер Stellaris, как обычный мод</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Стандартным именем является &quot;Stellaris True Machine Translation Tool&quot;, но вы всегда можете его изменить, нажав кнопку &quot;Переименовать&quot;</p></body></html>"))
+        self.Description_3_3.setText(_translate("Dialog", "\n"
+"В целом, Коллецкция - самостоятельный мод, генерируемый утилитой и расположенный в документах Stellaris, который состоит из вышеупомянутых локализаций, то есть содержит в себе все переводы из данной утилиты\n"
+"\n"
+"Коллекцию можно опубликовать в мастерской Steam как обычный мод, используя лаунчер Stellaris\n"
+"\n"
+"Стандартным именем является \"Stellaris True Machine Translation Tool\", но вы всегда можете его изменить, выбрав пункт \"Переименовать\""))
         self.QLabel_4_InterfaceLanguage.setText(_translate("Dialog", "4. Язык интерфейса"))
-        self.Description_4.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Все просто - нажимаем на кнопочку с нужным языком и магия в деле</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">К выбору доступно 5 языков:</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Английский, Русский, Украинский, Польский и Китайский</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Просьба обращаться к разработчикам, если заметите неточности в переводе, т.к. перевод, в большинстве своем, машинный</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.Description_4.setText(_translate("Dialog", "Все просто - нажимаем на кнопочку с нужным языком и магия в деле\n"
+"\n"
+"К выбору доступно 5 языков:\n"
+"Английский, Русский, Украинский, Польский и Китайский\n"
+"\n"
+"Просьба обращаться к разработчикам, если заметите неточности в переводе, т.к. перевод, в большинстве своем, машинный\n"
+""))
         self.QLabel_5_TranslationLanguage.setText(_translate("Dialog", "5. Язык перевода"))
-        self.Description_5.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Тут все аналогично пункту 3, только есть возможность использовать поиск</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Нужно два раза кликнуть и удалить текст поиска, затем __ на языке интерфейса __ ввести искомый язык</p></body></html>"))
+        self.Description_5.setText(_translate("Dialog", "Тут все аналогично пункту 3, только есть возможность использовать поиск\n"
+"\n"
+"Нужно два раза кликнуть и удалить текст поиска, затем __ на языке интерфейса __ ввести искомый язык"))
+        self.QLabel_6_AboutTool.setText(_translate("Dialog", "6. Об утилите"))
+        self.Description_6.setText(_translate("Dialog", "Окно содержит в себе ссылку на исходнки, с которых была начата работа,  а также контактные данные для связи с нами\n"
+"\n"
+"Все ссылки кликабельны, а почту можно выделить двойным кликом, чтобы скопировать"))
         self.SearchLine.setText(_translate("Dialog", "Поиск"))
         self.AboutToolButton.setText(_translate("Dialog", "Об утилите"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))

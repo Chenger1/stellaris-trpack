@@ -136,6 +136,7 @@ def inactive_lang_style(button):
         border: 2px solid #ffffff;
         border-radius: 13px;
         min-height: 22px;
+        max-width: 175px;
         color: #ffffff;
     }
     QPushButton:hover{
@@ -156,6 +157,7 @@ def active_lang_style(button):
         border: 2px solid #05B8CC;
         border-radius: 13px;
         min-height: 22px;
+        max-width: 175px;
         color: #1f2533;
     }
     QPushButton:hover{

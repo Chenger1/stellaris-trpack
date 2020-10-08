@@ -16,6 +16,7 @@ class ReferenceWindow(QtWidgets.QDialog, Reference.Ui_Dialog):
         self.area_widget = self.scrollArea.children()[0].children()[0]
         self.labels = self.set_labels()
         self.scroll_bar(self.labels[to_scroll]['pos'])
+        self.scrollAreaWidgetContents.adjustSize()
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)

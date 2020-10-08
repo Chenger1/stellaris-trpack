@@ -135,7 +135,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         tool_language_window = ToolLanguageWindow(self)
         tool_language_window.show()
 
-    def reference_window(self, to_scroll='QLabel_1_Modification'):
+    def reference_window(self, to_scroll='QLabel_1_Translation'):
         reference_window = ReferenceWindow(self, to_scroll)
         reference_window.show()
 
