@@ -189,7 +189,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-1001</y>
+      <y>0</y>
       <width>976</width>
       <height>3545</height>
      </rect>
@@ -331,7 +331,7 @@ QLabel:hover{
 
 Утилита переводит только английские исходники
 
-Локализации хранятся среди файлов мода в папке localisation
+Локализации хранятся среди файлов мода в папке localisation, а нейм-листы в папке common \ name_lists
 
 Где лежит сам мод, думаю, объяснять не требуется</string>
          </property>
@@ -615,7 +615,7 @@ QLabel:hover{
          <property name="text">
           <string>Важно помещать моды с локализациями в самом низу списка загрузки, при этом не хочется каждый раз двигать моды вручную, а потому в Сортировщике есть функция &quot;Не сортировать&quot;, которая выглядит как синяя стрелка, повернутая вниз
 
-Если отметить мод как &quot;Не сортировать&quot; то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модицикациями, что будут сортироваться по алфавиту</string>
+Если отметить мод как &quot;Не сортировать&quot; то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модификациями, что будут сортироваться по алфавиту</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -715,7 +715,7 @@ QLabel:hover{
 
 Чтобы сделать это, достаточно нажать на ID для открытия папки с модом, имя файла локализации или нейм-листа для продолжения или начала нового перевода
 
-Также можно переключать режимы отображения информации кликом по &quot;Steam ID&quot;</string>
+Также можно переключать режимы отображения информации кликом по &quot;SteamWorkshop ID&quot;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -1154,6 +1154,34 @@ QPushButton:pressed{
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
+  <widget class="QLabel" name="ReferenceLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>30</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: none;
+color: #ffffff;</string>
+   </property>
+   <property name="text">
+    <string>?</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>scrollArea</zorder>
@@ -1162,6 +1190,7 @@ QPushButton:pressed{
   <zorder>SearchLine</zorder>
   <zorder>AboutToolButton</zorder>
   <zorder>BottomShadowFrame</zorder>
+  <zorder>ReferenceLabel_2</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

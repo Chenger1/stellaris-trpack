@@ -99,7 +99,7 @@ class Ui_Dialog(object):
         self.scrollArea.setAlignment(QtCore.Qt.AlignCenter)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1001, 976, 3545))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 976, 3545))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -588,6 +588,18 @@ class Ui_Dialog(object):
         self.BottomShadowFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.BottomShadowFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.BottomShadowFrame.setObjectName("BottomShadowFrame")
+        self.ReferenceLabel_2 = QtWidgets.QLabel(Dialog)
+        self.ReferenceLabel_2.setGeometry(QtCore.QRect(40, 30, 41, 31))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setWeight(50)
+        self.ReferenceLabel_2.setFont(font)
+        self.ReferenceLabel_2.setStyleSheet("background-color: none;\n"
+"color: #ffffff;")
+        self.ReferenceLabel_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.ReferenceLabel_2.setObjectName("ReferenceLabel_2")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.scrollArea.raise_()
@@ -596,6 +608,7 @@ class Ui_Dialog(object):
         self.SearchLine.raise_()
         self.AboutToolButton.raise_()
         self.BottomShadowFrame.raise_()
+        self.ReferenceLabel_2.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -616,7 +629,7 @@ class Ui_Dialog(object):
 "\n"
 "Утилита переводит только английские исходники\n"
 "\n"
-"Локализации хранятся среди файлов мода в папке localisation\n"
+"Локализации хранятся среди файлов мода в папке localisation, а нейм-листы в папке common \\ name_lists\n"
 "\n"
 "Где лежит сам мод, думаю, объяснять не требуется"))
         self.QLabel_1_2_Modification.setText(_translate("Dialog", "1.2. Модификации (Смотри пункт 2.)"))
@@ -633,7 +646,7 @@ class Ui_Dialog(object):
         self.QLabel_2_2_DoNotSorting.setText(_translate("Dialog", "Не сортировать"))
         self.Description_2_3.setText(_translate("Dialog", "Важно помещать моды с локализациями в самом низу списка загрузки, при этом не хочется каждый раз двигать моды вручную, а потому в Сортировщике есть функция \"Не сортировать\", которая выглядит как синяя стрелка, повернутая вниз\n"
 "\n"
-"Если отметить мод как \"Не сортировать\" то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модицикациями, что будут сортироваться по алфавиту"))
+"Если отметить мод как \"Не сортировать\" то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модификациями, что будут сортироваться по алфавиту"))
         self.QLabel_3_Collection.setText(_translate("Dialog", "3. Коллекция"))
         self.QLabel_3_1_Functional.setText(_translate("Dialog", "3.1. Функционал внутри утилиты"))
         self.Description_3_1.setText(_translate("Dialog", "Окно не требует повторного ручного выбора файлов уже добавленных в коллекцию модификаций и содержит в себе основные данные, такие как:\n"
@@ -644,7 +657,7 @@ class Ui_Dialog(object):
 "\n"
 "Чтобы сделать это, достаточно нажать на ID для открытия папки с модом, имя файла локализации или нейм-листа для продолжения или начала нового перевода\n"
 "\n"
-"Также можно переключать режимы отображения информации кликом по \"Steam ID\""))
+"Также можно переключать режимы отображения информации кликом по \"SteamWorkshop ID\""))
         self.QLabel_3_2_ModCollection.setText(_translate("Dialog", "3.2. Локальный мод-сборник из локализаций"))
         self.Description_3_3.setText(_translate("Dialog", "\n"
 "В целом, Коллецкция - самостоятельный мод, генерируемый утилитой и расположенный в документах Stellaris, который состоит из вышеупомянутых локализаций, то есть содержит в себе все переводы из данной утилиты\n"
@@ -671,3 +684,4 @@ class Ui_Dialog(object):
         self.SearchLine.setText(_translate("Dialog", "Поиск"))
         self.AboutToolButton.setText(_translate("Dialog", "Об утилите"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
+        self.ReferenceLabel_2.setText(_translate("Dialog", "?"))

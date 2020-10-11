@@ -326,9 +326,9 @@ background-image: url(:/icons/icons/stmtt.png);</string>
    <widget class="QPushButton" name="TranslationLanguageButton">
     <property name="geometry">
      <rect>
-      <x>1030</x>
+      <x>1010</x>
       <y>50</y>
-      <width>191</width>
+      <width>211</width>
       <height>31</height>
      </rect>
     </property>

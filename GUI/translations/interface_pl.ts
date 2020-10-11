@@ -27,7 +27,7 @@
         <location filename="../../GUI_windows_source/TranslationLanguage.py" line="220"/>
         <source> Арабский Армянский Азербайджанский Белорусский Болгарский Китайский Хорватский Чешский Датский Нидерландский Английский Эстонский Финский Французский Немецкий Греческий Венгерский Итальянский Японский Корейский Литовский Норвежский Польский Португальский Русский Словацкий Словенский Испанский Шведский Турецкий Украинский Филиппинский
 </source>
-        <translation type="unfinished"> Arab Ormiański Azerbejdżański Białoruski Bułgarski Chiński (Uproszczony) Chorwacki Czech Duński Holenderski Język Angielski Estoński Fiński Francuski Niemiecki Grecki Język Węgierski Islandzki Włoski Język Japoński Koreański Litewski Norweski Polskie Portugalski Rumuński Rosyjski Serbski Słowacki Słoweński Hiszpański Szwedzki Turecki Ukraiński Filipiński
+        <translation> Arab Ormiański Azerbejdżański Białoruski Bułgarski Chiński Chorwacki Czech Duński Holenderski Angielski Estoński Fiński Francuski Niemiecki Grecki Węgierski Włoski Japoński Koreański Litewski Norweski Polskie Portugalski Rosyjski Słowacki Słoweński Hiszpański Szwedzki Turecki Ukraiński Filipiński
 </translation>
     </message>
     <message>
@@ -98,14 +98,14 @@ Punkty dotyczące wyboru modów:</translation>
 
 Утилита переводит только английские исходники
 
-Локализации хранятся среди файлов мода в папке localisation
+Локализации хранятся среди файлов мода в папке localisation, а нейм-листы в папке common \ name_lists
 
 Где лежит сам мод, думаю, объяснять не требуется</source>
-        <translation>Ta funkcja pozwala znaleźć wymagany plik lokalizacyjny w menedżerze plików, zwykle w postaci * mod_name * _l_english.yml lub * name_list * .txt
+        <translation>Ta funkcja pozwala znaleźć wymagany plik lokalizacyjny w menedżerze plików, zwykle w postaci *mod_name*_l_english.yml lub *name_list *.txt
 
 Narzędzie tłumaczy tylko źródła angielskie
 
-Lokalizacje są przechowywane wśród plików modów w folderze lokalizacji
+Loki są przechowywane wśród plików modów w lokalizacji, a listy-nazw w folderze common \ name_lists
 
 Gdzie sam mod leży, myślę, że nie ma potrzeby wyjaśniać</translation>
     </message>
@@ -161,10 +161,10 @@ W szczególności gra akceptuje tylko pierwszy plik o tej samej nazwie wraz z lo
         <location filename="../../GUI_windows_source/Reference.py" line="640"/>
         <source>Важно помещать моды с локализациями в самом низу списка загрузки, при этом не хочется каждый раз двигать моды вручную, а потому в Сортировщике есть функция &quot;Не сортировать&quot;, которая выглядит как синяя стрелка, повернутая вниз
 
-Если отметить мод как &quot;Не сортировать&quot; то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модицикациями, что будут сортироваться по алфавиту</source>
-        <translation>Ważne jest, aby umieścić mody z lokalizacjami na samym dole listy ładowania, podczas gdy nie chcesz ręcznie przenosić modów za każdym razem, dlatego sorter ma funkcję &quot;nie sortuj&quot;, która wygląda jak niebieska strzałka odrzucona
+Если отметить мод как &quot;Не сортировать&quot; то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модификациями, что будут сортироваться по алфавиту</source>
+        <translation>Ważne jest, aby umieścić mody z lokalizacjami na samym dole listy ładowania, podczas gdy nie chcesz ręcznie przenosić modów za każdym razem, dlatego sorter ma funkcję &quot;Nie sortuj&quot;, która wygląda jak niebieska strzałka odrzucona
 
-Jeśli oznaczysz mod jako „nie sortuj”, zachowa on swoją kolejność względem podobnie wybranych modów i wszystkie zostaną umieszczone pod pozostałymi modyfikacjami, które zostaną posortowane alfabetycznie</translation>
+Jeśli oznaczysz mod jako „Nie sortuj”, zachowa on swoją kolejność względem podobnie wybranych modów i wszystkie zostaną umieszczone pod pozostałymi modyfikacjami, które zostaną posortowane alfabetycznie</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/Reference.py" line="643"/>
@@ -186,7 +186,7 @@ Jeśli oznaczysz mod jako „nie sortuj”, zachowa on swoją kolejność wzglę
 
 Чтобы сделать это, достаточно нажать на ID для открытия папки с модом, имя файла локализации или нейм-листа для продолжения или начала нового перевода
 
-Также можно переключать режимы отображения информации кликом по &quot;Steam ID&quot;</source>
+Также можно переключать режимы отображения информации кликом по &quot;SteamWorkshop ID&quot;</source>
         <translation>Okno nie wymaga wielokrotnego ręcznego wybierania plików już dodanych do zbioru modyfikacji i zawiera podstawowe dane, takie jak:
 
 Nazwa moda, identyfikator, nazwy wszystkich plików lokalizacyjnych i list nazw powiązanych z zapisanym modem, a także procent ukończenia lokalizacji
@@ -195,7 +195,7 @@ Jeśli tłumaczenie nie zostało jeszcze zakończone, można kontynuować proces
 
 Aby to zrobić, po prostu kliknij identyfikator, aby otworzyć folder mod, nazwę pliku lokalizacyjnego lub listę nazw, aby kontynuować lub rozpocząć nowe tłumaczenie
 
-Możesz także przełączać tryby wyświetlania informacji, klikając „steam id”</translation>
+Możesz także przełączać tryby wyświetlania informacji, klikając „SteamWorkshop ID&quot;</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/Reference.py" line="654"/>
@@ -213,9 +213,9 @@ Możesz także przełączać tryby wyświetlania informacji, klikając „steam 
         <translation>
 Ogólnie rzecz biorąc, collection to niezależny mod wygenerowany przez narzędzie i znajdujący się w dokumentach stellaris, który składa się z wyżej wymienionych lokalizacji, to znaczy zawiera wszystkie tłumaczenia z tego narzędzia
 
-Kolekcję można opublikować w warsztacie steam jako zwykły mod za pomocą programu uruchamiającego stellaris
+Kolekcję można opublikować w warsztacie steam jako zwykły mod za pomocą programu uruchamiającego Stellaris
 
-Domyślna nazwa to stellaris true machine translation tool, ale zawsze możesz ją zmienić, wybierając opcję zmień nazwę</translation>
+Domyślna nazwa to &quot;Stellaris True Machine Translation Tool&quot;, ale zawsze możesz ją zmienić, wybierając opcję&quot; zmień nazwę&quot;</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/Reference.py" line="661"/>
@@ -234,7 +234,7 @@ Domyślna nazwa to stellaris true machine translation tool, ale zawsze możesz j
         <translation>To proste - kliknij przycisk z żądanym językiem i magia zacznie działać
 
 Do wyboru jest 5 języków:
-Angielski, rosyjski, ukraiński, polski i chiński
+Angielski, Rosyjski, Ukraiński, Polski i Chiński
 
 Prosimy o kontakt z programistami, jeśli zauważysz jakiekolwiek nieścisłości w tłumaczeniu. tłumaczenie to głównie tłumaczenie maszynowe
 </translation>

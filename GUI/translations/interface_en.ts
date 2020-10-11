@@ -27,7 +27,7 @@
         <location filename="../../GUI_windows_source/TranslationLanguage.py" line="220"/>
         <source> Арабский Армянский Азербайджанский Белорусский Болгарский Китайский Хорватский Чешский Датский Нидерландский Английский Эстонский Финский Французский Немецкий Греческий Венгерский Итальянский Японский Корейский Литовский Норвежский Польский Португальский Русский Словацкий Словенский Испанский Шведский Турецкий Украинский Филиппинский
 </source>
-        <translation type="unfinished"> Arabic Armenian Azerbaijani Belarusian Bulgarian Chinese (Simplified) Croatian Czech Danish Dutch English Estonian Finnish French German Greek Hungarian Icelandic Italian Japanese Korean Lithuanian Norwegian Polish Portuguese Romanian Russian Serbian Slovak Slovenian Spanish Swedish Turkish Ukrainian Filipino
+        <translation> Arabic Armenian Azerbaijani Belarusian Bulgarian Chinese Croatian Czech Danish Dutch English Estonian Finnish French German Greek Hungarian Italian Japanese Korean Lithuanian Norwegian Polish Portuguese Russian Slovak Slovenian Spanish Swedish Turkish Ukrainian Filipino
 </translation>
     </message>
     <message>
@@ -65,7 +65,7 @@
         <source>Файл перевода успешно записан.Файл сохранен.Моды успешно отсортированы.Язык интерфейса был изменен
 
 Перезапустите утилиту, чтобы увидеть изменения.Неверный ключ [Для разработчиков]</source>
-        <translation>Translation file written successfully.File saved.Mods sorted successfully.The interface language has been changed
+        <translation>Translation file was written successfully.File was saved.Mods sorted successfully.The interface language has been changed
 
 Restart the utility to see the changes.Invalid key [For developers]</translation>
     </message>
@@ -98,14 +98,14 @@ Points about mod selection:</translation>
 
 Утилита переводит только английские исходники
 
-Локализации хранятся среди файлов мода в папке localisation
+Локализации хранятся среди файлов мода в папке localisation, а нейм-листы в папке common \ name_lists
 
 Где лежит сам мод, думаю, объяснять не требуется</source>
-        <translation>This function allows you to find the required localization file in the file manager, usually of the form * mod_name * _l_english.yml or * name_list * .txt
+        <translation type="unfinished">This function allows you to find the required localization file in the file manager, usually of the form *mod_name*_l_english.yml or *name_list*.txt
 
 The utility translates only english sources
 
-Localizations are stored among the mod files in the localization folder
+Localizations are stored among the mod files in the localisation folder, and name-lists are stored in the common \ name_lists folder
 
 Where the mod itself lies, i think no need to explain</translation>
     </message>
@@ -161,10 +161,10 @@ In particular, the game accepts only the first file of the same name with the lo
         <location filename="../../GUI_windows_source/Reference.py" line="640"/>
         <source>Важно помещать моды с локализациями в самом низу списка загрузки, при этом не хочется каждый раз двигать моды вручную, а потому в Сортировщике есть функция &quot;Не сортировать&quot;, которая выглядит как синяя стрелка, повернутая вниз
 
-Если отметить мод как &quot;Не сортировать&quot; то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модицикациями, что будут сортироваться по алфавиту</source>
-        <translation>It is important to place mods with localizations at the very bottom of the loading list, while you do not want to manually move the mods every time, and therefore the sorter has a &quot;do not sort&quot; function, which looks like a blue arrow turned down
+Если отметить мод как &quot;Не сортировать&quot; то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модификациями, что будут сортироваться по алфавиту</source>
+        <translation>It is important to place mods with localizations at the very bottom of the loading list, while you do not want to manually move the mods every time, and therefore the Sorter has a &quot;Do not sort&quot; function, which looks like a blue arrow turned down
 
-If you mark the mod as &quot;do not sort&quot;, then it will retain its order relative to the similarly selected mods and all of them will be placed under the rest of the modifications, which will be sorted alphabetically</translation>
+If you mark the mod as &quot;Do not sort&quot;, then it will retain its order relative to the similarly selected mods and all of them will be placed under the rest of the modifications, which will be sorted alphabetically</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/Reference.py" line="643"/>
@@ -186,21 +186,21 @@ If you mark the mod as &quot;do not sort&quot;, then it will retain its order re
 
 Чтобы сделать это, достаточно нажать на ID для открытия папки с модом, имя файла локализации или нейм-листа для продолжения или начала нового перевода
 
-Также можно переключать режимы отображения информации кликом по &quot;Steam ID&quot;</source>
+Также можно переключать режимы отображения информации кликом по &quot;SteamWorkshop ID&quot;</source>
         <translation>The window does not require repeated manual selection of files already added to the collection of modifications and contains basic data such as:
 
-Mod name, identifier, names of all localization files and name lists that are associated with the saved mod, as well as the percentage of completion of localizations
+mod name, identifier, names of all localization files and name-lists that are associated with the saved mod, as well as the percentage of completion of localizations
 
-If the translation has not been completed yet, it is possible to continue the process from the last active line or start a new translation
+If the translation has not been completed yet, it is possible to continue the process from the last active string or start a new translation
 
-To do this, just click on the id to open the mod folder, the name of the localization file or name list to continue or start a new translation
+To do this, just click on the ID to open the mod folder, the name of the localization file or name-list to continue or start a new translation
 
-You can also switch information display modes by clicking on &quot;steam id&quot;</translation>
+You can also switch information display modes by clicking on &quot;SteamWorkshop ID&quot;</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/Reference.py" line="654"/>
         <source>3.2. Локальный мод-сборник из локализаций</source>
-        <translation>3.2. Local mod collection from localizations</translation>
+        <translation>3.2. Local mod-collection from localizations</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/Reference.py" line="655"/>
@@ -211,11 +211,11 @@ You can also switch information display modes by clicking on &quot;steam id&quot
 
 Стандартным именем является &quot;Stellaris True Machine Translation Tool&quot;, но вы всегда можете его изменить, выбрав пункт &quot;Переименовать&quot;</source>
         <translation>
-In general, collection is an independent mod generated by the utility and located in the stellaris documents, which consists of the aforementioned localizations, that is, it contains all the translations from this utility.
+In general, Collection is an independent mod generated by the utility and located in the Stellaris documents, which consists of the aforementioned localizations, that is, it contains all the translations from this utility.
 
-The collection can be published to the steam workshop as a regular mod using the stellaris launcher
+The collection can be published to the Steam workshop as a regular mod using the Stellaris launcher
 
-The default name is stellaris true machine translation tool, but you can always change it by choosing rename</translation>
+The default name is &quot;Stellaris True Machine Translation Tool&quot;, but you can always change it by choosing &quot;Rename&quot;</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/Reference.py" line="661"/>
@@ -231,12 +231,12 @@ The default name is stellaris true machine translation tool, but you can always 
 
 Просьба обращаться к разработчикам, если заметите неточности в переводе, т.к. перевод, в большинстве своем, машинный
 </source>
-        <translation>It&apos;s simple - click on the button with the desired language and the magic is in action
+        <translation>It&apos;s simple - click the button with the desired language and the magic is in action
 
 There are 5 languages ​​to choose from:
 English, Russian, Ukrainian, Polish and Chinese
 
-Please contact the developers if you notice any inaccuracies in the translation. translation, for the most part, machine
+Please contact the developers if you notice any inaccuracies in the translation, coz translation, for the most part, machine
 </translation>
     </message>
     <message>
@@ -249,7 +249,7 @@ Please contact the developers if you notice any inaccuracies in the translation.
         <source>Тут все аналогично пункту 3, только есть возможность использовать поиск
 
 Нужно два раза кликнуть и удалить текст поиска, затем __ на языке интерфейса __ ввести искомый язык</source>
-        <translation>Everything is similar to point 3, only there is an opportunity to use the search
+        <translation>Everything is similar to point 3, but there is an opportunity to use the search
 
 You need to double-click and delete the search text, then __ by the interface language __ enter the desired language</translation>
     </message>
@@ -270,7 +270,7 @@ All links are clickable, and mail can be selected with a double click to copy</t
     <message>
         <location filename="../../GUI_windows_source/Contact.py" line="302"/>
         <source>Вы можете связаться с нами, если пользуетесь:</source>
-        <translation>You can contact us if you use:</translation>
+        <translation>You can contact us if you using:</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/Contact.py" line="303"/>
@@ -330,7 +330,7 @@ All links are clickable, and mail can be selected with a double click to copy</t
     <message>
         <location filename="../../GUI_windows_source/AboutTool.py" line="138"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;скриптов&lt;/span&gt;&lt;/a&gt; Pacas при использовании Python 3 и QT5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;scripts&lt;/span&gt;&lt;/a&gt; Pacas using Python 3 и QT5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;scripts&lt;/span&gt;&lt;/a&gt; by Pacas using Python 3 and QT5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/AboutTool.py" line="139"/>
@@ -380,7 +380,7 @@ All links are clickable, and mail can be selected with a double click to copy</t
     <message>
         <location filename="../../GUI_windows_source/ModsList.py" line="352"/>
         <source>Отключить.Активировать</source>
-        <translation>Disable.Activate</translation>
+        <translation>Deactivate.Activate</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/AboutTool.py" line="142"/>
@@ -483,7 +483,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../../GUI_windows_source/ErrorMessage.py" line="149"/>
         <source>Понимаю</source>
-        <translation>Understand</translation>
+        <translation>Understood</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/ErrorMessage.py" line="150"/>
@@ -493,7 +493,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../../GUI_windows_source/ErrorMessage.py" line="155"/>
         <source>Не найден файл.Перевод уже был записан.Ошибка записи файла: отсутствует перевод.Вы не выбрали мод.Файл перевода поврежден или удален.Моды не найдены.Вы выбрали не тот файл.Вы не ввели ID мода.Строка ID содержит сторонние символы.Мод не найден.В коллекции больше нечего переводить.Неверный ключ [Для разработчиков]</source>
-        <translation>File not found.The translation has already been recorded.Error writing file: missing translation.You haven&apos;t selected a mod.The translation file is damaged or deleted.No mods found.You selected the wrong file.You have not entered the mod ID.ID string contains third-party characters.Mod not found.The collection has nothing more to translate.Invalid key [For developers]</translation>
+        <translation>File not found.The translation has already been recorded.Error writing file: missing translation.You haven&apos;t selected a mod.The translation file is damaged or deleted.No mods found.You&apos;re selected the wrong file.You have not entered the mod ID.ID string contains third-party characters.Mod not found.The collection has nothing more to translate.Invalid key [For developers]</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/ModsList.py" line="342"/>
