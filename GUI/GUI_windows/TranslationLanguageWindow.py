@@ -166,7 +166,7 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         self.TurkishButton.clicked.connect(lambda: self.set_translation_language('tr'))
         self.UkrainianButton.clicked.connect(lambda: self.set_translation_language('uk'))
         self.SearchLine.textChanged.connect(self.sync_lineEdit)
-        self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_4_TranslationLanguage'))
+        self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_5_TranslationLanguage'))
 
     def sync_lineEdit(self, text):
         self.clean()

@@ -180,7 +180,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <enum>QAbstractScrollArea::AdjustToContents</enum>
    </property>
    <property name="widgetResizable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -191,58 +191,77 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
       <x>0</x>
       <y>0</y>
       <width>976</width>
-      <height>3545</height>
+      <height>3063</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>20</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMinimumSize</enum>
+     </property>
+     <property name="topMargin">
+      <number>150</number>
+     </property>
+     <property name="bottomMargin">
+      <number>150</number>
+     </property>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <property name="spacing">
-        <number>40</number>
+      <widget class="QLabel" name="QLabel_1_Translation">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
        </property>
-       <property name="topMargin">
-        <number>150</number>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>11</pointsize>
+        </font>
        </property>
-       <property name="bottomMargin">
-        <number>150</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="QLabel_1_Translation">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>1. Перевод</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="Description_1_0">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>1. Перевод</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Description_1_0">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
@@ -253,68 +272,74 @@ QLabel:hover{
 	border-radius: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>Кнопка &quot;Локализировать&quot; - ваш лучший друг в процессе перевода, но она работает только когда выбран мод
+       </property>
+       <property name="text">
+        <string>Кнопка &quot;Локализировать&quot; - ваш лучший друг в процессе перевода, но она работает только когда выбран мод
 
 Перевод модификации можно сохранить на любом этапе, чтобы затем продолжить его из Коллекции
 
 Пункты про выбор модов:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_1_1_Manually">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_1_1_Manually">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>1.1. Вручную</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="Description_1_1">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>1.1. Вручную</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Description_1_1">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
@@ -325,142 +350,166 @@ QLabel:hover{
 	border-radius: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>Данная функция позволяет найти в файловом менеджере нужный вам файл локализации, обычно имеющий вид *mod_name*_l_english.yml или *name_list*.txt
+       </property>
+       <property name="text">
+        <string>Данная функция позволяет найти в файловом менеджере нужный вам файл локализации, обычно имеющий вид *mod_name*_l_english.yml или *name_list*.txt
 
 Утилита переводит только английские исходники
 
 Локализации хранятся среди файлов мода в папке localisation, а нейм-листы в папке common \ name_lists
 
 Где лежит сам мод, думаю, объяснять не требуется</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_1_2_Modification">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_1_2_Modification">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>1.2. Модификации (Смотри пункт 2.)</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_1_3_Collection">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>1.2. Модификации (Смотри пункт 2.)</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_1_3_Collection">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>1.3. Коллекция (Смотри пункт 3.)</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_2_Modifications">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>1.3. Коллекция (Смотри пункт 3.)</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_2_Modifications">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>2. Модификации</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_2_1_General_Capabilities">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>2. Модификации</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_2_1_General_Capabilities">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>2.1 Общие возможности</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="Description_2_1">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>2.1 Общие возможности</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Description_2_1">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
@@ -471,64 +520,70 @@ QLabel:hover{
 	border-radius: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>Клик по названию нужной модификации откроет папку с одноименным модом, что позволит выбрать нужный файл, а также открыть архив в папке мода</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_2_2_Extended_Sorter">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>Клик по названию нужной модификации откроет папку с одноименным модом, что позволит выбрать нужный файл, а также открыть архив в папке мода</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_2_2_Extended_Sorter">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>2.2. Расширенный функционал сортировщика</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="Description_2_2">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>2.2. Расширенный функционал сортировщика</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Description_2_2">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
@@ -539,68 +594,74 @@ QLabel:hover{
 	border-radius: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>Эта функция начала разрабатываться еще до появления сортировки в лаунчере игры, но, все же, свое преимущество она имеет
+       </property>
+       <property name="text">
+        <string>Эта функция начала разрабатываться еще до появления сортировки в лаунчере игры, но, все же, свое преимущество она имеет
 
 Довольно часто, особенно при большом количестве модов, возникает потребность изменить порядок модов не совсем по алфавиту, чтобы избежать конфликтов
 
 В частности, игра принимает только первый одноименный файл с локализацией, а потому при неправильном расположении модов в списке загрузки переводы могут не работать</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_2_2_DoNotSorting">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_2_2_DoNotSorting">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>Не сортировать</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="Description_2_3">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>Не сортировать</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Description_2_3">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
@@ -611,90 +672,102 @@ QLabel:hover{
 	border-radius: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>Важно помещать моды с локализациями в самом низу списка загрузки, при этом не хочется каждый раз двигать моды вручную, а потому в Сортировщике есть функция &quot;Не сортировать&quot;, которая выглядит как синяя стрелка, повернутая вниз
+       </property>
+       <property name="text">
+        <string>Важно помещать моды с локализациями в самом низу списка загрузки, при этом не хочется каждый раз двигать моды вручную, а потому в Сортировщике есть функция &quot;Не сортировать&quot;, которая выглядит как синяя стрелка, повернутая вниз
 
 Если отметить мод как &quot;Не сортировать&quot; то он сохранит свой порядок относительно аналогично выделенных модов и все они будут помещены ПОД остальными модификациями, что будут сортироваться по алфавиту</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_3_Collection">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_3_Collection">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>3. Коллекция</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_3_1_Functional">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>3. Коллекция</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_3_1_Functional">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>3.1. Функционал внутри утилиты</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="Description_3_1">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>3.1. Функционал внутри утилиты</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Description_3_1">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
@@ -705,9 +778,9 @@ QLabel:hover{
 	border-radius: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>Окно не требует повторного ручного выбора файлов уже добавленных в коллекцию модификаций и содержит в себе основные данные, такие как:
+       </property>
+       <property name="text">
+        <string>Окно не требует повторного ручного выбора файлов уже добавленных в коллекцию модификаций и содержит в себе основные данные, такие как:
 
 имя мода, идентификатор, имена всех файлов локализации и нейм-листов, которые связаны с сохраняемым модом, а также процент завершения локализаций
 
@@ -716,61 +789,67 @@ QLabel:hover{
 Чтобы сделать это, достаточно нажать на ID для открытия папки с модом, имя файла локализации или нейм-листа для продолжения или начала нового перевода
 
 Также можно переключать режимы отображения информации кликом по &quot;SteamWorkshop ID&quot;</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_3_2_ModCollection">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_3_2_ModCollection">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>3.2. Локальный мод-сборник из локализаций</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="Description_3_3">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>3.2. Локальный мод-сборник из локализаций</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Description_3_3">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
@@ -781,69 +860,75 @@ QLabel:hover{
 	border-radius: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>
+       </property>
+       <property name="text">
+        <string>
 В целом, Коллецкция - самостоятельный мод, генерируемый утилитой и расположенный в документах Stellaris, который состоит из вышеупомянутых локализаций, то есть содержит в себе все переводы из данной утилиты
 
 Коллекцию можно опубликовать в мастерской Steam как обычный мод, используя лаунчер Stellaris
 
 Стандартным именем является &quot;Stellaris True Machine Translation Tool&quot;, но вы всегда можете его изменить, выбрав пункт &quot;Переименовать&quot;</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_4_InterfaceLanguage">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_4_InterfaceLanguage">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>4. Язык интерфейса</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="Description_4">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>4. Язык интерфейса</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Description_4">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
@@ -854,70 +939,76 @@ QLabel:hover{
 	border-radius: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>Все просто - нажимаем на кнопочку с нужным языком и магия в деле
+       </property>
+       <property name="text">
+        <string>Все просто - нажимаем на кнопочку с нужным языком и магия в деле
 
 К выбору доступно 5 языков:
 Английский, Русский, Украинский, Польский и Китайский
 
 Просьба обращаться к разработчикам, если заметите неточности в переводе, т.к. перевод, в большинстве своем, машинный
 </string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_5_TranslationLanguage">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_5_TranslationLanguage">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>5. Язык перевода</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="Description_5">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>5. Язык перевода</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Description_5">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
@@ -928,66 +1019,72 @@ QLabel:hover{
 	border-radius: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>Тут все аналогично пункту 3, только есть возможность использовать поиск
+       </property>
+       <property name="text">
+        <string>Тут все аналогично пункту 3, только есть возможность использовать поиск
 
 Нужно два раза кликнуть и удалить текст поиска, затем __ на языке интерфейса __ ввести искомый язык</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="QLabel_6_AboutTool">
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="QLabel_6_AboutTool">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	color: #ffffff;
 	padding: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>6. Об утилите</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="Description_6">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>KB Astrolyte</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+       </property>
+       <property name="text">
+        <string>6. Об утилите</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Description_6">
+       <property name="minimumSize">
+        <size>
+         <width>952</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>KB Astrolyte</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
 	background-color: transparent;
 	border: transparent;
 	color: #ffffff;
@@ -998,21 +1095,19 @@ QLabel:hover{
 	border-radius: 25px;
 	}
 </string>
-         </property>
-         <property name="text">
-          <string>Окно содержит в себе ссылку на исходнки, с которых была начата работа,  а также контактные данные для связи с нами
+       </property>
+       <property name="text">
+        <string>Окно содержит в себе ссылку на исходнки, с которых была начата работа,  а также контактные данные для связи с нами
 
 Все ссылки кликабельны, а почту можно выделить двойным кликом, чтобы скопировать</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -1154,7 +1249,7 @@ QPushButton:pressed{
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="ReferenceLabel_2">
+  <widget class="QLabel" name="ReferenceIcon">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -1190,7 +1285,7 @@ color: #ffffff;</string>
   <zorder>SearchLine</zorder>
   <zorder>AboutToolButton</zorder>
   <zorder>BottomShadowFrame</zorder>
-  <zorder>ReferenceLabel_2</zorder>
+  <zorder>ReferenceIcon</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

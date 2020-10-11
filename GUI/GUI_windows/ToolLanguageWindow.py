@@ -57,7 +57,7 @@ class ToolLanguageWindow(QtWidgets.QDialog, ToolLanguage.Ui_Dialog):
         self.PolishButton.clicked.connect(lambda: self.set_translation_language('pl'))
         self.RussianButton.clicked.connect(lambda: self.set_translation_language('ru'))
         self.UkrainianButton.clicked.connect(lambda: self.set_translation_language('uk'))
-        self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_3_InterfaceLanguage'))
+        self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_4_InterfaceLanguage'))
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:

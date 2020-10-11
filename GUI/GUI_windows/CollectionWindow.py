@@ -37,8 +37,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.ExitButton.clicked.connect(self.close)
         self.OptionsListComboBox.activated[str].connect(lambda: self.paint_elements())
         self.RenameCollectionButton.clicked.connect(self.local_mod_rename)
-        # self.ContinueButton.clicked.connect(lambda: self.continue_last_translation(self.stack_connect()))
-        self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_Collection'))
+        self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_3_Collection'))
         self.WindowMoveButton.installEventFilter(self)
         self.ContinueButton.clicked.connect(self.continue_last_translation)
 

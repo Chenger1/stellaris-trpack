@@ -16,6 +16,7 @@ class ReferenceWindow(QtWidgets.QDialog, Reference.Ui_Dialog):
         self.area_widget = self.scrollArea.children()[0].children()[0]
         self.labels = self.set_labels()
         self.scroll_bar(self.labels[to_scroll]['pos'])
+        print(self.QLabel_2_Modifications.pos())
         self.scrollAreaWidgetContents.adjustSize()
 
     def init_handlers(self):
@@ -31,8 +32,8 @@ class ReferenceWindow(QtWidgets.QDialog, Reference.Ui_Dialog):
 
     def set_labels(self):
         return {
-            label.objectName(): {'pos': label.pos().y(),
-                                 'text': label.text()} for label in self.area_widget.findChildren(QtWidgets.QLabel)
+            label.objectName(): {'pos': label.y(),
+                                 'text': label.text()} for label in self.area_widget.findChildren(QtWidgets.QLabel) if 'QLabel' in label.objectName()
         }
 
     def search(self, string):

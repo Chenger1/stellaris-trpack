@@ -62,7 +62,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.WindowMoveButton.installEventFilter(self)
         self.SearchLine.textChanged.connect(self.sync_lineEdit)
         self.PlaysetsList.activated[str].connect(self.update_mod_list)
-        self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_5_AdvancedSorter'))
+        self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_2_Modifications'))
         self.ResetButton.clicked.connect(self.reset_sorting_requiring)
 
     def reversing(self):
