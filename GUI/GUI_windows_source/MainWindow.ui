@@ -40,9 +40,8 @@
    <string>Stellaris True Machine Translation Tool</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normalon>pictures/logo.png</normalon>
-   </iconset>
+   <iconset resource="../pictures/resources.qrc">
+    <normaloff>:/icons/icons/logo.png</normaloff>:/icons/icons/logo.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow{
@@ -1368,16 +1367,16 @@ QPushButton:pressed{
    <widget class="QLineEdit" name="FileNameLine">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>810</y>
-      <width>561</width>
-      <height>31</height>
+      <x>460</x>
+      <y>800</y>
+      <width>631</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>KB Astrolyte</family>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="styleSheet">

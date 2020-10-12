@@ -16,6 +16,7 @@
     <file>backgrounds/ToolLanguage.png</file>
   </qresource>
   <qresource prefix="icons">
+    <file>icons/logo.png</file>
     <file>icons/paradox.png</file>
     <file>icons/explorer.png</file>
     <file>icons/github.png</file>
