@@ -16,7 +16,6 @@ class ReferenceWindow(QtWidgets.QDialog, Reference.Ui_Dialog):
         self.area_widget = self.scrollArea.children()[0].children()[0]
         self.labels = self.set_labels()
         self.scroll_bar(self.labels[to_scroll]['pos'])
-        print(self.QLabel_2_Modifications.pos())
         self.scrollAreaWidgetContents.adjustSize()
 
     def init_handlers(self):

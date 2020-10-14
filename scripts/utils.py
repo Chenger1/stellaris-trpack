@@ -56,6 +56,9 @@ def local_mod_create():
     try:
         os.mkdir(mod_path)
         os.mkdir(f'{mod_path}\\localisation')
+        os.mkdir(f'{mod_path}\\common')
+        os.mkdir(f'{mod_path}\\common\\name_lists')
+        os.mkdir(f'{mod_path}\\common\\species_names')
         os.mkdir(f'{mod_path}\\finished_translations')
     except FileExistsError:
         pass
@@ -87,10 +90,10 @@ def generated_files_status():
         init_stack()
 
 
-def create_temp_folder(mod_id, loc_path, file_name):
-    temp_folder = f'{loc_path}\\{mod_id}_{file_name}_temp'
+def create_temp_folder(mod_id, file_path, file_name):
+    temp_folder = f'{file_path}\\{mod_id}_{file_name}_temp'
     data['folder_path'] = temp_folder
-    data['base_dir'] = loc_path
+    data['base_dir'] = file_path
     if os.path.isdir(f'{data["folder_path"]}') is False:
         os.mkdir(temp_folder)
     return temp_folder
@@ -131,7 +134,13 @@ def paradox_mod_way_to_content(mod_id):
             elif 'archive' in line:
                 pre_path = line.split('"')[1]
                 path = '\\'.join(pre_path.split('/')[:-1])
-    return {'path': path, 'name': name, 'file_name': data['original_name'].split('.yml')[0]}
+                original_name = data['original_name']
+    if '.yml' in original_name:
+        original_name = original_name.split('.yml')[0]
+    elif '.txt' in original_name:
+        original_name = original_name.split('.txt')[0]
+
+    return {'path': path, 'name': name, 'file_name': original_name}
 
 
 def get_collection():
