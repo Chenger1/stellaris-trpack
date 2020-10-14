@@ -678,10 +678,10 @@ class Ui_MainWindow(object):
 "    }")
         self.ManualButton.setObjectName("ManualButton")
         self.FileNameLine = QtWidgets.QLineEdit(self.centralwidget)
-        self.FileNameLine.setGeometry(QtCore.QRect(490, 810, 561, 31))
+        self.FileNameLine.setGeometry(QtCore.QRect(460, 800, 631, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
+        font.setPointSize(10)
         self.FileNameLine.setFont(font)
         self.FileNameLine.setStyleSheet("QLineEdit{\n"
 "    background-color: transparent;\n"
