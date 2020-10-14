@@ -630,7 +630,7 @@ class Ui_MainWindow(object):
 "    }")
         self.FinishButton.setObjectName("FinishButton")
         self.CollectionButton = QtWidgets.QPushButton(self.centralwidget)
-        self.CollectionButton.setGeometry(QtCore.QRect(40, 100, 171, 31))
+        self.CollectionButton.setGeometry(QtCore.QRect(50, 100, 171, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
@@ -653,7 +653,7 @@ class Ui_MainWindow(object):
 "    }")
         self.CollectionButton.setObjectName("CollectionButton")
         self.ManualButton = QtWidgets.QPushButton(self.centralwidget)
-        self.ManualButton.setGeometry(QtCore.QRect(50, 151, 121, 27))
+        self.ManualButton.setGeometry(QtCore.QRect(40, 151, 151, 27))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
@@ -699,6 +699,31 @@ class Ui_MainWindow(object):
         self.steam_logo.setPixmap(QtGui.QPixmap(":/icons/icons/steam.png"))
         self.steam_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.steam_logo.setObjectName("steam_logo")
+        self.UpdateTranslationButton = QtWidgets.QPushButton(self.centralwidget)
+        self.UpdateTranslationButton.setGeometry(QtCore.QRect(50, 198, 201, 27))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.UpdateTranslationButton.setFont(font)
+        self.UpdateTranslationButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    border-radius: 13px;\n"
+"    min-height: 27px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #438e30;\n"
+"    border: #31858f;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: #05B8CC;\n"
+"    border: 2px solid #05B8CC;\n"
+"    }")
+        self.UpdateTranslationButton.setObjectName("UpdateTranslationButton")
         self.BackgroundFrame.raise_()
         self.lang_logo.raise_()
         self.ProgressBarFrame.raise_()
@@ -728,6 +753,7 @@ class Ui_MainWindow(object):
         self.ManualButton.raise_()
         self.steam_logo.raise_()
         self.FileNameLine.raise_()
+        self.UpdateTranslationButton.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -769,3 +795,4 @@ class Ui_MainWindow(object):
         self.FinishButton.setText(_translate("MainWindow", "Сохранить перевод"))
         self.CollectionButton.setText(_translate("MainWindow", "Коллекция"))
         self.ManualButton.setText(_translate("MainWindow", "Вручную"))
+        self.UpdateTranslationButton.setText(_translate("MainWindow", "Обновить перевод"))

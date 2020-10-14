@@ -1291,7 +1291,7 @@ QPushButton:pressed{
    <widget class="QPushButton" name="CollectionButton">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>50</x>
       <y>100</y>
       <width>171</width>
       <height>31</height>
@@ -1328,9 +1328,9 @@ QPushButton:pressed{
    <widget class="QPushButton" name="ManualButton">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>40</x>
       <y>151</y>
-      <width>121</width>
+      <width>151</width>
       <height>27</height>
      </rect>
     </property>
@@ -1418,6 +1418,45 @@ QPushButton:pressed{
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QPushButton" name="UpdateTranslationButton">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>198</y>
+      <width>201</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>KB Astrolyte</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+    border-radius: 13px;
+	min-height: 27px;
+    color: #ffffff;
+	}
+QPushButton:hover{
+    background-color: #438e30;
+    border: #31858f;
+    color: #ffffff;
+	}
+QPushButton:pressed{
+    background-color: #05B8CC;
+    border: 2px solid #05B8CC;
+	}</string>
+    </property>
+    <property name="text">
+     <string>Обновить перевод</string>
+    </property>
+   </widget>
    <zorder>BackgroundFrame</zorder>
    <zorder>lang_logo</zorder>
    <zorder>ProgressBarFrame</zorder>
@@ -1447,6 +1486,7 @@ QPushButton:pressed{
    <zorder>ManualButton</zorder>
    <zorder>steam_logo</zorder>
    <zorder>FileNameLine</zorder>
+   <zorder>UpdateTranslationButton</zorder>
   </widget>
  </widget>
  <resources>

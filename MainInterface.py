@@ -6,6 +6,7 @@ from json.decoder import JSONDecodeError
 from GUI.GUI_windows_source import MainWindow
 from GUI.GUI_windows.CollectionWindow import CollectionWindow
 from GUI.GUI_windows.TranslationLanguageWindow import TranslationLanguageWindow
+from GUI.GUI_windows.UpdateTranslationWindow import UpdateTranslationWindow
 from GUI.GUI_windows.ToolLanguageWindow import ToolLanguageWindow
 from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
 from GUI.GUI_windows.ModsListWindow import ModsListWindow
@@ -63,6 +64,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.ToolLanguageButton.clicked.connect(self.tool_language_window)
         self.CollectionButton.clicked.connect(self.show_collection_window)
         self.ManualButton.clicked.connect(self.open_file_dialog)
+        self.UpdateTranslationButton.clicked.connect(self.show_update_window)
         self.ReferenceButton.clicked.connect(lambda: self.reference_window())
         self.NextStringButton.clicked.connect(self.pointer_inc)
         self.PreviousString.clicked.connect(self.pointer_red)
@@ -108,6 +110,10 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def show_collection_window(self):
         collection_window = CollectionWindow(self)
         collection_window.show()
+
+    def show_update_window(self):
+        update_window = UpdateTranslationWindow(self)
+        update_window.show()
 
     def show_accept_window(self, message):
         accept_window = AcceptMessageWindow(self, message)
