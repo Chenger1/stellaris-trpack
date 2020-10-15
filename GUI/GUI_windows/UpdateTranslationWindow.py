@@ -32,14 +32,20 @@ class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):
         self.ChooseNewFilelButton.clicked.connect(lambda: self.choose_file(self.ChooseNewFilelButton.objectName()))
         self.AcceptButton.clicked.connect(self.compare)
 
+    def clean_state(self):
+        self.files = {}
+        for elem in self.types.values():
+            set_not_choosen_file_style(elem)
+
     def choose_file(self, file_type):
         file = QtWidgets.QFileDialog.getOpenFileName(directory=f'{drive}:\\Users\\{user}\\Desktop')
 
         if file[0]:
             if file[0].split('.')[-1] not in '.txt.yml.yaml':
-                call_error_message(self, 'file_not_found')
-            self.files[file_type] = file[0]
-            set_choosen_file_style(self.types[file_type])
+                call_error_message(self, 'TypeError')
+            else:
+                self.files[file_type] = file[0]
+                set_choosen_file_style(self.types[file_type])
         else:
             try:
                 self.files.pop(file_type)
@@ -57,15 +63,11 @@ class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):
             self.parent.choose_file(self.files['ChooseNewFilelButton'])
             self.close()
         except ComparingError as error:
+            self.clean_state()
             call_error_message(self, error.args[0])
-            self.files = {}
-            for elem in self.types.values():
-                set_not_choosen_file_style(elem)
         except KeyError:
+            self.clean_state()
             call_error_message(self, 'files_not_choosen')
-            self.files = {}
-            for elem in self.types.values():
-                set_not_choosen_file_style(elem)
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:
