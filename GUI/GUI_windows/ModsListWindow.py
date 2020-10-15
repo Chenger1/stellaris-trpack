@@ -192,7 +192,10 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             mod_avtivation_status_style(checkbox1)
             mod_sorting_status_style(checkbox2)
             label = QtWidgets.QLabel(self)
-            value = self.get_total_value(elem.modId.split('_')[-1].split('.')[0])
+            try:
+                value = self.get_total_value(elem.modId.split('_')[-1].split('.')[0])
+            except AttributeError:
+                value = 0
             if value == 0:
                 label.setStyleSheet(self.borders['gray'])
             elif value == 100:
