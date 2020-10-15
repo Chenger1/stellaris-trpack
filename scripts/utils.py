@@ -135,13 +135,21 @@ def paradox_mod_way_to_content(mod_id):
             elif 'archive' in line:
                 pre_path = line.split('"')[1]
                 path = '\\'.join(pre_path.split('/')[:-1])
-    original_name = data['original_name']
-    if '.yml' in original_name:
-        original_name = original_name.split('.yml')[0]
-    elif '.txt' in original_name:
-        original_name = original_name.split('.txt')[0]
 
-    return {'path': path, 'name': name, 'file_name': original_name}
+    result = {'path': path,
+              'name': name}
+
+    try:
+        original_name = data['original_name']
+        if '.yml' in original_name:
+            original_name = original_name.split('.yml')[0]
+        elif '.txt' in original_name:
+            original_name = original_name.split('.txt')[0]
+        result['file_name'] = original_name
+    except KeyError:
+        pass
+
+    return result
 
 
 def get_collection():
