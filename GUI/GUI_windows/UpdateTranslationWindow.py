@@ -35,11 +35,6 @@ class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):
     def choose_file(self, file_type):
         file = QtWidgets.QFileDialog.getOpenFileName(directory=f'{drive}:\\Users\\{user}\\Desktop')
 
-        # if file_type == 'ChooseOldFilelButton':
-        #     file = ('C:/Users/Vladislav/Documents/additional_traits_l_english - old.yml', '')
-        # else:
-        #     file = ('D:/SteamLibrary/steamapps/workshop/content/281990/681576508/localisation/additional_traits_l_english.yml', '')
-
         if file[0]:
             if file[0].split('.')[-1] not in '.txt.yml.yaml':
                 call_error_message(self, 'file_not_found')
