@@ -17,7 +17,7 @@ class AcceptMessageWindow(QtWidgets.QDialog, AcceptMessage.Ui_Dialog):
         self.oldPos = self.pos()
         self.string = self.StringsList.text().split('.')
         self.messages = {'collection_continue_translation': f'{self.string[0]} - {message[1]}',
-                         'save_translation': f'{self.string[1]}',
+                         'start_translation': f'{self.string[1]}',
                          'invalid_key': f'{self.string[2]}'}
         try:
             self.InfoLabel.setText(self.messages[message[0]])

@@ -174,8 +174,7 @@ def get_mod_info(mod_id, tr_status, pointer_pos, hashKey):
     name = data['mod_name']
     file_name = data['original_name'] if tr_status == 0 else data['final_name']
     picture = "thumbnail.png"
-    file_name_list = scan_for_localisations(mod_id, file_name)
-    name_lists_list = scan_for_names(mod_id)
+    file_name_list = scan_for_localisations(mod_id, file_name) + scan_for_names(mod_id)
     mod_info = {
         'mod_id': mod_id,
         'file_name': file_name,
@@ -198,7 +197,7 @@ def get_mod_info(mod_id, tr_status, pointer_pos, hashKey):
         'base_dir': data['base_dir'],
         'id': hashKey
     }
-    return mod_info, file_name_list, name_lists_list, file_name
+    return mod_info, file_name_list, file_name
 
 
 def collection_append(mod_id, tr_status, pointer_pos, hashKey):
