@@ -61,7 +61,8 @@ class Comparator:
 
     def comparing(self) -> Union[list, bool]:
         """
-         Returns 'False' if both len are equal, means that new file doesn`t contain new lines
+         Raise an exception if both len are equal, means that new file doesn`t contain new lines
+         Raise an exception if both files are identical
          Otherwise returns 'list' with old-translated lines and new one
         :return: False, list
         """
