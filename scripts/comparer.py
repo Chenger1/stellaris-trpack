@@ -65,6 +65,7 @@ class Comparator:
          Otherwise returns 'list' with old-translated lines and new one
         :return: False, list
         """
+        match_trigger: bool = False
         if len(self.new.keys.values()) != len(self.old.keys.values()):
             for key, value in self.new.keys.items():
                 try:
@@ -72,11 +73,23 @@ class Comparator:
                         continue
                     if value != self.old.keys[key]:
                         self.new.keys[key] = self.old.keys[key]
+                        match_trigger = True
                 except KeyError:  # if new file contains new line, dict with old lines won`t have special keys for them
                     continue
-            return list(self.new.keys.values())
+            if match_trigger:
+                return list(self.new.keys.values())
+            raise ComparingError('no_string_matches')
         else:
-            return False
+            raise ComparingError('files_are_identical')
+
+
+class ComparingError(Exception):
+    """
+    Raises two types of exceptions:
+    'no_string_matches' - if there are no common strings
+    'files_are_identical' - if both files don`t have different lines
+    """
+    pass
 
 
 def run():

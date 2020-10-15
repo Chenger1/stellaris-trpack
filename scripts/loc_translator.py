@@ -102,3 +102,8 @@ def translate_line(line, translator=None):
 		else:
 			translation = line
 		return translation
+
+
+def get_old_translation(pointer):
+	translating = data['compared']
+	return translating[pointer]

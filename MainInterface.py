@@ -18,7 +18,8 @@ from scripts.loc_putter import put_lines
 from scripts.db import get_info_from_db
 from scripts.utils import check_new_line_sym_ending, paradox_mod_way_to_content, check_if_line_translated,\
     generated_files_status, collection_append, open_file_for_resuming, remove_extra_new_line_symbols,\
-    remove_unpacked_files, get_mod_id, open_zip_file, mod_path, move_folder, save_unfinished_machine_text, get_translation
+    remove_unpacked_files, get_mod_id, open_zip_file, mod_path, move_folder, save_unfinished_machine_text, \
+    get_translation, get_info_from_data
 from scripts.messeges import call_success_message, call_error_message
 from scripts.pictures import thumbs_synchronize
 
@@ -34,11 +35,16 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.oldPos = self.pos()
         self.pointer = 0
         self.mods_folder = self.get_mods_folder_path()
-        self.orig_text, self.machine_text, self.user_text = [], [], []
+        self.orig_text, self.machine_text, self.user_text, self.translated = [], [], [], []
         self.bar = [self.TprogressBar_L, self.TprogressBar_R,
                     self.BprogressBar_L, self.BprogressBar_R,
                     self.LprogressBar_T, self.LprogressBar_B,
                     self.RprogressBar_T, self.RprogressBar_B]
+        self.key = 'new'
+        self.user_text_method = {
+            'new': lambda pointer: self.orig_text[pointer],
+            'old': lambda pointer: self.translated[pointer]
+        }
         self.mod_type_pixmap(self.ModIDLine.text())
         self.message = ''
 
@@ -190,7 +196,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.set_lines()
         except IndexError:
             self.check_new_line_symbol_string(True)
-            self.user_text.append(translate_line(self.orig_text[self.pointer]))
+            self.user_text.append(translate_line(self.user_text_method[self.key](self.pointer)))
             self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
             self.set_lines()
 
@@ -216,7 +222,12 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.LocalizeButton.show()
         self.LocalizeButton.clicked.connect(self.start_local)
         self.pointer = 0
-        self.orig_text, self.machine_text, self.user_text = [], [], []
+        self.orig_text, self.machine_text, self.user_text, self.translated = [], [], [], []
+        self.key = 'new'
+        self.user_text_method = {
+            'new': lambda pointer: self.orig_text[pointer],
+            'old': lambda pointer: self.translated[pointer]
+        }
         for i in self.bar:
             i.setValue(0)
         self.FinishButton.hide()
@@ -283,12 +294,15 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.message = ''
             call_error_message(self, message)
         else:
+            self.translated = get_info_from_data('compared')
+            if self.translated:
+                self.key = 'old'
             self.NextStringButton.setEnabled(True)
             self.FinishButton.show()
             self.FinishButton.disconnect()
             self.FinishButton.clicked.connect(self.write_translation)
             self.check_new_line_symbol_string(True)
-            self.user_text.append(translate_line(self.orig_text[self.pointer]))
+            self.user_text.append(translate_line(self.user_text_method[self.key](self.pointer)))
             self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
             self.set_lines()
             self.LocalizeButton.hide()

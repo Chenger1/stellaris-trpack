@@ -9,6 +9,7 @@ from locale import getdefaultlocale
 from googletrans.constants import LANGUAGES
 
 from scripts.collection_db import create_db, write_data_in_collection, get_data_from_collection
+from scripts.comparer import Comparator
 
 drive = win32api.GetSystemDirectory().split(':')[0]
 user = win32api.GetUserName()
@@ -134,7 +135,7 @@ def paradox_mod_way_to_content(mod_id):
             elif 'archive' in line:
                 pre_path = line.split('"')[1]
                 path = '\\'.join(pre_path.split('/')[:-1])
-                original_name = data['original_name']
+    original_name = data['original_name']
     if '.yml' in original_name:
         original_name = original_name.split('.yml')[0]
     elif '.txt' in original_name:
@@ -402,3 +403,16 @@ def get_info_from_stack():
     with open(stack_path, 'r', encoding='utf-8') as stack_file:
         stack: list = json.load(stack_file)
     return stack[-1] if stack else stack
+
+
+def compare(new, old):
+    comparator = Comparator(new, old)
+    result = comparator.comparing()
+    data['compared'] = result
+
+
+def get_info_from_data(key):
+    try:
+        return data[key]
+    except KeyError:
+        return False
