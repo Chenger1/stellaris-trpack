@@ -17,6 +17,9 @@
     <file>backgrounds/ToolLanguage.png</file>
   </qresource>
   <qresource prefix="icons">
+    <file>icons/collection.png</file>
+    <file>icons/mod_list.png</file>
+    <file>icons/update.png</file>
     <file>icons/logo.png</file>
     <file>icons/paradox.png</file>
     <file>icons/explorer.png</file>

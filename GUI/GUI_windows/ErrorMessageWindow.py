@@ -27,7 +27,9 @@ class ErrorMessageWindow(QtWidgets.QDialog, ErrorMessage.Ui_Dialog):
                          'all_is_complete': f'{self.string[10]}',
                          'no_string_matches': f'{self.string[11]}',
                          'files_are_identical': f'{self.string[12]}',
-                         'invalid_key': f'{self.string[13]}'
+                         'TypeError': f'{self.string[13]}',
+                         'files_not_choosen': f'{self.string[14]}',
+                         'invalid_key': f'{self.string[15]}'
                          }
         try:
             self.InfoLabel.setText(self.messages[message])

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'GUI_windows_source\Collection.ui'
+# Form implementation generated from reading ui file 'Collection.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -155,7 +155,10 @@ class Ui_Dialog(object):
 "    padding-bottom: 30px;\n"
 "    color: white;\n"
 "    border: transparent;\n"
-"    margin: 30px;\n"
+"    margin: 26px;\n"
+"}\n"
+" QComboBox::hover {\n"
+"    background-color: #05B8CC;\n"
 "}\n"
 "\n"
 " QAbstractItemView {\n"
@@ -211,10 +214,10 @@ class Ui_Dialog(object):
         self.StatusLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.StatusLabel.setObjectName("StatusLabel")
         self.CollectionLabel = QtWidgets.QLabel(Dialog)
-        self.CollectionLabel.setGeometry(QtCore.QRect(20, 39, 151, 31))
+        self.CollectionLabel.setGeometry(QtCore.QRect(70, 29, 231, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
-        font.setPointSize(12)
+        font.setPointSize(14)
         self.CollectionLabel.setFont(font)
         self.CollectionLabel.setStyleSheet("QLabel{\n"
 "    background-color: transparent;\n"
@@ -280,18 +283,26 @@ class Ui_Dialog(object):
 "    border: #c2c2c2;\n"
 "    }")
         self.RenameCollectionButton.setObjectName("RenameCollectionButton")
+        self.mod_list_logo = QtWidgets.QLabel(Dialog)
+        self.mod_list_logo.setGeometry(QtCore.QRect(20, 20, 51, 51))
+        self.mod_list_logo.setStyleSheet("background-color: none;\n"
+"image: url(:/icons/icons/collection.png);")
+        self.mod_list_logo.setText("")
+        self.mod_list_logo.setAlignment(QtCore.Qt.AlignCenter)
+        self.mod_list_logo.setObjectName("mod_list_logo")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.LandingArea.raise_()
         self.ReferenceButton.raise_()
         self.BottomShadowFrame.raise_()
-        self.OptionsListComboBox.raise_()
         self.StatusLabel.raise_()
         self.CollectionLabel.raise_()
         self.ExitButton.raise_()
         self.CollectionNameLabel.raise_()
         self.RenameCollectionButton.raise_()
         self.ContinueButton.raise_()
+        self.mod_list_logo.raise_()
+        self.OptionsListComboBox.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)

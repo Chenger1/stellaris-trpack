@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'GUI_windows_source\ModsList.ui'
+# Form implementation generated from reading ui file 'ModsList.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -158,7 +158,10 @@ class Ui_Dialog(object):
 "    padding-bottom: 30px;\n"
 "    color: white;\n"
 "    border: transparent;\n"
-"    margin: 30px;\n"
+"    margin: 26px;\n"
+"}\n"
+" QComboBox::hover {\n"
+"    background-color: #5abe41;\n"
 "}\n"
 "\n"
 " QAbstractItemView {\n"
@@ -166,7 +169,7 @@ class Ui_Dialog(object):
 "    border: 1px solid #141821;\n"
 "    border-radius: 15px;\n"
 "    selection-background-color: transparent;\n"
-"    selection-color: #05B8CC;\n"
+"    selection-color: #5abe41;\n"
 "    color: white;\n"
 "    padding: 10px;\n"
 "    outline: 0px;\n"
@@ -318,6 +321,13 @@ class Ui_Dialog(object):
         self.StringsList.setFont(font)
         self.StringsList.setAlignment(QtCore.Qt.AlignCenter)
         self.StringsList.setObjectName("StringsList")
+        self.mod_list_logo = QtWidgets.QLabel(Dialog)
+        self.mod_list_logo.setGeometry(QtCore.QRect(800, 20, 61, 51))
+        self.mod_list_logo.setStyleSheet("background-color: none;\n"
+"image: url(:/icons/icons/mod_list.png);")
+        self.mod_list_logo.setText("")
+        self.mod_list_logo.setAlignment(QtCore.Qt.AlignCenter)
+        self.mod_list_logo.setObjectName("mod_list_logo")
         self.StringsList.raise_()
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
@@ -333,6 +343,7 @@ class Ui_Dialog(object):
         self.ActivationSwticherButton.raise_()
         self.ReverseSortingButton.raise_()
         self.SearchLine.raise_()
+        self.mod_list_logo.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)

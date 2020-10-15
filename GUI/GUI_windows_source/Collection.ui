@@ -331,7 +331,10 @@ p, li { white-space: pre-wrap; }
 	padding-bottom: 30px;
 	color: white;
 	border: transparent;
-	margin: 30px;
+	margin: 26px;
+}
+ QComboBox::hover {
+	background-color: #05B8CC;
 }
 
  QAbstractItemView {
@@ -438,16 +441,16 @@ QPushButton:pressed{
   <widget class="QLabel" name="CollectionLabel">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>39</y>
-     <width>151</width>
-     <height>31</height>
+     <x>70</x>
+     <y>29</y>
+     <width>231</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>KB Astrolyte</family>
-     <pointsize>12</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -565,18 +568,39 @@ QPushButton:pressed{
     <string>Продолжить</string>
    </property>
   </widget>
+  <widget class="QLabel" name="mod_list_logo">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: none;
+image: url(:/icons/icons/collection.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>LandingArea</zorder>
   <zorder>ReferenceButton</zorder>
   <zorder>BottomShadowFrame</zorder>
-  <zorder>OptionsListComboBox</zorder>
   <zorder>StatusLabel</zorder>
   <zorder>CollectionLabel</zorder>
   <zorder>ExitButton</zorder>
   <zorder>CollectionNameLabel</zorder>
   <zorder>RenameCollectionButton</zorder>
   <zorder>ContinueButton</zorder>
+  <zorder>mod_list_logo</zorder>
+  <zorder>OptionsListComboBox</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

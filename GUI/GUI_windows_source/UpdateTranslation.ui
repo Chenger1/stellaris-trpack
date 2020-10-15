@@ -133,10 +133,10 @@ QPushButton:pressed{
   <widget class="QLabel" name="UpdateTranslationLabel">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>20</y>
-     <width>271</width>
-     <height>61</height>
+     <x>20</x>
+     <y>40</y>
+     <width>281</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -225,7 +225,7 @@ color: #ffffff;</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>91</y>
+     <y>101</y>
      <width>271</width>
      <height>31</height>
     </rect>
@@ -253,7 +253,7 @@ color: #ffffff;</string>
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>90</y>
+     <y>100</y>
      <width>271</width>
      <height>31</height>
     </rect>
@@ -467,6 +467,26 @@ QPushButton:pressed{
     <string>Подтвердить</string>
    </property>
   </widget>
+  <widget class="QLabel" name="update_logo">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>30</y>
+     <width>61</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: none;
+image: url(:/icons/icons/update.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>UpdateTranslationLabel</zorder>
   <zorder>BottomShadowFrame</zorder>
@@ -480,6 +500,7 @@ QPushButton:pressed{
   <zorder>OldStatusLabel</zorder>
   <zorder>NewStatusLabel</zorder>
   <zorder>AcceptButton</zorder>
+  <zorder>update_logo</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

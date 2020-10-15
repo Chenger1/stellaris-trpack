@@ -278,7 +278,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.progressbar_set_maximum(len(self.orig_text))
         except FileNotFoundError:
 
-            message = 'mod_not_choosen'
+            # message = 'mod_not_choosen'
+            message = 'files_not_choosen'
             self.message = ''
             call_error_message(self, message)
         else:

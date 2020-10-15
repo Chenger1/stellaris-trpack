@@ -327,7 +327,10 @@ QPushButton:pressed{
 	padding-bottom: 30px;
 	color: white;
 	border: transparent;
-	margin: 30px;
+	margin: 26px;
+}
+ QComboBox::hover {
+	background-color: #5abe41;
 }
 
  QAbstractItemView {
@@ -335,7 +338,7 @@ QPushButton:pressed{
 	border: 1px solid #141821;
 	border-radius: 15px;
 	selection-background-color: transparent;
-	selection-color: #05B8CC;
+	selection-color: #5abe41;
 	color: white;
 	padding: 10px;
 	outline: 0px;
@@ -609,6 +612,26 @@ QLineEdit:hover{
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="mod_list_logo">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>20</y>
+     <width>61</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: none;
+image: url(:/icons/icons/mod_list.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>StringsList</zorder>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
@@ -624,6 +647,7 @@ QLineEdit:hover{
   <zorder>ActivationSwticherButton</zorder>
   <zorder>ReverseSortingButton</zorder>
   <zorder>SearchLine</zorder>
+  <zorder>mod_list_logo</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>
