@@ -78,6 +78,10 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         if last_mod:
             message = ('collection_continue_translation', last_mod[1])
             self.call_accept_message(message, mod_id=last_mod[0], file_name=last_mod[1])
+        else:
+            message = 'all_is_complete'
+            self.message = ''
+            call_error_message(self, message)
 
     def print_mod_id(self, grid, mod_id):
         self.buttons[mod_id] = QtWidgets.QPushButton(f'{mod_id}')

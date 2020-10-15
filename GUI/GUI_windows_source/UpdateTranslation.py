@@ -174,8 +174,8 @@ class Ui_Dialog(object):
 "    color: #ffffff;\n"
 "    }\n"
 "QPushButton:pressed{\n"
-"    background-color: #05B8CC;\n"
-"    border: 2px solid #05B8CC;\n"
+"    background-color: #c2c2c2;\n"
+"    border: 2px solid #c2c2c2;\n"
 "    }")
         self.ChooseOldFilelButton.setObjectName("ChooseOldFilelButton")
         self.OldStatusLabel = QtWidgets.QLabel(Dialog)
@@ -187,14 +187,14 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.OldStatusLabel.setFont(font)
         self.OldStatusLabel.setStyleSheet("QLabel{\n"
-"    background-color: #4ea838;\n"
+"    background-color: #c93c3c;\n"
 "    border: #c2c2c2;\n"
 "    border-radius: 20px;\n"
 "    min-height: 27px;\n"
 "    color: #ffffff;\n"
 "    }\n"
 "QLabel:hover{\n"
-"    background-color: #438e30;\n"
+"    background-color: #b33434;\n"
 "    border: #31858f;\n"
 "    color: #ffffff;\n"
 "    }")
@@ -272,6 +272,6 @@ class Ui_Dialog(object):
         self.NewTranslationLabel.setText(_translate("Dialog", "Новая версия файла"))
         self.ChooseNewFilelButton.setText(_translate("Dialog", "Выбрать"))
         self.ChooseOldFilelButton.setText(_translate("Dialog", "Выбрать"))
-        self.OldStatusLabel.setText(_translate("Dialog", "|"))
+        self.OldStatusLabel.setText(_translate("Dialog", "—"))
         self.NewStatusLabel.setText(_translate("Dialog", "—"))
         self.AcceptButton.setText(_translate("Dialog", "Подтвердить"))

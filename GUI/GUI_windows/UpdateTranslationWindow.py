@@ -2,7 +2,7 @@ from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import UpdateTranslation
 
-# from scripts.stylesheets import
+from scripts.stylesheets import set_choosen_file_style, set_not_choosen_file_style
 
 
 class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):

@@ -1449,8 +1449,8 @@ QPushButton:hover{
     color: #ffffff;
 	}
 QPushButton:pressed{
-    background-color: #05B8CC;
-    border: 2px solid #05B8CC;
+    background-color: #c2c2c2;
+    border: 2px solid #c2c2c2;
 	}</string>
     </property>
     <property name="text">

@@ -720,8 +720,8 @@ class Ui_MainWindow(object):
 "    color: #ffffff;\n"
 "    }\n"
 "QPushButton:pressed{\n"
-"    background-color: #05B8CC;\n"
-"    border: 2px solid #05B8CC;\n"
+"    background-color: #c2c2c2;\n"
+"    border: 2px solid #c2c2c2;\n"
 "    }")
         self.UpdateTranslationButton.setObjectName("UpdateTranslationButton")
         self.BackgroundFrame.raise_()

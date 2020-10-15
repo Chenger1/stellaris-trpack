@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'GUI_windows_source\ErrorMessage.ui'
+# Form implementation generated from reading ui file 'ErrorMessage.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -152,4 +152,4 @@ class Ui_Dialog(object):
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.InfoLabel.setText(_translate("Dialog", "Информация"))
-        self.StringsList.setText(_translate("Dialog", "Не найден файл.Перевод уже был записан.Ошибка записи файла: отсутствует перевод.Вы не выбрали мод.Файл перевода поврежден или удален.Моды не найдены.Вы выбрали не тот файл.Вы не ввели ID мода.Строка ID содержит сторонние символы.Мод не найден.В коллекции больше нечего переводить.Неверный ключ [Для разработчиков]"))
+        self.StringsList.setText(_translate("Dialog", "Не найден файл.Перевод уже был записан.Ошибка записи файла: отсутствует перевод.Вы не выбрали мод.Файл перевода поврежден или удален.Моды не найдены.Вы выбрали не тот файл.Вы не ввели ID мода.Строка ID содержит сторонние символы.Мод не найден.В коллекции больше нечего переводить.Не найдено совпадений строк.Файлы идентичны.Неверный ключ [Для разработчиков]"))

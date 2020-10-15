@@ -85,6 +85,41 @@ def set_complete_style(status):
 """)
 
 
+def set_choosen_file_style(status):
+    status.setText('|')
+    status.setStyleSheet("""
+    QLabel{
+        background-color: #4ea838;
+        border: #c2c2c2;
+        border-radius: 20px;
+        min-height: 27px;
+        color: #ffffff;
+    }
+    QLabel:hover{
+        background-color: #438e30;
+        border: #31858f;
+        color: #ffffff;
+    }
+""")
+
+
+def set_not_choosen_file_style(status):
+    status.setText('—')
+    status.setStyleSheet("""
+        QLabel{
+            background-color: #c93c3c;
+            border: #c2c2c2;
+            border-radius: 20px;
+            min-height: 27px;
+            color: #ffffff;
+        }
+        QLabel:hover{
+            background-color: #b33434;
+            border: #31858f;
+            color: #ffffff;
+        }
+    """)
+
 def create_separator():
     separator = QtWidgets.QLabel()
     separator.setStyleSheet("""

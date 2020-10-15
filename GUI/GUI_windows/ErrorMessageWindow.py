@@ -25,7 +25,9 @@ class ErrorMessageWindow(QtWidgets.QDialog, ErrorMessage.Ui_Dialog):
                          'invalid_id_symbols': f'{self.string[8]}',
                          'OSError': f'{self.string[9]}',
                          'all_is_complete': f'{self.string[10]}',
-                         'invalid_key': f'{self.string[11]}'
+                         'no_string_matches': f'{self.string[11]}',
+                         'files_are_identical': f'{self.string[12]}',
+                         'invalid_key': f'{self.string[13]}'
                          }
         try:
             self.InfoLabel.setText(self.messages[message])
