@@ -257,7 +257,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
                 self.message = ''
                 call_error_message(self, message)
         except IndexError:
-            message = ('start_translation', '')
+            message = ('save_translation', '')
             self.show_accept_window(message)
 
     def continue_local(self, collection):
@@ -288,7 +288,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.orig_text = cutter_main(data['path'], workshop_id, data['file_name'])
             self.progressbar_set_maximum(len(self.orig_text))
         except FileNotFoundError:
-            message = 'files_not_choosen'
+            message = 'mod_not_choosen'
             self.message = ''
             call_error_message(self, message)
         else:

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'GUI_windows_source\AcceptMessage.ui'
+# Form implementation generated from reading ui file 'AcceptMessage.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -162,4 +162,4 @@ class Ui_Dialog(object):
         self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.DeniedButton.setText(_translate("Dialog", "Отмена"))
         self.AcceptButton.setText(_translate("Dialog", "Подтвердить"))
-        self.StringsList.setText(_translate("Dialog", "Желаете продолжить перевод мода.Вы уверены что хотите сохранить перевод?.Неверный ключ [Для разработчиков]"))
+        self.StringsList.setText(_translate("Dialog", "Желаете продолжить перевод файла.Желаете начать перевод файла.Вы уверены что хотите сохранить перевод?.Неверный ключ [Для разработчиков]"))

@@ -114,6 +114,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         total_value /= count
         return total_value
 
+        # TODO add name-list support
     def start_translation(self, **kwargs):
         path = f'{kwargs["base_dir"]}\\{kwargs["file_name"]}'
 
@@ -129,8 +130,10 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
 
     def print_files_names(self, grid, mod_id):
         if self.collection[mod_id].files:
+            check = 0
             for file_name, file_data in self.collection[mod_id].files.items():
                 if '.yml' in file_name:
+                    check += 1
                     self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(file_name.split('_l_')[0])
                     if file_data['file_tr_status'] > 0:
                         message = ('collection_continue_translation', file_name)
@@ -152,16 +155,16 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                     grid.addWidget(self.buttons[f'{mod_id}-{file_name}'], self.row_index + 1, 6)
                     grid.addWidget(status, self.row_index + 1, 7)
                     self.row_index += 1
-        else:
-            files_not_found = QtWidgets.QPushButton(f"{'—' * 8}")
-            status = QtWidgets.QProgressBar()
-            set_button_style(files_not_found)
-            set_incomplete_style(status)
-            status.setValue(0)
-            status.setFormat("——   ")
-            grid.addWidget(files_not_found, self.row_index + 1, 6)
-            grid.addWidget(status, self.row_index + 1, 7)
-            self.row_index += 1
+            if check == 0:
+                files_not_found = QtWidgets.QPushButton(f"{'—' * 8}")
+                status = QtWidgets.QProgressBar()
+                set_button_style(files_not_found)
+                set_incomplete_style(status)
+                status.setValue(0)
+                status.setFormat("——   ")
+                grid.addWidget(files_not_found, self.row_index + 1, 6)
+                grid.addWidget(status, self.row_index + 1, 7)
+                self.row_index += 1
 
     @staticmethod
     def split_name_list(file_name):
@@ -172,8 +175,10 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
 
     def print_name_lists(self, grid, mod_id):
         if self.collection[mod_id].files:
+            check = 0
             for file_name, file_data in self.collection[mod_id].files.items():
                 if '.txt' in file_name:
+                    check += 1
                     self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(self.split_name_list(file_name))
                     if file_data['file_tr_status'] > 0:
                         message = ('collection_continue_translation', file_name)
@@ -195,18 +200,16 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                     grid.addWidget(self.buttons[f'{mod_id}-{file_name}'], self.row_index + 1, 6)
                     grid.addWidget(status, self.row_index + 1, 7)
                     self.row_index += 1
-
-                    # TODO print 'files_not_found' if mods are exists, but another type
-        else:
-            files_not_found = QtWidgets.QPushButton(f"{'—' * 8}")
-            status = QtWidgets.QProgressBar()
-            set_button_style(files_not_found)
-            set_incomplete_style(status)
-            status.setValue(0)
-            status.setFormat("——   ")
-            grid.addWidget(files_not_found, self.row_index + 1, 6)
-            grid.addWidget(status, self.row_index + 1, 7)
-            self.row_index += 1
+            if check == 0:
+                files_not_found = QtWidgets.QPushButton(f"{'—' * 8}")
+                status = QtWidgets.QProgressBar()
+                set_button_style(files_not_found)
+                set_incomplete_style(status)
+                status.setValue(0)
+                status.setFormat("——   ")
+                grid.addWidget(files_not_found, self.row_index + 1, 6)
+                grid.addWidget(status, self.row_index + 1, 7)
+                self.row_index += 1
 
     def clean(self, grid):
         self.CollectionLabel.show()

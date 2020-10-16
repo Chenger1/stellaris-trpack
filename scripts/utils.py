@@ -100,7 +100,11 @@ def create_temp_folder(mod_id, file_path, file_name):
     return temp_folder
 
 
+# TODO add name-list support
+
 def creating_temp_files_names(original_file_name):
+    # if '.txt' in original_file_name:
+    #     original_file_name = original_file_name.replace('.', '_english.')
     mod_lang = list(filter(lambda x: x in original_file_name, LANGUAGES.values()))
     with open('Properties.json', 'r') as languages_json:
         languages = json.load(languages_json)
@@ -213,7 +217,7 @@ def collection_append(mod_id, tr_status, pointer_pos, hashKey):
 
 
 def get_mod_id(file_path):
-    pattern = re.compile(r'281990/(.*?)/localisation')
+    pattern = re.compile(r'281990/(.*?)/')
     mod_id = pattern.findall(file_path)[0]
     data['original_name'] = file_path.split('/')[-1]
     data['full_path'] = file_path
@@ -264,6 +268,8 @@ def remove_extra_new_line_symbols(text):
         text.pop()
     return text
 
+
+# TODO add name-list support
 
 def scan_for_localisations(mod_id, file_name):
     folders_for_scan = ['', ]
