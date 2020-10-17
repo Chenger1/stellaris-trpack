@@ -6,9 +6,8 @@ sql = {
             CREATE TABLE "mod_files" (
             "mod_id"	TEXT NOT NULL,
             "file_name"	TEXT NOT NULL UNIQUE,
-            "picture"	TEXT,
             "file_tr_status"	INTEGER DEFAULT 0,
-            "file_name_pointer_pos"	INTEGER DEFAULT 0,
+            "file_pointer_pos"	INTEGER DEFAULT 0,
             "language"	TEXT,
             "original_name"	TEXT UNIQUE,
             "full_path"	TEXT,
@@ -19,7 +18,6 @@ sql = {
             "cuttered"	TEXT,
             "translated_file"	TEXT,
             "machine_text"	TEXT,
-            "status" TEXT,
             "base_dir" TEXT,
             "id" TEXT
 
@@ -33,9 +31,8 @@ collection_queries = {
         INSERT OR REPLACE INTO mod_files (
                               mod_id,
                               file_name,
-                              picture,
                               file_tr_status,
-                              file_name_pointer_pos,
+                              file_pointer_pos,
                               language,
                               original_name,
                               full_path,
@@ -46,14 +43,12 @@ collection_queries = {
                               cuttered,
                               translated_file,
                               machine_text,
-                              status,
                               base_dir,
                               id) VALUES(
                               @mod_id, 
                               @file_name,
-                              @picture,
                               @file_tr_status,
-                              @file_name_pointer_pos,
+                              @file_pointer_pos,
                               @language,
                               @original_name,
                               @full_path,
@@ -64,7 +59,6 @@ collection_queries = {
                               @cuttered,
                               @translated_file,
                               @machine_text,
-                              @status,
                               @base_dir,
                               @id
                               )
@@ -75,13 +69,11 @@ collection_queries = {
                               file_name,
                               original_name,
                               mod_name,
-                              status,
                               id) VALUES(
                               @mod_id, 
                               @file_name,
                               @original_name,
                               @mod_name,
-                              @status,
                               @id
                               )
     """,
@@ -106,9 +98,8 @@ def write_data_in_collection(db_path, data):
                      (
                          mod_info['mod_id'],
                          mod_info['file_name'],
-                         mod_info['picture'],
                          mod_info['file_tr_status'],
-                         mod_info['file_name_pointer_pos'],
+                         mod_info['file_pointer_pos'],
                          mod_info['language'],
                          mod_info['original_name'],
                          mod_info['full_path'],
@@ -119,7 +110,6 @@ def write_data_in_collection(db_path, data):
                          mod_info['cuttered'],
                          mod_info['translated_file'],
                          mod_info['machine_text'],
-                         mod_info['status'],
                          mod_info['base_dir'],
                          mod_info['id']
                      )
@@ -133,7 +123,6 @@ def write_data_in_collection(db_path, data):
                                  file_name,
                                  file_name,
                                  mod_info['mod_name'],
-                                 mod_info['status'],
                                  mod_info['id']
                              )
                              )
@@ -149,33 +138,31 @@ def get_data_from_collection(db_path):
             data = {}
             try:
                 mod = mods[elem[0]]
-                if elem[16] and not mod.base_dir:
-                    mod.base_dir = elem[16]
+                if elem[14] and not mod.base_dir:
+                    mod.base_dir = elem[14]
             except KeyError:
-                mod = Mod(elem[0], elem[8])
-                if elem[16] and not mod.base_dir:
-                    mod.base_dir = elem[16]
-                mod.hashKey = elem[17]
+                mod = Mod(elem[0], elem[7])
+                if elem[14] and not mod.base_dir:
+                    mod.base_dir = elem[14]
+                mod.hashKey = elem[15]
                 mods[elem[0]] = mod
             mod.files[elem[1]] = {
                 'mod_id': elem[0],
                 'file_name': elem[1],
-                'picture': elem[2],
-                'file_tr_status': elem[3],
-                'file_name_pointer_pos': elem[4],
-                'language': elem[5],
-                'original_name': elem[6],
-                'full_path': elem[7],
-                'mod_name': elem[8],
-                'folder_path': elem[9],
-                'cutter_file_name': elem[10],
-                'translated_name': elem[11],
-                'cuttered': elem[12],
-                'translated_file': elem[13],
-                'machine_text': elem[14],
-                'status': elem[15],
-                'base_dir': elem[16],
-                'id': elem[17]
+                'file_tr_status': elem[2],
+                'file_pointer_pos': elem[3],
+                'language': elem[4],
+                'original_name': elem[5],
+                'full_path': elem[6],
+                'mod_name': elem[7],
+                'folder_path': elem[8],
+                'cutter_file_name': elem[9],
+                'translated_name': elem[10],
+                'cuttered': elem[11],
+                'translated_file': elem[12],
+                'machine_text': elem[13],
+                'base_dir': elem[14],
+                'id': elem[15]
             }
     return mods
 

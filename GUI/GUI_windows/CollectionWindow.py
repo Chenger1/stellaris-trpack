@@ -107,10 +107,6 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             total_value += file_data['file_tr_status']
             count += 1
 
-        # for file_name, file_data in self.collection[mod_id].files.items():
-        #     total_value += file_data['name_list_tr_status']
-        #     count += 1
-
         total_value /= count
         return total_value
 
@@ -168,10 +164,15 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
 
     @staticmethod
     def split_name_list(file_name):
-        split_setting = ['_namelist', '_name_list', '_names', 'name_list_']
-        for setting in split_setting:
+        split_end = ['_namelist', '_name_list', '_names', 'name_list_', ]
+        split_start = ['name_list_', ]
+        for setting in split_end:
             if setting in file_name:
                 return file_name.split(setting)[0]
+        for setting in split_start:
+            if setting in file_name:
+                return file_name.split(setting)[-1].split('.txt')[0]
+        return file_name.split('.txt')[0]
 
     def print_name_lists(self, grid, mod_id):
         if self.collection[mod_id].files:
@@ -261,7 +262,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             pixmap = QtGui.QPixmap(get_thumbnail(mod.hashKey))
             pixmap = pixmap.scaled(160, 100, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
             label.setPixmap(pixmap)
-            mod_name = QtWidgets.QPushButton(mod_name_wrap(mod.mod_name[0]))
+            mod_name = QtWidgets.QPushButton(mod_name_wrap(mod.mod_name[0], 35))
             separator = create_separator()
             set_name_style(mod_name)
             self.row_index += 1

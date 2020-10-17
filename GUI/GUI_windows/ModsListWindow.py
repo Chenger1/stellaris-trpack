@@ -178,7 +178,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
     def paint_elements(self):
         for index, elem in enumerate(self.generator):
             self.grid.setSpacing(10)
-            self.buttons[f'{elem.name}'] = QtWidgets.QPushButton(mod_name_wrap(elem.name))
+            self.buttons[f'{elem.name}'] = QtWidgets.QPushButton(mod_name_wrap(elem.name, 50))
             set_name_style(self.buttons[f'{elem.name}'])
             self.buttons[f'{elem.name}'].clicked.connect(partial(self.open_mod, elem.name))
             checkbox1 = QtWidgets.QCheckBox()

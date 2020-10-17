@@ -261,7 +261,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.show_accept_window(message)
 
     def continue_local(self, collection):
-        self.pointer = collection['file_name_pointer_pos']
+        self.pointer = collection['file_pointer_pos']
         self.PreviousString.setEnabled(True if self.pointer >= 1 else False)
         self.orig_text = open_file_for_resuming(collection['cuttered'])
         self.machine_text = open_file_for_resuming(collection['machine_text'])

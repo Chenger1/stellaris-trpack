@@ -103,8 +103,8 @@ def create_temp_folder(mod_id, file_path, file_name):
 # TODO add name-list support
 
 def creating_temp_files_names(original_file_name):
-    # if '.txt' in original_file_name:
-    #     original_file_name = original_file_name.replace('.', '_english.')
+    if '.txt' in original_file_name:
+        original_file_name = original_file_name.replace('.', '_english.')
     mod_lang = list(filter(lambda x: x in original_file_name, LANGUAGES.values()))
     with open('Properties.json', 'r') as languages_json:
         languages = json.load(languages_json)
@@ -177,16 +177,12 @@ def save_stack(mod_id, file_name):
 def get_mod_info(mod_id, tr_status, pointer_pos, hashKey):
     name = data['mod_name']
     file_name = data['original_name'] if tr_status == 0 else data['final_name']
-    picture = "thumbnail.png"
-    file_name_list = scan_for_localisations(mod_id, file_name) + scan_for_names(mod_id)
+    file_name_list = scan_for_files(mod_id)
     mod_info = {
         'mod_id': mod_id,
         'file_name': file_name,
-        'picture': picture,
         'file_tr_status': tr_status,
-        'name_list_tr_status': 0,
-        'file_name_pointer_pos': pointer_pos,
-        'name_list_pointer_pos': 0,
+        'file_pointer_pos': pointer_pos,
         'language': data['language'],
         'original_name': data['original_name'],
         'full_path': data['full_path'],
@@ -197,7 +193,6 @@ def get_mod_info(mod_id, tr_status, pointer_pos, hashKey):
         'cuttered': data['cuttered'],
         'translated_file': data['translated_file'],
         'machine_text': data['machine_text'],
-        'status': 'mod_file',
         'base_dir': data['base_dir'],
         'id': hashKey
     }
@@ -227,6 +222,8 @@ def get_mod_id(file_path):
 def check_new_line_sym_ending(line):
     return line if line.endswith('\n') else line + '\n'
 
+
+# TODO dict with multi lang & appeal by the key like {'en': 'Sorry, but the translator could not localize this string", }
 
 def check_if_line_translated(orig_line, tr_line):
     if orig_line.replace('\n', '').strip() == tr_line.replace('\n', '').strip():
@@ -271,9 +268,9 @@ def remove_extra_new_line_symbols(text):
 
 # TODO add name-list support
 
-def scan_for_localisations(mod_id, file_name):
+def scan_for_files(mod_id):
     folders_for_scan = ['', ]
-    l_english_list = []
+    file_list = []
     for directory in folders_for_scan:
         path = f'{paradox_mod_way_to_content(mod_id)["path"]}\\localisation{directory}'
         scan = os.listdir(path)
@@ -283,21 +280,23 @@ def scan_for_localisations(mod_id, file_name):
             for folder in folders:
                 folders_for_scan.append(f'{directory}\\{folder}')
             for file in l_english:
-                l_english_list.append(file)
+                file_list.append(file)
         except IndexError:
             pass
-    if '_l_english' not in file_name:
-        l_english_list[l_english_list.index(data['original_name'])] = file_name
-    return l_english_list
-
-
-def scan_for_names(mod_id):
-    try:
-        path = f'{paradox_mod_way_to_content(mod_id)["path"]}\\common\\name_lists'
-        name_lists_list = os.listdir(path)
-    except FileNotFoundError:
-        name_lists_list = []
-    return name_lists_list
+    folders_for_scan = ['', ]
+    for directory in folders_for_scan:
+        path = f'{paradox_mod_way_to_content(mod_id)["path"]}\\common{directory}'
+        scan = os.listdir(path)
+        folders = [folder for folder in scan if "name" in folder and '.txt' not in folder and 'temp' not in folder]
+        name_list = [file for file in scan if '.txt' in file and 'random' not in file]
+        try:
+            for folder in folders:
+                folders_for_scan.append(f'{directory}\\{folder}')
+            for file in name_list:
+                file_list.append(file)
+        except IndexError:
+            pass
+    return file_list
 
 
 def set_file_tr_status_list(file_name_list, file_name, tr_status, collection):
@@ -313,43 +312,17 @@ def set_file_tr_status_list(file_name_list, file_name, tr_status, collection):
     return file_tr_status_list
 
 
-def set_name_list_tr_status_list(name_lists_list, file_name, tr_status, collection):
-    count = len(name_lists_list)
-    try:
-        name_list_tr_status_list = collection["name_list_tr_status_list"]
-    except KeyError:
-        name_list_tr_status_list = []
-    while len(name_list_tr_status_list) != count:
-        name_list_tr_status_list.append(0)
-    if '.txt' in file_name:
-        name_list_tr_status_list[name_lists_list.index(file_name)] = tr_status
-    return name_list_tr_status_list
-
-
-def set_file_name_pointer_pos_list(file_name_list, file_name, pointer_pos, collection):
+def set_file_pointer_pos_list(file_name_list, file_name, pointer_pos, collection):
     count = len(file_name_list)
     try:
-        file_name_pointer_pos_list = collection["file_name_pointer_pos_list"]
+        file_pointer_pos_list = collection["file_pointer_pos_list"]
     except KeyError:
-        file_name_pointer_pos_list = []
-    while len(file_name_pointer_pos_list) != count:
-        file_name_pointer_pos_list.append(0)
-    if '.yml' in file_name:
-        file_name_pointer_pos_list[file_name_list.index(file_name)] = pointer_pos
-    return file_name_pointer_pos_list
-
-
-def set_name_list_pointer_pos_list(name_lists_list, file_name, pointer_pos, collection):
-    count = len(name_lists_list)
-    try:
-        name_list_pointer_pos_list = collection["name_list_pointer_pos_list"]
-    except KeyError:
-        name_list_pointer_pos_list = []
-    while len(name_list_pointer_pos_list) != count:
-        name_list_pointer_pos_list.append(0)
-    if '.txt' in file_name:
-        name_list_pointer_pos_list[name_lists_list.index(file_name)] = pointer_pos
-    return name_list_pointer_pos_list
+        file_pointer_pos_list = []
+    while len(file_pointer_pos_list) != count:
+        file_pointer_pos_list.append(0)
+    if '.yml' in file_name or '.txt' in file_name:
+        file_pointer_pos_list[file_name_list.index(file_name)] = pointer_pos
+    return file_pointer_pos_list
 
 
 def open_zip_file(file):
@@ -374,16 +347,16 @@ def remove_unpacked_files():
             shutil.rmtree(f'{path}\\{item}')
 
 
-def mod_name_wrap(mod_name):
+def mod_name_wrap(mod_name, value):
     row = ['', '', '']
     special_symbols = {'&', }
     check = [symbol for symbol in special_symbols & set(mod_name)]
     if check:
         for symbol in check:
             mod_name = mod_name.replace(symbol, symbol * 2)
-    if len(mod_name) > 50:
+    if len(mod_name) > value:
         for word in mod_name.split():
-            if len(f'{row[0]} {word}') < 50:
+            if len(f'{row[0]} {word}') < value:
                 row[0] += f' {word}'
             else:
                 row[0] += '\n'
