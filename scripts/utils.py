@@ -210,13 +210,13 @@ def collection_append(mod_id, tr_status, pointer_pos, hashKey):
 
 
 def get_mod_id(file_path):
-    original_name = file_path.split('\\')[-1]
+    original_name = file_path.split('/')[-1]
     if '.txt' in original_name:
         fixed_name = original_name.replace('.', '_english.')
         os.rename(original_name, fixed_name)
         file_path = file_path.replace(original_name, fixed_name)
         original_name = fixed_name
-    mod_id = file_path.split('281990')[-1].split('\\')[1]
+    mod_id = file_path.split('281990')[-1].split('/')[1]
     data['original_name'] = original_name
     data['full_path'] = file_path
     return mod_id
