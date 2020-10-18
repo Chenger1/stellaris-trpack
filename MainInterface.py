@@ -12,7 +12,7 @@ from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
 from GUI.GUI_windows.ModsListWindow import ModsListWindow
 from GUI.GUI_windows.AcceptMessageWindow import AcceptMessageWindow
 
-from scripts.loc_cutter import cutter_main, cutting_loc_lines
+from scripts.loc_cutter import cutter_main, cutting_loc_lines, cutting_name_lines
 from scripts.loc_translator import writing_translation, translate_line
 from scripts.loc_putter import put_lines
 from scripts.db import get_info_from_db
@@ -265,9 +265,12 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.PreviousString.setEnabled(True if self.pointer >= 1 else False)
         self.orig_text = open_file_for_resuming(collection['cuttered'])
         self.machine_text = open_file_for_resuming(collection['machine_text'])
-        self.user_text = cutting_loc_lines(f'{collection["folder_path"]}\\{collection["original_name"]}_temp',
-                                       f'{mod_path}\\localisation\\{collection["final_name"]}')
-
+        if '.yml' in collection["original_name"]:
+            self.user_text = cutting_loc_lines(f'{collection["folder_path"]}\\{collection["original_name"]}_temp',
+                                               f'{mod_path}\\localisation\\{collection["final_name"]}')
+        if '.txt' in collection["original_name"]:
+            self.user_text = cutting_name_lines(f'{collection["folder_path"]}\\{collection["original_name"]}_temp',
+                                                f'{mod_path}\\localisation\\{collection["final_name"]}')
         self.user_text = remove_extra_new_line_symbols(self.user_text)
         self.progressbar_set_maximum(len(self.orig_text))
         self.NextStringButton.setEnabled(True)

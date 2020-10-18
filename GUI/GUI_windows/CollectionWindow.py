@@ -111,6 +111,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         return total_value
 
         # TODO add name-list support
+
     def start_translation(self, **kwargs):
         path = f'{kwargs["base_dir"]}\\{kwargs["file_name"]}'
 

@@ -1,6 +1,5 @@
 import json
 import os
-import re
 import win32api
 import zipfile
 import shutil
@@ -94,17 +93,16 @@ def generated_files_status():
 def create_temp_folder(mod_id, file_path, file_name):
     temp_folder = f'{file_path}\\{mod_id}_{file_name}_temp'
     data['folder_path'] = temp_folder
+
+    # TODO add name-list support for ["base_dir"]
+
     data['base_dir'] = file_path
     if os.path.isdir(f'{data["folder_path"]}') is False:
         os.mkdir(temp_folder)
     return temp_folder
 
 
-# TODO add name-list support
-
 def creating_temp_files_names(original_file_name):
-    if '.txt' in original_file_name:
-        original_file_name = original_file_name.replace('.', '_english.')
     mod_lang = list(filter(lambda x: x in original_file_name, LANGUAGES.values()))
     with open('Properties.json', 'r') as languages_json:
         languages = json.load(languages_json)
@@ -177,7 +175,7 @@ def save_stack(mod_id, file_name):
 def get_mod_info(mod_id, tr_status, pointer_pos, hashKey):
     name = data['mod_name']
     file_name = data['original_name'] if tr_status == 0 else data['final_name']
-    file_name_list = scan_for_files(mod_id)
+    file_name_list = scan_for_files(mod_id, file_name)
     mod_info = {
         'mod_id': mod_id,
         'file_name': file_name,
@@ -212,9 +210,14 @@ def collection_append(mod_id, tr_status, pointer_pos, hashKey):
 
 
 def get_mod_id(file_path):
-    pattern = re.compile(r'281990/(.*?)/')
-    mod_id = pattern.findall(file_path)[0]
-    data['original_name'] = file_path.split('/')[-1]
+    original_name = file_path.split('\\')[-1]
+    if '.txt' in original_name:
+        fixed_name = original_name.replace('.', '_english.')
+        os.rename(original_name, fixed_name)
+        file_path = file_path.replace(original_name, fixed_name)
+        original_name = fixed_name
+    mod_id = file_path.split('281990')[-1].split('\\')[1]
+    data['original_name'] = original_name
     data['full_path'] = file_path
     return mod_id
 
@@ -266,9 +269,7 @@ def remove_extra_new_line_symbols(text):
     return text
 
 
-# TODO add name-list support
-
-def scan_for_files(mod_id):
+def scan_for_files(mod_id, file_name):
     folders_for_scan = ['', ]
     file_list = []
     for directory in folders_for_scan:
@@ -276,26 +277,24 @@ def scan_for_files(mod_id):
         scan = os.listdir(path)
         folders = [folder for folder in scan if ".yml" not in folder and 'temp' not in folder]
         l_english = [file for file in scan if "l_english" in file and '.yml' in file]
-        try:
-            for folder in folders:
-                folders_for_scan.append(f'{directory}\\{folder}')
-            for file in l_english:
-                file_list.append(file)
-        except IndexError:
-            pass
+        for folder in folders:
+            folders_for_scan.append(f'{directory}\\{folder}')
+        for file in l_english:
+            file_list.append(file)
+        if '_l_english' not in file_name and '.yml' in file_name:
+            l_english[l_english.index(data['original_name'])] = file_name
     folders_for_scan = ['', ]
     for directory in folders_for_scan:
         path = f'{paradox_mod_way_to_content(mod_id)["path"]}\\common{directory}'
         scan = os.listdir(path)
         folders = [folder for folder in scan if "name" in folder and '.txt' not in folder and 'temp' not in folder]
         name_list = [file for file in scan if '.txt' in file and 'random' not in file]
-        try:
-            for folder in folders:
-                folders_for_scan.append(f'{directory}\\{folder}')
-            for file in name_list:
-                file_list.append(file)
-        except IndexError:
-            pass
+        for folder in folders:
+            folders_for_scan.append(f'{directory}\\{folder}')
+        for file in name_list:
+            file_list.append(file)
+        if '_english' not in file_name and '.txt' in file_name:
+            file_list[file_list.index(data['original_name'])] = file_name
     return file_list
 
 
@@ -307,7 +306,7 @@ def set_file_tr_status_list(file_name_list, file_name, tr_status, collection):
         file_tr_status_list = []
     while len(file_tr_status_list) != count:
         file_tr_status_list.append(0)
-    if '.yml' in file_name:
+    if '.yml' in file_name or '.txt' in file_name:
         file_tr_status_list[file_name_list.index(file_name)] = tr_status
     return file_tr_status_list
 
@@ -333,6 +332,8 @@ def open_zip_file(file):
 
 def remove_unpacked_files():
     path = data['base_dir'].split('\\localisation')[0]
+    if 'common' in data['base_dir']:
+        path = data['base_dir'].split('\\common')[0]
     if list(filter(lambda x: '.zip' in x, os.listdir(path))):
         directory = list(filter(lambda x: '.zip' not in x, os.listdir(path)))
         folders, files = [], []
