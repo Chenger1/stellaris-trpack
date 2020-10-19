@@ -28,7 +28,7 @@ sql = {
 
 collection_queries = {
     'save_mod_status': """
-        INSERT OR REPLACE INTO mod_files (
+        INSERT INTO mod_files (
                               mod_id,
                               file_name,
                               file_tr_status,
@@ -63,24 +63,26 @@ collection_queries = {
                               @id
                               )
     """,
-    'set_other_mods': """
-        INSERT OR IGNORE INTO mod_files (
-                              mod_id,
-                              file_name,
-                              original_name,
-                              mod_name,
-                              base_dir,
-                              id) VALUES(
-                              @mod_id, 
-                              @file_name,
-                              @original_name,
-                              @mod_name,
-                              @base_dir,
-                              @id
-                              )
-    """,
+    # 'set_other_mods': """
+    #     INSERT OR IGNORE INTO mod_files (
+    #                           mod_id,
+    #                           file_name,
+    #                           original_name,
+    #                           mod_name,
+    #                           base_dir,
+    #                           id) VALUES(
+    #                           @mod_id,
+    #                           @file_name,
+    #                           @original_name,
+    #                           @mod_name,
+    #                           @base_dir,
+    #                           @id
+    #                           )
+    # """,
     'get_info': 'SELECT * from mod_files'
 }
+
+# TODO make UPDATE script
 
 
 class Mod:
@@ -93,8 +95,8 @@ class Mod:
 
 
 def write_data_in_collection(db_path, data):
-    mod_info = data[0]
-    file_name_list = data[1]
+    mod_info = data
+    # file_name_list = data[1]
     with sqlite3.connect(db_path) as conn:
         conn.execute(collection_queries['save_mod_status'],
                      (
@@ -117,19 +119,19 @@ def write_data_in_collection(db_path, data):
                      )
                      )
         conn.commit()
-        if file_name_list:
-            for file_name in file_name_list:
-                conn.execute(collection_queries['set_other_mods'],
-                             (
-                                 mod_info['mod_id'],
-                                 file_name,
-                                 file_name,
-                                 mod_info['mod_name'],
-                                 mod_info['base_dir'],
-                                 mod_info['id']
-                             )
-                             )
-            conn.commit()
+        # if file_name_list:
+        #     for file_name in file_name_list:
+        #         conn.execute(collection_queries['set_other_mods'],
+        #                      (
+        #                          mod_info['mod_id'],
+        #                          file_name,
+        #                          file_name,
+        #                          mod_info['mod_name'],
+        #                          mod_info['base_dir'],
+        #                          mod_info['id']
+        #                      )
+        #                      )
+        #     conn.commit()
 
 
 def get_data_from_collection(db_path):
@@ -138,7 +140,7 @@ def get_data_from_collection(db_path):
         c = conn.cursor()
         raw_data = c.execute(collection_queries['get_info']).fetchall()
         for elem in raw_data:
-            data = {}
+            # data = {}
             try:
                 mod = mods[elem[0]]
                 if elem[14] and not mod.base_dir:

@@ -268,9 +268,12 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         if '.yml' in collection["original_name"]:
             self.user_text = cutting_loc_lines(f'{collection["folder_path"]}\\{collection["original_name"]}_temp',
                                                f'{mod_path}\\localisation\\{collection["final_name"]}')
+
+            # TODO adatation for name-lists
         if '.txt' in collection["original_name"]:
             self.user_text = cutting_name_lines(f'{collection["folder_path"]}\\{collection["original_name"]}_temp',
                                                 f'{mod_path}\\localisation\\{collection["final_name"]}')
+
         self.user_text = remove_extra_new_line_symbols(self.user_text)
         self.progressbar_set_maximum(len(self.orig_text))
         self.NextStringButton.setEnabled(True)

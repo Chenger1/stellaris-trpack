@@ -111,6 +111,9 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         return total_value
 
     def start_translation(self, **kwargs):
+
+        # TODO fix '/' and '\\' difference in incoming string and make a single simbol
+
         path = f'{kwargs["base_dir"]}\\{kwargs["file_name"]}'
 
         if os.path.exists(path) is False:
@@ -140,7 +143,6 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                             connect(partial(self.call_accept_message, message,
                                             mod_id=mod_id, file_name=file_name,
                                             base_dir=f'{self.collection[mod_id].base_dir}'))
-                                            # base_dir=f'{self.collection[mod_id].base_dir}\\localisation'))
                     status = QtWidgets.QProgressBar()
                     status.setValue(file_data['file_tr_status'])
                     set_button_style(self.buttons[f'{mod_id}-{file_name}'])
@@ -179,7 +181,6 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                             connect(partial(self.call_accept_message, message,
                                             mod_id=mod_id, file_name=file_name,
                                             base_dir=f'{self.collection[mod_id].base_dir}'))
-                                            # base_dir=f'{self.collection[mod_id].base_dir}\\common'))
                     status = QtWidgets.QProgressBar()
                     status.setValue(file_data['file_tr_status'])
                     set_button_style(self.buttons[f'{mod_id}-{file_name}'])

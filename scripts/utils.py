@@ -98,7 +98,6 @@ def create_temp_folder(mod_id, file_path, file_name):
     temp_folder = f'{file_path}\\{mod_id}_{file_name}_temp'
     data['folder_path'] = temp_folder
     data['base_dir'] = file_path
-    # data['base_dir'] = file_path.split('\\localisation')[0].split('\\common')[0]
     if os.path.isdir(f'{data["folder_path"]}') is False:
         os.mkdir(temp_folder)
     return temp_folder
@@ -174,10 +173,10 @@ def save_stack(mod_id, file_name):
         json.dump(stack, stack_file)
 
 
-def get_mod_info(mod_id, tr_status, pointer_pos, hashKey):
+# TODO dynamic data getting
+
+def get_mod_info(mod_id, file_name,  tr_status, pointer_pos, hashKey):
     name = data['mod_name']
-    file_name = data['original_name'] if tr_status == 0 else data['final_name']
-    file_name_list = scan_for_files(mod_id, file_name)
     mod_info = {
         'mod_id': mod_id,
         'file_name': file_name,
@@ -196,29 +195,29 @@ def get_mod_info(mod_id, tr_status, pointer_pos, hashKey):
         'base_dir': data['base_dir'],
         'id': hashKey
     }
-    return mod_info, file_name_list, file_name
+    return mod_info
 
+
+# TODO make file per file getting data and writting
 
 def collection_append(mod_id, tr_status, pointer_pos, hashKey):
-    """
-    *mod_info, name -  означает что из функции get_mod_info произойдет распаковка значений
-    в следующем порядке:
-        mod_info = [mod_info, file_name_list, name_lists_list]
-        name = file_name
-    """
-    *mod_info, name = get_mod_info(mod_id, tr_status, pointer_pos, hashKey)
-    save_stack(mod_id, name)
-    write_data_in_collection(collection_path, mod_info)
+    file_name = data['original_name'] if tr_status == 0 else data['final_name']
 
+    mod_info = get_mod_info(mod_id, file_name, tr_status, pointer_pos, hashKey)
+    write_data_in_collection(collection_path, mod_info)
+    save_stack(mod_id, file_name)
+
+
+# TODO rework or split this function
 
 def get_mod_id(file_path):
     original_name = file_path.split('/')[-1]
-    # if '.txt' in original_name and '_english' not in original_name:
-    #     fixed_name = original_name.replace('.', '_english.')
-    #     temp = file_path.replace(original_name, fixed_name)
-    #     os.rename(file_path, temp)
-    #     file_path = temp
-    #     original_name = fixed_name
+    if '.txt' in original_name and '_english' not in original_name:
+        fixed_name = original_name.replace('.', '_english.')
+        temp = file_path.replace(original_name, fixed_name)
+        os.rename(file_path, temp)
+        file_path = temp
+        original_name = fixed_name
     mod_id = file_path.split('281990/')[-1].split('/')[0]
     data['original_name'] = original_name
     data['full_path'] = file_path
@@ -282,10 +281,10 @@ def scan_for_files(mod_id, file_name):
         l_english = [file for file in scan if "l_english" in file and '.yml' in file]
         for folder in folders:
             folders_for_scan.append(f'{directory}\\{folder}')
+        # if '_l_english' not in file_name and '.yml' in file_name and data['original_name'] in l_english:
+        #     l_english[l_english.index(data['original_name'])] = file_name
         for file in l_english:
             file_list.append(file)
-        if '_l_english' not in file_name and '.yml' in file_name and data['original_name'] in l_english:
-            l_english[l_english.index(data['original_name'])] = file_name
     folders_for_scan = ['', ]
     for directory in folders_for_scan:
         path = f'{paradox_mod_way_to_content(mod_id)["path"]}\\common{directory}'
@@ -294,10 +293,10 @@ def scan_for_files(mod_id, file_name):
         name_list = [file for file in scan if '.txt' in file and 'random' not in file]
         for folder in folders:
             folders_for_scan.append(f'{directory}\\{folder}')
+        # if '_english' not in file_name and '.txt' in file_name and data['original_name'] in file_list:
+        #     file_list[file_list.index(data['original_name'])] = file_name
         for file in name_list:
             file_list.append(file)
-        if '_english' not in file_name and '.txt' in file_name and data['original_name'] in file_name:
-            file_list[file_list.index(data['original_name'])] = file_name
     return file_list
 
 
@@ -328,6 +327,8 @@ def set_file_pointer_pos_list(file_name_list, file_name, pointer_pos, collection
         file_pointer_pos_list[file_name_list.index(file_name)] = pointer_pos
     return file_pointer_pos_list
 
+
+# TODO fix '/' and '\\' difference in incoming string and make a single simbol
 
 def open_zip_file(file):
     directory = '/'.join(file.split('/')[:-1])

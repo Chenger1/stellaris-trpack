@@ -134,6 +134,9 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             self.grid.itemAt(elem).widget().setParent(None)
 
     def open_mod(self, name):
+
+        # TODO fix '/' and '\\' difference in incoming string and make a single simbol
+
         mod_loc = get_mods_from_playset('get_mod_path', name)[0][0]
         f_path = QtWidgets.QFileDialog.getOpenFileName(directory=mod_loc)[0]
         if '.zip' in f_path.split('/')[-1]:
@@ -167,10 +170,6 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             for file_name, file_data in self.collection[mod_id].files.items():
                 total_value += file_data['file_tr_status']
                 count += 1
-
-            # for file_name, file_data in self.collection[mod_id].files.items():
-            #     total_value += file_data['name_list_tr_status']
-            #     count += 1
 
             total_value /= count
         return total_value
