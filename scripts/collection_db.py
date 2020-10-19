@@ -69,11 +69,13 @@ collection_queries = {
                               file_name,
                               original_name,
                               mod_name,
+                              base_dir,
                               id) VALUES(
                               @mod_id, 
                               @file_name,
                               @original_name,
                               @mod_name,
+                              @base_dir,
                               @id
                               )
     """,
@@ -123,6 +125,7 @@ def write_data_in_collection(db_path, data):
                                  file_name,
                                  file_name,
                                  mod_info['mod_name'],
+                                 mod_info['base_dir'],
                                  mod_info['id']
                              )
                              )

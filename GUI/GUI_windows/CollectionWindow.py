@@ -110,8 +110,6 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         total_value /= count
         return total_value
 
-        # TODO add name-list support
-
     def start_translation(self, **kwargs):
         path = f'{kwargs["base_dir"]}\\{kwargs["file_name"]}'
 
@@ -141,7 +139,8 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                         self.buttons[f'{mod_id}-{file_name}'].clicked. \
                             connect(partial(self.call_accept_message, message,
                                             mod_id=mod_id, file_name=file_name,
-                                            base_dir=self.collection[mod_id].base_dir))
+                                            base_dir=f'{self.collection[mod_id].base_dir}'))
+                                            # base_dir=f'{self.collection[mod_id].base_dir}\\localisation'))
                     status = QtWidgets.QProgressBar()
                     status.setValue(file_data['file_tr_status'])
                     set_button_style(self.buttons[f'{mod_id}-{file_name}'])
@@ -163,25 +162,13 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                 grid.addWidget(status, self.row_index + 1, 7)
                 self.row_index += 1
 
-    @staticmethod
-    def split_name_list(file_name):
-        split_end = ['_namelist', '_name_list', '_names', 'name_list_', ]
-        split_start = ['name_list_', ]
-        for setting in split_end:
-            if setting in file_name:
-                return file_name.split(setting)[0]
-        for setting in split_start:
-            if setting in file_name:
-                return file_name.split(setting)[-1].split('.txt')[0]
-        return file_name.split('.txt')[0]
-
     def print_name_lists(self, grid, mod_id):
         if self.collection[mod_id].files:
             check = 0
             for file_name, file_data in self.collection[mod_id].files.items():
                 if '.txt' in file_name:
                     check += 1
-                    self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(self.split_name_list(file_name))
+                    self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(file_name.split('_english')[0].split('.txt')[0])
                     if file_data['file_tr_status'] > 0:
                         message = ('collection_continue_translation', file_name)
                         self.buttons[f'{mod_id}-{file_name}'].clicked. \
@@ -191,7 +178,8 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                         self.buttons[f'{mod_id}-{file_name}'].clicked. \
                             connect(partial(self.call_accept_message, message,
                                             mod_id=mod_id, file_name=file_name,
-                                            base_dir=self.collection[mod_id].base_dir))
+                                            base_dir=f'{self.collection[mod_id].base_dir}'))
+                                            # base_dir=f'{self.collection[mod_id].base_dir}\\common'))
                     status = QtWidgets.QProgressBar()
                     status.setValue(file_data['file_tr_status'])
                     set_button_style(self.buttons[f'{mod_id}-{file_name}'])

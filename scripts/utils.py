@@ -48,9 +48,13 @@ def properties_create():
     if tool_language not in ['en', 'ru', 'pl', 'uk', 'zh']:
         tool_language = 'en'
     with open('Properties.json', 'w', encoding='utf-8') as prop:
-        properties = {"collection_name": "Stellaris True Machine Translation Tool", "tool_language": f"{tool_language}", "translation_language": "en"}
+        properties = {"collection_name": "Stellaris True Machine Translation Tool",
+                      "tool_language": f"{tool_language}",
+                      "translation_language": "en"}
         json.dump(properties, prop)
 
+
+# TODO simplify dirs creation by the way a path list storing
 
 def local_mod_create():
     try:
@@ -93,10 +97,8 @@ def generated_files_status():
 def create_temp_folder(mod_id, file_path, file_name):
     temp_folder = f'{file_path}\\{mod_id}_{file_name}_temp'
     data['folder_path'] = temp_folder
-
-    # TODO add name-list support for ["base_dir"]
-
     data['base_dir'] = file_path
+    # data['base_dir'] = file_path.split('\\localisation')[0].split('\\common')[0]
     if os.path.isdir(f'{data["folder_path"]}') is False:
         os.mkdir(temp_folder)
     return temp_folder
@@ -211,13 +213,13 @@ def collection_append(mod_id, tr_status, pointer_pos, hashKey):
 
 def get_mod_id(file_path):
     original_name = file_path.split('/')[-1]
-    if '.txt' in original_name and '_english' not in original_name:
-        fixed_name = original_name.replace('.', '_english.')
-        temp = file_path.replace(original_name, fixed_name)
-        os.rename(file_path, temp)
-        file_path = temp
-        original_name = fixed_name
-    mod_id = file_path.split('281990')[-1].split('/')[1]
+    # if '.txt' in original_name and '_english' not in original_name:
+    #     fixed_name = original_name.replace('.', '_english.')
+    #     temp = file_path.replace(original_name, fixed_name)
+    #     os.rename(file_path, temp)
+    #     file_path = temp
+    #     original_name = fixed_name
+    mod_id = file_path.split('281990/')[-1].split('/')[0]
     data['original_name'] = original_name
     data['full_path'] = file_path
     return mod_id
@@ -282,7 +284,7 @@ def scan_for_files(mod_id, file_name):
             folders_for_scan.append(f'{directory}\\{folder}')
         for file in l_english:
             file_list.append(file)
-        if '_l_english' not in file_name and '.yml' in file_name:
+        if '_l_english' not in file_name and '.yml' in file_name and data['original_name'] in l_english:
             l_english[l_english.index(data['original_name'])] = file_name
     folders_for_scan = ['', ]
     for directory in folders_for_scan:
@@ -294,10 +296,12 @@ def scan_for_files(mod_id, file_name):
             folders_for_scan.append(f'{directory}\\{folder}')
         for file in name_list:
             file_list.append(file)
-        if '_english' not in file_name and '.txt' in file_name:
+        if '_english' not in file_name and '.txt' in file_name and data['original_name'] in file_name:
             file_list[file_list.index(data['original_name'])] = file_name
     return file_list
 
+
+# TODO rework pointer and translation status to single-mode
 
 def set_file_tr_status_list(file_name_list, file_name, tr_status, collection):
     count = len(file_name_list)
@@ -332,9 +336,7 @@ def open_zip_file(file):
 
 
 def remove_unpacked_files():
-    path = data['base_dir'].split('\\localisation')[0]
-    if 'common' in data['base_dir']:
-        path = data['base_dir'].split('\\common')[0]
+    path = data['base_dir'].split('\\localisation')[0].split('\\common')[0]
     if list(filter(lambda x: '.zip' in x, os.listdir(path))):
         directory = list(filter(lambda x: '.zip' not in x, os.listdir(path)))
         folders, files = [], []
