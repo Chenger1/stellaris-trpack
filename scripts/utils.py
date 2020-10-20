@@ -94,65 +94,65 @@ def generated_files_status():
         init_stack()
 
 
-def create_temp_folder(mod_id, file_path, file_name):
-    temp_folder = f'{file_path}\\{mod_id}_{file_name}_temp'
-    data['folder_path'] = temp_folder
-    data['base_dir'] = file_path
-    if os.path.isdir(f'{data["folder_path"]}') is False:
-        os.mkdir(temp_folder)
-    return temp_folder
+# def create_temp_folder(mod_id, file_path, file_name):
+#     temp_folder = f'{file_path}\\{mod_id}_{file_name}_temp'
+#     data['folder_path'] = temp_folder
+#     data['base_dir'] = file_path
+#     if os.path.isdir(f'{data["folder_path"]}') is False:
+#         os.mkdir(temp_folder)
+#     return temp_folder
 
 
-def creating_temp_files_names(original_file_name):
-    mod_lang = list(filter(lambda x: x in original_file_name, LANGUAGES.values()))
-    with open('Properties.json', 'r') as languages_json:
-        languages = json.load(languages_json)
-        files_names = {'cutter': 'cutter_' + original_file_name,
-                       'translated': 'tr_' + original_file_name,
-                       'final': original_file_name.replace(mod_lang[0], LANGUAGES[languages["translation_language"]])}
-        data['language'] = LANGUAGES[languages["translation_language"]]
-    return files_names
+# def creating_temp_files_names(original_file_name):
+#     mod_lang = list(filter(lambda x: x in original_file_name, LANGUAGES.values()))
+#     with open('Properties.json', 'r') as languages_json:
+#         languages = json.load(languages_json)
+#         files_names = {'cutter': 'cutter_' + original_file_name,
+#                        'translated': 'tr_' + original_file_name,
+#                        'final': original_file_name.replace(mod_lang[0], LANGUAGES[languages["translation_language"]])}
+#         data['language'] = LANGUAGES[languages["translation_language"]]
+#     return files_names
 
 
-def write_data_about_mode(temp_files):
-    filenames = creating_temp_files_names(data['original_name'])
-    data['cutter_file_name'] = filenames['cutter']
-    data['translated_name'] = filenames['translated']
-    data['final_name'] = filenames['final']
-    data['cuttered'] = temp_files['cuttered']
+# def write_data_about_mode(temp_files):
+#     filenames = creating_temp_files_names(data['original_name'])
+#     data['cutter_file_name'] = filenames['cutter']
+#     data['translated_name'] = filenames['translated']
+#     data['final_name'] = filenames['final']
+#     data['cuttered'] = temp_files['cuttered']
 
 
-def set_translated_file(file):
-    data['translated_file'] = file
+# def set_translated_file(file):
+#     data['translated_file'] = file
 
 
-def paradox_mod_way_to_content(mod_id):
-    ugc_id_mod = f'{paradox_folder}\\mod\\ugc_{mod_id}.mod'
-    with open(ugc_id_mod, 'r', encoding='utf-8') as reading:
-        for line in reading.readlines():
-            if 'path' in line:
-                path = line.split('"')[1].replace('/', '\\')
-            elif 'name' in line:
-                name = line.split('"')[1].replace('/', '\\')
-                data['mod_name'] = name
-            elif 'archive' in line:
-                pre_path = line.split('"')[1]
-                path = '\\'.join(pre_path.split('/')[:-1])
-
-    result = {'path': path,
-              'name': name}
-
-    try:
-        original_name = data['original_name']
-        if '.yml' in original_name:
-            original_name = original_name.split('.yml')[0]
-        elif '.txt' in original_name:
-            original_name = original_name.split('.txt')[0]
-        result['file_name'] = original_name
-    except KeyError:
-        pass
-
-    return result
+# def paradox_mod_way_to_content(mod_id):
+#     ugc_id_mod = f'{paradox_folder}\\mod\\ugc_{mod_id}.mod'
+#     with open(ugc_id_mod, 'r', encoding='utf-8') as reading:
+#         for line in reading.readlines():
+#             if 'path' in line:
+#                 path = line.split('"')[1].replace('/', '\\')
+#             elif 'name' in line:
+#                 name = line.split('"')[1].replace('/', '\\')
+#                 data['mod_name'] = name
+#             elif 'archive' in line:
+#                 pre_path = line.split('"')[1]
+#                 path = '\\'.join(pre_path.split('/')[:-1])
+#
+#     result = {'path': path,
+#               'name': name}
+#
+#     try:
+#         original_name = data['original_name']
+#         if '.yml' in original_name:
+#             original_name = original_name.split('.yml')[0]
+#         elif '.txt' in original_name:
+#             original_name = original_name.split('.txt')[0]
+#         result['file_name'] = original_name
+#     except KeyError:
+#         pass
+#
+#     return result
 
 
 def get_collection():
@@ -173,55 +173,55 @@ def save_stack(mod_id, file_name):
         json.dump(stack, stack_file)
 
 
-# TODO dynamic data getting
-
-def get_mod_info(mod_id, file_name,  tr_status, pointer_pos, hashKey):
-    name = data['mod_name']
-    mod_info = {
-        'mod_id': mod_id,
-        'file_name': file_name,
-        'file_tr_status': tr_status,
-        'file_pointer_pos': pointer_pos,
-        'language': data['language'],
-        'original_name': data['original_name'],
-        'full_path': data['full_path'],
-        'mod_name': name,
-        'folder_path': data['folder_path'],
-        'cutter_file_name': data['cutter_file_name'],
-        'translated_name': data['translated_name'],
-        'cuttered': data['cuttered'],
-        'translated_file': data['translated_file'],
-        'machine_text': data['machine_text'],
-        'base_dir': data['base_dir'],
-        'id': hashKey
-    }
-    return mod_info
-
-
-# TODO make file per file getting data and writting
-
-def collection_append(mod_id, tr_status, pointer_pos, hashKey):
-    file_name = data['original_name'] if tr_status == 0 else data['final_name']
-
-    mod_info = get_mod_info(mod_id, file_name, tr_status, pointer_pos, hashKey)
-    write_data_in_collection(collection_path, mod_info)
-    save_stack(mod_id, file_name)
+# # TODO dynamic data getting
+#
+# def get_mod_info(mod_id, file_name,  tr_status, pointer_pos, hashKey):
+#     name = data['mod_name']
+#     mod_info = {
+#         'mod_id': mod_id,
+#         'file_name': file_name,
+#         'file_tr_status': tr_status,
+#         'file_pointer_pos': pointer_pos,
+#         'language': data['language'],
+#         'original_name': data['original_name'],
+#         'full_path': data['full_path'],
+#         'mod_name': name,
+#         'folder_path': data['folder_path'],
+#         'cutter_file_name': data['cutter_file_name'],
+#         'translated_name': data['translated_name'],
+#         'cuttered': data['cuttered'],
+#         'translated_file': data['translated_file'],
+#         'machine_text': data['machine_text'],
+#         'base_dir': data['base_dir'],
+#         'id': hashKey
+#     }
+#     return mod_info
 
 
-# TODO rework or split this function
+# # TODO make file per file getting data and writting
+#
+# def collection_append(mod_id, tr_status, pointer_pos, hashKey):
+#     file_name = data['original_name'] if tr_status == 0 else data['final_name']
+#
+#     mod_info = get_mod_info(mod_id, file_name, tr_status, pointer_pos, hashKey)
+#     write_data_in_collection(collection_path, mod_info)
+#     save_stack(mod_id, file_name)
 
-def get_mod_id(file_path):
-    original_name = file_path.split('/')[-1]
-    if '.txt' in original_name and '_english' not in original_name:
-        fixed_name = original_name.replace('.', '_english.')
-        temp = file_path.replace(original_name, fixed_name)
-        os.rename(file_path, temp)
-        file_path = temp
-        original_name = fixed_name
-    mod_id = file_path.split('281990/')[-1].split('/')[0]
-    data['original_name'] = original_name
-    data['full_path'] = file_path
-    return mod_id
+
+# # TODO rework or split this function
+#
+# def get_mod_id(file_path):
+#     original_name = file_path.split('/')[-1]
+#     if '.txt' in original_name and '_english' not in original_name:
+#         fixed_name = original_name.replace('.', '_english.')
+#         temp = file_path.replace(original_name, fixed_name)
+#         os.rename(file_path, temp)
+#         file_path = temp
+#         original_name = fixed_name
+#     mod_id = file_path.split('281990/')[-1].split('/')[0]
+#     data['original_name'] = original_name
+#     data['full_path'] = file_path
+#     return mod_id
 
 
 def check_new_line_sym_ending(line):
@@ -271,85 +271,85 @@ def remove_extra_new_line_symbols(text):
     return text
 
 
-def scan_for_files(mod_id, file_name):
-    folders_for_scan = ['', ]
-    file_list = []
-    for directory in folders_for_scan:
-        path = f'{paradox_mod_way_to_content(mod_id)["path"]}\\localisation{directory}'
-        scan = os.listdir(path)
-        folders = [folder for folder in scan if ".yml" not in folder and 'temp' not in folder]
-        l_english = [file for file in scan if "l_english" in file and '.yml' in file]
-        for folder in folders:
-            folders_for_scan.append(f'{directory}\\{folder}')
-        # if '_l_english' not in file_name and '.yml' in file_name and data['original_name'] in l_english:
-        #     l_english[l_english.index(data['original_name'])] = file_name
-        for file in l_english:
-            file_list.append(file)
-    folders_for_scan = ['', ]
-    for directory in folders_for_scan:
-        path = f'{paradox_mod_way_to_content(mod_id)["path"]}\\common{directory}'
-        scan = os.listdir(path)
-        folders = [folder for folder in scan if "name" in folder and '.txt' not in folder and 'temp' not in folder]
-        name_list = [file for file in scan if '.txt' in file and 'random' not in file]
-        for folder in folders:
-            folders_for_scan.append(f'{directory}\\{folder}')
-        # if '_english' not in file_name and '.txt' in file_name and data['original_name'] in file_list:
-        #     file_list[file_list.index(data['original_name'])] = file_name
-        for file in name_list:
-            file_list.append(file)
-    return file_list
+# def scan_for_files(mod_id, file_name):
+#     folders_for_scan = ['', ]
+#     file_list = []
+#     for directory in folders_for_scan:
+#         path = f'{paradox_mod_way_to_content(mod_id)["path"]}\\localisation{directory}'
+#         scan = os.listdir(path)
+#         folders = [folder for folder in scan if ".yml" not in folder and 'temp' not in folder]
+#         l_english = [file for file in scan if "l_english" in file and '.yml' in file]
+#         for folder in folders:
+#             folders_for_scan.append(f'{directory}\\{folder}')
+#         # if '_l_english' not in file_name and '.yml' in file_name and data['original_name'] in l_english:
+#         #     l_english[l_english.index(data['original_name'])] = file_name
+#         for file in l_english:
+#             file_list.append(file)
+#     folders_for_scan = ['', ]
+#     for directory in folders_for_scan:
+#         path = f'{paradox_mod_way_to_content(mod_id)["path"]}\\common{directory}'
+#         scan = os.listdir(path)
+#         folders = [folder for folder in scan if "name" in folder and '.txt' not in folder and 'temp' not in folder]
+#         name_list = [file for file in scan if '.txt' in file and 'random' not in file]
+#         for folder in folders:
+#             folders_for_scan.append(f'{directory}\\{folder}')
+#         # if '_english' not in file_name and '.txt' in file_name and data['original_name'] in file_list:
+#         #     file_list[file_list.index(data['original_name'])] = file_name
+#         for file in name_list:
+#             file_list.append(file)
+#     return file_list
 
 
-# TODO rework pointer and translation status to single-mode
-
-def set_file_tr_status_list(file_name_list, file_name, tr_status, collection):
-    count = len(file_name_list)
-    try:
-        file_tr_status_list = collection["file_tr_status_list"]
-    except KeyError:
-        file_tr_status_list = []
-    while len(file_tr_status_list) != count:
-        file_tr_status_list.append(0)
-    if '.yml' in file_name or '.txt' in file_name:
-        file_tr_status_list[file_name_list.index(file_name)] = tr_status
-    return file_tr_status_list
-
-
-def set_file_pointer_pos_list(file_name_list, file_name, pointer_pos, collection):
-    count = len(file_name_list)
-    try:
-        file_pointer_pos_list = collection["file_pointer_pos_list"]
-    except KeyError:
-        file_pointer_pos_list = []
-    while len(file_pointer_pos_list) != count:
-        file_pointer_pos_list.append(0)
-    if '.yml' in file_name or '.txt' in file_name:
-        file_pointer_pos_list[file_name_list.index(file_name)] = pointer_pos
-    return file_pointer_pos_list
-
-
-# TODO fix '/' and '\\' difference in incoming string and make a single simbol
-
-def open_zip_file(file):
-    directory = '/'.join(file.split('/')[:-1])
-    with zipfile.ZipFile(file) as zip_file:
-        zip_file.extractall(directory)
-
-
-def remove_unpacked_files():
-    path = data['base_dir'].split('\\localisation')[0].split('\\common')[0]
-    if list(filter(lambda x: '.zip' in x, os.listdir(path))):
-        directory = list(filter(lambda x: '.zip' not in x, os.listdir(path)))
-        folders, files = [], []
-        for item in directory:
-            if item.split('.')[-1] in '.txt.yml.yaml.mod.json.png.jpeg.jpg.mp.bin.py.db':
-                files.append(item)
-            else:
-                folders.append(item)
-        for item in files:
-            os.remove(f'{path}\\{item}')
-        for item in folders:
-            shutil.rmtree(f'{path}\\{item}')
+# # TODO rework pointer and translation status to single-mode
+#
+# def set_file_tr_status_list(file_name_list, file_name, tr_status, collection):
+#     count = len(file_name_list)
+#     try:
+#         file_tr_status_list = collection["file_tr_status_list"]
+#     except KeyError:
+#         file_tr_status_list = []
+#     while len(file_tr_status_list) != count:
+#         file_tr_status_list.append(0)
+#     if '.yml' in file_name or '.txt' in file_name:
+#         file_tr_status_list[file_name_list.index(file_name)] = tr_status
+#     return file_tr_status_list
+#
+#
+# def set_file_pointer_pos_list(file_name_list, file_name, pointer_pos, collection):
+#     count = len(file_name_list)
+#     try:
+#         file_pointer_pos_list = collection["file_pointer_pos_list"]
+#     except KeyError:
+#         file_pointer_pos_list = []
+#     while len(file_pointer_pos_list) != count:
+#         file_pointer_pos_list.append(0)
+#     if '.yml' in file_name or '.txt' in file_name:
+#         file_pointer_pos_list[file_name_list.index(file_name)] = pointer_pos
+#     return file_pointer_pos_list
+#
+#
+# # TODO fix '/' and '\\' difference in incoming string and make a single simbol
+#
+# def open_zip_file(file):
+#     directory = '/'.join(file.split('/')[:-1])
+#     with zipfile.ZipFile(file) as zip_file:
+#         zip_file.extractall(directory)
+#
+#
+# def remove_unpacked_files():
+#     path = data['base_dir'].split('\\localisation')[0].split('\\common')[0]
+#     if list(filter(lambda x: '.zip' in x, os.listdir(path))):
+#         directory = list(filter(lambda x: '.zip' not in x, os.listdir(path)))
+#         folders, files = [], []
+#         for item in directory:
+#             if item.split('.')[-1] in '.txt.yml.yaml.mod.json.png.jpeg.jpg.mp.bin.py.db':
+#                 files.append(item)
+#             else:
+#                 folders.append(item)
+#         for item in files:
+#             os.remove(f'{path}\\{item}')
+#         for item in folders:
+#             shutil.rmtree(f'{path}\\{item}')
 
 
 def mod_name_wrap(mod_name, value):
@@ -376,15 +376,15 @@ def mod_name_wrap(mod_name, value):
     return mod_name
 
 
-def move_folder():
-    try:
-        new_folder_path = shutil.move(data['folder_path'], finished_folders_path)
-        data['folder_path'] = new_folder_path
-        data['cuttered'] = f'{new_folder_path}\\{data["cutter_file_name"]}'
-        data['translated_file'] = f'{new_folder_path}\\{data["translated_name"]}'
-        data['machine_text'] = f'{new_folder_path}\\machine_text.txt'
-    except shutil.Error:
-        return None
+# def move_folder():
+#     try:
+#         new_folder_path = shutil.move(data['folder_path'], finished_folders_path)
+#         data['folder_path'] = new_folder_path
+#         data['cuttered'] = f'{new_folder_path}\\{data["cutter_file_name"]}'
+#         data['translated_file'] = f'{new_folder_path}\\{data["translated_name"]}'
+#         data['machine_text'] = f'{new_folder_path}\\machine_text.txt'
+#     except shutil.Error:
+#         return None
 
 
 def get_info_from_stack():

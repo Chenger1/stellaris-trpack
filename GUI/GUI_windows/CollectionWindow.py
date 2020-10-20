@@ -50,30 +50,30 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         window = AcceptMessageWindow(self, message, types[message[0]])
         window.show()
 
-    def open_mod_loc(self, **kwargs):
-        if os.path.isdir(self.collection[kwargs['mod_id']].files[kwargs['file_name']]['folder_path']) is False:
-            message = 'invalid_file'
-            call_error_message(self, message)
-        else:
-            self.parent.FileNameLine.setText(
-                self.collection[kwargs['mod_id']].files[kwargs['file_name']]['original_name'])
-            self.parent.ModIDLine.setText(str(kwargs['mod_id']))
-            self.collection[kwargs['mod_id']].files[kwargs['file_name']]['final_name'] = kwargs['file_name']
-            set_data(self.collection[kwargs['mod_id']].files[kwargs['file_name']])
-            self.findChild(QtWidgets.QDialog).close()
-            self.close()
-            self.parent.ModNameLine.setText(self.collection[kwargs['mod_id']].mod_name[0])
-            self.parent.continue_local(self.collection[kwargs['mod_id']].files[kwargs['file_name']])
+    # def open_mod_loc(self, **kwargs):
+    #     if os.path.isdir(self.collection[kwargs['mod_id']].files[kwargs['file_name']]['folder_path']) is False:
+    #         message = 'invalid_file'
+    #         call_error_message(self, message)
+    #     else:
+    #         self.parent.FileNameLine.setText(
+    #             self.collection[kwargs['mod_id']].files[kwargs['file_name']]['original_name'])
+    #         self.parent.ModIDLine.setText(str(kwargs['mod_id']))
+    #         self.collection[kwargs['mod_id']].files[kwargs['file_name']]['final_name'] = kwargs['file_name']
+    #         set_data(self.collection[kwargs['mod_id']].files[kwargs['file_name']])
+    #         self.findChild(QtWidgets.QDialog).close()
+    #         self.close()
+    #         self.parent.ModNameLine.setText(self.collection[kwargs['mod_id']].mod_name[0])
+    #         self.parent.continue_local(self.collection[kwargs['mod_id']].files[kwargs['file_name']])
 
-    def open_mod_by_id(self, mod_id):
-        mod_data = self.parent.get_steam_id(str(mod_id))
-        f_path = QtWidgets.QFileDialog.getOpenFileName(directory=f"{mod_data['path']}\\localisation")[0]
-        if f_path:
-            if '.zip' in f_path.split('/')[-1]:
-                open_zip_file(f_path)
-                f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
-            self.parent.choose_file(f_path)
-            self.close()
+    # def open_mod_by_id(self, mod_id):
+    #     mod_data = self.parent.get_steam_id(str(mod_id))
+    #     f_path = QtWidgets.QFileDialog.getOpenFileName(directory=f"{mod_data['path']}\\localisation")[0]
+    #     if f_path:
+    #         if '.zip' in f_path.split('/')[-1]:
+    #             open_zip_file(f_path)
+    #             f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
+    #         self.parent.choose_file(f_path)
+    #         self.close()
 
     def continue_last_translation(self):
         last_mod: list = get_info_from_stack()
@@ -82,7 +82,6 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             self.call_accept_message(message, mod_id=last_mod[0], file_name=last_mod[1])
         else:
             message = 'all_is_complete'
-            self.message = ''
             call_error_message(self, message)
 
     def print_mod_id(self, grid, mod_id):
@@ -110,21 +109,21 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         total_value /= count
         return total_value
 
-    def start_translation(self, **kwargs):
-
-        # TODO fix '/' and '\\' difference in incoming string and make a single simbol
-
-        path = f'{kwargs["base_dir"]}\\{kwargs["file_name"]}'
-
-        if os.path.exists(path) is False:
-            dirs = list(filter(lambda x: os.path.isdir(f'{kwargs["base_dir"]}/{x}'), os.listdir(kwargs["base_dir"])))
-            target_dir = list(filter(lambda x: kwargs["file_name"] in os.listdir(f'{kwargs["base_dir"]}/{x}'), dirs))
-            path = '/'.join(f'{kwargs["base_dir"]}\\{target_dir[0]}\\{kwargs["file_name"]}'.split('\\'))
-
-        self.parent.choose_file(path)
-        self.parent.ModNameLine.setText(self.collection[kwargs['mod_id']].mod_name[0])
-        self.findChild(QtWidgets.QDialog).close()
-        self.close()
+    # def start_translation(self, **kwargs):
+    #
+    #     # TODO fix '/' and '\\' difference in incoming string and make a single simbol
+    #
+    #     path = f'{kwargs["base_dir"]}\\{kwargs["file_name"]}'
+    #
+    #     if os.path.exists(path) is False:
+    #         dirs = list(filter(lambda x: os.path.isdir(f'{kwargs["base_dir"]}/{x}'), os.listdir(kwargs["base_dir"])))
+    #         target_dir = list(filter(lambda x: kwargs["file_name"] in os.listdir(f'{kwargs["base_dir"]}/{x}'), dirs))
+    #         path = '/'.join(f'{kwargs["base_dir"]}\\{target_dir[0]}\\{kwargs["file_name"]}'.split('\\'))
+    #
+    #     self.parent.choose_file(path)
+    #     self.parent.ModNameLine.setText(self.collection[kwargs['mod_id']].mod_name[0])
+    #     self.findChild(QtWidgets.QDialog).close()
+    #     self.close()
 
     def print_files_names(self, grid, mod_id):
         if self.collection[mod_id].files:

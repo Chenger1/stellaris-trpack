@@ -117,11 +117,9 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                              self.ReverseSortingButton.isChecked())
             if status in 'mods_successfully_sorted':
                 message = status
-                self.message = ''
                 call_success_message(self, message)
             else:
                 message = status
-                self.message = ''
                 call_error_message(self, message)
         except FileNotFoundError as error:
             message = 'FileNotFoundError'
@@ -133,24 +131,23 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         for elem in reversed(range(self.gridLayout.count())):
             self.grid.itemAt(elem).widget().setParent(None)
 
-    def open_mod(self, name):
-
-        # TODO fix '/' and '\\' difference in incoming string and make a single simbol
-
-        mod_loc = get_mods_from_playset('get_mod_path', name)[0][0]
-        f_path = QtWidgets.QFileDialog.getOpenFileName(directory=mod_loc)[0]
-        if '.zip' in f_path.split('/')[-1]:
-            open_zip_file(f_path)
-            f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
-        if f_path:
-            try:
-                mod_id = get_mod_id(f_path)
-                self.parent.ModIDLine.setText(mod_id)
-                self.close()
-            except IndexError:
-                message = 'IndexError'
-                self.message = ''
-                call_error_message(self, message)
+    # def open_mod(self, name):
+    #
+    #     # TODO fix '/' and '\\' difference in incoming string and make a single simbol
+    #
+    #     mod_loc = get_mods_from_playset('get_mod_path', name)[0][0]
+    #     f_path = QtWidgets.QFileDialog.getOpenFileName(directory=mod_loc)[0]
+    #     if '.zip' in f_path.split('/')[-1]:
+    #         open_zip_file(f_path)
+    #         f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
+    #     if f_path:
+    #         try:
+    #             mod_id = get_mod_id(f_path)
+    #             self.parent.ModIDLine.setText(mod_id)
+    #             self.close()
+    #         except IndexError:
+    #             message = 'IndexError'
+    #             call_error_message(self, message)
 
     def search(self, text):
         self.generator = copy.copy(self.modList)

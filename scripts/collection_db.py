@@ -20,14 +20,13 @@ sql = {
             "machine_text"	TEXT,
             "base_dir" TEXT,
             "id" TEXT
-
             )
         """
 }
 
 
 collection_queries = {
-    'save_mod_status': """
+    'insert_mod_status': """
         INSERT INTO mod_files (
                               mod_id,
                               file_name,
@@ -63,26 +62,44 @@ collection_queries = {
                               @id
                               )
     """,
-    # 'set_other_mods': """
-    #     INSERT OR IGNORE INTO mod_files (
-    #                           mod_id,
-    #                           file_name,
-    #                           original_name,
-    #                           mod_name,
-    #                           base_dir,
-    #                           id) VALUES(
-    #                           @mod_id,
-    #                           @file_name,
-    #                           @original_name,
-    #                           @mod_name,
-    #                           @base_dir,
-    #                           @id
-    #                           )
-    # """,
+    'update_mod_status': """
+        UPDATE mod_files (
+                              mod_id,
+                              file_name,
+                              file_tr_status,
+                              file_pointer_pos,
+                              language,
+                              original_name,
+                              full_path,
+                              mod_name,
+                              folder_path,
+                              cutter_file_name,
+                              translated_name,
+                              cuttered,
+                              translated_file,
+                              machine_text,
+                              base_dir,
+                              id) VALUES(
+                              @mod_id, 
+                              @file_name,
+                              @file_tr_status,
+                              @file_pointer_pos,
+                              @language,
+                              @original_name,
+                              @full_path,
+                              @mod_name,
+                              @folder_path,
+                              @cutter_file_name,
+                              @translated_name,
+                              @cuttered,
+                              @translated_file,
+                              @machine_text,
+                              @base_dir,
+                              @id
+                              )
+    """,
     'get_info': 'SELECT * from mod_files'
 }
-
-# TODO make UPDATE script
 
 
 class Mod:
@@ -96,7 +113,6 @@ class Mod:
 
 def write_data_in_collection(db_path, data):
     mod_info = data
-    # file_name_list = data[1]
     with sqlite3.connect(db_path) as conn:
         conn.execute(collection_queries['save_mod_status'],
                      (
@@ -119,19 +135,6 @@ def write_data_in_collection(db_path, data):
                      )
                      )
         conn.commit()
-        # if file_name_list:
-        #     for file_name in file_name_list:
-        #         conn.execute(collection_queries['set_other_mods'],
-        #                      (
-        #                          mod_info['mod_id'],
-        #                          file_name,
-        #                          file_name,
-        #                          mod_info['mod_name'],
-        #                          mod_info['base_dir'],
-        #                          mod_info['id']
-        #                      )
-        #                      )
-        #     conn.commit()
 
 
 def get_data_from_collection(db_path):
@@ -140,7 +143,6 @@ def get_data_from_collection(db_path):
         c = conn.cursor()
         raw_data = c.execute(collection_queries['get_info']).fetchall()
         for elem in raw_data:
-            # data = {}
             try:
                 mod = mods[elem[0]]
                 if elem[14] and not mod.base_dir:

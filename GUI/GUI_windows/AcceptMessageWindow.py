@@ -38,17 +38,17 @@ class AcceptMessageWindow(QtWidgets.QDialog, AcceptMessage.Ui_Dialog):
         self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_1_Functional'))
         self.WindowMoveButton.installEventFilter(self)
 
-    def save_translation_state(self):
-        pointer_position = self.parent.pointer
-        translation_status = round((len(self.parent.user_text*100))/len(self.parent.orig_text))
-        save_unfinished_machine_text(self.parent.machine_text)
-        hashKey = tuple(filter(lambda x: x[1] in self.parent.ModIDLine.text(), get_info_from_db('get_mod_data')))[0][0]
-        collection_append(self.parent.ModIDLine.text(), translation_status, pointer_position, hashKey)
-        self.parent.clean_state()
-        message = 'file_was_written'
-        self.message = ''
-        self.close()
-        call_success_message(self, message)
+    # def save_translation_state(self):
+    #     pointer_position = self.parent.pointer
+    #     translation_status = round((len(self.parent.user_text*100))/len(self.parent.orig_text))
+    #     save_unfinished_machine_text(self.parent.machine_text)
+    #     hashKey = tuple(filter(lambda x: x[1] in self.parent.ModIDLine.text(), get_info_from_db('get_mod_data')))[0][0]
+    #     collection_append(self.parent.ModIDLine.text(), translation_status, pointer_position, hashKey)
+    #     self.parent.clean_state()
+    #     message = 'file_was_written'
+    #     self.message = ''
+    #     self.close()
+    #     call_success_message(self, message)
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:

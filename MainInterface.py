@@ -65,7 +65,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             i.setMaximum(max_value)
 
     def init_handlers(self):
-        self.LocalizeButton.clicked.connect(self.start_local)
+        # self.LocalizeButton.clicked.connect(self.start_local)
         self.TranslationLanguageButton.clicked.connect(self.translation_language_window)
         self.ToolLanguageButton.clicked.connect(self.tool_language_window)
         self.CollectionButton.clicked.connect(self.show_collection_window)
@@ -84,28 +84,27 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.NextStringButton.setEnabled(False)
         self.StringOrder.setText('0')
 
-    def get_mods_folder_path(self):
-        raw_path = get_info_from_db('get_path_to_mods', 1)[0]
-        if 'SteamLibrary' not in raw_path:
-            message = 'mods_not_found'
-            self.message = ''
-            call_error_message(self, message)
-        try:
-            raw_path = raw_path.split('\\')
-            path = '\\'.join(raw_path[:len(raw_path) - 1]) + '\\'
-        except IndexError:
-            path = []
-        return path
+    # def get_mods_folder_path(self):
+    #     raw_path = get_info_from_db('get_path_to_mods', 1)[0]
+    #     if 'SteamLibrary' not in raw_path:
+    #         message = 'mods_not_found'
+    #         call_error_message(self, message)
+    #     try:
+    #         raw_path = raw_path.split('\\')
+    #         path = '\\'.join(raw_path[:len(raw_path) - 1]) + '\\'
+    #     except IndexError:
+    #         path = []
+    #     return path
 
-    def open_file_dialog(self):
-        if self.mods_folder:
-            f_path = QtWidgets.QFileDialog.getOpenFileName(directory=self.mods_folder)[0]
-            if '.zip' in f_path.split('/')[-1]:
-                open_zip_file(f_path)
-                f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
-        else:
-            f_path = QtWidgets.QFileDialog.getOpenFileName()[0]
-        self.choose_file(f_path)
+    # def open_file_dialog(self):
+    #     if self.mods_folder:
+    #         f_path = QtWidgets.QFileDialog.getOpenFileName(directory=self.mods_folder)[0]
+    #         if '.zip' in f_path.split('/')[-1]:
+    #             open_zip_file(f_path)
+    #             f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
+    #     else:
+    #         f_path = QtWidgets.QFileDialog.getOpenFileName()[0]
+    #     self.choose_file(f_path)
 
     def choose_file(self, f_path):
         if f_path:
@@ -233,83 +232,79 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.FinishButton.hide()
         self.mod_type_pixmap(self.ModIDLine.text())
 
-    def write_translation(self):
-        try:
-            self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
-            writing_translation(self.user_text)
-            put_lines()
-            save_unfinished_machine_text(self.machine_text)
-            move_folder()
-            hashKey = tuple(filter(lambda x: x[1] in self.ModIDLine.text(), get_info_from_db('get_mod_data')))[0][0]
-            collection_append(self.ModIDLine.text(), 100, self.pointer, hashKey)
-            remove_unpacked_files()
-            message = 'file_was_written'
-            self.message = ''
-            call_success_message(self, message)
-            self.clean_state()
-        except FileNotFoundError:
-            if self.orig_text:
-                message = 'translation_already_written'
-                self.message = ''
-                call_error_message(self, message)
-            else:
-                message = 'no_translation'
-                self.message = ''
-                call_error_message(self, message)
-        except IndexError:
-            message = ('save_translation', '')
-            self.show_accept_window(message)
+    # def write_translation(self):
+    #     try:
+    #         self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
+    #         writing_translation(self.user_text)
+    #         put_lines()
+    #         save_unfinished_machine_text(self.machine_text)
+    #         move_folder()
+    #         hashKey = tuple(filter(lambda x: x[1] in self.ModIDLine.text(), get_info_from_db('get_mod_data')))[0][0]
+    #         collection_append(self.ModIDLine.text(), 100, self.pointer, hashKey)
+    #         remove_unpacked_files()
+    #         message = 'file_was_written'
+    #         call_success_message(self, message)
+    #         self.clean_state()
+    #     except FileNotFoundError:
+    #         if self.orig_text:
+    #             message = 'translation_already_written'
+    #             call_error_message(self, message)
+    #         else:
+    #             message = 'no_translation'
+    #             call_error_message(self, message)
+    #     except IndexError:
+    #         message = ('save_translation', '')
+    #         self.show_accept_window(message)
 
-    def continue_local(self, collection):
-        self.pointer = collection['file_pointer_pos']
-        self.PreviousString.setEnabled(True if self.pointer >= 1 else False)
-        self.orig_text = open_file_for_resuming(collection['cuttered'])
-        self.machine_text = open_file_for_resuming(collection['machine_text'])
-        if '.yml' in collection["original_name"]:
-            self.user_text = cutting_loc_lines(f'{collection["folder_path"]}\\{collection["original_name"]}_temp',
-                                               f'{mod_path}\\localisation\\{collection["final_name"]}')
-
-            # TODO adatation for name-lists
-        if '.txt' in collection["original_name"]:
-            self.user_text = cutting_name_lines(f'{collection["folder_path"]}\\{collection["original_name"]}_temp',
-                                                f'{mod_path}\\localisation\\{collection["final_name"]}')
-
-        self.user_text = remove_extra_new_line_symbols(self.user_text)
-        self.progressbar_set_maximum(len(self.orig_text))
-        self.NextStringButton.setEnabled(True)
-        self.FinishButton.show()
-        self.FinishButton.disconnect()
-        self.FinishButton.clicked.connect(self.write_translation)
-        self.check_new_line_symbol_string(True)
-        self.set_lines()
-        self.LocalizeButton.hide()
-
-    def start_local(self):
-        try:
-            workshop_id = self.ModIDLine.text()
-            data = paradox_mod_way_to_content(workshop_id)
-            self.ModNameLine.setText(data['name'])
-            self.FileNameLine.setText(data['file_name'])
-            self.mod_type_pixmap(self.ModIDLine.text())
-            self.orig_text = cutter_main(data['path'], workshop_id, data['file_name'])
-            self.progressbar_set_maximum(len(self.orig_text))
-        except FileNotFoundError:
-            message = 'mod_not_choosen'
-            self.message = ''
-            call_error_message(self, message)
-        else:
-            self.translated = get_info_from_data('compared')
-            if self.translated:
-                self.key = 'old'
-            self.NextStringButton.setEnabled(True)
-            self.FinishButton.show()
-            self.FinishButton.disconnect()
-            self.FinishButton.clicked.connect(self.write_translation)
-            self.check_new_line_symbol_string(True)
-            self.user_text.append(translate_line(self.user_text_method[self.key](self.pointer)))
-            self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
-            self.set_lines()
-            self.LocalizeButton.hide()
+    # def continue_local(self, collection):
+    #     self.pointer = collection['file_pointer_pos']
+    #     self.PreviousString.setEnabled(True if self.pointer >= 1 else False)
+    #     self.orig_text = open_file_for_resuming(collection['cuttered'])
+    #     self.machine_text = open_file_for_resuming(collection['machine_text'])
+    #     if '.yml' in collection["original_name"]:
+    #         self.user_text = cutting_loc_lines(f'{collection["folder_path"]}\\{collection["original_name"]}_temp',
+    #                                            f'{mod_path}\\localisation\\{collection["final_name"]}')
+    #
+    #         # TODO adatation for name-lists
+    #     if '.txt' in collection["original_name"]:
+    #         self.user_text = cutting_name_lines(f'{collection["folder_path"]}\\{collection["original_name"]}_temp',
+    #                                             f'{mod_path}\\localisation\\{collection["final_name"]}')
+    #
+    #     self.user_text = remove_extra_new_line_symbols(self.user_text)
+    #     self.progressbar_set_maximum(len(self.orig_text))
+    #     self.NextStringButton.setEnabled(True)
+    #     self.FinishButton.show()
+    #     self.FinishButton.disconnect()
+    #     self.FinishButton.clicked.connect(self.write_translation)
+    #     self.check_new_line_symbol_string(True)
+    #     self.set_lines()
+    #     self.LocalizeButton.hide()
+    #
+    # def start_local(self):
+    #     try:
+    #         workshop_id = self.ModIDLine.text()
+    #         data = paradox_mod_way_to_content(workshop_id)
+    #         self.ModNameLine.setText(data['name'])
+    #         self.FileNameLine.setText(data['file_name'])
+    #         self.mod_type_pixmap(self.ModIDLine.text())
+    #         self.orig_text = cutter_main(data['path'], workshop_id, data['file_name'])
+    #         self.progressbar_set_maximum(len(self.orig_text))
+    #     except FileNotFoundError:
+    #         message = 'mod_not_choosen'
+    #         call_error_message(self, message)
+    #     else:
+    #         self.translated = get_info_from_data('compared')
+    #         if self.translated:
+    #             self.key = 'old'
+    #         self.NextStringButton.setEnabled(True)
+    #         self.FinishButton.show()
+    #         self.FinishButton.disconnect()
+    #         self.FinishButton.clicked.connect(self.write_translation)
+    #         self.check_new_line_symbol_string(True)
+    #         self.user_text.append(translate_line(self.user_text_method[self.key](self.pointer)))
+    #         self.machine_text.append(check_if_line_translated(self.orig_text[self.pointer], self.user_text[-1]))
+    #         self.set_lines()
+    #         self.LocalizeButton.hide()
 
     def eventFilter(self, source, event):
         if source == self.WindowMoveButton:
