@@ -132,7 +132,7 @@ QPushButton:pressed{
 	margin: 0;
 	}
 QScrollBar::handle:vertical{
-	background-color: #5abe41;
+	background-color: #05B8CC;
     min-height: 20px;
 	}
 QScrollBar::add-line:vertical{
@@ -406,7 +406,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>Продолжить последний перевод</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="StatusLabel">
@@ -531,43 +531,6 @@ QPushButton:pressed{
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="RenameCollectionButton">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>520</y>
-     <width>171</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-    background-color: #05B8CC;
-    border: 2px solid #05B8CC;
-    border-radius: 15px;
-    color: #1f2533;
-	}
-QPushButton:hover{
-    background-color: #31858f;
-    border: #31858f;
-    color: #ffffff;	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-   </property>
-   <property name="text">
-    <string>Продолжить</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="mod_list_logo">
    <property name="geometry">
     <rect>
@@ -588,6 +551,31 @@ image: url(:/icons/icons/collection.png);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="StringsList">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>40</y>
+     <width>191</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Продолжить последний перевод.Переименовать Коллекцию.Введите желаемое имя Коллекции</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <zorder>StringsList</zorder>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>LandingArea</zorder>
@@ -597,7 +585,6 @@ image: url(:/icons/icons/collection.png);</string>
   <zorder>CollectionLabel</zorder>
   <zorder>ExitButton</zorder>
   <zorder>CollectionNameLabel</zorder>
-  <zorder>RenameCollectionButton</zorder>
   <zorder>ContinueButton</zorder>
   <zorder>mod_list_logo</zorder>
   <zorder>OptionsListComboBox</zorder>

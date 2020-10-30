@@ -58,30 +58,6 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("background-color: transparent;")
         self.centralwidget.setObjectName("centralwidget")
-        self.LocalizeButton = QtWidgets.QPushButton(self.centralwidget)
-        self.LocalizeButton.setGeometry(QtCore.QRect(20, 780, 231, 41))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.LocalizeButton.setFont(font)
-        self.LocalizeButton.setStyleSheet("QPushButton{\n"
-"    background-color: #5abe41;\n"
-"    border: 3px solid #5abe41;\n"
-"    border-radius: 20px;\n"
-"    color: #1f2533;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: #438e30;\n"
-"    border: #438e30;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: #c2c2c2;\n"
-"    color: #1f2533;\n"
-"    }")
-        self.LocalizeButton.setObjectName("LocalizeButton")
         self.ModIDLine = QtWidgets.QLineEdit(self.centralwidget)
         self.ModIDLine.setGeometry(QtCore.QRect(70, 50, 211, 31))
         font = QtGui.QFont()
@@ -605,15 +581,15 @@ class Ui_MainWindow(object):
         self.ModNameLine.setAlignment(QtCore.Qt.AlignCenter)
         self.ModNameLine.setReadOnly(True)
         self.ModNameLine.setObjectName("ModNameLine")
-        self.FinishButton = QtWidgets.QPushButton(self.centralwidget)
-        self.FinishButton.setGeometry(QtCore.QRect(20, 780, 231, 41))
+        self.SaveButton = QtWidgets.QPushButton(self.centralwidget)
+        self.SaveButton.setGeometry(QtCore.QRect(20, 780, 231, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
-        self.FinishButton.setFont(font)
-        self.FinishButton.setStyleSheet("QPushButton{\n"
+        self.SaveButton.setFont(font)
+        self.SaveButton.setStyleSheet("QPushButton{\n"
 "    background-color: #5abe41;\n"
 "    border: 3px solid #5abe41;\n"
 "    border-radius: 20px;\n"
@@ -628,7 +604,7 @@ class Ui_MainWindow(object):
 "    background-color: #c2c2c2;\n"
 "    color: #1f2533;\n"
 "    }")
-        self.FinishButton.setObjectName("FinishButton")
+        self.SaveButton.setObjectName("SaveButton")
         self.CollectionButton = QtWidgets.QPushButton(self.centralwidget)
         self.CollectionButton.setGeometry(QtCore.QRect(50, 100, 171, 31))
         font = QtGui.QFont()
@@ -652,31 +628,6 @@ class Ui_MainWindow(object):
 "    border: #c2c2c2;\n"
 "    }")
         self.CollectionButton.setObjectName("CollectionButton")
-        self.ManualButton = QtWidgets.QPushButton(self.centralwidget)
-        self.ManualButton.setGeometry(QtCore.QRect(40, 151, 151, 27))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.ManualButton.setFont(font)
-        self.ManualButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    border-radius: 13px;\n"
-"    min-height: 27px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: #31858f;\n"
-"    border: #31858f;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: #05B8CC;\n"
-"    border: 2px solid #05B8CC;\n"
-"    }")
-        self.ManualButton.setObjectName("ManualButton")
         self.FileNameLine = QtWidgets.QLineEdit(self.centralwidget)
         self.FileNameLine.setGeometry(QtCore.QRect(460, 800, 631, 41))
         font = QtGui.QFont()
@@ -700,7 +651,7 @@ class Ui_MainWindow(object):
         self.steam_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.steam_logo.setObjectName("steam_logo")
         self.UpdateTranslationButton = QtWidgets.QPushButton(self.centralwidget)
-        self.UpdateTranslationButton.setGeometry(QtCore.QRect(50, 198, 201, 27))
+        self.UpdateTranslationButton.setGeometry(QtCore.QRect(40, 150, 201, 27))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
@@ -747,10 +698,8 @@ class Ui_MainWindow(object):
         self.paradox_logo.raise_()
         self.ToolLanguageButton.raise_()
         self.ModNameLine.raise_()
-        self.FinishButton.raise_()
-        self.LocalizeButton.raise_()
+        self.SaveButton.raise_()
         self.CollectionButton.raise_()
-        self.ManualButton.raise_()
         self.steam_logo.raise_()
         self.FileNameLine.raise_()
         self.UpdateTranslationButton.raise_()
@@ -762,7 +711,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Stellaris True Machine Translation Tool"))
-        self.LocalizeButton.setText(_translate("MainWindow", "Локализировать"))
         self.ModIDLine.setText(_translate("MainWindow", "SteamWorkshop ID"))
         self.OriginalLabel.setText(_translate("MainWindow", "Оригинальная строка"))
         self.TranslatedLabel.setText(_translate("MainWindow", "Машинный перевод"))
@@ -792,7 +740,6 @@ class Ui_MainWindow(object):
         self.ExitButton.setText(_translate("MainWindow", "X"))
         self.ReferenceButton.setText(_translate("MainWindow", "Справка"))
         self.ToolLanguageButton.setText(_translate("MainWindow", "Интерфейс"))
-        self.FinishButton.setText(_translate("MainWindow", "Сохранить перевод"))
+        self.SaveButton.setText(_translate("MainWindow", "Сохранить перевод"))
         self.CollectionButton.setText(_translate("MainWindow", "Коллекция"))
-        self.ManualButton.setText(_translate("MainWindow", "Вручную"))
         self.UpdateTranslationButton.setText(_translate("MainWindow", "Обновить перевод"))

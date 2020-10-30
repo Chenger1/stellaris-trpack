@@ -1,3 +1,9 @@
+# TODO Группировать код по образцу прочих файлов
+# TODO Рассмотреть возможности упростить алгоритм
+"""
+                              ↓ Инициализация данных ↓
+"""
+
 from dataclasses import dataclass
 from typing import Union, Dict
 

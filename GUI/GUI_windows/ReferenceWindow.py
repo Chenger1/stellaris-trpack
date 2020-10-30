@@ -1,3 +1,7 @@
+"""
+                            ↓ Инициализация данных ↓
+"""
+
 from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import Reference
@@ -10,9 +14,10 @@ class ReferenceWindow(QtWidgets.QDialog, Reference.Ui_Dialog):
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
         self.setModal(True)
+        self.parent = parent
         self.oldPos = self.pos()
         self.init_handlers()
-        self.parent = parent
+
         self.area_widget = self.scrollArea.children()[0].children()[0]
         self.labels = self.set_labels()
         self.scroll_bar(self.labels[to_scroll]['pos'])
@@ -20,9 +25,9 @@ class ReferenceWindow(QtWidgets.QDialog, Reference.Ui_Dialog):
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
-        self.WindowMoveButton.installEventFilter(self)
         self.AboutToolButton.clicked.connect(self.about_tool_window)
         self.SearchLine.textChanged.connect(self.search)
+        self.WindowMoveButton.installEventFilter(self)
 
     def about_tool_window(self):
         about_tool_window = AboutToolWindow(self)
@@ -35,6 +40,25 @@ class ReferenceWindow(QtWidgets.QDialog, Reference.Ui_Dialog):
                                  'text': label.text()} for label in self.area_widget.findChildren(QtWidgets.QLabel) if 'QLabel' in label.objectName()
         }
 
+    def eventFilter(self, source, event):
+        """
+                    Данная функция предназначена для отслеживания позиции окна
+                    и его перемещения кликом по шапке
+        """
+        if source == self.WindowMoveButton:
+            if event.type() == QtCore.QEvent.MouseButtonPress:
+                self.oldPos = event.pos()
+            elif event.type() == QtCore.QEvent.MouseMove and self.oldPos is not None:
+                self.move(self.pos() - self.oldPos + event.pos())
+                return True
+            elif event.type() == QtCore.QEvent.MouseButtonRelease:
+                self.oldPos = None
+        return super().eventFilter(source, event)
+
+    """
+                                    ↓ Рендер ↓
+    """
+
     def search(self, string):
         for label in list(self.labels.values()):
             if string.lower() in label['text'].lower() and string != '':
@@ -42,14 +66,3 @@ class ReferenceWindow(QtWidgets.QDialog, Reference.Ui_Dialog):
 
     def scroll_bar(self, to_scroll):
         self.scrollArea.verticalScrollBar().setValue(to_scroll)
-
-    def eventFilter(self, source, event):
-        if source == self.WindowMoveButton:
-            if event.type() == QtCore.QEvent.MouseButtonPress:
-                self.oldPos = event.pos()
-            elif event.type() == QtCore.QEvent.MouseMove and self.oldPos is not None:
-                self.move(self.pos() - self.oldPos+event.pos())
-                return True
-            elif event.type() == QtCore.QEvent.MouseButtonRelease:
-                self.oldPos = None
-        return super().eventFilter(source, event)

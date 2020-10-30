@@ -1,10 +1,16 @@
+"""
+                            ↓ Инициализация данных ↓
+"""
+
 from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import TranslationLanguage
 from json import load, dump
 import copy
 
-from scripts.stylesheets import active_lang_style, inactive_lang_style
+from scripts.stylesheets import choosen_lang_style, not_chosen_lang_style
+
+# TODO simplify render algorythm
 
 
 class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog):
@@ -13,10 +19,9 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
         self.setModal(True)
-        self.oldPos = self.pos()
         self.parent = parent
-        self.grid = self.GridLangButtonsLayout
-        self.grid.setColumnMinimumWidth(1, 50)
+        self.oldPos = self.pos()
+
         self.lang = self.LanguagesList.text().split()
         self.ArabicButton = QtWidgets.QPushButton(self.lang[0])
         self.ArmenianButton = QtWidgets.QPushButton(self.lang[1])
@@ -83,30 +88,73 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
             'SwedishButton': [self.SwedishButton, 'sv'],
             'TurkishButton': [self.TurkishButton, 'tr'],
         }
-        self.generator = copy.copy(self.buttons)
-        self.set_active()
         self.init_handlers()
 
-    def set_active(self):
-        with open("Properties.json", 'r', encoding='utf-8') as prop:
-            properties = load(prop)
-        for button in self.buttons:
-            if self.buttons[button][1] == properties["translation_language"]:
-                active_lang_style(self.buttons[button][0])
-            else:
-                inactive_lang_style(self.buttons[button][0])
-        self.gen()
+        self.grid = self.GridLangButtonsLayout
+        self.grid.setColumnMinimumWidth(1, 50)
+        self.generator = copy.copy(self.buttons)
+        self.choose_lang()
 
-    def gen(self):
-        n = 0
-        k = -1
-        for button in self.generator:
-            if k != 2:
-                k += 1
-            else:
-                k = 0
-                n += 1
-            self.grid.addWidget(self.buttons[button][0], n, k)
+    def init_handlers(self):
+        self.WindowMoveButton.installEventFilter(self)
+        self.ExitButton.clicked.connect(self.close)
+        self.ArabicButton.clicked.connect(lambda: self.set_target_language('ar'))
+        self.ArmenianButton.clicked.connect(lambda: self.set_target_language('hy'))
+        self.AzerbaijaniButton.clicked.connect(lambda: self.set_target_language('az'))
+        self.BelarusianButton.clicked.connect(lambda: self.set_target_language('be'))
+        self.BulgarianButton.clicked.connect(lambda: self.set_target_language('bg'))
+        self.ChineseButton.clicked.connect(lambda: self.set_target_language('zh-cn'))
+        self.CroatianButton.clicked.connect(lambda: self.set_target_language('hr'))
+        self.CzechButton.clicked.connect(lambda: self.set_target_language('cs'))
+        self.DanishButton.clicked.connect(lambda: self.set_target_language('da'))
+        self.DutchButton.clicked.connect(lambda: self.set_target_language('nl'))
+        self.EnglishButton.clicked.connect(lambda: self.set_target_language('en'))
+        self.EstonianButton.clicked.connect(lambda: self.set_target_language('et'))
+        self.FinnishButton.clicked.connect(lambda: self.set_target_language('fi'))
+        self.FrenchButton.clicked.connect(lambda: self.set_target_language('fr'))
+        self.GermanButton.clicked.connect(lambda: self.set_target_language('de'))
+        self.GreekButton.clicked.connect(lambda: self.set_target_language('el'))
+        self.HungarianButton.clicked.connect(lambda: self.set_target_language('hu'))
+        self.ItalianButton.clicked.connect(lambda: self.set_target_language('it'))
+        self.JapaneseButton.clicked.connect(lambda: self.set_target_language('ja'))
+        self.KoreanButton.clicked.connect(lambda: self.set_target_language('ko'))
+        self.LithuanianButton.clicked.connect(lambda: self.set_target_language('lt'))
+        self.NorwegianButton.clicked.connect(lambda: self.set_target_language('no'))
+        self.PolishButton.clicked.connect(lambda: self.set_target_language('pl'))
+        self.PortugueseButton.clicked.connect(lambda: self.set_target_language('pt'))
+        self.RussianButton.clicked.connect(lambda: self.set_target_language('ru'))
+        self.SlovakButton.clicked.connect(lambda: self.set_target_language('sk'))
+        self.SlovenianButton.clicked.connect(lambda: self.set_target_language('sl'))
+        self.SpanishButton.clicked.connect(lambda: self.set_target_language('es'))
+        self.SwedishButton.clicked.connect(lambda: self.set_target_language('sv'))
+        self.TurkishButton.clicked.connect(lambda: self.set_target_language('tr'))
+        self.UkrainianButton.clicked.connect(lambda: self.set_target_language('uk'))
+        self.SearchLine.textChanged.connect(self.search_init)
+        self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_5_TargetLanguage'))
+
+    def search_init(self, text):
+        self.clean()
+        self.search(text)
+        self.choose_lang()
+
+    def eventFilter(self, source, event):
+        """
+                    Данная функция предназначена для отслеживания позиции окна
+                    и его перемещения кликом по шапке
+        """
+        if source == self.WindowMoveButton:
+            if event.type() == QtCore.QEvent.MouseButtonPress:
+                self.oldPos = event.pos()
+            elif event.type() == QtCore.QEvent.MouseMove and self.oldPos is not None:
+                self.move(self.pos() - self.oldPos + event.pos())
+                return True
+            elif event.type() == QtCore.QEvent.MouseButtonRelease:
+                self.oldPos = None
+        return super().eventFilter(source, event)
+
+    """
+                                ↓ Рендер ↓
+    """
 
     def clean(self):
         for i in reversed(range(self.grid.count())):
@@ -120,66 +168,38 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
             if text in self.buttons[button][0].text().lower():
                 pass
             else:
-                if properties["translation_language"] != self.buttons[button][1]:
+                if properties["target_language"] != self.buttons[button][1]:
                     del self.generator[button]
 
-    def set_translation_language(self, translation_language):
+    def gen(self):
+        n = 0
+        k = -1
+        for button in self.generator:
+            if k != 2:
+                k += 1
+            else:
+                k = 0
+                n += 1
+            self.grid.addWidget(self.buttons[button][0], n, k)
+
+    """
+                                ↓ Выбор языка, на который будут переводиться файлы ↓
+    """
+
+    def set_target_language(self, target_language):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
             properties = load(prop)
-            properties["translation_language"] = translation_language
+            properties["target_language"] = target_language
         with open("Properties.json", 'w', encoding='utf-8') as prop:
             dump(properties, prop)
-        self.set_active()
+        self.choose_lang()
 
-    def init_handlers(self):
-        self.WindowMoveButton.installEventFilter(self)
-        self.ExitButton.clicked.connect(self.close)
-        self.ArabicButton.clicked.connect(lambda: self.set_translation_language('ar'))
-        self.ArmenianButton.clicked.connect(lambda: self.set_translation_language('hy'))
-        self.AzerbaijaniButton.clicked.connect(lambda: self.set_translation_language('az'))
-        self.BelarusianButton.clicked.connect(lambda: self.set_translation_language('be'))
-        self.BulgarianButton.clicked.connect(lambda: self.set_translation_language('bg'))
-        self.ChineseButton.clicked.connect(lambda: self.set_translation_language('zh-cn'))
-        self.CroatianButton.clicked.connect(lambda: self.set_translation_language('hr'))
-        self.CzechButton.clicked.connect(lambda: self.set_translation_language('cs'))
-        self.DanishButton.clicked.connect(lambda: self.set_translation_language('da'))
-        self.DutchButton.clicked.connect(lambda: self.set_translation_language('nl'))
-        self.EnglishButton.clicked.connect(lambda: self.set_translation_language('en'))
-        self.EstonianButton.clicked.connect(lambda: self.set_translation_language('et'))
-        self.FinnishButton.clicked.connect(lambda: self.set_translation_language('fi'))
-        self.FrenchButton.clicked.connect(lambda: self.set_translation_language('fr'))
-        self.GermanButton.clicked.connect(lambda: self.set_translation_language('de'))
-        self.GreekButton.clicked.connect(lambda: self.set_translation_language('el'))
-        self.HungarianButton.clicked.connect(lambda: self.set_translation_language('hu'))
-        self.ItalianButton.clicked.connect(lambda: self.set_translation_language('it'))
-        self.JapaneseButton.clicked.connect(lambda: self.set_translation_language('ja'))
-        self.KoreanButton.clicked.connect(lambda: self.set_translation_language('ko'))
-        self.LithuanianButton.clicked.connect(lambda: self.set_translation_language('lt'))
-        self.NorwegianButton.clicked.connect(lambda: self.set_translation_language('no'))
-        self.PolishButton.clicked.connect(lambda: self.set_translation_language('pl'))
-        self.PortugueseButton.clicked.connect(lambda: self.set_translation_language('pt'))
-        self.RussianButton.clicked.connect(lambda: self.set_translation_language('ru'))
-        self.SlovakButton.clicked.connect(lambda: self.set_translation_language('sk'))
-        self.SlovenianButton.clicked.connect(lambda: self.set_translation_language('sl'))
-        self.SpanishButton.clicked.connect(lambda: self.set_translation_language('es'))
-        self.SwedishButton.clicked.connect(lambda: self.set_translation_language('sv'))
-        self.TurkishButton.clicked.connect(lambda: self.set_translation_language('tr'))
-        self.UkrainianButton.clicked.connect(lambda: self.set_translation_language('uk'))
-        self.SearchLine.textChanged.connect(self.sync_lineEdit)
-        self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_5_TranslationLanguage'))
-
-    def sync_lineEdit(self, text):
-        self.clean()
-        self.search(text)
-        self.set_active()
-
-    def eventFilter(self, source, event):
-        if source == self.WindowMoveButton:
-            if event.type() == QtCore.QEvent.MouseButtonPress:
-                self.oldPos = event.pos()
-            elif event.type() == QtCore.QEvent.MouseMove and self.oldPos is not None:
-                self.move(self.pos() - self.oldPos + event.pos())
-                return True
-            elif event.type() == QtCore.QEvent.MouseButtonRelease:
-                self.oldPos = None
-        return super().eventFilter(source, event)
+    def choose_lang(self):
+        with open("Properties.json", 'r', encoding='utf-8') as prop:
+            properties = load(prop)
+        for button in self.buttons:
+            if self.buttons[button][1] == properties["target_language"]:
+                choosen_lang_style(self.buttons[button][0])
+            else:
+                not_chosen_lang_style(self.buttons[button][0])
+        self.gen()

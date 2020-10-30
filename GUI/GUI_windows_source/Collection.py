@@ -65,7 +65,7 @@ class Ui_Dialog(object):
 "    margin: 0;\n"
 "    }\n"
 "QScrollBar::handle:vertical{\n"
-"    background-color: #5abe41;\n"
+"    background-color: #05B8CC;\n"
 "    min-height: 20px;\n"
 "    }\n"
 "QScrollBar::add-line:vertical{\n"
@@ -199,6 +199,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
+        self.ContinueButton.setText("")
         self.ContinueButton.setObjectName("ContinueButton")
         self.StatusLabel = QtWidgets.QLabel(Dialog)
         self.StatusLabel.setGeometry(QtCore.QRect(690, 40, 171, 21))
@@ -260,29 +261,6 @@ class Ui_Dialog(object):
 "")
         self.CollectionNameLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.CollectionNameLabel.setObjectName("CollectionNameLabel")
-        self.RenameCollectionButton = QtWidgets.QPushButton(Dialog)
-        self.RenameCollectionButton.setGeometry(QtCore.QRect(60, 520, 171, 31))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.RenameCollectionButton.setFont(font)
-        self.RenameCollectionButton.setStyleSheet("QPushButton{\n"
-"    background-color: #05B8CC;\n"
-"    border: 2px solid #05B8CC;\n"
-"    border-radius: 15px;\n"
-"    color: #1f2533;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: #31858f;\n"
-"    border: #31858f;\n"
-"    color: #ffffff;    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
-        self.RenameCollectionButton.setObjectName("RenameCollectionButton")
         self.mod_list_logo = QtWidgets.QLabel(Dialog)
         self.mod_list_logo.setGeometry(QtCore.QRect(20, 20, 51, 51))
         self.mod_list_logo.setStyleSheet("background-color: none;\n"
@@ -290,6 +268,17 @@ class Ui_Dialog(object):
         self.mod_list_logo.setText("")
         self.mod_list_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.mod_list_logo.setObjectName("mod_list_logo")
+        self.StringsList = QtWidgets.QLabel(Dialog)
+        self.StringsList.setGeometry(QtCore.QRect(280, 40, 191, 20))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.StringsList.setFont(font)
+        self.StringsList.setAlignment(QtCore.Qt.AlignCenter)
+        self.StringsList.setObjectName("StringsList")
+        self.StringsList.raise_()
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.LandingArea.raise_()
@@ -299,7 +288,6 @@ class Ui_Dialog(object):
         self.CollectionLabel.raise_()
         self.ExitButton.raise_()
         self.CollectionNameLabel.raise_()
-        self.RenameCollectionButton.raise_()
         self.ContinueButton.raise_()
         self.mod_list_logo.raise_()
         self.OptionsListComboBox.raise_()
@@ -321,9 +309,8 @@ class Ui_Dialog(object):
         self.OptionsListComboBox.setItemText(1, _translate("Dialog", "Локализации"))
         self.OptionsListComboBox.setItemText(2, _translate("Dialog", "Нейм-листы"))
         self.OptionsListComboBox.setItemText(3, _translate("Dialog", "Переименовать"))
-        self.ContinueButton.setText(_translate("Dialog", "Продолжить последний перевод"))
         self.StatusLabel.setText(_translate("Dialog", "Статус"))
         self.CollectionLabel.setText(_translate("Dialog", "Коллекция"))
         self.ExitButton.setText(_translate("Dialog", "X"))
         self.CollectionNameLabel.setText(_translate("Dialog", "Stellaris True Machine Translation Tool"))
-        self.RenameCollectionButton.setText(_translate("Dialog", "Продолжить"))
+        self.StringsList.setText(_translate("Dialog", "Продолжить последний перевод.Переименовать Коллекцию.Введите желаемое имя Коллекции"))

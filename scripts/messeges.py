@@ -1,3 +1,8 @@
+# TODO Return call_accept_message() to here
+"""
+                            ↓ Инициализация данных ↓
+"""
+
 from GUI.GUI_windows.SuccessMessageWindow import SuccessMessageWindow
 from GUI.GUI_windows.ErrorMessageWindow import ErrorMessageWindow
 

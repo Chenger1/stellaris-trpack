@@ -1,13 +1,13 @@
 from PyQt5 import QtWidgets, QtGui
 
 
-def set_name_style(button):
+def mod_name_style(button):
     button.setFont(QtGui.QFont("Arkhip", 9))
     button.setStyleSheet("""
     QPushButton{
         background-color: transparent;
         min-height: 40px;
-        max-width: 500px;
+        max-width: 320px;
         color: #ffffff;
         text-align: left;            
     }
@@ -20,14 +20,13 @@ def set_name_style(button):
 """)
 
 
-def set_button_style(button):
+def file_name_style(button):
     button.setFont(QtGui.QFont("Arkhip", 9))
     button.setStyleSheet("""
     QPushButton{
         background-color: transparent;
         min-height: 40px;
-        max-width: 160px;
-        min-width: 160px;
+        max-width: 170px;
         text-align: right;
         margin-right: 20px;
         color: #ffffff;
@@ -41,7 +40,51 @@ def set_button_style(button):
 """)
 
 
-def set_incomplete_style(status):
+def not_chosen_lang_style(button):
+    button.setFont(QtGui.QFont("KB Astrolyte", 9))
+    button.setStyleSheet("""
+    QPushButton{
+        background-color: rgba(31, 37, 51, 50);
+        border: 2px solid #ffffff;
+        border-radius: 13px;
+        min-height: 22px;
+        max-width: 175px;
+        color: #ffffff;
+    }
+    QPushButton:hover{
+        background-color: rgba(56, 57, 61, 50);
+    }
+    QPushButton:pressed{
+        background-color: rgba(194, 194, 194, 50);
+        border: #c2c2c2;
+    }
+""")
+
+
+def choosen_lang_style(button):
+    button.setFont(QtGui.QFont("KB Astrolyte", 10))
+    button.setStyleSheet("""
+    QPushButton{
+        background-color: #05B8CC;
+        border: 2px solid #05B8CC;
+        border-radius: 13px;
+        min-height: 22px;
+        max-width: 175px;
+        color: #1f2533;
+    }
+    QPushButton:hover{
+        background-color: #31858f;
+        border: #31858f;
+        color: #ffffff;
+    }
+    QPushButton:pressed{
+        background-color: rgba(194, 194, 194, 50);
+        border: #c2c2c2;
+    }
+    """)
+
+
+def incomplete_translation_style(status):
     status.setFormat("%p%   ")
     status.setInvertedAppearance(True)
     status.setFont(QtGui.QFont("KB Astrolyte", 9))
@@ -63,7 +106,7 @@ def set_incomplete_style(status):
 """)
 
 
-def set_complete_style(status):
+def complete_translation_style(status):
     status.setFormat("%p%   ")
     status.setInvertedAppearance(True)
     status.setFont(QtGui.QFont("KB Astrolyte", 9))
@@ -85,7 +128,7 @@ def set_complete_style(status):
 """)
 
 
-def set_choosen_file_style(status):
+def file_choosen_style(status):
     status.setText('|')
     status.setStyleSheet("""
     QLabel{
@@ -103,7 +146,7 @@ def set_choosen_file_style(status):
 """)
 
 
-def set_not_choosen_file_style(status):
+def file_not_choosen_style(status):
     status.setText('—')
     status.setStyleSheet("""
         QLabel{
@@ -120,7 +163,8 @@ def set_not_choosen_file_style(status):
         }
     """)
 
-def create_separator():
+
+def create_row_separator():
     separator = QtWidgets.QLabel()
     separator.setStyleSheet("""
     QLabel {
@@ -161,47 +205,3 @@ def mod_sorting_status_style(checkbox):
         image: url(:/icons/icons/sorting.png)
     }
 """)
-
-
-def inactive_lang_style(button):
-    button.setFont(QtGui.QFont("KB Astrolyte", 9))
-    button.setStyleSheet("""
-    QPushButton{
-        background-color: rgba(31, 37, 51, 50);
-        border: 2px solid #ffffff;
-        border-radius: 13px;
-        min-height: 22px;
-        max-width: 175px;
-        color: #ffffff;
-    }
-    QPushButton:hover{
-        background-color: rgba(56, 57, 61, 50);
-    }
-    QPushButton:pressed{
-        background-color: rgba(194, 194, 194, 50);
-        border: #c2c2c2;
-    }
-""")
-
-
-def active_lang_style(button):
-    button.setFont(QtGui.QFont("KB Astrolyte", 10))
-    button.setStyleSheet("""
-    QPushButton{
-        background-color: #05B8CC;
-        border: 2px solid #05B8CC;
-        border-radius: 13px;
-        min-height: 22px;
-        max-width: 175px;
-        color: #1f2533;
-    }
-    QPushButton:hover{
-        background-color: #31858f;
-        border: #31858f;
-        color: #ffffff;
-    }
-    QPushButton:pressed{
-        background-color: rgba(194, 194, 194, 50);
-        border: #c2c2c2;
-    }
-    """)

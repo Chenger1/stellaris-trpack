@@ -1,3 +1,9 @@
+# TODO Перенести ссылку в информацию о разработчиках
+# Mady by haifengkao
+# https://github.com/haifengkao/StellairsLoadOrderFixer24/blob/master/load_order_stellaris24.py
+"""
+                                ↓ Инициализация данных ↓
+"""
 from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import AboutTool
@@ -10,9 +16,10 @@ class AboutToolWindow(QtWidgets.QDialog, AboutTool.Ui_Dialog):
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
         self.setModal(True)
+        self.parent = parent
         self.oldPos = self.pos()
         self.init_handlers()
-        self.parent = parent
+
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
@@ -25,6 +32,10 @@ class AboutToolWindow(QtWidgets.QDialog, AboutTool.Ui_Dialog):
         self.close()
 
     def eventFilter(self, source, event):
+        """
+                    Данная функция предназначена для отслеживания позиции окна
+                    и его перемещения кликом по шапке
+        """
         if source == self.WindowMoveButton:
             if event.type() == QtCore.QEvent.MouseButtonPress:
                 self.oldPos = event.pos()

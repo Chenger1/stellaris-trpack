@@ -226,7 +226,7 @@ color: #ffffff;</string>
     <rect>
      <x>10</x>
      <y>101</y>
-     <width>271</width>
+     <width>341</width>
      <height>31</height>
     </rect>
    </property>
@@ -243,7 +243,7 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Старая локализация</string>
+    <string>Внешняя устаревшая локализация</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

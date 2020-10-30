@@ -162,4 +162,4 @@ class Ui_Dialog(object):
         self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.DeniedButton.setText(_translate("Dialog", "Отмена"))
         self.AcceptButton.setText(_translate("Dialog", "Подтвердить"))
-        self.StringsList.setText(_translate("Dialog", "Желаете продолжить перевод файла.Желаете начать перевод файла.Вы уверены что хотите сохранить перевод?.Неверный ключ [Для разработчиков]"))
+        self.StringsList.setText(_translate("Dialog", "Уверенны, что хотите перевести этот мод?.Желаете начать перевод файла.Вы уверены что хотите сохранить перевод?.Неверный ключ [Для разработчиков]"))

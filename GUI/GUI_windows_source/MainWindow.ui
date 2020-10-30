@@ -74,44 +74,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
    <property name="styleSheet">
     <string notr="true">background-color: transparent;</string>
    </property>
-   <widget class="QPushButton" name="LocalizeButton">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>780</y>
-      <width>231</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>KB Astrolyte</family>
-      <pointsize>11</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-	background-color: #5abe41;
-	border: 3px solid #5abe41;
-	border-radius: 20px;
-	color: #1f2533;
-	}
-QPushButton:hover{
-	background-color: #438e30;
-	border: #438e30;
-	color: #ffffff;
-	}
-QPushButton:pressed{
-	background-color: #c2c2c2;
-	color: #1f2533;
-	}</string>
-    </property>
-    <property name="text">
-     <string>Локализировать</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="ModIDLine">
     <property name="geometry">
      <rect>
@@ -1250,7 +1212,7 @@ QPushButton:pressed{
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="FinishButton">
+   <widget class="QPushButton" name="SaveButton">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -1325,45 +1287,6 @@ QPushButton:pressed{
      <string>Коллекция</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="ManualButton">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>151</y>
-      <width>151</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>KB Astrolyte</family>
-      <pointsize>10</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-    border-radius: 13px;
-	min-height: 27px;
-    color: #ffffff;
-	}
-QPushButton:hover{
-    background-color: #31858f;
-    border: #31858f;
-    color: #ffffff;
-	}
-QPushButton:pressed{
-    background-color: #05B8CC;
-    border: 2px solid #05B8CC;
-	}</string>
-    </property>
-    <property name="text">
-     <string>Вручную</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="FileNameLine">
     <property name="geometry">
      <rect>
@@ -1421,8 +1344,8 @@ QPushButton:pressed{
    <widget class="QPushButton" name="UpdateTranslationButton">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>198</y>
+      <x>40</x>
+      <y>150</y>
       <width>201</width>
       <height>27</height>
      </rect>
@@ -1480,10 +1403,8 @@ QPushButton:pressed{
    <zorder>paradox_logo</zorder>
    <zorder>ToolLanguageButton</zorder>
    <zorder>ModNameLine</zorder>
-   <zorder>FinishButton</zorder>
-   <zorder>LocalizeButton</zorder>
+   <zorder>SaveButton</zorder>
    <zorder>CollectionButton</zorder>
-   <zorder>ManualButton</zorder>
    <zorder>steam_logo</zorder>
    <zorder>FileNameLine</zorder>
    <zorder>UpdateTranslationButton</zorder>

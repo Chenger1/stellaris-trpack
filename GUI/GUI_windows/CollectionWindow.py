@@ -1,15 +1,17 @@
+"""
+                            ↓ Инициализация данных ↓
+"""
+
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptMessageWindow import AcceptMessageWindow
 
-from scripts.utils import get_collection, set_data, local_mod_create, open_zip_file, mod_name_wrap, get_info_from_stack
-from scripts.stylesheets import set_name_style, set_button_style, set_complete_style, set_incomplete_style, \
-    create_separator
+from scripts.utils import get_collection_data, local_mod_init, mod_name_wrap, get_info_from_stack, get_total_value, file_name_fix, open_file_for_resuming
+from scripts.stylesheets import mod_name_style, file_name_style, complete_translation_style, incomplete_translation_style, create_row_separator
 from scripts.messeges import call_error_message
 from scripts.pictures import get_thumbnail
 
-import os
 import json
 from functools import partial
 
@@ -19,258 +21,56 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         super().__init__(parent)
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
-        self.OptionsListComboBox.view().parentWidget().setStyleSheet("background: #05B8CC;")
         self.setModal(True)
         self.parent = parent
         self.oldPos = self.pos()
-        self.collection = get_collection()
-        self.buttons = {}
-        self.borders = {'blue': 'border: 3px solid #05B8CC;',
-                        'green': 'border: 3px solid #5abe41;',
-                        'gray': 'border: 3px solid gray'}
-        self.row_index = 0
         self.init_handlers()
+        self.message = None
+
+        self.string = self.StringsList.text().split('.')
+        self.collection = get_collection_data()
         self.set_collection_name()
+        self.gridLayout.setSpacing(10)
+        self.buttons = {}
+        self.row_index = 0
+        self.OptionsListComboBox.view().parentWidget().setStyleSheet("background: #05B8CC;")
+        self.borders = {
+            'blue': 'border: 3px solid #05B8CC;',
+            'green': 'border: 3px solid #5abe41;',
+            'gray': 'border: 3px solid gray'
+        }
         self.paint_elements()
-        self.message = ''
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.OptionsListComboBox.activated[str].connect(lambda: self.paint_elements())
-        self.RenameCollectionButton.clicked.connect(self.local_mod_rename)
         self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_3_Collection'))
         self.WindowMoveButton.installEventFilter(self)
-        self.ContinueButton.clicked.connect(self.continue_last_translation)
 
-    def call_accept_message(self, message, **kwargs):
+    def call_accept_message(self, message):
         types = {
-            'start_translation': lambda: self.start_translation(**kwargs),
-            'collection_continue_translation': lambda: self.open_mod_loc(**kwargs)
+            'start_translation': lambda: self.start_localisation(message[1]),
         }
+
         window = AcceptMessageWindow(self, message, types[message[0]])
         window.show()
 
-    # def open_mod_loc(self, **kwargs):
-    #     if os.path.isdir(self.collection[kwargs['mod_id']].files[kwargs['file_name']]['folder_path']) is False:
-    #         message = 'invalid_file'
-    #         call_error_message(self, message)
-    #     else:
-    #         self.parent.FileNameLine.setText(
-    #             self.collection[kwargs['mod_id']].files[kwargs['file_name']]['original_name'])
-    #         self.parent.ModIDLine.setText(str(kwargs['mod_id']))
-    #         self.collection[kwargs['mod_id']].files[kwargs['file_name']]['final_name'] = kwargs['file_name']
-    #         set_data(self.collection[kwargs['mod_id']].files[kwargs['file_name']])
-    #         self.findChild(QtWidgets.QDialog).close()
-    #         self.close()
-    #         self.parent.ModNameLine.setText(self.collection[kwargs['mod_id']].mod_name[0])
-    #         self.parent.continue_local(self.collection[kwargs['mod_id']].files[kwargs['file_name']])
-
-    # def open_mod_by_id(self, mod_id):
-    #     mod_data = self.parent.get_steam_id(str(mod_id))
-    #     f_path = QtWidgets.QFileDialog.getOpenFileName(directory=f"{mod_data['path']}\\localisation")[0]
-    #     if f_path:
-    #         if '.zip' in f_path.split('/')[-1]:
-    #             open_zip_file(f_path)
-    #             f_path = QtWidgets.QFileDialog.getOpenFileName(directory='/'.join(f_path.split('/')[:-1]))[0]
-    #         self.parent.choose_file(f_path)
-    #         self.close()
-
-    def continue_last_translation(self):
-        last_mod: list = get_info_from_stack()
-        if last_mod:
-            message = ('collection_continue_translation', last_mod[1])
-            self.call_accept_message(message, mod_id=last_mod[0], file_name=last_mod[1])
-        else:
-            message = 'all_is_complete'
-            call_error_message(self, message)
-
-    def print_mod_id(self, grid, mod_id):
-        self.buttons[mod_id] = QtWidgets.QPushButton(f'{mod_id}')
-        self.buttons[mod_id].clicked.connect(partial(self.open_mod_by_id, mod_id))
-        status = QtWidgets.QProgressBar()
-        status.setValue(self.get_total_value(mod_id))
-        set_button_style(self.buttons[mod_id])
-        if status.value() != 100:
-            set_incomplete_style(status)
-        else:
-            set_complete_style(status)
-        grid.addWidget(self.buttons[mod_id], self.row_index + 1, 6)
-        grid.addWidget(status, self.row_index + 1, 7)
-        self.row_index += 1
-
-    def get_total_value(self, mod_id):
-        total_value = 0
-        count = 0
-
-        for file_name, file_data in self.collection[mod_id].files.items():
-            total_value += file_data['file_tr_status']
-            count += 1
-
-        total_value /= count
-        return total_value
-
-    # def start_translation(self, **kwargs):
-    #
-    #     # TODO fix '/' and '\\' difference in incoming string and make a single simbol
-    #
-    #     path = f'{kwargs["base_dir"]}\\{kwargs["file_name"]}'
-    #
-    #     if os.path.exists(path) is False:
-    #         dirs = list(filter(lambda x: os.path.isdir(f'{kwargs["base_dir"]}/{x}'), os.listdir(kwargs["base_dir"])))
-    #         target_dir = list(filter(lambda x: kwargs["file_name"] in os.listdir(f'{kwargs["base_dir"]}/{x}'), dirs))
-    #         path = '/'.join(f'{kwargs["base_dir"]}\\{target_dir[0]}\\{kwargs["file_name"]}'.split('\\'))
-    #
-    #     self.parent.choose_file(path)
-    #     self.parent.ModNameLine.setText(self.collection[kwargs['mod_id']].mod_name[0])
-    #     self.findChild(QtWidgets.QDialog).close()
-    #     self.close()
-
-    def print_files_names(self, grid, mod_id):
-        if self.collection[mod_id].files:
-            check = 0
-            for file_name, file_data in self.collection[mod_id].files.items():
-                if '.yml' in file_name:
-                    check += 1
-                    self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(file_name.split('_l_')[0])
-                    if file_data['file_tr_status'] > 0:
-                        message = ('collection_continue_translation', file_name)
-                        self.buttons[f'{mod_id}-{file_name}'].clicked. \
-                            connect(partial(self.call_accept_message, message, mod_id=mod_id, file_name=file_name))
-                    else:
-                        message = ('start_translation', file_name)
-                        self.buttons[f'{mod_id}-{file_name}'].clicked. \
-                            connect(partial(self.call_accept_message, message,
-                                            mod_id=mod_id, file_name=file_name,
-                                            base_dir=f'{self.collection[mod_id].base_dir}'))
-                    status = QtWidgets.QProgressBar()
-                    status.setValue(file_data['file_tr_status'])
-                    set_button_style(self.buttons[f'{mod_id}-{file_name}'])
-                    if status.value() != 100:
-                        set_incomplete_style(status)
-                    else:
-                        set_complete_style(status)
-                    grid.addWidget(self.buttons[f'{mod_id}-{file_name}'], self.row_index + 1, 6)
-                    grid.addWidget(status, self.row_index + 1, 7)
-                    self.row_index += 1
-            if check == 0:
-                files_not_found = QtWidgets.QPushButton(f"{'—' * 8}")
-                status = QtWidgets.QProgressBar()
-                set_button_style(files_not_found)
-                set_incomplete_style(status)
-                status.setValue(0)
-                status.setFormat("——   ")
-                grid.addWidget(files_not_found, self.row_index + 1, 6)
-                grid.addWidget(status, self.row_index + 1, 7)
-                self.row_index += 1
-
-    def print_name_lists(self, grid, mod_id):
-        if self.collection[mod_id].files:
-            check = 0
-            for file_name, file_data in self.collection[mod_id].files.items():
-                if '.txt' in file_name:
-                    check += 1
-                    self.buttons[f'{mod_id}-{file_name}'] = QtWidgets.QPushButton(file_name.split('_english')[0].split('.txt')[0])
-                    if file_data['file_tr_status'] > 0:
-                        message = ('collection_continue_translation', file_name)
-                        self.buttons[f'{mod_id}-{file_name}'].clicked. \
-                            connect(partial(self.call_accept_message, message, mod_id=mod_id, file_name=file_name))
-                    else:
-                        message = ('start_translation', file_name)
-                        self.buttons[f'{mod_id}-{file_name}'].clicked. \
-                            connect(partial(self.call_accept_message, message,
-                                            mod_id=mod_id, file_name=file_name,
-                                            base_dir=f'{self.collection[mod_id].base_dir}'))
-                    status = QtWidgets.QProgressBar()
-                    status.setValue(file_data['file_tr_status'])
-                    set_button_style(self.buttons[f'{mod_id}-{file_name}'])
-                    if status.value() != 100:
-                        set_incomplete_style(status)
-                    else:
-                        set_complete_style(status)
-                    grid.addWidget(self.buttons[f'{mod_id}-{file_name}'], self.row_index + 1, 6)
-                    grid.addWidget(status, self.row_index + 1, 7)
-                    self.row_index += 1
-            if check == 0:
-                files_not_found = QtWidgets.QPushButton(f"{'—' * 8}")
-                status = QtWidgets.QProgressBar()
-                set_button_style(files_not_found)
-                set_incomplete_style(status)
-                status.setValue(0)
-                status.setFormat("——   ")
-                grid.addWidget(files_not_found, self.row_index + 1, 6)
-                grid.addWidget(status, self.row_index + 1, 7)
-                self.row_index += 1
-
-    def clean(self, grid):
-        self.CollectionLabel.show()
-        self.CollectionNameLabel.show()
-        self.StatusLabel.show()
-        self.ContinueButton.show()
-        self.RenameCollectionButton.hide()
-        for i in reversed(range(grid.count())):
-            grid.itemAt(i).widget().setParent(None)
-
-    def set_collection_name(self):
-        with open('Properties.json', 'r', encoding='utf-8') as prop:
-            properties = json.load(prop)
-            self.NewNameText.setText(properties["collection_name"])
-            self.NewNameText.setAlignment(QtCore.Qt.AlignCenter)
-            self.CollectionNameLabel.setText(properties["collection_name"])
-
-    def local_mod_rename(self):
+    def collection_mod_rename(self):
         with open('Properties.json', 'r', encoding='utf-8') as prop:
             properties = json.load(prop)
             properties["collection_name"] = self.NewNameText.toPlainText()
+
         with open("Properties.json", 'w', encoding='utf-8') as prop:
             json.dump(properties, prop)
+
         self.set_collection_name()
-        local_mod_create()
-
-    def print_rename(self, grid):
-        self.CollectionLabel.hide()
-        self.CollectionNameLabel.hide()
-        self.StatusLabel.hide()
-        self.ContinueButton.hide()
-        self.RenameCollectionButton.show()
-        for i in reversed(range(grid.count())):
-            grid.itemAt(i).widget().setParent(None)
-        grid.addWidget(self.NewNameText)
-
-    def paint_elements(self):
-        grid = self.gridLayout
-        options = self.OptionsListComboBox
-        grid.setSpacing(10)
-        self.clean(grid)
-        for mod_id, mod in self.collection.items():
-            label = QtWidgets.QLabel(self)
-            value = self.get_total_value(mod_id)
-            if value == 100:
-                label.setStyleSheet(self.borders['green'])
-            elif value < 100:
-                label.setStyleSheet(self.borders['blue'])
-            pixmap = QtGui.QPixmap(get_thumbnail(mod.hashKey))
-            pixmap = pixmap.scaled(160, 100, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
-            label.setPixmap(pixmap)
-            mod_name = QtWidgets.QPushButton(mod_name_wrap(mod.mod_name[0], 35))
-            separator = create_separator()
-            set_name_style(mod_name)
-            self.row_index += 1
-            grid.addWidget(label, self.row_index + 1, 0)
-            grid.addWidget(mod_name, self.row_index + 1, 1, 1, 4)
-            if options.currentText() in options.itemText(0):
-                self.print_mod_id(grid, mod_id)
-                grid.addWidget(separator, self.row_index + 1, 6)
-            elif options.currentText() in options.itemText(1):
-                self.print_files_names(grid, mod_id)
-                grid.addWidget(separator, self.row_index + 1, 6)
-            elif options.currentText() in options.itemText(2):
-                self.print_name_lists(grid, mod_id)
-                grid.addWidget(separator, self.row_index + 1, 6)
-            elif options.currentText() in options.itemText(3):
-                self.print_rename(grid)
-            self.row_index += 1
+        local_mod_init()
 
     def eventFilter(self, source, event):
+        """
+                    Данная функция предназначена для отслеживания позиции окна
+                    и его перемещения кликом по шапке
+        """
         if source == self.WindowMoveButton:
             if event.type() == QtCore.QEvent.MouseButtonPress:
                 self.oldPos = event.pos()
@@ -280,3 +80,171 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             elif event.type() == QtCore.QEvent.MouseButtonRelease:
                 self.oldPos = None
         return super().eventFilter(source, event)
+
+    """
+                            ↓ Рендер ↓
+    """
+
+    def set_collection_name(self):
+        with open('Properties.json', 'r', encoding='utf-8') as properties:
+            properties = json.load(properties)
+
+        self.NewNameText.setText(self.string[-1])
+        self.NewNameText.setAlignment(QtCore.Qt.AlignCenter)
+        self.CollectionNameLabel.setText(properties["collection_name"])
+
+    def clean(self, grid):
+        self.ContinueButton.setText(self.string[0])
+        self.ContinueButton.disconnect()
+        self.ContinueButton.clicked.connect(self.close)
+        self.ContinueButton.clicked.connect(self.continue_last_translation)
+
+        for i in reversed(range(grid.count())):
+            grid.itemAt(i).widget().setParent(None)
+
+    def print_mod_name(self, grid, files, value):
+        thumbnail = QtWidgets.QLabel()
+        pixmap = QtGui.QPixmap(get_thumbnail(files[0].hash_key))
+        mod_name = QtWidgets.QPushButton(mod_name_wrap(files[0].mod_name, 35))
+
+        pixmap = pixmap.scaled(160, 100, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
+        thumbnail.setPixmap(pixmap)
+        if value == 100:
+            thumbnail.setStyleSheet(self.borders['green'])
+        elif value < 100:
+            thumbnail.setStyleSheet(self.borders['blue'])
+        mod_name_style(mod_name)
+
+        grid.addWidget(thumbnail, self.row_index + 1, 0)
+        grid.addWidget(mod_name, self.row_index + 1, 1, 1, 4)
+
+    def print_mod_id(self, grid, mod_id, value):
+        self.buttons[mod_id] = QtWidgets.QPushButton(mod_id)
+        status = QtWidgets.QProgressBar()
+
+        file_name_style(self.buttons[mod_id])
+        status.setValue(value)
+        if status.value() != 100:
+            incomplete_translation_style(status)
+        else:
+            complete_translation_style(status)
+
+        grid.addWidget(self.buttons[mod_id], self.row_index + 1, 6)
+        grid.addWidget(status, self.row_index + 1, 7)
+
+        self.row_index += 1
+
+    def files_not_found(self, grid):
+        """
+                    Если, вдруг, файлов для текущей опции в списке не окажется,
+                    вместо них будет добавлена заглушка
+        """
+        button = QtWidgets.QPushButton(f"{'—' * 8}")
+        status = QtWidgets.QProgressBar()
+
+        file_name_style(button)
+        incomplete_translation_style(status)
+        status.setValue(0)
+        status.setFormat("——   ")
+
+        grid.addWidget(button, self.row_index + 1, 6)
+        grid.addWidget(status, self.row_index + 1, 7)
+
+        self.row_index += 1
+
+    def print_files_names(self, grid, files, option, row=0):
+        for file in files:
+            if option in file.original_file_name:
+                button = f'{file.mod_id}-{file.original_file_name}'
+                self.buttons[button] = QtWidgets.QPushButton(file_name_fix(file.original_file_name, option))
+
+                message = ('start_translation', file, file.original_file_name)
+                self.buttons[button].clicked.connect(partial(self.call_accept_message, message))
+
+                status = QtWidgets.QProgressBar()
+
+                file_name_style(self.buttons[button])
+                status.setValue(file.tr_status)
+                if status.value() != 100:
+                    incomplete_translation_style(status)
+                else:
+                    complete_translation_style(status)
+
+                grid.addWidget(self.buttons[button], self.row_index + 1, 6)
+                grid.addWidget(status, self.row_index + 1, 7)
+
+                self.row_index += 1
+                row += 1
+
+        if not row:
+            self.files_not_found(grid)
+
+    def print_rename_collection(self, grid):
+        self.ContinueButton.setText(self.string[1])
+        self.ContinueButton.disconnect()
+        self.ContinueButton.clicked.connect(self.collection_mod_rename)
+
+        self.NewNameText.setText(self.string[-1])
+        self.NewNameText.setAlignment(QtCore.Qt.AlignCenter)
+
+        grid.addWidget(self.NewNameText)
+
+    def paint_elements(self):
+        grid = self.gridLayout
+        options = self.OptionsListComboBox
+        self.clean(grid)
+
+        # TODO внедрить похожий алгоритм как условие запуска для рендера текущего мода:
+        # enabled_mods = [key for key, data in mods_dict.items() if data['isEnabled'] == 1]
+        for mod_id, files in self.collection.items():
+            value = get_total_value(files)
+            self.print_mod_name(grid, files, value)
+            separator = create_row_separator()
+
+            if options.currentText() in options.itemText(0):
+                self.print_mod_id(grid, mod_id, value)
+                grid.addWidget(separator, self.row_index + 1, 6)
+
+            elif options.currentText() in options.itemText(1):
+                self.print_files_names(grid, files, '.yml')
+                grid.addWidget(separator, self.row_index + 1, 6)
+
+            elif options.currentText() in options.itemText(2):
+                self.print_files_names(grid, files, '.txt')
+                grid.addWidget(separator, self.row_index + 1, 6)
+
+            elif options.currentText() in options.itemText(3):
+                self.clean(grid)
+                self.print_rename_collection(grid)
+
+            self.row_index += 1
+
+    """
+                                ↓ Работа с локализациями ↓
+    """
+
+    def start_localisation(self, file):
+        self.parent.orig_text = open_file_for_resuming(file.source_file_path)
+        self.parent.machine_text = open_file_for_resuming(file.machine_file_path)
+        self.parent.user_text = open_file_for_resuming(file.user_input_file_path)
+        self.parent.pointer = file.pointer_pos
+        self.parent.file = file
+        self.parent.init_helpers(True)
+        self.parent.progressbar_set_maximum(len(self.parent.orig_text))
+        self.parent.set_lines()
+        self.parent.ModIDLine.setText(file.mod_id)
+        self.parent.mod_type_pixmap(file.mod_id)
+        self.parent.ModNameLine.setText(file.mod_name)
+        self.parent.FileNameLine.setText(file.original_file_name)
+
+        self.findChild(QtWidgets.QDialog).close()
+        self.close()
+
+    def continue_last_translation(self):
+        last_mod: list = get_info_from_stack()
+        if last_mod:
+            message = ('collection_continue_translation', last_mod[1])
+            # self.call_accept_message(message, mod_id=last_mod[0], file_name=last_mod[1])
+        else:
+            message = 'all_is_complete'
+            call_error_message(self, message)

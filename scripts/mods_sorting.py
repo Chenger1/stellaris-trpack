@@ -1,6 +1,8 @@
-# -*- coding: utf-8 -*-
-#Mady by haifengkao
-#https://github.com/haifengkao/StellairsLoadOrderFixer24/blob/master/load_order_stellaris24.py
+# TODO Рассмотреть возможности упростить алгоритм
+"""
+                              ↓ Инициализация данных ↓
+"""
+
 import json
 from shutil import copyfile
 import os
@@ -8,18 +10,6 @@ import errno
 
 from scripts.utils import paradox_folder
 from scripts.db import get_mods_from_playset, get_data_about_mods, write_data
-
-
-class Mod():
-    def __init__(self, hashKey, name, modId, isEnabled, isSortRequired, position):
-        self.hashKey = hashKey
-        self.name = name
-        self.modId = modId
-        self.checkboxes = [[0, 1]]
-        self.sortRequired = isSortRequired
-        self.isEnabled = isEnabled
-        self.position = position
-        self.sortedKey = name.encode('ascii', errors='ignore')
 
 
 def sortedKey(mod):
@@ -35,53 +25,6 @@ def open_sorting_order_file():
         return {}
 
 
-def write_mod_sorting_order_in_json(playset_id, mod_data):
-    sort_file = open_sorting_order_file()
-    sort_file[playset_id] = mod_data
-    with open(f'{paradox_folder}\\mod\\local_localisation\\sorting_order.json', 'w', encoding='utf-8') as file:
-        json.dump(sort_file, file)
-
-
-def getModList(data, enabled_mods, playset):
-    modList = []
-    try:
-        mod_data = open_sorting_order_file()[playset[0]]
-    except KeyError:
-        mod_data = {}
-    for key, value in data.items():
-        try:
-            name = value['displayName']
-            modId = value['gameRegistryId']
-            isEnabled = True if key in enabled_mods else False
-            try:
-                isSortingRequired = mod_data[key]
-            except KeyError:
-                isSortingRequired = True
-            mod = Mod(key, name, modId, isEnabled, isSortingRequired,
-                      value['position'])
-            modList.append(mod)
-        except KeyError:
-            try:
-                name = value['displayName']
-                modId = value['steamId']
-                isEnabled = True if key in enabled_mods else False
-                try:
-                    isSortingRequired = mod_data[key]
-                except KeyError:
-                    isSortingRequired = True
-                mod = Mod(key, name, modId, isEnabled, isSortingRequired,
-                          value['position'])
-                modList.append(mod)
-            except KeyError:
-                print('key not found in ')
-    return sorted(modList, key=lambda x: x.position)
-
-
-def sortModlist(m_list):
-    modList = m_list.sort(key=sortedKey, reverse=True)
-    return modList  # Todo
-
-
 def checkIfSortRequired(m_list, playset):
     modListSort, modListNonSort = [], []
     mod_data = {}
@@ -90,9 +33,86 @@ def checkIfSortRequired(m_list, playset):
             modListSort.append(mod)
         else:
             modListNonSort.append(mod)
-        mod_data[mod.hashKey] = mod.sortRequired
+        mod_data[mod.hash_key] = mod.sortRequired
     write_mod_sorting_order_in_json(playset, mod_data)
     return modListSort, modListNonSort
+
+
+"""
+                              ↓ Чтение данных ↓
+"""
+
+
+def getModList(mods_dict, enabled_mods, playset):
+    modList = []
+    try:
+        mod_data = open_sorting_order_file()[playset[0]]
+    except KeyError:
+        mod_data = {}
+    for hash_key, info in mods_dict.items():
+        try:
+            name = info['mod_name']
+            mod_descritor = info['mod_descritor']
+            isEnabled = True if hash_key in enabled_mods else False
+            try:
+                isSortingRequired = mod_data[hash_key]
+            except KeyError:
+                isSortingRequired = True
+            mod = Mod(name, mod_descritor, hash_key, isEnabled, isSortingRequired,
+                      info['position'])
+            modList.append(mod)
+        except KeyError:
+            try:
+                name = info['displayName']
+                modId = info['steamId']
+                isEnabled = True if hash_key in enabled_mods else False
+                try:
+                    isSortingRequired = mod_data[hash_key]
+                except KeyError:
+                    isSortingRequired = True
+                mod = Mod(hash_key, name, modId, isEnabled, isSortingRequired,
+                          info['position'])
+                modList.append(mod)
+            except KeyError:
+                print('key not found in ')
+    return sorted(modList, key=lambda x: x.position)
+
+
+def prep_data(settings_path, playset):
+    dlc_load = os.path.join(settings_path, 'dlc_load.json')
+    copyfile(dlc_load, dlc_load + '.bak')
+
+    game_data = os.path.join(settings_path, 'game_data.json')
+    copyfile(game_data, game_data + '.bak')
+
+    mods_id_tuple = get_mods_from_playset('get_mods_from_playset', playset[0])
+    mods_data_dict = get_data_about_mods('get_mods_data_from_playset', mods_id_tuple)
+    enabled_mods = [key for key, data in mods_data_dict.items() if data['isEnabled'] == 1]
+    mod_list = getModList(mods_data_dict, enabled_mods, playset)
+
+    return mod_list, game_data, dlc_load, playset
+
+
+class Mod:
+    def __init__(self, mod_name, mod_descritor, hash_key, isEnabled, isSortRequired, position):
+        self.mod_name = mod_name
+        self.mod_id = mod_descritor.split('_')[-1].split('.')[0]
+        self.hash_key = hash_key
+        self.checkboxes = [[0, 1]]
+        self.sortRequired = isSortRequired
+        self.isEnabled = isEnabled
+        self.position = position
+        self.sortedKey = mod_name.encode('ascii', errors='ignore')
+
+
+"""
+                              ↓ Сортировка списка модификаций ↓
+"""
+
+
+def sortModlist(m_list):
+    modList = m_list.sort(key=sortedKey, reverse=True)
+    return modList  # Todo
 
 
 def tweakModOrder(m_list):
@@ -106,18 +126,51 @@ def tweakModOrder(m_list):
 
 
 def specialOrder(modListSort, modListNonSort):
-    specialNames = ["UI Overhaul Dynamic", "Dark UI", "Dark U1"]
+    specialNames = ["UI Overhaul Dynamic", ]
     specialList = []
     for specialName in specialNames:
         toBeRemoved = []
         for mod in modListSort:
-            if specialName in mod.name:
+            if specialName in mod.mod_name:
                 specialList.append(mod)
                 toBeRemoved.append(mod)
 
         for mod in toBeRemoved:
             modListSort.remove(mod)
     return modListSort + specialList + modListNonSort
+
+
+def sorting(modList, game_data, dlc_load, playset, reversing):
+    positions = [elem.position for elem in modList]
+    positions.sort()
+    modListSort, modListNonSort = checkIfSortRequired(modList, playset[0])
+    modListSort.sort(key=sortedKey, reverse=not reversing)
+    # move Dark UI and UIOverhual to the bottom
+    modList = specialOrder(modListSort, modListNonSort)
+    # make sure UIOverhual+SpeedDial will load after UIOverhual
+    modList = tweakModOrder(modList)
+    for pos, mod in zip(positions, modList):
+        mod.position = pos
+    if len(modList) <= 0:
+        return 'mods_not_found'
+    idList = [mod.mod_id for mod in modList if mod.isEnabled is True]
+    hashList = [mod.hash_key for mod in modList]
+    writeDisplayOrder(hashList, game_data)
+    writeLoadOrder(idList, dlc_load)
+    write_data('write_data', modList, playset)
+    return 'mods_was_sorted'
+
+
+"""
+                              ↓ Запись данных ↓
+"""
+
+
+def write_mod_sorting_order_in_json(playset_id, mod_data):
+    sort_file = open_sorting_order_file()
+    sort_file[playset_id] = mod_data
+    with open(f'{paradox_folder}\\mod\\local_localisation\\sorting_order.json', 'w', encoding='utf-8') as file:
+        json.dump(sort_file, file)
 
 
 def writeLoadOrder(idList, dlc_load):
@@ -145,58 +198,3 @@ def writeDisplayOrder(hashList, game_data):
     data['modsOrder'] = hashList
     with open(game_data, 'w') as json_file:
         json.dump(data, json_file)
-
-
-def prep_data(settingPath, playset):
-    dlc_load = os.path.join(settingPath, 'dlc_load.json')
-    copyfile(dlc_load, dlc_load + '.bak')
-
-    game_data = os.path.join(settingPath, 'game_data.json')
-    copyfile(game_data, game_data + '.bak')
-
-    mods_id = get_mods_from_playset('get_mods_from_playset', playset[0])
-    mods = get_data_about_mods('get_mods_data_from_playset', mods_id)
-    enabled_mods = [key for key, data in mods.items() if data['isEnabled'] == 1]
-    mod_list = getModList(mods, enabled_mods, playset)
-    return mod_list, dlc_load, game_data, playset
-
-
-def sorting(modList, game_data, dlc_load, playset, reversing):
-    positions = [elem.position for elem in modList]
-    positions.sort()
-    modListSort, modListNonSort = checkIfSortRequired(modList, playset[0])
-    modListSort.sort(key=sortedKey, reverse=not reversing)
-    # move Dark UI and UIOverhual to the bottom
-    modList = specialOrder(modListSort, modListNonSort)
-    # make sure UIOverhual+SpeedDial will load after UIOverhual
-    modList = tweakModOrder(modList)
-    for pos, mod in zip(positions, modList):
-        mod.position = pos
-    if len(modList) <= 0:
-        return 'mods_not_found'
-    idList = [mod.modId for mod in modList if mod.isEnabled is True]
-    hashList = [mod.hashKey for mod in modList]
-    writeDisplayOrder(hashList, game_data)
-    writeLoadOrder(idList, dlc_load)
-    write_data('write_data', modList, playset)
-    return 'mods_successfully_sorted'
-
-
-def set_settings():
-    # check Stellaris settings location
-    locations = [
-        ".", "..",
-        os.path.join(os.path.expanduser('~'), 'Documents', 'Paradox Interactive',
-                     'Stellaris'),
-        os.path.join(os.path.expanduser('~'), '.local', 'share',
-                     'Paradox Interactive', 'Stellaris')
-    ]
-    settingPaths = [
-        settingPath for settingPath in locations
-        if os.path.isfile(os.path.join(settingPath, "launcher-v2.sqlite"))
-    ]
-    if settingPaths:
-        return settingPaths
-    else:
-        raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT),
-                                os.path.join(locations[2], "launcher-v2.sqlite"))
