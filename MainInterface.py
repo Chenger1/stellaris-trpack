@@ -1,3 +1,4 @@
+# TODO Добавить обработку для нейм-листов
 """
                               ↓ Инициализация данных ↓
 """
@@ -14,10 +15,9 @@ from GUI.GUI_windows.UpdateTranslationWindow import UpdateTranslationWindow
 from GUI.GUI_windows.ToolLanguageWindow import ToolLanguageWindow
 from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
 from GUI.GUI_windows.ModsListWindow import ModsListWindow
-from GUI.GUI_windows.AcceptMessageWindow import AcceptMessageWindow
 
 from scripts.putter import put_lines
-from scripts.utils import check_new_line_sym_ending, generated_files_init, collection_update, get_interface_lang
+from scripts.utils import check_new_line_sym_ending, generated_files_init, collection_update, get_interface_lang, pop_stack
 from scripts.messeges import call_success_message, call_error_message
 from scripts.pictures import thumbs_synchronize
 
@@ -73,10 +73,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
     def show_update_window(self):
         update_window = UpdateTranslationWindow(self)
         update_window.show()
-
-    def show_accept_window(self, message):
-        accept_window = AcceptMessageWindow(self, message)
-        accept_window.show()
 
     def show_mods_list_window(self):
         try:
@@ -215,10 +211,15 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
                                     else 100    # meaning it's Complete
             self.file.pointer_pos = self.pointer
             collection_update(self.file, self.user_text)
-            self.clean_state()
+
             message = 'file_was_updated'
             call_success_message(self, message)
-            # TODO add saving localisation file if file.tr_status == 100 by putter.py
+
+            if self.file.tr_status == 100:
+                put_lines(self.file)
+                pop_stack()
+
+            self.clean_state()
 
         except AttributeError:
             message = 'invalid_file'

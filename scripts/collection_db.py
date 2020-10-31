@@ -100,7 +100,7 @@ def write_data_in_collection(collection_path, mod_info):
                          mod_info['original_file_path'],
                          mod_info['source_file_path'],
                          mod_info['machine_file_path'],
-                         mod_info['user_input_file_path'],
+                         mod_info['user_input_file_path']
                       )
                      )
         conn.commit()
@@ -140,6 +140,7 @@ class File:
         self.user_input_file_path = user_input_file_path
         self.tr_status = tr_status
         self.pointer_pos = pointer_pos
+        self.type = '.yml' if '.yml' in original_file_name else '.txt'
 
 
 def get_data_from_collection(collection_path):

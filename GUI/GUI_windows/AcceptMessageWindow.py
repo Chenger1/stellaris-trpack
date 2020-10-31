@@ -16,12 +16,12 @@ class AcceptMessageWindow(QtWidgets.QDialog, AcceptMessage.Ui_Dialog):
         self.parent = parent
         self.oldPos = self.pos()
         self.init_handlers(accept_func, denied_func)
-        self.message = None
 
         self.InfoLabel.setWordWrap(True)
         self.string = self.StringsList.text().split('.')
         self.messages = {'collection_append': f'{message[1]}\n\n{self.string[0]}',
-                         'start_translation': f'{message[-1]}?\n\n{self.string[1]}',
+                         'continue_last_translation': f'{message[-1]}\n\n{self.string[1]}?',
+                         'start_translation': f'{message[-1]}\n\n{self.string[1]}?',
                          'save_translation': f'{self.string[2]}',
                          'invalid_key': f'{self.string[3]}'}
         try:
@@ -30,11 +30,10 @@ class AcceptMessageWindow(QtWidgets.QDialog, AcceptMessage.Ui_Dialog):
             self.InfoLabel.setText(self.messages['invalid_key'])
         except KeyError:
             self.InfoLabel.setText(self.messages['invalid_key'])
-        # self.parent.message = None
 
     def init_handlers(self, accept_func, denied_func):
         self.ExitButton.clicked.connect(self.close)
-        self.AcceptButton.clicked.connect(accept_func or self.close)
+        self.AcceptButton.clicked.connect(accept_func)
         self.DeniedButton.clicked.connect(denied_func or self.close)
         self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_1_Functional'))
         self.WindowMoveButton.installEventFilter(self)

@@ -1,3 +1,4 @@
+# TODO Try to merge searching algorytms
 """
                               ↓ Инициализация данных ↓
 """

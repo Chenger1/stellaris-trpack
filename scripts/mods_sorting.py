@@ -1,4 +1,3 @@
-# TODO Рассмотреть возможности упростить алгоритм
 """
                               ↓ Инициализация данных ↓
 """
@@ -110,11 +109,6 @@ class Mod:
 """
 
 
-def sortModlist(m_list):
-    modList = m_list.sort(key=sortedKey, reverse=True)
-    return modList  # Todo
-
-
 def tweakModOrder(m_list):
     for i in range(len(m_list) - 1, 0, -1):
         j = i - 1
@@ -174,7 +168,6 @@ def write_mod_sorting_order_in_json(playset_id, mod_data):
 
 
 def writeLoadOrder(idList, dlc_load):
-    data = {}
     with open(dlc_load, 'r+') as json_file:
         data = json.load(json_file)
 
@@ -188,7 +181,6 @@ def writeLoadOrder(idList, dlc_load):
 
 
 def writeDisplayOrder(hashList, game_data):
-    data = {}
     try:
         with open(game_data, 'r+') as json_file:
             data = json.load(json_file)
@@ -196,5 +188,6 @@ def writeDisplayOrder(hashList, game_data):
         raise json.decoder.JSONDecodeError(pos=0, doc='', msg='Файл game_data.json пустой')
 
     data['modsOrder'] = hashList
+
     with open(game_data, 'w') as json_file:
         json.dump(data, json_file)

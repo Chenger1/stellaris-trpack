@@ -123,7 +123,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             for file_path in scan_for_files(mod_path):
                 cutter_main(mod_path, mod_id, file_path)
                 collection_append(mod_id, hash_key, mod_name)
-            message = 'mod_was_added'
+            message = 'files_was_added'
             call_success_message(self, message)
             self.findChild(QtWidgets.QDialog).close()
             self.close()
@@ -159,7 +159,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             self.grid.itemAt(elem).widget().setParent(None)
 
     def search(self, text):
-        # TODO Think about improving sorting algorythm, coz it's looks very expensive for now
+        # TODO Think about improving searching algorythm, coz it's looks very expensive for now
         self.generator = copy.copy(self.modList)
         for mod in self.modList:
             if text.lower() not in mod.mod_name.lower():

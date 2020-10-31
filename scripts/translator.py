@@ -1,11 +1,7 @@
-# TODO Рассмотреть возможности упростить алгоритм
 # TODO Добавить проверку на Title Case для нейм-листов
-# TODO обработку для нейм-листов
 """
                               ↓ Инициализация данных ↓
 """
-
-# !/usr/bin/python3
 
 from googletrans import Translator
 from langdetect import detect, DetectorFactory
@@ -20,11 +16,11 @@ from scripts.utils import data
 """
 
 
-def file_len(fname):
-    with open(fname) as f:
-        for i, l in enumerate(f):
-            pass
-    return i + 1
+# def file_len(fname):
+#     with open(fname) as f:
+#         for i, l in enumerate(f):
+#             pass
+#     return i + 1
 
 
 def search(subs, line):
@@ -111,6 +107,6 @@ def translate_line(line, translator=None):
         return translation
 
 
-def get_old_translation(pointer):
-    translating = data['compared']
-    return translating[pointer]
+# def get_old_translation(pointer):
+#     translating = data['compared']
+#     return translating[pointer]

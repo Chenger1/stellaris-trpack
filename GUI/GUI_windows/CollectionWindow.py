@@ -7,8 +7,10 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptMessageWindow import AcceptMessageWindow
 
-from scripts.utils import get_collection_data, local_mod_init, mod_name_wrap, get_info_from_stack, get_total_value, file_name_fix, open_file_for_resuming
-from scripts.stylesheets import mod_name_style, file_name_style, complete_translation_style, incomplete_translation_style, create_row_separator
+from scripts.utils import get_collection_data, local_mod_init, mod_name_wrap, get_info_from_stack, get_total_value, \
+    file_name_fix, open_file_for_resuming, find_last_file
+from scripts.stylesheets import mod_name_style, file_name_style, complete_translation_style, \
+    incomplete_translation_style, create_row_separator
 from scripts.messeges import call_error_message
 from scripts.pictures import get_thumbnail
 
@@ -50,6 +52,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
     def call_accept_message(self, message):
         types = {
             'start_translation': lambda: self.start_localisation(message[1]),
+            'continue_last_translation': lambda: self.start_localisation(message[1]),
         }
 
         window = AcceptMessageWindow(self, message, types[message[0]])
@@ -152,9 +155,10 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
 
         self.row_index += 1
 
-    def print_files_names(self, grid, files, option, row=0):
-        for file in files:
-            if option in file.original_file_name:
+    def print_files_names(self, grid, files, option):
+        files_list = [file for file in files if option in file.type]
+        if files_list:
+            for file in files_list:
                 button = f'{file.mod_id}-{file.original_file_name}'
                 self.buttons[button] = QtWidgets.QPushButton(file_name_fix(file.original_file_name, option))
 
@@ -174,9 +178,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                 grid.addWidget(status, self.row_index + 1, 7)
 
                 self.row_index += 1
-                row += 1
-
-        if not row:
+        else:
             self.files_not_found(grid)
 
     def print_rename_collection(self, grid):
@@ -194,8 +196,6 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         options = self.OptionsListComboBox
         self.clean(grid)
 
-        # TODO внедрить похожий алгоритм как условие запуска для рендера текущего мода:
-        # enabled_mods = [key for key, data in mods_dict.items() if data['isEnabled'] == 1]
         for mod_id, files in self.collection.items():
             value = get_total_value(files)
             self.print_mod_name(grid, files, value)
@@ -241,10 +241,13 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.close()
 
     def continue_last_translation(self):
-        last_mod: list = get_info_from_stack()
-        if last_mod:
-            message = ('collection_continue_translation', last_mod[1])
-            # self.call_accept_message(message, mod_id=last_mod[0], file_name=last_mod[1])
+        last_file: list = get_info_from_stack()
+        if last_file:
+            file = find_last_file(self.collection, last_file)
+
+            message = ('continue_last_translation', file, file.original_file_name)
+            self.call_accept_message(message)
+
         else:
             message = 'all_is_complete'
             call_error_message(self, message)

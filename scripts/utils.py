@@ -261,7 +261,7 @@ def get_total_value(files):
     return total_value
 
 
-# TODO Доработать компоновку и стек
+# TODO Доработать компоновку
 """
                                 ↓ Работа с локализациями ↓
 """
@@ -281,11 +281,20 @@ def save_stack(mod_id, file_name):
     with open(stack_path, 'r', encoding='utf-8') as stack_file:
         stack = json.load(stack_file)
 
-    for elem in stack:  # Удаляет дубликаты
-        if elem[1] == file_name:
-            stack.remove(elem)
+    for file in stack:  # Удаляет дубликаты
+        if file[1] == file_name:
+            stack.remove(file)
 
     stack.append((mod_id, file_name))
+    with open(stack_path, 'w', encoding='utf-8') as stack_file:
+        json.dump(stack, stack_file)
+
+
+def pop_stack():
+    with open(stack_path, 'r', encoding='utf-8') as stack_file:
+        stack = json.load(stack_file)
+        stack.pop(-1)
+
     with open(stack_path, 'w', encoding='utf-8') as stack_file:
         json.dump(stack, stack_file)
 
@@ -309,6 +318,16 @@ def collection_update(file, user_text):
 #     while text[-1] == '\n':
 #         text.pop()
 #     return text
+
+
+def find_last_file(collection, last_file):
+    """
+                Поиск последнего переводимого файла в коллекции
+                для продолжения локализации
+    """
+    for file in collection[last_file[0]]:
+        if file.original_file_name == last_file[1]:
+            return file
 
 
 def get_info_from_stack():

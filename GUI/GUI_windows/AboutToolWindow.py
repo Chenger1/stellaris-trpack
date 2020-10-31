@@ -1,5 +1,5 @@
 # TODO Перенести ссылку в информацию о разработчиках
-# Mady by haifengkao
+# Made by haifengkao
 # https://github.com/haifengkao/StellairsLoadOrderFixer24/blob/master/load_order_stellaris24.py
 """
                                 ↓ Инициализация данных ↓
@@ -19,7 +19,6 @@ class AboutToolWindow(QtWidgets.QDialog, AboutTool.Ui_Dialog):
         self.parent = parent
         self.oldPos = self.pos()
         self.init_handlers()
-
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
