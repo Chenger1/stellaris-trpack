@@ -6,11 +6,10 @@ from PyQt5 import QtWidgets, QtCore
 
 from GUI.GUI_windows_source import TranslationLanguage
 from json import load, dump
+from functools import partial
 import copy
 
 from scripts.stylesheets import choosen_lang_style, not_chosen_lang_style
-
-# TODO simplify render algorythm
 
 
 class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog):
@@ -21,116 +20,45 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         self.setModal(True)
         self.parent = parent
         self.oldPos = self.pos()
-
-        self.lang = self.LanguagesList.text().split()
-        self.ArabicButton = QtWidgets.QPushButton(self.lang[0])
-        self.ArmenianButton = QtWidgets.QPushButton(self.lang[1])
-        self.AzerbaijaniButton = QtWidgets.QPushButton(self.lang[2])
-        self.BelarusianButton = QtWidgets.QPushButton(self.lang[3])
-        self.BulgarianButton = QtWidgets.QPushButton(self.lang[4])
-        self.ChineseButton = QtWidgets.QPushButton(self.lang[5])
-        self.CroatianButton = QtWidgets.QPushButton(self.lang[6])
-        self.CzechButton = QtWidgets.QPushButton(self.lang[7])
-        self.DanishButton = QtWidgets.QPushButton(self.lang[8])
-        self.DutchButton = QtWidgets.QPushButton(self.lang[9])
-        self.EnglishButton = QtWidgets.QPushButton(self.lang[10])
-        self.EstonianButton = QtWidgets.QPushButton(self.lang[11])
-        self.FinnishButton = QtWidgets.QPushButton(self.lang[12])
-        self.FrenchButton = QtWidgets.QPushButton(self.lang[13])
-        self.GermanButton = QtWidgets.QPushButton(self.lang[14])
-        self.GreekButton = QtWidgets.QPushButton(self.lang[15])
-        self.HungarianButton = QtWidgets.QPushButton(self.lang[16])
-        self.ItalianButton = QtWidgets.QPushButton(self.lang[17])
-        self.JapaneseButton = QtWidgets.QPushButton(self.lang[18])
-        self.KoreanButton = QtWidgets.QPushButton(self.lang[19])
-        self.LithuanianButton = QtWidgets.QPushButton(self.lang[20])
-        self.NorwegianButton = QtWidgets.QPushButton(self.lang[21])
-        self.PolishButton = QtWidgets.QPushButton(self.lang[22])
-        self.PortugueseButton = QtWidgets.QPushButton(self.lang[23])
-        self.RussianButton = QtWidgets.QPushButton(self.lang[24])
-        self.SlovakButton = QtWidgets.QPushButton(self.lang[25])
-        self.SlovenianButton = QtWidgets.QPushButton(self.lang[26])
-        self.SpanishButton = QtWidgets.QPushButton(self.lang[27])
-        self.SwedishButton = QtWidgets.QPushButton(self.lang[28])
-        self.TurkishButton = QtWidgets.QPushButton(self.lang[29])
-        self.UkrainianButton = QtWidgets.QPushButton(self.lang[30])
-        self.FilipinoButton = QtWidgets.QPushButton(self.lang[31])
-
-        self.buttons = {
-            'EnglishButton': [self.EnglishButton, 'en'],
-            'RussianButton': [self.RussianButton, 'ru'],
-            'UkrainianButton': [self.UkrainianButton, 'uk'],
-            'PolishButton': [self.PolishButton, 'pl'],
-            'ChineseButton': [self.ChineseButton, 'zh-cn'],
-            'ArabicButton': [self.ArabicButton, 'ar'],
-            'ArmenianButton': [self.ArmenianButton, 'hy'],
-            'AzerbaijaniButton': [self.AzerbaijaniButton, 'az'],
-            'BelarusianButton': [self.BelarusianButton, 'be'],
-            'BulgarianButton': [self.BulgarianButton, 'bg'],
-            'CroatianButton': [self.CroatianButton, 'hr'],
-            'CzechButton': [self.CzechButton, 'cs'],
-            'DanishButton': [self.DanishButton, 'da'],
-            'DutchButton': [self.DutchButton, 'nl'],
-            'EstonianButton': [self.EstonianButton, 'et'],
-            'FinnishButton': [self.FinnishButton, 'fi'],
-            'FrenchButton': [self.FrenchButton, 'fr'],
-            'GermanButton': [self.GermanButton, 'de'],
-            'GreekButton': [self.GreekButton, 'el'],
-            'HungarianButton': [self.HungarianButton, 'hu'],
-            'ItalianButton': [self.ItalianButton, 'it'],
-            'JapaneseButton': [self.JapaneseButton, 'ja'],
-            'KoreanButton': [self.KoreanButton, 'ko'],
-            'LithuanianButton': [self.LithuanianButton, 'lt'],
-            'NorwegianButton': [self.NorwegianButton, 'no'],
-            'PortugueseButton': [self.PortugueseButton, 'pt'],
-            'SlovakButton': [self.SlovakButton, 'sk'],
-            'SpanishButton': [self.SpanishButton, 'es'],
-            'SwedishButton': [self.SwedishButton, 'sv'],
-            'TurkishButton': [self.TurkishButton, 'tr'],
+        self.buttons_data = {
+            'EnglishButton': 'en', 'RussianButton': 'ru', 'UkrainianButton': 'uk',
+            'PolishButton': 'pl', 'ChineseButton': 'zh-cn', 'ArabicButton': 'ar',
+            'ArmenianButton': 'hy', 'AzerbaijaniButton': 'az', 'BelarusianButton': 'be',
+            'BulgarianButton': 'bg', 'CroatianButton': 'hr', 'CzechButton': 'cs',
+            'DanishButton': 'da', 'DutchButton': 'nl', 'EstonianButton': 'et',
+            'FinnishButton': 'fi', 'FrenchButton': 'fr', 'GermanButton': 'de',
+            'GreekButton': 'el', 'HungarianButton': 'hu', 'ItalianButton': 'it',
+            'JapaneseButton': 'ja', 'KoreanButton': 'ko', 'LithuanianButton': 'lt',
+            'NorwegianButton': 'no', 'PortugueseButton': 'pt', 'SlovakButton': 'sk',
+            'SpanishButton': 'es', 'SwedishButton': 'sv', 'TurkishButton': 'tr'
         }
+        self.string = self.LanguagesList.text().split()
+        self.buttons = self.prep_buttons()
         self.init_handlers()
 
-        self.grid = self.GridLangButtonsLayout
-        self.grid.setColumnMinimumWidth(1, 50)
+        self.gridLayout.setColumnMinimumWidth(1, 50)
         self.generator = copy.copy(self.buttons)
-        self.choose_lang()
+        self.row_index = 0
+        self.column_index = -1
+        self.paint_elements()
 
     def init_handlers(self):
         self.WindowMoveButton.installEventFilter(self)
         self.ExitButton.clicked.connect(self.close)
-        self.ArabicButton.clicked.connect(lambda: self.set_target_language('ar'))
-        self.ArmenianButton.clicked.connect(lambda: self.set_target_language('hy'))
-        self.AzerbaijaniButton.clicked.connect(lambda: self.set_target_language('az'))
-        self.BelarusianButton.clicked.connect(lambda: self.set_target_language('be'))
-        self.BulgarianButton.clicked.connect(lambda: self.set_target_language('bg'))
-        self.ChineseButton.clicked.connect(lambda: self.set_target_language('zh-cn'))
-        self.CroatianButton.clicked.connect(lambda: self.set_target_language('hr'))
-        self.CzechButton.clicked.connect(lambda: self.set_target_language('cs'))
-        self.DanishButton.clicked.connect(lambda: self.set_target_language('da'))
-        self.DutchButton.clicked.connect(lambda: self.set_target_language('nl'))
-        self.EnglishButton.clicked.connect(lambda: self.set_target_language('en'))
-        self.EstonianButton.clicked.connect(lambda: self.set_target_language('et'))
-        self.FinnishButton.clicked.connect(lambda: self.set_target_language('fi'))
-        self.FrenchButton.clicked.connect(lambda: self.set_target_language('fr'))
-        self.GermanButton.clicked.connect(lambda: self.set_target_language('de'))
-        self.GreekButton.clicked.connect(lambda: self.set_target_language('el'))
-        self.HungarianButton.clicked.connect(lambda: self.set_target_language('hu'))
-        self.ItalianButton.clicked.connect(lambda: self.set_target_language('it'))
-        self.JapaneseButton.clicked.connect(lambda: self.set_target_language('ja'))
-        self.KoreanButton.clicked.connect(lambda: self.set_target_language('ko'))
-        self.LithuanianButton.clicked.connect(lambda: self.set_target_language('lt'))
-        self.NorwegianButton.clicked.connect(lambda: self.set_target_language('no'))
-        self.PolishButton.clicked.connect(lambda: self.set_target_language('pl'))
-        self.PortugueseButton.clicked.connect(lambda: self.set_target_language('pt'))
-        self.RussianButton.clicked.connect(lambda: self.set_target_language('ru'))
-        self.SlovakButton.clicked.connect(lambda: self.set_target_language('sk'))
-        self.SlovenianButton.clicked.connect(lambda: self.set_target_language('sl'))
-        self.SpanishButton.clicked.connect(lambda: self.set_target_language('es'))
-        self.SwedishButton.clicked.connect(lambda: self.set_target_language('sv'))
-        self.TurkishButton.clicked.connect(lambda: self.set_target_language('tr'))
-        self.UkrainianButton.clicked.connect(lambda: self.set_target_language('uk'))
         self.SearchLine.textChanged.connect(self.search_init)
         self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_5_TargetLanguage'))
+
+    def prep_buttons(self):
+        buttons = {}
+        index = 0
+
+        for button, lang in self.buttons_data.items():
+            buttons[button] = QtWidgets.QPushButton(self.string[index])
+            buttons[button].setObjectName(button)
+            buttons[button].clicked.connect(partial(self.set_target_language, target_language=lang))
+            index += 1
+
+        return buttons
 
     def search_init(self, text):
         self.clean()
@@ -157,49 +85,52 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
     """
 
     def clean(self):
-        for i in reversed(range(self.grid.count())):
-            self.grid.itemAt(i).widget().setParent(None)
+        for i in reversed(range(self.gridLayout.count())):
+            self.gridLayout.itemAt(i).widget().setParent(None)
 
     def search(self, text):
         with open('Properties.json', 'r', encoding='utf-8') as prop:
             properties = load(prop)
-        self.generator = copy.copy(self.buttons)
-        for button in self.buttons:
-            if text in self.buttons[button][0].text().lower():
-                pass
-            else:
-                if properties["target_language"] != self.buttons[button][1]:
-                    del self.generator[button]
 
-    def gen(self):
-        n = 0
-        k = -1
-        for button in self.generator:
-            if k != 2:
-                k += 1
+        self.column_index = -1
+        self.generator = copy.copy(self.buttons)
+
+        for object_name, button in self.buttons.items():
+            if text not in button.text().lower():
+                if properties["target_language"] not in self.buttons_data[object_name]:
+                    del self.generator[object_name]
+        self.paint_elements()
+
+    def paint_elements(self):
+        for object_name, button in self.generator.items():
+            if self.column_index < 2:
+                self.column_index += 1
             else:
-                k = 0
-                n += 1
-            self.grid.addWidget(self.buttons[button][0], n, k)
+                self.column_index = 0
+                self.row_index += 1
+
+            self.gridLayout.addWidget(button, self.row_index, self.column_index)
+
+        self.choose_lang()
 
     """
                                 ↓ Выбор языка, на который будут переводиться файлы ↓
     """
 
-    def set_target_language(self, target_language):
+    def choose_lang(self):
+        with open("Properties.json", 'r', encoding='utf-8') as prop:
+            properties = load(prop)
+
+        for object_name, button in self.buttons.items():
+            if self.buttons_data[object_name] == properties["target_language"]:
+                choosen_lang_style(button)
+            else:
+                not_chosen_lang_style(button)
+
+    def set_target_language(self, target_language=None):
         with open("Properties.json", 'r', encoding='utf-8') as prop:
             properties = load(prop)
             properties["target_language"] = target_language
         with open("Properties.json", 'w', encoding='utf-8') as prop:
             dump(properties, prop)
         self.choose_lang()
-
-    def choose_lang(self):
-        with open("Properties.json", 'r', encoding='utf-8') as prop:
-            properties = load(prop)
-        for button in self.buttons:
-            if self.buttons[button][1] == properties["target_language"]:
-                choosen_lang_style(self.buttons[button][0])
-            else:
-                not_chosen_lang_style(self.buttons[button][0])
-        self.gen()

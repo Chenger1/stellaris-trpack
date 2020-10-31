@@ -255,7 +255,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <layout class="QGridLayout" name="GridLangButtonsLayout" columnstretch="0">
+      <layout class="QGridLayout" name="gridLayout" columnstretch="0">
        <property name="sizeConstraint">
         <enum>QLayout::SetFixedSize</enum>
        </property>
@@ -399,8 +399,7 @@ QLineEdit:hover{
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string> Арабский Армянский Азербайджанский Белорусский Болгарский Китайский Хорватский Чешский Датский Нидерландский Английский Эстонский Финский Французский Немецкий Греческий Венгерский Итальянский Японский Корейский Литовский Норвежский Польский Португальский Русский Словацкий Словенский Испанский Шведский Турецкий Украинский Филиппинский
-</string>
+    <string>Английский Русский Украинский Польский Китайский Арабский Армянский Азербайджанский Белорусский Болгарский Хорватский Чешский Датский Нидерландский Эстонский Финский Французский Немецкий Греческий Венгерский Итальянский Японский Корейский Литовский Норвежский Португальский Словацкий Испанский Шведский Турецкий</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

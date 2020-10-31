@@ -97,9 +97,9 @@ QPushButton:pressed{
   <widget class="QLabel" name="InfoLabel_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>90</y>
-     <width>591</width>
+     <x>10</x>
+     <y>70</y>
+     <width>511</width>
      <height>31</height>
     </rect>
    </property>
@@ -116,7 +116,7 @@ QPushButton:pressed{
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;скриптов&lt;/span&gt;&lt;/a&gt; Pacas при использовании Python 3 и QT5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;на основе скриптов &lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Pacas&lt;/span&gt;&lt;/a&gt; и &lt;a href=&quot;https://github.com/haifengkao/StellairsLoadOrderFixer24/blob/master/load_order_stellaris24.py&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;haifengkao&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -129,7 +129,7 @@ color: #ffffff;</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>40</y>
+     <y>30</y>
      <width>591</width>
      <height>41</height>
     </rect>
@@ -147,7 +147,7 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Приложение разработано Letiso и Chenger1 на основе</string>
+    <string>Приложение разработано Letiso и Chenger1</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -219,7 +219,7 @@ QPushButton:pressed{
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>130</y>
+     <y>150</y>
      <width>591</width>
      <height>31</height>
     </rect>
@@ -246,6 +246,38 @@ color: #ffffff;</string>
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="InfoLabel_4">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>100</y>
+     <width>521</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KB Astrolyte</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: none;
+color: #ffffff;</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;при использовании &lt;a href=&quot;https://python.org/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Python 3&lt;\a&gt; и &lt;a href=&quot;https://qt.io/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;QT5&lt;\a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="openExternalLinks">
+    <bool>true</bool>
+   </property>
+  </widget>
   <zorder>BackgroundFrame</zorder>
   <zorder>WindowMoveButton</zorder>
   <zorder>ExitButton</zorder>
@@ -253,6 +285,7 @@ color: #ffffff;</string>
   <zorder>InfoLabel_1</zorder>
   <zorder>ContactUsButton</zorder>
   <zorder>InfoLabel_3</zorder>
+  <zorder>InfoLabel_4</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

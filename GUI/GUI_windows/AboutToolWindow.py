@@ -1,6 +1,3 @@
-# TODO Перенести ссылку в информацию о разработчиках
-# Made by haifengkao
-# https://github.com/haifengkao/StellairsLoadOrderFixer24/blob/master/load_order_stellaris24.py
 """
                                 ↓ Инициализация данных ↓
 """
