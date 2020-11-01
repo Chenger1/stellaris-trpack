@@ -182,7 +182,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         thumbnail.setPixmap(pixmap)
         if value == 0:
             thumbnail.setStyleSheet(self.borders['gray'])
-        elif value == 100:
+        elif value >= 100:
             thumbnail.setStyleSheet(self.borders['green'])
         elif value < 100:
             thumbnail.setStyleSheet(self.borders['blue'])
