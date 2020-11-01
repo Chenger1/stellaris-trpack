@@ -98,6 +98,14 @@ def generated_files_init():
     if os.path.isfile(stack_path) is False:
         stack_init()
 
+    temp_folder = f'{local_mod_path}\\temp'
+    localisation_folder = f'{local_mod_path}\\localisation'
+
+    if os.path.isdir(temp_folder) is False:
+        os.mkdir(temp_folder)
+    if os.path.isdir(localisation_folder) is False:
+        os.mkdir(localisation_folder)
+
 
 """
                                 ↓ Создание временных файлов ↓
