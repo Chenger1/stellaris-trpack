@@ -7,6 +7,7 @@ import os
 import win32api
 import zipfile
 import shutil
+import glob
 
 from locale import getdefaultlocale
 from googletrans.constants import LANGUAGES
@@ -119,18 +120,17 @@ def open_zip_file(full_file_path):
 
 
 def remove_unpacked_files(mod_path):
-    if list(filter(lambda x: '.zip' in x, os.listdir(mod_path))):
-        directory = list(filter(lambda x: '.zip' not in x, os.listdir(mod_path)))
-        folders, files = [], []
-        for item in directory:
-            if item.split('.')[-1] in '.txt.yml.yaml.mod.json.png.jpeg.jpg.mp.bin.py.db':
-                files.append(item)
+    if glob.glob(f'{mod_path}\\*.zip'):
+        for item in os.listdir(mod_path):
+            item_path = f'{mod_path}\\{item}'
+            if '.zip' in item:
+                continue
+            elif os.path.isdir(item_path) is True:
+                shutil.rmtree(item_path)
+            elif os.path.isfile(item_path) is True:
+                os.remove(item_path)
             else:
-                folders.append(item)
-        for item in files:
-            os.remove(f'{mod_path}\\{item}')
-        for item in folders:
-            shutil.rmtree(f'{mod_path}\\{item}')
+                continue
 
 
 def scan_for_files(mod_path):
