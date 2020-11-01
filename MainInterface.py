@@ -200,7 +200,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         if self.pointer < 0:
             self.pointer = 0
             self.check_new_line_symbol_string(True)
-            self.PreviousString.setEnabled(False)
+            self.PreviousStringButton.setEnabled(False)
         else:
             self.set_lines()
 
