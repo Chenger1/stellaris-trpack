@@ -110,50 +110,6 @@ class Ui_MainWindow(object):
 "    }")
         self.EditLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.EditLabel.setObjectName("EditLabel")
-        self.NextStringButton = QtWidgets.QPushButton(self.centralwidget)
-        self.NextStringButton.setGeometry(QtCore.QRect(940, 590, 231, 31))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.NextStringButton.setFont(font)
-        self.NextStringButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
-        self.NextStringButton.setObjectName("NextStringButton")
-        self.PreviousString = QtWidgets.QPushButton(self.centralwidget)
-        self.PreviousString.setGeometry(QtCore.QRect(120, 590, 231, 31))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.PreviousString.setFont(font)
-        self.PreviousString.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 50);\n"
-"    border: 2px solid #ffffff;\n"
-"    border-radius: 15px;\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    border: #c2c2c2;\n"
-"    }")
-        self.PreviousString.setObjectName("PreviousString")
         self.stmtt_logo = QtWidgets.QLabel(self.centralwidget)
         self.stmtt_logo.setGeometry(QtCore.QRect(320, 60, 661, 121))
         self.stmtt_logo.setStyleSheet("background-color: none;\n"
@@ -225,6 +181,12 @@ class Ui_MainWindow(object):
         self.OriginalString.setObjectName("OriginalString")
         self.TranslateString = QtWidgets.QTextEdit(self.centralwidget)
         self.TranslateString.setGeometry(QtCore.QRect(710, 400, 501, 91))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.TranslateString.sizePolicy().hasHeightForWidth())
+        self.TranslateString.setSizePolicy(sizePolicy)
+        self.TranslateString.setMaximumSize(QtCore.QSize(16777209, 16777215))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(9)
@@ -675,6 +637,54 @@ class Ui_MainWindow(object):
 "    border: 2px solid #c2c2c2;\n"
 "    }")
         self.UpdateTranslationButton.setObjectName("UpdateTranslationButton")
+        self.PreviousStringButton = QtWidgets.QPushButton(self.centralwidget)
+        self.PreviousStringButton.setGeometry(QtCore.QRect(300, 580, 51, 51))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setWeight(50)
+        self.PreviousStringButton.setFont(font)
+        self.PreviousStringButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #ffffff;\n"
+"    border-radius: 25px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #438e30;\n"
+"    border: #438e30;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    }")
+        self.PreviousStringButton.setObjectName("PreviousStringButton")
+        self.NextStringButton = QtWidgets.QPushButton(self.centralwidget)
+        self.NextStringButton.setGeometry(QtCore.QRect(940, 580, 51, 51))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setWeight(50)
+        self.NextStringButton.setFont(font)
+        self.NextStringButton.setStyleSheet("QPushButton{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #ffffff;\n"
+"    border-radius: 25px;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"    background-color: #31858f;\n"
+"    border: #438e30;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"    background-color: rgba(194, 194, 194, 50);\n"
+"    border: #c2c2c2;\n"
+"    }")
+        self.NextStringButton.setObjectName("NextStringButton")
         self.BackgroundFrame.raise_()
         self.lang_logo.raise_()
         self.ProgressBarFrame.raise_()
@@ -682,8 +692,6 @@ class Ui_MainWindow(object):
         self.OriginalLabel.raise_()
         self.TranslatedLabel.raise_()
         self.EditLabel.raise_()
-        self.NextStringButton.raise_()
-        self.PreviousString.raise_()
         self.stmtt_logo.raise_()
         self.TranslationLanguageButton.raise_()
         self.SortModListButton.raise_()
@@ -703,6 +711,8 @@ class Ui_MainWindow(object):
         self.steam_logo.raise_()
         self.FileNameLine.raise_()
         self.UpdateTranslationButton.raise_()
+        self.PreviousStringButton.raise_()
+        self.NextStringButton.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -715,8 +725,6 @@ class Ui_MainWindow(object):
         self.OriginalLabel.setText(_translate("MainWindow", "Оригинальная строка"))
         self.TranslatedLabel.setText(_translate("MainWindow", "Машинный перевод"))
         self.EditLabel.setText(_translate("MainWindow", "Можно заменить машинный перевод на свой вариант"))
-        self.NextStringButton.setText(_translate("MainWindow", "Следующая строка"))
-        self.PreviousString.setText(_translate("MainWindow", "Предыдущая строка"))
         self.TranslationLanguageButton.setText(_translate("MainWindow", "Язык перевода"))
         self.SortModListButton.setText(_translate("MainWindow", "Модификации"))
         self.OriginalString.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -743,3 +751,5 @@ class Ui_MainWindow(object):
         self.SaveButton.setText(_translate("MainWindow", "Сохранить перевод"))
         self.CollectionButton.setText(_translate("MainWindow", "Коллекция"))
         self.UpdateTranslationButton.setText(_translate("MainWindow", "Обновить перевод"))
+        self.PreviousStringButton.setText(_translate("MainWindow", "<"))
+        self.NextStringButton.setText(_translate("MainWindow", ">"))

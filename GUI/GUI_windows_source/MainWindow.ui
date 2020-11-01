@@ -192,78 +192,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="NextStringButton">
-    <property name="geometry">
-     <rect>
-      <x>940</x>
-      <y>590</y>
-      <width>231</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>KB Astrolyte</family>
-      <pointsize>11</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-    </property>
-    <property name="text">
-     <string>Следующая строка</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="PreviousString">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>590</y>
-      <width>231</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>KB Astrolyte</family>
-      <pointsize>11</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 50);
-	border: 2px solid #ffffff;
-	border-radius: 15px;
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	border: #c2c2c2;
-	}</string>
-    </property>
-    <property name="text">
-     <string>Предыдущая строка</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="stmtt_logo">
     <property name="geometry">
      <rect>
@@ -404,6 +332,18 @@ p, li { white-space: pre-wrap; }
       <width>501</width>
       <height>91</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777209</width>
+      <height>16777215</height>
+     </size>
     </property>
     <property name="font">
      <font>
@@ -1380,6 +1320,82 @@ QPushButton:pressed{
      <string>Обновить перевод</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="PreviousStringButton">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>580</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>KB Astrolyte</family>
+      <pointsize>18</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 25px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: #438e30;
+	border: #438e30;
+	color: #ffffff;
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+    </property>
+    <property name="text">
+     <string>&lt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="NextStringButton">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>580</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>KB Astrolyte</family>
+      <pointsize>18</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: rgba(31, 37, 51, 50);
+	border: 2px solid #ffffff;
+	border-radius: 25px;
+	color: #ffffff;
+	}
+QPushButton:hover{
+	background-color: #31858f;
+	border: #438e30;
+	color: #ffffff;
+	}
+QPushButton:pressed{
+	background-color: rgba(194, 194, 194, 50);
+	border: #c2c2c2;
+	}</string>
+    </property>
+    <property name="text">
+     <string>&gt;</string>
+    </property>
+   </widget>
    <zorder>BackgroundFrame</zorder>
    <zorder>lang_logo</zorder>
    <zorder>ProgressBarFrame</zorder>
@@ -1387,8 +1403,6 @@ QPushButton:pressed{
    <zorder>OriginalLabel</zorder>
    <zorder>TranslatedLabel</zorder>
    <zorder>EditLabel</zorder>
-   <zorder>NextStringButton</zorder>
-   <zorder>PreviousString</zorder>
    <zorder>stmtt_logo</zorder>
    <zorder>TranslationLanguageButton</zorder>
    <zorder>SortModListButton</zorder>
@@ -1408,6 +1422,8 @@ QPushButton:pressed{
    <zorder>steam_logo</zorder>
    <zorder>FileNameLine</zorder>
    <zorder>UpdateTranslationButton</zorder>
+   <zorder>PreviousStringButton</zorder>
+   <zorder>NextStringButton</zorder>
   </widget>
  </widget>
  <resources>

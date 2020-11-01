@@ -173,10 +173,10 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
     def print_mod_name(self, index, mod, value):
         thumbnail = QtWidgets.QLabel()
         pixmap = QtGui.QPixmap(get_thumbnail(mod.hash_key))
-        self.buttons[f'{mod.mod_id}'] = QtWidgets.QPushButton(mod_name_wrap(mod.mod_name, 35))
+        self.buttons[f'{mod.mod_name}'] = QtWidgets.QPushButton(mod_name_wrap(mod.mod_name, 35))
 
         message = ('collection_append', mod.mod_name, mod.mod_id)
-        self.buttons[f'{mod.mod_id}'].clicked.connect(partial(self.call_accept_message, message))
+        self.buttons[f'{mod.mod_name}'].clicked.connect(partial(self.call_accept_message, message))
 
         pixmap = pixmap.scaled(160, 100, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
         thumbnail.setPixmap(pixmap)
@@ -186,10 +186,10 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             thumbnail.setStyleSheet(self.borders['green'])
         elif value < 100:
             thumbnail.setStyleSheet(self.borders['blue'])
-        mod_name_style(self.buttons[f'{mod.mod_id}'])
+        mod_name_style(self.buttons[f'{mod.mod_name}'])
 
         self.grid.addWidget(thumbnail, index + 1, 1)
-        self.grid.addWidget(self.buttons[f'{mod.mod_id}'], index + 1, 2, 1, 5)
+        self.grid.addWidget(self.buttons[f'{mod.mod_name}'], index + 1, 2, 1, 5)
 
     def paint_elements(self):
         for index, mod in enumerate(self.generator):

@@ -56,14 +56,14 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.UpdateTranslationButton.clicked.connect(self.show_update_window)
         self.ReferenceButton.clicked.connect(lambda: self.reference_window())
         self.NextStringButton.clicked.connect(self.pointer_inc)
-        self.PreviousString.clicked.connect(self.pointer_red)
+        self.PreviousStringButton.clicked.connect(self.pointer_red)
         self.ExitButton.clicked.connect(self.close)
         self.RollUpButton.clicked.connect(self.showMinimized)
         self.SortModListButton.clicked.connect(self.show_mods_list_window)
         self.WindowMoveButton.installEventFilter(self)
 
     def init_helpers(self, mode):
-        self.PreviousString.setEnabled(mode)
+        self.PreviousStringButton.setEnabled(mode)
         self.NextStringButton.setEnabled(mode)
 
     def show_collection_window(self):
@@ -186,7 +186,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.progressbar_set_value()
 
     def pointer_inc(self):
-        self.PreviousString.setEnabled(True)
+        self.PreviousStringButton.setEnabled(True)
         self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
         self.pointer += 1
         self.check_new_line_symbol_string(True)

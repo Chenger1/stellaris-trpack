@@ -4,7 +4,7 @@
 """
 
 import re
-
+from os import path, mkdir
 from itertools import islice
 
 from scripts.utils import paradox_folder
@@ -34,11 +34,19 @@ def put_lines(file):
 
     new_file_name = file.original_file_name.replace("english", file.target_language)
     new_file_path = file.original_file_path.split(f'{file.mod_id}\\')[-1].split(f'\\{file.original_file_name.split(".")[0]}')[0]
+
+    # for folder in new_file_path.split('\\'):
+
     new_file = f'{paradox_folder}\\mod\\local_localisation\\{new_file_path}\\{new_file_name}'
+    new_file = open(f"{new_file}", 'w', encoding='utf-8')
 
     l_english = open(file.original_file_path, 'r', encoding='utf-8')
     user_input = open(file.user_input_file_path, 'r', encoding='utf-8')
-    new_file = open(f"{new_file}", 'w', encoding='utf-8')
+    # TODO Создавать нужную директорию перед сохранением файла
+    #  _file = open(f"{new_file}", 'w', encoding='utf-8')
+    # FileNotFoundError: [Errno 2] No such file or directory:
+    # 'C:\\Users\\Letiso\\Documents\\Paradox Interactive\\Stellaris\\mod\\local_localisation\\localisation\\###english###\\geth_l_russian.yml'
+
     new_file.write('\ufeff')
 
     for line in user_input:

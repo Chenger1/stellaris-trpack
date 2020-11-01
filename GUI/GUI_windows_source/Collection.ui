@@ -99,9 +99,9 @@ QPushButton:pressed{
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>71</y>
+     <y>70</y>
      <width>860</width>
-     <height>421</height>
+     <height>431</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -175,7 +175,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
       <x>0</x>
       <y>0</y>
       <width>855</width>
-      <height>421</height>
+      <height>431</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -263,7 +263,7 @@ p, li { white-space: pre-wrap; }
    <property name="maximumSize">
     <size>
      <width>900</width>
-     <height>100</height>
+     <height>120</height>
     </size>
    </property>
    <property name="mouseTracking">
