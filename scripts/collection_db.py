@@ -1,4 +1,3 @@
-# TODO Replace values of queries by = ?
 """
                               ↓ Инициализация данных ↓
 """
@@ -41,17 +40,7 @@ collection_queries = {
                               user_input_file_path
             )
         VALUES
-            (
-                              @mod_id, 
-                              @hash_key,
-                              @mod_name,
-                              @target_language,
-                              @original_file_name,
-                              @original_file_path,
-                              @source_file_path,
-                              @machine_file_path,
-                              @user_input_file_path
-            )
+            (?, ?, ?, ?, ?, ?, ?, ?, ?)
     """,
     'update_file_data': """
         UPDATE mod_files
