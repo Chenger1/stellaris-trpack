@@ -38,6 +38,10 @@ class AcceptMessageWindow(QtWidgets.QDialog, AcceptMessage.Ui_Dialog):
         self.ReferenceButton.clicked.connect(lambda: self.parent.parent.reference_window('QLabel_2_1_Functional'))
         self.WindowMoveButton.installEventFilter(self)
 
+    def close(self):
+        self.deleteLater()
+        super().close()
+
     def eventFilter(self, source, event):
         """
                     Данная функция предназначена для отслеживания позиции окна
