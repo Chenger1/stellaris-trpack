@@ -19,7 +19,6 @@ from GUI.GUI_windows.ModsListWindow import ModsListWindow
 from scripts.putter import put_lines
 from scripts.utils import check_new_line_sym_ending, generated_files_init, collection_update, get_interface_lang, pop_stack
 from scripts.messeges import call_success_message, call_error_message
-from scripts.pictures import thumbs_synchronize
 
 
 class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
@@ -238,5 +237,4 @@ def main():
 
 if __name__ == '__main__':
     generated_files_init()
-    thumbs_synchronize()
     main()

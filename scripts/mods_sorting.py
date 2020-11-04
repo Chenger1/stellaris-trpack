@@ -185,7 +185,7 @@ def writeDisplayOrder(hashList, game_data):
         with open(game_data, 'r+') as json_file:
             data = json.load(json_file)
     except json.decoder.JSONDecodeError:
-        raise json.decoder.JSONDecodeError(pos=0, doc='', msg='Файл game_data.json пустой')
+        raise json.decoder.JSONDecodeError(pos=0, doc='', msg='Файл game_data.json пуст')
 
     data['modsOrder'] = hashList
 

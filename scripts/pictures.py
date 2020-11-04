@@ -53,21 +53,19 @@ def scale_image(hash_key, cache_path):
     original_image = Image.open(cache_path)
     width, height = original_image.size
 
-    if width - height > 200:
-        setting = (0, 0, height * 1.6, height)
-        original_image = original_image.crop(setting)
-    elif width >= height:
-        setting = (0, 0, height, height / 1.6)
-        original_image = original_image.crop(setting)
-    elif height > width:
-        setting = (0, 0, width, width / 1.6)
-        original_image = original_image.crop(setting)
+    if width / 1.6 > height:
+        width = height * 1.6
+    else:
+        height = width / 1.6
+
+    setting = (0, 0, width, height)
+    original_image = original_image.crop(setting)
 
     original_image.thumbnail(size)
     original_image.save(f'{output_path}{hash_key}.png', format='png')
+
     with open(f'{output_path}thumbs.json', 'r', encoding='utf-8') as thumb:
         thumbnails = load(thumb)
         thumbnails[hash_key] = f'{output_path}{hash_key}.png'
     with open(f'{output_path}thumbs.json', 'w', encoding='utf-8') as thumb:
         dump(thumbnails, thumb)
-

@@ -160,7 +160,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         if files_list:
             for file in files_list:
                 button = f'{file.mod_id}-{file.original_file_name}'
-                self.buttons[button] = QtWidgets.QPushButton(mod_name_wrap(file_name_fix(file.original_file_name, option), 19))
+                self.buttons[button] = QtWidgets.QPushButton(file_name_fix(file.original_file_name, option), 19)
 
                 message = ('start_translation', file, file.original_file_name)
                 self.buttons[button].clicked.connect(partial(self.call_accept_message, message))

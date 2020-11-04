@@ -3,8 +3,11 @@
 """
 
 import sqlite3
+from win32api import GetSystemDirectory, GetUserName
 
-from scripts.utils import paradox_folder
+drive = GetSystemDirectory().split(':')[0]
+user = GetUserName()
+paradox_folder = f'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris'
 
 queries = {
     'get_mod_data':
@@ -25,6 +28,11 @@ queries = {
         f'SELECT thumbnailUrl, thumbnailPath, steamId FROM mods WHERE id=?',
     'get_images':
         f'SELECT id, thumbnailPath, steamId FROM mods',
+    'set_collection_thumbnail':
+    """   UPDATE mods
+            SET thumbnailPath = ?
+            WHERE id = ?;
+    """
 }
 
 
@@ -84,8 +92,8 @@ def write_data(request, modList, playset):
     return True
 
 
-def write_data_into_db(request, data):
+def set_collection_thumbnail(request, info):
     with sqlite3.connect(f'{paradox_folder}\\launcher-v2.sqlite') as conn:
-        conn.execute(queries[request], (data['image_path'], data['steam_id']))
+        conn.execute(queries[request], info)
         conn.commit()
     return True

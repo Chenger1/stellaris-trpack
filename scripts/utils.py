@@ -4,23 +4,31 @@
 
 import json
 import os
-import win32api
 import zipfile
 import shutil
 import glob
 
+from win32api import GetSystemDirectory, GetUserName
 from locale import getdefaultlocale
 from googletrans.constants import LANGUAGES
 
+from scripts.db import set_collection_thumbnail
 from scripts.collection_db import db_init, write_data_in_collection, update_data_in_collection, get_data_from_collection
 from scripts.comparer import Comparator
+from scripts.pictures import thumbs_synchronize
 
-drive = win32api.GetSystemDirectory().split(':')[0]
-user = win32api.GetUserName()
+drive = GetSystemDirectory().split(':')[0]
+user = GetUserName()
 paradox_folder = f'{drive}:\\Users\\{user}\\Documents\\Paradox Interactive\\Stellaris'
 local_mod_path = F'{paradox_folder}\\mod\\local_localisation'
+
+# TODO Попытаться брать hash мода из бд, например, по признаку local_mod и RegistryID
+collection_hash = '6fdfef4b-b06d-42fc-897f-b922efcd534b'
+
 collection_path = f'{local_mod_path}\\collection.db'
+collection_tumbnail_path = f'{paradox_folder}\\.launcher-cache\\_local-mod-thumbnail-collection_ru\\{collection_hash}.png'
 stack_path = f'{local_mod_path}\\stack.json'
+temp_folder_path = f'{local_mod_path}\\temp'
 data = {}
 
 
@@ -29,6 +37,7 @@ def current_stellaris_version():
         for line in file.readlines():
             if 'info' in line:
                 current_version = f'{line[-5:-2]}.*'
+
     return current_version
 
 
@@ -36,7 +45,28 @@ def get_interface_lang():
     with open('Properties.json', 'r', encoding='utf-8') as prop:
         properties = json.load(prop)
         tool_language = f'GUI\\translations\\interface_{properties["tool_language"]}.qm'
+
     return tool_language
+
+
+def set_collection_mod_thumbnail():
+    local_mod_thumbnails_path = 'GUI\\pictures\\icons\\local_mod_thumbnails'
+    with open('Properties.json', 'r', encoding='utf-8') as properties:
+        properties = json.load(properties)
+        target_language = properties["target_language"]
+
+    collection_thumbs_dir = collection_tumbnail_path.split(f'\\{collection_hash}')[0]
+    if os.path.isdir(collection_thumbs_dir) is False:
+        os.mkdir(collection_thumbs_dir)
+
+    if os.path.isdir(local_mod_thumbnails_path) is True:
+        thumbnails = os.listdir(local_mod_thumbnails_path)
+        for thumbnail in thumbnails:
+            if target_language in thumbnail:
+                shutil.copyfile(f'{local_mod_thumbnails_path}\\{thumbnail}', collection_tumbnail_path)
+                shutil.copyfile(collection_tumbnail_path, f'{local_mod_path}\\thumbnail.png')
+                set_collection_thumbnail('set_collection_thumbnail', (collection_tumbnail_path, collection_hash))
+                break
 
 
 def thumbs_init(path="GUI\pictures\\thumbs"):
@@ -53,11 +83,12 @@ def properties_init():
     tool_language = getdefaultlocale()[0].split('_')[0]
     if tool_language not in ['en', 'ru', 'pl', 'uk', 'zh']:
         tool_language = 'en'
+
     with open('Properties.json', 'w', encoding='utf-8') as prop:
         properties = {
             "collection_name": "Stellaris True Machine Translation Tool",
             "tool_language": f"{tool_language}",
-            "target_language": "en"
+            "target_language": "ru"
         }
         json.dump(properties, prop)
 
@@ -68,8 +99,10 @@ def local_mod_init():
         path = f'{local_mod_path}{folder}'
         if os.path.isdir(path) is False:
             os.mkdir(path)
+
     with open('Properties.json', 'r', encoding='utf-8') as prop:
         properties = json.load(prop)
+
     with open(f'{local_mod_path}.mod', 'w', encoding='utf-8') as mod:
         mod_description = f'name="{properties["collection_name"]}"' \
                           '\ntags={\n	"Translation"\n}' \
@@ -77,8 +110,11 @@ def local_mod_init():
                           f'\nsupported_version="{current_stellaris_version()}"' \
                           f'\npath="{paradox_folder}\mod\local_localisation"'.replace('\\', '/')
         mod.write(mod_description)
+
     with open(f'{local_mod_path}\\descriptor.mod', 'w', encoding='utf-8') as descriptor:
         descriptor.write(mod_description.split('\npath=')[0])
+
+    set_collection_mod_thumbnail()
 
 
 def stack_init():
@@ -90,23 +126,24 @@ def stack_init():
 def generated_files_init():
     if os.path.isfile('Properties.json') is False:
         properties_init()
-    if os.path.isfile(f'{local_mod_path}.mod') is False:
+
+    if os.path.isfile(f'{local_mod_path}.mod') is False or \
+            os.path.isfile(f'{local_mod_path}\\local_localisation\\descriptor.mod') is False:
         local_mod_init()
+
     if os.path.isfile('GUI\pictures\\thumbs\\thumbs.json') is False:
         thumbs_init()
+
     if os.path.isfile(collection_path) is False:
         db_init(collection_path)
+
     if os.path.isfile(stack_path) is False:
         stack_init()
 
-    temp_folder = f'{local_mod_path}\\temp'
-    localisation_folder = f'{local_mod_path}\\localisation'
+    if os.path.isdir(temp_folder_path) is False:
+        os.mkdir(temp_folder_path)
 
-    if os.path.isdir(temp_folder) is False:
-        os.mkdir(temp_folder)
-    if os.path.isdir(localisation_folder) is False:
-        os.mkdir(localisation_folder)
-
+    thumbs_synchronize()
 
 """
                                 ↓ Создание временных файлов ↓
@@ -219,6 +256,7 @@ def collection_append(mod_id, hashKey, mod_name):
 
 def get_collection_data():
     files = get_data_from_collection(collection_path)
+
     return files
 
 
@@ -266,6 +304,7 @@ def get_total_value(files):
         count += 1
 
     total_value /= count
+
     return total_value
 
 
@@ -335,6 +374,7 @@ def find_last_file(collection, last_file):
     """
     for file in collection[last_file[0]]:
         if file.original_file_name == last_file[1]:
+
             return file
 
 
@@ -344,6 +384,7 @@ def get_info_from_stack():
     """
     with open(stack_path, 'r', encoding='utf-8') as stack_file:
         stack: list = json.load(stack_file)
+
     return stack[-1] if stack else stack
 
 
