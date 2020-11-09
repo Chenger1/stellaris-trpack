@@ -1,4 +1,3 @@
-# TODO Try to merge searching algorytms
 """
                               ↓ Инициализация данных ↓
 """
@@ -10,7 +9,7 @@ from scripts.utils import write_data_about_file, create_temp_folder, data, prepa
 from shutil import copyfile
 
 """
-                                ↓ Парсинг файлов ↓
+                                ↓ Парсинг строк для перевода ↓
 """
 
 
@@ -49,7 +48,7 @@ def search_for_unnesessary(file_type, line):
 """
 
 
-def cutting_lines(source_file_path, original_file_path, file_type):
+def strings_parsing(source_file_path, original_file_path, file_type):
     source_text = []
     with open(original_file_path, 'r', encoding='utf-8') as original_text:
         original_text = original_text.readlines()
@@ -60,7 +59,8 @@ def cutting_lines(source_file_path, original_file_path, file_type):
 
                 if type(symbol) is not int:
                     prepared_line = line.split('\t')[-1]
-                    if prepared_line[0] != prepared_line[0].upper():
+
+                    if prepared_line[0].islower():
                         # Если первая буква строки не является заглавной
 
                         quote_symbol = line.find('\"') - 1
@@ -77,13 +77,13 @@ def cutting_lines(source_file_path, original_file_path, file_type):
                                   else len(line) - 1:]
                         # В противном случае оставляем только '\n'
                 else:
-                    prepared_line = line[symbol - 1:]
+                    prepared_line = line[symbol + 1:-2]
                 source_text.append(f'{prepared_line}')
                 source.write(f'{prepared_line}')
             else:
                 source_text.append('\n')
                 source.write('\n')
-    remove_extra_new_line_symbols(source_text, source_file_path, source)
+    source_text = remove_extra_new_line_symbols(source_text, source_file_path)
 
     return source_text
 
@@ -93,7 +93,7 @@ def cutting_lines(source_file_path, original_file_path, file_type):
 """
 
 
-def cutter_main(mod_path, mod_id, file_path):
+def parser_main(mod_path, mod_id, file_path):
     file_type = None
     machine_text = []
 
@@ -105,8 +105,8 @@ def cutter_main(mod_path, mod_id, file_path):
         file_type = 'localisation'
     elif '.txt' in data["original_file_name"]:
         file_type = 'name_lists'
-    orig_text = cutting_lines(data["source_file_path"], data["original_file_path"], file_type)
+    source_text = strings_parsing(data["source_file_path"], data["original_file_path"], file_type)
 
-    for line in orig_text:
+    for line in source_text:
         machine_text.append(translate_line(line))
     prepare_temp_files(machine_text)

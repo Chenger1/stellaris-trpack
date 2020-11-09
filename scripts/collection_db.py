@@ -129,7 +129,7 @@ class File:
         self.user_input_file_path = user_input_file_path
         self.tr_status = tr_status
         self.pointer_pos = pointer_pos
-        self.type = 'localisation' if '.yml' in original_file_name else 'common'
+        self.type = 'localisation' if '.yml' in original_file_name else 'name_lists'
 
 
 def get_data_from_collection(collection_path):

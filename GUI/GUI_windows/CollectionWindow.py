@@ -206,11 +206,11 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                 grid.addWidget(separator, self.row_index + 1, 6)
 
             elif options.currentText() in options.itemText(1):
-                self.print_files_names(grid, files, '.yml')
+                self.print_files_names(grid, files, 'localisation')
                 grid.addWidget(separator, self.row_index + 1, 6)
 
             elif options.currentText() in options.itemText(2):
-                self.print_files_names(grid, files, '.txt')
+                self.print_files_names(grid, files, 'name_lists')
                 grid.addWidget(separator, self.row_index + 1, 6)
 
             elif options.currentText() in options.itemText(3):

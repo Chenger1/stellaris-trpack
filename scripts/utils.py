@@ -230,8 +230,9 @@ def write_data_about_file(temp_folder, file_path):
 def prepare_temp_files(machine_text):
     with open(data["machine_file_path"], 'w', encoding='utf-8') as machine:
         machine.write(''.join(machine_text))
-    with open(data["user_input_file_path"], 'w', encoding='utf-8') as translator:
-        translator.write(''.join(['\n'] * len(machine_text)))
+    with open(data["user_input_file_path"], 'w', encoding='utf-8') as user_input:
+        user_input_text = ''.join(['\n'] * len(machine_text))[0:-1] + ' '
+        user_input.write(user_input_text)
 
 
 def collection_append(mod_id, hashKey, mod_name):
@@ -287,8 +288,8 @@ def mod_name_wrap(mod_name, value):
 
 def file_name_fix(original_name, option):
     parts = {
-        '.yml': ['_l_'],
-        '.txt': ['.txt'],
+        'localisation': ['_l_'],
+        'name_lists': ['.txt'],
     }
     for part in parts[option]:
         original_name = original_name.split(part)[0]
@@ -349,22 +350,15 @@ def pop_stack():
 
 def collection_update(file, user_text):
     with open(file.user_input_file_path, 'w', encoding='utf-8') as user_input:
-        user_input.write(''.join(user_text))
+        user_input.write(''.join(user_text.pop() + ' '))
 
     update_data_in_collection(collection_path, file)
     save_stack(file.mod_id, file.original_file_name)
 
 
-# def check_if_line_translated(orig_line, tr_line):
-#     if orig_line.replace('\n', '').strip() == tr_line.replace('\n', '').strip():
-#         return 'Извините, переводчик не смог перевести эту строку.\n'
-#     else:
-#         return tr_line
-
-
-def remove_extra_new_line_symbols(source_text, source_file_path, source):
+def remove_extra_new_line_symbols(source_text, source_file_path):
     if source_text[-1] == '\n':
-        source_text.pop()
+        source_text[-1] = ' '
         with open(source_file_path, 'w') as fixed:
             fixed.write(''.join(source_text))
 
