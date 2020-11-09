@@ -127,6 +127,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             call_success_message(self, message)
             self.findChild(QtWidgets.QDialog).close()
             self.close()
+
         except FileNotFoundError:
             message = 'files_not_found'
             call_error_message(self, message)

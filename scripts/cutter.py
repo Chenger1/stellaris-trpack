@@ -6,83 +6,86 @@
 import re
 
 from scripts.translator import translate_line
-from scripts.utils import write_data_about_file, create_temp_folder, data, prepare_temp_files
+from scripts.utils import write_data_about_file, create_temp_folder, data, prepare_temp_files, remove_extra_new_line_symbols
 from shutil import copyfile
 
 """
-                                ↓ Парсинг файлов с расширением .yml ↓
+                                ↓ Парсинг файлов ↓
 """
 
 
-def loc_search(subs, line):
-    match = subs.search(line)
-    if match is not None:
-        return 1
+def search_for_nesessary(file_type, line):
+    subs = {
+        'localisation': re.compile(': |:0|:1|:"]'),
+        'name_lists': re.compile('\t\t|\t"|= ')
+    }
+
+    if subs[file_type].search(line) is not None:
+        return True
     else:
-        return 0
+        return False
 
 
-def cutting_loc_lines(source_file_path, original_file_path):
-    subs = re.compile(': |:0|:1|:"]')
+def search_for_unnesessary(file_type, line):
+    subs = {
+        'localisation': re.compile('#'),
+        'name_lists': re.compile('[#{}]')
+    }
 
-    orig_text = []
-    with open(original_file_path, 'r', encoding='utf-8') as localisation_file:
-        with open(source_file_path, 'w', encoding='utf-8') as cutter_file:
-            for line in localisation_file:
-                if loc_search(subs, line) == 1:
-                    if (line[0] and line[1]) != '#':
-                        a = line.find('"')
-                        lt = line[a + 1:-2]
-                        orig_text.append(lt + '\n')
-                        cutter_file.write(lt + '\n')
-                    else:
-                        orig_text.append('\n')
-                        cutter_file.write('\n')
-                else:
-                    orig_text.append('\n')
-                    cutter_file.write('\n')
-
-    return orig_text
-
-
-"""
-                                ↓ Парсинг файлов с расширением .txt ↓
-"""
-
-
-def name_search(subs, line):
-    match = subs.search(line)
-    if match is None:
-        return 1
+    if subs[file_type].search(line) is None:
+        return True
     else:
-        return 0
+        return False
 
 
-def cutting_name_list_lines(source_file_path, original_file_path):
-    subs = re.compile('[#{}]')
+# TODO Добавить в обработку исключений закрывающие символы и связки символов по типу
+#  symbol = [§!, \n и §L]
+#  через replace(symbol)
+"""
+    §L
+        This species is made up of the executive terminals of a single Machine Intelligence, originally built by Quarians.
+    §!
+    \n
+"""
 
-    orig_text = []
-    with open(original_file_path, 'r', encoding='utf-8') as name_list_file:
-        with open(source_file_path, 'w', encoding='utf-8') as cutter_file:
-            for line in name_list_file:
-                if name_search(subs, line) == 1 and line[0] != '\n':
-                    if '=' in line and '"' in line:
-                        a = line.find('"')
-                        lt = line[a + 1:-2].replace('%O%', '-th')
-                        orig_text.append(lt + '\n')
-                        cutter_file.write(lt + '\n')
-                    elif '=' not in line and '\t' not in line[-2]:
-                        lt = line.replace('\t', '').replace('    ', '')
-                        orig_text.append(lt)
-                        cutter_file.write(lt)
-                    else:
-                        orig_text.append('\n')
-                        cutter_file.write('\n')
+
+def cutting_lines(source_file_path, original_file_path, file_type):
+    source_text = []
+    with open(original_file_path, 'r', encoding='utf-8') as original_text:
+        original_text = original_text.readlines()
+    with open(source_file_path, 'w', encoding='utf-8') as source:
+        for line in original_text:
+            if search_for_nesessary(file_type, line) and search_for_unnesessary(file_type, line):
+                symbol = '\t' if '\t' in line else line.find('"')
+
+                if type(symbol) is not int:
+                    prepared_line = line.split('\t')[-1]
+                    if prepared_line[0] != prepared_line[0].upper():
+                        # Если первая буква строки не является заглавной
+
+                        quote_symbol = line.find('\"') - 1
+                        # Если в строке есть '"',
+                        # то делаем срез от начала кавычки до конца строки
+
+                        letter_symbol = line.find('=') + 2
+                        # Если в строке нет кавычки, но есть '=',
+                        # если первая буква после '=' является заглавной,
+                        # то делаем срез от начала первой буквы до конца строки
+
+                        prepared_line = line[quote_symbol:] if '\"' in line \
+                        else line[letter_symbol if line[letter_symbol].isupper()
+                                  else len(line) - 1:]
+                        # В противном случае оставляем только '\n'
                 else:
-                    orig_text.append('\n')
-                    cutter_file.write('\n')
+                    prepared_line = line[symbol - 1:]
+                source_text.append(f'{prepared_line}')
+                source.write(f'{prepared_line}')
+            else:
+                source_text.append('\n')
+                source.write('\n')
+    remove_extra_new_line_symbols(source_text, source_file_path, source)
 
-    return orig_text
+    return source_text
 
 
 """
@@ -91,16 +94,18 @@ def cutting_name_list_lines(source_file_path, original_file_path):
 
 
 def cutter_main(mod_path, mod_id, file_path):
-    orig_text = []
+    file_type = None
     machine_text = []
+
     temp_folder = create_temp_folder(mod_id, file_path)
     write_data_about_file(temp_folder, file_path)
     copyfile(f'{mod_path}\\{file_path}', data["original_file_path"])
 
     if '.yml' in data["original_file_name"]:
-        orig_text = cutting_loc_lines(data["source_file_path"], data["original_file_path"])
+        file_type = 'localisation'
     elif '.txt' in data["original_file_name"]:
-        orig_text = cutting_name_list_lines(data["source_file_path"], data["original_file_path"])
+        file_type = 'name_lists'
+    orig_text = cutting_lines(data["source_file_path"], data["original_file_path"], file_type)
 
     for line in orig_text:
         machine_text.append(translate_line(line))

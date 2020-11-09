@@ -1,4 +1,9 @@
 # TODO Рассмотреть возможности упростить алгоритм
+# TODO Добавить поинтер, читать исходный файл, resource и пользовательский вариант перевода
+# начиная с первой строки, брать строку из оригинального файла,
+# заменять в ней строку из resource строкой из пользовательского перевода и увеличивать поинтер на 1,
+# снова
+# в конце списка записывать этот массив строк в локализированный файл
 """
                               ↓ Инициализация данных ↓
 """
@@ -15,8 +20,14 @@ from scripts.utils import paradox_folder
 """
 
 
-def search(subs, line):
-    match = subs.search(line)
+def search(file_type, line):
+    subs = {
+            'localisation': re.compile(': |:0|:1|:"'),
+            'name_lists': re.compile('"|'),
+            'species_names': re.compile('[#{}]')
+            }
+
+    match = subs[file_type].search(line)
     if match is not None:
         return 1
     else:
@@ -26,11 +37,6 @@ def search(subs, line):
 def put_lines(file):
     trlist = []
     nonlist = []
-
-    subs = {
-            '.yml': re.compile(': |:0|:1|:"'),
-            '.txt': re.compile('[#{}]')
-            }
 
     new_file_name = file.original_file_name.replace("english", file.target_language)
     new_file_path = file.original_file_path.split(f'{file.mod_id}\\')[-1].split(f'\\{file.original_file_name.split(".")[0]}')[0]
@@ -52,7 +58,7 @@ def put_lines(file):
     for line in user_input:
         trlist.append(line.rstrip())
 
-    if file.type in '.yml':
+    if file.type in 'localisation':
         new_file.write(f'l_{file.target_language}:\n')
 
     for index, line in enumerate(islice(l_english, 1, None)):

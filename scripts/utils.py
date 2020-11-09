@@ -145,6 +145,7 @@ def generated_files_init():
 
     thumbs_synchronize()
 
+
 """
                                 ↓ Создание временных файлов ↓
 """
@@ -361,10 +362,13 @@ def collection_update(file, user_text):
 #         return tr_line
 
 
-# def remove_extra_new_line_symbols(text):
-#     while text[-1] == '\n':
-#         text.pop()
-#     return text
+def remove_extra_new_line_symbols(source_text, source_file_path, source):
+    if source_text[-1] == '\n':
+        source_text.pop()
+        with open(source_file_path, 'w') as fixed:
+            fixed.write(''.join(source_text))
+
+    return source_text
 
 
 def find_last_file(collection, last_file):

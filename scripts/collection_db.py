@@ -27,7 +27,7 @@ sql = {
 
 collection_queries = {
     'insert_mod_data': """
-        INSERT INTO mod_files
+        INSERT or REPLACE INTO mod_files
             (
                               mod_id,
                               hash_key,
@@ -129,7 +129,7 @@ class File:
         self.user_input_file_path = user_input_file_path
         self.tr_status = tr_status
         self.pointer_pos = pointer_pos
-        self.type = '.yml' if '.yml' in original_file_name else '.txt'
+        self.type = 'localisation' if '.yml' in original_file_name else 'common'
 
 
 def get_data_from_collection(collection_path):
