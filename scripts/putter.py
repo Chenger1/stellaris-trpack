@@ -7,7 +7,7 @@ from os import path, mkdir
 from scripts.utils import local_mod_path
 
 """
-                              ↓ Работа с файлом локализации ↓
+                              ↓ Создание переведенного файла локализации ↓
 """
 
 

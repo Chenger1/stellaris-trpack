@@ -16,7 +16,7 @@ from scripts.mods_sorting import prep_data, sorting
 from scripts.db import get_info_from_db, get_mods_from_playset
 from scripts.utils import paradox_folder, open_zip_file, mod_name_wrap, get_collection_data, scan_for_files,\
                           remove_unpacked_files, collection_append, get_total_value
-from scripts.cutter import parser_main
+from scripts.parser import parser_main
 from scripts.stylesheets import mod_name_style, mod_avtivation_status_style, mod_sorting_status_style
 from scripts.messeges import call_success_message, call_error_message
 from scripts.pictures import get_thumbnail

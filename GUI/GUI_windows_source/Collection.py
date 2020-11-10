@@ -89,37 +89,79 @@ class Ui_Dialog(object):
         self.LandingArea.setAlignment(QtCore.Qt.AlignCenter)
         self.LandingArea.setObjectName("LandingArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 855, 431))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -368, 855, 1347))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName("verticalLayout")
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
-        self.gridLayout.setContentsMargins(-1, 0, -1, 150)
-        self.gridLayout.setHorizontalSpacing(20)
-        self.gridLayout.setVerticalSpacing(40)
+        self.gridLayout.setContentsMargins(-1, 15, -1, 150)
+        self.gridLayout.setHorizontalSpacing(15)
+        self.gridLayout.setVerticalSpacing(60)
         self.gridLayout.setObjectName("gridLayout")
+        self.ModDescriptionText = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.ModDescriptionText.setMinimumSize(QtCore.QSize(0, 250))
+        self.ModDescriptionText.setMaximumSize(QtCore.QSize(16777215, 250))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(9)
+        self.ModDescriptionText.setFont(font)
+        self.ModDescriptionText.setAccessibleName("")
+        self.ModDescriptionText.setStyleSheet("QTextEdit{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #05B8CC;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QTextEdit:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }\n"
+"")
+        self.ModDescriptionText.setReadOnly(False)
+        self.ModDescriptionText.setTextInteractionFlags(QtCore.Qt.TextEditorInteraction)
+        self.ModDescriptionText.setObjectName("ModDescriptionText")
+        self.gridLayout.addWidget(self.ModDescriptionText, 2, 0, 1, 1)
         self.NewNameText = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
-        self.NewNameText.setMaximumSize(QtCore.QSize(16777215, 35))
+        self.NewNameText.setMinimumSize(QtCore.QSize(0, 40))
+        self.NewNameText.setMaximumSize(QtCore.QSize(16777215, 40))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(14)
         self.NewNameText.setFont(font)
         self.NewNameText.setStyleSheet("QTextEdit{\n"
-"    background-color: transparent;\n"
-"    border: transparent;\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 1px solid transparent;\n"
 "    color: #ffffff;\n"
 "    }\n"
 "QTextEdit:hover{\n"
 "    background-color: rgba(56, 57, 61, 50);\n"
-"    border-radius: 15px;\n"
 "    }\n"
 "")
         self.NewNameText.setReadOnly(False)
         self.NewNameText.setTextInteractionFlags(QtCore.Qt.TextEditorInteraction)
         self.NewNameText.setObjectName("NewNameText")
         self.gridLayout.addWidget(self.NewNameText, 0, 0, 1, 1)
+        self.ModListText = QtWidgets.QTextEdit(self.scrollAreaWidgetContents)
+        self.ModListText.setMinimumSize(QtCore.QSize(0, 750))
+        self.ModListText.setMaximumSize(QtCore.QSize(16777215, 750))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(12)
+        self.ModListText.setFont(font)
+        self.ModListText.setAccessibleName("")
+        self.ModListText.setStyleSheet("QTextEdit{\n"
+"    background-color: rgba(31, 37, 51, 50);\n"
+"    border: 2px solid #05B8CC;\n"
+"    color: #ffffff;\n"
+"    }\n"
+"QTextEdit:hover{\n"
+"    background-color: rgba(56, 57, 61, 50);\n"
+"    }\n"
+"")
+        self.ModListText.setReadOnly(True)
+        self.ModListText.setTextInteractionFlags(QtCore.Qt.TextSelectableByMouse)
+        self.ModListText.setObjectName("ModListText")
+        self.gridLayout.addWidget(self.ModListText, 3, 0, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
         self.LandingArea.setWidget(self.scrollAreaWidgetContents)
         self.BottomShadowFrame = QtWidgets.QFrame(Dialog)
@@ -299,16 +341,36 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Коллекция"))
         self.ReferenceButton.setText(_translate("Dialog", "?"))
+        self.ModDescriptionText.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Этот пак локализаций был создан при помощи утилиты для почти автоматического машинного перевода установленных модификаций Stellaris True Machine Translation Tool</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Английский &gt; Русский</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    Названия всех модов кликабельны</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.NewNameText.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Stellaris True Machine Translation Tool</p></body></html>"))
+        self.ModListText.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Список включенных модификаций</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.OptionsListComboBox.setItemText(0, _translate("Dialog", "SteamWorkshop ID"))
         self.OptionsListComboBox.setItemText(1, _translate("Dialog", "Локализации"))
         self.OptionsListComboBox.setItemText(2, _translate("Dialog", "Нейм-листы"))
-        self.OptionsListComboBox.setItemText(3, _translate("Dialog", "Переименовать"))
+        self.OptionsListComboBox.setItemText(3, _translate("Dialog", "Настройки"))
         self.StatusLabel.setText(_translate("Dialog", "Статус"))
         self.CollectionLabel.setText(_translate("Dialog", "Коллекция"))
         self.ExitButton.setText(_translate("Dialog", "X"))

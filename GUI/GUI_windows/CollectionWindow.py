@@ -32,7 +32,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.string = self.StringsList.text().split('.')
         self.collection = get_collection_data()
         self.set_collection_name()
-        self.gridLayout.setSpacing(10)
+        self.gridLayout.setSpacing(15)
         self.buttons = {}
         self.row_index = 0
         self.OptionsListComboBox.view().parentWidget().setStyleSheet("background: #05B8CC;")
@@ -92,7 +92,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         with open('Properties.json', 'r', encoding='utf-8') as properties:
             properties = json.load(properties)
 
-        self.NewNameText.setText(self.string[-1])
+        self.NewNameText.setText(properties["collection_name"])
         self.NewNameText.setAlignment(QtCore.Qt.AlignCenter)
         self.CollectionNameLabel.setText(properties["collection_name"])
 
@@ -182,19 +182,26 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             self.files_not_found(grid)
 
     def print_rename_collection(self, grid):
-        self.ContinueButton.setText(self.string[1])
+        self.ContinueButton.setText(' ')
+        self.set_collection_name()
+        self.CollectionNameLabel.setText('↑ Введите новое имя ↑')
+        # self.ModDescriptionText.setText(' ')
+        # self.ModListText.setText(' ')
+
         self.ContinueButton.disconnect()
         self.ContinueButton.clicked.connect(self.collection_mod_rename)
 
-        self.NewNameText.setText(self.string[-1])
         self.NewNameText.setAlignment(QtCore.Qt.AlignCenter)
 
-        grid.addWidget(self.NewNameText)
+        grid.addWidget(self.NewNameText, 1, 0)
+        grid.addWidget(self.ModDescriptionText, 2, 0)
+        grid.addWidget(self.ModListText, 3, 0)
 
     def paint_elements(self):
         grid = self.gridLayout
         options = self.OptionsListComboBox
         self.clean(grid)
+        self.set_collection_name()
 
         for mod_id, files in self.collection.items():
             value = get_total_value(files)

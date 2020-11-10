@@ -15,7 +15,7 @@ from shutil import copyfile
 
 def search_for_nesessary(file_type, line):
     subs = {
-        'localisation': re.compile(': |:0|:1|:"]'),
+        'localisation': re.compile(': |:0|:1|:"'),
         'name_lists': re.compile('\t\t|\t"|= ')
     }
 
@@ -38,8 +38,8 @@ def search_for_unnesessary(file_type, line):
 
 
 # TODO Добавить в обработку исключений закрывающие символы и связки символов по типу
-#  symbol = [§!, \n и §L]
-#  через replace(symbol)
+#  symbol = [§!, ..., §L]
+#  через replace(symbol, '')
 """
     §L
         This species is made up of the executive terminals of a single Machine Intelligence, originally built by Quarians.
@@ -77,7 +77,7 @@ def strings_parsing(source_file_path, original_file_path, file_type):
                                   else len(line) - 1:]
                         # В противном случае оставляем только '\n'
                 else:
-                    prepared_line = line[symbol + 1:-2]
+                    prepared_line = line[symbol + 1: - 2]
                 source_text.append(f'{prepared_line}')
                 source.write(f'{prepared_line}')
             else:
