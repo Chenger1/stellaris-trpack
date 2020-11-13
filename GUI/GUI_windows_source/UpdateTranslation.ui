@@ -226,7 +226,7 @@ color: #ffffff;</string>
     <rect>
      <x>10</x>
      <y>101</y>
-     <width>341</width>
+     <width>281</width>
      <height>31</height>
     </rect>
    </property>
@@ -243,7 +243,7 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Внешняя устаревшая локализация</string>
+    <string>Основной файл</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -252,7 +252,7 @@ color: #ffffff;</string>
   <widget class="QLabel" name="NewTranslationLabel">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>360</x>
      <y>100</y>
      <width>271</width>
      <height>31</height>
@@ -271,7 +271,7 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Новая версия файла</string>
+    <string>Дополнительный файл</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

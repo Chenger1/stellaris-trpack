@@ -360,4 +360,4 @@ class Ui_Dialog(object):
         self.OptionsListComboBox.setItemText(3, _translate("Dialog", "Настройки"))
         self.StatusLabel.setText(_translate("Dialog", "Статус"))
         self.CollectionLabel.setText(_translate("Dialog", "Коллекция"))
-        self.StringsList.setText(_translate("Dialog", "Продолжить последний перевод.Переименовать Коллекцию.Введите желаемое имя Коллекции"))
+        self.StringsList.setText(_translate("Dialog", "Продолжить перевод.Применить изменения"))

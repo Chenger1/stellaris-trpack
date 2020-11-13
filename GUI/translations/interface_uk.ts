@@ -14,11 +14,6 @@
         <translation>Відмінно</translation>
     </message>
     <message>
-        <location filename="../../GUI_windows_source/TranslationLanguage.py" line="215"/>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
         <location filename="../../GUI_windows_source/TranslationLanguage.py" line="217"/>
         <source>Список языков</source>
         <translation>Список мов</translation>
@@ -29,31 +24,6 @@
 </source>
         <translation> Арабська Вірменська Азербайджанська Білоруська Болгарська Китайська Хорватська Чеська Данська Нідерландська Англійська Естонська Фінська Французька Німецька Грецька Угорська Італійська Японська Корейська Литовська Норвезька Польська Португальська Російська Словацька Словенська Іспанська Шведська Турецька Українська Філіппінська
 </translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/ToolLanguage.py" line="250"/>
-        <source>Русский</source>
-        <translation>Русский</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/ToolLanguage.py" line="251"/>
-        <source>Українська</source>
-        <translation>Українська</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/ToolLanguage.py" line="252"/>
-        <source>Polski</source>
-        <translation>Polski</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/ToolLanguage.py" line="253"/>
-        <source>English</source>
-        <translation>English</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/ToolLanguage.py" line="254"/>
-        <source>中文</source>
-        <translation>中文</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/SuccessMessage.py" line="128"/>
@@ -273,59 +243,14 @@
         <translation>Ви можете зв&apos;язатися з нами, якщо користуєтеся:</translation>
     </message>
     <message>
-        <location filename="../../GUI_windows_source/Contact.py" line="303"/>
-        <source>Chenger1</source>
-        <translation>Chenger1</translation>
-    </message>
-    <message>
         <location filename="../../GUI_windows_source/Contact.py" line="304"/>
         <source>Также пишите свои вопросы на электронную почту:</source>
         <translation>Також пишіть свої запитання на електронну пошту:</translation>
     </message>
     <message>
-        <location filename="../../GUI_windows_source/Contact.py" line="305"/>
-        <source>letisodianta@gmail.com</source>
-        <translation>letisodianta@gmail.com</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/Contact.py" line="306"/>
-        <source>exs2199@gmail.com</source>
-        <translation>exs2199@gmail.com</translation>
-    </message>
-    <message>
         <location filename="../../GUI_windows_source/Contact.py" line="307"/>
         <source>либо</source>
         <translation>або</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/Contact.py" line="308"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://steamcommunity.com/id/marik0660&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Steam&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://steamcommunity.com/id/marik0660&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Steam&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/Contact.py" line="309"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Chenger1&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Chenger1&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/Contact.py" line="310"/>
-        <source>Letiso</source>
-        <translation>Letiso</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/Contact.py" line="311"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://t.me/Letiso_Dianta&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Telegram&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://t.me/Letiso_Dianta&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Telegram&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/Contact.py" line="312"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://steamcommunity.com/id/letiso&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Steam&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://steamcommunity.com/id/letiso&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Steam&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/Contact.py" line="313"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Letiso&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Letiso&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/AboutTool.py" line="138"/>
@@ -334,8 +259,8 @@
     </message>
     <message>
         <location filename="../../GUI_windows_source/AboutTool.py" line="139"/>
-        <source>Приложение разработано Letiso и Chenger1 на основе</source>
-        <translation>Додаток розроблено Letiso і Chenger1 на основі</translation>
+        <source>Приложение разработано Letiso и Chenger1</source>
+        <translation>Додаток розроблено Letiso і Chenger1</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/AboutTool.py" line="140"/>
@@ -343,19 +268,9 @@
         <translation>Зв&apos;язатися з розробниками</translation>
     </message>
     <message>
-        <location filename="../../GUI_windows_source/TranslationLanguage.py" line="219"/>
-        <source>Steam</source>
-        <translation>Steam</translation>
-    </message>
-    <message>
         <location filename="../../GUI_windows_source/ModsList.py" line="345"/>
         <source>Сортировать</source>
         <translation>Сортувати</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/ModsList.py" line="346"/>
-        <source>A-Z</source>
-        <translation>A-Z</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/ModsList.py" line="347"/>
@@ -393,34 +308,6 @@
         <translation>Підтвердження</translation>
     </message>
     <message>
-        <location filename="../../GUI_windows_source/SuccessMessage.py" line="130"/>
-        <source>Информация</source>
-        <translation>Інформація</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/TranslationLanguage.py" line="216"/>
-        <source>?</source>
-        <translation>?</translation>
-    </message>
-    <message>
-        <location filename="../GUI_windows_source/Collection.py" line="303"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;KB Astrolyte&apos;; font-size:14pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;KB Astrolyte&apos;; font-size:14pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../GUI_windows_source/Collection.py" line="309"/>
-        <source>SteamWorkshop ID</source>
-        <translation>SteamWorkshop ID</translation>
-    </message>
-    <message>
         <location filename="../GUI_windows_source/Collection.py" line="310"/>
         <source>Локализации</source>
         <translation>Локалізації</translation>
@@ -432,23 +319,18 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../GUI_windows_source/Collection.py" line="312"/>
-        <source>Переименовать</source>
-        <translation>Перейменувати</translation>
+        <source>Настройки</source>
+        <translation>Налаштування</translation>
     </message>
     <message>
         <location filename="../GUI_windows_source/Collection.py" line="313"/>
-        <source>Продолжить последний перевод</source>
-        <translation>Продовжити останній переклад</translation>
+        <source>Продолжить перевод.Применить изменения</source>
+        <translation>Продовжити переклад.Підтвердити зміни</translation>
     </message>
     <message>
         <location filename="../GUI_windows_source/Collection.py" line="314"/>
         <source>Статус</source>
         <translation>Статус</translation>
-    </message>
-    <message>
-        <location filename="../GUI_windows_source/Collection.py" line="317"/>
-        <source>Stellaris True Machine Translation Tool</source>
-        <translation>Stellaris True Machine Translation Tool</translation>
     </message>
     <message>
         <location filename="../GUI_windows_source/Collection.py" line="318"/>
@@ -464,11 +346,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../../GUI_windows_source/AcceptMessage.py" line="164"/>
         <source>Подтвердить</source>
         <translation>Підтвердити</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/AcceptMessage.py" line="165"/>
-        <source>Желаете продолжить перевод мода.Вы уверены что хотите сохранить перевод?.Неверный ключ [Для разработчиков]</source>
-        <translation>Бажаєте продовжити переклад моду.Ви впевнені, що хочете зберегти переклад?.Невірний ключ [Для розробників]</translation>
     </message>
     <message>
         <location filename="../GUI_windows_source/Collection.py" line="315"/>
@@ -489,11 +366,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../../GUI_windows_source/ErrorMessage.py" line="150"/>
         <source>Ошибка</source>
         <translation>Помилка</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/ErrorMessage.py" line="155"/>
-        <source>Не найден файл.Перевод уже был записан.Ошибка записи файла: отсутствует перевод.Вы не выбрали мод.Файл перевода поврежден или удален.Моды не найдены.Вы выбрали не тот файл.Вы не ввели ID мода.Строка ID содержит сторонние символы.Мод не найден.В коллекции больше нечего переводить.Неверный ключ [Для разработчиков]</source>
-        <translation>Не знайдено файл.Переклад вже був записаний.Помилка запису файлу: відсутній переклад.Ви не обрали мод.Файл перекладу пошкоджено або знищено.Моди не знайдені.Ви вибрали не той файл.Ви не ввели ID моду.Рядок ID містить сторонні символи.Мод не знайдено.У колекції більше нічого перекладати.Невірний ключ [Для розробників]</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/ModsList.py" line="342"/>
@@ -519,19 +391,9 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../GUI_windows_source/MainWindow.py" line="738"/>
-        <source>Stellaris True Machine Translation Tool</source>
-        <translation>Stellaris True Machine Translation Tool</translation>
-    </message>
-    <message>
         <location filename="../../GUI_windows_source/MainWindow.py" line="739"/>
         <source>Локализировать</source>
         <translation>Локалізувати</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/MainWindow.py" line="740"/>
-        <source>SteamWorkshop ID</source>
-        <translation>SteamWorkshop ID</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/MainWindow.py" line="741"/>
@@ -549,16 +411,6 @@ p, li { white-space: pre-wrap; }
         <translation>Можна замінити машинний переклад на свій варіант</translation>
     </message>
     <message>
-        <location filename="../../GUI_windows_source/MainWindow.py" line="744"/>
-        <source>Следующая строка</source>
-        <translation>Наступний рядок</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/MainWindow.py" line="745"/>
-        <source>Предыдущая строка</source>
-        <translation>Попередній рядок</translation>
-    </message>
-    <message>
         <location filename="../../GUI_windows_source/MainWindow.py" line="746"/>
         <source>Язык перевода</source>
         <translation>Мова перекладу</translation>
@@ -567,39 +419,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../../GUI_windows_source/MainWindow.py" line="747"/>
         <source>Модификации</source>
         <translation>Модифікації</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/MainWindow.py" line="758"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;KB Astrolyte&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;MS Shell Dlg 2&apos;; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;KB Astrolyte&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;MS Shell Dlg 2&apos;; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/MainWindow.py" line="763"/>
-        <source>0</source>
-        <translation>0</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/MainWindow.py" line="764"/>
-        <source>Steam</source>
-        <translation>Steam</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/MainWindow.py" line="765"/>
-        <source>_</source>
-        <translation>_</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/MainWindow.py" line="766"/>
-        <source>X</source>
-        <translation>X</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/MainWindow.py" line="767"/>
@@ -620,11 +439,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../../GUI_windows_source/MainWindow.py" line="770"/>
         <source>Коллекция</source>
         <translation>Колекція</translation>
-    </message>
-    <message>
-        <location filename="../../GUI_windows_source/MainWindow.py" line="771"/>
-        <source>Вручную</source>
-        <translation>Вручну</translation>
     </message>
 </context>
 </TS>

@@ -653,7 +653,7 @@ image: url(:/icons/icons/collection.png);</string>
     </font>
    </property>
    <property name="text">
-    <string>Продолжить последний перевод.Переименовать Коллекцию.Введите желаемое имя Коллекции</string>
+    <string>Продолжить перевод.Применить изменения</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

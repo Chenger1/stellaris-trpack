@@ -215,9 +215,9 @@ background-image: url(:/icons/icons/stmtt.png);</string>
    <widget class="QPushButton" name="TranslationLanguageButton">
     <property name="geometry">
      <rect>
-      <x>1010</x>
+      <x>1000</x>
       <y>50</y>
-      <width>211</width>
+      <width>221</width>
       <height>31</height>
      </rect>
     </property>
@@ -1286,7 +1286,7 @@ QPushButton:pressed{
      <rect>
       <x>40</x>
       <y>150</y>
-      <width>201</width>
+      <width>181</width>
       <height>27</height>
      </rect>
     </property>
@@ -1317,7 +1317,7 @@ QPushButton:pressed{
 	}</string>
     </property>
     <property name="text">
-     <string>Обновить перевод</string>
+     <string>Обновить файл</string>
     </property>
    </widget>
    <widget class="QPushButton" name="PreviousStringButton">

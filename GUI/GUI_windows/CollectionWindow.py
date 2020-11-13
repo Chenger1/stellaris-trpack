@@ -86,7 +86,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.CollectionNameLabel.setText(properties["collection_name"])
 
     def clean(self, grid):
-        self.ContinueButton.setText('Продолжить перевод')
+        self.ContinueButton.setText(self.string[0])
         self.ContinueButton.disconnect()
         self.ContinueButton.clicked.connect(self.close)
         self.ContinueButton.clicked.connect(self.continue_last_translation)
@@ -174,7 +174,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         name = self.CollectionNameLabel.text()
         mod_list = get_collection_mod_list(self.collection.items())
 
-        self.ContinueButton.setText('Применить изменения')
+        self.ContinueButton.setText(self.string[-1])
         self.ModDescriptionText.setText(get_collection_description(name))
         self.ModDescriptionText.setAlignment(QtCore.Qt.AlignCenter)
         self.ModListLabel.setText(mod_list)

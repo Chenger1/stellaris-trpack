@@ -154,41 +154,6 @@ QPushButton:pressed{
     <string notr="true">X</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="ReferenceButton">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>0</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>KB Astrolyte</family>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	background-color: rgba(31, 37, 51, 10);
-	color: #ffffff;
-	}
-QPushButton:hover{
-	background-color: rgba(56, 57, 61, 50);
-	color: rgb(199, 199, 199);
-	}
-QPushButton:pressed{
-	background-color: rgba(194, 194, 194, 50);
-	color: #5abe41
-	}</string>
-   </property>
-   <property name="text">
-    <string notr="true">?</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="DeniedButton">
    <property name="geometry">
     <rect>
@@ -279,7 +244,6 @@ QPushButton:pressed{
   <zorder>WindowMoveButton</zorder>
   <zorder>InfoLabel</zorder>
   <zorder>ExitButton</zorder>
-  <zorder>ReferenceButton</zorder>
   <zorder>DeniedButton</zorder>
   <zorder>AcceptButton</zorder>
  </widget>
