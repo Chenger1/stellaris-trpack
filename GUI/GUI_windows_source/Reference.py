@@ -48,6 +48,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: rgb(255, 60, 63)\n"
 "    }")
+        self.ExitButton.setText("X")
         self.ExitButton.setObjectName("ExitButton")
         self.ReferenceLabel = QtWidgets.QLabel(Dialog)
         self.ReferenceLabel.setGeometry(QtCore.QRect(50, 40, 231, 41))
@@ -595,6 +596,7 @@ class Ui_Dialog(object):
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
 "    color: transparent;\n"
 "}")
+        self.WindowMoveButton.setText("")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.BottomShadowFrame = QtWidgets.QFrame(Dialog)
         self.BottomShadowFrame.setGeometry(QtCore.QRect(-50, 610, 1100, 80))
@@ -616,6 +618,7 @@ class Ui_Dialog(object):
         self.ReferenceIcon.setFont(font)
         self.ReferenceIcon.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
+        self.ReferenceIcon.setText("?")
         self.ReferenceIcon.setAlignment(QtCore.Qt.AlignCenter)
         self.ReferenceIcon.setObjectName("ReferenceIcon")
         self.BackgroundFrame.raise_()
@@ -634,7 +637,6 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Справка"))
-        self.ExitButton.setText(_translate("Dialog", "X"))
         self.ReferenceLabel.setText(_translate("Dialog", "Справка"))
         self.QLabel_1_Translation.setText(_translate("Dialog", "1. Перевод"))
         self.Description_1_0.setText(_translate("Dialog", "Кнопка \"Локализировать\" - ваш лучший друг в процессе перевода, но она работает только когда выбран мод\n"
@@ -701,5 +703,3 @@ class Ui_Dialog(object):
 "Все ссылки кликабельны, а почту можно выделить двойным кликом, чтобы скопировать"))
         self.SearchLine.setText(_translate("Dialog", "Поиск"))
         self.AboutToolButton.setText(_translate("Dialog", "Об утилите"))
-        self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-        self.ReferenceIcon.setText(_translate("Dialog", "?"))

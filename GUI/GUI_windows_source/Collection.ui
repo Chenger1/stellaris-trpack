@@ -92,7 +92,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>?</string>
+    <string notr="true">?</string>
    </property>
   </widget>
   <widget class="QScrollArea" name="LandingArea">
@@ -173,7 +173,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-221</y>
+      <y>0</y>
       <width>855</width>
       <height>652</height>
      </rect>
@@ -239,7 +239,7 @@ QTextEdit:hover{
           <bool>false</bool>
          </property>
          <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+          <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -285,7 +285,7 @@ QTextEdit:hover{
           <bool>false</bool>
          </property>
          <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+          <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'KB Astrolyte'; font-size:14pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -317,7 +317,7 @@ QLabel:hover{
 </string>
          </property>
          <property name="text">
-          <string/>
+          <string notr="true"/>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -389,7 +389,7 @@ QLabel:hover{
 }</string>
    </property>
    <property name="text">
-    <string>Steam</string>
+    <string notr="true"/>
    </property>
   </widget>
   <widget class="QComboBox" name="OptionsListComboBox">
@@ -583,7 +583,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>X</string>
+    <string notr="true">X</string>
    </property>
   </widget>
   <widget class="QLabel" name="CollectionNameLabel">
@@ -609,7 +609,7 @@ QPushButton:pressed{
 </string>
    </property>
    <property name="text">
-    <string>Stellaris True Machine Translation Tool</string>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -629,7 +629,7 @@ QPushButton:pressed{
 image: url(:/icons/icons/collection.png);</string>
    </property>
    <property name="text">
-    <string/>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

@@ -48,6 +48,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: rgb(255, 60, 63)\n"
 "    }")
+        self.ExitButton.setText("X")
         self.ExitButton.setObjectName("ExitButton")
         self.InfoLabel_0 = QtWidgets.QLabel(Dialog)
         self.InfoLabel_0.setGeometry(QtCore.QRect(20, 30, 611, 31))
@@ -62,7 +63,7 @@ class Ui_Dialog(object):
         self.InfoLabel_0.setAlignment(QtCore.Qt.AlignCenter)
         self.InfoLabel_0.setObjectName("InfoLabel_0")
         self.ChengerLabel = QtWidgets.QLabel(Dialog)
-        self.ChengerLabel.setGeometry(QtCore.QRect(360, 120, 121, 31))
+        self.ChengerLabel.setGeometry(QtCore.QRect(360, 120, 111, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(12)
@@ -71,6 +72,7 @@ class Ui_Dialog(object):
         self.ChengerLabel.setFont(font)
         self.ChengerLabel.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
+        self.ChengerLabel.setText("Chenger1")
         self.ChengerLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.ChengerLabel.setObjectName("ChengerLabel")
         self.InfoLabel_1 = QtWidgets.QLabel(Dialog)
@@ -100,6 +102,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(56, 57, 61, 10);\n"
 "    }\n"
 "")
+        self.LetisoEmailLine.setText("letisodianta@gmail.com")
         self.LetisoEmailLine.setFrame(False)
         self.LetisoEmailLine.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.LetisoEmailLine.setReadOnly(True)
@@ -119,6 +122,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(56, 57, 61, 10);\n"
 "    }\n"
 "")
+        self.ChengerEmailLine.setText("exs2199@gmail.com")
         self.ChengerEmailLine.setFrame(False)
         self.ChengerEmailLine.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.ChengerEmailLine.setReadOnly(True)
@@ -144,7 +148,7 @@ class Ui_Dialog(object):
         self.MidLineFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.MidLineFrame.setObjectName("MidLineFrame")
         self.SteamChengerLink = QtWidgets.QLabel(Dialog)
-        self.SteamChengerLink.setGeometry(QtCore.QRect(480, 140, 91, 31))
+        self.SteamChengerLink.setGeometry(QtCore.QRect(480, 140, 101, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(12)
@@ -153,11 +157,12 @@ class Ui_Dialog(object):
         self.SteamChengerLink.setFont(font)
         self.SteamChengerLink.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
+        self.SteamChengerLink.setText("<html><head/><body><p><a href=\"https://steamcommunity.com/id/marik0660\"><span style=\" text-decoration: underline; color:#ffffff;\">Steam</span></a></p></body></html>")
         self.SteamChengerLink.setAlignment(QtCore.Qt.AlignCenter)
         self.SteamChengerLink.setOpenExternalLinks(True)
         self.SteamChengerLink.setObjectName("SteamChengerLink")
         self.GitHubChengerLink = QtWidgets.QLabel(Dialog)
-        self.GitHubChengerLink.setGeometry(QtCore.QRect(460, 90, 91, 31))
+        self.GitHubChengerLink.setGeometry(QtCore.QRect(460, 90, 101, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(12)
@@ -166,6 +171,7 @@ class Ui_Dialog(object):
         self.GitHubChengerLink.setFont(font)
         self.GitHubChengerLink.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
+        self.GitHubChengerLink.setText("<html><head/><body><p><a href=\"https://github.com/Chenger1\"><span style=\" text-decoration: underline; color:#ffffff;\">GitHub</span></a></p></body></html>")
         self.GitHubChengerLink.setAlignment(QtCore.Qt.AlignCenter)
         self.GitHubChengerLink.setOpenExternalLinks(True)
         self.GitHubChengerLink.setObjectName("GitHubChengerLink")
@@ -179,6 +185,7 @@ class Ui_Dialog(object):
         self.LetisoLabel.setFont(font)
         self.LetisoLabel.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
+        self.LetisoLabel.setText("Letiso")
         self.LetisoLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.LetisoLabel.setObjectName("LetisoLabel")
         self.git_logo_1 = QtWidgets.QLabel(Dialog)
@@ -207,6 +214,7 @@ class Ui_Dialog(object):
         self.TelegramLetisoLink.setFont(font)
         self.TelegramLetisoLink.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
+        self.TelegramLetisoLink.setText("<html><head/><body><p><a href=\"https://t.me/Letiso_Dianta\"><span style=\" text-decoration: underline; color:#ffffff;\">Telegram</span></a></p></body></html>")
         self.TelegramLetisoLink.setAlignment(QtCore.Qt.AlignCenter)
         self.TelegramLetisoLink.setOpenExternalLinks(True)
         self.TelegramLetisoLink.setObjectName("TelegramLetisoLink")
@@ -227,6 +235,7 @@ class Ui_Dialog(object):
         self.SteamLetisoLink.setFont(font)
         self.SteamLetisoLink.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
+        self.SteamLetisoLink.setText("<html><head/><body><p><a href=\"http://steamcommunity.com/id/letiso\"><span style=\" text-decoration: underline; color:#ffffff;\">Steam</span></a></p></body></html>")
         self.SteamLetisoLink.setAlignment(QtCore.Qt.AlignCenter)
         self.SteamLetisoLink.setOpenExternalLinks(True)
         self.SteamLetisoLink.setObjectName("SteamLetisoLink")
@@ -255,6 +264,7 @@ class Ui_Dialog(object):
         self.GitHubLetisoLink.setFont(font)
         self.GitHubLetisoLink.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
+        self.GitHubLetisoLink.setText("<html><head/><body><p><a href=\"https://github.com/Letiso\"><span style=\" color:#ffffff;\">GitHub</span></a></p></body></html>")
         self.GitHubLetisoLink.setAlignment(QtCore.Qt.AlignCenter)
         self.GitHubLetisoLink.setOpenExternalLinks(True)
         self.GitHubLetisoLink.setObjectName("GitHubLetisoLink")
@@ -269,6 +279,7 @@ class Ui_Dialog(object):
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
 "    color: transparent;\n"
 "}")
+        self.WindowMoveButton.setText("")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
@@ -298,17 +309,6 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Связь"))
-        self.ExitButton.setText(_translate("Dialog", "X"))
         self.InfoLabel_0.setText(_translate("Dialog", "Вы можете связаться с нами, если пользуетесь:"))
-        self.ChengerLabel.setText(_translate("Dialog", "Chenger1"))
         self.InfoLabel_1.setText(_translate("Dialog", "Также пишите свои вопросы на электронную почту:"))
-        self.LetisoEmailLine.setText(_translate("Dialog", "letisodianta@gmail.com"))
-        self.ChengerEmailLine.setText(_translate("Dialog", "exs2199@gmail.com"))
         self.InfoLabel_2.setText(_translate("Dialog", "либо"))
-        self.SteamChengerLink.setText(_translate("Dialog", "<html><head/><body><p><a href=\"https://steamcommunity.com/id/marik0660\"><span style=\" text-decoration: underline; color:#ffffff;\">Steam</span></a></p></body></html>"))
-        self.GitHubChengerLink.setText(_translate("Dialog", "<html><head/><body><p><a href=\"https://github.com/Chenger1\"><span style=\" text-decoration: underline; color:#ffffff;\">GitHub</span></a></p></body></html>"))
-        self.LetisoLabel.setText(_translate("Dialog", "Letiso"))
-        self.TelegramLetisoLink.setText(_translate("Dialog", "<html><head/><body><p><a href=\"https://t.me/Letiso_Dianta\"><span style=\" text-decoration: underline; color:#ffffff;\">Telegram</span></a></p></body></html>"))
-        self.SteamLetisoLink.setText(_translate("Dialog", "<html><head/><body><p><a href=\"http://steamcommunity.com/id/letiso\"><span style=\" text-decoration: underline; color:#ffffff;\">Steam</span></a></p></body></html>"))
-        self.GitHubLetisoLink.setText(_translate("Dialog", "<html><head/><body><p><a href=\"https://github.com/Letiso\"><span style=\" color:#ffffff;\">GitHub</span></a></p></body></html>"))
-        self.WindowMoveButton.setText(_translate("Dialog", "Steam"))

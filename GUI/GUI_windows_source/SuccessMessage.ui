@@ -127,7 +127,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>X</string>
+    <string notr="true">X</string>
    </property>
   </widget>
   <widget class="QLabel" name="SuccessLabel">
@@ -181,7 +181,7 @@ color: #ffffff;</string>
 }</string>
    </property>
    <property name="text">
-    <string>Steam</string>
+    <string notr="true"/>
    </property>
   </widget>
   <widget class="QLabel" name="InfoLabel">
@@ -206,7 +206,7 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Информация</string>
+    <string notr="true">Информация</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

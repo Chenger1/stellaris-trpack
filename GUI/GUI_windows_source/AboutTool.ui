@@ -91,7 +91,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>X</string>
+    <string notr="true">X</string>
    </property>
   </widget>
   <widget class="QLabel" name="InfoLabel_2">
@@ -212,10 +212,10 @@ QPushButton:pressed{
 }</string>
    </property>
    <property name="text">
-    <string>Steam</string>
+    <string notr="true"/>
    </property>
   </widget>
-  <widget class="QLabel" name="InfoLabel_3">
+  <widget class="QLabel" name="InfoLabel_4">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -246,7 +246,7 @@ color: #ffffff;</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="InfoLabel_4">
+  <widget class="QLabel" name="InfoLabel_3">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -284,8 +284,8 @@ color: #ffffff;</string>
   <zorder>InfoLabel_2</zorder>
   <zorder>InfoLabel_1</zorder>
   <zorder>ContactUsButton</zorder>
-  <zorder>InfoLabel_3</zorder>
   <zorder>InfoLabel_4</zorder>
+  <zorder>InfoLabel_3</zorder>
  </widget>
  <resources>
   <include location="../pictures/resources.qrc"/>

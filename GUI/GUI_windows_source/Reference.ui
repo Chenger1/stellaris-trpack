@@ -92,7 +92,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>X</string>
+    <string notr="true">X</string>
    </property>
   </widget>
   <widget class="QLabel" name="ReferenceLabel">
@@ -1209,7 +1209,7 @@ QPushButton:pressed{
 }</string>
    </property>
    <property name="text">
-    <string>Steam</string>
+    <string notr="true"/>
    </property>
   </widget>
   <widget class="QFrame" name="BottomShadowFrame">
@@ -1271,7 +1271,7 @@ QPushButton:pressed{
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>?</string>
+    <string notr="true">?</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

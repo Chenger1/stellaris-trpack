@@ -48,6 +48,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: #5abe41\n"
 "    }")
+        self.ReferenceButton.setText("?")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.LandingArea = QtWidgets.QScrollArea(Dialog)
         self.LandingArea.setGeometry(QtCore.QRect(10, 101, 880, 391))
@@ -123,6 +124,7 @@ class Ui_Dialog(object):
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
 "    color: transparent;\n"
 "}")
+        self.WindowMoveButton.setText("")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.SortButton = QtWidgets.QPushButton(Dialog)
         self.SortButton.setGeometry(QtCore.QRect(30, 520, 171, 31))
@@ -175,6 +177,7 @@ class Ui_Dialog(object):
 "    outline: 0px;\n"
 "}")
         self.PlaysetsList.setEditable(False)
+        self.PlaysetsList.setPlaceholderText("")
         self.PlaysetsList.setObjectName("PlaysetsList")
         self.ReverseSortingButton = QtWidgets.QPushButton(Dialog)
         self.ReverseSortingButton.setGeometry(QtCore.QRect(30, 40, 91, 21))
@@ -199,6 +202,7 @@ class Ui_Dialog(object):
 "    background-color: #c2c2c2;\n"
 "    color: #1f2533;\n"
 "    }")
+        self.ReverseSortingButton.setText("A-Z")
         self.ReverseSortingButton.setObjectName("ReverseSortingButton")
         self.ResetButton = QtWidgets.QPushButton(Dialog)
         self.ResetButton.setGeometry(QtCore.QRect(760, 520, 111, 31))
@@ -243,6 +247,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: rgb(255, 60, 63)\n"
 "    }")
+        self.ExitButton.setText("X")
         self.ExitButton.setObjectName("ExitButton")
         self.ModListLabel = QtWidgets.QLabel(Dialog)
         self.ModListLabel.setGeometry(QtCore.QRect(10, 30, 491, 41))
@@ -351,12 +356,8 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Модификации"))
-        self.ReferenceButton.setText(_translate("Dialog", "?"))
-        self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.SortButton.setText(_translate("Dialog", "Сортировать"))
-        self.ReverseSortingButton.setText(_translate("Dialog", "A-Z"))
         self.ResetButton.setText(_translate("Dialog", "Сбросить"))
-        self.ExitButton.setText(_translate("Dialog", "X"))
         self.ModListLabel.setText(_translate("Dialog", "Список модов"))
         self.ActivateSortLabel.setText(_translate("Dialog", "Активация и сортировка"))
         self.SearchLine.setText(_translate("Dialog", "Поиск"))

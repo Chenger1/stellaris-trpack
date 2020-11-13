@@ -69,6 +69,7 @@ class Ui_MainWindow(object):
 "    border: transparent;\n"
 "    color: #ffffff;\n"
 "    }")
+        self.ModIDLine.setText("SteamWorkshop ID")
         self.ModIDLine.setAlignment(QtCore.Qt.AlignCenter)
         self.ModIDLine.setReadOnly(True)
         self.ModIDLine.setObjectName("ModIDLine")
@@ -177,6 +178,11 @@ class Ui_MainWindow(object):
 "    }\n"
 "")
         self.OriginalString.setReadOnly(True)
+        self.OriginalString.setHtml("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt;\"><br /></p></body></html>")
         self.OriginalString.setTextInteractionFlags(QtCore.Qt.TextSelectableByMouse)
         self.OriginalString.setObjectName("OriginalString")
         self.TranslateString = QtWidgets.QTextEdit(self.centralwidget)
@@ -201,6 +207,11 @@ class Ui_MainWindow(object):
 "    }\n"
 "")
         self.TranslateString.setReadOnly(True)
+        self.TranslateString.setHtml("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt;\"><br /></p></body></html>")
         self.TranslateString.setObjectName("TranslateString")
         self.EditString = QtWidgets.QTextEdit(self.centralwidget)
         self.EditString.setGeometry(QtCore.QRect(400, 560, 491, 91))
@@ -217,6 +228,11 @@ class Ui_MainWindow(object):
 "    background-color: rgba(56, 57, 61, 50);\n"
 "    }\n"
 "")
+        self.EditString.setHtml("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt;\"><br /></p></body></html>")
         self.EditString.setObjectName("EditString")
         self.BackgroundFrame = QtWidgets.QWidget(self.centralwidget)
         self.BackgroundFrame.setGeometry(QtCore.QRect(0, 0, 1300, 860))
@@ -248,6 +264,7 @@ class Ui_MainWindow(object):
 "    background-color: transparent;\n"
 "    }\n"
 "")
+        self.StringOrder.setText("0")
         self.StringOrder.setAlignment(QtCore.Qt.AlignCenter)
         self.StringOrder.setReadOnly(True)
         self.StringOrder.setObjectName("StringOrder")
@@ -431,6 +448,7 @@ class Ui_MainWindow(object):
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
 "    color: transparent;\n"
 "}")
+        self.WindowMoveButton.setText("")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.RollUpButton = QtWidgets.QPushButton(self.centralwidget)
         self.RollUpButton.setGeometry(QtCore.QRect(1250, 0, 20, 21))
@@ -453,6 +471,7 @@ class Ui_MainWindow(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: #5abe41\n"
 "    }")
+        self.RollUpButton.setText("_")
         self.RollUpButton.setObjectName("RollUpButton")
         self.ExitButton = QtWidgets.QPushButton(self.centralwidget)
         self.ExitButton.setGeometry(QtCore.QRect(1270, 0, 21, 21))
@@ -475,6 +494,7 @@ class Ui_MainWindow(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: rgb(255, 60, 63)\n"
 "    }")
+        self.ExitButton.setText("X")
         self.ExitButton.setObjectName("ExitButton")
         self.ReferenceButton = QtWidgets.QPushButton(self.centralwidget)
         self.ReferenceButton.setGeometry(QtCore.QRect(1100, 780, 171, 41))
@@ -660,6 +680,7 @@ class Ui_MainWindow(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
+        self.PreviousStringButton.setText("<")
         self.PreviousStringButton.setObjectName("PreviousStringButton")
         self.NextStringButton = QtWidgets.QPushButton(self.centralwidget)
         self.NextStringButton.setGeometry(QtCore.QRect(940, 580, 51, 51))
@@ -684,6 +705,7 @@ class Ui_MainWindow(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    border: #c2c2c2;\n"
 "    }")
+        self.NextStringButton.setText(">")
         self.NextStringButton.setObjectName("NextStringButton")
         self.BackgroundFrame.raise_()
         self.lang_logo.raise_()
@@ -721,35 +743,13 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Stellaris True Machine Translation Tool"))
-        self.ModIDLine.setText(_translate("MainWindow", "SteamWorkshop ID"))
         self.OriginalLabel.setText(_translate("MainWindow", "Оригинальная строка"))
         self.TranslatedLabel.setText(_translate("MainWindow", "Машинный перевод"))
         self.EditLabel.setText(_translate("MainWindow", "Можно заменить машинный перевод на свой вариант"))
         self.TranslationLanguageButton.setText(_translate("MainWindow", "Язык перевода"))
         self.SortModListButton.setText(_translate("MainWindow", "Модификации"))
-        self.OriginalString.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt;\"><br /></p></body></html>"))
-        self.TranslateString.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt;\"><br /></p></body></html>"))
-        self.EditString.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt;\"><br /></p></body></html>"))
-        self.StringOrder.setText(_translate("MainWindow", "0"))
-        self.WindowMoveButton.setText(_translate("MainWindow", "Steam"))
-        self.RollUpButton.setText(_translate("MainWindow", "_"))
-        self.ExitButton.setText(_translate("MainWindow", "X"))
         self.ReferenceButton.setText(_translate("MainWindow", "Справка"))
         self.ToolLanguageButton.setText(_translate("MainWindow", "Интерфейс"))
         self.SaveButton.setText(_translate("MainWindow", "Сохранить перевод"))
         self.CollectionButton.setText(_translate("MainWindow", "Коллекция"))
         self.UpdateTranslationButton.setText(_translate("MainWindow", "Обновить перевод"))
-        self.PreviousStringButton.setText(_translate("MainWindow", "<"))
-        self.NextStringButton.setText(_translate("MainWindow", ">"))

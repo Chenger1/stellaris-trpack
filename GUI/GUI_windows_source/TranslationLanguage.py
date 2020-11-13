@@ -56,6 +56,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: rgb(255, 60, 63)\n"
 "    }")
+        self.ExitButton.setText("X")
         self.ExitButton.setObjectName("ExitButton")
         self.ReferenceButton = QtWidgets.QPushButton(Dialog)
         self.ReferenceButton.setGeometry(QtCore.QRect(10, 0, 21, 21))
@@ -77,6 +78,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: #5abe41\n"
 "    }")
+        self.ReferenceButton.setText("?")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.LanguagesListLabel = QtWidgets.QLabel(Dialog)
         self.LanguagesListLabel.setGeometry(QtCore.QRect(50, 20, 231, 61))
@@ -182,6 +184,7 @@ class Ui_Dialog(object):
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
 "    color: transparent;\n"
 "}")
+        self.WindowMoveButton.setText("")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.LanguagesList = QtWidgets.QLabel(Dialog)
         self.LanguagesList.setGeometry(QtCore.QRect(100, 40, 141, 20))
@@ -212,9 +215,6 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Язык перевода"))
-        self.ExitButton.setText(_translate("Dialog", "X"))
-        self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.LanguagesListLabel.setText(_translate("Dialog", "Список языков"))
         self.SearchLine.setText(_translate("Dialog", "Поиск"))
-        self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.LanguagesList.setText(_translate("Dialog", "Русский Украинский Польский Китайский Арабский Белорусский Болгарский Хорватский Чешский Датский Нидерландский Эстонский Финский Французский Немецкий Греческий Венгерский Итальянский Японский Корейский Литовский Норвежский Португальский Словацкий Испанский Шведский Турецкий"))

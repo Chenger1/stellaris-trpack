@@ -37,6 +37,7 @@ class Ui_Dialog(object):
         self.InfoLabel.setFont(font)
         self.InfoLabel.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
+        self.InfoLabel.setText("Информация")
         self.InfoLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.InfoLabel.setObjectName("InfoLabel")
         self.WindowMoveButton = QtWidgets.QPushButton(Dialog)
@@ -50,6 +51,7 @@ class Ui_Dialog(object):
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
 "    color: transparent;\n"
 "}")
+        self.WindowMoveButton.setText("")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.ExitButton = QtWidgets.QPushButton(Dialog)
         self.ExitButton.setGeometry(QtCore.QRect(620, 0, 21, 21))
@@ -72,6 +74,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: rgb(255, 60, 63)\n"
 "    }")
+        self.ExitButton.setText("X")
         self.ExitButton.setObjectName("ExitButton")
         self.ReferenceButton = QtWidgets.QPushButton(Dialog)
         self.ReferenceButton.setGeometry(QtCore.QRect(10, 0, 21, 21))
@@ -93,6 +96,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: #5abe41\n"
 "    }")
+        self.ReferenceButton.setText("?")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.DeniedButton = QtWidgets.QPushButton(Dialog)
         self.DeniedButton.setGeometry(QtCore.QRect(380, 170, 191, 31))
@@ -156,10 +160,6 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Подтверждение"))
-        self.InfoLabel.setText(_translate("Dialog", "Информация"))
-        self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-        self.ExitButton.setText(_translate("Dialog", "X"))
-        self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.DeniedButton.setText(_translate("Dialog", "Отмена"))
         self.AcceptButton.setText(_translate("Dialog", "Подтвердить"))
         self.StringsList.setText(_translate("Dialog", "Уверенны, что хотите перевести этот мод?.Желаете начать перевод файла.Вы уверены что хотите сохранить перевод?.Неверный ключ [Для разработчиков]"))

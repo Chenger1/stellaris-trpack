@@ -94,7 +94,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>X</string>
+    <string notr="true">X</string>
    </property>
   </widget>
   <widget class="QLabel" name="InfoLabel_0">
@@ -147,7 +147,7 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Chenger1</string>
+    <string notr="true">Chenger1</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -208,7 +208,7 @@ QLineEdit:hover{
 </string>
    </property>
    <property name="text">
-    <string>letisodianta@gmail.com</string>
+    <string notr="true">letisodianta@gmail.com</string>
    </property>
    <property name="frame">
     <bool>false</bool>
@@ -247,7 +247,7 @@ QLineEdit:hover{
 </string>
    </property>
    <property name="text">
-    <string>exs2199@gmail.com</string>
+    <string notr="true">exs2199@gmail.com</string>
    </property>
    <property name="frame">
     <bool>false</bool>
@@ -340,7 +340,7 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://steamcommunity.com/id/marik0660&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Steam&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://steamcommunity.com/id/marik0660&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Steam&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -371,7 +371,7 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Chenger1&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Chenger1&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -402,7 +402,7 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Letiso</string>
+    <string notr="true">Letiso</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -423,7 +423,7 @@ image: url(:/icons/icons/github.png);
 </string>
    </property>
    <property name="text">
-    <string/>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -444,7 +444,7 @@ image: url(:/icons/icons/steam.png);
 </string>
    </property>
    <property name="text">
-    <string/>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -472,7 +472,7 @@ image: url(:/icons/icons/steam.png);
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://t.me/Letiso_Dianta&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Telegram&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://t.me/Letiso_Dianta&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Telegram&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -495,7 +495,7 @@ color: #ffffff;</string>
 image: url(:/icons/icons/telegram.png);</string>
    </property>
    <property name="text">
-    <string/>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -523,7 +523,7 @@ image: url(:/icons/icons/telegram.png);</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://steamcommunity.com/id/letiso&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Steam&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://steamcommunity.com/id/letiso&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Steam&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -546,7 +546,7 @@ color: #ffffff;</string>
 image: url(:/icons/icons/steam.png);</string>
    </property>
    <property name="text">
-    <string/>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -567,7 +567,7 @@ image: url(:/icons/icons/github.png);
 </string>
    </property>
    <property name="text">
-    <string/>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -595,7 +595,7 @@ image: url(:/icons/icons/github.png);
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Letiso&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Letiso&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -627,7 +627,7 @@ color: #ffffff;</string>
 }</string>
    </property>
    <property name="text">
-    <string>Steam</string>
+    <string notr="true"/>
    </property>
   </widget>
   <zorder>BackgroundFrame</zorder>

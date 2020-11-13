@@ -37,13 +37,16 @@
      <height>51</height>
     </rect>
    </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: none;
 image: url(:/icons/icons/lang.png);
 </string>
    </property>
    <property name="text">
-    <string/>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -97,6 +100,9 @@ image: url(:/icons/icons/lang.png);
      <bold>true</bold>
     </font>
    </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
 	background-color: rgba(31, 37, 51, 10);
@@ -112,7 +118,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>X</string>
+    <string notr="true">X</string>
    </property>
   </widget>
   <widget class="QLabel" name="ToolLanguageLabel">
@@ -160,6 +166,9 @@ color: #ffffff;</string>
      <bold>false</bold>
     </font>
    </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
 	background-color: rgba(31, 37, 51, 10);
@@ -175,7 +184,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>?</string>
+    <string notr="true">?</string>
    </property>
   </widget>
   <widget class="QPushButton" name="RussianButton">
@@ -207,6 +216,9 @@ QPushButton:pressed{
      <bold>false</bold>
     </font>
    </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
    <property name="styleSheet">
     <string notr="true">    QPushButton{
         background-color: rgba(31, 37, 51, 50);
@@ -224,7 +236,7 @@ QPushButton:pressed{
     }</string>
    </property>
    <property name="text">
-    <string>Русский</string>
+    <string notr="true">Русский</string>
    </property>
   </widget>
   <widget class="QPushButton" name="UkrainianButton">
@@ -255,6 +267,9 @@ QPushButton:pressed{
      <weight>50</weight>
      <bold>false</bold>
     </font>
+   </property>
+   <property name="accessibleName">
+    <string/>
    </property>
    <property name="styleSheet">
     <string notr="true">    QPushButton{
@@ -305,6 +320,9 @@ QPushButton:pressed{
      <bold>false</bold>
     </font>
    </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
    <property name="styleSheet">
     <string notr="true">    QPushButton{
         background-color: rgba(31, 37, 51, 50);
@@ -322,7 +340,7 @@ QPushButton:pressed{
     }</string>
    </property>
    <property name="text">
-    <string>Polski</string>
+    <string notr="true">Polski</string>
    </property>
   </widget>
   <widget class="QPushButton" name="EnglishButton">
@@ -354,6 +372,9 @@ QPushButton:pressed{
      <bold>false</bold>
     </font>
    </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
    <property name="styleSheet">
     <string notr="true">    QPushButton{
         background-color: rgba(31, 37, 51, 50);
@@ -371,7 +392,7 @@ QPushButton:pressed{
     }</string>
    </property>
    <property name="text">
-    <string>English</string>
+    <string notr="true">English</string>
    </property>
   </widget>
   <widget class="QPushButton" name="ChineseButton">
@@ -403,6 +424,9 @@ QPushButton:pressed{
      <bold>false</bold>
     </font>
    </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
    <property name="styleSheet">
     <string notr="true">    QPushButton{
         background-color: rgba(31, 37, 51, 50);
@@ -420,7 +444,7 @@ QPushButton:pressed{
     }</string>
    </property>
    <property name="text">
-    <string>中文</string>
+    <string notr="true">中文</string>
    </property>
   </widget>
   <widget class="QPushButton" name="WindowMoveButton">
@@ -440,13 +464,16 @@ QPushButton:pressed{
      <bold>false</bold>
     </font>
    </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
 	color: transparent;
 }</string>
    </property>
    <property name="text">
-    <string>Steam</string>
+    <string/>
    </property>
   </widget>
   <zorder>BackgroundFrame</zorder>

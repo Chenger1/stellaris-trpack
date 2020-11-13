@@ -146,7 +146,7 @@ color: #ffffff;</string>
 }</string>
    </property>
    <property name="text">
-    <string>Steam</string>
+    <string notr="true"/>
    </property>
   </widget>
   <widget class="QPushButton" name="ExitButton">
@@ -187,7 +187,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>X</string>
+    <string notr="true">X</string>
    </property>
   </widget>
   <widget class="QPushButton" name="ReferenceButton">
@@ -222,7 +222,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>?</string>
+    <string notr="true">?</string>
    </property>
   </widget>
   <widget class="QLabel" name="InfoLabel">
@@ -247,7 +247,7 @@ QPushButton:pressed{
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Информация</string>
+    <string notr="true">Информация</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

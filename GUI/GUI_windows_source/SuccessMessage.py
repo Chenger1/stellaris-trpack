@@ -69,6 +69,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: rgb(255, 60, 63)\n"
 "    }")
+        self.ExitButton.setText("X")
         self.ExitButton.setObjectName("ExitButton")
         self.SuccessLabel = QtWidgets.QLabel(Dialog)
         self.SuccessLabel.setGeometry(QtCore.QRect(20, 30, 101, 41))
@@ -93,6 +94,7 @@ class Ui_Dialog(object):
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
 "    color: transparent;\n"
 "}")
+        self.WindowMoveButton.setText("")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.InfoLabel = QtWidgets.QLabel(Dialog)
         self.InfoLabel.setGeometry(QtCore.QRect(30, 70, 591, 91))
@@ -104,6 +106,7 @@ class Ui_Dialog(object):
         self.InfoLabel.setFont(font)
         self.InfoLabel.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
+        self.InfoLabel.setText("Информация")
         self.InfoLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.InfoLabel.setObjectName("InfoLabel")
         self.StringsList = QtWidgets.QLabel(Dialog)
@@ -124,10 +127,7 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Успех"))
         self.AcceptButton.setText(_translate("Dialog", "Отлично"))
-        self.ExitButton.setText(_translate("Dialog", "X"))
         self.SuccessLabel.setText(_translate("Dialog", "Успех"))
-        self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-        self.InfoLabel.setText(_translate("Dialog", "Информация"))
         self.StringsList.setText(_translate("Dialog", "Файл перевода успешно записан.Файл сохранен.Мод успешно добавлен в коллекцию.Моды успешно отсортированы.Язык интерфейса был изменен\n"
 "\n"
 "Перезапустите утилиту, чтобы увидеть изменения.Неверный ключ [Для разработчиков]"))

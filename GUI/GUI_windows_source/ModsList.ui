@@ -92,7 +92,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>?</string>
+    <string notr="true">?</string>
    </property>
   </widget>
   <widget class="QScrollArea" name="LandingArea">
@@ -264,7 +264,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
 }</string>
    </property>
    <property name="text">
-    <string>Steam</string>
+    <string notr="true"/>
    </property>
   </widget>
   <widget class="QPushButton" name="SortButton">
@@ -347,6 +347,9 @@ QPushButton:pressed{
    <property name="editable">
     <bool>false</bool>
    </property>
+   <property name="placeholderText">
+    <string notr="true"/>
+   </property>
   </widget>
   <widget class="QPushButton" name="ReverseSortingButton">
    <property name="geometry">
@@ -383,7 +386,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>A-Z</string>
+    <string notr="true">A-Z</string>
    </property>
   </widget>
   <widget class="QPushButton" name="ResetButton">
@@ -455,7 +458,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string>X</string>
+    <string notr="true">X</string>
    </property>
   </widget>
   <widget class="QLabel" name="ModListLabel">
@@ -549,7 +552,7 @@ QPushButton:pressed{
 	}</string>
    </property>
    <property name="text">
-    <string/>
+    <string notr="true"/>
    </property>
   </widget>
   <widget class="QLineEdit" name="SearchLine">
@@ -626,7 +629,7 @@ QLineEdit:hover{
 image: url(:/icons/icons/mod_list.png);</string>
    </property>
    <property name="text">
-    <string/>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

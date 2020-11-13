@@ -72,6 +72,7 @@ class Ui_Dialog(object):
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
 "    color: transparent;\n"
 "}")
+        self.WindowMoveButton.setText("")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.ExitButton = QtWidgets.QPushButton(Dialog)
         self.ExitButton.setGeometry(QtCore.QRect(620, 0, 21, 21))
@@ -94,6 +95,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: rgb(255, 60, 63)\n"
 "    }")
+        self.ExitButton.setText("X")
         self.ExitButton.setObjectName("ExitButton")
         self.ReferenceButton = QtWidgets.QPushButton(Dialog)
         self.ReferenceButton.setGeometry(QtCore.QRect(10, 0, 21, 21))
@@ -115,6 +117,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: #5abe41\n"
 "    }")
+        self.ReferenceButton.setText("?")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.InfoLabel = QtWidgets.QLabel(Dialog)
         self.InfoLabel.setGeometry(QtCore.QRect(30, 70, 591, 91))
@@ -126,6 +129,7 @@ class Ui_Dialog(object):
         self.InfoLabel.setFont(font)
         self.InfoLabel.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
+        self.InfoLabel.setText("Информация")
         self.InfoLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.InfoLabel.setObjectName("InfoLabel")
         self.StringsList = QtWidgets.QLabel(Dialog)
@@ -148,10 +152,6 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Ошибка"))
         self.AcceptButton.setText(_translate("Dialog", "Понимаю"))
         self.ErrorLabel.setText(_translate("Dialog", "Ошибка"))
-        self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-        self.ExitButton.setText(_translate("Dialog", "X"))
-        self.ReferenceButton.setText(_translate("Dialog", "?"))
-        self.InfoLabel.setText(_translate("Dialog", "Информация"))
         self.StringsList.setText(_translate("Dialog", "В этой модификации нечего переводить\n"
 "\n"
 "Выберите другую.Перевод уже был записан.Ошибка записи файла: отсутствует перевод.Вы не выбрали мод.Файл перевода поврежден или удален.Моды не найдены.Вы выбрали не тот файл.Вы не ввели ID мода.Строка ID содержит сторонние символы.Мод не найден.В коллекции больше нечего переводить.Не найдено совпадений строк.Файлы идентичны.Выбрать можно только файлы с расширением\n"

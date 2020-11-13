@@ -48,6 +48,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: #5abe41\n"
 "    }")
+        self.ReferenceButton.setText("?")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.LandingArea = QtWidgets.QScrollArea(Dialog)
         self.LandingArea.setGeometry(QtCore.QRect(10, 80, 860, 431))
@@ -89,7 +90,7 @@ class Ui_Dialog(object):
         self.LandingArea.setAlignment(QtCore.Qt.AlignCenter)
         self.LandingArea.setObjectName("LandingArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -221, 855, 652))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 855, 652))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -120,6 +121,11 @@ class Ui_Dialog(object):
 "    }\n"
 "")
         self.ModDescriptionText.setReadOnly(False)
+        self.ModDescriptionText.setHtml("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;\"><br /></p></body></html>")
         self.ModDescriptionText.setTextInteractionFlags(QtCore.Qt.TextEditorInteraction)
         self.ModDescriptionText.setObjectName("ModDescriptionText")
         self.gridLayout.addWidget(self.ModDescriptionText, 2, 0, 1, 1)
@@ -140,6 +146,11 @@ class Ui_Dialog(object):
 "    }\n"
 "")
         self.NewNameText.setReadOnly(False)
+        self.NewNameText.setHtml("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>")
         self.NewNameText.setTextInteractionFlags(QtCore.Qt.TextEditorInteraction)
         self.NewNameText.setObjectName("NewNameText")
         self.gridLayout.addWidget(self.NewNameText, 0, 0, 1, 1)
@@ -185,6 +196,7 @@ class Ui_Dialog(object):
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
 "    color: transparent;\n"
 "}")
+        self.WindowMoveButton.setText("")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.OptionsListComboBox = QtWidgets.QComboBox(Dialog)
         self.OptionsListComboBox.setGeometry(QtCore.QRect(470, 40, 271, 51))
@@ -289,6 +301,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: rgb(255, 60, 63)\n"
 "    }")
+        self.ExitButton.setText("X")
         self.ExitButton.setObjectName("ExitButton")
         self.CollectionNameLabel = QtWidgets.QLabel(Dialog)
         self.CollectionNameLabel.setGeometry(QtCore.QRect(300, 530, 561, 21))
@@ -301,6 +314,7 @@ class Ui_Dialog(object):
 "    color: #ffffff;\n"
 "    }\n"
 "")
+        self.CollectionNameLabel.setText("")
         self.CollectionNameLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.CollectionNameLabel.setObjectName("CollectionNameLabel")
         self.mod_list_logo = QtWidgets.QLabel(Dialog)
@@ -340,24 +354,10 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Коллекция"))
-        self.ReferenceButton.setText(_translate("Dialog", "?"))
-        self.ModDescriptionText.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;\"><br /></p></body></html>"))
-        self.NewNameText.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'KB Astrolyte\'; font-size:14pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
-        self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.OptionsListComboBox.setItemText(0, _translate("Dialog", "SteamWorkshop ID"))
         self.OptionsListComboBox.setItemText(1, _translate("Dialog", "Локализации"))
         self.OptionsListComboBox.setItemText(2, _translate("Dialog", "Нейм-листы"))
         self.OptionsListComboBox.setItemText(3, _translate("Dialog", "Настройки"))
         self.StatusLabel.setText(_translate("Dialog", "Статус"))
         self.CollectionLabel.setText(_translate("Dialog", "Коллекция"))
-        self.ExitButton.setText(_translate("Dialog", "X"))
-        self.CollectionNameLabel.setText(_translate("Dialog", "Stellaris True Machine Translation Tool"))
         self.StringsList.setText(_translate("Dialog", "Продолжить последний перевод.Переименовать Коллекцию.Введите желаемое имя Коллекции"))

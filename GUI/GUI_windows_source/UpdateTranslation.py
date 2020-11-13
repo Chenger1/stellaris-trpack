@@ -48,6 +48,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: rgb(255, 60, 63)\n"
 "    }")
+        self.ExitButton.setText("X")
         self.ExitButton.setObjectName("ExitButton")
         self.ReferenceButton = QtWidgets.QPushButton(Dialog)
         self.ReferenceButton.setGeometry(QtCore.QRect(10, 0, 21, 21))
@@ -69,6 +70,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: #5abe41\n"
 "    }")
+        self.ReferenceButton.setText("?")
         self.ReferenceButton.setObjectName("ReferenceButton")
         self.UpdateTranslationLabel = QtWidgets.QLabel(Dialog)
         self.UpdateTranslationLabel.setGeometry(QtCore.QRect(20, 40, 281, 41))
@@ -103,6 +105,7 @@ class Ui_Dialog(object):
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
 "    color: transparent;\n"
 "}")
+        self.WindowMoveButton.setText("")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
         self.OldTranslationLabel = QtWidgets.QLabel(Dialog)
         self.OldTranslationLabel.setGeometry(QtCore.QRect(10, 101, 341, 31))
@@ -198,6 +201,7 @@ class Ui_Dialog(object):
 "    border: #31858f;\n"
 "    color: #ffffff;\n"
 "    }")
+        self.OldStatusLabel.setText("—")
         self.OldStatusLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.OldStatusLabel.setObjectName("OldStatusLabel")
         self.NewStatusLabel = QtWidgets.QLabel(Dialog)
@@ -220,6 +224,7 @@ class Ui_Dialog(object):
 "    border: #31858f;\n"
 "    color: #ffffff;\n"
 "    }")
+        self.NewStatusLabel.setText("—")
         self.NewStatusLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.NewStatusLabel.setObjectName("NewStatusLabel")
         self.AcceptButton = QtWidgets.QPushButton(Dialog)
@@ -272,14 +277,9 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Язык перевода"))
-        self.ExitButton.setText(_translate("Dialog", "X"))
-        self.ReferenceButton.setText(_translate("Dialog", "?"))
         self.UpdateTranslationLabel.setText(_translate("Dialog", "Обновить перевод"))
-        self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
         self.OldTranslationLabel.setText(_translate("Dialog", "Внешняя устаревшая локализация"))
         self.NewTranslationLabel.setText(_translate("Dialog", "Новая версия файла"))
         self.ChooseNewFilelButton.setText(_translate("Dialog", "Выбрать"))
         self.ChooseOldFilelButton.setText(_translate("Dialog", "Выбрать"))
-        self.OldStatusLabel.setText(_translate("Dialog", "—"))
-        self.NewStatusLabel.setText(_translate("Dialog", "—"))
         self.AcceptButton.setText(_translate("Dialog", "Подтвердить"))

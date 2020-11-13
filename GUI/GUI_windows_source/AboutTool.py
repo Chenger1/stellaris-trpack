@@ -47,6 +47,7 @@ class Ui_Dialog(object):
 "    background-color: rgba(194, 194, 194, 50);\n"
 "    color: rgb(255, 60, 63)\n"
 "    }")
+        self.ExitButton.setText("X")
         self.ExitButton.setObjectName("ExitButton")
         self.InfoLabel_2 = QtWidgets.QLabel(Dialog)
         self.InfoLabel_2.setGeometry(QtCore.QRect(10, 70, 511, 31))
@@ -106,22 +107,10 @@ class Ui_Dialog(object):
         self.WindowMoveButton.setStyleSheet("QPushButton{\n"
 "    color: transparent;\n"
 "}")
+        self.WindowMoveButton.setText("")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
-        self.InfoLabel_3 = QtWidgets.QLabel(Dialog)
-        self.InfoLabel_3.setGeometry(QtCore.QRect(30, 150, 591, 31))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.InfoLabel_3.setFont(font)
-        self.InfoLabel_3.setStyleSheet("background-color: none;\n"
-"color: #ffffff;")
-        self.InfoLabel_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.InfoLabel_3.setOpenExternalLinks(True)
-        self.InfoLabel_3.setObjectName("InfoLabel_3")
         self.InfoLabel_4 = QtWidgets.QLabel(Dialog)
-        self.InfoLabel_4.setGeometry(QtCore.QRect(130, 100, 521, 41))
+        self.InfoLabel_4.setGeometry(QtCore.QRect(30, 150, 591, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(11)
@@ -133,14 +122,27 @@ class Ui_Dialog(object):
         self.InfoLabel_4.setAlignment(QtCore.Qt.AlignCenter)
         self.InfoLabel_4.setOpenExternalLinks(True)
         self.InfoLabel_4.setObjectName("InfoLabel_4")
+        self.InfoLabel_3 = QtWidgets.QLabel(Dialog)
+        self.InfoLabel_3.setGeometry(QtCore.QRect(130, 100, 521, 41))
+        font = QtGui.QFont()
+        font.setFamily("KB Astrolyte")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.InfoLabel_3.setFont(font)
+        self.InfoLabel_3.setStyleSheet("background-color: none;\n"
+"color: #ffffff;")
+        self.InfoLabel_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.InfoLabel_3.setOpenExternalLinks(True)
+        self.InfoLabel_3.setObjectName("InfoLabel_3")
         self.BackgroundFrame.raise_()
         self.WindowMoveButton.raise_()
         self.ExitButton.raise_()
         self.InfoLabel_2.raise_()
         self.InfoLabel_1.raise_()
         self.ContactUsButton.raise_()
-        self.InfoLabel_3.raise_()
         self.InfoLabel_4.raise_()
+        self.InfoLabel_3.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -148,11 +150,9 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Об утилите"))
-        self.ExitButton.setText(_translate("Dialog", "X"))
         self.InfoLabel_2.setText(_translate("Dialog", "<html><head/><body><p>на основе скриптов <a href=\"https://github.com/pacas/stellaris-trpack\"><span style=\" text-decoration: none; color:#ffffff;\">Pacas</span></a> и <a href=\"https://github.com/haifengkao/StellairsLoadOrderFixer24/blob/master/load_order_stellaris24.py\"><span style=\" text-decoration: none; color:#ffffff;\">haifengkao</span></a></p></body></html>"))
         self.InfoLabel_1.setText(_translate("Dialog", "Приложение разработано Letiso и Chenger1"))
         self.ContactUsButton.setText(_translate("Dialog", "Связаться с разработчиками"))
-        self.WindowMoveButton.setText(_translate("Dialog", "Steam"))
-        self.InfoLabel_3.setText(_translate("Dialog", "<html><head/><body><p>для упрощения процесса локализации</p></body></html>"))
-        self.InfoLabel_4.setText(_translate("Dialog", "<html><head/><body><p>при использовании <a href=\"https://python.org/download\"><span style=\" text-decoration: none; color:#ffffff;\">Python 3<\\a> и <a href=\"https://qt.io/download\"><span style=\" text-decoration: none; color:#ffffff;\">QT5<\\a></p></body></html>\n"
+        self.InfoLabel_4.setText(_translate("Dialog", "<html><head/><body><p>для упрощения процесса локализации</p></body></html>"))
+        self.InfoLabel_3.setText(_translate("Dialog", "<html><head/><body><p>при использовании <a href=\"https://python.org/download\"><span style=\" text-decoration: none; color:#ffffff;\">Python 3<\\a> и <a href=\"https://qt.io/download\"><span style=\" text-decoration: none; color:#ffffff;\">QT5<\\a></p></body></html>\n"
 ""))
