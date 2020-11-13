@@ -12,7 +12,7 @@ from win32api import GetSystemDirectory, GetUserName
 from locale import getdefaultlocale
 from googletrans.constants import LANGUAGES
 
-from scripts.db import set_collection_thumbnail
+from scripts.db import set_collection_data, get_info_from_db
 from scripts.collection_db import db_init, write_data_in_collection, update_data_in_collection, get_data_from_collection
 from scripts.comparer import Comparator
 from scripts.pictures import thumbs_synchronize
@@ -33,7 +33,7 @@ data = {}
 
 
 def current_stellaris_version():
-    with open(f'{paradox_folder}\settings.txt', 'r', encoding='utf-8') as file:
+    with open(f'{paradox_folder}\\settings.txt', 'r', encoding='utf-8') as file:
         for line in file.readlines():
             if 'info' in line:
                 current_version = f'{line[-5:-2]}.*'
@@ -65,7 +65,7 @@ def set_collection_mod_thumbnail():
             if target_language in thumbnail:
                 shutil.copyfile(f'{local_mod_thumbnails_path}\\{thumbnail}', collection_tumbnail_path)
                 shutil.copyfile(collection_tumbnail_path, f'{local_mod_path}\\thumbnail.png')
-                set_collection_thumbnail('set_collection_thumbnail', (collection_tumbnail_path, collection_hash))
+                set_collection_data('set_collection_thumbnail', (collection_tumbnail_path, collection_hash))
                 break
 
 
@@ -77,6 +77,18 @@ def thumbs_init(path="GUI\pictures\\thumbs"):
     with open("GUI\pictures\\thumbs\\thumbs.json", "w", encoding="utf-8") as thumb:
         thumbnails = {}
         json.dump(thumbnails, thumb)
+
+
+def collection_settings_update(settings):
+    with open('Properties.json', 'r', encoding='utf-8') as prop:
+        properties = json.load(prop)
+        properties["collection_name"] = settings[0]
+    with open("Properties.json", 'w', encoding='utf-8') as prop:
+        json.dump(properties, prop)
+
+    set_collection_data('collection_settings_update', settings)
+
+    local_mod_init()
 
 
 def properties_init():
@@ -94,7 +106,7 @@ def properties_init():
 
 
 def local_mod_init():
-    path_list = ['', '\\temp', '\\localisation', '\\common', '\\common\\name_lists', '\\common\\species_names']
+    path_list = ['', '\\temp']
     for folder in path_list:
         path = f'{local_mod_path}{folder}'
         if os.path.isdir(path) is False:
@@ -310,6 +322,27 @@ def get_total_value(files):
     return total_value
 
 
+def get_collection_description(collection_name):
+    description = get_info_from_db('get_collection_description', (collection_name,), count=1)[0]
+    if not description:
+        description = "Этот пак локализаций был создан при помощи утилиты для упрощенного перевода установленных модификаций Stellaris True Machine Translation Tool\n\n" \
+                      f"\t\t\t\t Английский > Русский"
+    if 'Список модификаций:' in description:
+        description = description.split('\nСписок модификаций:')[0]
+        # TODO Сделать автоматическую генерацию строк с исходным и конечным языками, лучше использовать предустановленные строки
+        #  (Так быстрее)
+
+    return description
+
+
+def get_collection_mod_list(collection):
+    mod_list = ['Список модификаций:\n', ]
+    for mod_id, files in collection:
+        mod_list.append(files[0].mod_name)
+    mod_list = '\n'.join(mod_list)
+    return mod_list
+
+
 # TODO Доработать компоновку
 """
                                 ↓ Работа с локализациями ↓
@@ -372,7 +405,6 @@ def find_last_file(collection, last_file):
     """
     for file in collection[last_file[0]]:
         if file.original_file_name == last_file[1]:
-
             return file
 
 

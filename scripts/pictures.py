@@ -10,7 +10,7 @@ from copy import copy
 from scripts.db import get_info_from_db
 
 output_path = 'GUI\pictures\\thumbs\\'
-images = {elem[0]: elem[1] for elem in get_info_from_db('get_images')}
+images = {elem[0]: elem[1] for elem in get_info_from_db('get_images', ())}
 
 
 """

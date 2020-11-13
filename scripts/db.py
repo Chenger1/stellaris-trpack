@@ -28,11 +28,20 @@ queries = {
         f'SELECT thumbnailUrl, thumbnailPath, steamId FROM mods WHERE id=?',
     'get_images':
         f'SELECT id, thumbnailPath, steamId FROM mods',
+    'get_collection_description':
+        f'SELECT description FROM mods WHERE displayName=?',
     'set_collection_thumbnail':
     """   UPDATE mods
             SET thumbnailPath = ?
             WHERE id = ?;
+    """,
+    'collection_settings_update':
+    """   UPDATE mods
+            SET displayName = ?,
+                description = ?
+            WHERE displayName = ?;
     """
+
 }
 
 
@@ -68,10 +77,10 @@ def get_mods_from_playset(request, playset_id, count=0):
     return data
 
 
-def get_info_from_db(request, count=0):
+def get_info_from_db(request, info, count=0):
     with sqlite3.connect(f'{paradox_folder}\\launcher-v2.sqlite') as conn:
         cur = conn.cursor()
-        row_data = cur.execute(queries[request])
+        row_data = cur.execute(queries[request], info)
         if count == 0:
             data = row_data.fetchall()
         elif count == 1:
@@ -92,7 +101,7 @@ def write_data(request, modList, playset):
     return True
 
 
-def set_collection_thumbnail(request, info):
+def set_collection_data(request, info):
     with sqlite3.connect(f'{paradox_folder}\\launcher-v2.sqlite') as conn:
         conn.execute(queries[request], info)
         conn.commit()

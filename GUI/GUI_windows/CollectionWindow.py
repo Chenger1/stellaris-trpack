@@ -7,8 +7,8 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from GUI.GUI_windows_source import Collection
 from GUI.GUI_windows.AcceptMessageWindow import AcceptMessageWindow
 
-from scripts.utils import get_collection_data, local_mod_init, mod_name_wrap, get_info_from_stack, get_total_value, \
-    file_name_fix, open_file_for_resuming, find_last_file
+from scripts.utils import get_collection_data, mod_name_wrap, get_info_from_stack, get_total_value, \
+    file_name_fix, open_file_for_resuming, find_last_file, get_collection_description, get_collection_mod_list, collection_settings_update
 from scripts.stylesheets import mod_name_style, file_name_style, complete_translation_style, \
     incomplete_translation_style, create_row_separator
 from scripts.messeges import call_error_message
@@ -58,17 +58,6 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         window = AcceptMessageWindow(self, message, types[message[0]])
         window.show()
 
-    def collection_mod_rename(self):
-        with open('Properties.json', 'r', encoding='utf-8') as prop:
-            properties = json.load(prop)
-            properties["collection_name"] = self.NewNameText.toPlainText()
-
-        with open("Properties.json", 'w', encoding='utf-8') as prop:
-            json.dump(properties, prop)
-
-        self.set_collection_name()
-        local_mod_init()
-
     def eventFilter(self, source, event):
         """
                     Данная функция предназначена для отслеживания позиции окна
@@ -97,7 +86,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.CollectionNameLabel.setText(properties["collection_name"])
 
     def clean(self, grid):
-        self.ContinueButton.setText(self.string[0])
+        self.ContinueButton.setText('Продолжить перевод')
         self.ContinueButton.disconnect()
         self.ContinueButton.clicked.connect(self.close)
         self.ContinueButton.clicked.connect(self.continue_last_translation)
@@ -182,20 +171,26 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             self.files_not_found(grid)
 
     def print_rename_collection(self, grid):
-        self.ContinueButton.setText(' ')
-        self.set_collection_name()
-        self.CollectionNameLabel.setText('↑ Введите новое имя ↑')
-        # self.ModDescriptionText.setText(' ')
-        # self.ModListText.setText(' ')
+        name = self.CollectionNameLabel.text()
+        description = get_collection_description(name)
+        mod_list = get_collection_mod_list(self.collection.items())
+
+        self.ContinueButton.setText('Применить изменения')
+        self.ModDescriptionText.setText(description)
+        self.ModDescriptionText.setAlignment(QtCore.Qt.AlignCenter)
+        self.ModListLabel.setText(mod_list)
 
         self.ContinueButton.disconnect()
-        self.ContinueButton.clicked.connect(self.collection_mod_rename)
-
-        self.NewNameText.setAlignment(QtCore.Qt.AlignCenter)
+        self.ContinueButton.clicked.connect(
+            lambda: collection_settings_update((self.NewNameText.toPlainText(),
+                                                f'{description}\n{mod_list}',
+                                                self.CollectionNameLabel.text())
+                                               )
+        )
 
         grid.addWidget(self.NewNameText, 1, 0)
         grid.addWidget(self.ModDescriptionText, 2, 0)
-        grid.addWidget(self.ModListText, 3, 0)
+        grid.addWidget(self.ModListLabel, 3, 0)
 
     def paint_elements(self):
         grid = self.gridLayout
@@ -219,13 +214,13 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             elif options.currentText() in options.itemText(2):
                 self.print_files_names(grid, files, 'name_lists')
                 grid.addWidget(separator, self.row_index + 1, 6)
-
-            elif options.currentText() in options.itemText(3):
-                self.clean(grid)
-                self.print_rename_collection(grid)
+            # TODO отделить окно переименования из рендера по модам и файлам
 
             self.row_index += 1
 
+        if options.currentText() in options.itemText(3):
+            self.clean(grid)
+            self.print_rename_collection(grid)
     """
                                 ↓ Работа с локализациями ↓
     """

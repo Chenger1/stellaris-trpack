@@ -79,7 +79,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
             elem[0]: {
                 'name': elem[1],
                 'isActive': elem[2],
-            } for elem in get_info_from_db('get_playset_list')
+            } for elem in get_info_from_db('get_playset_list', ())
         }
         for index, elem in enumerate(playsets.items()):
             self.PlaysetsList.addItem(elem[1]['name'])
@@ -110,7 +110,7 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
                     и сохраняет данные в базу данных
         """
         mod_path = get_mods_from_playset('get_mod_path', mod_name)[0][0].replace('/', '\\')
-        images = get_info_from_db('get_images')
+        images = get_info_from_db('get_images', ())
         for image_data in images:
             if image_data[2] == mod_id:
                 hash_key = image_data[0]

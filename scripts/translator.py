@@ -9,18 +9,10 @@ from langdetect import detect, DetectorFactory
 from re import compile
 from json import load
 
-from scripts.utils import data
 
 """
                             ↓ Перевод строк ↓
 """
-
-
-# def file_len(fname):
-#     with open(fname) as f:
-#         for i, l in enumerate(f):
-#             pass
-#     return i + 1
 
 
 def search(subs, line):
@@ -105,8 +97,3 @@ def translate_line(line, translator=None):
         else:
             translation = line
         return translation
-
-
-# def get_old_translation(pointer):
-#     translating = data['compared']
-#     return translating[pointer]
