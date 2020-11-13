@@ -172,18 +172,17 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
 
     def print_rename_collection(self, grid):
         name = self.CollectionNameLabel.text()
-        description = get_collection_description(name)
         mod_list = get_collection_mod_list(self.collection.items())
 
         self.ContinueButton.setText('Применить изменения')
-        self.ModDescriptionText.setText(description)
+        self.ModDescriptionText.setText(get_collection_description(name))
         self.ModDescriptionText.setAlignment(QtCore.Qt.AlignCenter)
         self.ModListLabel.setText(mod_list)
 
         self.ContinueButton.disconnect()
         self.ContinueButton.clicked.connect(
             lambda: collection_settings_update((self.NewNameText.toPlainText(),
-                                                f'{description}\n{mod_list}',
+                                                f'{self.ModDescriptionText.toPlainText()}\n{mod_list}',
                                                 self.CollectionNameLabel.text())
                                                )
         )

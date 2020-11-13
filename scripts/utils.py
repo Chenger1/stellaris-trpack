@@ -325,12 +325,9 @@ def get_total_value(files):
 def get_collection_description(collection_name):
     description = get_info_from_db('get_collection_description', (collection_name,), count=1)[0]
     if not description:
-        description = "Этот пак локализаций был создан при помощи утилиты для упрощенного перевода установленных модификаций Stellaris True Machine Translation Tool\n\n" \
-                      f"\t\t\t\t Английский > Русский"
+        description = "Этот пак локализаций был создан при помощи утилиты для упрощенного перевода установленных модификаций Stellaris True Machine Translation Tool\n"
     if 'Список модификаций:' in description:
         description = description.split('\nСписок модификаций:')[0]
-        # TODO Сделать автоматическую генерацию строк с исходным и конечным языками, лучше использовать предустановленные строки
-        #  (Так быстрее)
 
     return description
 

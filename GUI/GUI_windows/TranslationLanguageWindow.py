@@ -21,9 +21,8 @@ class TranslationLanguageWindow(QtWidgets.QDialog, TranslationLanguage.Ui_Dialog
         self.parent = parent
         self.oldPos = self.pos()
         self.buttons_data = {
-            'EnglishButton': 'en', 'RussianButton': 'ru', 'UkrainianButton': 'uk',
-            'PolishButton': 'pl', 'ChineseButton': 'zh-cn', 'ArabicButton': 'ar',
-            'ArmenianButton': 'hy', 'AzerbaijaniButton': 'az', 'BelarusianButton': 'be',
+            'RussianButton': 'ru', 'UkrainianButton': 'uk', 'PolishButton': 'pl',
+            'ChineseButton': 'zh-cn', 'ArabicButton': 'ar', 'BelarusianButton': 'be',
             'BulgarianButton': 'bg', 'CroatianButton': 'hr', 'CzechButton': 'cs',
             'DanishButton': 'da', 'DutchButton': 'nl', 'EstonianButton': 'et',
             'FinnishButton': 'fi', 'FrenchButton': 'fr', 'GermanButton': 'de',
