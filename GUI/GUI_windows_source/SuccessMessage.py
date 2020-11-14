@@ -128,6 +128,6 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Успех"))
         self.AcceptButton.setText(_translate("Dialog", "Отлично"))
         self.SuccessLabel.setText(_translate("Dialog", "Успех"))
-        self.StringsList.setText(_translate("Dialog", "Файл перевода успешно записан.Файл сохранен.Мод успешно добавлен в коллекцию.Моды успешно отсортированы.Язык интерфейса был изменен\n"
+        self.StringsList.setText(_translate("Dialog", "Файл успешно обновлен.Файл сохранен.Мод успешно добавлен в коллекцию.Моды успешно отсортированы.Язык интерфейса был изменен\n"
 "\n"
 "Перезапустите утилиту, чтобы увидеть изменения.Неверный ключ [Для разработчиков]"))

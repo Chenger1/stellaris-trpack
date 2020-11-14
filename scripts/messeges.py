@@ -7,7 +7,7 @@ from GUI.GUI_windows.ErrorMessageWindow import ErrorMessageWindow
 from GUI.GUI_windows.AcceptMessageWindow import AcceptMessageWindow
 
 
-def call_accept_window(parent, message, accept_func, denied_func=None):
+def call_accept_message(parent, message, accept_func, denied_func=None):
     accept_window = AcceptMessageWindow(parent, message, accept_func, denied_func)
     accept_window.show()
 

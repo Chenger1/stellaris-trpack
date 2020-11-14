@@ -10,7 +10,7 @@ from scripts.utils import get_collection_data, mod_name_wrap, get_info_from_stac
     file_name_fix, open_file_for_resuming, find_last_file, get_collection_description, get_collection_mod_list, collection_settings_update
 from scripts.stylesheets import mod_name_style, file_name_style, complete_translation_style, \
     incomplete_translation_style, create_row_separator
-from scripts.messeges import call_error_message, call_accept_window
+from scripts.messeges import call_error_message, call_accept_message
 from scripts.pictures import get_thumbnail
 
 import json
@@ -143,7 +143,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
 
                 message = ('start_translation', file, file.original_file_name)
 
-                self.buttons[button].clicked.connect(partial(call_accept_window,
+                self.buttons[button].clicked.connect(partial(call_accept_message,
                                                              self, message,
                                                              lambda: self.start_localisation(file)))
 
@@ -238,9 +238,9 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         last_file: list = get_info_from_stack()
         if last_file:
             file = find_last_file(self.collection, last_file)
-
+    # TODO Fix accept_message call
             message = ('continue_last_translation', file, file.original_file_name)
-            self.call_accept_message(message)
+            call_accept_message(message)
 
         else:
             message = 'all_is_complete'
