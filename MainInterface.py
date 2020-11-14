@@ -77,7 +77,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         try:
             mod_list_window = ModsListWindow(self)
         except FileNotFoundError as error:
-            message = 'file_not_found'
+            message = 'files_not_found'
             self.message = error.filename.split("\\")[-1]
             call_error_message(self, message)
         except JSONDecodeError as error:

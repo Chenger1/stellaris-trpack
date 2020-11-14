@@ -1,4 +1,3 @@
-# TODO Clean unused messages and fix depences
 """
                                     ↓ Инициализация данных ↓
 """
@@ -19,16 +18,10 @@ class ErrorMessageWindow(QtWidgets.QDialog, ErrorMessage.Ui_Dialog):
         self.string = self.StringsList.text().split('.')
         self.messages = {'files_not_found': f'{self.string[0]} {parent.message}',
                          'JSONDecodeError': f'{parent.message}',
-                         'translation_already_written': f'{self.string[1]}',
-                         'no_translation': f'{self.string[2]}',
-                         'mod_not_choosen': f'{self.string[3]}',
                          'invalid_file': f'{self.string[4]}',
                          'mods_not_found': f'{self.string[5]}',
                          'FileNotFoundError': f'{parent.message}',
                          'someting_went_wrong': f'{self.string[6]}\n\n{parent.message}',
-                         'invalid_id': f'{self.string[7]}',
-                         'invalid_id_symbols': f'{self.string[8]}',
-                         'OSError': f'{self.string[9]}',
                          'all_is_complete': f'{self.string[10]}',
                          'no_string_matches': f'{self.string[11]}',
                          'files_are_identical': f'{self.string[12]}',
