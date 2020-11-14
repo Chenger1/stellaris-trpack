@@ -1,4 +1,3 @@
-# TODO Fix message depences
 """
                                     ↓ Инициализация данных ↓
 """

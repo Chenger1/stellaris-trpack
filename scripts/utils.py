@@ -14,7 +14,7 @@ from googletrans.constants import LANGUAGES
 
 from scripts.db import set_collection_data, get_info_from_db
 from scripts.collection_db import db_init, write_data_in_collection, update_data_in_collection, get_data_from_collection
-from scripts.comparer import Comparator
+# from scripts.comparer import Comparator
 from scripts.pictures import thumbs_synchronize
 
 drive = GetSystemDirectory().split(':')[0]
@@ -341,7 +341,6 @@ def get_collection_mod_list(collection, mod_list):
     return mod_list
 
 
-# TODO Доработать компоновку
 """
                                 ↓ Работа с локализациями ↓
 """
@@ -416,7 +415,7 @@ def get_info_from_stack():
     return stack[-1] if stack else stack
 
 
-def compare(new, old):
-    comparator = Comparator(new, old)
-    result = comparator.comparing()
-    data['compared'] = result
+# def compare(new, old):
+#     comparator = Comparator(new, old)
+#     result = comparator.comparing()
+#     data['compared'] = result

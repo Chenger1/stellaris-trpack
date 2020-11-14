@@ -7,8 +7,8 @@ from PyQt5 import QtWidgets, QtCore
 from GUI.GUI_windows_source import UpdateTranslation
 
 from scripts.stylesheets import file_choosen_style, file_not_choosen_style
-from scripts.utils import drive, user, compare
-from scripts.comparer import ComparingError
+from scripts.utils import drive, user
+# from scripts.comparer import ComparingError
 from scripts.messeges import call_error_message
 
 
@@ -81,18 +81,18 @@ class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):
                                 ↓ Обновление временных файлов ↓
     """
 
-    def compare(self):
-        if not self.files:
-            self.message = 'Вы не выбрали файлы'
-            call_error_message(self, 'files_not_choosen')
-            return False
-        try:
-            compare(self.files['ChooseNewFilelButton'], self.files['ChooseOldFilelButton'])
-            self.parent.choose_file(self.files['ChooseNewFilelButton'])
-            self.close()
-        except ComparingError as error:
-            self.clean_state()
-            call_error_message(self, error.args[0])
-        except KeyError:
-            self.clean_state()
-            call_error_message(self, 'files_not_choosen')
+    # def compare(self):
+    #     if not self.files:
+    #         self.message = 'Вы не выбрали файлы'
+    #         call_error_message(self, 'files_not_choosen')
+    #         return False
+    #     try:
+    #         compare(self.files['ChooseNewFilelButton'], self.files['ChooseOldFilelButton'])
+    #         self.parent.choose_file(self.files['ChooseNewFilelButton'])
+    #         self.close()
+    #     except ComparingError as error:
+    #         self.clean_state()
+    #         call_error_message(self, error.args[0])
+    #     except KeyError:
+    #         self.clean_state()
+    #         call_error_message(self, 'files_not_choosen')

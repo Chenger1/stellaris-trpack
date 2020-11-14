@@ -16,7 +16,7 @@ from GUI.GUI_windows.ToolLanguageWindow import ToolLanguageWindow
 from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
 from GUI.GUI_windows.ModsListWindow import ModsListWindow
 
-from scripts.putter import put_lines
+from scripts.file_preparing import put_lines
 from scripts.utils import check_new_line_sym_ending, generated_files_init, collection_update, get_interface_lang, pop_stack
 from scripts.messeges import call_success_message, call_error_message
 
