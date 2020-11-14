@@ -1,6 +1,5 @@
-# TODO Return call_accept_message() to here
 """
-                            ↓ Инициализация данных ↓
+                            ↓ Instance initialization ↓
 """
 
 from GUI.GUI_windows.SuccessMessageWindow import SuccessMessageWindow
