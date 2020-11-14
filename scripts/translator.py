@@ -61,8 +61,13 @@ def replacing_invalid_new_line_symbol(func):
 
 @replacing_invalid_new_line_symbol
 def translating_line(line: str, tr_language, translator=None) -> str:
-    translation = translator.translate(line, dest=tr_language)
-    return translation.text
+    while True:
+        try:
+            translation = translator.translate(line, dest=tr_language)
+        except AttributeError:
+            continue
+        else:
+            return translation.text
 
 
 def line_processing(line: str, translator, tr_language) -> str:
