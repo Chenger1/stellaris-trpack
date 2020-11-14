@@ -6,7 +6,6 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 
 from GUI.GUI_windows_source import ModsList
 
-from GUI.GUI_windows.AcceptMessageWindow import AcceptMessageWindow
 
 from functools import partial
 from os import listdir
@@ -18,7 +17,7 @@ from scripts.utils import paradox_folder, open_zip_file, mod_name_wrap, get_coll
                           remove_unpacked_files, collection_append, get_total_value
 from scripts.parser import parser_main
 from scripts.stylesheets import mod_name_style, mod_avtivation_status_style, mod_sorting_status_style
-from scripts.messeges import call_success_message, call_error_message
+from scripts.messeges import call_success_message, call_error_message, call_accept_window
 from scripts.pictures import get_thumbnail
 
 
@@ -96,13 +95,6 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.clean()
         self.paint_elements()
 
-    def call_accept_message(self, message):
-        types = {
-            'collection_append': lambda: self.collection_append(message[1], message[-1]),
-        }
-        window = AcceptMessageWindow(self, message, types[message[0]])
-        window.show()
-
     def collection_append(self, mod_name, mod_id, hash_key=None):
         """
                     Функция находит все переводимые файлы выбранной модификации,
@@ -173,7 +165,10 @@ class ModsListWindow(QtWidgets.QDialog, ModsList.Ui_Dialog):
         self.buttons[f'{mod.mod_name}'] = QtWidgets.QPushButton(mod_name_wrap(mod.mod_name, 35))
 
         message = ('collection_append', mod.mod_name, mod.mod_id)
-        self.buttons[f'{mod.mod_name}'].clicked.connect(partial(self.call_accept_message, message))
+
+        self.buttons[f'{mod.mod_name}'].clicked.connect(partial(call_accept_window,
+                                                                self, message,
+                                                                lambda: self.collection_append(mod.mod_name, mod.mod_id)))
 
         pixmap = pixmap.scaled(160, 100, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
         thumbnail.setPixmap(pixmap)

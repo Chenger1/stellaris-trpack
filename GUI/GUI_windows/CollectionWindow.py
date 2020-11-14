@@ -5,13 +5,12 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 from GUI.GUI_windows_source import Collection
-from GUI.GUI_windows.AcceptMessageWindow import AcceptMessageWindow
 
 from scripts.utils import get_collection_data, mod_name_wrap, get_info_from_stack, get_total_value, \
     file_name_fix, open_file_for_resuming, find_last_file, get_collection_description, get_collection_mod_list, collection_settings_update
 from scripts.stylesheets import mod_name_style, file_name_style, complete_translation_style, \
     incomplete_translation_style, create_row_separator
-from scripts.messeges import call_error_message
+from scripts.messeges import call_error_message, call_accept_window
 from scripts.pictures import get_thumbnail
 
 import json
@@ -48,15 +47,6 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.OptionsListComboBox.activated[str].connect(lambda: self.paint_elements())
         self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_3_Collection'))
         self.WindowMoveButton.installEventFilter(self)
-
-    def call_accept_message(self, message):
-        types = {
-            'start_translation': lambda: self.start_localisation(message[1]),
-            'continue_last_translation': lambda: self.start_localisation(message[1]),
-        }
-
-        window = AcceptMessageWindow(self, message, types[message[0]])
-        window.show()
 
     def eventFilter(self, source, event):
         """
@@ -152,7 +142,10 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
                 self.buttons[button] = QtWidgets.QPushButton(file_name_fix(file.original_file_name, option))
 
                 message = ('start_translation', file, file.original_file_name)
-                self.buttons[button].clicked.connect(partial(self.call_accept_message, message))
+
+                self.buttons[button].clicked.connect(partial(call_accept_window,
+                                                             self, message,
+                                                             lambda: self.start_localisation(file)))
 
                 status = QtWidgets.QProgressBar()
 
