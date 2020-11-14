@@ -221,7 +221,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.clean_state()
 
         except AttributeError:
-            message = 'invalid_file'
+            message = 'no_translation'
             call_error_message(self, message)
 
 

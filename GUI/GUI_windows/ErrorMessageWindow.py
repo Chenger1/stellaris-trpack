@@ -18,6 +18,7 @@ class ErrorMessageWindow(QtWidgets.QDialog, ErrorMessage.Ui_Dialog):
         self.string = self.StringsList.text().split('.')
         self.messages = {'files_not_found': f'{self.string[0]} {parent.message}',
                          'JSONDecodeError': f'{parent.message}',
+                         'no_translation': f'{self.string[2]}',
                          'invalid_file': f'{self.string[4]}',
                          'mods_not_found': f'{self.string[5]}',
                          'FileNotFoundError': f'{parent.message}',
