@@ -275,7 +275,7 @@ def get_collection_data():
 
 
 def mod_name_wrap(mod_name, value):
-    row = ['', '', '']
+    rows = ['', '', '', '', '']
     special_symbols = {'&', }
     check = [symbol for symbol in special_symbols & set(mod_name)]
     if check:
@@ -283,17 +283,17 @@ def mod_name_wrap(mod_name, value):
             mod_name = mod_name.replace(symbol, symbol * 2)
     if len(mod_name) > value:
         for word in mod_name.split():
-            if len(f'{row[0]} {word}') < value:
-                row[0] += f' {word}'
+            if len(f'{rows[0]} {word}') < value:
+                rows[0] += f' {word}'
             else:
-                row[0] += '\n'
-                if not row[1]:
-                    row[1] = row[0]
-                else:
-                    row[2] = row[0]
-                row[0] = ''
-                row[0] += f' {word}'
-        mod_name = f'{row[1]}{row[2]}{row[0]}'
+                rows[0] += '\n'
+                for index, row in enumerate(rows):
+                    if not row:
+                        rows[index] = rows[0]
+                        rows[0] = f' {word}'
+                        break
+
+        mod_name = f'{rows[1]}{rows[2]}{rows[3]}{rows[0]}'
 
     return mod_name
 
@@ -322,20 +322,21 @@ def get_total_value(files):
     return total_value
 
 
-def get_collection_description(collection_name):
+def get_collection_description(collection_name, prescripted_description, mod_list):
     description = get_info_from_db('get_collection_description', (collection_name,), count=1)[0]
-    if not description:
-        description = "Этот пак локализаций был создан при помощи утилиты для упрощенного перевода установленных модификаций Stellaris True Machine Translation Tool\n"
-    if 'Список модификаций:' in description:
-        description = description.split('\nСписок модификаций:')[0]
+    if mod_list in description:
+        description = description.split(f'\n\n{mod_list}')[0]
+
+    if not description or description == '':
+        description = prescripted_description
 
     return description
 
 
-def get_collection_mod_list(collection):
-    mod_list = ['Список модификаций:\n', ]
+def get_collection_mod_list(collection, mod_list):
+    mod_list = [f'\n{mod_list}\n', ]
     for mod_id, files in collection:
-        mod_list.append(files[0].mod_name)
+        mod_list.append(f'{files[0].mod_name}\n')
     mod_list = '\n'.join(mod_list)
     return mod_list
 

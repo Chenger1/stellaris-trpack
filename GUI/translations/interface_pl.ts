@@ -20,10 +20,8 @@
     </message>
     <message>
         <location filename="../../GUI_windows_source/TranslationLanguage.py" line="220"/>
-        <source> Арабский Армянский Азербайджанский Белорусский Болгарский Китайский Хорватский Чешский Датский Нидерландский Английский Эстонский Финский Французский Немецкий Греческий Венгерский Итальянский Японский Корейский Литовский Норвежский Польский Португальский Русский Словацкий Словенский Испанский Шведский Турецкий Украинский Филиппинский
-</source>
-        <translation> Arab Ormiański Azerbejdżański Białoruski Bułgarski Chiński Chorwacki Czech Duński Holenderski Angielski Estoński Fiński Francuski Niemiecki Grecki Węgierski Włoski Japoński Koreański Litewski Norweski Polskie Portugalski Rosyjski Słowacki Słoweński Hiszpański Szwedzki Turecki Ukraiński Filipiński
-</translation>
+        <source>Русский Украинский Польский Китайский Арабский Белорусский Болгарский Хорватский Чешский Датский Нидерландский Эстонский Финский Французский Немецкий Греческий Венгерский Итальянский Японский Корейский Литовский Норвежский Португальский Словацкий Испанский Шведский Турецкий</source>
+        <translation>Rosyjski Ukraiński Polskie Chiński Arab Białoruski Bułgarski Chorwacki Czech Duński Holenderski Estoński Fiński Francuski Niemiecki Grecki Węgierski Włoski Japoński Koreański Litewski Norweski Portugalski Słowacki Hiszpański Szwedzki Turecki</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/SuccessMessage.py" line="128"/>
@@ -253,9 +251,16 @@ Wszystkie łącza można kliknąć, a pocztę można wybrać podwójnym kliknię
         <translation>lub</translation>
     </message>
     <message>
-        <location filename="../../GUI_windows_source/AboutTool.py" line="138"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;скриптов&lt;/span&gt;&lt;/a&gt; Pacas при использовании Python 3 и QT5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;skrypty&lt;/span&gt;&lt;/a&gt; Pacas za pomocą Python 3 и QT5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <location filename="../../GUI_windows_source/AboutTool.py" line="153"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;на основе скриптов &lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Pacas&lt;/span&gt;&lt;/a&gt; и &lt;a href=&quot;https://github.com/haifengkao/StellairsLoadOrderFixer24/blob/master/load_order_stellaris24.py&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;haifengkao&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;oparty na skrypcie &lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Pacas&lt;/span&gt;&lt;/a&gt; i &lt;a href=&quot;https://github.com/haifengkao/StellairsLoadOrderFixer24/blob/master/load_order_stellaris24.py&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;haifengkao&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/AboutTool.py" line="157"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;при использовании &lt;a href=&quot;https://python.org/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Python 3&lt;\a&gt; и &lt;a href=&quot;https://qt.io/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;QT5&lt;\a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;za pomocą &lt;a href=&quot;https://python.org/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Python 3&lt;\a&gt; і &lt;a href=&quot;https://qt.io/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;QT5&lt;\a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/AboutTool.py" line="139"/>
@@ -325,8 +330,8 @@ Wszystkie łącza można kliknąć, a pocztę można wybrać podwójnym kliknię
     </message>
     <message>
         <location filename="../GUI_windows_source/Collection.py" line="313"/>
-        <source>Продолжить перевод.Применить изменения</source>
-        <translation>Kontynuuj tłumaczenie.Zastosuj zmiany</translation>
+        <source>Продолжить перевод.Применить изменения.Этот пак локализаций был создан при помощи утилиты для упрощенного перевода установленных модификаций Stellaris True Machine Translation Tool.Список модификаций:</source>
+        <translation>Kontynuuj tłumaczenie.Zastosuj zmiany.Ten pakiet lokalizacyjny został utworzony przy użyciu narzędzia do łatwego tłumaczenia zainstalowanych modyfikacji Stellaris True Machine Translation Tool.Lista modyfikacji:</translation>
     </message>
     <message>
         <location filename="../GUI_windows_source/Collection.py" line="314"/>
@@ -388,13 +393,38 @@ Wszystkie łącza można kliknąć, a pocztę można wybrać podwójnym kliknię
         <source>Язык перевода</source>
         <translation>Język tłumaczenia</translation>
     </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="279"/>
+        <source>Обновление перевода</source>
+        <translation>Aktualizacja tłumaczenia</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="280"/>
+        <source>Обновить перевод</source>
+        <translation>Zaktualizuj tłumaczenie</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="281"/>
+        <source>Основной файл</source>
+        <translation>Plik główny</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="282"/>
+        <source>Дополнительный файл</source>
+        <translation>Dodatkowy plik</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="284"/>
+        <source>Выбрать</source>
+        <translation>Wybierać</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../../GUI_windows_source/MainWindow.py" line="739"/>
-        <source>Локализировать</source>
-        <translation>Zlokalizować</translation>
+        <source>Обновить файл</source>
+        <translation>Aktualizować plik</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/MainWindow.py" line="741"/>

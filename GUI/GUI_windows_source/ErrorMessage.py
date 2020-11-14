@@ -97,28 +97,6 @@ class Ui_Dialog(object):
 "    }")
         self.ExitButton.setText("X")
         self.ExitButton.setObjectName("ExitButton")
-        self.ReferenceButton = QtWidgets.QPushButton(Dialog)
-        self.ReferenceButton.setGeometry(QtCore.QRect(10, 0, 21, 21))
-        font = QtGui.QFont()
-        font.setFamily("KB Astrolyte")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.ReferenceButton.setFont(font)
-        self.ReferenceButton.setStyleSheet("QPushButton{\n"
-"    background-color: rgba(31, 37, 51, 10);\n"
-"    color: #ffffff;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(56, 57, 61, 50);\n"
-"    color: rgb(199, 199, 199);\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"    background-color: rgba(194, 194, 194, 50);\n"
-"    color: #5abe41\n"
-"    }")
-        self.ReferenceButton.setText("?")
-        self.ReferenceButton.setObjectName("ReferenceButton")
         self.InfoLabel = QtWidgets.QLabel(Dialog)
         self.InfoLabel.setGeometry(QtCore.QRect(30, 70, 591, 91))
         font = QtGui.QFont()
@@ -141,7 +119,6 @@ class Ui_Dialog(object):
         self.AcceptButton.raise_()
         self.ErrorLabel.raise_()
         self.ExitButton.raise_()
-        self.ReferenceButton.raise_()
         self.InfoLabel.raise_()
 
         self.retranslateUi(Dialog)

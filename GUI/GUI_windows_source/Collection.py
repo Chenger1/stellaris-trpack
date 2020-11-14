@@ -360,4 +360,4 @@ class Ui_Dialog(object):
         self.OptionsListComboBox.setItemText(3, _translate("Dialog", "Настройки"))
         self.StatusLabel.setText(_translate("Dialog", "Статус"))
         self.CollectionLabel.setText(_translate("Dialog", "Коллекция"))
-        self.StringsList.setText(_translate("Dialog", "Продолжить перевод.Применить изменения"))
+        self.StringsList.setText(_translate("Dialog", "Продолжить перевод.Применить изменения.Этот пак локализаций был создан при помощи утилиты для упрощенного перевода установленных модификаций Stellaris True Machine Translation Tool.Список модификаций:"))

@@ -20,10 +20,8 @@
     </message>
     <message>
         <location filename="../../GUI_windows_source/TranslationLanguage.py" line="220"/>
-        <source> Арабский Армянский Азербайджанский Белорусский Болгарский Китайский Хорватский Чешский Датский Нидерландский Английский Эстонский Финский Французский Немецкий Греческий Венгерский Итальянский Японский Корейский Литовский Норвежский Польский Португальский Русский Словацкий Словенский Испанский Шведский Турецкий Украинский Филиппинский
-</source>
-        <translation> Arabic Armenian Azerbaijani Belarusian Bulgarian Chinese Croatian Czech Danish Dutch English Estonian Finnish French German Greek Hungarian Italian Japanese Korean Lithuanian Norwegian Polish Portuguese Russian Slovak Slovenian Spanish Swedish Turkish Ukrainian Filipino
-</translation>
+        <source>Русский Украинский Польский Китайский Арабский Белорусский Болгарский Хорватский Чешский Датский Нидерландский Эстонский Финский Французский Немецкий Греческий Венгерский Итальянский Японский Корейский Литовский Норвежский Португальский Словацкий Испанский Шведский Турецкий</source>
+        <translation>Russian Ukrainian Polish Chinese Arabic Belarusian Bulgarian Croatian Czech Danish Dutch Estonian Finnish French German Greek Hungarian Italian Japanese Korean Lithuanian Norwegian Portuguese Slovak Spanish Swedish Turkish</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/SuccessMessage.py" line="128"/>
@@ -71,7 +69,7 @@ Points about mod selection:</translation>
 Локализации хранятся среди файлов мода в папке localisation, а нейм-листы в папке common \ name_lists
 
 Где лежит сам мод, думаю, объяснять не требуется</source>
-        <translation type="unfinished">This function allows you to find the required localization file in the file manager, usually of the form *mod_name*_l_english.yml or *name_list*.txt
+        <translation>This function allows you to find the required localization file in the file manager, usually of the form *mod_name*_l_english.yml or *name_list*.txt
 
 The utility translates only english sources
 
@@ -253,9 +251,16 @@ All links are clickable, and mail can be selected with a double click to copy</t
         <translation>or</translation>
     </message>
     <message>
-        <location filename="../../GUI_windows_source/AboutTool.py" line="138"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;скриптов&lt;/span&gt;&lt;/a&gt; Pacas при использовании Python 3 и QT5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;scripts&lt;/span&gt;&lt;/a&gt; by Pacas using Python 3 and QT5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <location filename="../../GUI_windows_source/AboutTool.py" line="153"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;на основе скриптов &lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Pacas&lt;/span&gt;&lt;/a&gt; и &lt;a href=&quot;https://github.com/haifengkao/StellairsLoadOrderFixer24/blob/master/load_order_stellaris24.py&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;haifengkao&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;based on scripts by &lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Pacas&lt;/span&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/haifengkao/StellairsLoadOrderFixer24/blob/master/load_order_stellaris24.py&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;haifengkao&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/AboutTool.py" line="157"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;при использовании &lt;a href=&quot;https://python.org/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Python 3&lt;\a&gt; и &lt;a href=&quot;https://qt.io/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;QT5&lt;\a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;using &lt;a href=&quot;https://python.org/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Python 3&lt;\a&gt; and &lt;a href=&quot;https://qt.io/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;QT5&lt;\a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/AboutTool.py" line="139"/>
@@ -324,8 +329,8 @@ All links are clickable, and mail can be selected with a double click to copy</t
     </message>
     <message>
         <location filename="../GUI_windows_source/Collection.py" line="313"/>
-        <source>Продолжить перевод.Применить изменения</source>
-        <translation>Continue translation.Confirm changes</translation>
+        <source>Продолжить перевод.Применить изменения.Этот пак локализаций был создан при помощи утилиты для упрощенного перевода установленных модификаций Stellaris True Machine Translation Tool.Список модификаций:</source>
+        <translation>Continue translation.Confirm changes.This localization pack was created using the Stellaris True Machine Translation Tool to easily translate installed modifications.Mod list:</translation>
     </message>
     <message>
         <location filename="../GUI_windows_source/Collection.py" line="314"/>
@@ -386,6 +391,31 @@ All links are clickable, and mail can be selected with a double click to copy</t
         <location filename="../../GUI_windows_source/TranslationLanguage.py" line="214"/>
         <source>Язык перевода</source>
         <translation>Translation language</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="279"/>
+        <source>Обновление перевода</source>
+        <translation>Translation update</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="280"/>
+        <source>Обновить перевод</source>
+        <translation>Update translation</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="281"/>
+        <source>Основной файл</source>
+        <translation>Main file</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="282"/>
+        <source>Дополнительный файл</source>
+        <translation>Additional file</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="284"/>
+        <source>Выбрать</source>
+        <translation>Choose</translation>
     </message>
 </context>
 <context>

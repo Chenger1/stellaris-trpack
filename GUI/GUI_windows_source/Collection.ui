@@ -653,7 +653,7 @@ image: url(:/icons/icons/collection.png);</string>
     </font>
    </property>
    <property name="text">
-    <string>Продолжить перевод.Применить изменения</string>
+    <string>Продолжить перевод.Применить изменения.Этот пак локализаций был создан при помощи утилиты для упрощенного перевода установленных модификаций Stellaris True Machine Translation Tool.Список модификаций:</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

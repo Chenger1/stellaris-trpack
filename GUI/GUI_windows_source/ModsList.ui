@@ -394,7 +394,7 @@ QPushButton:pressed{
     <rect>
      <x>760</x>
      <y>520</y>
-     <width>111</width>
+     <width>121</width>
      <height>31</height>
     </rect>
    </property>
@@ -520,7 +520,7 @@ color: #ffffff;</string>
   <widget class="QPushButton" name="ActivationSwticherButton">
    <property name="geometry">
     <rect>
-     <x>570</x>
+     <x>580</x>
      <y>520</y>
      <width>171</width>
      <height>31</height>

@@ -20,10 +20,8 @@
     </message>
     <message>
         <location filename="../../GUI_windows_source/TranslationLanguage.py" line="220"/>
-        <source> Арабский Армянский Азербайджанский Белорусский Болгарский Китайский Хорватский Чешский Датский Нидерландский Английский Эстонский Финский Французский Немецкий Греческий Венгерский Итальянский Японский Корейский Литовский Норвежский Польский Португальский Русский Словацкий Словенский Испанский Шведский Турецкий Украинский Филиппинский
-</source>
-        <translation> Арабська Вірменська Азербайджанська Білоруська Болгарська Китайська Хорватська Чеська Данська Нідерландська Англійська Естонська Фінська Французька Німецька Грецька Угорська Італійська Японська Корейська Литовська Норвезька Польська Португальська Російська Словацька Словенська Іспанська Шведська Турецька Українська Філіппінська
-</translation>
+        <source>Русский Украинский Польский Китайский Арабский Белорусский Болгарский Хорватский Чешский Датский Нидерландский Эстонский Финский Французский Немецкий Греческий Венгерский Итальянский Японский Корейский Литовский Норвежский Португальский Словацкий Испанский Шведский Турецкий</source>
+        <translation>Російська Українська Польська Китайська Арабська Білоруська Болгарська Хорватська Чеська Данська Нідерландська Естонська Фінська Французька Німецька Грецька Угорська Італійська Японська Корейська Литовська Норвезька Португальська Словацька Іспанська Шведська Турецька</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/SuccessMessage.py" line="128"/>
@@ -253,9 +251,16 @@
         <translation>або</translation>
     </message>
     <message>
-        <location filename="../../GUI_windows_source/AboutTool.py" line="138"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;скриптов&lt;/span&gt;&lt;/a&gt; Pacas при использовании Python 3 и QT5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;скриптів&lt;/span&gt;&lt;/a&gt; Pacas при використанні Python 3 и QT5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <location filename="../../GUI_windows_source/AboutTool.py" line="153"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;на основе скриптов &lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Pacas&lt;/span&gt;&lt;/a&gt; и &lt;a href=&quot;https://github.com/haifengkao/StellairsLoadOrderFixer24/blob/master/load_order_stellaris24.py&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;haifengkao&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;на основі скриптів &lt;a href=&quot;https://github.com/pacas/stellaris-trpack&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Pacas&lt;/span&gt;&lt;/a&gt; та &lt;a href=&quot;https://github.com/haifengkao/StellairsLoadOrderFixer24/blob/master/load_order_stellaris24.py&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;haifengkao&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/AboutTool.py" line="157"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;при использовании &lt;a href=&quot;https://python.org/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Python 3&lt;\a&gt; и &lt;a href=&quot;https://qt.io/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;QT5&lt;\a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;при використанні &lt;a href=&quot;https://python.org/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;Python 3&lt;\a&gt; та &lt;a href=&quot;https://qt.io/download&quot;&gt;&lt;span style=&quot; text-decoration: none; color:#ffffff;&quot;&gt;QT5&lt;\a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/AboutTool.py" line="139"/>
@@ -324,8 +329,8 @@
     </message>
     <message>
         <location filename="../GUI_windows_source/Collection.py" line="313"/>
-        <source>Продолжить перевод.Применить изменения</source>
-        <translation>Продовжити переклад.Підтвердити зміни</translation>
+        <source>Продолжить перевод.Применить изменения.Этот пак локализаций был создан при помощи утилиты для упрощенного перевода установленных модификаций Stellaris True Machine Translation Tool.Список модификаций:</source>
+        <translation>Продовжити переклад.Підтвердити зміни.Цей пак локалізацій був створений за допомогою утиліти для спрощеного перекладу встановлених модифікацій Stellaris True Machine Translation Tool.Список модифікацій:</translation>
     </message>
     <message>
         <location filename="../GUI_windows_source/Collection.py" line="314"/>
@@ -387,13 +392,38 @@
         <source>Язык перевода</source>
         <translation>Мова перекладу</translation>
     </message>
+     <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="279"/>
+        <source>Обновление перевода</source>
+        <translation>Оновлення перекладу</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="280"/>
+        <source>Обновить перевод</source>
+        <translation>Оновити переклад</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="281"/>
+        <source>Основной файл</source>
+        <translation>Основний файл</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="282"/>
+        <source>Дополнительный файл</source>
+        <translation>Додатковий файл</translation>
+    </message>
+    <message>
+        <location filename="../../GUI_windows_source/UpdateTranslation.py" line="284"/>
+        <source>Выбрать</source>
+        <translation>Обрати</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../../GUI_windows_source/MainWindow.py" line="739"/>
-        <source>Локализировать</source>
-        <translation>Локалізувати</translation>
+        <source>Обновить файл</source>
+        <translation>Оновити файл</translation>
     </message>
     <message>
         <location filename="../../GUI_windows_source/MainWindow.py" line="741"/>
