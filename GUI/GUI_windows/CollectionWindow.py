@@ -238,9 +238,8 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         last_file: list = get_info_from_stack()
         if last_file:
             file = find_last_file(self.collection, last_file)
-    # TODO Fix accept_message call
             message = ('continue_last_translation', file, file.original_file_name)
-            call_accept_message(message)
+            call_accept_message(self, message, lambda: self.start_localisation(file))
 
         else:
             message = 'all_is_complete'
