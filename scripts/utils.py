@@ -184,31 +184,25 @@ def remove_unpacked_files(mod_path):
 
 
 def scan_for_files(mod_path):
-    # TODO simplify this code
-
+    path_list = ['localisation', 'common', ]
     file_list = []
 
-    folders_for_scan = ['localisation', ]
-    if os.path.isdir(f'{mod_path}\\localisation') is True:
+    for path in path_list:
+        folders_for_scan = [path, ]
         for directory in folders_for_scan:
-            scan = os.listdir(f'{mod_path}\\{directory}')
-            folders = [folder for folder in scan if ".yml" not in folder and 'temp' not in folder]
-            l_english = [file for file in scan if "l_english" in file and '.yml' in file]
-            for folder in folders:
-                folders_for_scan.append(f'{directory}\\{folder}')
-            for file in l_english:
-                file_list.append(f'{directory}\\{file}')
+            if os.path.isdir(f'{mod_path}\\{directory}') is True:
+                scan = os.listdir(f'{mod_path}\\{directory}')
 
-    folders_for_scan = ['common', ]
-    if os.path.isdir(f'{mod_path}\\common') is True:
-        for directory in folders_for_scan:
-            scan = os.listdir(f'{mod_path}\\{directory}')
-            folders = [folder for folder in scan if "name" in folder and '.txt' not in folder and 'temp' not in folder]
-            name_list = [file for file in scan if '.txt' in file and 'random' not in file]
-            for folder in folders:
-                folders_for_scan.append(f'{directory}\\{folder}')
-            for file in name_list:
-                file_list.append(f'{directory}\\{file}')
+                folders = [folder for folder in scan if ".yml" not in folder] if folders_for_scan[0] == 'localisation' \
+                    else [folder for folder in scan if ".txt" not in folder and "name" in folder]
+                files = [file for file in scan if "l_english" in file and '.yml' in file] if folders_for_scan[0] == 'localisation' \
+                    else [file for file in scan if '.txt' in file and 'random' not in file]
+
+                for folder in folders:
+                    folders_for_scan.append(f'{directory}\\{folder}')
+                for file in files:
+                    file_list.append(f'{directory}\\{file}')
+
     if not file_list:
         raise FileNotFoundError
 
@@ -413,7 +407,6 @@ def get_info_from_stack():
         stack: list = json.load(stack_file)
 
     return stack[-1] if stack else stack
-
 
 # def compare(new, old):
 #     comparator = Comparator(new, old)
