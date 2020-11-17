@@ -206,13 +206,13 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
             elif options.currentText() in options.itemText(2):
                 self.print_files_names(grid, files, 'name_lists')
                 grid.addWidget(separator, self.row_index + 1, 6)
-            # TODO отделить окно переименования из рендера по модам и файлам
 
             self.row_index += 1
 
         if options.currentText() in options.itemText(3):
             self.clean(grid)
             self.print_rename_collection(grid)
+
     """
                                 ↓ Работа с локализациями ↓
     """

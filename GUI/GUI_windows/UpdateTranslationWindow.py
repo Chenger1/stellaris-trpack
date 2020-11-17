@@ -8,7 +8,7 @@ from GUI.GUI_windows_source import UpdateTranslation
 
 from scripts.stylesheets import file_choosen_style, file_not_choosen_style
 from scripts.utils import drive, user
-# from scripts.comparer import ComparingError
+from scripts.file_preparing import comparer
 from scripts.messeges import call_error_message
 
 
@@ -25,14 +25,14 @@ class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):
         self.message = None
 
         self.types = {
-            'ChooseOldFilelButton': self.OldStatusLabel,
+            'ChooseMainFileButton': self.MainStatusLabel,
             'ChooseNewFilelButton': self.NewStatusLabel
         }
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_5_TranslationLanguage'))
-        self.ChooseOldFilelButton.clicked.connect(lambda: self.choose_file(self.ChooseOldFilelButton.objectName()))
+        self.ChooseMainFileButton.clicked.connect(lambda: self.choose_file(self.ChooseMainFileButton.objectName()))
         self.ChooseNewFilelButton.clicked.connect(lambda: self.choose_file(self.ChooseNewFilelButton.objectName()))
         self.AcceptButton.clicked.connect(self.compare)
         self.WindowMoveButton.installEventFilter(self)
@@ -81,18 +81,21 @@ class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):
                                 ↓ Обновление временных файлов ↓
     """
 
-    # def compare(self):
-    #     if not self.files:
-    #         self.message = 'Вы не выбрали файлы'
-    #         call_error_message(self, 'files_not_choosen')
-    #         return False
-    #     try:
-    #         compare(self.files['ChooseNewFilelButton'], self.files['ChooseOldFilelButton'])
-    #         self.parent.choose_file(self.files['ChooseNewFilelButton'])
-    #         self.close()
-    #     except ComparingError as error:
-    #         self.clean_state()
-    #         call_error_message(self, error.args[0])
-    #     except KeyError:
-    #         self.clean_state()
-    #         call_error_message(self, 'files_not_choosen')
+    def compare(self):
+        if not self.files:
+            self.message = 'Вы не выбрали файлы'
+            call_error_message(self, 'files_not_choosen')
+            return False
+        try:
+            main_file_path = self.files['ChooseMainFileButton']
+            new_file_path = self.files['ChooseNewFileButton']
+
+            if main_file_path.split('.')[-1] == new_file_path.split('.')[-1]:
+                comparer(main_file_path, new_file_path)
+                self.close()
+            else:
+                raise KeyError
+
+        except KeyError:
+            self.clean_state()
+            call_error_message(self, 'files_not_choosen')

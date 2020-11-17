@@ -219,7 +219,35 @@ def translate_line(line, translator=None):
 """
                               ↓ Компоновка файлов ↓
 """
-# TODO Create
+
+
+def comparer(main_file_path, new_file_path):
+    pointer = 0
+    compared_file_path = main_file_path
+    compared_text = []
+    file_type = 'localisation' if '.yml' in compared_file_path else '.txt'
+
+    with open(f"{compared_file_path}", 'w', encoding='utf-8') as compared, \
+            open(main_file_path, 'r', encoding='utf-8') as main_text, \
+            open(new_file_path, 'r', encoding='utf-8') as new_text:
+        main_text = main_text.readlines()
+        new_text = new_text.readlines()
+        compared.write('\ufeff')
+
+    for new_line in new_text:
+        main_line = main_text[pointer]
+
+        new_line = new_line.split(':')[0] if file_type == 'localisation' else ''
+        main_line = main_line.split(':')[0] if file_type == 'localisation' else ''
+
+        if main_line == new_line:
+            compared_text.append(main_line)
+            pointer += 1
+        elif main_line in new_line:
+            print(new_line)
+        else:
+            compared_text.append(new_line)
+
 
 """
                               ↓ Сохранение готовой локализации ↓
