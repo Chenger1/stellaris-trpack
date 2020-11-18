@@ -47,7 +47,7 @@ def put_lines(file):
 
 
 def update_lines(main_file_path, new_file_path):
-    pointer = 1
+    pointer = 0
     compared_file_path = main_file_path.replace('.yml', '_updated.yml')
     updated_text = []
     file_type = 'localisation' if '.yml' in compared_file_path else '.txt'
@@ -63,18 +63,17 @@ def update_lines(main_file_path, new_file_path):
             try:
                 main_line = main_text[pointer]
             except IndexError:
-                pass
+                main_line = main_text[len(main_text) - 1]
             new_line_check = new_line.split('"')[0] if file_type == 'localisation' else ''
             main_line_check = main_line.split('"')[0] if file_type == 'localisation' else ''
 
             if main_line_check == new_line_check:
                 updated_text.append(main_line)
                 pointer += 1
-
-            # elif main_line_check in new_text:
-            #     pointer = new_text.index(main_line_check)
-            #     updated_text.append(main_line)
+            elif [new_line for new_line in new_text if main_line_check in new_line]:
+                updated_text.append(new_line)
             else:
+                pointer += 1
                 updated_text.append(new_line)
 
         updated.write(''.join(updated_text))
