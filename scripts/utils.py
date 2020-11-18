@@ -341,8 +341,13 @@ def get_collection_mod_list(collection, mod_list):
 
 
 def open_file_for_resuming(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        text = [line for line in file]
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            text = [line for line in file]
+    except UnicodeDecodeError:
+        with open(file_path, 'r', encoding='windows-1252') as file:
+            text = list(map(lambda line: line.decode('utf-8'), [line.encode('utf-8') for line in file]))
+
     return text
 
 
