@@ -82,6 +82,7 @@ def strings_parsing(source_file_path, original_file_path, file_type):
             else:
                 source_text.append('\n')
                 source.write('\n')
+            source.write('\n')
     source_text = remove_extra_new_line_symbols(source_text, source_file_path)
 
     return source_text
