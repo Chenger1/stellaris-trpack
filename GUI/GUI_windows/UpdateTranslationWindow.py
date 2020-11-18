@@ -8,7 +8,7 @@ from GUI.GUI_windows_source import UpdateTranslation
 
 from scripts.stylesheets import file_choosen_style, file_not_choosen_style
 from scripts.utils import drive, user
-from scripts.file_preparing import comparer
+from scripts.comparer import update_lines
 from scripts.messeges import call_error_message
 
 
@@ -26,14 +26,14 @@ class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):
 
         self.types = {
             'ChooseMainFileButton': self.MainStatusLabel,
-            'ChooseNewFilelButton': self.NewStatusLabel
+            'ChooseNewFileButton': self.NewStatusLabel
         }
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_5_TranslationLanguage'))
         self.ChooseMainFileButton.clicked.connect(lambda: self.choose_file(self.ChooseMainFileButton.objectName()))
-        self.ChooseNewFilelButton.clicked.connect(lambda: self.choose_file(self.ChooseNewFilelButton.objectName()))
+        self.ChooseNewFileButton.clicked.connect(lambda: self.choose_file(self.ChooseNewFileButton.objectName()))
         self.AcceptButton.clicked.connect(self.compare)
         self.WindowMoveButton.installEventFilter(self)
 
@@ -91,8 +91,8 @@ class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):
             new_file_path = self.files['ChooseNewFileButton']
 
             if main_file_path.split('.')[-1] == new_file_path.split('.')[-1]:
-                comparer(main_file_path, new_file_path)
-                self.close()
+                update_lines(main_file_path, new_file_path)
+                # self.close()
             else:
                 raise KeyError
 

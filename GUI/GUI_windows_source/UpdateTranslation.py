@@ -107,39 +107,39 @@ class Ui_Dialog(object):
 "}")
         self.WindowMoveButton.setText("")
         self.WindowMoveButton.setObjectName("WindowMoveButton")
-        self.OldTranslationLabel = QtWidgets.QLabel(Dialog)
-        self.OldTranslationLabel.setGeometry(QtCore.QRect(10, 101, 281, 31))
+        self.MainTitleLabel = QtWidgets.QLabel(Dialog)
+        self.MainTitleLabel.setGeometry(QtCore.QRect(10, 101, 281, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.OldTranslationLabel.setFont(font)
-        self.OldTranslationLabel.setStyleSheet("background-color: none;\n"
+        self.MainTitleLabel.setFont(font)
+        self.MainTitleLabel.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
-        self.OldTranslationLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.OldTranslationLabel.setObjectName("OldTranslationLabel")
-        self.NewTranslationLabel = QtWidgets.QLabel(Dialog)
-        self.NewTranslationLabel.setGeometry(QtCore.QRect(360, 100, 271, 31))
+        self.MainTitleLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.MainTitleLabel.setObjectName("MainTitleLabel")
+        self.NewTitleLabel = QtWidgets.QLabel(Dialog)
+        self.NewTitleLabel.setGeometry(QtCore.QRect(360, 100, 271, 31))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.NewTranslationLabel.setFont(font)
-        self.NewTranslationLabel.setStyleSheet("background-color: none;\n"
+        self.NewTitleLabel.setFont(font)
+        self.NewTitleLabel.setStyleSheet("background-color: none;\n"
 "color: #ffffff;")
-        self.NewTranslationLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.NewTranslationLabel.setObjectName("NewTranslationLabel")
-        self.ChooseNewFilelButton = QtWidgets.QPushButton(Dialog)
-        self.ChooseNewFilelButton.setGeometry(QtCore.QRect(430, 156, 141, 27))
+        self.NewTitleLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.NewTitleLabel.setObjectName("NewTitleLabel")
+        self.ChooseNewFileButton = QtWidgets.QPushButton(Dialog)
+        self.ChooseNewFileButton.setGeometry(QtCore.QRect(430, 156, 141, 27))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.ChooseNewFilelButton.setFont(font)
-        self.ChooseNewFilelButton.setStyleSheet("QPushButton{\n"
+        self.ChooseNewFileButton.setFont(font)
+        self.ChooseNewFileButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(50, 50, 50, 50);\n"
 "    border: #c2c2c2;\n"
 "    border-radius: 13px;\n"
@@ -155,16 +155,16 @@ class Ui_Dialog(object):
 "    background-color: #05B8CC;\n"
 "    border: 2px solid #05B8CC;\n"
 "    }")
-        self.ChooseNewFilelButton.setObjectName("ChooseNewFilelButton")
-        self.ChooseOldFilelButton = QtWidgets.QPushButton(Dialog)
-        self.ChooseOldFilelButton.setGeometry(QtCore.QRect(80, 154, 141, 27))
+        self.ChooseNewFileButton.setObjectName("ChooseNewFileButton")
+        self.ChooseMainFileButton = QtWidgets.QPushButton(Dialog)
+        self.ChooseMainFileButton.setGeometry(QtCore.QRect(80, 154, 141, 27))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.ChooseOldFilelButton.setFont(font)
-        self.ChooseOldFilelButton.setStyleSheet("QPushButton{\n"
+        self.ChooseMainFileButton.setFont(font)
+        self.ChooseMainFileButton.setStyleSheet("QPushButton{\n"
 "    background-color: rgba(50, 50, 50, 50);\n"
 "    border: #c2c2c2;\n"
 "    border-radius: 13px;\n"
@@ -180,16 +180,16 @@ class Ui_Dialog(object):
 "    background-color: #c2c2c2;\n"
 "    border: 2px solid #c2c2c2;\n"
 "    }")
-        self.ChooseOldFilelButton.setObjectName("ChooseOldFilelButton")
-        self.OldStatusLabel = QtWidgets.QLabel(Dialog)
-        self.OldStatusLabel.setGeometry(QtCore.QRect(130, 236, 41, 41))
+        self.ChooseMainFileButton.setObjectName("ChooseMainFileButton")
+        self.MainStatusLabel = QtWidgets.QLabel(Dialog)
+        self.MainStatusLabel.setGeometry(QtCore.QRect(130, 236, 41, 41))
         font = QtGui.QFont()
         font.setFamily("KB Astrolyte")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
-        self.OldStatusLabel.setFont(font)
-        self.OldStatusLabel.setStyleSheet("QLabel{\n"
+        self.MainStatusLabel.setFont(font)
+        self.MainStatusLabel.setStyleSheet("QLabel{\n"
 "    background-color: #c93c3c;\n"
 "    border: #c2c2c2;\n"
 "    border-radius: 20px;\n"
@@ -201,9 +201,9 @@ class Ui_Dialog(object):
 "    border: #31858f;\n"
 "    color: #ffffff;\n"
 "    }")
-        self.OldStatusLabel.setText("—")
-        self.OldStatusLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.OldStatusLabel.setObjectName("OldStatusLabel")
+        self.MainStatusLabel.setText("—")
+        self.MainStatusLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.MainStatusLabel.setObjectName("MainStatusLabel")
         self.NewStatusLabel = QtWidgets.QLabel(Dialog)
         self.NewStatusLabel.setGeometry(QtCore.QRect(480, 236, 41, 41))
         font = QtGui.QFont()
@@ -262,11 +262,11 @@ class Ui_Dialog(object):
         self.WindowMoveButton.raise_()
         self.ReferenceButton.raise_()
         self.ExitButton.raise_()
-        self.OldTranslationLabel.raise_()
-        self.NewTranslationLabel.raise_()
-        self.ChooseNewFilelButton.raise_()
-        self.ChooseOldFilelButton.raise_()
-        self.OldStatusLabel.raise_()
+        self.MainTitleLabel.raise_()
+        self.NewTitleLabel.raise_()
+        self.ChooseNewFileButton.raise_()
+        self.ChooseMainFileButton.raise_()
+        self.MainStatusLabel.raise_()
         self.NewStatusLabel.raise_()
         self.AcceptButton.raise_()
         self.update_logo.raise_()
@@ -276,10 +276,10 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Язык перевода"))
+        Dialog.setWindowTitle(_translate("Dialog", "Обновление перевода"))
         self.UpdateTranslationLabel.setText(_translate("Dialog", "Обновить перевод"))
-        self.OldTranslationLabel.setText(_translate("Dialog", "Основной файл"))
-        self.NewTranslationLabel.setText(_translate("Dialog", "Дополнительный файл"))
-        self.ChooseNewFilelButton.setText(_translate("Dialog", "Выбрать"))
-        self.ChooseOldFilelButton.setText(_translate("Dialog", "Выбрать"))
+        self.MainTitleLabel.setText(_translate("Dialog", "Основной файл"))
+        self.NewTitleLabel.setText(_translate("Dialog", "Дополнительный файл"))
+        self.ChooseNewFileButton.setText(_translate("Dialog", "Выбрать"))
+        self.ChooseMainFileButton.setText(_translate("Dialog", "Выбрать"))
         self.AcceptButton.setText(_translate("Dialog", "Подтвердить"))

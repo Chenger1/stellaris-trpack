@@ -221,7 +221,7 @@ color: #ffffff;</string>
     <string notr="true"/>
    </property>
   </widget>
-  <widget class="QLabel" name="OldTranslationLabel">
+  <widget class="QLabel" name="MainTitleLabel">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -249,7 +249,7 @@ color: #ffffff;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="NewTranslationLabel">
+  <widget class="QLabel" name="NewTitleLabel">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -277,7 +277,7 @@ color: #ffffff;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="ChooseNewFilelButton">
+  <widget class="QPushButton" name="ChooseNewFileButton">
    <property name="geometry">
     <rect>
      <x>430</x>
@@ -316,7 +316,7 @@ QPushButton:pressed{
     <string>Выбрать</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="ChooseOldFilelButton">
+  <widget class="QPushButton" name="ChooseMainFileButton">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -355,7 +355,7 @@ QPushButton:pressed{
     <string>Выбрать</string>
    </property>
   </widget>
-  <widget class="QLabel" name="OldStatusLabel">
+  <widget class="QLabel" name="MainStatusLabel">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -493,11 +493,11 @@ image: url(:/icons/icons/update.png);</string>
   <zorder>WindowMoveButton</zorder>
   <zorder>ReferenceButton</zorder>
   <zorder>ExitButton</zorder>
-  <zorder>OldTranslationLabel</zorder>
-  <zorder>NewTranslationLabel</zorder>
-  <zorder>ChooseNewFilelButton</zorder>
-  <zorder>ChooseOldFilelButton</zorder>
-  <zorder>OldStatusLabel</zorder>
+  <zorder>MainTitleLabel</zorder>
+  <zorder>NewTitleLabel</zorder>
+  <zorder>ChooseNewFileButton</zorder>
+  <zorder>ChooseMainFileButton</zorder>
+  <zorder>MainStatusLabel</zorder>
   <zorder>NewStatusLabel</zorder>
   <zorder>AcceptButton</zorder>
   <zorder>update_logo</zorder>
