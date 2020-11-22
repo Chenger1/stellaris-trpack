@@ -177,7 +177,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.NextStringButton.setEnabled(False)
             self.pointer -= 1
 
-    def set_lines(self)
+    def set_lines(self):
         self.OriginalString.setText(self.orig_text[self.pointer])
         self.machine_text[self.pointer] = translate_line(self.orig_text[self.pointer])
         self.TranslateString.setText(self.machine_text[self.pointer])
