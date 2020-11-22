@@ -16,6 +16,7 @@ from GUI.GUI_windows.ToolLanguageWindow import ToolLanguageWindow
 from GUI.GUI_windows.ReferenceWindow import ReferenceWindow
 from GUI.GUI_windows.ModsListWindow import ModsListWindow
 
+from scripts.machine_translation import translate_line
 from scripts.comparer import put_lines
 from scripts.utils import check_new_line_sym_ending, generated_files_init, collection_update, get_interface_lang, pop_stack
 from scripts.messeges import call_success_message, call_error_message
@@ -31,6 +32,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.init_helpers(False)
         self.oldPos = self.pos()
         self.pointer = 0
+        self.pointer_max_value = None
         self.orig_text, self.machine_text, self.user_text, self.translated = [], [], [], []
         self.bar = [
                     self.TprogressBar_L, self.TprogressBar_R,
@@ -175,13 +177,14 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
             self.NextStringButton.setEnabled(False)
             self.pointer -= 1
 
-    def set_lines(self):
+    def set_lines(self)
         self.OriginalString.setText(self.orig_text[self.pointer])
+        self.machine_text[self.pointer] = translate_line(self.orig_text[self.pointer])
         self.TranslateString.setText(self.machine_text[self.pointer])
         self.EditString.setText(self.user_text[self.pointer] if self.user_text[self.pointer] != '\n'
                                 else self.machine_text[self.pointer])
         self.centering_lines()
-        self.StringOrder.setText(f'{self.pointer}')
+        self.StringOrder.setText(f'{self.pointer + 1}')
         self.progressbar_set_value()
 
     def pointer_inc(self):
@@ -189,19 +192,22 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
         self.pointer += 1
         self.check_new_line_symbol_string(True)
+        if self.orig_text[self.pointer] == ' ':
+            self.pointer -= 1
+            self.check_new_line_symbol_string(False)
+            self.NextStringButton.setEnabled(False)
         self.set_lines()
 
     def pointer_red(self):
         self.NextStringButton.setEnabled(True)
-        self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
+        self.user_text[self.pointer] = self.EditString.toPlainText()
         self.pointer -= 1
         self.check_new_line_symbol_string(False)
         if self.pointer < 0:
             self.pointer = 0
             self.check_new_line_symbol_string(True)
             self.PreviousStringButton.setEnabled(False)
-        else:
-            self.set_lines()
+        self.set_lines()
 
     def save_localisation(self):
         try:
@@ -209,7 +215,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
                                     if self.bar[0].value() != self.bar[0].maximum() \
                                     else 100    # meaning it's Complete
             self.file.pointer_pos = self.pointer
-            collection_update(self.file, self.user_text)
+            collection_update(self.file, self.machine_text, self.user_text)
 
             message = 'file_was_updated'
             call_success_message(self, message)

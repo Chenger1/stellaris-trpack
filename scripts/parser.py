@@ -5,7 +5,8 @@
 from re import compile
 from shutil import copyfile
 
-from scripts.utils import write_data_about_file, create_temp_folder, data, prepare_temp_files, remove_extra_new_line_symbols
+from scripts.utils import write_data_about_file, create_temp_folder, data, prepare_temp_files, \
+    replace_last_line_symbols, check_new_line_sym_ending
 
 """
                               ↓ Парсинг файлов ↓
@@ -71,19 +72,19 @@ def strings_parsing(source_file_path, original_file_path, file_type):
                         # если первая буква после '=' является заглавной,
                         # то делаем срез от начала первой буквы до конца строки
 
-                        prepared_line = line[quote_symbol:] if '\"' in line \
-                        else line[letter_symbol if line[letter_symbol].isupper()
-                                  else len(line) - 1:]
+                        prepared_line = check_new_line_sym_ending(
+                            line[quote_symbol:] if '\"' in line
+                            else line[letter_symbol if line[letter_symbol].isupper()
+                                      else len(line) - 1:])
                         # В противном случае оставляем только '\n'
                 else:
-                    prepared_line = line[symbol + 1: - 2]
-                source_text.append(f'{prepared_line}')
-                source.write(f'{prepared_line}')
+                    prepared_line = check_new_line_sym_ending(line[symbol + 1: - 2])
+                source_text.append(prepared_line)
+                source.write(prepared_line)
             else:
                 source_text.append('\n')
                 source.write('\n')
-            source.write('\n')
-    source_text = remove_extra_new_line_symbols(source_text, source_file_path)
+    source_text = replace_last_line_symbols(source_text, source_file_path)
 
     return source_text
 
@@ -95,7 +96,6 @@ def strings_parsing(source_file_path, original_file_path, file_type):
 
 def parser_main(mod_path, mod_id, file_path):
     file_type = None
-    machine_text = []
 
     temp_folder = create_temp_folder(mod_id, file_path)
     write_data_about_file(temp_folder, file_path)
@@ -107,7 +107,4 @@ def parser_main(mod_path, mod_id, file_path):
         file_type = 'name_lists'
     source_text = strings_parsing(data["source_file_path"], data["original_file_path"], file_type)
 
-    # for line in source_text:
-    #     machine_text.append(translate_line(line))
-    prepare_temp_files(machine_text)
-
+    prepare_temp_files(source_text)

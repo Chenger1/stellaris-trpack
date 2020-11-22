@@ -233,12 +233,15 @@ def write_data_about_file(temp_folder, file_path):
     data["user_input_file_path"] = f'{temp_folder}\\user_input.txt'
 
 
-def prepare_temp_files(machine_text):
+def prepare_temp_files(source_text):
+    temp_text = ''.join(['\n'] * (len(source_text) - 1))
+
     with open(data["machine_file_path"], 'w', encoding='utf-8') as machine:
-        machine.write(''.join(machine_text))
+        machine.write(temp_text)
+        machine.write(' ')
     with open(data["user_input_file_path"], 'w', encoding='utf-8') as user_input:
-        user_input_text = ''.join(['\n'] * len(machine_text))[0:-1] + ' '
-        user_input.write(user_input_text)
+        user_input.write(temp_text)
+        user_input.write(' ')
 
 
 def collection_append(mod_id, hashKey, mod_name):
@@ -377,19 +380,21 @@ def pop_stack():
         json.dump(stack, stack_file)
 
 
-def collection_update(file, user_text):
+def collection_update(file, machine_text, user_text):
+    with open(file.machine_file_path, 'w', encoding='utf-8') as machine:
+        machine.write(''.join(machine_text))
     with open(file.user_input_file_path, 'w', encoding='utf-8') as user_input:
-        user_input.write(''.join(user_text.pop() + ' '))
+        user_input.write(''.join(user_text))
 
     update_data_in_collection(collection_path, file)
     save_stack(file.mod_id, file.original_file_name)
 
 
-def remove_extra_new_line_symbols(source_text, source_file_path):
+def replace_last_line_symbols(source_text, source_file_path):
     if source_text[-1] == '\n':
         source_text[-1] = ' '
-        with open(source_file_path, 'w') as fixed:
-            fixed.write(''.join(source_text))
+        with open(source_file_path, 'w') as source:
+            source.write(''.join(source_text))
 
     return source_text
 
@@ -412,8 +417,3 @@ def get_info_from_stack():
         stack: list = json.load(stack_file)
 
     return stack[-1] if stack else stack
-
-# def compare(new, old):
-#     comparator = Comparator(new, old)
-#     result = comparator.comparing()
-#     data['compared'] = result
