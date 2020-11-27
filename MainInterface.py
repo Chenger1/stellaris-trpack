@@ -179,7 +179,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def set_lines(self):
         self.OriginalString.setText(self.orig_text[self.pointer])
-        self.machine_text[self.pointer] = translate_line(self.orig_text[self.pointer])
+        self.machine_text[self.pointer] = check_new_line_sym_ending(translate_line(self.orig_text[self.pointer]))
         self.TranslateString.setText(self.machine_text[self.pointer])
         self.EditString.setText(self.user_text[self.pointer] if self.user_text[self.pointer] != '\n'
                                 else self.machine_text[self.pointer])
@@ -200,7 +200,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def pointer_red(self):
         self.NextStringButton.setEnabled(True)
-        self.user_text[self.pointer] = self.EditString.toPlainText()
+        self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
         self.pointer -= 1
         self.check_new_line_symbol_string(False)
         if self.pointer < 0:

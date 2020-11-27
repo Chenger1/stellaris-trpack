@@ -6,7 +6,7 @@ from re import compile
 from shutil import copyfile
 
 from scripts.utils import write_data_about_file, create_temp_folder, data, prepare_temp_files, \
-    replace_last_line_symbols, check_new_line_sym_ending
+    replace_last_line_symbol, check_new_line_sym_ending
 
 """
                               ↓ Парсинг файлов ↓
@@ -37,22 +37,24 @@ def search_for_unnesessary(file_type, line):
         return False
 
 
-# TODO Добавить в обработку исключений закрывающие символы и связки символов по типу
-#  symbol = [§!, ..., §L]
-#  через replace(symbol, '')
-"""
-    §L
-        This species is made up of the executive terminals of a single Machine Intelligence, originally built by Quarians.
-    §!
-    \n
-"""
+def remove_unnecessary_parts(prepared_line, file_type):
+    symbols = {
+        'localisation': ['§L', '§!'],
+        'name_lists': []
+    }
+
+    for unnecessary_part in symbols[file_type]:
+        if unnecessary_part in prepared_line:
+            prepared_line = prepared_line.replace(unnecessary_part, '')
+
+    return prepared_line
 
 
 def strings_parsing(source_file_path, original_file_path, file_type):
     source_text = []
-    with open(original_file_path, 'r', encoding='utf-8') as original_text:
+    with open(original_file_path, 'r', encoding='utf-8') as original_text,\
+            open(source_file_path, 'w', encoding='utf-8') as source:
         original_text = original_text.readlines()
-    with open(source_file_path, 'w', encoding='utf-8') as source:
         for line in original_text:
             if search_for_nesessary(file_type, line) and search_for_unnesessary(file_type, line):
                 symbol = '\t' if '\t' in line else line.find('"')
@@ -78,13 +80,15 @@ def strings_parsing(source_file_path, original_file_path, file_type):
                                       else len(line) - 1:])
                         # В противном случае оставляем только '\n'
                 else:
-                    prepared_line = check_new_line_sym_ending(line[symbol + 1: - 2])
+                    prepared_line = check_new_line_sym_ending(line[symbol:])
+                    # TODO Добавить разбор и сборку строки, используя ['...', '... +', '...']  ↓
+                    # prepared_line = remove_unnecessary_parts(prepared_line, file_type)
                 source_text.append(prepared_line)
                 source.write(prepared_line)
             else:
                 source_text.append('\n')
                 source.write('\n')
-    source_text = replace_last_line_symbols(source_text, source_file_path)
+    source_text = replace_last_line_symbol(original_text, source_text, source_file_path)
 
     return source_text
 

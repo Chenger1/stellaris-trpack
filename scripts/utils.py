@@ -233,15 +233,14 @@ def write_data_about_file(temp_folder, file_path):
     data["user_input_file_path"] = f'{temp_folder}\\user_input.txt'
 
 
-def prepare_temp_files(source_text):
-    temp_text = ''.join(['\n'] * (len(source_text) - 1))
+def prepare_temp_files(original_text, source_text):
+    temp_list = ['\n'] * (len(source_text))
+    temp_text = ''.join(temp_list if original_text[-1] != ' ' else temp_list.pop() + [' '])
+    with open(data["machine_file_path"], 'w', encoding='utf-8') as machine,\
+            open(data["user_input_file_path"], 'w', encoding='utf-8') as user_input:
 
-    with open(data["machine_file_path"], 'w', encoding='utf-8') as machine:
         machine.write(temp_text)
-        machine.write(' ')
-    with open(data["user_input_file_path"], 'w', encoding='utf-8') as user_input:
         user_input.write(temp_text)
-        user_input.write(' ')
 
 
 def collection_append(mod_id, hashKey, mod_name):
@@ -390,8 +389,8 @@ def collection_update(file, machine_text, user_text):
     save_stack(file.mod_id, file.original_file_name)
 
 
-def replace_last_line_symbols(source_text, source_file_path):
-    if source_text[-1] == '\n':
+def replace_last_line_symbol(original_text, source_text, source_file_path):
+    if ' ' == original_text[-1]:
         source_text[-1] = ' '
         with open(source_file_path, 'w') as source:
             source.write(''.join(source_text))
