@@ -1,4 +1,3 @@
-# TODO Добавить обработку для нейм-листов
 """
                               ↓ Инициализация данных ↓
 """
@@ -192,7 +191,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.user_text[self.pointer] = check_new_line_sym_ending(self.EditString.toPlainText())
         self.pointer += 1
         self.check_new_line_symbol_string(True)
-        if self.orig_text[self.pointer] == ' ':
+        if self.pointer == self.pointer_max_value:
             self.pointer -= 1
             self.check_new_line_symbol_string(False)
             self.NextStringButton.setEnabled(False)

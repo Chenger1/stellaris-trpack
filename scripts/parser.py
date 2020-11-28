@@ -37,7 +37,14 @@ def search_for_unnesessary(file_type, line):
         return False
 
 
+# def open_quotes():
+#     if
+
+
 def remove_unnecessary_parts(prepared_line, file_type):
+    # TODO Добавить разбор строки, используя ['...', '... +', '...']  ↓
+    # TODO Добавить обработку для нейм-листов
+
     symbols = {
         'localisation': ['§L', '§!'],
         'name_lists': []
@@ -63,7 +70,8 @@ def strings_parsing(source_file_path, original_file_path, file_type):
                     prepared_line = line.split(symbol)[-1]
 
                     if prepared_line[0].islower():
-                        # Если первая буква строки не является заглавной
+                        # Если первая буква строки не является заглавной,
+                        # то есть перед необходимым текстом имеются ненужные элементы
 
                         quote_symbol = line.find('\"') - 1
                         # Если в строке есть '"',
@@ -77,12 +85,11 @@ def strings_parsing(source_file_path, original_file_path, file_type):
                         prepared_line = check_new_line_sym_ending(
                             line[quote_symbol:] if '\"' in line
                             else line[letter_symbol if line[letter_symbol].isupper()
-                                      else len(line) - 1:])
+                                      else -1:])
                         # В противном случае оставляем только '\n'
                 else:
                     prepared_line = check_new_line_sym_ending(line[symbol:])
-                    # TODO Добавить разбор и сборку строки, используя ['...', '... +', '...']  ↓
-                    # prepared_line = remove_unnecessary_parts(prepared_line, file_type)
+                    prepared_line = remove_unnecessary_parts(prepared_line, file_type)
                 source_text.append(prepared_line)
                 source.write(prepared_line)
             else:
@@ -90,7 +97,7 @@ def strings_parsing(source_file_path, original_file_path, file_type):
                 source.write('\n')
     source_text = replace_last_line_symbol(original_text, source_text, source_file_path)
 
-    return source_text
+    return original_text, source_text
 
 
 """
@@ -109,6 +116,6 @@ def parser_main(mod_path, mod_id, file_path):
         file_type = 'localisation'
     elif '.txt' in data["original_file_name"]:
         file_type = 'name_lists'
-    source_text = strings_parsing(data["source_file_path"], data["original_file_path"], file_type)
+    original_text, source_text = strings_parsing(data["source_file_path"], data["original_file_path"], file_type)
 
-    prepare_temp_files(source_text)
+    prepare_temp_files(original_text, source_text)

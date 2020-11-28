@@ -35,6 +35,8 @@ def put_lines(file):
 
         if file.type in 'localisation':
             original[0] = original[0].replace('l_english', f'l_{file.target_language}')
+
+        # TODO сделать сборку строки используя ['...', '... +', '...']
         for line in original:
             line = line.replace(source[pointer], user_input[pointer])
             localisation.write(line)
@@ -59,6 +61,7 @@ def update_lines(main_file_path, new_file_path):
         new_text = new_text.readlines()
         updated.write('\ufeff')
 
+        # TODO требуется дальнейшая работа ↓
         for new_line in new_text:
             try:
                 main_line = main_text[pointer]

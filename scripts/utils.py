@@ -235,10 +235,11 @@ def write_data_about_file(temp_folder, file_path):
 
 def prepare_temp_files(original_text, source_text):
     temp_list = ['\n'] * (len(source_text))
-    temp_text = ''.join(temp_list if original_text[-1] != ' ' else temp_list.pop() + [' '])
+    fixed_list, fixed_list[-1] = temp_list, ' '
+    temp_text = ''.join(temp_list if original_text[-1] != ' ' else fixed_list)
+
     with open(data["machine_file_path"], 'w', encoding='utf-8') as machine,\
             open(data["user_input_file_path"], 'w', encoding='utf-8') as user_input:
-
         machine.write(temp_text)
         user_input.write(temp_text)
 
