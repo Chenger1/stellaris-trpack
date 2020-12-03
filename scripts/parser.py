@@ -37,22 +37,29 @@ def search_for_unnesessary(file_type, line):
         return False
 
 
-# def open_quotes():
-#     if
-
-
-def remove_unnecessary_parts(prepared_line, file_type):
-    # TODO Добавить разбор строки, используя ['...', '... +', '...']  ↓
-    # TODO Добавить обработку для нейм-листов
-
-    symbols = {
-        'localisation': ['§L', '§!'],
-        'name_lists': []
+def separate_unnecessary_parts(prepared_line, file_type):
+    unnecessary_parts = {
+        'localisation': ['\"', '§L', '§!', ],
+        'name_lists': ['\"', ]
     }
+    unnecessary_parts = unnecessary_parts[file_type]
+    index = 0
+    prepared_line = [prepared_line, ]
 
-    for unnecessary_part in symbols[file_type]:
-        if unnecessary_part in prepared_line:
-            prepared_line = prepared_line.replace(unnecessary_part, '')
+    for part in prepared_line:
+        if ' +' in part:
+            index = unnecessary_parts.index(part[part.index(" +") + 2:])
+
+        while index < len(unnecessary_parts):
+            symbol = unnecessary_parts[index]
+
+            if symbol in part:
+                symbol_pos = part.find(symbol)
+                prepared_line.append(part[symbol_pos + (len(symbol)):])
+                prepared_line[-2] = (part[:symbol_pos - 1]) + f" +{symbol}"
+            index += 1
+        else:
+            index = 0
 
     return prepared_line
 
@@ -82,16 +89,18 @@ def strings_parsing(source_file_path, original_file_path, file_type):
                         # если первая буква после '=' является заглавной,
                         # то делаем срез от начала первой буквы до конца строки
 
-                        prepared_line = check_new_line_sym_ending(
-                            line[quote_symbol:] if '\"' in line
+                        prepared_line = line[quote_symbol:] if '\"' in line \
                             else line[letter_symbol if line[letter_symbol].isupper()
-                                      else -1:])
+                                      else -1:]
                         # В противном случае оставляем только '\n'
                 else:
-                    prepared_line = check_new_line_sym_ending(line[symbol:])
-                    prepared_line = remove_unnecessary_parts(prepared_line, file_type)
-                source_text.append(prepared_line)
-                source.write(prepared_line)
+                    prepared_line = line[symbol:]
+
+                prepared_line = separate_unnecessary_parts(prepared_line, file_type)
+                for part in prepared_line:
+                    part = check_new_line_sym_ending(part)
+                    source_text.append(part)
+                    source.write(part)
             else:
                 source_text.append('\n')
                 source.write('\n')
@@ -106,15 +115,13 @@ def strings_parsing(source_file_path, original_file_path, file_type):
 
 
 def parser_main(mod_path, mod_id, file_path):
-    file_type = None
-
     temp_folder = create_temp_folder(mod_id, file_path)
     write_data_about_file(temp_folder, file_path)
     copyfile(f'{mod_path}\\{file_path}', data["original_file_path"])
 
     if '.yml' in data["original_file_name"]:
         file_type = 'localisation'
-    elif '.txt' in data["original_file_name"]:
+    else:
         file_type = 'name_lists'
     original_text, source_text = strings_parsing(data["source_file_path"], data["original_file_path"], file_type)
 
