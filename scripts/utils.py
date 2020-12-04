@@ -32,7 +32,7 @@ temp_folder_path = f'{local_mod_path}\\temp'
 data = {}
 
 
-def current_stellaris_version():
+def current_stellaris_version(current_version=None):
     with open(f'{paradox_folder}\\settings.txt', 'r', encoding='utf-8') as file:
         for line in file.readlines():
             if 'info' in line:

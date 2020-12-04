@@ -15,3 +15,4 @@ if __name__ == '__main__':
     install('pyqt5-tools')
     install('pypiwin32')
     install('requests')
+    install('pillow')

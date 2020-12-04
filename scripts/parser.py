@@ -2,7 +2,7 @@
                               ↓ Инициализация данных ↓
 """
 
-from re import compile
+from re import compile, finditer, findall
 from shutil import copyfile
 
 from scripts.utils import write_data_about_file, create_temp_folder, data, prepare_temp_files, \
@@ -37,31 +37,44 @@ def search_for_unnesessary(file_type, line):
         return False
 
 
-def separate_unnecessary_parts(prepared_line, file_type):
-    unnecessary_parts = {
-        'localisation': ['\"', '§L', '§!', ],
-        'name_lists': ['\"', ]
+def symbols_init(func):
+    unnecessary_parts_dict = {
+            'localisation': ['\"', '§L', '§!', ],
+            'name_lists': ['\"', ]
     }
-    unnecessary_parts = unnecessary_parts[file_type]
-    index = 0
-    prepared_line = [prepared_line, ]
 
-    for part in prepared_line:
-        if ' +' in part:
-            index = unnecessary_parts.index(part[part.index(" +") + 2:])
+    def wrapper(prepared_line, file_type):
+        unnecessary_parts = unnecessary_parts_dict[file_type]
+        prepared_line = func(prepared_line, file_type, unnecessary_parts)
 
-        while index < len(unnecessary_parts):
-            symbol = unnecessary_parts[index]
+        return prepared_line
 
-            if symbol in part:
-                symbol_pos = part.find(symbol)
-                prepared_line.append(part[symbol_pos + (len(symbol)):])
-                prepared_line[-2] = (part[:symbol_pos - 1]) + f" +{symbol}"
-            index += 1
-        else:
-            index = 0
+    return wrapper
 
-    return prepared_line
+@symbols_init
+def separate_unnecessary_parts(prepared_line, file_type, unnecessary_parts):
+    symbol_index_list, separated_parts, prev_index, prev_symbol  = [], [prepared_line, ], 0, ''
+
+    for symbol in unnecessary_parts:
+        symbol_index_list += [(index.start(), symbol) for index in finditer(symbol, prepared_line)
+                              if type(index.start()) is int]
+    symbol_index_list.sort()
+
+    for index, symbol in symbol_index_list:
+        append_list = [prepared_line[prev_index + len(prev_symbol):index],
+                       prepared_line[index:index + len(symbol)],
+                       prepared_line[index + len(symbol):]]
+        append_list = [part for part in append_list if part != '']
+
+        separated_parts.pop()
+        for part_index, part in enumerate(append_list):
+            if part_index < len(append_list) - 1:
+                part = f'{part} +'
+            separated_parts.append(part)
+        prev_index = index
+        prev_symbol = symbol
+
+    return separated_parts
 
 
 def strings_parsing(source_file_path, original_file_path, file_type):
