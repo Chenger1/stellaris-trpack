@@ -236,13 +236,6 @@ def write_data_about_file(temp_folder, file_path):
 def prepare_temp_files(original_text, source_text):
     temp_text = ['\n'] * (len(source_text))
 
-    if original_text[-1] == ' ':
-        source_text[-1], \
-        temp_text[-1] = ' ', ' '
-    elif not original_text[-1].endswith('\n'):
-        source_text[-1], \
-        temp_text[-1] = source_text[-1][:-1], temp_text[-1][:-1]
-
     with open(data["source_file_path"], 'w', encoding='utf-8') as source, \
             open(data["machine_file_path"], 'w', encoding='utf-8') as machine,\
             open(data["user_input_file_path"], 'w', encoding='utf-8') as user_input:

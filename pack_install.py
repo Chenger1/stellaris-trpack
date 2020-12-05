@@ -10,7 +10,7 @@ def install(package):
 if __name__ == '__main__':
     install('setuptools')
     install('langdetect')
-    install('googletrans')
+    install('googletrans==3.1.0a0')
     install('pyqt5')
     install('pyqt5-tools')
     install('pypiwin32')

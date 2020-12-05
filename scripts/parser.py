@@ -39,14 +39,17 @@ def search_for_unnesessary(file_type, line):
 def symbols_init(func):
     symbols_dict = {
             'localisation': ['\"', '§L', '§!', '\\\\n'],
-            'name_lists': ['\"', ]
+            'name_lists': ['\"']
             }
 
     def wrapper(prepared_line, file_type):
         symbols = symbols_dict[file_type]
-        prepared_line = func(prepared_line, file_type, symbols)
+        separated_parts = func(prepared_line, file_type, symbols)
 
-        return prepared_line
+        if ' +' in separated_parts[-1]:
+            separated_parts[-1] = separated_parts[-1].replace(' +', '')
+
+        return separated_parts
 
     return wrapper
 
@@ -78,9 +81,6 @@ def separate_unnecessary_parts(prepared_line, file_type, symbols):
 
         prev_index = index
         prev_symbol = symbol
-
-    if ' +' in separated_parts[-1]:
-        separated_parts[-1] = separated_parts[-1].replace(' +', '')
 
     return separated_parts
 

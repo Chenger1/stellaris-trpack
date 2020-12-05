@@ -12,27 +12,6 @@ from langdetect import detect, DetectorFactory
 """
 
 
-def replacing_invalid_new_line_symbol(func):
-    symbols = {
-        '\ N \ n': '\\n\\n',
-        '\ n \ n': '\\n\\n',
-        '\ n': '\\n',
-        '\ N': '\\n',
-        '\ П': '\\n',
-        '! \\n': '!\\n',
-        '. \\n': '.\\n',
-    }
-
-    def wrapper(line, target_language, translator):
-        ru_line = func(line, target_language, translator)
-        for sym in symbols:
-            ru_line = ru_line.replace(sym, symbols[sym])
-        return ru_line
-
-    return wrapper
-
-
-@replacing_invalid_new_line_symbol
 def translating_line(line: str, target_language, translator=None) -> str:
     while True:
         try:
@@ -44,7 +23,7 @@ def translating_line(line: str, target_language, translator=None) -> str:
 
 
 def defining_translator(func):
-    translator = Translator()
+    translator = Translator(service_urls=['translate.googleapis.com'])
     with open("Properties.json", 'r', encoding='utf-8') as properties:
         target_language = load(properties)["target_language"]
 
