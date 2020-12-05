@@ -37,41 +37,50 @@ def search_for_unnesessary(file_type, line):
 
 
 def symbols_init(func):
-    unnecessary_parts_dict = {
-            'localisation': ['\"', '§L', '§!', ],
+    symbols_dict = {
+            'localisation': ['\"', '§L', '§!', '\\\\n'],
             'name_lists': ['\"', ]
-    }
+            }
 
     def wrapper(prepared_line, file_type):
-        unnecessary_parts = unnecessary_parts_dict[file_type]
-        prepared_line = func(prepared_line, file_type, unnecessary_parts)
+        symbols = symbols_dict[file_type]
+        prepared_line = func(prepared_line, file_type, symbols)
 
         return prepared_line
 
     return wrapper
 
 @symbols_init
-def separate_unnecessary_parts(prepared_line, file_type, unnecessary_parts):
+def separate_unnecessary_parts(prepared_line, file_type, symbols):
     symbol_index_list, separated_parts, prev_index, prev_symbol  = [], [prepared_line, ], 0, ''
 
-    for symbol in unnecessary_parts:
+    for symbol in symbols:
         symbol_index_list += [(index.start(), symbol) for index in finditer(symbol, prepared_line)
                               if type(index.start()) is int]
     symbol_index_list.sort()
 
     for index, symbol in symbol_index_list:
         append_list = [prepared_line[prev_index + len(prev_symbol):index],
-                       prepared_line[index:index + len(symbol)],
-                       prepared_line[index + len(symbol):]]
-        append_list = [part for part in append_list if part != '' and part != '\n']
+                       prepared_line[index + (len(symbol) if symbol != '\\\\n' else + 2):]]
+        append_list = [part for part in append_list
+                       if part != '' and part != '\n']
+        if append_list:
+            for part_index, part in enumerate(append_list):
+                if part_index == 0:
+                    if len(append_list) > 1:
+                        separated_parts[-1] = f'{part} +'
+                    else:
+                        separated_parts[-1] = part
+                else:
+                    separated_parts.append(part)
+        else:
+            separated_parts.pop()
 
-        separated_parts.pop()
-        for part_index, part in enumerate(append_list):
-            if part_index < len(append_list) - 1:
-                part = f'{part} +'
-            separated_parts.append(part)
         prev_index = index
         prev_symbol = symbol
+
+    if ' +' in separated_parts[-1]:
+        separated_parts[-1] = separated_parts[-1].replace(' +', '')
 
     return separated_parts
 

@@ -58,9 +58,10 @@ def defining_translator(func):
 @defining_translator
 def translate_line(line, translator=None, target_language=None):
     DetectorFactory.seed = 0
+    # TODO Добавить разбор строки, используя ['...', '... +', '...']  ↓
+
     test = detect(line)
 
-    # TODO Добавить разбор строки, используя ['...', '... +', '...']  ↓
 
     if test != target_language:
         translation = translating_line(line, target_language, translator)
