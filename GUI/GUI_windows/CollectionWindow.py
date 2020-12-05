@@ -223,7 +223,7 @@ class CollectionWindow(QtWidgets.QDialog, Collection.Ui_Dialog):
         self.parent.user_text = open_file_for_resuming(file.user_input_file_path)
         self.parent.pointer = file.pointer_pos
         self.parent.check_new_line_symbol_string(True)
-        self.parent.pointer_max_value = len(self.parent.orig_text) - 1
+        self.parent.pointer_max_value = len(self.parent.orig_text)
         self.parent.file = file
         self.parent.init_helpers(True)
         self.parent.progressbar_set_maximum(len(self.parent.orig_text))

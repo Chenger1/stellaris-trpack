@@ -156,8 +156,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def check_new_line_symbol_string(self, value):
         while self.pointer < len(self.orig_text) - self.orig_text[self.pointer:].count('\n'):
-            # if self.orig_text[self.pointer].startswith('\n'):
-            if not self.orig_text[self.pointer][:-3].isalpha():
+            if self.orig_text[self.pointer].startswith('\n'):
                 if value is True:
                     self.pointer += 1
                 if value is False:

@@ -13,13 +13,9 @@ from langdetect import detect, DetectorFactory
 
 
 def translating_line(line: str, target_language, translator=None) -> str:
-    while True:
-        try:
-            translation = translator.translate(line, dest=target_language)
-        except AttributeError:
-            continue
-        else:
-            return translation.text
+    translation = translator.translate(line, dest=target_language)
+
+    return translation.text
 
 
 def defining_translator(func):
@@ -37,10 +33,7 @@ def defining_translator(func):
 @defining_translator
 def translate_line(line, translator=None, target_language=None):
     DetectorFactory.seed = 0
-    # TODO Добавить разбор строки, используя ['...', '... +', '...']  ↓
-
     test = detect(line)
-
 
     if test != target_language:
         translation = translating_line(line, target_language, translator)

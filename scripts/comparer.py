@@ -36,11 +36,16 @@ def put_lines(file):
         if file.type in 'localisation':
             original[0] = original[0].replace('l_english', f'l_{file.target_language}')
 
-        # TODO сделать сборку строки используя ['...', '... +', '...']
         for line in original:
-            line = line.replace(source[pointer], user_input[pointer])
+            if ' +' in line:
+                while ' +' in source[pointer]:
+                    line = line.replace(source[pointer][:-3], user_input[pointer][:-3])
+                    pointer += 1
+            else:
+                line = line.replace(source[pointer][:-1], user_input[pointer][:-1])
+                pointer += 1
+
             localisation.write(line)
-            pointer += 1
 
 
 """
