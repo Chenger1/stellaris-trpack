@@ -5,8 +5,7 @@
 from re import compile, finditer, findall
 from shutil import copyfile
 
-from scripts.utils import write_data_about_file, create_temp_folder, data, prepare_temp_files, \
-    replace_last_line_symbol, check_new_line_sym_ending
+from scripts.utils import write_data_about_file, create_temp_folder, data, prepare_temp_files, check_new_line_sym_ending
 
 """
                               ↓ Парсинг файлов ↓
@@ -64,7 +63,7 @@ def separate_unnecessary_parts(prepared_line, file_type, unnecessary_parts):
         append_list = [prepared_line[prev_index + len(prev_symbol):index],
                        prepared_line[index:index + len(symbol)],
                        prepared_line[index + len(symbol):]]
-        append_list = [part for part in append_list if part != '']
+        append_list = [part for part in append_list if part != '' and part != '\n']
 
         separated_parts.pop()
         for part_index, part in enumerate(append_list):
@@ -109,15 +108,11 @@ def strings_parsing(source_file_path, original_file_path, file_type):
                 else:
                     prepared_line = line[symbol:]
 
-                prepared_line = separate_unnecessary_parts(prepared_line, file_type)
-                for part in prepared_line:
+                for part in separate_unnecessary_parts(prepared_line, file_type):
                     part = check_new_line_sym_ending(part)
                     source_text.append(part)
-                    source.write(part)
             else:
                 source_text.append('\n')
-                source.write('\n')
-    source_text = replace_last_line_symbol(original_text, source_text, source_file_path)
 
     return original_text, source_text
 

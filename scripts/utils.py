@@ -234,14 +234,21 @@ def write_data_about_file(temp_folder, file_path):
 
 
 def prepare_temp_files(original_text, source_text):
-    temp_list = ['\n'] * (len(source_text))
-    fixed_list, fixed_list[-1] = temp_list, ' '
-    temp_text = ''.join(temp_list if original_text[-1] != ' ' else fixed_list)
+    temp_text = ['\n'] * (len(source_text))
 
-    with open(data["machine_file_path"], 'w', encoding='utf-8') as machine,\
+    if original_text[-1] == ' ':
+        source_text[-1], \
+        temp_text[-1] = ' ', ' '
+    elif not original_text[-1].endswith('\n'):
+        source_text[-1], \
+        temp_text[-1] = source_text[-1][:-1], temp_text[-1][:-1]
+
+    with open(data["source_file_path"], 'w', encoding='utf-8') as source, \
+            open(data["machine_file_path"], 'w', encoding='utf-8') as machine,\
             open(data["user_input_file_path"], 'w', encoding='utf-8') as user_input:
-        machine.write(temp_text)
-        user_input.write(temp_text)
+        source.write(''.join(source_text))
+        machine.write(''.join(temp_text))
+        user_input.write(''.join(temp_text))
 
 
 def collection_append(mod_id, hashKey, mod_name):
@@ -388,15 +395,6 @@ def collection_update(file, machine_text, user_text):
 
     update_data_in_collection(collection_path, file)
     save_stack(file.mod_id, file.original_file_name)
-
-
-def replace_last_line_symbol(original_text, source_text, source_file_path):
-    if ' ' == original_text[-1]:
-        source_text[-1] = ' '
-        with open(source_file_path, 'w') as source:
-            source.write(''.join(source_text))
-
-    return source_text
 
 
 def find_last_file(collection, last_file):

@@ -39,11 +39,6 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
                     self.LprogressBar_T, self.LprogressBar_B,
                     self.RprogressBar_T, self.RprogressBar_B
                     ]
-        self.key = 'new'
-        self.user_text_method = {
-            'new': lambda pointer: self.orig_text[pointer],
-            'old': lambda pointer: self.translated[pointer]
-        }
         self.mod_type_pixmap(self.ModIDLine.text())
         self.file = None
         self.message = None
@@ -129,11 +124,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.pointer = 0
         self.file = None
         self.source_text, self.machine_text, self.user_text, self.translated = [], [], [], []
-        self.key = 'new'
-        self.user_text_method = {
-            'new': lambda pointer: self.orig_text[pointer],
-            'old': lambda pointer: self.translated[pointer]
-        }
+
         for i in self.bar:
             i.setValue(0)
         self.mod_type_pixmap(self.ModIDLine.text())
@@ -165,7 +156,8 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def check_new_line_symbol_string(self, value):
         while self.pointer < len(self.orig_text) - self.orig_text[self.pointer:].count('\n'):
-            if self.orig_text[self.pointer].startswith('\n'):
+            # if self.orig_text[self.pointer].startswith('\n'):
+            if not self.orig_text[self.pointer][:-3].isalpha():
                 if value is True:
                     self.pointer += 1
                 if value is False:
