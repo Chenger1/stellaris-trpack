@@ -32,6 +32,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.oldPos = self.pos()
         self.pointer = 0
         self.pointer_max_value = None
+        self.string = self.StringsList.text().split('.')
         self.orig_text, self.machine_text, self.user_text, self.translated = [], [], [], []
         self.bar = [
                     self.TprogressBar_L, self.TprogressBar_R,
@@ -169,7 +170,13 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
 
     def set_lines(self):
         self.OriginalString.setText(self.orig_text[self.pointer])
-        self.machine_text[self.pointer] = check_new_line_sym_ending(translate_line(self.orig_text[self.pointer]))
+        try:
+            self.machine_text[self.pointer] = check_new_line_sym_ending(
+                translate_line(self.orig_text[self.pointer])) \
+                    if self.machine_text[self.pointer] == '\n' \
+                    else self.machine_text[self.pointer]
+        except ConnectionError:
+            self.machine_text[self.pointer] = self.string[0]
         self.TranslateString.setText(self.machine_text[self.pointer])
         self.EditString.setText(self.user_text[self.pointer] if self.user_text[self.pointer] != '\n'
                                 else self.machine_text[self.pointer])

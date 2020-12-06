@@ -9,7 +9,7 @@ from GUI.GUI_windows_source import UpdateTranslation
 from scripts.stylesheets import file_choosen_style, file_not_choosen_style
 from scripts.utils import drive, user
 from scripts.comparer import update_lines
-from scripts.messeges import call_error_message
+from scripts.messeges import call_error_message, call_success_message
 
 
 class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):
@@ -99,3 +99,6 @@ class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):
         except KeyError:
             self.clean_state()
             call_error_message(self, 'files_not_choosen')
+        else:
+            call_success_message(self, 'files_was_compared')
+            self.close()

@@ -21,7 +21,8 @@ class SuccessMessageWindow(QtWidgets.QDialog, SuccessMessage.Ui_Dialog):
                          'files_was_added': f'{self.string[2]}',
                          'mods_was_sorted': f'{self.string[3]}',
                          'language_was_changed': f'{self.string[4]}',
-                         'invalid_key': f'{self.string[5]}'}
+                         'files_was_compared': f'{self.string[5]}',
+                         'invalid_key': f'{self.string[6]}'}
 
         try:
             self.InfoLabel.setText(self.messages[message])

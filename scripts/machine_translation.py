@@ -24,20 +24,22 @@ def defining_translator(func):
         target_language = load(properties)["target_language"]
 
     def wrapper(line):
-        tr_line = func(line, translator, target_language)
+        tr_line = func(line, target_language, translator)
         return tr_line
 
     return wrapper
 
 
 @defining_translator
-def translate_line(line, translator=None, target_language=None):
+def translate_line(line, target_language=None, translator=None):
     DetectorFactory.seed = 0
-    test = detect(line)
 
-    if test != target_language:
+    if detect(line) != target_language:
         translation = translating_line(line, target_language, translator)
     else:
         translation = line
+
+    if detect(translation) != target_language:
+        raise ConnectionError
 
     return translation

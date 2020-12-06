@@ -55,6 +55,8 @@ def symbols_init(func):
 
 @symbols_init
 def separate_unnecessary_parts(prepared_line, file_type, symbols):
+    # TODO попробовать реализацию через split и циклы
+
     symbol_index_list, separated_parts, prev_index, prev_symbol  = [], [prepared_line, ], 0, ''
 
     for symbol in symbols:
@@ -79,8 +81,7 @@ def separate_unnecessary_parts(prepared_line, file_type, symbols):
         else:
             separated_parts.pop()
 
-        prev_index = index
-        prev_symbol = symbol
+        prev_index, prev_symbol = index, symbol
 
     return separated_parts
 

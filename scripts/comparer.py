@@ -37,7 +37,7 @@ def put_lines(file):
             original[0] = original[0].replace('l_english', f'l_{file.target_language}')
 
         for line in original:
-            if ' +' in line:
+            if ' +' in source[pointer]:
                 while ' +' in source[pointer]:
                     line = line.replace(source[pointer][:-3], user_input[pointer][:-3])
                     pointer += 1
@@ -66,7 +66,7 @@ def update_lines(main_file_path, new_file_path):
         new_text = new_text.readlines()
         updated.write('\ufeff')
 
-        # TODO требуется дальнейшая работа ↓
+        # TODO требуется протестировать работу с локализациями и добавить поддержку нейм-листов ↓
         for new_line in new_text:
             try:
                 main_line = main_text[pointer]
