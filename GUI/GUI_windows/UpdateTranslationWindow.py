@@ -25,15 +25,15 @@ class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):
         self.message = None
 
         self.types = {
-            'ChooseMainFileButton': self.MainStatusLabel,
-            'ChooseNewFileButton': self.NewStatusLabel
+            'ChooseOldTrFileButton': self.OldTrStatusLabel,
+            'ChooseNewVerFileButton': self.NewVerStatusLabel
         }
 
     def init_handlers(self):
         self.ExitButton.clicked.connect(self.close)
         self.ReferenceButton.clicked.connect(lambda: self.parent.reference_window('QLabel_5_TranslationLanguage'))
-        self.ChooseMainFileButton.clicked.connect(lambda: self.choose_file(self.ChooseMainFileButton.objectName()))
-        self.ChooseNewFileButton.clicked.connect(lambda: self.choose_file(self.ChooseNewFileButton.objectName()))
+        self.ChooseOldTrFileButton.clicked.connect(lambda: self.choose_file(self.ChooseOldTrFileButton.objectName()))
+        self.ChooseNewVerFileButton.clicked.connect(lambda: self.choose_file(self.ChooseNewVerFileButton.objectName()))
         self.AcceptButton.clicked.connect(self.compare)
         self.WindowMoveButton.installEventFilter(self)
 
@@ -87,11 +87,11 @@ class UpdateTranslationWindow(QtWidgets.QDialog, UpdateTranslation.Ui_Dialog):
             call_error_message(self, 'files_not_choosen')
             return False
         try:
-            main_file_path = self.files['ChooseMainFileButton']
-            new_file_path = self.files['ChooseNewFileButton']
+            old_tr_file_path = self.files['ChooseOldTrFileButton']
+            new_ver_file_path = self.files['ChooseNewVerFileButton']
 
-            if main_file_path.split('.')[-1] == new_file_path.split('.')[-1]:
-                update_lines(main_file_path, new_file_path)
+            if old_tr_file_path.split('.')[-1] == new_ver_file_path.split('.')[-1]:
+                update_lines(old_tr_file_path, new_ver_file_path)
                 # self.close()
             else:
                 raise KeyError

@@ -4,6 +4,7 @@
 
 from re import compile, finditer, findall
 from shutil import copyfile
+from copy import copy
 
 from scripts.utils import write_data_about_file, create_temp_folder, data, prepare_temp_files, check_new_line_sym_ending
 
@@ -39,7 +40,7 @@ def search_for_unnesessary(file_type, line):
 def symbols_init(func):
     symbols_dict = {
             'localisation': ['\"', '§L', '§!', '\\\\n'],
-            'name_lists': ['\"']
+            'name_lists': ['\"', ' ']
             }
 
     def wrapper(prepared_line, file_type):
@@ -55,20 +56,31 @@ def symbols_init(func):
 
 @symbols_init
 def separate_unnecessary_parts(prepared_line, file_type, symbols):
-    # TODO попробовать реализацию через split и циклы
-
     symbol_index_list, separated_parts, prev_index, prev_symbol  = [], [prepared_line, ], 0, ''
 
     for symbol in symbols:
-        symbol_index_list += [(index.start(), symbol) for index in finditer(symbol, prepared_line)
+        index_list = [(index.start(), symbol) for index in finditer(symbol, prepared_line)
                               if type(index.start()) is int]
+        temp_index_list = copy(index_list)
+
+        if file_type == 'name_lists' and symbol_index_list and symbol == ' ':
+            count = 1
+            quote_start_index, quote_end_index = symbol_index_list[count - 1], symbol_index_list[count]
+
+            for space_index in index_list:
+                if space_index[0] >= quote_end_index[0] and quote_end_index[0] != symbol_index_list[-1][0]:
+                    count += 1
+                else:
+                    temp_index_list.remove(space_index)
+
+        symbol_index_list += temp_index_list
     symbol_index_list.sort()
 
     for index, symbol in symbol_index_list:
         append_list = [prepared_line[prev_index + len(prev_symbol):index],
                        prepared_line[index + (len(symbol) if symbol != '\\\\n' else + 2):]]
         append_list = [part for part in append_list
-                       if part != '' and part != '\n']
+                       if part != '' and part != '\n' and part != ' ']
         if append_list:
             for part_index, part in enumerate(append_list):
                 if part_index == 0:

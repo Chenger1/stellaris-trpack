@@ -54,7 +54,7 @@ def put_lines(file):
 
 def update_lines(main_file_path, new_file_path):
     updated_file_path = main_file_path.replace('.yml', '_updated.yml')
-    file_type = 'localisation' if '.yml' in compared_file_path else '.txt'
+    file_type = 'localisation' if '.yml' in updated_file_path else '.txt'
 
     with open(main_file_path, 'r', encoding='utf-8') as main_text, \
             open(new_file_path, 'r', encoding='utf-8') as new_text:
@@ -76,5 +76,5 @@ def update_lines(main_file_path, new_file_path):
         if main_index is not None:
             updated_text[new_index] = main_text[main_index]
 
-    with open(f"{compared_file_path}", 'w', encoding='utf-8') as updated:
+    with open(f"{updated_file_path}", 'w', encoding='utf-8') as updated:
         updated.write(''.join(updated_text))

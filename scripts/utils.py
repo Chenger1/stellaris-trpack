@@ -239,7 +239,7 @@ def prepare_temp_files(original_text, source_text):
     with open(data["source_file_path"], 'w', encoding='utf-8') as source, \
             open(data["machine_file_path"], 'w', encoding='utf-8') as machine,\
             open(data["user_input_file_path"], 'w', encoding='utf-8') as user_input:
-        source.write(''.join(source_text))
+        source.write(''.join(source_text).replace('%O%', '-th'))
         machine.write(''.join(temp_text))
         user_input.write(''.join(temp_text))
 

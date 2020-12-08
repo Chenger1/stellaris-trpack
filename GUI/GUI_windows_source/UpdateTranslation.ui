@@ -221,7 +221,7 @@ color: #ffffff;</string>
     <string notr="true"/>
    </property>
   </widget>
-  <widget class="QLabel" name="MainTitleLabel">
+  <widget class="QLabel" name="OldTrTitleLabel">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -243,13 +243,13 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Основной файл</string>
+    <string>Устаревший перевод</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="NewTitleLabel">
+  <widget class="QLabel" name="NewVerTitleLabel">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -271,13 +271,13 @@ color: #ffffff;</string>
 color: #ffffff;</string>
    </property>
    <property name="text">
-    <string>Дополнительный файл</string>
+    <string>Новая версия оригинала</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="ChooseNewFileButton">
+  <widget class="QPushButton" name="ChooseNewVerFileButton">
    <property name="geometry">
     <rect>
      <x>430</x>
@@ -316,7 +316,7 @@ QPushButton:pressed{
     <string>Выбрать</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="ChooseMainFileButton">
+  <widget class="QPushButton" name="ChooseOldTrFileButton">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -355,7 +355,7 @@ QPushButton:pressed{
     <string>Выбрать</string>
    </property>
   </widget>
-  <widget class="QLabel" name="MainStatusLabel">
+  <widget class="QLabel" name="OldTrStatusLabel">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -393,7 +393,7 @@ QLabel:hover{
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="NewStatusLabel">
+  <widget class="QLabel" name="NewVerStatusLabel">
    <property name="geometry">
     <rect>
      <x>480</x>
@@ -493,12 +493,12 @@ image: url(:/icons/icons/update.png);</string>
   <zorder>WindowMoveButton</zorder>
   <zorder>ReferenceButton</zorder>
   <zorder>ExitButton</zorder>
-  <zorder>MainTitleLabel</zorder>
-  <zorder>NewTitleLabel</zorder>
-  <zorder>ChooseNewFileButton</zorder>
-  <zorder>ChooseMainFileButton</zorder>
-  <zorder>MainStatusLabel</zorder>
-  <zorder>NewStatusLabel</zorder>
+  <zorder>OldTrTitleLabel</zorder>
+  <zorder>NewVerTitleLabel</zorder>
+  <zorder>ChooseNewVerFileButton</zorder>
+  <zorder>ChooseOldTrFileButton</zorder>
+  <zorder>OldTrStatusLabel</zorder>
+  <zorder>NewVerStatusLabel</zorder>
   <zorder>AcceptButton</zorder>
   <zorder>update_logo</zorder>
  </widget>
