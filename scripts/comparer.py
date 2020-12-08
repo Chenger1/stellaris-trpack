@@ -52,29 +52,29 @@ def put_lines(file):
 """
 
 
-def update_lines(main_file_path, new_file_path):
-    updated_file_path = main_file_path.replace('.yml', '_updated.yml')
+def update_lines(old_tr_file_path, new_ver_file_path):
+    updated_file_path = old_tr_file_path.replace('.yml', '_updated.yml')
     file_type = 'localisation' if '.yml' in updated_file_path else '.txt'
 
-    with open(main_file_path, 'r', encoding='utf-8') as main_text, \
-            open(new_file_path, 'r', encoding='utf-8') as new_text:
-        main_text = main_text.readlines()
-        new_text = new_text.readlines()
-        updated_text = copy(new_text)
+    with open(old_tr_file_path, 'r', encoding='utf-8') as old_tr_text, \
+            open(new_ver_file_path, 'r', encoding='utf-8') as new_ver_text:
+        old_tr_text = old_tr_text.readlines()
+        new_ver_text = new_ver_text.readlines()
+        updated_text = copy(new_ver_text)
 
     if file_type == 'localisation':
-        new_text_vars = [new_line.split('"')[0] for new_line in new_text]
-        main_text_vars = [main_line.split('"')[0] for main_line in main_text]
-        index_dict = {index: None for index, var in enumerate(new_text_vars)}
+        new_ver_text_vars = [new_ver_line.split('"')[0] for new_ver_line in new_ver_text]
+        old_tr_text_vars = [old_tr_line.split('"')[0] for old_tr_line in old_tr_text]
+        index_dict = {index: None for index, var in enumerate(new_ver_text_vars)}
         # TODO требуется добавить поддержку нейм-листов ↓
 
     for index in index_dict:
-         if new_text_vars[index] in main_text_vars:
-            index_dict[index] = main_text_vars.index(new_text_vars[index])
+         if new_ver_text_vars[index] in old_tr_text_vars:
+            index_dict[index] = old_tr_text_vars.index(new_ver_text_vars[index])
 
-    for new_index, main_index in index_dict.items():
-        if main_index is not None:
-            updated_text[new_index] = main_text[main_index]
+    for new_ver_index, old_tr_index in index_dict.items():
+        if old_tr_index is not None:
+            updated_text[new_ver_index] = old_tr_text[old_tr_index]
 
     with open(f"{updated_file_path}", 'w', encoding='utf-8') as updated:
         updated.write(''.join(updated_text))

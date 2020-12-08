@@ -130,9 +130,12 @@ def strings_parsing(source_file_path, original_file_path, file_type):
                 else:
                     prepared_line = line[symbol:]
 
-                for part in separate_unnecessary_parts(prepared_line, file_type):
-                    part = check_new_line_sym_ending(part)
-                    source_text.append(part)
+                if '_' not in prepared_line:
+                    for part in separate_unnecessary_parts(prepared_line, file_type):
+                        part = check_new_line_sym_ending(part)
+                        source_text.append(part)
+                else:
+                    source_text.append('\n')
             else:
                 source_text.append('\n')
 
@@ -155,4 +158,4 @@ def parser_main(mod_path, mod_id, file_path):
         file_type = 'name_lists'
     original_text, source_text = strings_parsing(data["source_file_path"], data["original_file_path"], file_type)
 
-    prepare_temp_files(original_text, source_text)
+    prepare_temp_files(original_text, source_text, file_type, None)
