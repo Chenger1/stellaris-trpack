@@ -42,7 +42,12 @@ def put_lines(file):
                     line = line.replace(source[index][:-3], user_input[index][:-3])
                     index += 1
             else:
-                line = line.replace(source[index][:-1], user_input[index][:-1])
+                if ':' in line:
+                    line_parts = line.split(':', maxsplit=1)
+                    line_parts[1] = line_parts[1].replace(line_parts[1], user_input[index][:-1])
+                    line = ': '.join(line_parts) + '\n'
+                else:
+                    line = line.replace(source[index][:-1], user_input[index][:-1], 1)
                 index += 1
             localisation.write(line)
 
