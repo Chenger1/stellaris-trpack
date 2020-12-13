@@ -31,7 +31,7 @@ def defining_translator(func):
 
 
 @defining_translator
-def translate_line(line, target_language=None, translator=None):
+def translate_line(line, file_type, target_language=None, translator=None):
     DetectorFactory.seed = 0
 
     if detect(line) != target_language:
@@ -39,7 +39,8 @@ def translate_line(line, target_language=None, translator=None):
     else:
         translation = line
 
-    if detect(translation) != target_language:
+    if type(translation) is not str:
         raise ConnectionError
 
-    return translation
+    return translation if file_type == 'localisation' \
+        else translation.title()

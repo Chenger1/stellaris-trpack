@@ -172,8 +172,7 @@ class MainApp(QtWidgets.QMainWindow, MainWindow.Ui_MainWindow):
         self.OriginalString.setText(self.orig_text[self.pointer])
         try:
             self.machine_text[self.pointer] = check_new_line_sym_ending(
-                translate_line(self.orig_text[self.pointer])) \
-                    if self.machine_text[self.pointer] == '\n' \
+                translate_line(self.orig_text[self.pointer], self.file.type)) if self.machine_text[self.pointer] == '\n' \
                     else self.machine_text[self.pointer]
         except ConnectionError:
             self.machine_text[self.pointer] = self.string[0]

@@ -131,7 +131,7 @@ def strings_parsing(source_file_path, original_file_path, file_type):
                     prepared_line = line[symbol:]
 
                 if '_' not in prepared_line:
-                    for part in separate_unnecessary_parts(prepared_line, file_type):
+                    for part in separate_unnecessary_parts(prepared_line.lstrip(), file_type):
                         part = check_new_line_sym_ending(part)
                         source_text.append(part)
                 else:

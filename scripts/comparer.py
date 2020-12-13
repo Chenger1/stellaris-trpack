@@ -56,6 +56,19 @@ def put_lines(file):
                               ↓ Обновление файла ↓
 """
 
+def index_dict(old_tr_text, new_ver_text):
+    index_dict = {index: None for index, var in enumerate(new_ver_text)}
+
+    if file_type == 'localisation':
+        new_ver_text_vars = [new_ver_line.split('"')[0] for new_ver_line in new_ver_text]
+        old_tr_text_vars = [old_tr_line.split('"')[0] for old_tr_line in old_tr_text]
+        for index in index_dict:
+             if new_ver_text_vars[index] in old_tr_text_vars:
+                index_dict[index] = old_tr_text_vars.index(new_ver_text_vars[index])
+    else:
+        pass
+
+    return index_dict.items()
 
 def update_lines(old_tr_file_path, new_ver_file_path):
     updated_file_path = old_tr_file_path.replace('.yml', '_updated.yml')
@@ -67,19 +80,9 @@ def update_lines(old_tr_file_path, new_ver_file_path):
         new_ver_text = new_ver_text.readlines()
         updated_text = copy(new_ver_text)
 
-    if file_type == 'localisation':
-        new_ver_text_vars = [new_ver_line.split('"')[0] for new_ver_line in new_ver_text]
-        old_tr_text_vars = [old_tr_line.split('"')[0] for old_tr_line in old_tr_text]
-        index_dict = {index: None for index, var in enumerate(new_ver_text_vars)}
-        # TODO требуется добавить поддержку нейм-листов ↓
-
-    for index in index_dict:
-         if new_ver_text_vars[index] in old_tr_text_vars:
-            index_dict[index] = old_tr_text_vars.index(new_ver_text_vars[index])
-
-    for new_ver_index, old_tr_index in index_dict.items():
-        if old_tr_index is not None:
-            updated_text[new_ver_index] = old_tr_text[old_tr_index]
+        for new_ver_index, old_tr_index in index_dict(old_tr_text, new_ver_text):
+            if old_tr_index is not None:
+                updated_text[new_ver_index] = old_tr_text[old_tr_index]
 
     with open(f"{updated_file_path}", 'w', encoding='utf-8') as updated:
         updated.write(''.join(updated_text))
