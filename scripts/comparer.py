@@ -65,8 +65,8 @@ def index_dict(old_tr_text, new_ver_text):
         for index in index_dict:
              if new_ver_text_vars[index] in old_tr_text_vars:
                 index_dict[index] = old_tr_text_vars.index(new_ver_text_vars[index])
-    else:
-        pass
+
+    # TODO Make name-list support
 
     return index_dict.items()
 
@@ -78,11 +78,11 @@ def update_lines(old_tr_file_path, new_ver_file_path):
             open(new_ver_file_path, 'r', encoding='utf-8') as new_ver_text:
         old_tr_text = old_tr_text.readlines()
         new_ver_text = new_ver_text.readlines()
-        updated_text = copy(new_ver_text)
+    updated_text = copy(new_ver_text)
 
-        for new_ver_index, old_tr_index in index_dict(old_tr_text, new_ver_text):
-            if old_tr_index is not None:
-                updated_text[new_ver_index] = old_tr_text[old_tr_index]
+    for new_ver_index, old_tr_index in index_dict(old_tr_text, new_ver_text):
+        if old_tr_index is not None:
+            updated_text[new_ver_index] = old_tr_text[old_tr_index]
 
     with open(f"{updated_file_path}", 'w', encoding='utf-8') as updated:
         updated.write(''.join(updated_text))

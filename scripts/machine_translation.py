@@ -23,8 +23,9 @@ def defining_translator(func):
     with open("Properties.json", 'r', encoding='utf-8') as properties:
         target_language = load(properties)["target_language"]
 
-    def wrapper(line):
-        tr_line = func(line, target_language, translator)
+    def wrapper(line, file_type):
+        tr_line = func(line, file_type, target_language, translator)
+
         return tr_line
 
     return wrapper

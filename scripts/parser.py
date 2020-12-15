@@ -39,7 +39,7 @@ def search_for_unnesessary(file_type, line):
 
 def symbols_init(func):
     symbols_dict = {
-            'localisation': ['\"', '§L', '§!', '\\\\n'],
+            'localisation': ['\"', '§L', '§G', '§Y', '§R', '§!', '\\\\n'],
             'name_lists': ['\"', ' ']
             }
 
@@ -47,8 +47,11 @@ def symbols_init(func):
         symbols = symbols_dict[file_type]
         separated_parts = func(prepared_line, file_type, symbols)
 
-        if ' +' in separated_parts[-1]:
-            separated_parts[-1] = separated_parts[-1].replace(' +', '')
+        if separated_parts:
+            if ' +' in separated_parts[-1]:
+                separated_parts[-1] = separated_parts[-1].replace(' +', '')
+        else:
+            separated_parts.append('')
 
         return separated_parts
 
