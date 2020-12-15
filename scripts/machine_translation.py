@@ -19,7 +19,8 @@ def translating_line(line: str, target_language, translator=None) -> str:
 
 
 def defining_translator(func):
-    translator = Translator(service_urls=['translate.googleapis.com'])
+    translator = Translator(service_urls=['translate.googleapis.com',
+                                          'translate.google.com'])
     with open("Properties.json", 'r', encoding='utf-8') as properties:
         target_language = load(properties)["target_language"]
 
