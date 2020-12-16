@@ -68,11 +68,11 @@ def separate_unnecessary_parts(prepared_line, file_type, symbols):
 
         if file_type == 'name_lists' and symbol_index_list and symbol == ' ':
             count = 1
-            quote_start_index, quote_end_index = symbol_index_list[count - 1], symbol_index_list[count]
-
             for space_index in index_list:
+                quote_start_index, quote_end_index = symbol_index_list[count - 1], symbol_index_list[count]
+
                 if space_index[0] >= quote_end_index[0] and quote_end_index[0] != symbol_index_list[-1][0]:
-                    count += 1
+                    count += 2
                 else:
                     temp_index_list.remove(space_index)
 

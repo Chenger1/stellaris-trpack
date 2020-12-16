@@ -13,7 +13,7 @@ from langdetect import detect, DetectorFactory
 
 
 def translating_line(line: str, target_language, translator=None) -> str:
-    translation = translator.translate(line, dest=target_language)
+    translation = translator.translate(line, src='en', dest=target_language)
 
     return translation.text
 
@@ -25,9 +25,9 @@ def defining_translator(func):
         target_language = load(properties)["target_language"]
 
     def wrapper(line, file_type):
-        tr_line = func(line, file_type, target_language, translator)
+        translation = func(line, file_type, target_language, translator)
 
-        return tr_line
+        return translation
 
     return wrapper
 

@@ -44,10 +44,10 @@ def put_lines(file):
             else:
                 if ':' in line:
                     line_parts = line.split(':', maxsplit=1)
-                    line_parts[1] = line_parts[1].replace(line_parts[1], user_input[index][:-1])
-                    line = ': '.join(line_parts) + '\n'
+                    line_parts[1] = line_parts[1].replace(source[index][:-1], user_input[index][:-1])
+                    line = ':'.join(line_parts)
                 else:
-                    line = line.replace(source[index][:-1], user_input[index][:-1], 1)
+                    line = line.replace(source[index][:-1], user_input[index][:-1])
                 index += 1
             localisation.write(line)
 
