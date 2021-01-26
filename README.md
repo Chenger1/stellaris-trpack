@@ -1,5 +1,5 @@
-###Repository was changed to - https://github.com/Letiso/Stellaris-True-Machine-Translation-Tool
-###All updates, new features, issues fixes will be available over there.
+### Repository was changed to - https://github.com/Letiso/Stellaris-True-Machine-Translation-Tool
+### All updates, new features, issues fixes will be available over there.
 # Скрипты для работы с файлами локализации Стеллариса
 # Scripts for work with Stellaris localization files (Translate from English to Russian)
 # Interface made by Letiso
